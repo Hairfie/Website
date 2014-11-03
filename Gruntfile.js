@@ -47,8 +47,20 @@ module.exports = function (grunt) {
         options: { livereload: reloadPort }
       },
       css: {
-        files: 'public/**/*.scss',
+        files: 'public/scss/*.scss',
         tasks: ['sass']
+      }
+    },
+    wiredep: {
+      task: {
+        src: [
+          'views/**/*.ejs',
+          'public/scss/main.scss',
+        ],
+
+        options: {
+          // https://github.com/taptapship/wiredep#configuration
+        }
       }
     }
   });
@@ -72,5 +84,6 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-wiredep');
   grunt.registerTask('default', ['develop', 'watch', 'sass']);
 };

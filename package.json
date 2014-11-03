@@ -25,6 +25,7 @@
     "grunt-contrib-sass": "~0.8.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-develop": "~0.4.0",
+    "grunt-wiredep": "^1.9.0",
     "load-grunt-tasks": "~0.6.0",
     "request": "~2.36.0",
     "time-grunt": "~0.3.2"
