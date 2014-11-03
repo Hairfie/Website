@@ -1,0 +1,35 @@
+<h1><%= business.name %></h1>
+
+<dl>
+    <dt>Address</dt>
+    <dd>
+        <% if (business.address) { %>
+            <%= business.address.street %><br />
+            <%= business.address.zipCode %> <%= business.address.city %>
+        <% } else { %>
+            Information not available
+        <% } %>
+    </dd>
+    <dt>Phone</dt>
+    <dd><%= business.phoneNumber || 'Information not available' %></dd>
+    <dt>Timetable</dt>
+    <dd>
+        <% if (business.timetable) { %>
+            <% for (var key in business.timetable) {
+                var timeWindows = business.timetable[key]; %>
+                <li>
+                    <strong><%= key %></strong>:
+                    <%= timeWindows.map(function (tw) { return tw.startTime+' - '+tw.endTime; }).join(', ') %>
+                </li>
+            <% } %>
+        <% } else { %>
+            Information not available
+        <% } %>
+    </dd>
+</dl>
+
+<ul>
+    <% business.pictures.map(function (picture) { %>
+        <img src="<%= picture.url %>" />
+    <% }); %>
+</ul>

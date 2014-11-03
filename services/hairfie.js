@@ -2,7 +2,7 @@
 
 var Client = require('../lib/hairfie/client'),
     client = new Client({
-        apiUrl: 'https://hairfie.herokuapp.com/api',
+        apiUrl: 'http://staging.hairfie.com/api',
     });
 
 
