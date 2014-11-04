@@ -41,8 +41,8 @@ module.exports = function (grunt) {
       },
       views: {
         files: [
-          'views/*.ejs',
-          'views/**/*.ejs'
+          'views/*.swig',
+          'views/**/*.swig'
         ],
         options: { livereload: reloadPort }
       },
@@ -54,8 +54,8 @@ module.exports = function (grunt) {
     wiredep: {
       task: {
         src: [
-          'views/**/*.ejs',
-          'public/scss/main.scss',
+          'views/**/*.swig',
+          'public/scss/**/*.scss',
         ],
 
         options: {

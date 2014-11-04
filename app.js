@@ -1,20 +1,29 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var exphbs  = require('express-handlebars')
+var express         = require('express');
+var path            = require('path');
+var favicon         = require('serve-favicon');
+var logger          = require('morgan');
+var cookieParser    = require('cookie-parser');
+var bodyParser      = require('body-parser');
+var swig            = require('swig');
 
-var routes = require('./routes/index');
-var businesses = require('./routes/businesses');
-var hairfies = require('./routes/hairfies');
+var routes          = require('./routes/index');
+var businesses      = require('./routes/businesses');
+var hairfies        = require('./routes/hairfies');
 
-var app = express();
+var app             = express();
 
 // view engine setup
+app.engine('.html.swig', swig.renderFile);
+app.set('view engine', '.html.swig');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+
+swig.setDefaults({ cache: false });
+
+if (app.get('env') === 'development' || app.get('env') === 'staging') {
+    app.set('view cache', false);
+} else {
+    app.set('view cache', true);
+}
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
