@@ -9,6 +9,6 @@
     <div class="row">
         <img src="{{ hairfie.picture.url }}" />
 
-        <p>Posted on {% hairfie.createdAt |date('Y-m-d') %} by {{ hairfie.author.firstName }} {{ hairfie.author.lastName }}.</p>
+        <p>Posted on {{ hairfie.createdAt |date('d m Y') }} by {{ hairfie.author.firstName }} {{ hairfie.author.lastName }}.</p>
     </div>
 {% endblock %}
