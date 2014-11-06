@@ -5445,4 +5445,11 @@ nav.header {
   height: 38px;
   margin-top: 32px; }
 
+div.row#business-header {
+  height: 300px; }
+
+div.pictures img {
+  max-width: 80%;
+  max-width: 80%; }
+
 /*# sourceMappingURL=style.css.map */

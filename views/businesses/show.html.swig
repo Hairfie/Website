@@ -6,10 +6,15 @@
 
 
 {% block content %}
-    <div class="row">
-        <h1> {{ business.name }}</h1>
-
-        <dl>
+    <div class="row" id="#business-header">
+        <div class="col-md-3 col-md-offset-1 pictures">
+            {% for picture in business.pictures %}
+                <!-- Todo : deal with pictures instead of only one -->
+                {% if loop.first %}<img src="{{ picture.url }}?height=300&width=300" class="img-rounded"/>{% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <h1> {{ business.name }}</h1>
             <dt>Address</dt>
             <dd>
                 {% if business.address %}
@@ -21,7 +26,12 @@
             </dd>
             <dt>Phone</dt>
             <dd>{{ business.phoneNumber || 'Information not available' }}</dd>
-            <dt>Timetable</dt>
+        </div>
+        <div class="col-md-3">Col 3</div>
+    </div>
+
+    <div class="row">
+        <dt>Timetable</dt>
             <dd>
                 {% if business.timetable %} %>
                     {% for key, timeWindows in business.timetable %}
@@ -38,10 +48,5 @@
                 {% endif %}
             </dd>
         </dl>
-        <ul>
-            {% for picture in business.pictures %}
-                <img src="{{ picture.url }}" />
-            {% endfor %}
-        </ul>
     </div>
 {% endblock %}
