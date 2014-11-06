@@ -3950,9 +3950,9 @@ a.label:hover, a.label:focus {
   text-decoration: none;
   cursor: pointer; }
 
-.label-default {
+.label-default, .label-red {
   background-color: #777777; }
-  .label-default[href]:hover, .label-default[href]:focus {
+  .label-default[href]:hover, [href].label-red:hover, .label-default[href]:focus, [href].label-red:focus {
     background-color: #5e5e5e; }
 
 .label-primary {
@@ -5418,6 +5418,9 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+.label-red {
+  background-color: #FE5B5F; }
+
 .icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description {
   display: inline-block;
   width: 20px;
@@ -5482,15 +5485,32 @@ div.row#business-header {
     height: 100%; }
     div.row#business-header div.infos h1 {
       font-weight: 200;
-      font-size: 28px; }
+      font-size: 28px;
+      margin-bottom: 40px; }
     div.row#business-header div.infos p.info {
       border-bottom: 1px solid #E5E5E8;
-      font-size: 16px; }
+      font-size: 16px;
+      min-height: 30px; }
+      div.row#business-header div.infos p.info.address {
+        min-height: 50px; }
+      div.row#business-header div.infos p.info span {
+        display: inline-block;
+        float: left; }
+      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description {
+        float: left; }
+      div.row#business-header div.infos p.info span.content {
+        margin-left: 20px;
+        font-size: 16px;
+        height: 100%; }
+      div.row#business-header div.infos p.info .label {
+        font-size: 14px; }
   div.row#business-header div.map {
-    height: 100%; }
+    height: 100%;
+    padding: 0; }
     div.row#business-header div.map #gmap-business {
       width: 100%;
-      height: 300px; }
+      height: 100%;
+      border-radius: 5px; }
 
 div#business-content {
   margin-top: 37px; }

@@ -5,3 +5,8 @@ $grey: #818896;
 $grey-separator: #E5E5E8;
 
 $red-title: #FE5B5F;
+
+.label-red {
+    @extend .label-default;
+    background-color: $red-title;
+}

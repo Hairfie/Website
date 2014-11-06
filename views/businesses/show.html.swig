@@ -10,13 +10,13 @@
         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
             {% for picture in business.pictures %}
                 <!-- Todo : deal with pictures instead of only one -->
-                {% if loop.first %}<img src="{{ picture.url }}?height=300&width=230" class="img-rounded"/>{% endif %}
+                {% if loop.first %}<img src="{{ picture.url }}?height=300&width=230" class="img-rounded col-xs-12"/>{% endif %}
             {% endfor %}
         </div>
         <div class="col-md-4 col-sm-3 col-xs-12 infos">
             <h1> {{ business.name }}</h1>
-            <p class="info">
-                <span class="icon-address"></span>
+            <p class="info address">
+                <span class="icon icon-address"></span>
                 <span class="content">
                     {% if business.address %}
                         {{ business.address.street }}<br />
@@ -26,9 +26,11 @@
                     {% endif %}
                 </span>
             </p>
-            <p class="info">
-                <span class="icon-phone"></span>
-                <span class="content">{{ business.phoneNumber || 'Information not available' }}</span>
+            <p class="info phone">
+                <span class="icon icon-phone"></span>
+                <span class="content">
+                    <span class="label label-red">{{ business.phoneNumber || 'Information not available' }}</span>
+                </span>
             </p>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 map">
