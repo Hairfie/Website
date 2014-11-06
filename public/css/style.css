@@ -5473,15 +5473,25 @@ nav.header {
 div.row#business-header {
   height: 300px; }
 
-div.pictures img {
-  max-width: 80%;
-  max-width: 80%; }
+div.pictures {
+  height: 100%; }
+  div.pictures img {
+    height: 100%;
+    max-width: 100%; }
 
-div.infos h1 {
-  font-weight: 200;
-  font-size: 28px; }
-div.infos p.info {
-  border-bottom: 1px solid #E5E5E8;
-  font-size: 16px; }
+div.infos {
+  height: 100%; }
+  div.infos h1 {
+    font-weight: 200;
+    font-size: 28px; }
+  div.infos p.info {
+    border-bottom: 1px solid #E5E5E8;
+    font-size: 16px; }
+
+div.map {
+  height: 100%; }
+  div.map #gmap-business {
+    width: 100%;
+    height: 300px; }
 
 /*# sourceMappingURL=style.css.map */

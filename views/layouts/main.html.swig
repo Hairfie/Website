@@ -37,5 +37,7 @@
     <script src="../../components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
     <script src="../../components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
     <!-- endbower -->
+
+    <script src="../../js/maps.js"></script>
 </body>
 </html>
