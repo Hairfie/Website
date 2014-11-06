@@ -10,7 +10,7 @@
         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
             {% for picture in business.pictures %}
                 <!-- Todo : deal with pictures instead of only one -->
-                {% if loop.first %}<img src="{{ picture.url }}?height=300&width=230" class="img-rounded col-xs-12"/>{% endif %}
+                {% if loop.first %}<img src="{{ picture.url }}?height=300&width=230" class="img-rounded"/>{% endif %}
             {% endfor %}
         </div>
         <div class="col-md-4 col-sm-3 col-xs-12 infos">
@@ -40,22 +40,32 @@
 
     <div class="row" id="business-content">
         <div class="col-md-7 col-md-offset-1 col-xs-12 reviews-price">
-            Reviews & prices here
+            <div class="review">
+                Reviews
+            </div>
+            <div class="prices">
+                Prices
+            </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 timetable">
             <div class="header">
                 <span class="icon-timetable"></span><h4>Timetable</h4>
             </div>
-            <ul>
                 {% if business.timetable %}
                     {% for key, timeWindows in business.timetable %}
-                        <li>
-                            <strong>{{ key }}</strong>:
-                            {% for tw in timeWindows %}
-                                {% if loop.index0 > 0 %},{% endif %}
-                                {{ tw.startTime }} - {{ tw.endTime }}
-                            {% endfor %}
-                        </li>
+                        <div class="day">
+                            <span class="name">{{ key }}.</span>
+                            <span class="value">
+                                {% if !timeWindows.length %}
+                                    Closed
+                                {% else %}
+                                    {% for tw in timeWindows %}
+                                        <p class="time">{{ tw.startTime }} - {{ tw.endTime }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="clearfix"></div>
                     {% endfor %}
                 {% else %}
                     Information not available

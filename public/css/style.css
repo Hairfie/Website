@@ -5514,6 +5514,12 @@ div.row#business-header {
 
 div#business-content {
   margin-top: 37px; }
+  div#business-content .reviews-price div {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    min-height: 50px; }
   div#business-content .timetable {
     background-color: white;
     border-radius: 5px; }
@@ -5530,5 +5536,19 @@ div#business-content {
         color: #FE5B5F;
         display: inline-block;
         padding-left: 10px; }
+
+div.day {
+  min-height: 30px;
+  margin-left: 10%;
+  width: 80%;
+  margin-bottom: 5px; }
+  div.day span {
+    display: inline-block;
+    float: left; }
+  div.day span.name {
+    font-weight: 600;
+    width: 50px; }
+  div.day span.value p.time {
+    margin-bottom: 4px; }
 
 /*# sourceMappingURL=style.css.map */

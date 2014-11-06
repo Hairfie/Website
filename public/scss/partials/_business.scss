@@ -60,9 +60,18 @@ div.row#business-header {
 
 div#business-content {
     margin-top: 37px;
+    .reviews-price {
+        div {
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            min-height: 50px;
+        }
+    }
     .timetable {
         background-color: white;
-        border-radius: 5px ;
+        border-radius: 5px;
         div.header {
             width:80%;
             display: inline-block;
@@ -82,6 +91,27 @@ div#business-content {
 
             border-bottom: 1px solid $grey-separator;
 
+        }
+    }
+}
+
+div.day {
+    min-height: 30px;
+    margin-left: 10%;
+    width:80%;
+    margin-bottom: 5px;
+
+    span {
+        display: inline-block;
+        float: left;
+    }
+    span.name {
+        font-weight: 600;
+        width: 50px;
+    }
+    span.value {
+        p.time {
+            margin-bottom: 4px;
         }
     }
 }
