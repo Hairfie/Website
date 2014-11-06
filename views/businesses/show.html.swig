@@ -36,10 +36,16 @@
         </div>
     </div>
 
-    <div class="row">
-        <dt>Timetable</dt>
-            <dd>
-                {% if business.timetable %} %>
+    <div class="row" id="business-content">
+        <div class="col-md-7 col-md-offset-1 reviews-price">
+            Left part
+        </div>
+        <div class="col-md-3 col-sm-3 timetable">
+            <p class="header">
+                <span class="icon-timetable"></span><h4>Timetable</h4>
+            </p>
+            <ul>
+                {% if business.timetable %}
                     {% for key, timeWindows in business.timetable %}
                         <li>
                             <strong>{{ key }}</strong>:
@@ -52,8 +58,8 @@
                 {% else %}
                     Information not available
                 {% endif %}
-            </dd>
-        </dl>
+            </ul>
+        </div>
     </div>
 
     <div class="row">
