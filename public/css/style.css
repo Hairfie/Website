@@ -5419,11 +5419,30 @@ button.close {
   .hidden-print {
     display: none !important; } }
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+  color: #818896;
+  background-color: #F6F6F7; }
 
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px;
-  margin-top: 60px; }
+  height: 1000px; }
+
+nav.header {
+  height: 100px;
+  background-color: #F9F9FA; }
+  nav.header .container {
+    height: 100%; }
+
+.navbar-brand,
+.navbar-nav li a {
+  line-height: 100px;
+  height: 100px;
+  padding-top: 0; }
+
+#logo {
+  width: 138px;
+  height: 38px;
+  margin-top: 32px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,20 @@
+nav.header {
+    height: 100px;
+    background-color: $grey-header;
+
+    .container {
+        height: 100%;
+    }
+}
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 100px;
+    height: 100px;
+    padding-top: 0;
+}
+
+#logo {
+    width:138px;
+    height:38px;
+    margin-top: 32px;
+}

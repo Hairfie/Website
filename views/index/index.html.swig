@@ -1,3 +1,4 @@
+{% set current_page = 'index' %}
 {% extends '../layouts/main.html.swig' %}
 
 {% block meta %}

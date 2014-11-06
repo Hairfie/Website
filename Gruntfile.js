@@ -60,6 +60,7 @@ module.exports = function (grunt) {
 
         options: {
           // https://github.com/taptapship/wiredep#configuration
+          ignorePath: '/public'
         }
       }
     }

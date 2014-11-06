@@ -1,9 +1,11 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    color: $grey;
+    background-color: $grey-body;
 }
 
 .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
-    margin-top: 60px;
+    height: 1000px;
 }
