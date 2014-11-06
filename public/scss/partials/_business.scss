@@ -36,12 +36,25 @@ div#business-content {
     .timetable {
         background-color: white;
         border-radius: 5px ;
-        p.header {
+        div.header {
             width:80%;
-        }
-        h4 {
-            color: $red-title;
-            padding-left: 20px;
+            display: inline-block;
+            margin-left: 10%;
+            margin-bottom: 16px;
+
+            .icon-timetable {
+                margin-top: 10px;
+                margin-bottom: -4px;
+            }
+
+            h4 {
+                color: $red-title;
+                display: inline-block;
+                padding-left: 10px;
+            }
+
+            border-bottom: 1px solid $grey-separator;
+
         }
     }
 }
