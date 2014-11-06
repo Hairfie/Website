@@ -5418,6 +5418,31 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+.icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description {
+  display: inline-block;
+  width: 20px;
+  height: 20px; }
+
+.icon-address {
+  background: url(/img/icons/home@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-phone {
+  background: url(/img/icons/phone@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-website {
+  background: url(/img/icons/website@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-timetable {
+  background: url(/img/icons/timetable@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-description {
+  background: url(/img/icons/description@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
 body {
   font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
   color: #818896;
@@ -5451,5 +5476,12 @@ div.row#business-header {
 div.pictures img {
   max-width: 80%;
   max-width: 80%; }
+
+div.infos h1 {
+  font-weight: 200;
+  font-size: 28px; }
+div.infos p.info {
+  border-bottom: 1px solid #E5E5E8;
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */

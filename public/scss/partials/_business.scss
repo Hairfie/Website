@@ -8,3 +8,15 @@ div.pictures {
         max-width: 80%;
     }
 }
+
+div.infos {
+    h1 {
+        font-weight: 200;
+        font-size: 28px;
+    }
+
+    p.info {
+        border-bottom: 1px solid $grey-separator;
+        font-size: 16px;
+    }
+}
