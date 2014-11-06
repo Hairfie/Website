@@ -8,8 +8,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "bootstrap-sass-official": "~3.3.0",
-    "maplace.js": "~0.1.32"
+    "bootstrap-sass-official": "~3.3.0"
   },
   "resolutions": {
     "jquery": "~2.1.1"
