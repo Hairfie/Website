@@ -41,10 +41,16 @@
     <div class="row" id="business-content">
         <div class="col-md-7 col-md-offset-1 col-xs-12 reviews-price">
             <div class="review">
-                Reviews
+                <h3>Reviews</h3>
+                <div class="review">
+                    No information available
+                </div>
             </div>
             <div class="prices">
-                Prices
+                <h3>Prices</h3>
+                <div class="price">
+                    No information available
+                </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 timetable">
@@ -72,9 +78,5 @@
                 {% endif %}
             </ul>
         </div>
-    </div>
-
-    <div class="row">
-        {{ business|json(4) }}
     </div>
 {% endblock %}

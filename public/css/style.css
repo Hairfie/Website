@@ -5453,8 +5453,23 @@ body {
 
 .container-fluid {
   padding-right: 0px;
-  padding-left: 0px;
-  height: 1000px; }
+  padding-left: 0px; }
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background: #dfe1e4; }
+
+.background-footer {
+  width: 980px;
+  margin: 0 auto; }
+
+.social img {
+  width: 40px;
+  padding: 45px 30px 0 10px; }
 
 nav.header {
   height: 100px;
@@ -5514,12 +5529,22 @@ div.row#business-header {
 
 div#business-content {
   margin-top: 37px; }
-  div#business-content .reviews-price div {
+  div#business-content .reviews-price > div {
     width: 100%;
     background-color: white;
     border-radius: 5px;
     margin-bottom: 30px;
-    min-height: 50px; }
+    min-height: 50px;
+    padding: 20px; }
+  div#business-content .reviews-price h3 {
+    color: #FE5B5F;
+    display: inline-block; }
+  div#business-content .reviews-price .review {
+    min-height: 110px; }
+  div#business-content .reviews-price .price {
+    border-top: 1px solid #E5E5E8;
+    min-height: 50px;
+    line-height: 20px; }
   div#business-content .timetable {
     background-color: white;
     border-radius: 5px; }
@@ -5550,5 +5575,65 @@ div.day {
     width: 50px; }
   div.day span.value p.time {
     margin-bottom: 4px; }
+
+.row.hairfie .hairfie-picture {
+  margin-bottom: 20px; }
+  .row.hairfie .hairfie-picture img {
+    border-radius: 5px;
+    max-width: 100%; }
+.row.hairfie .hairfie-legend-container {
+  padding-top: 0; }
+  .row.hairfie .hairfie-legend-container .legend {
+    background-color: white;
+    border-radius: 5px;
+    min-height: 100px;
+    width: 100%;
+    padding: 5px 10px 5px 10px; }
+  .row.hairfie .hairfie-legend-container .avatar {
+    float: left;
+    max-width: 45px;
+    width: 20%;
+    display: inline-block; }
+  .row.hairfie .hairfie-legend-container .author {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    width: 70%;
+    float: left;
+    border-bottom: 1px solid #E5E5E8; }
+    .row.hairfie .hairfie-legend-container .author .name {
+      color: #333E49;
+      font-weight: 400;
+      font-size: 16px; }
+.row.hairfie .hairfie-legend-container:before {
+  content: "";
+  min-width: 20px;
+  max-height: 0px; }
+
+section#txt {
+  margin-top: 80px;
+  width: 60%;
+  float: left; }
+
+section#txt p {
+  font-family: "source sans pro";
+  width: 90%;
+  font-weight: lighter; }
+
+#txt > a {
+  height: 64px;
+  width: 202px;
+  display: block;
+  margin-top: 50px;
+  margin-left: 200px; }
+
+img#btn-apple {
+  width: 202px;
+  height: 64px; }
+
+img#iphone {
+  width: 324px;
+  height: 511px;
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

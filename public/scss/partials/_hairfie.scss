@@ -1,0 +1,45 @@
+.row.hairfie {
+    .hairfie-picture {
+        img {
+            border-radius: 5px;
+            max-width: 100%;
+        }
+        margin-bottom: 20px;
+    }
+    .hairfie-legend-container {
+        padding-top: 0;
+        .legend {
+            background-color: white;
+            border-radius: 5px;
+            min-height: 100px;
+            width: 100%;
+            padding: 5px 10px 5px 10px;
+        }
+        .avatar {
+            float: left;
+            max-width: 45px;
+            width: 20%;
+            display: inline-block;
+        }
+        .author {
+            margin-top: 10px;
+            margin-left: 10px;
+            display: inline-block;
+            width: 70%;
+            float: left;
+            border-bottom: 1px solid $grey-separator;
+
+            .name {
+                color: $black;
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .hairfie-legend-container:before {
+        content: "";
+        min-width: 20px;
+        max-height: 0px;
+    }
+}

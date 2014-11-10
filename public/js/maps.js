@@ -14,8 +14,7 @@ function initialize(){
         disableDoubleClickZoom:true,
         mapTypeId:google.maps.MapTypeId.ROADMAP
     };
-    map=new google.maps.Map(document.getElementById("gmap-business"),mapOptions);
-    google.maps.visualRefresh=true;
+
     function addMarker(lat, lng, title){
         var marker =new google.maps.Marker({
             map:map,
@@ -30,7 +29,7 @@ function initialize(){
             infoWindow.open(map, marker);
         });
     }
-    addMarker(lat, lng, title);
+
     var h=[
         {
             featureType:"road",
@@ -57,9 +56,15 @@ function initialize(){
         }
     ];
 
-    var g=new google.maps.StyledMapType(h,{name:"Styled Map"});
-    map.mapTypes.set("map_style",g);
-    map.setMapTypeId("map_style");
+    if($('#gmap-business').length > 0) {
+        map=new google.maps.Map(document.getElementById("gmap-business"),mapOptions);
+        google.maps.visualRefresh=true;
+        addMarker(lat, lng, title);
+
+        var g=new google.maps.StyledMapType(h,{name:"Styled Map"});
+        map.mapTypes.set("map_style",g);
+        map.setMapTypeId("map_style");
+    }
 }
 function loadScript() {
     var script = document.createElement('script');

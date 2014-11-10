@@ -61,12 +61,28 @@ div.row#business-header {
 div#business-content {
     margin-top: 37px;
     .reviews-price {
-        div {
+        > div {
             width: 100%;
             background-color: white;
             border-radius: 5px;
             margin-bottom: 30px;
             min-height: 50px;
+            padding: 20px;
+        }
+
+        h3 {
+            color: $red-title;
+            display: inline-block;
+        }
+
+        .review {
+            min-height: 110px;
+        }
+
+        .price {
+            border-top: 1px solid $grey-separator;
+            min-height: 50px;
+            line-height: 20px;
         }
     }
     .timetable {
