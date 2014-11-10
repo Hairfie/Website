@@ -5446,30 +5446,30 @@ button.close {
   background: url(/img/icons/description@2x.png) no-repeat center;
   background-size: 20px 20px; }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
   font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
   color: #818896;
-  background-color: #F6F6F7; }
+  background-color: #F6F6F7;
+  margin-bottom: 60px; }
 
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px; }
 
 footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 60px;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  background: #dfe1e4; }
-
-.background-footer {
-  width: 980px;
-  margin: 0 auto; }
+  height: 60px;
+  background-color: #dfe1e4; }
 
 .social img {
   width: 40px;
-  padding: 45px 30px 0 10px; }
+  margin: 10px; }
 
 nav.header {
   height: 100px;
@@ -5610,30 +5610,38 @@ div.day {
   min-width: 20px;
   max-height: 0px; }
 
-section#txt {
-  margin-top: 80px;
-  width: 60%;
-  float: left; }
+.home-bg {
+  margin-top: -60px;
+  bottom: 0;
+  width: 100%;
+  background: url(../img/background.jpg);
+  padding-top: 40px; }
 
-section#txt p {
-  font-family: "source sans pro";
+.row.home > div {
+  height: 100%;
+  text-align: center; }
+
+#txt {
+  padding-top: 80px; }
+
+#txt p {
   width: 90%;
-  font-weight: lighter; }
+  font-weight: 200; }
 
 #txt > a {
   height: 64px;
   width: 202px;
   display: block;
   margin-top: 50px;
-  margin-left: 200px; }
+  margin-left: 30%; }
 
 img#btn-apple {
   width: 202px;
   height: 64px; }
 
 img#iphone {
-  width: 324px;
-  height: 511px;
-  margin-top: 50px; }
+  max-width: 324px;
+  width: 90%;
+  margin-left: 5%; }
 
 /*# sourceMappingURL=style.css.map */

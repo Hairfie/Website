@@ -16,7 +16,7 @@
 <body>
     {% include '../partials/header.html.swig' %}
 
-    <div class="container-fluid">
+    <div class="container-fluid {% if current_page == 'index' %}home-bg{% endif %}">
         {% block content %}{% endblock %}
     </div>
 

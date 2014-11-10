@@ -7,8 +7,8 @@
 
 
 {% block content %}
-    <div class="row">
-        <section id="txt">
+    <div class="row home">
+        <div class="col-sm-5 col-sm-offset-2" id="txt">
             <h1>
                 Hairfie, l'App qui vous permet de trouver et de réserver la coiffure et le coiffeur qui vous correspondent !
             </h1>
@@ -20,7 +20,9 @@
 
             <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8"><img id="btn-apple" src="img/btn-apple@2x.png"> </a>
 
-        </section>
-        <img id="iphone" src="/img/iphone@2x.png">
+        </div>
+        <div class="col-sm-3">
+            <img id="iphone" src="/img/iphone@2x.png">
+        </div>
     </div>
 {% endblock %}

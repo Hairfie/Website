@@ -1,20 +1,33 @@
-section#txt {
-    margin-top:80px;
-    width:60%;
-    float:left;
+.home-bg {
+    margin-top: -60px;
+    bottom: 0;
+    width: 100%;
+    background: url(../img/background.jpg);
+    padding-top: 40px;
 }
 
-section#txt p {
-    font-family: "source sans pro";
+.row.home {
+    > div {
+        height: 100%;
+        text-align: center;
+    }
+}
+
+#txt {
+    padding-top:80px;
+    //float:left;
+}
+
+#txt p {
     width:90%;
-    font-weight: lighter;
+    font-weight: 200;
 }
 #txt >a {
     height:64px;
     width: 202px;
     display: block;
     margin-top:50px;
-    margin-left: 200px;
+    margin-left: 30%;
 }
 img#btn-apple {
     width:202px;
@@ -22,7 +35,10 @@ img#btn-apple {
 }
 
 img#iphone {
-    width:324px;
-    height:511px;
-    margin-top:50px;
+    max-width: 324px;
+    width: 90%;
+    margin-left: 5%;
+    //margin-top:50px;
+    // position: absolute;
+    // bottom: 0;
 }
