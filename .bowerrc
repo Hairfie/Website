@@ -1,9 +1,4 @@
 {
   "directory": "public/components",
-  "json": "bower.json",
-    "storage": {
-        "packages": ".bower-cache",
-        "registry": ".bower-registry"
-    },
-    "tmp": ".bower-tmp"
+  "json": "bower.json"
 }
