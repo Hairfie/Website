@@ -18,11 +18,11 @@
                 N’importe où. N’importe quand.Réservez simplement et bénéficiez de promotions ciblées !
             </p>
 
-            <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8"><img id="btn-apple" src="img/btn-apple@2x.png"> </a>
+            <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" class="center"><img id="btn-apple" src="img/btn-apple@2x.png"> </a>
 
         </div>
         <div class="col-sm-3">
-            <img id="iphone" src="/img/iphone@2x.png">
+            <img id="iphone" class="center" src="/img/iphone@2x.png">
         </div>
     </div>
 {% endblock %}

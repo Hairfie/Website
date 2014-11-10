@@ -10,11 +10,15 @@
     > div {
         height: 100%;
         text-align: center;
+        vertical-align: bottom;
+        vertical-align: middle;
     }
+
 }
 
 #txt {
     padding-top:80px;
+    padding-bottom: 80px;
     //float:left;
 }
 
@@ -35,10 +39,5 @@ img#btn-apple {
 }
 
 img#iphone {
-    max-width: 324px;
-    width: 90%;
-    margin-left: 5%;
-    //margin-top:50px;
-    // position: absolute;
-    // bottom: 0;
+    width: 100%;
 }

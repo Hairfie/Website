@@ -5516,9 +5516,10 @@ div.row#business-header {
       div.row#business-header div.infos p.info span.content {
         margin-left: 20px;
         font-size: 16px;
-        height: 100%; }
+        min-height: 100%; }
       div.row#business-header div.infos p.info .label {
-        font-size: 14px; }
+        font-size: 14px;
+        font-weight: 200; }
   div.row#business-header div.map {
     height: 100%;
     padding: 0; }
@@ -5619,10 +5620,13 @@ div.day {
 
 .row.home > div {
   height: 100%;
-  text-align: center; }
+  text-align: center;
+  vertical-align: bottom;
+  vertical-align: middle; }
 
 #txt {
-  padding-top: 80px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
 
 #txt p {
   width: 90%;
@@ -5640,8 +5644,6 @@ img#btn-apple {
   height: 64px; }
 
 img#iphone {
-  max-width: 324px;
-  width: 90%;
-  margin-left: 5%; }
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

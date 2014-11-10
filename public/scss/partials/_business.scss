@@ -38,11 +38,12 @@ div.row#business-header {
             span.content {
                 margin-left: 20px;
                 font-size: 16px;
-                height: 100%;
+                min-height: 100%;
             }
 
             .label {
                 font-size: 14px;
+                font-weight: 200;
             }
         }
     }
