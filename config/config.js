@@ -1,0 +1,38 @@
+var path = require('path'),
+    rootPath = path.normalize(__dirname + '/..'),
+    env = process.env.NODE_ENV || 'development';
+
+var config = {
+  development: {
+    url: 'http://localhost:3000/',
+    apiUrl: 'http://staging.hairfie.com/api',
+    facebookAppId: "1567052370184577",
+    facebookAppNamespace: "hairfie-dev",
+    facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
+    host: "localhost",
+    restApiRoot: "/api",
+    locales: ["en", "fr"]
+  },
+  staging: {
+    url: 'http://www-staging.hairfie.com/',
+    apiUrl: 'http://staging.hairfie.com/api',
+    facebookAppId: "1567052370184577",
+    facebookAppNamespace: "hairfie-dev",
+    facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
+    host: "localhost",
+    restApiRoot: "/api",
+    locales: ["en", "fr"]
+  },
+  production: {
+    url: 'http://www.hairfie.com/',
+    apiUrl: 'http://api.hairfie.com/api',
+    facebookAppId: "1567052370184577",
+    facebookAppNamespace: "hairfie-dev",
+    facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
+    host: "localhost",
+    restApiRoot: "/api",
+    locales: ["en", "fr"]
+  }
+};
+
+module.exports = config[env];

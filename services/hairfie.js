@@ -1,8 +1,11 @@
 'use strict';
 
+var config = require('../config/config');
+
+
 var Client = require('../lib/hairfie/client'),
     client = new Client({
-        apiUrl: 'http://staging.hairfie.com/api',
+        apiUrl: config.apiUrl
     });
 
 

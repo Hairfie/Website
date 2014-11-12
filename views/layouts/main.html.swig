@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hairfie: http://ogp.me/ns/fb/hairfie#">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {% for meta_item in metas %}
+        <meta property="{{ meta_item.property }}" content="{{ meta_item.content }}" />
+    {% endfor %}
 
     {% block meta %}{% endblock %}
 
