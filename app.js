@@ -4,6 +4,8 @@ var favicon         = require('serve-favicon');
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
+var url             = require('url');
+var proxy           = require('proxy-middleware');
 var swig            = require('swig');
 var config          = require('./config/config');
 
@@ -31,6 +33,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use('/api', proxy(url.parse('http://hairfie.herokuapp.com/api')));
 
 app.use('/', routes);
 app.use('/businesses', businesses);
