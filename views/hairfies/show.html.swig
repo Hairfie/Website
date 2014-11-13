@@ -23,8 +23,4 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        {{hairfie|json(4)}}
-    </div>
 {% endblock %}

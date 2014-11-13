@@ -4,7 +4,7 @@ var path = require('path'),
 
 var config = {
   development: {
-    url: 'http://localhost:3000/',
+    url: 'http://localhost:3000',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
     facebookAppNamespace: "hairfie-dev",
@@ -14,22 +14,22 @@ var config = {
     locales: ["en", "fr"]
   },
   staging: {
-    url: 'http://www-staging.hairfie.com/',
+    url: 'http://www-staging.hairfie.com',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
     facebookAppNamespace: "hairfie-dev",
     facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
-    host: "localhost",
+    host: "www-staging.hairfie.com",
     restApiRoot: "/api",
     locales: ["en", "fr"]
   },
   production: {
-    url: 'http://www.hairfie.com/',
+    url: process.env.URL,
     apiUrl: 'http://api.hairfie.com/api',
-    facebookAppId: "1567052370184577",
-    facebookAppNamespace: "hairfie-dev",
-    facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
-    host: "localhost",
+    facebookAppId: process.env.FACEBOOK_APP_ID,
+    facebookAppNamespace: process.env.FACEBOOK_APP_NAMESPACE,
+    facebookAppAccessToken: process.env.FACEBOOK_APP_ACCESS_TOKEN,
+    host: "www.hairfie.com",
     restApiRoot: "/api",
     locales: ["en", "fr"]
   }
