@@ -43,6 +43,8 @@ module.exports = {
         var metas = [];
         metas.push.apply(metas, globalMetas);
         metas.push({property: "og:image", content: config.url + '/img/logo@2x.png'});
+        metas.push({property: "og:title", content: "Hairfie"});
+        metas.push({property: "og:url", content: config.url});
 
         cb(metas);
     },
