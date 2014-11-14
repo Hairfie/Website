@@ -14,7 +14,7 @@ var config = {
     locales: ["en", "fr"]
   },
   staging: {
-    url: 'http://www-staging.hairfie.com',
+    url: 'http://hairfie-website-staging.herokuapp.com',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
     facebookAppNamespace: "hairfie-dev",
