@@ -43,7 +43,7 @@
             <div class="review">
                 <h3>Reviews</h3>
                 <div class="review">
-                    No information available
+                    No information available !!!
                 </div>
             </div>
             <div class="prices">
