@@ -4,7 +4,7 @@ var path = require('path'),
 
 var config = {
   development: {
-    url: 'http://localhost:3000',
+    url: 'http://localhost:3001',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
     facebookAppNamespace: "hairfie-dev",
