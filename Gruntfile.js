@@ -37,7 +37,8 @@ module.exports = function (grunt) {
           'services/**/*.js',
           'config/*.js',
           'routes/*.js',
-          'services/*.js'
+          'services/*.js',
+          'locales/*.js'
         ],
         tasks: ['develop', 'delayed-livereload']
       },

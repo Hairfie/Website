@@ -15,6 +15,17 @@ var hairfies        = require('./routes/hairfies');
 
 var app             = express();
 
+
+// i18n - Translations
+var i18n            = require('i18n');
+i18n.configure({
+    locales:['en', 'fr'],
+    defaultLocale: 'en',
+    directory: __dirname + '/locales',
+    extension: '.js'
+});
+app.use(i18n.init);
+
 // view engine setup
 app.engine('.html.swig', swig.renderFile);
 app.set('view engine', '.html.swig');
@@ -35,6 +46,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', proxy(url.parse('http://hairfie.herokuapp.com/api')));
+
+app.use(function(req, res, next) {
+    if(req.query && (req.query.lang || req.query.fb_locale)) {
+        var lang = req.query.lang ? req.query.lang : req.query.fb_locale;
+        lang = lang.substring(0,2);
+        if(lang == 'fr') {
+            i18n.setLocale(req, 'fr');
+            next();
+        } else if (lang == 'en') {
+            i18n.setLocale(req, 'en');
+            next();
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 app.use('/', routes);
 app.use('/businesses', businesses);
