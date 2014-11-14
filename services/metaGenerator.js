@@ -1,6 +1,7 @@
 'use strict';
 
 var config = require('../config/config');
+var _ = require('underscore');
 
 var urlGenerator = {
     user: function(user) {
@@ -53,13 +54,26 @@ module.exports = {
     getHairfieMetas: function(hairfie, cb) {
         var author         = hairfie.author,
             business       = hairfie.business,
-            title          = 'Hairfie posted by '+author.firstName+' '+author.lastName.substr(0, 1)+'.',
+            title          = 'Hairfie shared by '+author.firstName+' '+author.lastName.substr(0, 1)+'.',
             metas          = [],
             canonicalUrl   = urlGenerator.hairfie(hairfie),
             homeUrl        = config.url,
             authorUrl      = author ? urlGenerator.user(author) : null,
             businessUrl    = business ? urlGenerator.business(business) : null,
-            hairdresserUrl = null;
+            hairdresserUrl = null,
+            description    = null;
+
+        if(hairfie.tags) {
+            description = _.map(hairfie.tags, function(tag) { return '#'+tag.name.replace(/ /g,''); }).join(" ");
+        }
+
+        if(hairfie.description) {
+            description = description + ' ' + hairfie.description;
+        }
+
+        if(business) {
+            description = description + ' made at' + business.name;
+        }
 
         metas.push.apply(metas, globalMetas);
         metas.push({property: "og:type", content: config.facebookAppNamespace+':hairfie'});
@@ -67,8 +81,8 @@ module.exports = {
         metas.push({property: "og:title", content: title});
         metas.push({property: "og:image", content: hairfie.picture.url});
 
-        if (hairfie.description) {
-            metas.push({property: "og:description", content: hairfie.description});
+        if (description) {
+            metas.push({property: "og:description", content: description});
         }
         if (authorUrl) {
             metas.push({property: "hairfie:author", content: authorUrl});
