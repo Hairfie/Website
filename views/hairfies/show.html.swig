@@ -39,7 +39,8 @@
         new Share(".share-button", {
           networks: {
             facebook: {
-              app_id: "{{ GLOBAL.facebookAppId }}"
+              app_id: "{{ GLOBAL.facebookAppId }}",
+              load_sdk: false
             }
           }
         });

@@ -83,6 +83,8 @@ div#business-content {
             .review-content {
                 text-transform: uppercase;
                 font-style: 16;
+                border-top: 1px solid $grey-separator;
+                width: 100%;
             }
         }
 
