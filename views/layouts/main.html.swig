@@ -26,6 +26,7 @@
 
     {% include '../partials/footer.html.swig' %}
 
+    {% block javascript %}
     <!-- bower:js -->
     <script src="../../components/jquery/dist/jquery.js"></script>
     <script src="../../components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
@@ -43,5 +44,6 @@
     <!-- endbower -->
 
     <script src="../../js/maps.js"></script>
+    {% endblock %}
 </body>
 </html>

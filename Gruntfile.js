@@ -52,6 +52,13 @@ module.exports = function (grunt) {
       css: {
         files: 'public/scss/**/*.scss',
         tasks: ['sass']
+      },
+      react: {
+        files: [
+          'client/js/**/*.js',
+          'client/js/**/*.jsx'
+        ],
+        tasks: ['browserify']
       }
     },
     wiredep: {
@@ -65,6 +72,20 @@ module.exports = function (grunt) {
           // https://github.com/taptapship/wiredep#configuration
           ignorePath: '/public'
         }
+      }
+    },
+    browserify: {
+      options: {
+        transform: [
+          require('grunt-react').browserify
+        ]
+      },
+      client: {
+        src: [
+          'client/js/**/*.js',
+          'client/js/**/*.jsx'
+        ],
+        dest: 'public/js/app.js'
       }
     }
   });
@@ -89,5 +110,6 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-wiredep');
-  grunt.registerTask('default', ['develop', 'watch', 'sass']);
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.registerTask('default', ['develop', 'watch', 'sass', 'browserify']);
 };
