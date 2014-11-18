@@ -22,7 +22,11 @@
                     <span class="date"> - {{ hairfie.createdAt|ago(getLocale()) }}</span>
                 </div>
                 <div class="clearfix"></div>
+                <div class="description">
+                    {{ hairfie.descriptions.display }}
+                </div>
                 {% if hairfie.business %}
+                    <div class="clearfix"></div>
                     <div class="business">
                         <a href="/businesses/{{ hairfie.business.id }}">{{ __('Made at') }} {{ hairfie.business.name }}</a>
                     </div>
@@ -35,14 +39,19 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript">
-        new Share(".share-button", {
-          networks: {
+<script type="text/javascript">
+    new Share(".share-button", {
+        image: "{{ hairfie.picture.url }}",
+        title: "{{ hairfie.descriptions.facebook }}",
+        networks: {
             facebook: {
               app_id: "{{ GLOBAL.facebookAppId }}",
               load_sdk: false
+            },
+            twitter: {
+                description: "{{ hairfie.descriptions.twitter }}"
             }
-          }
-        });
-    </script>
+        }
+    });
+</script>
 {% endblock %}

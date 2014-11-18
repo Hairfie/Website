@@ -5550,7 +5550,9 @@ div#business-content {
     font-weight: 200; }
     div#business-content .reviews-price .review .review-content {
       text-transform: uppercase;
-      font-style: 16; }
+      font-style: 16;
+      border-top: 1px solid #e5e5e8;
+      width: 100%; }
   div#business-content .reviews-price .price {
     border-top: 1px solid #e5e5e8;
     min-height: 50px;
@@ -5638,9 +5640,10 @@ div.day {
     .row.hairfie .hairfie-legend-container .author .date {
       color: #fe5b5f;
       font-style: italic; }
-  .row.hairfie .hairfie-legend-container .business a {
-    color: #333e49;
+  .row.hairfie .hairfie-legend-container .description, .row.hairfie .hairfie-legend-container .business {
     padding-left: 54px; }
+  .row.hairfie .hairfie-legend-container .business a {
+    color: #333e49; }
 .row.hairfie .hairfie-legend-container:before {
   content: "";
   min-width: 20px;

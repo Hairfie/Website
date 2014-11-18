@@ -54,12 +54,16 @@
             }
         }
 
+        .description, .business {
+            padding-left: 54px;
+        }
+
         .business {
             a {
                 color: $black;
-                padding-left: 54px;
             }
         }
+
     }
 
     .hairfie-legend-container:before {
