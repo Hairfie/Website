@@ -34,10 +34,25 @@
             float: left;
             border-bottom: 1px solid $grey-separator;
 
-            .name {
-                color: $black;
+            span {
                 font-weight: 400;
                 font-size: 16px;
+            }
+
+            .name {
+                color: $black;
+            }
+
+            .date {
+                color: $red-title;
+                font-style: italic;
+            }
+        }
+
+        .business {
+            a {
+                color: $black;
+                padding-left: 54px;
             }
         }
     }

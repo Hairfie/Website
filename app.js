@@ -7,6 +7,7 @@ var bodyParser      = require('body-parser');
 var url             = require('url');
 var proxy           = require('proxy-middleware');
 var swig            = require('swig');
+var filters         = require('./lib/helpers/filters');
 var config          = require('./config/config');
 
 var routes          = require('./routes/index');
@@ -32,6 +33,8 @@ app.set('view engine', '.html.swig');
 app.set('views', path.join(__dirname, 'views'));
 
 swig.setDefaults({ cache: false });
+
+swig.setFilter('ago', filters.moment);
 
 if (app.get('env') === 'development' || app.get('env') === 'staging') {
     app.set('view cache', false);

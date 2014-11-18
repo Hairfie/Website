@@ -18,8 +18,14 @@
                 </div>
                 <div class="author">
                     <span class="name">{{ hairfie.author.firstName }} {{ hairfie.author.lastName | first | capitalize }}.</span>
+                    <span class="date"> - {{ hairfie.createdAt|ago(getLocale()) }}</span>
                 </div>
-
+                <div class="clearfix"></div>
+                {% if hairfie.business %}
+                    <div class="business">
+                        <a href="/businesses/{{ hairfie.business.id }}">{{ __('Made at') }} {{ hairfie.business.name }}</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
