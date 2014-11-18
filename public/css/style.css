@@ -5603,6 +5603,10 @@ div.day {
   .row.hairfie .hairfie-picture img {
     border-radius: 5px;
     max-width: 100%; }
+  .row.hairfie .hairfie-picture .share-button {
+    position: absolute;
+    bottom: 20px;
+    right: 24px; }
 .row.hairfie .hairfie-legend-container {
   padding-top: 0; }
   .row.hairfie .hairfie-legend-container .legend {

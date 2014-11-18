@@ -43,5 +43,9 @@
     <!-- endbower -->
 
     <script src="../../js/maps.js"></script>
+    <script src="../../js/share.min.js"></script>
+
+    {% block scripts %}{% endblock %}
+
 </body>
 </html>

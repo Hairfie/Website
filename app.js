@@ -43,6 +43,11 @@ if (app.get('env') === 'development' || app.get('env') === 'staging') {
     app.set('view cache', true);
 }
 
+app.use(function(req,res,next){
+  res.locals.GLOBAL = {facebookAppId: config.facebookAppId};
+  next();
+});
+
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
