@@ -29,7 +29,7 @@
             <p class="info phone">
                 <span class="icon icon-phone"></span>
                 <span class="content">
-                    <span class="label label-red">{{ business.phoneNumber || 'Information not available' }}</span>
+                    <span class="label label-red">{{ business.phoneNumber || __('Information not available') }}</span>
                 </span>
             </p>
         </div>
@@ -40,27 +40,36 @@
 
     <div class="row" id="business-content">
         <div class="col-md-7 col-md-offset-1 col-xs-12 reviews-price">
-            <div class="review">
-                <h3>Reviews</h3>
-                <div class="review">
-                    No information available !!!
-                </div>
-            </div>
             <div class="prices">
-                <h3>Prices</h3>
-                <div class="price">
-                    No information available
+                <h3>{{ __('Prices') }}</h3>
+                {% if business.services %}
+                    {% for service in business.services %}
+                        <div class="price">
+                            <span class="name">{{ service.label }}</span>
+                            <span class="amount">{{ service.price.amount }}€</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="price">
+                        <span class="name">{{ __('No information available') }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="review">
+                <h3>{{ __('Reviews') }}</h3>
+                <div class="review-content">
+                    {{ __('No reviews for the moment') }}
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 timetable">
             <div class="header">
-                <span class="icon-timetable"></span><h4>Timetable</h4>
+                <h3><span class="icon-timetable"></span> {{ __(' Timetable') }}</h3>
             </div>
                 {% if business.timetable %}
                     {% for key, timeWindows in business.timetable %}
                         <div class="day">
-                            <span class="name">{{ key }}.</span>
+                            <span class="name">{{ key|day(getLocale()) }}.</span>
                             <span class="value">
                                 {% if !timeWindows.length %}
                                     Closed

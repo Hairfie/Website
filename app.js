@@ -35,6 +35,7 @@ app.set('views', path.join(__dirname, 'views'));
 swig.setDefaults({ cache: false });
 
 swig.setFilter('ago', filters.moment);
+swig.setFilter('day', filters.day);
 
 if (app.get('env') === 'development' || app.get('env') === 'staging') {
     app.set('view cache', false);

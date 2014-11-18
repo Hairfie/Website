@@ -139,8 +139,9 @@ module.exports = {
         });
 
         if (business.description) {
-            metas.push({property: "og:description", business: hairfie.description});
+            metas.push({property: "og:description", business: business.description});
         }
+
         cb(metas);
     }
 };

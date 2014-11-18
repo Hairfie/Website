@@ -5548,38 +5548,53 @@ div#business-content {
   div#business-content .reviews-price .review {
     min-height: 110px;
     font-weight: 200; }
+    div#business-content .reviews-price .review .review-content {
+      text-transform: uppercase;
+      font-style: 16; }
   div#business-content .reviews-price .price {
     border-top: 1px solid #e5e5e8;
     min-height: 50px;
-    line-height: 20px; }
+    line-height: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px; }
+    div#business-content .reviews-price .price .name {
+      font-weight: 200;
+      text-transform: uppercase;
+      font-style: 16; }
+    div#business-content .reviews-price .price .amount {
+      position: absolute;
+      right: 30px;
+      width: 30px; }
   div#business-content .timetable {
     background-color: white;
-    border-radius: 5px; }
+    border-radius: 5px;
+    padding: 20px; }
     div#business-content .timetable div.header {
-      width: 80%;
+      width: 100%;
       display: inline-block;
-      margin-left: 10%;
       margin-bottom: 16px;
       border-bottom: 1px solid #e5e5e8; }
       div#business-content .timetable div.header .icon-timetable {
         margin-top: 10px;
         margin-bottom: -4px; }
-      div#business-content .timetable div.header h4 {
-        color: #fe5b5f;
-        display: inline-block;
-        padding-left: 10px; }
+      div#business-content .timetable div.header h3 {
+        color: #fe5b5f; }
+        div#business-content .timetable div.header h3 .icon-timetable {
+          margin-top: 0px;
+          margin-bottom: -2px;
+          margin-right: 5px; }
 
 div.day {
   min-height: 30px;
-  margin-left: 10%;
-  width: 80%;
+  width: 100%;
   margin-bottom: 5px; }
   div.day span {
     display: inline-block;
     float: left; }
   div.day span.name {
     font-weight: 600;
-    width: 50px; }
+    width: 50px;
+    text-transform: uppercase; }
   div.day span.value p.time {
     margin-bottom: 4px; }
 

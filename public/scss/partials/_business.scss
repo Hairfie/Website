@@ -79,21 +79,40 @@ div#business-content {
         .review {
             min-height: 110px;
             font-weight: 200;
+
+            .review-content {
+                text-transform: uppercase;
+                font-style: 16;
+            }
         }
 
         .price {
             border-top: 1px solid $grey-separator;
             min-height: 50px;
             line-height: 20px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            .name {
+                font-weight: 200;
+                text-transform: uppercase;
+                font-style: 16;
+            }
+
+            .amount {
+                position: absolute;
+                right: 30px;
+                width: 30px;
+            }
         }
     }
     .timetable {
         background-color: white;
         border-radius: 5px;
+        padding: 20px;
         div.header {
-            width:80%;
+            width:100%;
             display: inline-block;
-            margin-left: 10%;
+            //margin-left: 10%;
             margin-bottom: 16px;
 
             .icon-timetable {
@@ -101,10 +120,14 @@ div#business-content {
                 margin-bottom: -4px;
             }
 
-            h4 {
+            h3 {
                 color: $red-title;
-                display: inline-block;
-                padding-left: 10px;
+
+                .icon-timetable {
+                    margin-top: 0px;
+                    margin-bottom: -2px;
+                    margin-right: 5px;
+                }
             }
 
             border-bottom: 1px solid $grey-separator;
@@ -115,8 +138,8 @@ div#business-content {
 
 div.day {
     min-height: 30px;
-    margin-left: 10%;
-    width:80%;
+    //margin-left: 10%;
+    width:100%;
     margin-bottom: 5px;
 
     span {
@@ -126,6 +149,7 @@ div.day {
     span.name {
         font-weight: 600;
         width: 50px;
+        text-transform: uppercase;
     }
     span.value {
         p.time {
