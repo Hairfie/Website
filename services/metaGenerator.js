@@ -62,17 +62,7 @@ module.exports = {
             hairdresserUrl = null,
             description    = null;
 
-        if(hairfie.tags) {
-            description = _.map(hairfie.tags, function(tag) { return '#'+tag.name.replace(/ /g,''); }).join(" ");
-        }
-
-        if(hairfie.description) {
-            description = description + ' ' + hairfie.description;
-        }
-
-        if(business) {
-            description = description + ' made at' + business.name;
-        }
+        description = hairfie.descriptions.facebook;
 
         metas.push.apply(metas, globalMetas);
         metas.push({property: "og:type", content: config.facebookAppNamespace+':hairfie'});
