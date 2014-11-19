@@ -22,7 +22,6 @@ var urlGenerator = {
 
 var globalMetas = [
     { property: "fb:app_id", content: config.facebookAppId },
-    { property: "og:locale:alternate", content: "fr_FR" }
 ];
 
 var daysOfWeek = {
