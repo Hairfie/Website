@@ -16,10 +16,4 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/app', function (req, res) {
-    res.render('index/app', {
-        title: 'Hairfie'
-    });
-});
-
 module.exports = router;

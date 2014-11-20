@@ -55,8 +55,8 @@ module.exports = function (grunt) {
       },
       react: {
         files: [
-          'client/js/**/*.js',
-          'client/js/**/*.jsx'
+          'client/**/*.js',
+          'client/**/*.jsx'
         ],
         tasks: ['browserify']
       }
@@ -81,10 +81,7 @@ module.exports = function (grunt) {
         ]
       },
       client: {
-        src: [
-          'client/js/**/*.js',
-          'client/js/**/*.jsx'
-        ],
+        src: 'client/client.js',
         dest: 'public/js/app.js'
       }
     }

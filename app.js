@@ -12,6 +12,7 @@ var config          = require('./config/config');
 var routes          = require('./routes/index');
 var businesses      = require('./routes/businesses');
 var hairfies        = require('./routes/hairfies');
+var pro             = require('./routes/pro');
 
 var app             = express();
 
@@ -68,6 +69,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/businesses', businesses);
 app.use('/hairfies', hairfies);
+app.use('/pro', pro);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
