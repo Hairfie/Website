@@ -12,7 +12,10 @@ module.exports = function (context, payload, done) {
             password    : 'password', // TODO: remove it and allow generation from backend
             phoneNumber : payload.phoneNumber
         })
-        .fail(done)
+        .fail(function(err) {
+            console.log("fail !", err);
+            done(err);
+        })
         .then(function (user) {
             context.dispatch('RECEIVE_LOGIN_SUCCESS', {
                 user: user,
