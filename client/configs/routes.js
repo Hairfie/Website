@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = {
-    home: {
+    pro_home: {
         path: '/pro/',
         method: 'get',
         leaveAfterAuth: true
     },
-    dashboard: {
+    pro_dashboard: {
         path: '/pro/dashboard',
         method: 'get',
         authRequired: true

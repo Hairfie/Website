@@ -30,11 +30,11 @@ module.exports = React.createClass({
         var routeName = this.state.route ? this.state.route.name : null;
         var body = null;
         switch (routeName) {
-            case 'home':
+            case 'pro_home':
                 body = <HomePage context={this.props.context} />
                 break;
 
-            case 'dashboard':
+            case 'pro_dashboard':
                 body = <DashboardPage context={this.props.context} />
                 break;
 

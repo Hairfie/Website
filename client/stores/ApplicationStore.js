@@ -6,8 +6,8 @@ var navigateAction = require('flux-router-component').navigateAction;
 
 var routes = require('../configs/routes');
 
-var ROUTE_LOGIN = 'home';
-var ROUTE_AFTER_LOGIN = 'dashboard';
+var ROUTE_LOGIN = 'pro_home';
+var ROUTE_AFTER_LOGIN = 'pro_dashboard';
 
 module.exports = createStore({
     storeName: 'ApplicationStore',
