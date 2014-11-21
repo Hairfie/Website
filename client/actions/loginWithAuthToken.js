@@ -3,6 +3,8 @@
 var hairfieApi = require('../services/hairfie-api-client');
 
 module.exports = function (context, payload, done) {
+    if (!payload.token) return done();
+
     hairfieApi
         .getUser(payload.token.userId, payload.token)
         .then(function (user) {
@@ -12,7 +14,8 @@ module.exports = function (context, payload, done) {
             });
             done();
         })
-        .catch(function () {
+        .catch(function (e) {
+            console.log('LOGIN FAILURE:', e);
             context.dispatch('RECEIVE_LOGIN_FAILURE');
             done();
         });

@@ -4,9 +4,11 @@ module.exports = {
     home: {
         path: '/pro/',
         method: 'get',
-        action: function (actionContext, payload, done) {
-
-            done();
-        }
+        leaveAfterAuth: true
+    },
+    dashboard: {
+        path: '/pro/dashboard',
+        method: 'get',
+        authRequired: true
     }
 };

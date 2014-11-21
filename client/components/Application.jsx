@@ -2,6 +2,7 @@
 
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
+var RouterMixin = require('flux-router-component').RouterMixin;
 var ApplicationStore = require('../stores/ApplicationStore');
 var navigateAction = require('flux-router-component/actions/navigate');
 
@@ -9,26 +10,32 @@ var routes = require('../configs/routes');
 
 var UserStatus = require('./UserStatus.jsx');
 var HomePage = require('./HomePage.jsx');
+var DashboardPage = require('./DashboardPage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [StoreMixin, RouterMixin],
     statics: {
         storeListeners: [ApplicationStore]
     },
     getStateFromStores: function () {
         return {
-            page: this.getStore(ApplicationStore).getCurrentPage()
+            route: this.getStore(ApplicationStore).getCurrentRoute()
         };
     },
     getInitialState: function () {
         return this.getStateFromStores();
     },
     render: function () {
+        var routeName = this.state.route ? this.state.route.name : null;
         var body = null;
-        switch (this.state.page) {
+        switch (routeName) {
             case 'home':
                 body = <HomePage context={this.props.context} />
+                break;
+
+            case 'dashboard':
+                body = <DashboardPage context={this.props.context} />
                 break;
 
             default:
@@ -38,7 +45,6 @@ module.exports = React.createClass({
         return (
             <div>
                 <UserStatus context={this.props.context} />
-                <h1>Hello World</h1>
                 {body}
             </div>
         );
