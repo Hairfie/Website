@@ -37,7 +37,8 @@ module.exports = React.createClass({
             </div>
         );
     },
-    submit: function () {
+    submit: function (e) {
+        e.preventDefault();
         this.props.context.executeAction(signupAction, {
             gender: this.refs.gender.getDOMNode().value,
             firstName: this.refs.firstName.getDOMNode().value,
