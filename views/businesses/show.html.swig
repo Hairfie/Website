@@ -33,6 +33,12 @@
                         <span class="label label-red" itemprop="telephone">{{ business.phoneNumber || 'Information not available' }}</span>
                     </span>
                 </p>
+                <p class="info" style="display:none" itemscope itemtype=”http://schema.org/AggregateRating”>
+                    <span itemprop=”ratingValue”>{{ business.rating }}</span>
+                    <span> {{ __('based on')}} </span>
+                    <span itemprop=”reviewCount”>{{ business.numReviews }}</span>
+                    <span> {{ __(' reviews ')}} </span>
+                </p>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 map">
                 <div id="gmap-business" data-lat={{business.gps.lat}} data-lng={{business.gps.lng}} data-title="{{business.name}}"></div>
