@@ -15,6 +15,16 @@ module.exports = createStore({
         'RECEIVE_LOGIN_FAILURE': 'handleLoginFailure',
         'RECEIVE_LOGOUT_SUCCESS': 'handleLogoutSuccess',
     },
+    dehydrate: function () {
+        return {
+            user    : this.user,
+            token   : this.token
+        };
+    },
+    rehydrate: function (state) {
+        this.user = state.user;
+        this.token = state.token;
+    },
     handleLogin: function (payload) {
         this.loginInProgress = true;
         this.emitChange();

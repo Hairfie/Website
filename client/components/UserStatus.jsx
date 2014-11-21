@@ -32,8 +32,9 @@ module.exports = React.createClass({
         } else if (this.state.user) {
             return (
                 <div className="user-status authenticated">
-                    Hello {this.state.user.firstName} !
-                    <a onClick={this.logOut}>Log out</a>
+                    <img src={this.state.user.picture.url} />
+                    {this.state.user.firstName}
+                     - <a onClick={this.logOut}>Log out</a>
                 </div>
             );
         } else {

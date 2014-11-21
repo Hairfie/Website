@@ -17,24 +17,24 @@ function send(req, token) {
     });
 
     return deferred.promise;
-}
+};
 
 function Client (options) {
     if (!this instanceof Client) return new Client(options);
     this.options = options;
-}
+};
 
 Client.prototype.createUser = function (values) {
     var req = request.post(this.buildUrl('users')).send(values);
 
     return send(req);
-}
+};
 
 Client.prototype.getUser = function (userId, token) {
     var req = request.get(this.buildUrl('users/'+userId));
 
     return send(req, token);
-}
+};
 
 /**
  * Logs in the user
@@ -58,13 +58,13 @@ Client.prototype.login = function (email, password) {
             return {token: token, user: user};
         });
     });
-}
+};
 
 Client.prototype.logout = function (token) {
     var req = request.post(this.buildUrl('users/logout'))
 
     return send(req, token);
-}
+};
 
 Client.prototype.buildUrl = function (path) {
     return this.options.apiUrl + '/' + path;
