@@ -30,9 +30,11 @@ module.exports = React.createClass({
                 </div>
             );
         } else if (this.state.user) {
+            var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
+
             return (
                 <div className="user-status authenticated">
-                    <img src={this.state.user.picture.url} />
+                    <img src={pictureSrc} />
                     {this.state.user.firstName}
                      - <a onClick={this.logOut}>Log out</a>
                 </div>
