@@ -8,7 +8,7 @@ module.exports = createStore({
         'RECEIVE_BUSINESS_SUCCESS': '_receiveBusiness'
     },
     initialize: function () {
-        this.business = {};
+        this.business = null;
     },
     _receiveBusiness: function (business) {
         this.business = business;

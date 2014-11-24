@@ -13,7 +13,7 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            hairfie: this.getStore(BusinessStore).getBusiness(),
+            business: this.getStore(BusinessStore).getBusiness(),
         }
     },
     getInitialState: function () {

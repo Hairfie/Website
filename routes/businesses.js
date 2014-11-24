@@ -14,7 +14,7 @@ var ApplicationStore = require('../client/stores/ApplicationStore');
 
 var ROUTE_PREFIX = '/businesses'
 
-router.get('/:id/:slug?', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     var context = app.createContext();
     var path = ROUTE_PREFIX + req.path;
 

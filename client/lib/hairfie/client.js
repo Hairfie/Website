@@ -41,8 +41,8 @@ Client.prototype.getHairfie = function (hairfieId) {
     return send(req);
 };
 
-Client.prototype.getBusiness = function (id) {
-    var req = request.get(this.buildUrl('businesses/' + id));
+Client.prototype.getBusiness = function (businessId) {
+    var req = request.get(this.buildUrl('businesses/' + businessId));
 
     return send(req);
 };

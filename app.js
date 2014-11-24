@@ -67,8 +67,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', routes);
-app.use('/businesses', businesses);
 app.use('/hairfies', hairfies);
+app.use('/businesses', businesses);
 app.use('/pro', pro);
 
 app.use(express.static(path.join(__dirname, 'public')));
