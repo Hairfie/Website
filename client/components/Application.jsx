@@ -11,6 +11,7 @@ var routes = require('../configs/routes');
 var UserStatus = require('./UserStatus.jsx');
 var HomePage = require('./HomePage.jsx');
 var DashboardPage = require('./DashboardPage.jsx');
+var ShowHairfiePage = require('./ShowHairfiePage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
 
 module.exports = React.createClass({
@@ -36,6 +37,10 @@ module.exports = React.createClass({
 
             case 'pro_dashboard':
                 body = <DashboardPage context={this.props.context} />
+                break;
+
+            case 'show_hairfie':
+                body = <ShowHairfiePage context={this.props.context} />
                 break;
 
             default:

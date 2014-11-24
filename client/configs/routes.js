@@ -10,5 +10,10 @@ module.exports = {
         path: '/pro/dashboard',
         method: 'get',
         authRequired: true
+    },
+    show_hairfie: {
+        path: '/hairfies/:id',
+        method: 'get',
+        authRequired: false
     }
 };

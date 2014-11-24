@@ -1,51 +1,51 @@
-// var express = require('express');
-// var router = express.Router();
+var express = require('express');
+var router = express.Router();
 
 require('node-jsx').install({extension:'.jsx'});
 
 var app = require('../client/app.js');
 var navigateAction = require('flux-router-component').navigateAction;
+
 var React = require('react');
 var metaGenerator = require('../services/metaGenerator.js');
-
-// Client side
-var ApplicationStore = require('../client/stores/ApplicationStore');
 var hairfieApi = require('../client/services/hairfie-api-client');
+var getHairfieAction = require('../client/actions/getHairfie');
+var ApplicationStore = require('../client/stores/ApplicationStore');
 
+var ROUTE_PREFIX = '/hairfies'
 
-
-module.exports = function (req, res, next) {
+router.get('/:id', function(req, res, next) {
     var context = app.createContext();
+    var path = ROUTE_PREFIX + req.path;
 
-    context.getActionContext().executeAction(navigateAction, {path: req.path}, function (err) {
-        if (err)  {
-            if (err.status && err.status === 404) {
-                next();
-            } else {
-                next(err);
+    context.getActionContext().executeAction(navigateAction, {path: path}, function (err) {
+        context.getActionContext().executeAction(getHairfieAction, {id: req.params.id}, function (err) {
+            if (err)  {
+                console.log(err);
+                if (err.status && err.status === 404) {
+                    next();
+                } else {
+                    next(err);
+                }
+                return;
             }
-            return;
-        }
 
-        // do we need to redirect user?
-        var actualRouteName = context.getActionContext().router.getRoute(path, {navigate: {path: path}}).name;
-        var wantedRouteName = context.getActionContext().getStore(ApplicationStore).getCurrentRouteName();
-        if (actualRouteName != wantedRouteName) {
-            return res.redirect(context.getComponentContext().makePath(wantedRouteName));
-        }
+            var appHtml = React.renderToString(app.getAppComponent()({
+                context: context.getComponentContext()
+            }));
+            var appState = app.dehydrate(context);
 
-        var appHtml = React.renderToString(app.getAppComponent()({
-            context: context.getComponentContext()
-        }));
-        var appState = app.dehydrate(context);
-
-        res.render('index/app', {
-            title: 'Hairfie',
-            appHtml: appHtml,
-            appState: appState
+            res.render('index/app', {
+                title: 'Hairfie',
+                appHtml: appHtml,
+                appState: appState
+            });
         });
     });
-};
+});
+
+module.exports = router;
+
 
 // router.get('/:id', function(req, res) {
 //     hairfie.getHairfie(req.params.id)
@@ -67,4 +67,3 @@ module.exports = function (req, res, next) {
 //         });
 // });
 
-// module.exports = router;

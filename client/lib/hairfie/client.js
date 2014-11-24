@@ -36,14 +36,13 @@ Client.prototype.getUser = function (userId, token) {
     return send(req, token);
 };
 
-Client.prototype.getHairfie = function (id) {
-    var req = request.get(this.buildUrl('hairfies' + id));
-
+Client.prototype.getHairfie = function (hairfieId) {
+    var req = request.get(this.buildUrl('hairfies/' + hairfieId));
     return send(req);
 };
 
 Client.prototype.getBusiness = function (id) {
-    var req = request.get(this.buildUrl('businesses' + id));
+    var req = request.get(this.buildUrl('businesses/' + id));
 
     return send(req);
 };
