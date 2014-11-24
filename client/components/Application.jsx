@@ -12,6 +12,7 @@ var UserStatus = require('./UserStatus.jsx');
 var HomePage = require('./HomePage.jsx');
 var DashboardPage = require('./DashboardPage.jsx');
 var ShowHairfiePage = require('./ShowHairfiePage.jsx');
+var ShowBusinessPage = require('./ShowBusinessPage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
 
 module.exports = React.createClass({
@@ -41,6 +42,10 @@ module.exports = React.createClass({
 
             case 'show_hairfie':
                 body = <ShowHairfiePage context={this.props.context} />
+                break;
+
+            case 'show_business':
+                body = <ShowBusinessPage context={this.props.context} />
                 break;
 
             default:

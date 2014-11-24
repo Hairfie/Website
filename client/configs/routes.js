@@ -15,5 +15,10 @@ module.exports = {
         path: '/hairfies/:id',
         method: 'get',
         authRequired: false
+    },
+    show_business: {
+        path: '/businesses/:id',
+        method: 'get',
+        authRequired: false
     }
 };
