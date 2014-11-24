@@ -36,6 +36,18 @@ Client.prototype.getUser = function (userId, token) {
     return send(req, token);
 };
 
+Client.prototype.getHairfie = function (id) {
+    var req = request.get(this.buildUrl('hairfies' + id));
+
+    return send(req);
+};
+
+Client.prototype.getBusiness = function (id) {
+    var req = request.get(this.buildUrl('businesses' + id));
+
+    return send(req);
+};
+
 /**
  * Logs in the user
  *
