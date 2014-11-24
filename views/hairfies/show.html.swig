@@ -15,7 +15,7 @@
         <div class="col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container">
             <div class="legend">
                 <div class="avatar">
-                    <img src="{{hairfie.author.picture.url }}" class="img-circle" />
+                    <img src="{{hairfie.author.picture.url }}" class="img-circle" alt="{{ hairfie.descriptions.display }}" />
                 </div>
                 <div class="author">
                     <span class="name">{{ hairfie.author.firstName }} {{ hairfie.author.lastName | first | capitalize }}.</span>
