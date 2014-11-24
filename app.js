@@ -7,6 +7,7 @@ var bodyParser      = require('body-parser');
 var url             = require('url');
 var proxy           = require('proxy-middleware');
 var swig            = require('swig');
+var filters         = require('./lib/helpers/filters');
 var config          = require('./config/config');
 
 var routes          = require('./routes/index');
@@ -34,11 +35,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 swig.setDefaults({ cache: false });
 
+swig.setFilter('ago', filters.moment);
+swig.setFilter('day', filters.day);
+
 if (app.get('env') === 'development' || app.get('env') === 'staging') {
     app.set('view cache', false);
 } else {
     app.set('view cache', true);
 }
+
+app.use(function(req,res,next){
+  res.locals.GLOBAL = {facebookAppId: config.facebookAppId};
+  next();
+});
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
