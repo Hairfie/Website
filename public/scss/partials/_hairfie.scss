@@ -4,6 +4,11 @@
             border-radius: 5px;
             max-width: 100%;
         }
+        .share-button {
+            position: absolute;
+            bottom: 20px;
+            right: 24px;
+        }
         margin-bottom: 20px;
     }
     .hairfie-legend-container {
@@ -34,12 +39,31 @@
             float: left;
             border-bottom: 1px solid $grey-separator;
 
-            .name {
-                color: $black;
+            span {
                 font-weight: 400;
                 font-size: 16px;
             }
+
+            .name {
+                color: $black;
+            }
+
+            .date {
+                color: $red-title;
+                font-style: italic;
+            }
         }
+
+        .description, .business {
+            padding-left: 54px;
+        }
+
+        .business {
+            a {
+                color: $black;
+            }
+        }
+
     }
 
     .hairfie-legend-container:before {

@@ -15,5 +15,7 @@ app.plug(routrPlugin({
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/EditedBusinessClaimStore'));
+app.registerStore(require('./stores/HairfieStore'));
+app.registerStore(require('./stores/BusinessStore'));
 
 module.exports = app;

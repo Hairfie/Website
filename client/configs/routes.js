@@ -56,5 +56,15 @@ module.exports = {
                 })
             ;
         }
+    },
+    show_hairfie: {
+        path: '/hairfies/:id',
+        method: 'get',
+        authRequired: false
+    },
+    show_business: {
+        path: '/businesses/:id',
+        method: 'get',
+        authRequired: false
     }
 };

@@ -15,6 +15,7 @@ module.exports = function (req, res, next) {
 
     // TODO: remove this hard-coded value
     var path = '/pro'+req.path
+    console.log(path);
 
     var authToken = authStorage.getToken(req);
     context.getActionContext().executeAction(loginWithAuthTokenAction, {token: authToken}, function () {

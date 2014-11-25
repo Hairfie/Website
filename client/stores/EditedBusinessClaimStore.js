@@ -2,8 +2,6 @@
 
 var createStore = require('fluxible-app/utils/createStore');
 
-var Steps = require('../constants/BusinessClaimConstants').Steps;
-
 module.exports = createStore({
     storeName: 'EditedBusinessClaimStore',
     handlers: {
@@ -22,9 +20,6 @@ module.exports = createStore({
     handleOpenSuccess: function (payload) {
         this.businessClaim = payload.businessClaim;
         this.emitChange();
-    },
-    getCurrentStep: function () {
-        return this.currentStep;
     },
     getBusinessClaim: function () {
         return this.businessClaim;

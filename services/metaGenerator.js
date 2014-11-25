@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('../config/config');
-var _ = require('underscore');
+var _ = require('lodash');
 
 var urlGenerator = {
     user: function(user) {
@@ -22,7 +22,6 @@ var urlGenerator = {
 
 var globalMetas = [
     { property: "fb:app_id", content: config.facebookAppId },
-    { property: "og:locale:alternate", content: "fr_FR" }
 ];
 
 var daysOfWeek = {
@@ -63,17 +62,7 @@ module.exports = {
             hairdresserUrl = null,
             description    = null;
 
-        if(hairfie.tags) {
-            description = _.map(hairfie.tags, function(tag) { return '#'+tag.name.replace(/ /g,''); }).join(" ");
-        }
-
-        if(hairfie.description) {
-            description = description + ' ' + hairfie.description;
-        }
-
-        if(business) {
-            description = description + ' made at' + business.name;
-        }
+        description = hairfie.descriptions.facebook;
 
         metas.push.apply(metas, globalMetas);
         metas.push({property: "og:type", content: config.facebookAppNamespace+':hairfie'});
@@ -139,8 +128,9 @@ module.exports = {
         });
 
         if (business.description) {
-            metas.push({property: "og:description", business: hairfie.description});
+            metas.push({property: "og:description", business: business.description});
         }
+
         cb(metas);
     }
 };

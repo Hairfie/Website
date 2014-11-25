@@ -30,6 +30,17 @@ Client.prototype.getUser = function (userId, token) {
     return send(req, token);
 };
 
+Client.prototype.getHairfie = function (hairfieId) {
+    var req = request.get(this.buildUrl('hairfies/' + hairfieId));
+    return send(req);
+};
+
+Client.prototype.getBusiness = function (businessId) {
+    var req = request.get(this.buildUrl('businesses/' + businessId));
+
+    return send(req);
+};
+
 /**
  * Signs up the user
  *
