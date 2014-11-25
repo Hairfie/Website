@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('../config/config');
-var _ = require('underscore');
+var _ = require('lodash');
 
 var urlGenerator = {
     user: function(user) {
