@@ -9,7 +9,6 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var ReactIntlMixin = require('react-intl');
 var NavLink = require('flux-router-component').NavLink;
 
-var getHairfieAction = require('../actions/getHairfie');
 var HairfieStore = require('../stores/HairfieStore');
 
 module.exports = React.createClass({
