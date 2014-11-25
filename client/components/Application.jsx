@@ -35,7 +35,6 @@ module.exports = React.createClass({
     render: function () {
         var routeName = this.state.route ? this.state.route.name : null;
         var body = null;
-        console.log("routing !");
         switch (routeName) {
             case 'home':
                 body = <HomePage context={this.props.context} />
@@ -68,10 +67,10 @@ module.exports = React.createClass({
 
         return (
             <div>
+                <UserStatus context={this.props.context} />
                 <NavLink routeName="show_business" navParams={{id: '542535d9c014c8ef1593e966'}} context={this.props.context}>
                     Test link to business
                 </NavLink>
-                <UserStatus context={this.props.context} />
                 {body}
             </div>
         );

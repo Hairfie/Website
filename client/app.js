@@ -12,6 +12,23 @@ app.plug(routrPlugin({
     routes: require('./configs/routes')
 }));
 
+app.plug({
+    name: 'ActionAccessor',
+    plugContext: function () {
+        return {
+            plugActionContext: function plugActionContext(actionContext) {
+                actionContext.getAction = function (name) {
+                    try {
+                        return require('./actions/'+name);
+                    } catch (e) {
+                        return;
+                    }
+                }
+            }
+        }
+    }
+});
+
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/EditedBusinessClaimStore'));

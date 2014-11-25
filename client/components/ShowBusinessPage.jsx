@@ -3,7 +3,6 @@
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
-var getBusinessAction = require('../actions/getBusiness');
 var BusinessStore = require('../stores/BusinessStore');
 
 module.exports = React.createClass({
