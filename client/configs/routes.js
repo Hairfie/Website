@@ -1,7 +1,9 @@
 'use strict';
 
-var AuthStore = require('../stores/AuthStore');
-var hairfieApi = require('../services/hairfie-api-client');
+var AuthStore       = require('../stores/AuthStore');
+var hairfieApi      = require('../services/hairfie-api-client');
+var businessAction  = require('../actions/getBusiness');
+var hairfieAction   = require('../actions/getHairfie');
 
 module.exports = {
     pro_home: {
@@ -60,11 +62,13 @@ module.exports = {
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',
-        authRequired: false
+        authRequired: false,
+        action: hairfieAction
     },
     show_business: {
         path: '/businesses/:id',
         method: 'get',
-        authRequired: false
+        authRequired: false,
+        action: businessAction
     }
 };

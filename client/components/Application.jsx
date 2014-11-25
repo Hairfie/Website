@@ -5,6 +5,8 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var RouterMixin = require('flux-router-component').RouterMixin;
 var ApplicationStore = require('../stores/ApplicationStore');
 var navigateAction = require('flux-router-component/actions/navigate');
+var NavLink = require('flux-router-component').NavLink;
+
 
 var routes = require('../configs/routes');
 
@@ -61,6 +63,9 @@ module.exports = React.createClass({
 
         return (
             <div>
+                <NavLink routeName="show_business" navParams={{id: '542535d9c014c8ef1593e966'}} context={this.props.context}>
+                    Test link to business
+                </NavLink>
                 <UserStatus context={this.props.context} />
                 {body}
             </div>

@@ -7,7 +7,7 @@ module.exports = function (context, payload, done) {
     context.dispatch('RECEIVE_BUSINESS_START', payload);
 
     hairfieApi
-        .getBusiness(payload.id)
+        .getBusiness(payload.params.id)
         .then(function (business) {
             console.log("get business", business);
             context.dispatch('RECEIVE_BUSINESS_SUCCESS', business);
@@ -31,7 +31,7 @@ module.exports = function (context, payload, done) {
     context.dispatch('RECEIVE_HAIRFIE_START', payload);
 
     hairfieApi
-        .getHairfie(payload.id)
+        .getHairfie(payload.params.id)
         .then(function (hairfie) {
             console.log("get hairfie", hairfie);
             context.dispatch('RECEIVE_HAIRFIE_SUCCESS', hairfie);
@@ -204,6 +204,8 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var RouterMixin = require('flux-router-component').RouterMixin;
 var ApplicationStore = require('../stores/ApplicationStore');
 var navigateAction = require('flux-router-component/actions/navigate');
+var NavLink = require('flux-router-component').NavLink;
+
 
 var routes = require('../configs/routes');
 
@@ -260,6 +262,9 @@ module.exports = React.createClass({displayName: 'exports',
 
         return (
             React.createElement("div", null, 
+                React.createElement(NavLink, {routeName: "show_business", navParams: {id: '542535d9c014c8ef1593e966'}, context: this.props.context}, 
+                    "Test link to business"
+                ), 
                 React.createElement(UserStatus, {context: this.props.context}), 
                 body
             )
@@ -695,8 +700,10 @@ module.exports = React.createClass({displayName: 'exports',
 },{"../actions/login":3,"../actions/logout":4,"../stores/AuthStore":22,"fluxible-app":44,"react":246}],17:[function(require,module,exports){
 'use strict';
 
-var AuthStore = require('../stores/AuthStore');
-var hairfieApi = require('../services/hairfie-api-client');
+var AuthStore       = require('../stores/AuthStore');
+var hairfieApi      = require('../services/hairfie-api-client');
+var businessAction  = require('../actions/getBusiness');
+var hairfieAction   = require('../actions/getHairfie');
 
 module.exports = {
     pro_home: {
@@ -755,16 +762,18 @@ module.exports = {
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',
-        authRequired: false
+        authRequired: false,
+        action: hairfieAction
     },
     show_business: {
         path: '/businesses/:id',
         method: 'get',
-        authRequired: false
+        authRequired: false,
+        action: businessAction
     }
 };
 
-},{"../services/hairfie-api-client":20,"../stores/AuthStore":22}],18:[function(require,module,exports){
+},{"../actions/getBusiness":1,"../actions/getHairfie":2,"../services/hairfie-api-client":20,"../stores/AuthStore":22}],18:[function(require,module,exports){
 'use strict';
 
 var request = require('superagent');

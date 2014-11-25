@@ -17,9 +17,10 @@ var ROUTE_PREFIX = '/hairfies';
 router.get('/:id', function(req, res, next) {
     var context = app.createContext();
     var path = ROUTE_PREFIX + req.path;
+    var params = {id: req.params.id};
 
     context.getActionContext().executeAction(navigateAction, {path: path}, function (err) {
-        context.getActionContext().executeAction(getHairfieAction, {id: req.params.id}, function (err) {
+        context.getActionContext().executeAction(getHairfieAction, {params: params}, function (err) {
             if (err)  {
                 console.log(err);
                 if (err.status && err.status === 404) {

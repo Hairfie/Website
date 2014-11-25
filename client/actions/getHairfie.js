@@ -6,7 +6,7 @@ module.exports = function (context, payload, done) {
     context.dispatch('RECEIVE_HAIRFIE_START', payload);
 
     hairfieApi
-        .getHairfie(payload.id)
+        .getHairfie(payload.params.id)
         .then(function (hairfie) {
             console.log("get hairfie", hairfie);
             context.dispatch('RECEIVE_HAIRFIE_SUCCESS', hairfie);
