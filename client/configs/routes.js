@@ -6,6 +6,11 @@ var businessAction  = require('../actions/getBusiness');
 var hairfieAction   = require('../actions/getHairfie');
 
 module.exports = {
+    home: {
+        path: '/',
+        method: 'get',
+        authRequired: false
+    },
     pro_home: {
         path: '/pro/',
         method: 'get',

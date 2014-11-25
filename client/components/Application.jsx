@@ -11,6 +11,7 @@ var NavLink = require('flux-router-component').NavLink;
 var routes = require('../configs/routes');
 
 var UserStatus = require('./UserStatus.jsx');
+var HomePagePro = require('./HomePagePro.jsx');
 var HomePage = require('./HomePage.jsx');
 var DashboardPage = require('./DashboardPage.jsx');
 var BusinessClaimPage = require('./BusinessClaimPage.jsx');
@@ -36,8 +37,12 @@ module.exports = React.createClass({
         var body = null;
         console.log("routing !");
         switch (routeName) {
-            case 'pro_home':
+            case 'home':
                 body = <HomePage context={this.props.context} />
+                break;
+
+            case 'pro_home':
+                body = <HomePagePro context={this.props.context} />
                 break;
 
             case 'pro_dashboard':

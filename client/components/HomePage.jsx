@@ -1,58 +1,30 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-
-var signupAction = require('../actions/signup');
-
 var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
     render: function () {
         return (
-            <div>
-                <h2>Claim your business</h2>
-                <NavLink context={this.props.context} routeName="show_business" navParams={{id: '542a6546c06f16d14a546980'}}>Plop</NavLink>
-                <div>
-                    <label>
-                        Gender:
-                        <select ref="gender">
-                            <option value="MALE">M</option>
-                            <option value="FEMALE">Mme</option>
-                        </select>
-                    </label>
+            <div className="row home">
+                <div className="col-sm-5 col-sm-offset-2" id="txt">
+                    <h1>
+                        Hairfie, l'App qui vous permet de trouver et de réserver la coiffure et le coiffeur qui vous correspondent !
+                    </h1>
+                    <div className="trait"></div>
+                    <p>
+                        Grâce à Hairfie, choisissez le coiffeur qui vous correspond à partir de photos de coiffures et d'avis.
+                        N’importe où. N’importe quand.Réservez simplement et bénéficiez de promotions ciblées !
+                    </p>
+
+                    <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" className="center">
+                        <img id="btn-apple" src="/img/btn-apple@2x.png" />
+                    </a>
                 </div>
-                <div>
-                    <label>First name: <input ref="firstName" type="text" /></label>
+                <div className="col-sm-3">
+                    <img id="iphone" className="center" src="/img/iphone@2x.png" />
                 </div>
-                <div>
-                    <label>Last name: <input ref="lastName" type="text" /></label>
-                </div>
-                <div>
-                    <label>Email address: <input ref="email" type="email" /></label>
-                </div>
-                <div>
-                    <label>Choose a password: <input ref="password" type="password" /></label>
-                </div>
-                <div>
-                    <label>Phone number: <input ref="phoneNumber" type="text" /></label>
-                </div>
-                <div>
-                    <label>Company: <input ref="businessName" type="text" /></label>
-                </div>
-                <button onClick={this.submit}>Submit</button>
             </div>
         );
-    },
-    submit: function (e) {
-        e.preventDefault();
-        this.props.context.executeAction(signupAction, {
-            gender: this.refs.gender.getDOMNode().value,
-            firstName: this.refs.firstName.getDOMNode().value,
-            lastName: this.refs.lastName.getDOMNode().value,
-            email: this.refs.email.getDOMNode().value,
-            password: this.refs.password.getDOMNode().value,
-            phoneNumber: this.refs.phoneNumber.getDOMNode().value,
-            businessName: this.refs.businessName.getDOMNode().value
-        });
     }
 });
