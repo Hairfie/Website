@@ -15,6 +15,7 @@ module.exports = createStore({
         this.emitChange();
     },
     getBusiness: function () {
+
         return this.business;
     },
     dehydrate: function () {

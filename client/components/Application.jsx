@@ -32,6 +32,7 @@ module.exports = React.createClass({
     render: function () {
         var routeName = this.state.route ? this.state.route.name : null;
         var body = null;
+        console.log("routing !");
         switch (routeName) {
             case 'pro_home':
                 body = <HomePage context={this.props.context} />

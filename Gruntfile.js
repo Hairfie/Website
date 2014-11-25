@@ -27,7 +27,8 @@ module.exports = function (grunt) {
     },
     watch: {
       options: {
-        reload: true
+          nospawn: true,
+          livereload: reloadPort
       },
       js: {
         files: [
@@ -57,7 +58,7 @@ module.exports = function (grunt) {
           'client/**/*.js',
           'client/**/*.jsx'
         ],
-        tasks: ['browserify']
+        tasks: ['browserify', 'develop']
       }
     },
     wiredep: {

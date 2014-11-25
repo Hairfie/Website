@@ -231,6 +231,7 @@ module.exports = React.createClass({displayName: 'exports',
     render: function () {
         var routeName = this.state.route ? this.state.route.name : null;
         var body = null;
+        console.log("routing !");
         switch (routeName) {
             case 'pro_home':
                 body = React.createElement(HomePage, {context: this.props.context})
@@ -1073,6 +1074,7 @@ module.exports = createStore({
         this.emitChange();
     },
     getBusiness: function () {
+
         return this.business;
     },
     dehydrate: function () {
