@@ -3,6 +3,9 @@
 var React = require('react');
 var app = require('./app');
 var appState = window.appState;
+var debug = require('debug');
+
+debug.enable('*');
 
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;

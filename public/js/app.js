@@ -184,6 +184,9 @@ module.exports = app;
 var React = require('react');
 var app = require('./app');
 var appState = window.appState;
+var debug = require('debug');
+
+debug.enable('*');
 
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
@@ -193,7 +196,7 @@ app.rehydrate(appState, function (error, context) {
     );
 });
 
-},{"./app":7,"react":246}],9:[function(require,module,exports){
+},{"./app":7,"debug":33,"react":246}],9:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -584,7 +587,9 @@ module.exports = React.createClass({displayName: 'exports',
         if(this.state.hairfie.business) {
             business = (
                 React.createElement("div", {className: "business"}, 
-                    React.createElement(NavLink, {href: '/businesses/' + this.state.hairfie.business.id, context: context}, "Made at ",  this.state.hairfie.business.name)
+                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context}, 
+                        "Made at ",  this.state.hairfie.business.name
+                    )
                 )
             )
         } else {
@@ -618,6 +623,7 @@ module.exports = React.createClass({displayName: 'exports',
         );
     }
 });
+
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../actions/getHairfie":2,"../stores/HairfieStore":25,"flux-router-component":37,"fluxible-app":44,"intl":63,"react":246,"react-intl":66}],16:[function(require,module,exports){
 /** @jsx React.DOM */
@@ -913,6 +919,7 @@ module.exports = new HairfieClient({
 var createStore = require('fluxible-app/utils/createStore');
 var AuthStore = require('./AuthStore');
 var navigateAction = require('flux-router-component').navigateAction;
+var debug = require('debug')('App:ApplicationStore');
 
 var routes = require('../configs/routes');
 
@@ -955,10 +962,12 @@ module.exports = createStore({
             isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
+            debug('Redirect user to after login page');
             this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
+            debug('Redirect user to login page');
             this.redirectToRoute(ROUTE_LOGIN);
         }
 
@@ -989,7 +998,7 @@ module.exports = createStore({
     }
 });
 
-},{"../configs/routes":17,"./AuthStore":22,"flux-router-component":37,"fluxible-app/utils/createStore":55}],22:[function(require,module,exports){
+},{"../configs/routes":17,"./AuthStore":22,"debug":33,"flux-router-component":37,"fluxible-app/utils/createStore":55}],22:[function(require,module,exports){
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
@@ -1098,9 +1107,6 @@ module.exports = createStore({
     handleOpenSuccess: function (payload) {
         this.businessClaim = payload.businessClaim;
         this.emitChange();
-    },
-    getCurrentStep: function () {
-        return this.currentStep;
     },
     getBusinessClaim: function () {
         return this.businessClaim;
