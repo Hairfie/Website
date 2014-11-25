@@ -13,6 +13,9 @@ var filters         = require('./lib/helpers/filters');
 var config          = require('./config/config');
 var debug           = require('debug')('Server');
 var server          = express();
+var expressState    = require('express-state');
+
+expressState.extend(server);
 
 // i18n - Translations
 var i18n            = require('i18n');
@@ -41,6 +44,8 @@ server.use(cookieParser());
 server.use('/api', proxy(url.parse('http://hairfie.herokuapp.com/api')));
 server.use(express.static(path.join(__dirname, 'public')));
 
+server.set('state namespace', 'App');
+
 // serve application
 server.use(function (req, res, next) {
     var app              = require('./client/app');
@@ -49,6 +54,7 @@ server.use(function (req, res, next) {
     var payload          = {request: req};
     var ApplicationStore = require('./client/stores/ApplicationStore');
     var React            = require('react');
+    var HtmlComponent    = React.createFactory(require('./client/components/Html.jsx'));
 
     context.executeAction(initialize, payload, function (error) {
         if (error) return next(error);
@@ -60,15 +66,22 @@ server.use(function (req, res, next) {
                 return;
             }
 
-            var appHtml = React.renderToString(app.getAppComponent()({
-                context: context.getComponentContext()
-            }));
             var appState = app.dehydrate(context);
+            var AppComponent = app.getAppComponent();
 
-            res.render('index', {
-                appHtml : appHtml,
-                appState: appState
-            });
+            res.expose(appState, 'App');
+
+            var html = React.renderToStaticMarkup(HtmlComponent({
+                state: res.locals.state,
+                markup: React.renderToString(AppComponent({
+                    context: context.getComponentContext()
+                }))
+            }));
+
+            debug('Sending markup');
+            res.write(html);
+            res.end();
+
         } catch (e) {
             next(e);
         }

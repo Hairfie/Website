@@ -183,7 +183,7 @@ module.exports = app;
 
 var React = require('react');
 var app = require('./app');
-var appState = window.appState;
+var appState = window.App;
 var debug = require('debug');
 
 debug.enable('*');
@@ -266,11 +266,11 @@ module.exports = React.createClass({displayName: 'exports',
         }
 
         return (
-            React.createElement("div", null, 
-                React.createElement(NavLink, {routeName: "show_business", navParams: {id: '542535d9c014c8ef1593e966'}, context: this.props.context}, 
+            React.createElement("div", null,
+                React.createElement(NavLink, {routeName: "show_business", navParams: {id: '542535d9c014c8ef1593e966'}, context: this.props.context},
                     "Test link to business"
-                ), 
-                React.createElement(UserStatus, {context: this.props.context}), 
+                ),
+                React.createElement(UserStatus, {context: this.props.context}),
                 body
             )
         );
@@ -292,24 +292,24 @@ var GeneralForm = React.createClass({displayName: 'GeneralForm',
     render: function  () {
         var claim = this.props.businessClaim;
         return (
-            React.createElement("div", null, 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Name:", 
+            React.createElement("div", null,
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Name:",
                         React.createElement("input", {ref: "name", defaultValue: claim.name})
                     )
-                ), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Phone number:", 
+                ),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Phone number:",
                         React.createElement("input", {ref: "phoneNumber", defaultValue: claim.phoneNumber})
                     )
-                ), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Kind:", 
-                        React.createElement("select", {ref: "kind", defaultValue: claim.kind}, 
-                            React.createElement("option", {value: "SALON"}, "Salon"), 
+                ),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Kind:",
+                        React.createElement("select", {ref: "kind", defaultValue: claim.kind},
+                            React.createElement("option", {value: "SALON"}, "Salon"),
                             React.createElement("option", {value: "HOME"}, "Home")
                         )
                     )
@@ -324,24 +324,24 @@ var AddressForm = React.createClass({displayName: 'AddressForm',
         var address = this.props.businessClaim.address || {};
 
         return (
-            React.createElement("div", null, 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Street address:", 
+            React.createElement("div", null,
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Street address:",
                         React.createElement("input", {ref: "street", defaultValue: address.street})
                     )
-                ), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "City:", 
+                ),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "City:",
                         React.createElement("input", {ref: "city", defaultValue: address.city})
                     )
-                ), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Kind:", 
-                        React.createElement("select", {ref: "kind", defaultValue: claim.kind}, 
-                            React.createElement("option", {value: "SALON"}, "Salon"), 
+                ),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Kind:",
+                        React.createElement("select", {ref: "kind", defaultValue: claim.kind},
+                            React.createElement("option", {value: "SALON"}, "Salon"),
                             React.createElement("option", {value: "HOME"}, "Home")
                         )
                     )
@@ -356,16 +356,16 @@ var MapForm = React.createClass({displayName: 'MapForm',
         var gps = this.props.businessClaim.gps || {};
 
         return (
-            React.createElement("div", null, 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Latitude:", 
+            React.createElement("div", null,
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Latitude:",
                         React.createElement("input", {ref: "lat", defaultValue: gps.lat})
                     )
-                ), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Longitude:", 
+                ),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Longitude:",
                         React.createElement("input", {ref: "lng", defaultValue: gps.lng})
                     )
                 )
@@ -389,10 +389,10 @@ module.exports = React.createClass({displayName: 'exports',
     },
     render: function () {
         return (
-            React.createElement("div", null, 
-                React.createElement(GeneralForm, {ref: "generalForm", businessClaim: this.state.businessClaim}), 
-                React.createElement(AddressForm, {ref: "addressForm", businessClaim: this.state.businessClaim}), 
-                React.createElement(MapForm, {ref: "mapForm", businessClaim: this.state.businessClaim}), 
+            React.createElement("div", null,
+                React.createElement(GeneralForm, {ref: "generalForm", businessClaim: this.state.businessClaim}),
+                React.createElement(AddressForm, {ref: "addressForm", businessClaim: this.state.businessClaim}),
+                React.createElement(MapForm, {ref: "mapForm", businessClaim: this.state.businessClaim}),
                 React.createElement("button", {onClick: this.save}, "save")
             )
         );
@@ -436,22 +436,22 @@ var NavLink = require('flux-router-component').NavLink;
 module.exports = React.createClass({displayName: 'exports',
     render: function () {
         return (
-            React.createElement("div", {className: "row home"}, 
-                React.createElement("div", {className: "col-sm-5 col-sm-offset-2", id: "txt"}, 
-                    React.createElement("h1", null, 
+            React.createElement("div", {className: "row home"},
+                React.createElement("div", {className: "col-sm-5 col-sm-offset-2", id: "txt"},
+                    React.createElement("h1", null,
                         "Hairfie, l'App qui vous permet de trouver et de réserver la coiffure et le coiffeur qui vous correspondent !"
-                    ), 
-                    React.createElement("div", {className: "trait"}), 
-                    React.createElement("p", null, 
+                    ),
+                    React.createElement("div", {className: "trait"}),
+                    React.createElement("p", null,
                         "Grâce à Hairfie, choisissez le coiffeur qui vous correspond à partir de photos de coiffures et d'avis." + ' ' +
                         "N’importe où. N’importe quand.Réservez simplement et bénéficiez de promotions ciblées !"
-                    ), 
+                    ),
 
-                    React.createElement("a", {href: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8", className: "center"}, 
+                    React.createElement("a", {href: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8", target: "_blank", className: "center"},
                         React.createElement("img", {id: "btn-apple", src: "/img/btn-apple@2x.png"})
                     )
-                ), 
-                React.createElement("div", {className: "col-sm-3"}, 
+                ),
+                React.createElement("div", {className: "col-sm-3"},
                     React.createElement("img", {id: "iphone", className: "center", src: "/img/iphone@2x.png"})
                 )
             )
@@ -471,36 +471,36 @@ var NavLink = require('flux-router-component').NavLink;
 module.exports = React.createClass({displayName: 'exports',
     render: function () {
         return (
-            React.createElement("div", null, 
-                React.createElement("h2", null, "Claim your business"), 
-                React.createElement(NavLink, {context: this.props.context, routeName: "show_business", navParams: {id: '542a6546c06f16d14a546980'}}, "Plop"), 
-                React.createElement("div", null, 
-                    React.createElement("label", null, 
-                        "Gender:", 
-                        React.createElement("select", {ref: "gender"}, 
-                            React.createElement("option", {value: "MALE"}, "M"), 
+            React.createElement("div", null,
+                React.createElement("h2", null, "Claim your business"),
+                React.createElement(NavLink, {context: this.props.context, routeName: "show_business", navParams: {id: '542a6546c06f16d14a546980'}}, "Plop"),
+                React.createElement("div", null,
+                    React.createElement("label", null,
+                        "Gender:",
+                        React.createElement("select", {ref: "gender"},
+                            React.createElement("option", {value: "MALE"}, "M"),
                             React.createElement("option", {value: "FEMALE"}, "Mme")
                         )
                     )
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "First name: ", React.createElement("input", {ref: "firstName", type: "text"}))
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "Last name: ", React.createElement("input", {ref: "lastName", type: "text"}))
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "Email address: ", React.createElement("input", {ref: "email", type: "email"}))
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "Choose a password: ", React.createElement("input", {ref: "password", type: "password"}))
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "Phone number: ", React.createElement("input", {ref: "phoneNumber", type: "text"}))
-                ), 
-                React.createElement("div", null, 
+                ),
+                React.createElement("div", null,
                     React.createElement("label", null, "Company: ", React.createElement("input", {ref: "businessName", type: "text"}))
-                ), 
+                ),
                 React.createElement("button", {onClick: this.submit}, "Submit")
             )
         );
@@ -553,44 +553,44 @@ module.exports = React.createClass({displayName: 'exports',
         return this.getStateFromStores();
     },
     render: function () {
-        return React.createElement("h1", null, "Business Details");
+        //return React.createElement("h1", null, "Business Details");
         var address;
         if (this.state.business.address) {
             address = (
-                React.createElement("p", null, 
-                     this.state.business.address.street, " ", React.createElement("br", null), 
+                React.createElement("p", null,
+                     this.state.business.address.street, " ", React.createElement("br", null),
                      this.state.business.address.zipCode, " ",  this.state.business.address.city
                 )
             )
         } else {
             address = (
-                React.createElement("p", null, 
+                React.createElement("p", null,
                     "Information not available"
                 )
             )
         }
 
         return (
-                React.createElement("div", {className: "row", id: "business-header"}, 
-                    React.createElement("div", {className: "col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures"}, 
+                React.createElement("div", {className: "row", id: "business-header"},
+                    React.createElement("div", {className: "col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures"},
                         React.createElement("img", {src:  this.state.business.pictures[0].url + '?height=300&width=230', className: "img-rounded"})
-                    ), 
-                    React.createElement("div", {className: "col-md-4 col-sm-3 col-xs-12 infos"}, 
-                        React.createElement("h1", null, " ", this.state.business.name), 
-                        React.createElement("p", {className: "info address"}, 
-                            React.createElement("span", {className: "icon icon-address"}), 
-                            React.createElement("span", {className: "content"}, 
-                                address 
+                    ),
+                    React.createElement("div", {className: "col-md-4 col-sm-3 col-xs-12 infos"},
+                        React.createElement("h1", null, " ", this.state.business.name),
+                        React.createElement("p", {className: "info address"},
+                            React.createElement("span", {className: "icon icon-address"}),
+                            React.createElement("span", {className: "content"},
+                                address
                             )
-                        ), 
-                        React.createElement("p", {className: "info phone"}, 
-                            React.createElement("span", {className: "icon icon-phone"}), 
-                            React.createElement("span", {className: "content"}, 
+                        ),
+                        React.createElement("p", {className: "info phone"},
+                            React.createElement("span", {className: "icon icon-phone"}),
+                            React.createElement("span", {className: "content"},
                                 React.createElement("span", {className: "label label-red"}, this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available')
                             )
                         )
-                    ), 
-                    React.createElement("div", {className: "col-md-3 col-sm-3 col-xs-12 map"}, 
+                    ),
+                    React.createElement("div", {className: "col-md-3 col-sm-3 col-xs-12 map"},
                         React.createElement("div", {id: "gmap-business", 'data-lat':  this.state.business.gps.lat, 'data-lng':  this.state.business.gps.lng, 'data-title': "{ this.state.business.name }"})
                     )
                 )
@@ -634,8 +634,8 @@ module.exports = React.createClass({displayName: 'exports',
 
         if(this.state.hairfie.business) {
             business = (
-                React.createElement("div", {className: "business"}, 
-                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context}, 
+                React.createElement("div", {className: "business"},
+                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context},
                         "Made at ",  this.state.hairfie.business.name
                     )
                 )
@@ -644,26 +644,26 @@ module.exports = React.createClass({displayName: 'exports',
             business = null;
         }
         return (
-            React.createElement("div", {className: "row hairfie"}, 
-                React.createElement("div", {className: "col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture"}, 
-                    React.createElement("img", {src: this.state.hairfie.picture.url, alt:  this.state.hairfie.descriptions.display}), 
+            React.createElement("div", {className: "row hairfie"},
+                React.createElement("div", {className: "col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture"},
+                    React.createElement("img", {src: this.state.hairfie.picture.url, alt:  this.state.hairfie.descriptions.display}),
                     React.createElement("div", {className: "share-button"})
-                ), 
+                ),
 
-                React.createElement("div", {className: "col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container"}, 
-                    React.createElement("div", {className: "legend"}, 
-                        React.createElement("div", {className: "avatar"}, 
+                React.createElement("div", {className: "col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container"},
+                    React.createElement("div", {className: "legend"},
+                        React.createElement("div", {className: "avatar"},
                             React.createElement("img", {src: this.state.hairfie.author.picture.url, className: "img-circle"})
-                        ), 
-                        React.createElement("div", {className: "author"}, 
-                            React.createElement("span", {className: "name"},  this.state.hairfie.author.firstName, " ",  this.state.hairfie.author.lastName.substring(0,1), "."), 
+                        ),
+                        React.createElement("div", {className: "author"},
+                            React.createElement("span", {className: "name"},  this.state.hairfie.author.firstName, " ",  this.state.hairfie.author.lastName.substring(0,1), "."),
                             React.createElement("span", {className: "date"}, " - ",  this.formatRelative(this.state.hairfie.createdAt) )
-                        ), 
-                        React.createElement("div", {className: "clearfix"}), 
-                        React.createElement("div", {className: "description"}, 
+                        ),
+                        React.createElement("div", {className: "clearfix"}),
+                        React.createElement("div", {className: "description"},
                              this.state.hairfie.descriptions.display
-                        ), 
-                        React.createElement("div", {className: "clearfix"}), 
+                        ),
+                        React.createElement("div", {className: "clearfix"}),
                         business
                     )
                 )
@@ -701,7 +701,7 @@ module.exports = React.createClass({displayName: 'exports',
     render: function () {
         if (this.state.loading) {
             return (
-                React.createElement("div", {className: "user-status loading"}, 
+                React.createElement("div", {className: "user-status loading"},
                     "Login in progress..."
                 )
             );
@@ -709,17 +709,17 @@ module.exports = React.createClass({displayName: 'exports',
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
 
             return (
-                React.createElement("div", {className: "user-status authenticated"}, 
-                    React.createElement("img", {src: pictureSrc}), 
-                    this.state.user.firstName, 
+                React.createElement("div", {className: "user-status authenticated"},
+                    React.createElement("img", {src: pictureSrc}),
+                    this.state.user.firstName,
                      "- ", React.createElement("a", {onClick: this.logOut}, "Log out")
                 )
             );
         } else {
             return (
-                React.createElement("div", {className: "user-status anonymous"}, 
-                    React.createElement("label", null, "Email: ", React.createElement("input", {ref: "email", type: "email"})), 
-                    React.createElement("label", null, "Password: ", React.createElement("input", {ref: "password", type: "password"})), 
+                React.createElement("div", {className: "user-status anonymous"},
+                    React.createElement("label", null, "Email: ", React.createElement("input", {ref: "email", type: "email"})),
+                    React.createElement("label", null, "Password: ", React.createElement("input", {ref: "password", type: "password"})),
                     React.createElement("button", {onClick: this.logIn}, "Log in")
                 )
             );
@@ -4992,13 +4992,13 @@ module.exports = StoreMixin;
         };
         return q;
     };
-    
+
     async.priorityQueue = function (worker, concurrency) {
-        
+
         function _compareTasks(a, b){
           return a.priority - b.priority;
         };
-        
+
         function _binarySearch(sequence, item, compare) {
           var beg = -1,
               end = sequence.length - 1;
@@ -5012,7 +5012,7 @@ module.exports = StoreMixin;
           }
           return beg;
         }
-        
+
         function _insert(q, data, priority, callback) {
           if (!q.started){
             q.started = true;
@@ -5034,7 +5034,7 @@ module.exports = StoreMixin;
                   priority: priority,
                   callback: typeof callback === 'function' ? callback : null
               };
-              
+
               q.tasks.splice(_binarySearch(q.tasks, item, _compareTasks) + 1, 0, item);
 
               if (q.saturated && q.tasks.length === q.concurrency) {
@@ -5043,15 +5043,15 @@ module.exports = StoreMixin;
               async.setImmediate(q.process);
           });
         }
-        
+
         // Start with a normal queue
         var q = async.queue(worker, concurrency);
-        
+
         // Override push to accept second parameter representing priority
         q.push = function (data, priority, callback) {
           _insert(q, data, priority, callback);
         };
-        
+
         // Remove unshift function
         delete q.unshift;
 
@@ -41517,8 +41517,8 @@ function Response(req, options) {
   options = options || {};
   this.req = req;
   this.xhr = this.req.xhr;
-  this.text = this.req.method !='HEAD' 
-     ? this.xhr.responseText 
+  this.text = this.req.method !='HEAD'
+     ? this.xhr.responseText
      : null;
   this.setStatusProperties(this.xhr.status);
   this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
@@ -41679,7 +41679,7 @@ function Request(method, url) {
     var res = null;
 
     try {
-      res = new Response(self); 
+      res = new Response(self);
     } catch(e) {
       err = new Error('Parser is unable to parse the response');
       err.parse = true;
@@ -42481,7 +42481,7 @@ Emitter.prototype.hasListeners = function(event){
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -42491,7 +42491,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 },{}]},{},[8]);

@@ -2,7 +2,7 @@
 
 var React = require('react');
 var app = require('./app');
-var appState = window.appState;
+var appState = window.App;
 var debug = require('debug');
 
 debug.enable('*');

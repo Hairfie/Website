@@ -17,7 +17,7 @@ module.exports = React.createClass({
                         N’importe où. N’importe quand.Réservez simplement et bénéficiez de promotions ciblées !
                     </p>
 
-                    <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" className="center">
+                    <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" target="_blank" className="center">
                         <img id="btn-apple" src="/img/btn-apple@2x.png" />
                     </a>
                 </div>
