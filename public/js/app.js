@@ -401,7 +401,7 @@ module.exports = React.createClass({displayName: 'exports',
         if(this.state.hairfie.business) {
             business = (
                 React.createElement("div", {className: "business"}, 
-                    React.createElement(NavLink, {href: '/businesses/' + this.state.hairfie.business.id, context: context}, "Made at ",  this.state.hairfie.business.name)
+                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: this.props.context}, " Made at ",  this.state.hairfie.business.name)
                 )
             )
         } else {

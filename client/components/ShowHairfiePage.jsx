@@ -32,7 +32,7 @@ module.exports = React.createClass({
         if(this.state.hairfie.business) {
             business = (
                 <div className="business">
-                    <NavLink href={'/businesses/' + this.state.hairfie.business.id } context={context}>Made at { this.state.hairfie.business.name }</NavLink>
+                    <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id}} context={this.props.context}> Made at { this.state.hairfie.business.name }</NavLink>
                 </div>
             )
         } else {
