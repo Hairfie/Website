@@ -31,10 +31,13 @@ module.exports = createStore({
     },
     onChangeRouteSuccess: function (payload) {
         if (payload.path != this.currentPath) {
+            debug('routing from '+this.currentPath+' to '+payload.path);
             this.currentPath = payload.path;
             this.currentParams = payload.params;
             this.currentRouteName = payload.name;
             this.applyAuthRules(true);
+        } else {
+            debug('no change in path, ignoring route change');
         }
     },
     onAuthChange: function (payload) {
@@ -46,12 +49,12 @@ module.exports = createStore({
             isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
-            debug('Redirect user to after login page');
+            debug('user is authenticated, redirecting user to after login page');
             this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
-            debug('Redirect user to login page');
+            debug('user is not authenticated, redirecting user to login page');
             this.redirectToRoute(ROUTE_LOGIN);
         }
 
