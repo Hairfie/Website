@@ -1,10 +1,10 @@
 'use strict';
 
 var request = require('superagent');
-var Q = require('q');
+var Promise = require('q');
 
 function send(req, token) {
-    var deferred = Q.defer();
+    var deferred = Promise.defer();
 
     if (token) req.set('Authorization', token.id);
 
@@ -24,16 +24,30 @@ function Client (options) {
     this.options = options;
 };
 
-Client.prototype.createUser = function (values) {
-    var req = request.post(this.buildUrl('users')).send(values);
-
-    return send(req);
-};
-
 Client.prototype.getUser = function (userId, token) {
     var req = request.get(this.buildUrl('users/'+userId));
 
     return send(req, token);
+};
+
+/**
+ * Signs up the user
+ *
+ * @param string email
+ * @param string password
+ *
+ * @return Promise
+ */
+Client.prototype.signup = function (values) {
+    var req = request.post(this.buildUrl('users')).send(values);
+
+    return send(req)
+        .then(function (user) {
+            return {
+                user    : user,
+                token   : user.token
+            }
+        });
 };
 
 /**
@@ -62,6 +76,19 @@ Client.prototype.login = function (email, password) {
 
 Client.prototype.logout = function (token) {
     var req = request.post(this.buildUrl('users/logout'))
+
+    return send(req, token);
+};
+
+Client.prototype.saveBusinessClaim = function (businessClaim, token) {
+    var path = 'businessClaims'+(businessClaim.id ? '/'+businessClaim.id : ''),
+        req = request.post(this.buildUrl(path)).send(businessClaim);
+
+    return send(req, token);
+};
+
+Client.prototype.getBusinessClaim = function (businessClaimId, token) {
+    var req = request.get(this.buildUrl('businessClaims/'+businessClaimId));
 
     return send(req, token);
 };

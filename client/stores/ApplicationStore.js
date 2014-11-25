@@ -44,7 +44,6 @@ module.exports = createStore({
             oldRouteName = this.getCurrentRouteName(),
             isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
-        console.log(isAuthenticated, currentRoute);
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
             this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }

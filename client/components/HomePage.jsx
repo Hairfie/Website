@@ -28,10 +28,13 @@ module.exports = React.createClass({
                     <label>Email address: <input ref="email" type="email" /></label>
                 </div>
                 <div>
+                    <label>Choose a password: <input ref="password" type="password" /></label>
+                </div>
+                <div>
                     <label>Phone number: <input ref="phoneNumber" type="text" /></label>
                 </div>
                 <div>
-                    <label>Company: <input ref="companyName" type="text" /></label>
+                    <label>Company: <input ref="businessName" type="text" /></label>
                 </div>
                 <button onClick={this.submit}>Submit</button>
             </div>
@@ -44,8 +47,9 @@ module.exports = React.createClass({
             firstName: this.refs.firstName.getDOMNode().value,
             lastName: this.refs.lastName.getDOMNode().value,
             email: this.refs.email.getDOMNode().value,
+            password: this.refs.password.getDOMNode().value,
             phoneNumber: this.refs.phoneNumber.getDOMNode().value,
-            companyName: this.refs.companyName.getDOMNode().value
+            businessName: this.refs.businessName.getDOMNode().value
         });
     }
 });

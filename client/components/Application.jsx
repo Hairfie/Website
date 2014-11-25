@@ -11,6 +11,7 @@ var routes = require('../configs/routes');
 var UserStatus = require('./UserStatus.jsx');
 var HomePage = require('./HomePage.jsx');
 var DashboardPage = require('./DashboardPage.jsx');
+var BusinessClaimPage = require('./BusinessClaimPage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
 
 module.exports = React.createClass({
@@ -38,7 +39,12 @@ module.exports = React.createClass({
                 body = <DashboardPage context={this.props.context} />
                 break;
 
+            case 'pro_business_claim':
+                body = <BusinessClaimPage context={this.props.context} />
+                break;
+
             default:
+                console.log(routeName);
                 body = <NotFoundPage />
         }
 
