@@ -27,8 +27,7 @@ module.exports = function (grunt) {
     },
     watch: {
       options: {
-        nospawn: true,
-        livereload: reloadPort
+        reload: true
       },
       js: {
         files: [

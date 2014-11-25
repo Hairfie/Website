@@ -32,7 +32,9 @@ module.exports = React.createClass({
         if(this.state.hairfie.business) {
             business = (
                 <div className="business">
-                    <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id}} context={this.props.context}> Made at { this.state.hairfie.business.name }</NavLink>
+                    <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id}} context={context}>
+                        Made at { this.state.hairfie.business.name }
+                    </NavLink>
                 </div>
             )
         } else {
@@ -41,7 +43,7 @@ module.exports = React.createClass({
         return (
             <div className="row hairfie">
                 <div className="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture">
-                    <img src={this.state.hairfie.picture.url} />
+                    <img src={this.state.hairfie.picture.url} alt={ this.state.hairfie.descriptions.display }/>
                     <div className="share-button"></div>
                 </div>
 

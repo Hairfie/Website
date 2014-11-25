@@ -3,6 +3,7 @@
 var createStore = require('fluxible-app/utils/createStore');
 var AuthStore = require('./AuthStore');
 var navigateAction = require('flux-router-component').navigateAction;
+var debug = require('debug')('App:ApplicationStore');
 
 var routes = require('../configs/routes');
 
@@ -45,10 +46,12 @@ module.exports = createStore({
             isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
+            debug('Redirect user to after login page');
             this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
+            debug('Redirect user to login page');
             this.redirectToRoute(ROUTE_LOGIN);
         }
 

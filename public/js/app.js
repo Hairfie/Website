@@ -184,6 +184,9 @@ module.exports = app;
 var React = require('react');
 var app = require('./app');
 var appState = window.appState;
+var debug = require('debug');
+
+debug.enable('*');
 
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
@@ -193,7 +196,7 @@ app.rehydrate(appState, function (error, context) {
     );
 });
 
-},{"./app":7,"react":246}],9:[function(require,module,exports){
+},{"./app":7,"debug":33,"react":246}],9:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -584,7 +587,9 @@ module.exports = React.createClass({displayName: 'exports',
         if(this.state.hairfie.business) {
             business = (
                 React.createElement("div", {className: "business"}, 
-                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: this.props.context}, " Made at ",  this.state.hairfie.business.name)
+                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context}, 
+                        "Made at ",  this.state.hairfie.business.name
+                    )
                 )
             )
         } else {
@@ -593,7 +598,7 @@ module.exports = React.createClass({displayName: 'exports',
         return (
             React.createElement("div", {className: "row hairfie"}, 
                 React.createElement("div", {className: "col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture"}, 
-                    React.createElement("img", {src: this.state.hairfie.picture.url}), 
+                    React.createElement("img", {src: this.state.hairfie.picture.url, alt:  this.state.hairfie.descriptions.display}), 
                     React.createElement("div", {className: "share-button"})
                 ), 
 
@@ -618,6 +623,7 @@ module.exports = React.createClass({displayName: 'exports',
         );
     }
 });
+
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../actions/getHairfie":2,"../stores/HairfieStore":25,"flux-router-component":37,"fluxible-app":44,"intl":63,"react":246,"react-intl":66}],16:[function(require,module,exports){
 /** @jsx React.DOM */
@@ -913,6 +919,7 @@ module.exports = new HairfieClient({
 var createStore = require('fluxible-app/utils/createStore');
 var AuthStore = require('./AuthStore');
 var navigateAction = require('flux-router-component').navigateAction;
+var debug = require('debug')('App:ApplicationStore');
 
 var routes = require('../configs/routes');
 
@@ -955,10 +962,12 @@ module.exports = createStore({
             isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
+            debug('Redirect user to after login page');
             this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
+            debug('Redirect user to login page');
             this.redirectToRoute(ROUTE_LOGIN);
         }
 
@@ -989,7 +998,7 @@ module.exports = createStore({
     }
 });
 
-},{"../configs/routes":17,"./AuthStore":22,"flux-router-component":37,"fluxible-app/utils/createStore":55}],22:[function(require,module,exports){
+},{"../configs/routes":17,"./AuthStore":22,"debug":33,"flux-router-component":37,"fluxible-app/utils/createStore":55}],22:[function(require,module,exports){
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
@@ -1098,9 +1107,6 @@ module.exports = createStore({
     handleOpenSuccess: function (payload) {
         this.businessClaim = payload.businessClaim;
         this.emitChange();
-    },
-    getCurrentStep: function () {
-        return this.currentStep;
     },
     getBusinessClaim: function () {
         return this.businessClaim;
@@ -5693,7 +5699,7 @@ module.exports = function createStore(spec) {
 
 },{"./BaseStore":52,"util":32}],54:[function(require,module,exports){
 module.exports=require(43)
-},{"/Users/Antoine/Hairfie/Website/node_modules/flux-router-component/node_modules/setimmediate/setImmediate.js":43,"_process":30}],55:[function(require,module,exports){
+},{"/Users/Ghislain/src/Hairfie/Website/node_modules/flux-router-component/node_modules/setimmediate/setImmediate.js":43,"_process":30}],55:[function(require,module,exports){
 module.exports = require('dispatchr/utils/createStore');
 
 },{"dispatchr/utils/createStore":53}],56:[function(require,module,exports){
@@ -6259,7 +6265,7 @@ module.exports = function reverend(route, obj) {
 
 },{"path-to-regexp":62}],62:[function(require,module,exports){
 module.exports=require(60)
-},{"/Users/Antoine/Hairfie/Website/node_modules/fluxible-plugin-routr/node_modules/routr/node_modules/path-to-regexp/index.js":60}],63:[function(require,module,exports){
+},{"/Users/Ghislain/src/Hairfie/Website/node_modules/fluxible-plugin-routr/node_modules/routr/node_modules/path-to-regexp/index.js":60}],63:[function(require,module,exports){
 (function (global){
 /**
  * @license Copyright 2013 Andy Earnshaw, MIT License
@@ -16153,7 +16159,8 @@ return Intl;
  */
 
 (function (definition) {
-    "use strict";
+    // Turn off strict mode for this function so we can assign to global.Q
+    /* jshint strict: false */
 
     // This file will function properly as a <script> tag, or a module
     // using CommonJS and NodeJS or RequireJS module formats.  In
@@ -16165,7 +16172,7 @@ return Intl;
         bootstrap("promise", definition);
 
     // CommonJS
-    } else if (typeof exports === "object" && typeof module === "object") {
+    } else if (typeof exports === "object") {
         module.exports = definition();
 
     // RequireJS
@@ -16181,11 +16188,8 @@ return Intl;
         }
 
     // <script>
-    } else if (typeof self !== "undefined") {
-        self.Q = definition();
-
     } else {
-        throw new Error("This environment was not anticiapted by Q. Please file a bug.");
+        Q = definition();
     }
 
 })(function () {
@@ -16578,7 +16582,7 @@ function Q(value) {
     // If the object is already a Promise, return it directly.  This enables
     // the resolve function to both be used to created references from objects,
     // but to tolerably coerce non-promises to promises.
-    if (value instanceof Promise) {
+    if (isPromise(value)) {
         return value;
     }
 
@@ -16601,11 +16605,6 @@ Q.nextTick = nextTick;
  * Controls whether or not long stack traces will be on
  */
 Q.longStackSupport = false;
-
-// enable long stacks if Q_DEBUG is set
-if (typeof process === "object" && process && process.env && process.env.Q_DEBUG) {
-    Q.longStackSupport = true;
-}
 
 /**
  * Constructs a {promise, resolve, reject} object.
@@ -16638,7 +16637,7 @@ function defer() {
                 progressListeners.push(operands[1]);
             }
         } else {
-            Q.nextTick(function () {
+            nextTick(function () {
                 resolvedPromise.promiseDispatch.apply(resolvedPromise, args);
             });
         }
@@ -16686,7 +16685,7 @@ function defer() {
         promise.source = newPromise;
 
         array_reduce(messages, function (undefined, message) {
-            Q.nextTick(function () {
+            nextTick(function () {
                 newPromise.promiseDispatch.apply(newPromise, message);
             });
         }, void 0);
@@ -16724,7 +16723,7 @@ function defer() {
         }
 
         array_reduce(progressListeners, function (undefined, progressListener) {
-            Q.nextTick(function () {
+            nextTick(function () {
                 progressListener(progress);
             });
         }, void 0);
@@ -16817,9 +16816,9 @@ Promise.prototype.join = function (that) {
 };
 
 /**
- * Returns a promise for the first of an array of promises to become settled.
+ * Returns a promise for the first of an array of promises to become fulfilled.
  * @param answers {Array[Any*]} promises to race
- * @returns {Any*} the first promise to be settled
+ * @returns {Any*} the first promise to be fulfilled
  */
 Q.race = race;
 function race(answerPs) {
@@ -16939,7 +16938,7 @@ Promise.prototype.then = function (fulfilled, rejected, progressed) {
         return typeof progressed === "function" ? progressed(value) : value;
     }
 
-    Q.nextTick(function () {
+    nextTick(function () {
         self.promiseDispatch(function (value) {
             if (done) {
                 return;
@@ -16978,30 +16977,6 @@ Promise.prototype.then = function (fulfilled, rejected, progressed) {
     }]);
 
     return deferred.promise;
-};
-
-Q.tap = function (promise, callback) {
-    return Q(promise).tap(callback);
-};
-
-/**
- * Works almost like "finally", but not called for rejections.
- * Original resolution value is passed through callback unaffected.
- * Callback may return a promise that will be awaited for.
- * @param {Function} callback
- * @returns {Q.Promise}
- * @example
- * doSomething()
- *   .then(...)
- *   .tap(console.log)
- *   .then(...);
- */
-Promise.prototype.tap = function (callback) {
-    callback = Q(callback);
-
-    return this.then(function (value) {
-        return callback.fcall(value).thenResolve(value);
-    });
 };
 
 /**
@@ -17069,7 +17044,9 @@ function nearer(value) {
  */
 Q.isPromise = isPromise;
 function isPromise(object) {
-    return object instanceof Promise;
+    return isObject(object) &&
+        typeof object.promiseDispatch === "function" &&
+        typeof object.inspect === "function";
 }
 
 Q.isPromiseAlike = isPromiseAlike;
@@ -17247,7 +17224,7 @@ function fulfill(value) {
  */
 function coerce(promise) {
     var deferred = defer();
-    Q.nextTick(function () {
+    nextTick(function () {
         try {
             promise.then(deferred.resolve, deferred.reject, deferred.notify);
         } catch (exception) {
@@ -17348,7 +17325,7 @@ function async(makeGenerator) {
                     return reject(exception);
                 }
                 if (result.done) {
-                    return Q(result.value);
+                    return result.value;
                 } else {
                     return when(result.value, callback, errback);
                 }
@@ -17359,7 +17336,7 @@ function async(makeGenerator) {
                     result = generator[verb](arg);
                 } catch (exception) {
                     if (isStopIteration(exception)) {
-                        return Q(exception.value);
+                        return exception.value;
                     } else {
                         return reject(exception);
                     }
@@ -17455,7 +17432,7 @@ function dispatch(object, op, args) {
 Promise.prototype.dispatch = function (op, args) {
     var self = this;
     var deferred = defer();
-    Q.nextTick(function () {
+    nextTick(function () {
         self.promiseDispatch(deferred.resolve, op, args);
     });
     return deferred.promise;
@@ -17798,7 +17775,7 @@ Promise.prototype.done = function (fulfilled, rejected, progress) {
     var onUnhandledError = function (error) {
         // forward to a future turn so that ``when``
         // does not catch it and turn it into a rejection.
-        Q.nextTick(function () {
+        nextTick(function () {
             makeStackTraceLong(error, promise);
             if (Q.onerror) {
                 Q.onerror(error);
@@ -17825,22 +17802,18 @@ Promise.prototype.done = function (fulfilled, rejected, progress) {
  * some milliseconds time out.
  * @param {Any*} promise
  * @param {Number} milliseconds timeout
- * @param {Any*} custom error message or Error object (optional)
+ * @param {String} custom error message (optional)
  * @returns a promise for the resolution of the given promise if it is
  * fulfilled before the timeout, otherwise rejected.
  */
-Q.timeout = function (object, ms, error) {
-    return Q(object).timeout(ms, error);
+Q.timeout = function (object, ms, message) {
+    return Q(object).timeout(ms, message);
 };
 
-Promise.prototype.timeout = function (ms, error) {
+Promise.prototype.timeout = function (ms, message) {
     var deferred = defer();
     var timeoutId = setTimeout(function () {
-        if (!error || "string" === typeof error) {
-            error = new Error(error || "Timed out after " + ms + " ms");
-            error.code = "ETIMEDOUT";
-        }
-        deferred.reject(error);
+        deferred.reject(new Error(message || "Timed out after " + ms + " ms"));
     }, ms);
 
     this.then(function (value) {
@@ -18042,11 +18015,11 @@ function nodeify(object, nodeback) {
 Promise.prototype.nodeify = function (nodeback) {
     if (nodeback) {
         this.then(function (value) {
-            Q.nextTick(function () {
+            nextTick(function () {
                 nodeback(null, value);
             });
         }, function (error) {
-            Q.nextTick(function () {
+            nextTick(function () {
                 nodeback(error);
             });
         });
