@@ -4,6 +4,7 @@ var path = require('path'),
 
 var config = {
   development: {
+    debug: true,
     url: 'http://localhost:3001',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
@@ -14,6 +15,7 @@ var config = {
     locales: ["en", "fr"]
   },
   staging: {
+    debug: true,
     url: 'http://hairfie-website-staging.herokuapp.com',
     apiUrl: 'http://staging.hairfie.com/api',
     facebookAppId: "1567052370184577",
@@ -21,7 +23,7 @@ var config = {
     facebookAppAccessToken: "1567052370184577|C2qSlkEfz8-XtgZZzdLJFslO9SE",
     host: "www-staging.hairfie.com",
     restApiRoot: "/api",
-    locales: ["en", "fr"]
+    locales: ["en", "fr"],
   },
   production: {
     url: process.env.URL,
@@ -31,7 +33,7 @@ var config = {
     facebookAppAccessToken: process.env.FACEBOOK_APP_ACCESS_TOKEN,
     host: "www.hairfie.com",
     restApiRoot: "/api",
-    locales: ["en", "fr"]
+    locales: ["en", "fr"],
   }
 };
 

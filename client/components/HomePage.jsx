@@ -4,11 +4,14 @@ var React = require('react');
 
 var signupAction = require('../actions/signup');
 
+var NavLink = require('flux-router-component').NavLink;
+
 module.exports = React.createClass({
     render: function () {
         return (
             <div>
                 <h2>Claim your business</h2>
+                <NavLink context={this.props.context} routeName="show_business" navParams={{id: '542a6546c06f16d14a546980'}}>Plop</NavLink>
                 <div>
                     <label>
                         Gender:

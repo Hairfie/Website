@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    {% for meta_item in metas %}
-        <meta property="{{ meta_item.property }}" content="{{ meta_item.content }}" />
-    {% endfor %}
+    <title>{{ title|default('Hairfie') }}</title>
 
-    {% block meta %}{% endblock %}
+    {% for meta in metas %}
+        <meta property="{{ meta.property }}" content="{{ meta.content }}" />
+    {% endfor %}
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/style.css">
@@ -18,11 +18,8 @@
     <!-- endCSS -->
 </head>
 <body>
-    <div class="container-fluid {% if current_page == 'index' %}home-bg{% endif %}">
-        {% block content %}{% endblock %}
-    </div>
+    <div id="app">{{ appHtml|safe }}</div>
 
-    {% block javascript %}
     <!-- bower:js -->
     <script src="../../components/jquery/dist/jquery.js"></script>
     <script src="../../components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
@@ -42,13 +39,9 @@
     <script src="../../js/maps.js"></script>
     <script src="../../js/share.min.js"></script>
 
-    <footer>
-        <div class="container">
-            <a class="social" href="https://www.facebook.com/pages/Hairfie/1507026002849084" target="_blank"><img src="/img/facebook@2x.png" /></a>
-            <!--<a class="social" href=""><img src="/img/instagram@2x.png"></a>-->
-            <a class="social" href="https://twitter.com/HairfieApp" target="_blank"><img src="/img/twitter@2x.png" /></a>
-            <a class="social" href="mailto:hello@hairfie.com" target="_blank"><img src="/img/mail@2x.png" /></a>
-        </div>
-    </footer>
+    <script type="text/javascript">
+        window.appState = {{ appState|safe|json }};
+    </script>
+    <script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>

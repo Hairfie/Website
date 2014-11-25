@@ -20,6 +20,7 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
+        return <h1>Business Details</h1>;
         var address;
         if (this.state.business.address) {
             address = (
