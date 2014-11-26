@@ -519,50 +519,58 @@ module.exports = React.createClass({displayName: 'exports',
     getInitialState: function () {
         return this.getStateFromStores();
     },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
+    },
     render: function () {
-        return React.createElement("h1", null, "Business Details");
-        var address;
-        if (this.state.business.address) {
-            address = (
-                React.createElement("p", null, 
-                     this.state.business.address.street, " ", React.createElement("br", null), 
-                     this.state.business.address.zipCode, " ",  this.state.business.address.city
-                )
-            )
+        if(!this.state.business) {
+            return (
+                React.createElement("div", null, "Loading Business in progress")
+            );
         } else {
-            address = (
-                React.createElement("p", null, 
-                    "Information not available"
-                )
-            )
-        }
-
-        return (
-                React.createElement("div", {className: "row", id: "business-header"}, 
-                    React.createElement("div", {className: "col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures"}, 
-                        React.createElement("img", {src:  this.state.business.pictures[0].url + '?height=300&width=230', className: "img-rounded"})
-                    ), 
-                    React.createElement("div", {className: "col-md-4 col-sm-3 col-xs-12 infos"}, 
-                        React.createElement("h1", null, " ", this.state.business.name), 
-                        React.createElement("p", {className: "info address"}, 
-                            React.createElement("span", {className: "icon icon-address"}), 
-                            React.createElement("span", {className: "content"}, 
-                                address 
-                            )
-                        ), 
-                        React.createElement("p", {className: "info phone"}, 
-                            React.createElement("span", {className: "icon icon-phone"}), 
-                            React.createElement("span", {className: "content"}, 
-                                React.createElement("span", {className: "label label-red"}, this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available')
-                            )
-                        )
-                    ), 
-                    React.createElement("div", {className: "col-md-3 col-sm-3 col-xs-12 map"}, 
-                        React.createElement("div", {id: "gmap-business", 'data-lat':  this.state.business.gps.lat, 'data-lng':  this.state.business.gps.lng, 'data-title': "{ this.state.business.name }"})
+            var address;
+            if (this.state.business.address) {
+                address = (
+                    React.createElement("p", null, 
+                         this.state.business.address.street, " ", React.createElement("br", null), 
+                         this.state.business.address.zipCode, " ",  this.state.business.address.city
                     )
                 )
+            } else {
+                address = (
+                    React.createElement("p", null, 
+                        "Information not available"
+                    )
+                )
+            }
 
-        );
+            return (
+                    React.createElement("div", {className: "row", id: "business-header"}, 
+                        React.createElement("div", {className: "col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures"}, 
+                            React.createElement("img", {src:  this.state.business.pictures[0].url + '?height=300&width=230', className: "img-rounded"})
+                        ), 
+                        React.createElement("div", {className: "col-md-4 col-sm-3 col-xs-12 infos"}, 
+                            React.createElement("h1", null, " ", this.state.business.name), 
+                            React.createElement("p", {className: "info address"}, 
+                                React.createElement("span", {className: "icon icon-address"}), 
+                                React.createElement("span", {className: "content"}, 
+                                    address 
+                                )
+                            ), 
+                            React.createElement("p", {className: "info phone"}, 
+                                React.createElement("span", {className: "icon icon-phone"}), 
+                                React.createElement("span", {className: "content"}, 
+                                    React.createElement("span", {className: "label label-red"}, this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available')
+                                )
+                            )
+                        ), 
+                        React.createElement("div", {className: "col-md-3 col-sm-3 col-xs-12 map"}, 
+                            React.createElement("div", {id: "gmap-business", 'data-lat':  this.state.business.gps.lat, 'data-lng':  this.state.business.gps.lng, 'data-title': "{ this.state.business.name }"})
+                        )
+                    )
+
+            );
+        }
     }
 });
 
@@ -595,46 +603,52 @@ module.exports = React.createClass({displayName: 'exports',
         return this.getStateFromStores();
     },
     render: function () {
-        var business,
-            context = this.props.context;
-
-        if(this.state.hairfie.business) {
-            business = (
-                React.createElement("div", {className: "business"}, 
-                    React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context}, 
-                        "Made at ",  this.state.hairfie.business.name
-                    )
-                )
-            )
+        if(this.state.hairfie) {
+            return (
+                React.createElement("div", null, "Loading Hairfie in progress")
+            );
         } else {
-            business = null;
-        }
-        return (
-            React.createElement("div", {className: "row hairfie"}, 
-                React.createElement("div", {className: "col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture"}, 
-                    React.createElement("img", {src: this.state.hairfie.picture.url, alt:  this.state.hairfie.descriptions.display}), 
-                    React.createElement("div", {className: "share-button"})
-                ), 
+            var business,
+                context = this.props.context;
 
-                React.createElement("div", {className: "col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container"}, 
-                    React.createElement("div", {className: "legend"}, 
-                        React.createElement("div", {className: "avatar"}, 
-                            React.createElement("img", {src: this.state.hairfie.author.picture.url, className: "img-circle"})
-                        ), 
-                        React.createElement("div", {className: "author"}, 
-                            React.createElement("span", {className: "name"},  this.state.hairfie.author.firstName, " ",  this.state.hairfie.author.lastName.substring(0,1), "."), 
-                            React.createElement("span", {className: "date"}, " - ",  this.formatRelative(this.state.hairfie.createdAt) )
-                        ), 
-                        React.createElement("div", {className: "clearfix"}), 
-                        React.createElement("div", {className: "description"}, 
-                             this.state.hairfie.descriptions.display
-                        ), 
-                        React.createElement("div", {className: "clearfix"}), 
-                        business
+            if(this.state.hairfie.business) {
+                business = (
+                    React.createElement("div", {className: "business"}, 
+                        React.createElement(NavLink, {routeName: "show_business", navParams: {id: this.state.hairfie.business.id}, context: context}, 
+                            "Made at ",  this.state.hairfie.business.name
+                        )
                     )
                 )
-            )
-        );
+            } else {
+                business = null;
+            }
+            return (
+                React.createElement("div", {className: "row hairfie"}, 
+                    React.createElement("div", {className: "col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture"}, 
+                        React.createElement("img", {src: this.state.hairfie.picture.url, alt:  this.state.hairfie.descriptions.display}), 
+                        React.createElement("div", {className: "share-button"})
+                    ), 
+
+                    React.createElement("div", {className: "col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container"}, 
+                        React.createElement("div", {className: "legend"}, 
+                            React.createElement("div", {className: "avatar"}, 
+                                React.createElement("img", {src: this.state.hairfie.author.picture.url, className: "img-circle"})
+                            ), 
+                            React.createElement("div", {className: "author"}, 
+                                React.createElement("span", {className: "name"},  this.state.hairfie.author.firstName, " ",  this.state.hairfie.author.lastName.substring(0,1), "."), 
+                                React.createElement("span", {className: "date"}, " - ",  this.formatRelative(this.state.hairfie.createdAt) )
+                            ), 
+                            React.createElement("div", {className: "clearfix"}), 
+                            React.createElement("div", {className: "description"}, 
+                                 this.state.hairfie.descriptions.display
+                            ), 
+                            React.createElement("div", {className: "clearfix"}), 
+                            business
+                        )
+                    )
+                )
+            );
+        }
     }
 });
 
@@ -739,7 +753,7 @@ module.exports = {
         path: '/hairfies/:id',
         method: 'get',
         authRequired: false,
-        action: 'loadHairfie'
+        action: 'openHairfie'
     },
     show_business: {
         path: '/businesses/:id',
@@ -1052,17 +1066,17 @@ var createStore = require('fluxible-app/utils/createStore');
 module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: {
-        'RECEIVE_BUSINESS_SUCCESS': '_receiveBusiness'
+        'OPEN_BUSINESS_SUCCESS': '_receiveBusiness'
     },
     initialize: function () {
         this.business = null;
     },
     _receiveBusiness: function (business) {
         this.business = business;
+        console.log("_receiveBusiness", this.business);
         this.emitChange();
     },
     getBusiness: function () {
-
         return this.business;
     },
     dehydrate: function () {
@@ -1112,7 +1126,7 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: {
-        'RECEIVE_HAIRFIE_SUCCESS': '_receiveHairfie'
+        'OPEN_HAIRFIE_SUCCESS': '_receiveHairfie'
     },
     initialize: function () {
         this.hairfie = null;
@@ -1120,9 +1134,11 @@ module.exports = createStore({
     _receiveHairfie: function (hairfie) {
         this.hairfie = hairfie;
         this.hairfie.descriptions = this.descriptionsGenerator(hairfie);
+        console.log("_receiveHairfie", this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {
+        console.log("getHairfie", this.hairfie);
         return this.hairfie;
     },
     dehydrate: function () {

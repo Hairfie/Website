@@ -5,17 +5,17 @@ var createStore = require('fluxible-app/utils/createStore');
 module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: {
-        'RECEIVE_BUSINESS_SUCCESS': '_receiveBusiness'
+        'OPEN_BUSINESS_SUCCESS': '_receiveBusiness'
     },
     initialize: function () {
         this.business = null;
     },
     _receiveBusiness: function (business) {
         this.business = business;
+        console.log("_receiveBusiness", this.business);
         this.emitChange();
     },
     getBusiness: function () {
-
         return this.business;
     },
     dehydrate: function () {

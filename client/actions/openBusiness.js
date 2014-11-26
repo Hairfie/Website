@@ -6,6 +6,7 @@ module.exports = function (context, payload, done) {
     hairfieApi
         .getBusiness(payload.params.id)
         .then(function (business) {
+            console.log("OPEN_BUSINESS_SUCCESS", business);
             context.dispatch('OPEN_BUSINESS_SUCCESS', {
                 business: business
             });

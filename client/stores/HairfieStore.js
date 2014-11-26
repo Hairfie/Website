@@ -6,7 +6,7 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: {
-        'RECEIVE_HAIRFIE_SUCCESS': '_receiveHairfie'
+        'OPEN_HAIRFIE_SUCCESS': '_receiveHairfie'
     },
     initialize: function () {
         this.hairfie = null;
@@ -14,9 +14,11 @@ module.exports = createStore({
     _receiveHairfie: function (hairfie) {
         this.hairfie = hairfie;
         this.hairfie.descriptions = this.descriptionsGenerator(hairfie);
+        console.log("_receiveHairfie", this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {
+        console.log("getHairfie", this.hairfie);
         return this.hairfie;
     },
     dehydrate: function () {
