@@ -4,6 +4,7 @@ var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
 var BusinessStore = require('../stores/BusinessStore');
+var PublicLayout = require('./PublicLayout.jsx');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -17,9 +18,6 @@ module.exports = React.createClass({
     },
     getInitialState: function () {
         return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
     },
     render: function () {
         if(!this.state.business) {
@@ -44,6 +42,7 @@ module.exports = React.createClass({
             }
 
             return (
+                <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
                         <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
                             <img src={ this.state.business.pictures[0].url + '?height=300&width=230' } className="img-rounded"/>
@@ -67,8 +66,11 @@ module.exports = React.createClass({
                             <div id="gmap-business" data-lat={ this.state.business.gps.lat } data-lng={ this.state.business.gps.lng } data-title="{ this.state.business.name }"></div>
                         </div>
                     </div>
-
+                </PublicLayout>
             );
         }
     }
+    onChange: function () {
+        this.setState(this.getStateFromStores());
+    },
 });
