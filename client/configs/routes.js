@@ -26,6 +26,7 @@ module.exports = {
         path: '/pro/businesses/:id',
         method: 'get',
         action: 'openBusiness',
+        authRequired: true
     },
     show_hairfie: {
         path: '/hairfies/:id',

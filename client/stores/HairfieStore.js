@@ -14,6 +14,7 @@ module.exports = createStore({
     _receiveHairfie: function (payload) {
         this.hairfie = payload.hairfie;
         this.hairfie.descriptions = this.descriptionsGenerator(this.hairfie);
+        console.log("_receiveHairfie", this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {

@@ -602,8 +602,12 @@ module.exports = React.createClass({displayName: 'exports',
     getInitialState: function () {
         return this.getStateFromStores();
     },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
+    },
     render: function () {
-        if(this.state.hairfie) {
+        console.log("render", this.state.hairfie);
+        if(!this.state.hairfie) {
             return (
                 React.createElement("div", null, "Loading Hairfie in progress")
             );
@@ -748,6 +752,7 @@ module.exports = {
         path: '/pro/businesses/:id',
         method: 'get',
         action: 'openBusiness',
+        authRequired: true
     },
     show_hairfie: {
         path: '/hairfies/:id',
@@ -1133,6 +1138,7 @@ module.exports = createStore({
     _receiveHairfie: function (payload) {
         this.hairfie = payload.hairfie;
         this.hairfie.descriptions = this.descriptionsGenerator(this.hairfie);
+        console.log("_receiveHairfie", this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {
