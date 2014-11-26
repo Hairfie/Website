@@ -38,43 +38,27 @@ module.exports = React.createClass({
         var body = null;
         switch (routeName) {
             case 'home':
-                body = <HomePage context={this.props.context} />
-                break;
+                return <HomePage context={this.props.context} />
 
             case 'pro_home':
-                body = <HomePagePro context={this.props.context} />
-                break;
+                return <HomePagePro context={this.props.context} />
 
             case 'pro_dashboard':
-                body = <DashboardPage context={this.props.context} />
-                break;
+                return <DashboardPage context={this.props.context} />
 
             case 'pro_business_claim':
-                body = <BusinessClaimPage context={this.props.context} />
-                break;
+                return <BusinessClaimPage context={this.props.context} />
 
             case 'show_hairfie':
-                body = <ShowHairfiePage context={this.props.context} />
-                break;
+                return <ShowHairfiePage context={this.props.context} />
 
             case 'show_business':
-                body = <ShowBusinessPage context={this.props.context} />
-                break;
+                return <ShowBusinessPage context={this.props.context} />
 
             default:
                 console.log(routeName);
-                body = <NotFoundPage />
+                return <NotFoundPage context={this.props.context} />
         }
-
-        return (
-            <div>
-                <Header context={this.props.context} />
-                <div className="container-fluid">
-                    {body}
-                </div>
-                <Footer context={this.props.context} />
-            </div>
-        );
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
