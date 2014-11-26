@@ -7,10 +7,8 @@ var ApplicationStore = require('../stores/ApplicationStore');
 var navigateAction = require('flux-router-component/actions/navigate');
 var NavLink = require('flux-router-component').NavLink;
 
-
 var routes = require('../configs/routes');
 
-var UserStatus = require('./UserStatus.jsx');
 var HomePagePro = require('./HomePagePro.jsx');
 var HomePage = require('./HomePage.jsx');
 var DashboardPage = require('./DashboardPage.jsx');
@@ -18,6 +16,8 @@ var BusinessClaimPage = require('./BusinessClaimPage.jsx');
 var ShowHairfiePage = require('./ShowHairfiePage.jsx');
 var ShowBusinessPage = require('./ShowBusinessPage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
+var Header = require('./Header.jsx');
+
 
 module.exports = React.createClass({
     mixins: [StoreMixin, RouterMixin],
@@ -67,11 +67,10 @@ module.exports = React.createClass({
 
         return (
             <div>
-                <UserStatus context={this.props.context} />
-                <NavLink routeName="show_business" navParams={{id: '542535d9c014c8ef1593e966'}} context={this.props.context}>
-                    Test link to business
-                </NavLink>
-                {body}
+                <Header context={this.props.context} />
+                <div className="container-fluid">
+                    {body}
+                </div>
             </div>
         );
     },

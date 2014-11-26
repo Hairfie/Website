@@ -25,27 +25,32 @@ module.exports = React.createClass({
     render: function () {
         if (this.state.loading) {
             return (
-                <div className="user-status loading">
-                    Login in progress...
-                </div>
+                <li>
+                    <a className="dropdown-toggle" href="#">Login in progress...</a>
+                </li>
             );
         } else if (this.state.user) {
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
 
             return (
-                <div className="user-status authenticated">
+                <li className="user-status authenticated">
                     <img src={pictureSrc} />
                     {this.state.user.firstName}
                      - <a onClick={this.logOut}>Log out</a>
-                </div>
+                </li>
             );
         } else {
             return (
-                <div className="user-status anonymous">
-                    <label>Email: <input ref="email" type="email" /></label>
-                    <label>Password: <input ref="password" type="password" /></label>
-                    <button onClick={this.logIn}>Log in</button>
-                </div>
+                <li className="dropdown" id="menuLogin">
+                    <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                    <div className="dropdown-menu">
+                        <form className="form" id="formLogin">
+                            <input type="text" ref="email" placeholder="julia@hairfie.com" />
+                            <input type="password" ref="password" placeholder="Password" /><br />
+                            <button type="button" id="btnLogin" className="btn" onClick={this.logIn}>Login</button>
+                        </form>
+                    </div>
+                </li>
             );
         }
     },
