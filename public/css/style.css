@@ -5481,6 +5481,8 @@ nav.header {
   background-color: #f9f9fa; }
   nav.header .container {
     height: 100%; }
+  nav.header #formLogin {
+    padding: 17px; }
 
 .navbar-brand,
 .navbar-nav li a {
