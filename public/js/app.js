@@ -445,7 +445,7 @@ var PublicLayout = require('./PublicLayout.jsx');
 module.exports = React.createClass({displayName: 'exports',
     render: function () {
         return (
-            React.createElement(PublicLayout, {context: this.props.context}, 
+            React.createElement(PublicLayout, {context: this.props.context, customClass: 'home-bg'}, 
                 React.createElement("div", {className: "row home"}, 
                     React.createElement("div", {className: "col-sm-5 col-sm-offset-2", id: "txt"}, 
                         React.createElement("h1", null, 
@@ -557,7 +557,7 @@ module.exports = React.createClass({
         return (
             React.createElement("div", null, 
                 React.createElement(Header, {context: this.props.context}), 
-                React.createElement("div", {className: "container-fluid"}, 
+                React.createElement("div", {className:  'container-fluid ' + this.props.customClass}, 
                     this.props.children
                 ), 
                 React.createElement(Footer, {context: this.props.context})

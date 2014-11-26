@@ -7,7 +7,7 @@ var PublicLayout = require('./PublicLayout.jsx');
 module.exports = React.createClass({
     render: function () {
         return (
-            <PublicLayout context={this.props.context}>
+            <PublicLayout context={this.props.context} customClass={'home-bg'}>
                 <div className="row home">
                     <div className="col-sm-5 col-sm-offset-2" id="txt">
                         <h1>
