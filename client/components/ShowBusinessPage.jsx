@@ -18,6 +18,9 @@ module.exports = React.createClass({
     getInitialState: function () {
         return this.getStateFromStores();
     },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
+    },
     render: function () {
         return <h1>Business Details</h1>;
         var address;
