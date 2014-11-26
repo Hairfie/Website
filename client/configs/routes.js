@@ -31,7 +31,7 @@ module.exports = {
         path: '/hairfies/:id',
         method: 'get',
         authRequired: false,
-        action: 'loadHairfie'
+        action: 'openHairfie'
     },
     show_business: {
         path: '/businesses/:id',
