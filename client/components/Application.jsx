@@ -17,6 +17,7 @@ var ShowHairfiePage = require('./ShowHairfiePage.jsx');
 var ShowBusinessPage = require('./ShowBusinessPage.jsx');
 var NotFoundPage = require('./NotFoundPage.jsx');
 var Header = require('./Header.jsx');
+var Footer = require('./Footer.jsx');
 
 
 module.exports = React.createClass({
@@ -71,6 +72,7 @@ module.exports = React.createClass({
                 <div className="container-fluid">
                     {body}
                 </div>
+                <Footer context={this.props.context} />
             </div>
         );
     },
