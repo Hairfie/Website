@@ -5,11 +5,12 @@ var React = require('react');
 var signupAction = require('../actions/signup');
 
 var NavLink = require('flux-router-component').NavLink;
+var ProLayout = require('./ProLayout.jsx');
 
 module.exports = React.createClass({
     render: function () {
         return (
-            <div>
+            <ProLayout context={this.props.context}>
                 <h2>Claim your business</h2>
                 <NavLink context={this.props.context} routeName="show_business" navParams={{id: '542a6546c06f16d14a546980'}}>Plop</NavLink>
                 <div>
@@ -40,7 +41,7 @@ module.exports = React.createClass({
                     <label>Company: <input ref="businessName" type="text" /></label>
                 </div>
                 <button onClick={this.submit}>Submit</button>
-            </div>
+            </ProLayout>
         );
     },
     submit: function (e) {

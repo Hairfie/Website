@@ -33,10 +33,14 @@ module.exports = React.createClass({
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
 
             return (
-                <li className="user-status authenticated">
-                    <img src={pictureSrc} />
-                    {this.state.user.firstName}
-                     - <a onClick={this.logOut}>Log out</a>
+                <li className="dropdown">
+                    <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
+                    <img src={pictureSrc} className="img-circle special-img" /> {this.state.user.firstName} <b className="caret"></b></a>
+                    <ul className="dropdown-menu account">
+                        <li><a href="#"><i className="fa fa-cog"></i> My Account ?</a></li>
+                        <li className="divider"></li>
+                        <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
+                    </ul>
                 </li>
             );
         } else {
