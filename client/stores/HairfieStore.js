@@ -11,14 +11,12 @@ module.exports = createStore({
     initialize: function () {
         this.hairfie = null;
     },
-    _receiveHairfie: function (hairfie) {
-        this.hairfie = hairfie;
-        this.hairfie.descriptions = this.descriptionsGenerator(hairfie);
-        console.log("_receiveHairfie", this.hairfie);
+    _receiveHairfie: function (payload) {
+        this.hairfie = payload.hairfie;
+        this.hairfie.descriptions = this.descriptionsGenerator(this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {
-        console.log("getHairfie", this.hairfie);
         return this.hairfie;
     },
     dehydrate: function () {

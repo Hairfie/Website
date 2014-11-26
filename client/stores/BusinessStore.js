@@ -10,9 +10,8 @@ module.exports = createStore({
     initialize: function () {
         this.business = null;
     },
-    _receiveBusiness: function (business) {
-        this.business = business;
-        console.log("_receiveBusiness", this.business);
+    _receiveBusiness: function (payload) {
+        this.business = payload.business;
         this.emitChange();
     },
     getBusiness: function () {
