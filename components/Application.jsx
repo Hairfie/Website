@@ -53,6 +53,7 @@ module.exports = React.createClass({
                 return <ShowHairfiePage context={this.props.context} />
 
             case 'show_business':
+            case 'pro_business':
                 return <ShowBusinessPage context={this.props.context} />
 
             default:

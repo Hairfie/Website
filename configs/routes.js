@@ -19,7 +19,7 @@ module.exports = {
     pro_business_claim: {
         path: '/pro/business-claims/:id',
         method: 'get',
-        action: 'openBusinessClaim',
+        action: 'BusinessClaim/Open',
         authRequired: true
     },
     pro_business: {

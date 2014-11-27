@@ -13,7 +13,7 @@ app.plug(routrPlugin({
 }));
 
 app.plug({
-    name: 'ActionAccessor',
+    name: 'App',
     plugContext: function () {
         return {
             plugActionContext: function plugActionContext(actionContext) {
@@ -23,7 +23,12 @@ app.plug({
                     } catch (e) {
                         return;
                     }
-                }
+                };
+
+                // shortcut to access auth token from actions
+                actionContext.getAuthToken = function () {
+                    return actionContext.getStore(require('./stores/AuthStore')).getToken();
+                };
             }
         }
     }
@@ -31,7 +36,7 @@ app.plug({
 
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('./stores/AuthStore'));
-app.registerStore(require('./stores/EditedBusinessClaimStore'));
+app.registerStore(require('./stores/ClaimedBusinessStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/BusinessStore'));
 
