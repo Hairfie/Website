@@ -11,10 +11,22 @@ module.exports = React.createClass({
     displayName: 'PublicLayout',
     render: function () {
         return (
-            <div>
+            <div className="proLayout">
                 <HeaderPro context={this.props.context} />
                 <div className={ 'container-fluid ' + this.props.customClass }>
-                    {this.props.children}
+                    <div className="row">
+                        <div className="col-sm-3 col-md-2 sidebar">
+                            <ul className="nav nav-sidebar">
+                                <li className="active"><a href="#">Infos</a></li>
+                                <li><a href="#">Vos Coiffeurs</a></li>
+                                <li><a href="#">Horaires</a></li>
+                                <li><a href="#">Prix</a></li>
+                            </ul>
+                        </div>
+                        <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                            {this.props.children}
+                        </div>
+                    </div>
                 </div>
                 <Footer context={this.props.context} />
             </div>

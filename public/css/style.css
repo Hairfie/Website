@@ -5495,6 +5495,10 @@ nav.header {
   height: 38px;
   margin-top: 32px; }
 
+img.profile {
+  width: 50px;
+  height: 50px; }
+
 div.row#business-header {
   height: 300px;
   margin-top: 20px; }

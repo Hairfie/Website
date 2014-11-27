@@ -35,7 +35,7 @@ module.exports = React.createClass({
             return (
                 <li className="dropdown">
                     <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
-                    <img src={pictureSrc} className="img-circle special-img" /> {this.state.user.firstName} <b className="caret"></b></a>
+                    <img src={pictureSrc + '?width=100&height=100'} className="img-circle profile" /> {this.state.user.firstName} {this.state.user.lastName} <b className="caret"></b></a>
                     <ul className="dropdown-menu account">
                         <li><a href="#"><i className="fa fa-cog"></i> My Account ?</a></li>
                         <li className="divider"></li>
