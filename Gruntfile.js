@@ -8,7 +8,6 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-
   var reloadPort = 35729, files;
 
   grunt.initConfig({
@@ -32,15 +31,15 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-          'server.js',
-          'lib/**/*.js',
+          '*.js',
+          'configs/**/*.js',
           'services/**/*.js',
-          'config/*.js',
-          'routes/*.js',
-          'services/*.js',
-          'locales/*.js'
+          'lib/**/*.js',
+          'stores/**/*.js',
+          'actions/**/*.js',
+          'components/**/*.jsx',
         ],
-        tasks: ['develop', 'delayed-livereload']
+        tasks: ['browserify', 'develop', 'delayed-livereload']
       },
       views: {
         files: [
@@ -52,13 +51,6 @@ module.exports = function (grunt) {
       css: {
         files: 'public/scss/**/*.scss',
         tasks: ['sass']
-      },
-      react: {
-        files: [
-          'client/**/*.js',
-          'client/**/*.jsx'
-        ],
-        tasks: ['browserify', 'develop']
       }
     },
     wiredep: {
@@ -81,7 +73,7 @@ module.exports = function (grunt) {
         ]
       },
       client: {
-        src: 'client/client.js',
+        src: 'client.js',
         dest: 'public/js/app.js'
       }
     }

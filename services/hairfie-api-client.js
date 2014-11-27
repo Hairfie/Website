@@ -1,8 +1,8 @@
 'use strict';
 
 var HairfieClient = require('../lib/hairfie/client');
-var config = require('../../config/config');
+var config = require('../configs/hairfie-api');
 
 module.exports = new HairfieClient({
-    apiUrl: config.apiUrl
+    apiUrl: config.URL
 });

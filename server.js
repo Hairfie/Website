@@ -9,30 +9,19 @@ var bodyParser      = require('body-parser');
 var url             = require('url');
 var proxy           = require('proxy-middleware');
 var swig            = require('swig');
-var filters         = require('./lib/helpers/filters');
-var config          = require('./config/config');
+var config          = require('./configs/server');
 var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');
 
 expressState.extend(server);
 
-// i18n - Translations
-var i18n            = require('i18n');
-i18n.configure({
-    locales:['en', 'fr'],
-    defaultLocale: 'en',
-    directory: __dirname + '/locales',
-    extension: '.js'
-});
-server.use(i18n.init);
-
 // view engine setup
 server.engine('.html.swig', swig.renderFile);
 server.set('view engine', '.html.swig');
 server.set('views', path.join(__dirname, 'views'));
 swig.setDefaults({ cache: false });
-server.set('view cache', !config.debug);
+server.set('view cache', !config.DEBUG);
 
 server.use(favicon(__dirname + '/public/favicon.ico'));
 server.use(logger('dev'));
@@ -41,20 +30,20 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 
 // TODO: remove me as soon as v1.1.0 of the iOS app is dead
-server.use('/api', proxy(url.parse('http://hairfie.herokuapp.com/api')));
+server.use(config.API_PROXY_PATH, proxy(url.parse(config.API_PROXY_TARGET)));
 server.use(express.static(path.join(__dirname, 'public')));
 
 server.set('state namespace', 'App');
 
 // serve application
 server.use(function (req, res, next) {
-    var app              = require('./client/app');
+    var app              = require('./app');
     var context          = app.createContext();
-    var initialize       = require('./client/actions/initialize');
+    var initialize       = require('./actions/initialize');
     var payload          = {request: req};
-    var ApplicationStore = require('./client/stores/ApplicationStore');
+    var ApplicationStore = require('./stores/ApplicationStore');
     var React            = require('react');
-    var HtmlComponent    = React.createFactory(require('./client/components/Html.jsx'));
+    var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
 
     context.executeAction(initialize, payload, function (error) {
         if (error) return next(error);
@@ -93,14 +82,14 @@ server.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
-        error: config.debug ? err: {}
+        error: config.DEBUG ? err: {}
     });
 });
 
 module.exports = server;
 
 if (require.main === module) {
-    server.set('port', process.env.PORT || 3001);
+    server.set('port', config.PORT);
     server.listen(server.get('port'), function () {
         debug('listening on port ' + server.get('port'));
     });
