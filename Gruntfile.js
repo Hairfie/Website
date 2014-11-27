@@ -39,7 +39,7 @@ module.exports = function (grunt) {
           'actions/**/*.js',
           'components/**/*.jsx',
         ],
-        tasks: ['browserify', 'develop', 'delayed-livereload']
+        tasks: ['develop', 'delayed-livereload']
       },
       views: {
         files: [
@@ -66,16 +66,35 @@ module.exports = function (grunt) {
         }
       }
     },
-    browserify: {
+    // browserify: {
+    //   options: {
+    //     transform: [
+    //       require('grunt-react').browserify
+    //     ]
+    //   },
+    //   client: {
+    //     src: 'client.js',
+    //     dest: 'public/js/app.js'
+    //   }
+    // },
+    watchify: {
       options: {
-        transform: [
-          require('grunt-react').browserify
-        ]
-      },
-      client: {
-        src: 'client.js',
-        dest: 'public/js/app.js'
-      }
+          // defaults options used in b.bundle(opts)
+          detectGlobals: true,
+          insertGlobals: false,
+          ignoreMissing: false,
+          debug: true,
+          standalone: false,
+          keepalive: false,
+          callback: function(b) {
+            b.transform(require('grunt-react').browserify);
+            return b;
+          }
+        },
+        client: {
+          src: ['process', './client.js'],
+          dest: 'public/js/app.js'
+        }
     }
   });
 
@@ -98,7 +117,8 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-watchify');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.registerTask('default', ['develop', 'watch', 'sass', 'browserify']);
+  grunt.registerTask('default', ['develop', 'watchify', 'watch', 'sass']);
 };

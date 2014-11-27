@@ -5426,7 +5426,7 @@ button.close {
 .label-red {
   background-color: #fe5b5f; }
 
-.icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description {
+.icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description, .icon-right-arrow {
   display: inline-block;
   width: 20px;
   height: 20px; }
@@ -5449,6 +5449,10 @@ button.close {
 
 .icon-description {
   background: url(/img/icons/description@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-right-arrow {
+  background: url(/img/icons/right-arrow@2x.png) no-repeat center;
   background-size: 20px 20px; }
 
 html {
@@ -5522,7 +5526,7 @@ div.row#business-header {
       div.row#business-header div.infos p.info span {
         display: inline-block;
         float: left; }
-      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description {
+      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description, div.row#business-header div.infos p.info .icon-right-arrow {
         float: left; }
       div.row#business-header div.infos p.info span.content {
         margin-left: 20px;
@@ -5689,3 +5693,54 @@ img#btn-apple {
 
 img#iphone {
   width: 100%; }
+
+.sidebar {
+  display: none; }
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: #ea5c62; } }
+.nav-sidebar {
+  margin-right: -21px;
+  /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px; }
+
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #FFFFFF; }
+  .nav-sidebar > li > a span.icon, .nav-sidebar > li > a span.icon-address, .nav-sidebar > li > a span.icon-phone, .nav-sidebar > li > a span.icon-website, .nav-sidebar > li > a span.icon-timetable, .nav-sidebar > li > a span.icon-description, .nav-sidebar > li > a span.icon-right-arrow {
+    float: right; }
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #818896;
+  background-color: #f6f6f7; }
+  .nav-sidebar > .active > a span.icon, .nav-sidebar > .active > a span.icon-address, .nav-sidebar > .active > a span.icon-phone, .nav-sidebar > .active > a span.icon-website, .nav-sidebar > .active > a span.icon-timetable, .nav-sidebar > .active > a span.icon-description, .nav-sidebar > .active > a span.icon-right-arrow,
+  .nav-sidebar > .active > a:hover span.icon,
+  .nav-sidebar > .active > a:hover span.icon-address,
+  .nav-sidebar > .active > a:hover span.icon-phone,
+  .nav-sidebar > .active > a:hover span.icon-website,
+  .nav-sidebar > .active > a:hover span.icon-timetable,
+  .nav-sidebar > .active > a:hover span.icon-description,
+  .nav-sidebar > .active > a:hover span.icon-right-arrow,
+  .nav-sidebar > .active > a:focus span.icon,
+  .nav-sidebar > .active > a:focus span.icon-address,
+  .nav-sidebar > .active > a:focus span.icon-phone,
+  .nav-sidebar > .active > a:focus span.icon-website,
+  .nav-sidebar > .active > a:focus span.icon-timetable,
+  .nav-sidebar > .active > a:focus span.icon-description,
+  .nav-sidebar > .active > a:focus span.icon-right-arrow {
+    display: none; }

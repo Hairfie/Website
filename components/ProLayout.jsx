@@ -17,10 +17,10 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-sm-3 col-md-2 sidebar">
                             <ul className="nav nav-sidebar">
-                                <li className="active"><a href="#">Infos</a></li>
-                                <li><a href="#">Vos Coiffeurs</a></li>
-                                <li><a href="#">Horaires</a></li>
-                                <li><a href="#">Prix</a></li>
+                                <li className="active"><a href="#">Infos <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
+                                <li><a href="#">Vos Coiffeurs <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
+                                <li><a href="#">Horaires <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
+                                <li><a href="#">Prix <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
                             </ul>
                         </div>
                         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -28,7 +28,6 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
-                <Footer context={this.props.context} />
             </div>
         );
     }
