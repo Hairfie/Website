@@ -6,7 +6,12 @@ var UserStatus = require('./UserStatus.jsx');
 
 module.exports = React.createClass({
     render: function () {
-
+        var loginForm;
+        if (this.props.withLogin) {
+            loginForm = (<UserStatus context={this.props.context} />);
+        } else {
+            loginForm = null;
+        }
         return (
             <nav className="navbar navbar-default navbar-static-top header" role="navigation">
                 <div className="container">
@@ -23,6 +28,7 @@ module.exports = React.createClass({
                         <ul className="nav navbar-nav navbar-right">
                             <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
                             <li><NavLink context={this.props.context} href="/pro">For Hairdresser Partners</NavLink></li>
+                            { loginForm }
                         </ul>
                     </div>
                 </div>

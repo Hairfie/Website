@@ -12,7 +12,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div>
-                <Header context={this.props.context} />
+                <Header context={this.props.context} withLogin={this.props.withLogin} />
                 <div className={ 'container-fluid ' + this.props.customClass }>
                     {this.props.children}
                 </div>
