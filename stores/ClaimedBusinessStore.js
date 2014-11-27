@@ -26,7 +26,7 @@ module.exports = createStore({
     },
     handleOpenSuccess: function (payload) {
         this.businessClaim = payload.businessClaim;
-        this.currentStep = Constants.Steps.MAP;
+        this.currentStep = Constants.Steps.GENERAL;
         this.emitChange();
     },
     handleChangeStepSuccess: function (payload) {
