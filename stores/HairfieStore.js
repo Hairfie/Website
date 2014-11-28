@@ -5,6 +5,8 @@ var makeHandlers = require('../lib/fluxible/makeHandlers');
 var HairfieEvents = require('../constants/HairfieConstants').Events;
 var _ = require('lodash');
 
+console.log(HairfieEvents);
+
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: makeHandlers({

@@ -5,7 +5,6 @@ var BusinessEvents = require('../../constants/BusinessConstants').Events;
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.OPEN);
-
     hairfieApi
         .getBusiness(payload.id)
         .then(function (business) {
