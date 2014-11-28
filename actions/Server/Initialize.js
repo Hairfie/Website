@@ -1,9 +1,10 @@
 'use strict';
 
 var Promise = require('q');
-var authStorage = require('../services/auth-storage');
-var hairfieApi = require('../services/hairfie-api-client');
+var authStorage = require('../../services/auth-storage');
+var hairfieApi = require('../../services/hairfie-api-client');
 var navigateAction = require('flux-router-component').navigateAction;
+var AuthEvents = require('../../constants/AuthConstants').Events;
 
 module.exports = function (context, payload, done) {
     var request = payload.request;
@@ -16,7 +17,7 @@ module.exports = function (context, payload, done) {
 function authenticateRequest(context, request) {
     var token = authStorage.getToken(request);
 
-    return token ? loginWithAuthToken(context, token) : new Promise();
+    return token ? loginWithAuthToken(context, token) : Promise();
 }
 
 function loginWithAuthToken(context, token) {
@@ -24,13 +25,13 @@ function loginWithAuthToken(context, token) {
         .getUser(token.userId, token)
         .then(
             function (user) {
-                context.dispatch('RECEIVE_LOGIN_SUCCESS', {
-                    user    : user,
-                    token   : token
+                context.dispatch(AuthEvents.LOGIN_SUCCESS, {
+                    user: user,
+                    token: token
                 });
             },
             function () {
-                context.dispatch('RECEIVE_LOGIN_FAILURE');
+                context.dispatch(AuthEvents.LOGIN_FAILURE);
             }
         );
 }

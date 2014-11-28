@@ -3,6 +3,7 @@
 var createStore = require('fluxible-app/utils/createStore');
 var _ = require('lodash');
 var Constants = require('../constants/BusinessClaimConstants');
+var makeHandlers = require('../lib/fluxible/makeHandlers');
 
 var handlers = [];
 handlers[Constants.Events.OPEN_SUCCESS] = 'handleOpenSuccess';
@@ -12,7 +13,10 @@ var steps = _.values(Constants.Steps);
 
 module.exports = createStore({
     storeName: 'ClaimedBusinessStore',
-    handlers: handlers,
+    handlers: makeHandlers({
+        'handleOpenSuccess': Constants.Events.OPEN_SUCCESS,
+        'handleChangeStepSuccess': Constants.Events.CHANGE_STEP_SUCCESS
+    }),
     initialize: function () {},
     dehydrate: function () {
         return {

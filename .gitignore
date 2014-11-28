@@ -3,4 +3,4 @@ node_modules/*
 .sass-cache
 .sass-cache/*
 
-public/js/app.js
+public/build/*

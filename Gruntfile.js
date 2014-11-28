@@ -93,7 +93,7 @@ module.exports = function (grunt) {
         },
         client: {
           src: ['process', './client.js'],
-          dest: 'public/js/app.js'
+          dest: 'public/build/js/app.js'
         }
     }
   });

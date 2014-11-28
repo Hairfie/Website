@@ -17,14 +17,6 @@ app.plug({
     plugContext: function () {
         return {
             plugActionContext: function plugActionContext(actionContext) {
-                actionContext.getAction = function (name) {
-                    try {
-                        return require('./actions/'+name);
-                    } catch (e) {
-                        return;
-                    }
-                };
-
                 // shortcut to access auth token from actions
                 actionContext.getAuthToken = function () {
                     return actionContext.getStore(require('./stores/AuthStore')).getToken();

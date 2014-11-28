@@ -4,9 +4,7 @@ var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
 var AuthStore = require('../stores/AuthStore');
-
-var loginAction = require('../actions/login');
-var logoutAction = require('../actions/logout');
+var AuthActions = require('../actions/Auth');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -59,10 +57,10 @@ module.exports = React.createClass({
         }
     },
     logOut: function () {
-        this.props.context.executeAction(logoutAction);
+        this.props.context.executeAction(AuthActions.Logout);
     },
     logIn: function () {
-        this.props.context.executeAction(loginAction, {
+        this.props.context.executeAction(AuthActions.Login, {
             email   : this.refs.email.getDOMNode().value,
             password: this.refs.password.getDOMNode().value
         });

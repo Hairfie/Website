@@ -7,7 +7,7 @@ module.exports = function (context, payload, done) {
     context.dispatch(BusinessClaimEvents.OPEN);
 
     hairfieApi
-        .getBusinessClaim(payload.params.id, context.getAuthToken())
+        .getBusinessClaim(payload.id, context.getAuthToken())
         .then(function (businessClaim) {
             context.dispatch(BusinessClaimEvents.OPEN_SUCCESS, {
                 businessClaim: businessClaim

@@ -57,7 +57,7 @@ module.exports = React.createClass({
         });
     },
     applyChanges: function () {
-        this.props.businessClaims.gps = this.state.location;
+        this.props.businessClaim.gps = this.state.location;
     }
 });
 

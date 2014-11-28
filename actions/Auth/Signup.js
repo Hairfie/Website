@@ -1,10 +1,11 @@
 'use strict';
 
-var hairfieApi = require('../services/hairfie-api-client');
+var hairfieApi = require('../../services/hairfie-api-client');
 var navigateAction = require('flux-router-component/actions/navigate');
+var Events = require('../../constants/AuthConstants').Events;
 
 module.exports = function (context, payload, done) {
-    createUser(context, payload)
+    signupUser(context, payload)
         .then(function (result) {
             return createBusinessClaim(context, payload, result.token);
         })
@@ -15,9 +16,11 @@ module.exports = function (context, payload, done) {
         .fail(done);
 };
 
-function createUser(context, payload) {
+function signupUser(context, payload) {
+    context.dispatch(Events.SIGNUP);
+
     return hairfieApi
-        .login('antoine.herault@gmail.com', 'antoinepass', {
+        .signup({
             gender      : payload.gender,
             firstName   : payload.firstName,
             lastName    : payload.lastName,
@@ -26,12 +29,15 @@ function createUser(context, payload) {
             phoneNumber : payload.phoneNumber
         })
         .then(function (result) {
-            context.dispatch('RECEIVE_LOGIN_SUCCESS', {
+            context.dispatch(Events.SIGNUP_SUCCESS, {
                 user    : result.user,
                 token   : result.token
-            })
+            });
 
             return result;
+        })
+        .fail(function () {
+            context.dispatch(Events.SIGNUP_FAILURE);
         });
 }
 

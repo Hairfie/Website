@@ -3,8 +3,7 @@
 module.exports = {
     home: {
         path: '/',
-        method: 'get',
-        authRequired: false
+        method: 'get'
     },
     pro_home: {
         path: '/pro/',
@@ -19,25 +18,23 @@ module.exports = {
     pro_business_claim: {
         path: '/pro/business-claims/:id',
         method: 'get',
-        action: 'BusinessClaim/Open',
+        action: require('../actions/BusinessClaim/RouteOpen'),
         authRequired: true
     },
     pro_business: {
         path: '/pro/businesses/:id',
         method: 'get',
-        action: 'openBusiness',
+        action: require('../actions/Business/RouteOpen'),
         authRequired: true
     },
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',
-        authRequired: false,
-        action: 'openHairfie'
+        action: require('../actions/Hairfie/RouteOpen'),
     },
     show_business: {
         path: '/businesses/:id',
         method: 'get',
-        authRequired: false,
-        action: 'openBusiness'
+        action: require('../actions/Business/RouteOpen'),
     }
 };

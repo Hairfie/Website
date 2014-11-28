@@ -1,6 +1,10 @@
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
+var makeHandlers = require('../lib/fluxible/makeHandlers');
+
+var AuthEvents = require('../constants/AuthConstants').Events;
+var BusinessEvents = require('../constants/BusinessConstants').Events;
 
 module.exports = createStore({
     storeName: 'AuthStore',
@@ -8,13 +12,15 @@ module.exports = createStore({
         this.loginInProgress = false;
         this.user = null;
         this.token = null;
+        this.managedBusinesses = null;
     },
-    handlers: {
-        'RECEIVE_LOGIN': 'handleLogin',
-        'RECEIVE_LOGIN_SUCCESS': 'handleLoginSuccess',
-        'RECEIVE_LOGIN_FAILURE': 'handleLoginFailure',
-        'RECEIVE_LOGOUT_SUCCESS': 'handleLogoutSuccess',
-    },
+    handlers: makeHandlers({
+        'handleLogin': AuthEvents.LOGIN,
+        'handleLoginFailure': AuthEvents.LOGIN_FAILURE,
+        'handleLoginSuccess': [AuthEvents.LOGIN_SUCCESS, AuthEvents.SIGNUP_SUCCESS],
+        'handleLogoutSuccess': AuthEvents.LOGOUT_SUCCESS,
+        'handleReceiveManagedBusinesses': BusinessEvents.RECEIVE_MANAGED,
+    }),
     dehydrate: function () {
         return {
             user    : this.user,
@@ -43,6 +49,10 @@ module.exports = createStore({
         this.user = this.token = null;
         this.emitChange();
     },
+    handleReceiveManagedBusinesses: function (payload) {
+        this.managedBusinesses = payload.managedBusinesses;
+        this.emitChange();
+    },
     getUser: function () {
         return this.user;
     },
@@ -51,5 +61,8 @@ module.exports = createStore({
     },
     isLoginInProgress: function () {
         return this.loginInProgress;
+    },
+    getManagedBusinesses: function () {
+        return this.managedBusinesses;
     }
 });

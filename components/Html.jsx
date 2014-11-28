@@ -34,7 +34,7 @@ var Html = React.createClass({
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src="/js/maps.js"></script>
                 <script src="/js/share.min.js"></script>
-                <script type="text/javascript" src="/js/app.js"></script>
+                <script type="text/javascript" src="/build/js/app.js"></script>
             </body>
             </html>
 

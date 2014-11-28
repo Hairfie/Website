@@ -1,16 +1,18 @@
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
+var makeHandlers = require('../lib/fluxible/makeHandlers');
+var BusinessEvents = require('../constants/BusinessConstants').Events;
 
 module.exports = createStore({
     storeName: 'BusinessStore',
-    handlers: {
-        'OPEN_BUSINESS_SUCCESS': '_receiveBusiness'
-    },
+    handlers: makeHandlers({
+        handleOpenSuccess: BusinessEvents.OPEN_SUCCESS
+    }),
     initialize: function () {
         this.business = null;
     },
-    _receiveBusiness: function (payload) {
+    handleOpenSuccess: function (payload) {
         this.business = payload.business;
         this.emitChange();
     },

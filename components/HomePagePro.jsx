@@ -2,7 +2,8 @@
 
 var React = require('react');
 
-var signupAction = require('../actions/signup');
+var AuthActions = require('../actions/Auth');
+var UserConstants = require('../constants/UserConstants');
 
 var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
@@ -17,8 +18,8 @@ module.exports = React.createClass({
                     <label>
                         Gender:
                         <select ref="gender">
-                            <option value="MALE">M</option>
-                            <option value="FEMALE">Mme</option>
+                            <option value={UserConstants.Genders.MALE}>M</option>
+                            <option value={UserConstants.Genders.FEMALE}>Mme</option>
                         </select>
                     </label>
                 </div>
@@ -46,7 +47,7 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
-        this.props.context.executeAction(signupAction, {
+        this.props.context.executeAction(AuthActions.Signup, {
             gender: this.refs.gender.getDOMNode().value,
             firstName: this.refs.firstName.getDOMNode().value,
             lastName: this.refs.lastName.getDOMNode().value,

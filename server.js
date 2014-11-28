@@ -39,13 +39,13 @@ server.set('state namespace', 'App');
 server.use(function (req, res, next) {
     var app              = require('./app');
     var context          = app.createContext();
-    var initialize       = require('./actions/initialize');
+    var ServerActions    = require('./actions/Server');
     var payload          = {request: req};
     var ApplicationStore = require('./stores/ApplicationStore');
     var React            = require('react');
     var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
 
-    context.executeAction(initialize, payload, function (error) {
+    context.executeAction(ServerActions.Initialize, payload, function (error) {
         if (error) return next(error);
 
         try {

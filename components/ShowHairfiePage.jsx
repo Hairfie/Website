@@ -28,7 +28,6 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     render: function () {
-        console.log("render", this.state.hairfie);
         if(!this.state.hairfie) {
             return (
                 <div>Loading Hairfie in progress</div>

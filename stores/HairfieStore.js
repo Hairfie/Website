@@ -1,20 +1,21 @@
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
+var makeHandlers = require('../lib/fluxible/makeHandlers');
+var HairfieEvents = require('../constants/HairfieConstants').Events;
 var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'HairfieStore',
-    handlers: {
-        'OPEN_HAIRFIE_SUCCESS': '_receiveHairfie'
-    },
+    handlers: makeHandlers({
+        'handleOpenSuccess': HairfieEvents.OPEN_SUCCESS,
+    }),
     initialize: function () {
         this.hairfie = null;
     },
-    _receiveHairfie: function (payload) {
+    handleOpenSuccess: function (payload) {
         this.hairfie = payload.hairfie;
         this.hairfie.descriptions = this.descriptionsGenerator(this.hairfie);
-        console.log("_receiveHairfie", this.hairfie);
         this.emitChange();
     },
     getHairfie: function () {

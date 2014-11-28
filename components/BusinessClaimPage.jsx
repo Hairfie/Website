@@ -6,6 +6,7 @@ var ClaimedBusinessStore = require('../stores/ClaimedBusinessStore');
 var BusinessClaimSteps = require('../constants/BusinessClaimConstants').Steps;
 var BusinessClaimActions = require('../actions/BusinessClaim');
 var BusinessClaimComponents = require('./BusinessClaim');
+var ProLayout = require('./ProLayout.jsx');
 
 var GeneralStep = BusinessClaimComponents.GeneralStep;
 var AddressStep = BusinessClaimComponents.AddressStep;
@@ -44,10 +45,10 @@ module.exports = React.createClass({
         }
 
         return (
-            <div>
+            <ProLayout context={this.props.context}>
                 {step}
                 <button onClick={this.next}>Validate</button>
-            </div>
+            </ProLayout>
         );
     },
     onChange: function () {
