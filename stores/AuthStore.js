@@ -12,7 +12,7 @@ module.exports = createStore({
         this.loginInProgress = false;
         this.user = null;
         this.token = null;
-        this.managedBusinesses = null;
+        this.managedBusinesses = [];
     },
     handlers: makeHandlers({
         'handleLogin': AuthEvents.LOGIN,
@@ -23,13 +23,15 @@ module.exports = createStore({
     }),
     dehydrate: function () {
         return {
-            user    : this.user,
-            token   : this.token
+            user                : this.user,
+            token               : this.token,
+            managedBusinesses   : this.managedBusinesses
         };
     },
     rehydrate: function (state) {
         this.user = state.user;
         this.token = state.token;
+        this.managedBusinesses = state.managedBusinesses;
     },
     handleLogin: function (payload) {
         this.loginInProgress = true;
@@ -50,7 +52,13 @@ module.exports = createStore({
         this.emitChange();
     },
     handleReceiveManagedBusinesses: function (payload) {
-        this.managedBusinesses = payload.managedBusinesses;
+        // check credentials are still valid for the list
+        if (!this.user || !this.token || this.user.id != payload.user.id || this.token.id != payload.token.id) {
+
+            return;
+        }
+
+        this.managedBusinesses = payload.businesses;
         this.emitChange();
     },
     getUser: function () {
@@ -63,6 +71,6 @@ module.exports = createStore({
         return this.loginInProgress;
     },
     getManagedBusinesses: function () {
-        return this.managedBusinesses;
+        return this.managedBusinesses || [];
     }
 });

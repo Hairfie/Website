@@ -3,6 +3,8 @@
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
+var NavLink = require('flux-router-component').NavLink;
+
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');
 
@@ -13,8 +15,9 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            user    : this.getStore(AuthStore).getUser(),
-            loading : this.getStore(AuthStore).isLoginInProgress()
+            user                : this.getStore(AuthStore).getUser(),
+            managedBusinesses   : this.getStore(AuthStore).getManagedBusinesses(),
+            loading             : this.getStore(AuthStore).isLoginInProgress()
         }
     },
     getInitialState: function () {
@@ -30,6 +33,16 @@ module.exports = React.createClass({
         } else if (this.state.user) {
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
 
+            var managedBusinesses = this.state.managedBusinesses.map(function (business) {
+                return (
+                    <li>
+                        <NavLink routeName="pro_business" navParams={{id: business.id}}>
+                            {business.name}
+                        </NavLink>
+                    </li>
+                );
+            });
+
             return (
                 <li className="dropdown">
                     <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
@@ -37,6 +50,7 @@ module.exports = React.createClass({
                     <ul className="dropdown-menu account">
                         <li><a href="#"><i className="fa fa-cog"></i> My Account ?</a></li>
                         <li className="divider"></li>
+                        {managedBusinesses}
                         <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
                     </ul>
                 </li>

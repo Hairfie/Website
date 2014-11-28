@@ -8,6 +8,8 @@ module.exports = {
         'OPEN_SUCCESS',
         'OPEN_FAILURE',
 
-        'RECEIVE_MANAGED'
+        'RECEIVE_MANAGED',
+        'RECEIVE_MANAGED_SUCCESS',
+        'RECEIVE_MANAGED_FAILURE'
     ])
 };

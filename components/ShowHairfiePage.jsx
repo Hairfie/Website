@@ -1,9 +1,5 @@
 /** @jsx React.DOM */
 
-if (!global.Intl) {
-    global.Intl = require('intl');
-}
-
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 var ReactIntlMixin = require('react-intl');

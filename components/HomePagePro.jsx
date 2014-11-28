@@ -13,7 +13,6 @@ module.exports = React.createClass({
         return (
             <PublicLayout context={this.props.context} withLogin={true}>
                 <h2>Claim your business</h2>
-                <NavLink context={this.props.context} routeName="show_business" navParams={{id: '542a6546c06f16d14a546980'}}>Plop</NavLink>
                 <div>
                     <label>
                         Gender:
