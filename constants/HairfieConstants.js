@@ -6,6 +6,6 @@ module.exports = {
     Events: define('HAIRFIE', [
         'OPEN',
         'OPEN_SUCCESS',
-        'OPEN_FAILURE',
+        'OPEN_FAILURE'
     ])
 };

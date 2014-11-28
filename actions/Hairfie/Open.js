@@ -5,7 +5,6 @@ var HairfieEvents = require('../../constants/HairfieConstants').Events;
 
 module.exports = function (context, payload, done) {
     context.dispatch(HairfieEvents.OPEN);
-
     hairfieApi
         .getHairfie(payload.id)
         .then(function (hairfie) {

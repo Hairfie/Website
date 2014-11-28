@@ -42,6 +42,7 @@ server.use(function (req, res, next) {
     var ServerActions    = require('./actions/Server');
     var payload          = {request: req};
     var ApplicationStore = require('./stores/ApplicationStore');
+    var MetaStore        = require('./stores/MetaStore');
     var React            = require('react');
     var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
 
@@ -55,6 +56,8 @@ server.use(function (req, res, next) {
                 return;
             }
 
+            var metas = context.getActionContext().getStore(MetaStore).getCurrentMetadata();
+
             var appState = app.dehydrate(context);
             var AppComponent = app.getAppComponent();
 
@@ -62,6 +65,7 @@ server.use(function (req, res, next) {
 
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: res.locals.state,
+                metas: metas,
                 markup: React.renderToString(AppComponent({
                     context: context.getComponentContext()
                 }))
