@@ -1,5 +1,10 @@
 /** @jsx React.DOM */
 
+// TODO : remove and make it really global
+if (typeof global.Intl == 'undefined') {
+    global.Intl = require('intl');
+}
+
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 var ReactIntlMixin = require('react-intl');

@@ -4,9 +4,10 @@ var React = require('react');
 var FluxibleApp = require('fluxible-app');
 var routrPlugin = require('fluxible-plugin-routr');
 
-if (typeof global.Intl == 'undefined') {
-    global.Intl = require('intl');
-}
+// TODO : fix this, but it doesnt work here.
+// if (typeof global.Intl == 'undefined') {
+//     global.Intl = require('intl');
+// }
 
 var app = new FluxibleApp({
     appComponent: React.createFactory(require('./components/Application.jsx'))
