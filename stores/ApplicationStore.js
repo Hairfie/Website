@@ -1,7 +1,9 @@
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
+var makeHandlers = require('../lib/fluxible/makeHandlers');
 var AuthStore = require('./AuthStore');
+var AuthEvents = require('../constants/AuthConstants').Events;
 var navigateAction = require('flux-router-component').navigateAction;
 var debug = require('debug')('App:ApplicationStore');
 
@@ -12,11 +14,13 @@ var ROUTE_AFTER_LOGIN = 'pro_dashboard';
 
 module.exports = createStore({
     storeName: 'ApplicationStore',
-    handlers: {
-        'CHANGE_ROUTE_SUCCESS': 'onChangeRouteSuccess',
-        'RECEIVE_LOGIN_SUCCESS': 'onAuthChange',
-        'RECEIVE_LOGOUT_SUCCESS': 'onAuthChange',
-    },
+    handlers: makeHandlers({
+        'onChangeRouteSuccess': 'CHANGE_ROUTE_SUCCESS',
+        'onAuthChange': [
+            AuthEvents.LOGIN_SUCCESS,
+            AuthEvents.LOGOUT_SUCCESS
+        ]
+    }),
     dehydrate: function () {
         return {
             currentPath: this.currentPath,
