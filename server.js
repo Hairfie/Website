@@ -10,6 +10,7 @@ var url             = require('url');
 var proxy           = require('proxy-middleware');
 var swig            = require('swig');
 var config          = require('./configs/server');
+var facebookConfig  = require('./configs/facebook');
 var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');

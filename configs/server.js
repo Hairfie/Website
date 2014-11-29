@@ -10,9 +10,7 @@ module.exports = resolve({
         HOST            : 'localhost',
         PORT            : 3001,
         API_PROXY_PATH  : '/api',
-        API_PROXY_TARGET: hairfieApi.URL,
-        FB_APP_ID       : "1567052370184577",
-        FB_APP_NAMESPACE: "hairfie-dev",
+        API_PROXY_TARGET: hairfieApi.URL
     },
     development: {
         DEBUG           : true,
