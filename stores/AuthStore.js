@@ -5,6 +5,7 @@ var makeHandlers = require('../lib/fluxible/makeHandlers');
 
 var AuthEvents = require('../constants/AuthConstants').Events;
 var BusinessEvents = require('../constants/BusinessConstants').Events;
+var BusinessActions = require('../actions/Business');
 
 module.exports = createStore({
     storeName: 'AuthStore',
@@ -19,7 +20,7 @@ module.exports = createStore({
         'handleLoginFailure': AuthEvents.LOGIN_FAILURE,
         'handleLoginSuccess': [AuthEvents.LOGIN_SUCCESS, AuthEvents.SIGNUP_SUCCESS],
         'handleLogoutSuccess': AuthEvents.LOGOUT_SUCCESS,
-        'handleReceiveManagedBusinesses': BusinessEvents.RECEIVE_MANAGED,
+        'handleReceiveManagedBusinessesSuccess': BusinessEvents.RECEIVE_MANAGED_SUCCESS,
     }),
     dehydrate: function () {
         return {
@@ -41,6 +42,16 @@ module.exports = createStore({
         this.user = payload.user;
         this.token = payload.token;
         this.loginInProgress = false;
+
+        if (payload.managedBusinesses) {
+            this.managedBusinesses = payload.managedBusinesses;
+        } else {
+            this.dispatcher.getContext().executeAction(BusinessActions.RefreshManaged, {
+                user    : this.user,
+                token   : this.token
+            });
+        }
+
         this.emitChange();
     },
     handleLoginFailure: function (payload) {
@@ -48,10 +59,10 @@ module.exports = createStore({
         this.emitChange();
     },
     handleLogoutSuccess: function (payload) {
-        this.user = this.token = null;
+        this.user = this.token = this.managedBusinesses = null;
         this.emitChange();
     },
-    handleReceiveManagedBusinesses: function (payload) {
+    handleReceiveManagedBusinessesSuccess: function (payload) {
         // check credentials are still valid for the list
         if (!this.user || !this.token || this.user.id != payload.user.id || this.token.id != payload.token.id) {
 

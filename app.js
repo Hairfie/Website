@@ -19,13 +19,17 @@ app.plug(routrPlugin({
 
 app.plug({
     name: 'App',
-    plugContext: function () {
+    plugContext: function (options, context) {
         return {
-            plugActionContext: function plugActionContext(actionContext) {
+            plugActionContext: function (actionContext) {
                 // shortcut to access auth token from actions
                 actionContext.getAuthToken = function () {
                     return actionContext.getStore(require('./stores/AuthStore')).getToken();
                 };
+            },
+            plugStoreContext: function (storeContext) {
+                // allow to execute actions from stores
+                storeContext.executeAction = context.executeAction.bind(context);
             }
         }
     }
