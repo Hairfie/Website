@@ -20,17 +20,19 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        if(!this.state.business) {
+        var business = this.state.business;
+
+        if(!business) {
             return (
                 <div>Loading Business in progress</div>
             );
         } else {
             var address;
-            if (this.state.business.address) {
+            if (business.address) {
                 address = (
                     <p>
-                        { this.state.business.address.street  } <br />
-                        { this.state.business.address.zipCode  } { this.state.business.address.city }
+                        {business.address.street} <br />
+                        {business.address.zipCode} {business.address.city}
                     </p>
                 )
             } else {
@@ -41,14 +43,19 @@ module.exports = React.createClass({
                 )
             }
 
+            var mapElement;
+            if (address.gps) {
+                mapElement = <div id="gmap-business" data-lat={business.gps.lat} data-lng={business.gps.lng} data-title={business.name } />
+            }
+
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
                         <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
-                            <img src={ this.state.business.pictures[0].url + '?height=300&width=230' } className="img-rounded"/>
+                            <img src={business.thumbUrl + '?height=300&width=230'} className="img-rounded"/>
                         </div>
                         <div className="col-md-4 col-sm-3 col-xs-12 infos">
-                            <h1> {this.state.business.name  }</h1>
+                            <h1>{business.name}</h1>
                             <p className="info address">
                                 <span className="icon icon-address"></span>
                                 <span className="content">
@@ -63,7 +70,7 @@ module.exports = React.createClass({
                             </p>
                         </div>
                         <div className="col-md-3 col-sm-3 col-xs-12 map">
-                            <div id="gmap-business" data-lat={ this.state.business.gps.lat } data-lng={ this.state.business.gps.lng } data-title="{ this.state.business.name }"></div>
+                            {mapElement}
                         </div>
                     </div>
                 </PublicLayout>

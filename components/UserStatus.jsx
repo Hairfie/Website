@@ -31,12 +31,13 @@ module.exports = React.createClass({
                 </li>
             );
         } else if (this.state.user) {
+            var context = this.props.context;
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
 
             var managedBusinesses = this.state.managedBusinesses.map(function (business) {
                 return (
-                    <li>
-                        <NavLink routeName="pro_business" navParams={{id: business.id}}>
+                    <li key={business.id}>
+                        <NavLink context={context} routeName="pro_business_infos" navParams={{id: business.id, step: 'general'}}>
                             {business.name}
                         </NavLink>
                     </li>
@@ -51,6 +52,11 @@ module.exports = React.createClass({
                         <li><a href="#"><i className="fa fa-cog"></i> My Account ?</a></li>
                         <li className="divider"></li>
                         {managedBusinesses}
+                        <li>
+                            <NavLink context={this.props.context} routeName="pro_business_new">
+                                + claim a business
+                            </NavLink>
+                        </li>
                         <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
                     </ul>
                 </li>

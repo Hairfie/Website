@@ -8,8 +8,16 @@ module.exports = {
         'OPEN_SUCCESS',
         'OPEN_FAILURE',
 
+        'SAVE',
+        'SAVE_SUCCESS',
+        'SAVE_FAILURE',
+
         'RECEIVE_MANAGED',
         'RECEIVE_MANAGED_SUCCESS',
         'RECEIVE_MANAGED_FAILURE'
+    ]),
+    Kinds: define([
+        'SALON',
+        'HOME'
     ])
 };
