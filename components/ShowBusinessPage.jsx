@@ -52,7 +52,7 @@ module.exports = React.createClass({
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
                         <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
-                            <img src={business.thumbUrl + '?height=300&width=230'} className="img-rounded"/>
+                            <img src={business.pictures[0].url + '?height=300&width=230'} className="img-rounded"/>
                         </div>
                         <div className="col-md-4 col-sm-3 col-xs-12 infos">
                             <h1>{business.name}</h1>
