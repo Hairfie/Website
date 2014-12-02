@@ -8,7 +8,7 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: makeHandlers({
-        'handleOpenSuccess': HairfieEvents.OPEN_SUCCESS,
+        'handleOpenSuccess': HairfieEvents.SUCCESS,
     }),
     initialize: function () {
         this.hairfie = null;

@@ -5,7 +5,7 @@ var define = require('../lib/constants/define');
 module.exports = {
     Events: define('HAIRFIE', [
         'OPEN',
-        'OPEN_SUCCESS',
+        'SUCCESS',
         'OPEN_FAILURE'
     ])
 };

@@ -8,7 +8,7 @@ module.exports = function (context, payload, done) {
     hairfieApi
         .getHairfie(payload.id)
         .then(function (hairfie) {
-            context.dispatch(HairfieEvents.OPEN_SUCCESS, {
+            context.dispatch(HairfieEvents.SUCCESS, {
                 hairfie: hairfie
             });
             done();
