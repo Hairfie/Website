@@ -38,7 +38,7 @@ module.exports = React.createClass({
         }
 
         return (
-            <Layout context={this.props.context}>
+            <Layout context={this.props.context} business={this.state.business}>
                 {form}
             </Layout>
         );

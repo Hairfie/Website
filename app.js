@@ -37,7 +37,6 @@ app.plug({
 
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('./stores/AuthStore'));
-app.registerStore(require('./stores/ClaimedBusinessStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/MetaStore'));

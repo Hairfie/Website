@@ -9,6 +9,8 @@ var Footer = require('./Footer.jsx');
 module.exports = React.createClass({
     displayName: 'PublicLayout',
     render: function () {
+        var hairdresser = this.props.hairdresser || {};
+
         return (
             <div className="proLayout">
                 <nav className="navbar navbar-default navbar-static-top header" role="navigation">
@@ -33,12 +35,7 @@ module.exports = React.createClass({
                 <div className={ 'container-fluid ' + this.props.customClass }>
                     <div className="row">
                         <div className="col-sm-3 col-md-2 sidebar">
-                            <ul className="nav nav-sidebar">
-                                <li className="active"><a href="#">Infos <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
-                                <li><a href="#">Vos Coiffeurs <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
-                                <li><a href="#">Horaires <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
-                                <li><a href="#">Prix <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
-                            </ul>
+                            {this.renderBusinessMenu(this.props.business)}
                         </div>
                         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                             {this.props.children}
@@ -46,6 +43,26 @@ module.exports = React.createClass({
                     </div>
                 </div>
             </div>
+        );
+    },
+    renderBusinessMenu: function (business) {
+        if (!business) return;
+
+        return (
+            <ul className="nav nav-sidebar">
+                <li>
+                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step:'general'}}>
+                        Infos <span className="icon icon-right-arrow" aria-hidden="true"></span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink context={this.props.context} routeName="pro_business_hairdressers" navParams={{id: business.id}}>
+                        Vos Coiffeurs <span className="icon icon-right-arrow" aria-hidden="true"></span>
+                    </NavLink>
+                </li>
+                <li><a href="#">Horaires <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
+                <li><a href="#">Prix <span className="icon icon-right-arrow" aria-hidden="true"></span></a></li>
+            </ul>
         );
     }
 });
