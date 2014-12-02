@@ -17,7 +17,7 @@ module.exports = createStore({
     storeName: 'MetaStore',
     handlers: makeHandlers({
         'getBusinessMetadata': BusinessEvents.OPEN_SUCCESS,
-        //'getHairfieMetas': HairfieEvents.OPEN_SUCCESS
+        'getHairfieMetadata': HairfieEvents.OPEN_SUCCESS
     }),
     getCurrentMetadata: function() {
         if (!this.currentMetas) {
