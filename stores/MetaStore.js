@@ -9,6 +9,7 @@ var HairfieEvents = require('../constants/HairfieConstants').Events;
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var metaGenerator = require('../lib/metaGenerator.js');
 
+var _ = require('lodash');
 
 var routes = require('../configs/routes');
 
@@ -16,8 +17,7 @@ module.exports = createStore({
     storeName: 'MetaStore',
     handlers: makeHandlers({
         'getBusinessMetadata': BusinessEvents.OPEN_SUCCESS,
-        'getHairfieMetas': HairfieEvents.OPEN_SUCCESS
-
+        //'getHairfieMetas': HairfieEvents.OPEN_SUCCESS
     }),
     getCurrentMetadata: function() {
         if (!this.currentMetas) {
@@ -31,5 +31,9 @@ module.exports = createStore({
     },
     getHairfieMetadata: function (payload) {
         this.currentMetas = metaGenerator.getHairfieMetadata(payload.hairfie);
+    },
+    getCurrentTitle: function() {
+        console.log("currenttitle", this.getCurrentMetadata().metas);
+        return _.find(this.getCurrentMetadata().metas, { property: 'og:title' }).content;
     }
 });

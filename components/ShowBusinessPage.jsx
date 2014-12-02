@@ -44,7 +44,7 @@ module.exports = React.createClass({
             }
 
             var mapElement;
-            if (address.gps) {
+            if (business.gps) {
                 mapElement = <div id="gmap-business" data-lat={business.gps.lat} data-lng={business.gps.lng} data-title={business.name } />
             }
 

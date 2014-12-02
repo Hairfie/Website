@@ -58,6 +58,7 @@ server.use(function (req, res, next) {
             }
 
             var metas = context.getActionContext().getStore(MetaStore).getCurrentMetadata();
+            var title = context.getActionContext().getStore(MetaStore).getCurrentTitle();
 
             var appState = app.dehydrate(context);
             var AppComponent = app.getAppComponent();
@@ -67,6 +68,7 @@ server.use(function (req, res, next) {
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: res.locals.state,
                 metas: metas,
+                title: title,
                 markup: React.renderToString(AppComponent({
                     context: context.getComponentContext()
                 }))
