@@ -2,5 +2,6 @@
 
 module.exports = {
     RouteOpen       : require('./RouteOpen'),
-    Open            : require('./Open')
+    Open            : require('./Open'),
+    List            : require('./List')
 };

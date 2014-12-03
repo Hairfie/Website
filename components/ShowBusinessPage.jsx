@@ -6,6 +6,8 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var BusinessStore = require('../stores/BusinessStore');
 var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
+var ListHairfies = require('./ShowHairfies.jsx');
+
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -52,7 +54,7 @@ module.exports = React.createClass({
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
-                        <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-3 col-offset-1 pictures">
+                        <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-3 col-xs-offset-1 pictures">
                             <img src={business.pictures[0].url + '?height=300&width=300'} className="img-rounded img-responsive"/>
                         </div>
                         <div className="col-md-4 col-sm-3 col-xs-8 infos">
@@ -70,6 +72,11 @@ module.exports = React.createClass({
                         </div>
                         <div className="col-md-3 col-sm-3 col-xs-12 map">
                             {mapElement}
+                        </div>
+                    </div>
+                    <div className="row business-hairfies">
+                        <div className="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                            <ListHairfies businessId={this.state.business.id} context={this.props.context} />
                         </div>
                     </div>
                 </PublicLayout>

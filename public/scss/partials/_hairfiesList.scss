@@ -1,0 +1,40 @@
+$hairfie-width: 225px;
+$circle-width: 25px;
+
+
+.hairfies-list {
+    margin: auto;
+
+    .hairfie-picture {
+        display: inline-block;
+        width: $hairfie-width;
+        height: $hairfie-width;
+        line-height: $hairfie-width;
+        padding-right: 30px;
+        padding-bottom: 30px;
+
+        .img-container {
+            position: relative;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .circle {
+            width: $circle-width;
+            height: $circle-width;
+            border-radius: 50%;
+            font-size: 10px;
+            color: white;
+            line-height: $circle-width;
+            font-weight: 200;
+            text-align: center;
+            background: $red-hairfie;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    }
+}

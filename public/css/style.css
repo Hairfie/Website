@@ -5606,6 +5606,9 @@ div.day {
   div.day span.value p.time {
     margin-bottom: 4px; }
 
+.row.business-hairfies {
+  margin-top: 50px; }
+
 .row.hairfie .hairfie-picture {
   margin-bottom: 20px; }
   .row.hairfie .hairfie-picture img {
@@ -5753,3 +5756,31 @@ img#iphone {
   .nav-sidebar > .active > a:focus span.icon-description,
   .nav-sidebar > .active > a:focus span.icon-right-arrow {
     display: none; }
+
+.hairfies-list {
+  margin: auto; }
+  .hairfies-list .hairfie-picture {
+    display: inline-block;
+    width: 225px;
+    height: 225px;
+    line-height: 225px;
+    padding-right: 30px;
+    padding-bottom: 30px; }
+    .hairfies-list .hairfie-picture .img-container {
+      position: relative; }
+    .hairfies-list .hairfie-picture img {
+      border-radius: 5px;
+      width: 100%; }
+    .hairfies-list .hairfie-picture .circle {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      font-size: 10px;
+      color: white;
+      line-height: 25px;
+      font-weight: 200;
+      text-align: center;
+      background: #ea5c62;
+      position: absolute;
+      top: 10px;
+      left: 10px; }
