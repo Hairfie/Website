@@ -39,7 +39,7 @@ module.exports = function (grunt) {
           'actions/**/*.js',
           'components/**/*.jsx',
         ],
-        tasks: ['develop', 'delayed-livereload']
+        tasks: ['watchify', 'develop', 'delayed-livereload']
       },
       views: {
         files: [

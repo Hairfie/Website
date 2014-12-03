@@ -5,6 +5,7 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 
 var BusinessStore = require('../stores/BusinessStore');
 var PublicLayout = require('./PublicLayout.jsx');
+var Map = require('./MapComponent.jsx');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -45,7 +46,7 @@ module.exports = React.createClass({
 
             var mapElement;
             if (business.gps) {
-                mapElement = <div id="gmap-business" data-lat={business.gps.lat} data-lng={business.gps.lng} data-title={business.name } />
+                mapElement = <Map marker={{lat: business.gps.lat, lng: business.gps.lng, title: business.name}} />
             }
 
             return (
@@ -81,3 +82,14 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
 });
+
+function createMap(el) {
+    var options = {};
+    options.zoom = 16;
+
+    return Google
+        .loadMaps()
+        .then(function (google) {
+            return new google.maps.Map(el, options);
+        });
+}
