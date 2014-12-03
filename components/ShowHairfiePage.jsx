@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+var facebookConfig = require('../configs/facebook');
+
 // TODO : remove and make it really global
 if (typeof global.Intl == 'undefined') {
     global.Intl = require('intl');
@@ -28,6 +30,21 @@ module.exports = React.createClass({
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
+    },
+    componentDidMount: function () {
+        new Share(".share-button", {
+            image: "{{ this.state.hairfie.picture.url }}",
+            title: "{{ this.state.hairfie.descriptions.facebook }}",
+            networks: {
+                facebook: {
+                  app_id: "{{ facebookConfig.FB_APP_ID }}",
+                  load_sdk: false
+                },
+                twitter: {
+                    description: "{{ this.state.hairfie.descriptions.twitter }}"
+                }
+            }
+        });
     },
     render: function () {
         if(!this.state.hairfie) {
