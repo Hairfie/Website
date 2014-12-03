@@ -5508,9 +5508,6 @@ div.row#business-header {
   margin-top: 20px; }
   div.row#business-header div.pictures {
     height: 100%; }
-    div.row#business-header div.pictures img {
-      height: 100%;
-      max-width: 100%; }
   div.row#business-header div.infos {
     height: 100%; }
     div.row#business-header div.infos h1 {
@@ -5530,8 +5527,7 @@ div.row#business-header {
         float: left; }
       div.row#business-header div.infos p.info span.content {
         margin-left: 20px;
-        font-size: 16px;
-        min-height: 100%; }
+        font-size: 16px; }
       div.row#business-header div.infos p.info .label {
         font-size: 14px;
         font-weight: 200; }

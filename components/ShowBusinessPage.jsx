@@ -31,10 +31,10 @@ module.exports = React.createClass({
             var address;
             if (business.address) {
                 address = (
-                    <p>
+                    <span className="content">
                         {business.address.street} <br />
                         {business.address.zipCode} {business.address.city}
-                    </p>
+                    </span>
                 )
             } else {
                 address = (
@@ -52,16 +52,14 @@ module.exports = React.createClass({
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
-                        <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 pictures">
-                            <img src={business.pictures[0].url + '?height=300&width=230'} className="img-rounded"/>
+                        <div className="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-3 col-offset-1 pictures">
+                            <img src={business.pictures[0].url + '?height=300&width=300'} className="img-rounded img-responsive"/>
                         </div>
-                        <div className="col-md-4 col-sm-3 col-xs-12 infos">
+                        <div className="col-md-4 col-sm-3 col-xs-8 infos">
                             <h1>{business.name}</h1>
                             <p className="info address">
                                 <span className="icon icon-address"></span>
-                                <span className="content">
-                                    { address }
-                                </span>
+                                { address }
                             </p>
                             <p className="info phone">
                                 <span className="icon icon-phone"></span>
