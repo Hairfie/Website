@@ -38,6 +38,13 @@ module.exports = {
         pageComponent: require('../components/BusinessHairdressersPage.jsx'),
         authRequired: true
     },
+    pro_business_timetable: {
+        path: '/pro/businesses/:id/timetable',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessTimetablePage.jsx'),
+        authRequired: true
+    },
     pro_business_infos: {
         path: '/pro/businesses/:id/infos/:step',
         method: 'get',
