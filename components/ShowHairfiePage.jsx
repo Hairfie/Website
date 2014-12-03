@@ -70,8 +70,7 @@ module.exports = React.createClass({
             }
             var price;
             if(this.state.hairfie.price) {
-                //{ this.state.hairfie.price.amount + this.state.hairfie.price.amount == "EUR" ? "€" : "" }
-                price = <div className="circle"> 10 € </div>
+                price = (<div className="circle">{ this.state.hairfie.price.amount } { this.state.hairfie.price.currency == "EUR" ? "€" : "" }</div>)
             }
 
             return (
