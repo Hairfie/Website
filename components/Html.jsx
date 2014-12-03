@@ -35,7 +35,6 @@ var Html = React.createClass({
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
-                <script src="/js/maps.js"></script>
                 <script src="/js/share.min.js"></script>
                 <script type="text/javascript" src="/build/js/app.js"></script>
             </body>

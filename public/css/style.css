@@ -5615,6 +5615,19 @@ div.day {
     position: absolute;
     bottom: 20px;
     right: 24px; }
+  .row.hairfie .hairfie-picture .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+    line-height: 50px;
+    font-weight: 200;
+    text-align: center;
+    background: #ea5c62;
+    position: absolute;
+    top: 25px;
+    left: 40px; }
 .row.hairfie .hairfie-legend-container {
   padding-top: 0; }
   .row.hairfie .hairfie-legend-container .legend {
