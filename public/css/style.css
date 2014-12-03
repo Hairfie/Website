@@ -5610,7 +5610,7 @@ div.day {
   margin-bottom: 20px; }
   .row.hairfie .hairfie-picture img {
     border-radius: 5px;
-    max-width: 100%; }
+    width: 100%; }
   .row.hairfie .hairfie-picture .share-button {
     position: absolute;
     bottom: 20px;

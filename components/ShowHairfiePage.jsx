@@ -77,9 +77,11 @@ module.exports = React.createClass({
                 <PublicLayout context={this.props.context}>
                     <div className="row hairfie">
                         <div className="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture">
-                            { price }
-                            <img src={this.state.hairfie.picture.url} alt={ this.state.hairfie.descriptions.display }/>
-                            <div className="share-button"></div>
+                            <div className="img-container">
+                                { price }
+                                <img src={this.state.hairfie.picture.url} alt={ this.state.hairfie.descriptions.display }/>
+                                <div className="share-button"></div>
+                            </div>
                         </div>
 
                         <div className="col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container">
