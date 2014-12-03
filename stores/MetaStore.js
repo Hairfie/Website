@@ -28,12 +28,13 @@ module.exports = createStore({
     },
     getBusinessMetadata: function (payload) {
         this.currentMetas = metaGenerator.getBusinessMetadata(payload.business);
+        this.emitChange();
     },
     getHairfieMetadata: function (payload) {
         this.currentMetas = metaGenerator.getHairfieMetadata(payload.hairfie);
+        this.emitChange();
     },
     getCurrentTitle: function() {
-        console.log("currenttitle", this.getCurrentMetadata().metas);
         return _.find(this.getCurrentMetadata().metas, { property: 'og:title' }).content;
     }
 });
