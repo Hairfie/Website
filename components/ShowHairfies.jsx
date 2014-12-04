@@ -19,10 +19,7 @@ module.exports = React.createClass({
         this.fetchNextPage(0);
     },
     getInitialState: function () {
-        return {
-            hairfies: [],
-            endOfScroll: false
-        };
+        return this.getStateFromStores();
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

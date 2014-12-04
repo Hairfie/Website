@@ -17,8 +17,8 @@ module.exports = createStore({
         this.endOfScroll = false;
     },
     handleListSuccess: function (payload) {
-        this.hairfies = _.uniq(this.hairfies.concat(payload.hairfies));
-        this.endOfScroll =  (payload.hairfies.length < 6) ? true : false;
+        this.hairfies = _.uniq(this.hairfies.concat(payload.hairfies), function(hairfie) { return hairfie.id; });
+        this.endOfScroll = (payload.hairfies.length < 6) ? true : false;
         this.emitChange();
     },
     getHairfiesForBusiness: function (businessId) {
