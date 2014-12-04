@@ -38,6 +38,7 @@ module.exports = function (grunt) {
           'stores/**/*.js',
           'actions/**/*.js',
           'components/**/*.jsx',
+          'components/*.jsx',
         ],
         tasks: ['watchify', 'develop', 'delayed-livereload']
       },

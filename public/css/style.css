@@ -5468,6 +5468,10 @@ body {
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px; }
+  @media (min-width: 768px) {
+    .container-fluid.public-layout {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 footer {
   position: absolute;
@@ -5508,6 +5512,8 @@ div.row#business-header {
   margin-top: 20px; }
   div.row#business-header div.pictures {
     height: 100%; }
+    div.row#business-header div.pictures img {
+      max-height: 100%; }
   div.row#business-header div.infos {
     height: 100%; }
     div.row#business-header div.infos h1 {
@@ -5761,10 +5767,6 @@ img#iphone {
   margin: auto; }
   .hairfies-list .hairfie-picture {
     display: inline-block;
-    width: 225px;
-    height: 225px;
-    line-height: 225px;
-    padding-right: 30px;
     padding-bottom: 30px; }
     .hairfies-list .hairfie-picture .img-container {
       position: relative; }

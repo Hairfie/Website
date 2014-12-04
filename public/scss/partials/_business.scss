@@ -3,10 +3,10 @@ div.row#business-header {
     margin-top: 20px;
     div.pictures {
         height: 100%;
-        // img {
-        //     height: 100%;
-        //     max-width: 100%;
-        // }
+        img {
+            max-height: 100%;
+        }
+
     }
 
     div.infos {
