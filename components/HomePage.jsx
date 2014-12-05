@@ -11,7 +11,7 @@ module.exports = React.createClass({
                 <div className="row home">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">
                         <h1>
-                            Hairfie, l'application qui vous permet de trouver et de réserver la coiffure et le coiffeur qui vous correspondent !
+                            Hairfie, l'application qui vous permet de trouver le coiffeur qui vous correspondent !
                         </h1>
                         <div className="trait"></div>
                         <p>

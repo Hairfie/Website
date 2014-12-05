@@ -5701,18 +5701,6 @@ div.day {
     font-size: 20px; }
   .row.home p {
     font-size: 16px; } }
-.row.home .btn-app-store {
-  margin-top: 40px; }
-  .row.home .btn-app-store .btn img {
-    padding: 0;
-    width: 202px;
-    height: 64px; }
-.row.home .btn-app-store .btn img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
-  height: auto; }
 .row.home img#iphone {
   width: auto;
   height: 100%; }
@@ -5723,6 +5711,27 @@ div.day {
   @media screen and (max-width: 992px) {
     .row.home img#iphone {
       margin: auto; } }
+
+.btn-app-store {
+  margin-top: 40px; }
+  .btn-app-store .btn img {
+    padding: 0;
+    width: 202px;
+    height: 64px; }
+
+.btn-app-store .btn img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
+  height: auto; }
+
+.home-pro {
+  margin-top: -60px;
+  bottom: 0;
+  width: 100%;
+  background: url(../img/background-pro.png);
+  padding-top: 40px; }
 
 .sidebar {
   display: none; }
