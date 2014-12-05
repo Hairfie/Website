@@ -5684,33 +5684,45 @@ div.day {
   background: url(../img/background.jpg);
   padding-top: 40px; }
 
-.row.home > div {
-  height: 100%;
-  text-align: center;
-  vertical-align: bottom;
-  vertical-align: middle; }
-
-#txt {
-  padding-top: 80px;
-  padding-bottom: 80px; }
-
-#txt p {
-  width: 90%;
+.row.home .left {
+  margin-top: -60px;
+  padding-top: 150px;
+  text-align: center; }
+.row.home p {
+  margin-bottom: 15px;
+  font-size: 20px;
   font-weight: 200; }
-
-#txt > a {
-  height: 64px;
-  width: 202px;
+@media screen and (min-width: 992px) {
+  .row.home .left {
+    height: 100%;
+    margin-bottom: -60px; } }
+@media screen and (max-width: 992px) {
+  .row.home h1 {
+    font-size: 20px; }
+  .row.home p {
+    font-size: 16px; } }
+.row.home .btn-app-store {
+  margin-top: 40px; }
+  .row.home .btn-app-store .btn img {
+    padding: 0;
+    width: 202px;
+    height: 64px; }
+.row.home .btn-app-store .btn img {
   display: block;
-  margin-top: 50px;
-  margin-left: 30%; }
-
-img#btn-apple {
-  width: 202px;
-  height: 64px; }
-
-img#iphone {
-  width: 100%; }
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
+  height: auto; }
+.row.home img#iphone {
+  width: auto;
+  height: 100%; }
+  @media screen and (min-width: 768px) {
+    .row.home img#iphone {
+      position: fixed;
+      bottom: -100px; } }
+  @media screen and (max-width: 992px) {
+    .row.home img#iphone {
+      margin: auto; } }
 
 .sidebar {
   display: none; }

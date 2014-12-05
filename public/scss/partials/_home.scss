@@ -6,38 +6,87 @@
     padding-top: 40px;
 }
 
+
 .row.home {
-    > div {
-        height: 100%;
+
+    .left {
+        margin-top: -60px;
+        padding-top: 150px;
         text-align: center;
-        vertical-align: bottom;
-        vertical-align: middle;
+    }
+
+    p {
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+        .left {
+            height: 100%;
+            margin-bottom: -60px;
+        }
+    }
+
+    @media screen and (max-width: $screen-md-min) {
+        h1 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+
+    .btn-app-store {
+      margin-top: 40px;
+
+        .btn img {
+            padding: 0;
+            width:202px;
+            height:64px;
+        }
+    }
+
+    .btn-app-store .btn img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 180px;
+      height: auto;
+    }
+
+
+    img#iphone {
+
+        @media screen and (min-width: $screen-sm-min) {
+            position: fixed;
+            bottom: -100px;
+        }
+        @media screen and (max-width: $screen-md-min) {
+            margin: auto;
+        }
+        width: auto;
+        height: 100%;
     }
 
 }
 
-#txt {
-    padding-top:80px;
-    padding-bottom: 80px;
-    //float:left;
-}
 
-#txt p {
-    width:90%;
-    font-weight: 200;
-}
-#txt >a {
-    height:64px;
-    width: 202px;
-    display: block;
-    margin-top:50px;
-    margin-left: 30%;
-}
-img#btn-apple {
-    width:202px;
-    height:64px;
-}
+// img#btn-apple {
+//     width:202px;
+//     height:64px;
+// }
 
-img#iphone {
-    width: 100%;
-}
+// .iphone {
+//     @media screen and (min-width: $screen-sm-min) {
+//         padding-top: 80px;
+//         padding-bottom: 80px;
+//     }
+// }
+
+// img#iphone {
+//     width: auto;
+//     height: 100%;
+// }
