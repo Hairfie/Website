@@ -1,11 +1,81 @@
 .home-pro {
-    margin-top: -60px;
-    bottom: 0;
+    margin-top: -120px;
+    //bottom: 0;
     width: 100%;
-    background: url(../img/background-pro.png);
-    padding-top: 40px;
+    background: url(../img/background-pro-trans.png);
+    background-position: center;
+    padding-top: 100px;
+
+    @media screen and (min-width: $screen-sm-min) {
+        height: 100%;
+        margin-bottom: 0px;
+    }
+
+    li {
+        color: $red-title;
+        span, strong {
+            color: $grey;
+        }
+    }
 
     .row.first {
+        margin-top: 40px;
+
+
+        .left {
+            padding: 20px;
+
+            p.list {
+                margin-top: 20px;
+            }
+
+            li {
+                font-size: 16px;
+            }
+
+            ul {
+                margin-left: -20px;
+            }
+
+            p.btn-app-store {
+                text-align: center;
+            }
+        }
+
+        .claim {
+            background-color: rgba(255,255,255,0.8);
+            padding: 30px;
+            margin-top: 30px;
+
+            @media screen and (max-width: $screen-sm-min) {
+                //margin: 30px;
+                margin: auto;
+                max-width: 80%;
+            }
+
+            h3 {
+                margin-top: 0px;
+                font-size: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .btn-red {
+                font-weight: 200;
+            }
+        }
+
+        @media screen and (max-width: $screen-sm-min) {
+            h1 {
+                font-size: 20px;
+            }
+
+            li {
+                font-size: 18px;
+            }
+        }
 
     }
 }

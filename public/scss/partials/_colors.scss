@@ -12,3 +12,9 @@ $grey-footer: #dfe1e4;
     @extend .label-default;
     background-color: $red-title;
 }
+
+.btn-red {
+    @extend .btn;
+    background-color: $red-title;
+    color: white;
+}
