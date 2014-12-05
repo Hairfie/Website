@@ -45,6 +45,13 @@ module.exports = {
         pageComponent: require('../components/BusinessTimetablePage.jsx'),
         authRequired: true
     },
+    pro_business_services: {
+        path: '/pro/businesses/:id/services',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessServicesPage.jsx'),
+        authRequired: true
+    },
     pro_business_infos: {
         path: '/pro/businesses/:id/infos/:step',
         method: 'get',
