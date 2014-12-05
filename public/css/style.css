@@ -5550,24 +5550,33 @@ footer {
   margin: 10px; }
 
 nav.header {
-  height: 100px;
   background-color: #f9f9fa; }
-  nav.header .container {
-    height: 100%; }
   nav.header #formLogin {
     padding: 17px; }
 
-.navbar-brand,
-.navbar-nav li a {
-  line-height: 100px;
-  height: 100px;
-  padding-top: 0; }
+@media (min-width: 768px) {
+  nav.header {
+    height: 100px; }
+    nav.header .container {
+      height: 100%; }
 
-#logo {
-  width: 138px;
-  height: 38px;
-  margin-top: 32px; }
+  .navbar-brand,
+  .navbar-nav li a {
+    line-height: 100px;
+    height: 100px;
+    padding-top: 0; }
 
+  #logo {
+    width: 138px;
+    height: 38px;
+    margin-top: 32px; }
+
+  .dropdown-menu li a {
+    line-height: 50px;
+    height: 50px; } }
+@media (max-width: 768px) {
+  #logo {
+    width: 70px; } }
 img.profile {
   width: 50px;
   height: 50px; }
@@ -5834,7 +5843,8 @@ div.day {
         font-weight: 200; }
     @media screen and (max-width: 768px) {
       .home-pro .row.first h1 {
-        font-size: 20px; }
+        font-size: 20px;
+        text-align: center; }
       .home-pro .row.first li {
         font-size: 18px; } }
 
