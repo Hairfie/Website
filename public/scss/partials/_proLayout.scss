@@ -1,3 +1,8 @@
+.proLayout .navbar .container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .sidebar {
   display: none;
 }
@@ -13,7 +18,7 @@
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: $red-hairfie;
-}
+  }
 }
 
 .nav-sidebar {

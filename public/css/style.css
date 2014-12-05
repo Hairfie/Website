@@ -5855,6 +5855,10 @@ div.day {
   .dashboard .main {
     margin-top: 100px; } }
 
+.proLayout .navbar .container-fluid {
+  padding-left: 20px;
+  padding-right: 20px; }
+
 .sidebar {
   display: none; }
 
