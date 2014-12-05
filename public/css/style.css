@@ -5528,7 +5528,8 @@ body {
   font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
   color: #818896;
   background-color: #f6f6f7;
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  overflow-x: hidden; }
 
 .container-fluid {
   padding-right: 0px;
@@ -5847,6 +5848,12 @@ div.day {
         text-align: center; }
       .home-pro .row.first li {
         font-size: 18px; } }
+
+.dashboard .main {
+  padding: 30px; }
+@media (min-width: 768px) {
+  .dashboard .main {
+    margin-top: 100px; } }
 
 .sidebar {
   display: none; }

@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
         return (
             <div className="proLayout">
-                <nav className="navbar navbar-default navbar-static-top header" role="navigation">
+                <nav className="navbar navbar-default navbar-fixed-top header" role="navigation">
                     <div className="container-fluid">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,11 +33,11 @@ module.exports = React.createClass({
                     </div>
                 </nav>
                 <div className={ 'container-fluid ' + this.props.customClass }>
-                    <div className="row">
-                        <div className="col-sm-3 col-md-2 sidebar">
+                    <div className="row dashboard">
+                        <div className="col-sm-2 sidebar">
                             {this.renderBusinessMenu(this.props.business)}
                         </div>
-                        <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                        <div className="col-sm-10 col-sm-offset-2 main">
                             {this.props.children}
                         </div>
                     </div>

@@ -4,10 +4,12 @@ html {
 }
 
 body {
-  font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
     color: $grey;
     background-color: $grey-body;
     margin-bottom: 60px;
+
+    overflow-x: hidden;
 }
 
 .container-fluid {
