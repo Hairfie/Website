@@ -37,18 +37,18 @@ module.exports = React.createClass({
     },
     renderBusiness: function(business) {
         return (
-            <div className="col-sm-6 col-md-4" key={business.id}>
+            <div className="col-sm-6 col-md-4 business-item" key={business.id}>
                 <div className="thumbnail">
-                <img src={business.pictures[0].url} className="img-responsive" />
-                <div className="caption">
-                    <h3>{business.name}</h3>
-                    <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
-                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step: 'general'}}>
-                        <button className="btn btn-primary" role="button">Gérer ce business</button>
-                    </NavLink>
+                    <img src={business.pictures[0].url} className="img-responsive" />
+                    <div className="caption">
+                        <h3>{business.name}</h3>
+                        <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
+                        <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step: 'general'}}>
+                            <button className="btn btn-primary" role="button">Gérer ce business</button>
+                        </NavLink>
 
-                    <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Afficher la page publique</a>
-                </div>
+                        <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Afficher la page publique</a>
+                    </div>
                 </div>
             </div>
         );
