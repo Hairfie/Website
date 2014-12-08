@@ -8,7 +8,37 @@ var UserConstants = require('../constants/UserConstants');
 var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
 
+var Input = require('react-bootstrap/Input');
+var Button = require('react-bootstrap/Button');
+
+var Google = require('../services/google');
+
 module.exports = React.createClass({
+    componentDidMount: function () {
+        Google
+            .loadMaps()
+            .then(function (google) {
+                var input = this.refs.businessAddress.getInputDOMNode();
+
+                var options = {};
+                options.types = ['geocode'];
+
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                google.maps.event.addListener(autocomplete, 'place_changed', this.handleBusinessAddressPlaceChanged);
+
+                this.setState({
+                    businessAddressAutocomplete: autocomplete
+                });
+            }.bind(this));
+    },
+    getInitialState: function () {
+        return {
+            businessAddress             : null,
+            businessGps                 : null,
+            businessAddressAutocomplete : null
+        };
+    },
     render: function () {
         return (
             <PublicLayout context={this.props.context} withLogin={true} customClass={'home-pro'}>
@@ -35,35 +65,25 @@ module.exports = React.createClass({
                     <div className="col-sm-5 col-md-4 col-md-offset-1">
                         <form role="form" className="claim">
                             <h3>Vous êtes un <strong>professionnel</strong> de la coiffure ?</h3>
-                            <div className="form-group radio">
+                            <Input className="radio">
                                 <label className="radio-inline">
-                                  <input type="radio" name="gender" ref="gender" value={UserConstants.Genders.MALE} />
-                                  Man
+                                  <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.MALE} />
+                                  Homme
                                 </label>
                                 <label className="radio-inline">
-                                  <input type="radio" name="gender" ref="gender" value={UserConstants.Genders.FEMALE} />
-                                  Woman
+                                  <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.FEMALE} />
+                                  Femme
                                 </label>
-                            </div>
-                           <div className="form-group">
-                                <input ref="businessName" type="text" className="form-control" placeholder="Business Name"/>
-                            </div>
-                            <div className="form-group">
-                                <input ref="firstName" type="text" className="form-control" placeholder="First Name"/>
-                            </div>
-                            <div className="form-group">
-                                <input ref="lastName" type="text" className="form-control" placeholder="Last Name"/>
-                            </div>
-                            <div className="form-group">
-                                <input ref="email" type="email" className="form-control" placeholder="Email"/>
-                            </div>
-                            <div className="form-group">
-                                <input ref="password" type="password" className="form-control" placeholder="Choose a password"/>
-                            </div>
-                            <div className="form-group">
-                                <input ref="phoneNumber" type="text" className="form-control" placeholder="Phone Number"/>
-                            </div>
-                            <button type="button" className="btn btn-red btn-block" onClick={this.submit}>Start now !</button>
+                            </Input>
+                            <Input ref="userFirstName" type="text"  placeholder="Prénom" />
+                            <Input ref="userLastName" type="text" placeholder="Nom" />
+                            <Input ref="userEmail" type="email" placeholder="Email" />
+                            <Input ref="userPassword" type="password" placeholder="Choisissez un mot de passe" />
+                            <hr />
+                            <Input ref="businessName" type="text" placeholder="Nom de votre société" />
+                            <Input ref="businessAddress" type="text" placeholder="Adresse postale" />
+                            <Input ref="businessPhoneNumber" type="text" placeholder="Numéro de téléphone" />
+                            <Button className="btn-red btn-block" onClick={this.submit}>Commencer maintenant !</Button>
                         </form>
                     </div>
                 </div>
@@ -73,13 +93,71 @@ module.exports = React.createClass({
     submit: function (e) {
         e.preventDefault();
         this.props.context.executeAction(AuthActions.Signup, {
-            gender: this.refs.gender.getDOMNode().value,
-            firstName: this.refs.firstName.getDOMNode().value,
-            lastName: this.refs.lastName.getDOMNode().value,
-            email: this.refs.email.getDOMNode().value,
-            password: this.refs.password.getDOMNode().value,
-            phoneNumber: this.refs.phoneNumber.getDOMNode().value,
-            businessName: this.refs.businessName.getDOMNode().value
+            user        : {
+                gender      : this.refs.userGender.getDOMNode().value,
+                firstName   : this.refs.userFirstName.getValue(),
+                lastName    : this.refs.userLastName.getValue(),
+                email       : this.refs.userEmail.getValue(),
+                password    : this.refs.userPassword.getValue()
+            },
+            business    : {
+                name        : this.refs.businessName.getValue(),
+                phoneNumber : this.refs.businessPhoneNumber.getValue(),
+                address     : this.state.businessAddress,
+                gps         : this.state.businessGps
+            }
+        });
+    },
+    handleBusinessAddressPlaceChanged: function () {
+        var place   = this.state.businessAddressAutocomplete.getPlace(),
+            address = addressFromPlace(place),
+            gps     = gpsFromPlace(place);
+
+        this.setState({
+            businessAddress : address,
+            businessGps     : gps
         });
     }
 });
+
+function addressFromPlace(place) {
+    var parts = {};
+
+    if (place && place.address_components) {
+        place.address_components.map(function (component) {
+            switch (component.types[0]) {
+                case 'street_number':
+                    parts.streetNumber = component.short_name;
+                    break;
+                case 'route':
+                    parts.streetName = component.long_name;
+                    break;
+                case 'locality':
+                    parts.city = component.long_name;
+                    break;
+                case 'postal_code':
+                    parts.zipCode = component.short_name;
+                    break;
+                case 'country':
+                    parts.country = component.short_name;
+                    break;
+            }
+        });
+    }
+
+    return {
+        street  : [parts.streetNumber, parts.streetName].join(' '),
+        city    : parts.city,
+        zipCode : parts.zipCode,
+        country : parts.country
+    };
+}
+
+function gpsFromPlace(place) {
+    if (place && place.geometry && place.geometry.location) {
+        return {
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+        };
+    }
+}

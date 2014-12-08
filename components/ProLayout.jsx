@@ -5,6 +5,7 @@ var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 var UserStatus = require('./UserStatus.jsx');
 var Footer = require('./Footer.jsx');
+var FlashMessages = require('./FlashMessages.jsx');
 
 module.exports = React.createClass({
     displayName: 'ProLayout',
@@ -35,6 +36,7 @@ module.exports = React.createClass({
 
         return (
             <div className="proLayout">
+                <FlashMessages context={this.props.context} />
                 <nav className="navbar navbar-default navbar-fixed-top header" role="navigation">
                     <div className="container-fluid">
                         <div className="navbar-header">
