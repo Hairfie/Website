@@ -31,6 +31,13 @@ module.exports = {
         pageComponent: require('../components/NewBusinessPage.jsx'),
         authRequired: true
     },
+    pro_business_photos: {
+        path: '/pro/businesses/:id/photos',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessPhotosPage.jsx'),
+        authRequired: true
+    },
     pro_business_hairdressers: {
         path: '/pro/businesses/:id/hairdressers',
         method: 'get',
