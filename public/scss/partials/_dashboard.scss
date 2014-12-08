@@ -9,3 +9,8 @@
     }
   }
 }
+
+.navbar-nav > li > .dropdown-menu {
+    max-height: 1000px;
+    overflow-x: scroll;
+}

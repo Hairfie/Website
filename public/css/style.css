@@ -5855,6 +5855,10 @@ div.day {
   .dashboard .main {
     margin-top: 100px; } }
 
+.navbar-nav > li > .dropdown-menu {
+  max-height: 1000px;
+  overflow-x: scroll; }
+
 .proLayout .navbar .container-fluid {
   padding-left: 20px;
   padding-right: 20px; }
