@@ -49,7 +49,9 @@ module.exports = React.createClass({
                     <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
                     <img src={pictureSrc + '?width=100&height=100'} className="img-circle profile" /> {this.state.user.firstName} {this.state.user.lastName} <b className="caret"></b></a>
                     <ul className="dropdown-menu account">
-                        <li><a href="#"><i className="fa fa-cog"></i> My Account ?</a></li>
+                        <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
+                        <li className="divider"></li>
+                        <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i>Dashboard</NavLink></li>
                         <li className="divider"></li>
                         {managedBusinesses}
                         <li>
@@ -57,7 +59,6 @@ module.exports = React.createClass({
                                 + claim a business
                             </NavLink>
                         </li>
-                        <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
                     </ul>
                 </li>
             );

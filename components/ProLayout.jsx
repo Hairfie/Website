@@ -7,9 +7,31 @@ var UserStatus = require('./UserStatus.jsx');
 var Footer = require('./Footer.jsx');
 
 module.exports = React.createClass({
-    displayName: 'PublicLayout',
+    displayName: 'ProLayout',
+
     render: function () {
         var hairdresser = this.props.hairdresser || {};
+        var main;
+        if(this.props.withoutSideBar) {
+            main = (
+                <div className="row dashboard">
+                    <div className="col-sm-12 main">
+                        {this.props.children}
+                    </div>
+                </div>
+            );
+        } else {
+            main = (
+                <div className="row dashboard">
+                    <div className="col-sm-2 sidebar">
+                        {this.renderBusinessMenu(this.props.business)}
+                    </div>
+                    <div className="col-sm-10 col-sm-offset-2 main">
+                        {this.props.children}
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <div className="proLayout">
@@ -33,14 +55,7 @@ module.exports = React.createClass({
                     </div>
                 </nav>
                 <div className={ 'container-fluid ' + this.props.customClass }>
-                    <div className="row dashboard">
-                        <div className="col-sm-2 sidebar">
-                            {this.renderBusinessMenu(this.props.business)}
-                        </div>
-                        <div className="col-sm-10 col-sm-offset-2 main">
-                            {this.props.children}
-                        </div>
-                    </div>
+                    { main }
                 </div>
             </div>
         );
