@@ -59,6 +59,13 @@ module.exports = {
         pageComponent: require('../components/BusinessInfosPage.jsx'),
         authRequired: true
     },
+    pro_business_dashboard: {
+        path: '/pro/businesses/:id/dashboard',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessDashboardPage.jsx'),
+        authRequired: true
+    },
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',

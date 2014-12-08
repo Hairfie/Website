@@ -49,7 +49,7 @@ module.exports = React.createClass({
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
-                                <UserStatus context={this.props.context} />
+                                <UserStatus context={this.props.context} currentBusiness={this.props.business} />
                             </ul>
                         </div>
                     </div>
@@ -65,6 +65,11 @@ module.exports = React.createClass({
 
         return (
             <ul className="nav nav-sidebar">
+                <li>
+                    <NavLink context={this.props.context} routeName="pro_business_dashboard" navParams={{id: business.id, step:'general'}}>
+                        {business.name}
+                    </NavLink>
+                </li>
                 <li>
                     <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step:'general'}}>
                         Infos <span className="icon icon-right-arrow" aria-hidden="true"></span>

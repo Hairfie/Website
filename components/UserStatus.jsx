@@ -37,7 +37,7 @@ module.exports = React.createClass({
             var managedBusinesses = this.state.managedBusinesses.map(function (business) {
                 return (
                     <li key={business.id}>
-                        <NavLink context={context} routeName="pro_business_infos" navParams={{id: business.id, step: 'general'}}>
+                        <NavLink context={context} routeName="pro_business_dashboard" navParams={{id: business.id, step: 'general'}}>
                             {business.name}
                         </NavLink>
                     </li>
@@ -47,7 +47,7 @@ module.exports = React.createClass({
             return (
                 <li className="dropdown">
                     <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
-                    <img src={pictureSrc + '?width=100&height=100'} className="img-circle profile" /> {this.state.user.firstName} {this.state.user.lastName} <b className="caret"></b></a>
+                    <img src={pictureSrc + '?width=100&height=100'} className="img-circle profile" /> {this.state.user.firstName} {this.state.user.lastName} { this.props.currentBusiness ?  ' @ ' + this.props.currentBusiness.name : ''}<b className="caret"></b></a>
                     <ul className="dropdown-menu account">
                         <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
                         <li className="divider"></li>
