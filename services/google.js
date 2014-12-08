@@ -29,7 +29,7 @@ function loadMaps() {
         debug('start loading google maps SDK');
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'https://maps.googleapis.com/maps/api/js?callback=onGoogleMapsLoaded';
+        script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=onGoogleMapsLoaded';
         document.body.appendChild(script);
         window.onGoogleMapsLoaded = onGoogleMapsLoaded;
     }

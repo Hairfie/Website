@@ -3,31 +3,25 @@
 var hairfieApi = require('../../services/hairfie-api-client');
 var navigateAction = require('flux-router-component/actions/navigate');
 var Events = require('../../constants/AuthConstants').Events;
+var Notify = require('../Flash/Notify');
 
 module.exports = function (context, payload, done) {
-    signupUser(context, payload)
+    signupUser(context, payload.user)
         .then(function (result) {
-            return createBusinessClaim(context, payload, result.token);
+            return createBusiness(context, payload.business, result.token);
         })
-        .then(function (claim) {
-            var path = context.router.makePath('pro_business_claim', {id: claim.id});
+        .then(function (business) {
+            var path = context.router.makePath('pro_business', {id: business.id});
             context.executeAction(navigateAction, {path: path}, done);
         })
         .fail(done);
 };
 
-function signupUser(context, payload) {
+function signupUser(context, userValues) {
     context.dispatch(Events.SIGNUP);
 
     return hairfieApi
-        .signup({
-            gender      : payload.gender,
-            firstName   : payload.firstName,
-            lastName    : payload.lastName,
-            email       : payload.email,
-            password    : payload.password,
-            phoneNumber : payload.phoneNumber
-        })
+        .signup(userValues)
         .then(function (result) {
             context.dispatch(Events.SIGNUP_SUCCESS, {
                 user    : result.user,
@@ -36,14 +30,22 @@ function signupUser(context, payload) {
 
             return result;
         })
-        .fail(function () {
-            context.dispatch(Events.SIGNUP_FAILURE);
+        .fail(function (error) {
+            if (error.emailAlreadyExists) {
+                context.executeAction(Notify, {
+                    type: 'FAILURE',
+                    body: 'L\'adresse email spécifiée est déjà associée à un utilisateur, veuillez vous authentifier.'
+                });
+            }
+
+            context.dispatch(Events.SIGNUP_FAILURE, error);
         });
 }
 
-function createBusinessClaim(context, payload, token) {
-    var values = {};
-    values.name = payload.businessName;
-
-    return hairfieApi.saveBusinessClaim(values, token);
+function createBusiness(context, businessValues, token) {
+    return hairfieApi
+        .saveBusinessClaim(businessValues, token)
+        .then(function (claim) {
+            return hairfieApi.submitBusinessClaim(claim, token);
+        });
 }
