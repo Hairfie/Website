@@ -5877,6 +5877,9 @@ div.day {
     bottom: 30px;
     right: 25px; }
 
+.business-photos .thumbnail img {
+  padding: 9px; }
+
 .proLayout .navbar .container-fluid {
   padding-left: 20px;
   padding-right: 20px; }

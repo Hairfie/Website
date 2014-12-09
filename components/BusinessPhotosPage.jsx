@@ -35,23 +35,30 @@ module.exports = React.createClass({
         pictureNodes.push(this.renderNewPicture());
 
         return (
-            <Layout context={this.props.context} business={business}>
+            <Layout context={this.props.context} business={business} customClass={'business-photos'}>
                 <h2>Photos du salon</h2>
                 {pictureNodes}
             </Layout>
         );
     },
     renderPicture: function(picture) {
+        if(picture.name) {
+            var button = (<button className="btn btn-danger btn-block" role="button" onClick={this.deletePicture.bind(this, picture)}>Supprimer</button>)
+        } else {
+            var button = (<button className="btn btn-warning btn-block" disabled>Photo par défaut</button>)
+        }
         return (
             <div className="col-sm-6 col-md-4 business-item" key={picture.url}>
                 <div className="thumbnail">
                     <img src={picture.url} className="img-responsive" />
+                    <div className="caption">
+                        {button}
+                    </div>
                 </div>
             </div>
         );
     },
     renderNewPicture: function() {
-        console.log("loading", this.state.loading);
         if (this.state.loading) {
             return (
                 <div className="col-sm-6 col-md-4 business-item">
@@ -77,10 +84,26 @@ module.exports = React.createClass({
         this.setState({fileInput: event.target.value, business: this.state.business});
         this._uploadPicture(event.target.files[0]);
     },
+    deletePicture: function (pictureToDelete) {
+        var pictures = _.reduce(this.state.business.pictures, function(arr, picture) {
+            if(picture.name != pictureToDelete.name) {
+                arr.push(picture.name);
+            }
+            return arr;
+        }, []);
+
+        this.props.context.executeAction(BusinessActions.Save, {
+            business: {
+                id          : this.state.business.id,
+                pictures    : pictures
+            }
+        });
+    },
     _uploadPicture: function(file) {
         this.props.context.executeAction(BusinessActions.AddPicture, {
             pictureToUpload: file,
             business: this.state.business
         });
-    }
+    },
+
 });

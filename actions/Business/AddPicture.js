@@ -2,6 +2,7 @@
 
 var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
+var _ = require('lodash');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.ADD_PICTURE);
@@ -9,28 +10,23 @@ module.exports = function (context, payload, done) {
     hairfieApi
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
         .then(function (response) {
-            var picture = response.result.files.image;
-            if(payload.business.pictures.length > 0) {
-                var pictures = payload.business.pictures.map(function(picture) {
-                    if(picture.name.length === 0) {
-                        return picture.url;
-                    } else {
-                        return picture.name;
-                    }
-                });
-            } else {
-                var pictures = [];
-            }
+            var pictureUploaded = response.result.files.image;
+            console.log("picture", pictureUploaded);
+            var pictures = _.reduce(payload.business.pictures, function(arr, picture) {
+                if(picture.name) {
+                    arr.push(picture.name);
+                }
+                return arr;
+            }, []);
+            console.log("pictures", pictures);
 
-            pictures.push(picture.name);
-
+            pictures.push(pictureUploaded.name);
             var business = {
                 id: payload.business.id,
                 pictures : pictures
             };
-            console.log("business", business);
             context.dispatch(BusinessEvents.ADD_PICTURE_SUCCESS, {
-                picture: picture
+                picture: pictureUploaded
             });
             return hairfieApi.saveBusiness(business, context.getAuthToken())
         })

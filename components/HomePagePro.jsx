@@ -23,15 +23,15 @@ var KindChoice = React.createClass({
     },
     render: function () {
         return (
-            <Input>
-                <Row>
-                    <Col xs={6} >
-                        {this.renderButton(BusinessKinds.SALON, 'Salon de coiffure')}
-                    </Col>
-                    <Col xs={6}>
-                        {this.renderButton(BusinessKinds.HOME, 'Coiffure à domicile')}
-                    </Col>
-                </Row>
+            <Input className="radio">
+                <label className="radio-inline">
+                  <input type="radio" name="businessKind" ref="businessKind" value={BusinessKinds.SALON} />
+                  En Salon
+                </label>
+                <label className="radio-inline">
+                  <input type="radio" name="businessKind" ref="businessKind" value={BusinessKinds.HOME} />
+                  À domicile
+                </label>
             </Input>
         );
     },

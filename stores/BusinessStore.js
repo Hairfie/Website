@@ -5,7 +5,7 @@ var makeHandlers = require('../lib/fluxible/makeHandlers');
 var BusinessEvents = require('../constants/BusinessConstants').Events;
 var BusinessActions = require('../actions/Business');
 var HairdresserEvents = require('../constants/HairdresserConstants').Events;
-
+var Notify = require('../actions/Flash/Notify');
 var _ = require('lodash');
 
 module.exports = createStore({
@@ -16,7 +16,8 @@ module.exports = createStore({
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
         handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
         handleAddPicture: BusinessEvents.ADD_PICTURE,
-        handleAddPictureSuccess: BusinessEvents.ADD_PICTURE_SUCCESS
+        handleAddPictureSuccess: BusinessEvents.ADD_PICTURE_SUCCESS,
+        handleAddPictureFailure: BusinessEvents.ADD_PICTURE_FAILURE
     }),
     initialize: function () {
         this.business = null;
@@ -70,6 +71,14 @@ module.exports = createStore({
     },
     handleAddPictureSuccess: function() {
         this.uploadInProgress = false;
+        this.emitChange();
+    },
+    handleAddPictureFailure: function() {
+        this.uploadInProgress = false;
+        context.executeAction(Notify, {
+            type: "FAILURE",
+            body: "Echec de l'upload de la photo"
+        });
         this.emitChange();
     },
     getBusiness: function () {
