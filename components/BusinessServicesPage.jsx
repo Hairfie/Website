@@ -26,11 +26,11 @@ var BusinessServiceModal = React.createClass({
                     <Input ref="serviceId" label="Service" type="select" defaultValue={bs.serviceId}>
                         {this.renderServiceOptions()}
                     </Input>
-                    <Input ref="priceAmount" label="Price (in €)" type="text" defaultValue={bs.price ? bs.price.amount : null} />
-                    <Input ref="durationMinutes" label="Duration (in minutes)" type="number" defaultValue={bs.durationMinutes} />
+                    <Input ref="priceAmount" label="Prix (en €)" type="text" defaultValue={bs.price ? bs.price.amount : null} />
+                    <Input ref="durationMinutes" label="Durée (en minutes)" type="number" defaultValue={bs.durationMinutes} />
                 </div>
                 <div className="modal-footer">
-                    <Button onClick={this.handleSave}>Save</Button>
+                    <Button onClick={this.handleSave}>Sauver</Button>
                 </div>
             </Modal>
         );
@@ -82,8 +82,8 @@ module.exports = React.createClass({
                     <thead>
                         <tr>
                             <th>Service</th>
-                            <th>Price</th>
-                            <th>Duration</th>
+                            <th>Prix</th>
+                            <th>Durée</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -93,7 +93,7 @@ module.exports = React.createClass({
                 </Table>
 
                 <ModalTrigger modal={<BusinessServiceModal services={this.state.services} onSave={this.saveBusinessService} />}>
-                    <Button>Add a service</Button>
+                    <Button>Ajouter un service</Button>
                 </ModalTrigger>
             </Layout>
         );
@@ -112,9 +112,9 @@ module.exports = React.createClass({
                 </td>
                 <td>
                     <ModalTrigger modal={<BusinessServiceModal businessService={businessService} services={this.state.services} onSave={this.saveBusinessService} />}>
-                        <Button>Edit</Button>
+                        <Button>Modifier</Button>
                     </ModalTrigger>
-                    <Button onClick={this.deleteBusinessService.bind(this, businessService)}>Delete</Button>
+                    <Button xsSize="xsmall" onClick={this.deleteBusinessService.bind(this, businessService)}>Supprimer</Button>
                 </td>
             </tr>
         );
