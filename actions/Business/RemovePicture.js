@@ -1,0 +1,1 @@
+RemovePicture.js

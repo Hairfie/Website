@@ -10,7 +10,7 @@ module.exports = function (context, payload, done) {
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
         .then(function (response) {
             var picture = response.result.files.image;
-            if(payload.business.length > 0) {
+            if(payload.business.pictures.length > 0) {
                 var pictures = payload.business.pictures.map(function(picture) {
                     if(picture.name.length === 0) {
                         return picture.url;
