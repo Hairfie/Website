@@ -12,8 +12,10 @@ module.exports = function (context, payload, done) {
             context.dispatch(BusinessEvents.SAVE_SUCCESS, {
                 business: business
             });
+            done();
         })
-        .fail(function () {
+        .fail(function (error) {
             context.dispatch(BusinessEvents.SAVE_FAILURE);
+            done(error);
         });
 };
