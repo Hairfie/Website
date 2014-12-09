@@ -9,6 +9,7 @@ var HairdresserActions = require('../actions/Hairdresser');
 var Layout = require('./ProLayout.jsx');
 var Uuid = require('uuid');
 var _ = require('lodash');
+var Button = require('react-bootstrap/Button');
 
 var HairdresserRow = React.createClass({
     render: function () {
@@ -76,11 +77,11 @@ module.exports = React.createClass({
                 </table>
 
                 <p>
-                    <button onClick={this.addHairdresser}>Add hairdresser</button>
+                    <Button onClick={this.addHairdresser}>Add hairdresser</Button>
                 </p>
 
                 <p>
-                    <button onClick={this.saveHairdressers}>Save</button>
+                    <Button onClick={this.saveHairdressers}>Save</Button>
                 </p>
             </Layout>
         );

@@ -14,10 +14,13 @@ var Weekdays = require('../constants/DateTimeConstants').Weekdays;
 var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var Button = require('react-bootstrap/Button');
+var Input = require('react-bootstrap/Input');
+var Row = require('react-bootstrap/Row');
+var Col = require('react-bootstrap/Col');
 
 var TimePicker = React.createClass({
     render: function () {
-        return <input ref="input" {...this.props} type="text" />
+        return <Input ref="input" {...this.props} type="time" />
     },
     getValue: function () {
         return this.refs.input.getDOMNode().value;
@@ -30,25 +33,28 @@ var NewTimeWindowModal = React.createClass({
             return (
                 <li key={wd}>
                     <label>
-                        <input type="checkbox" ref={wd} /> {wd}
+                        <input type="checkbox" ref={wd} /> {weekDayLabel(wd)}
                     </label>
                 </li>
             );
         }, this);
 
         return (
-            <Modal {...this.props} title={"Add a time window"}>
+            <Modal {...this.props} title="Ajout d'une heure d'ouverture">
                 <div className="modal-body">
-                    <h3>Time window</h3>
-                    From
-                    <TimePicker ref="startTime" />
-                    to
-                    <TimePicker ref="endTime" />
-
-                    <h3>Days of week</h3>
-                    <ul className="list-unstyled">
-                        {dayOfWeekNodes}
-                    </ul>
+                    <Row>
+                        <Col xs={6}>
+                            <TimePicker ref="startTime" label="Heure de début" />
+                        </Col>
+                        <Col xs={6}>
+                            <TimePicker ref="endTime" label="Heure de fin" />
+                        </Col>
+                    </Row>
+                    <Input label="Jour(s) de la semaine">
+                        <ul className="list-unstyled">
+                            {dayOfWeekNodes}
+                        </ul>
+                    </Input>
                 </div>
                 <div className="modal-footer">
                     <Button onClick={this.save}>Add</Button>
@@ -93,13 +99,13 @@ module.exports = React.createClass({
 
         return (
             <Layout context={this.props.context} business={this.state.business}>
-                <h2>Timetable</h2>
+                <h2>Horaires</h2>
 
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Day of week</th>
-                            <th>Opening hours</th>
+                            <th>Jour de la semaine</th>
+                            <th>Heures d'ouverture</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,7 +114,7 @@ module.exports = React.createClass({
                 </table>
 
                 <ModalTrigger modal={newTimeWindowModal} container={this}>
-                    <button onClick={this.openAddForm}>Add time window</button>
+                    <Button onClick={this.openAddForm}>Ajouter une heure d'ouverture</Button>
                 </ModalTrigger>
             </Layout>
         );
@@ -120,7 +126,7 @@ module.exports = React.createClass({
 
         return (
             <tr key={weekday}>
-                <td>{weekday}</td>
+                <td>{weekDayLabel(weekday)}</td>
                 <td>
                     {this.renderTimeWindows(weekday, timeWindows)}
                 </td>
@@ -129,7 +135,7 @@ module.exports = React.createClass({
     },
     renderTimeWindows: function (weekday, timeWindows) {
         if (0 == timeWindows.length) {
-            return <em>Closed</em>
+            return <em>Fermé</em>
         }
 
         var timeWindowNodes = timeWindows.map(this.renderTimeWindow.bind(this, weekday));
@@ -148,7 +154,7 @@ module.exports = React.createClass({
         return (
             <li key={index+'-'+start+'-'+end} className="list-group-item">
                 {timeWindow.startTime} - {timeWindow.endTime}
-                <Button className="pull-right" onClick={remove}>
+                <Button bsSize="xsmall" className="pull-right" onClick={remove}>
                     remove
                 </Button>
             </li>
@@ -186,3 +192,18 @@ module.exports = React.createClass({
         });
     }
 });
+
+/**
+ * @TODO: remove me!
+ */
+function weekDayLabel(wd) {
+    return ({
+        MON: 'Lundi',
+        TUE: 'Mardi',
+        WED: 'Mercredi',
+        THU: 'Jeudi',
+        FRI: 'Vendredi',
+        SAT: 'Samedi',
+        SUN: 'Dimanche'
+    })[wd];
+}
