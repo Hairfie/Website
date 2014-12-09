@@ -32,7 +32,7 @@ module.exports = React.createClass({
             );
         } else if (this.state.user) {
             var context = this.props.context;
-            var pictureSrc = this.state.user.picture ? this.state.user.picture.url : null;
+            var pictureSrc = this.state.user.picture ? this.state.user.picture.url : '/img/profile-picture/default-'+('MALE' == this.state.user.gender ? 'man' : 'woman')+'.png';
 
             var managedBusinesses = this.state.managedBusinesses.map(function (business) {
                 return (

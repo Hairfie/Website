@@ -108,25 +108,17 @@ module.exports = React.createClass({
         }, this);
     },
     _saveHairdresser: function (originalHairdresser, newValues, isNew) {
-        var done,
-            hairdresser = _.assign(_.cloneDeep(originalHairdresser), newValues);
+        var hairdresser = _.assign(_.cloneDeep(originalHairdresser), newValues);
 
         if (isNew) {
-            done = this._makeSaveNewDone(hairdresser.id);
+            this.setState({
+                newHairdressers: this._getNewHairdressersExcept(hairdresser.id)
+            });
             hairdresser.id = undefined;
             hairdresser.business = this.state.business;
         }
 
-        this.props.context.executeAction(HairdresserActions.Save, {hairdresser: hairdresser}, done);
-    },
-    _makeSaveNewDone: function (id) {
-        return function (error) {
-            if (error) return;
-
-            this.setState({
-                newHairdressers: this._getNewHairdressersExcept(id)
-            });
-        }
+        this.props.context.executeAction(HairdresserActions.Save, {hairdresser: hairdresser});
     },
     _getNewHairdressersExcept: function (id) {
         return _.filter(this.state.newHairdressers, function (h) { return h.id != id; });
