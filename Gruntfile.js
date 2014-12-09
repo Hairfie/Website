@@ -75,7 +75,7 @@ module.exports = function (grunt) {
       },
       client: {
         src: 'client.js',
-        dest: 'public/js/app.js'
+        dest: 'public/build/js/app.js'
       }
     },
     watchify: {
