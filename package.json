@@ -6,7 +6,7 @@
     "start": "node ./server.js",
     "postinstall": "npm run bower && npm run build",
     "bower": "bower install",
-    "build": "./node_modules/.bin/browserify client.js -o public/build/js/app.js"
+    "build": "browserify client.js -o public/build/js/app.js"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
