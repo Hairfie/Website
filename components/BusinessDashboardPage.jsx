@@ -72,7 +72,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
-                        <h3>{business.services.length} service(s) proposé(s)</h3>
+                        <h3>{(business.services||[]).length} service(s) proposé(s)</h3>
                         <NavLink context={this.props.context} routeName="pro_business_services" navParams={{id: business.id, step: 'general'}}>
                             <button className="btn btn-primary" role="button">Modifier mes services</button>
                         </NavLink>

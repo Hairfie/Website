@@ -31,7 +31,7 @@ module.exports = React.createClass({
         return (
             <ProLayout context={this.props.context} withoutSideBar={true}>
                 <h3>Mes salons</h3>
-                { managedBusinesses }
+                {managedBusinesses}
             </ProLayout>
         );
     },
