@@ -67,7 +67,8 @@ module.exports = React.createClass({
     },
     _uploadPicture: function(file) {
         this.props.context.executeAction(BusinessActions.AddPicture, {
-            pictureToUpload: file
+            pictureToUpload: file,
+            business: this.state.business
         });
     }
 });

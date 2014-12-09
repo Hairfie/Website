@@ -14,8 +14,7 @@ module.exports = createStore({
         handleOpenSuccess: BusinessEvents.OPEN_SUCCESS,
         handleSaveSuccess: BusinessEvents.SAVE_SUCCESS,
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
-        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
-        handleAddPictureSuccess: BusinessEvents.ADD_PICTURE_SUCCESS
+        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS
     }),
     initialize: function () {
         this.business = null;
@@ -60,30 +59,6 @@ module.exports = createStore({
         }
 
         this.emitChange();
-    },
-    handleAddPictureSuccess: function (payload) {
-        console.log("handleAddPictureSuccess", payload);
-
-        if (!this.business) {
-            return;
-        }
-
-        var pictures = this.business.pictures.map(function(picture) {
-            if(picture.name.length === 0) {
-                return picture.url;
-            } else {
-                return picture.name;
-            }
-        });
-
-        pictures.push(payload.picture.name);
-
-        this.dispatcher.getContext().executeAction(BusinessActions.Save, {
-            business: {
-                id          : this.state.business.id,
-                pictures    : pictures
-            }
-        });
     },
     getBusiness: function () {
         return this.business;

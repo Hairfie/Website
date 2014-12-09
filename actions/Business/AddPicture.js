@@ -9,10 +9,31 @@ module.exports = function (context, payload, done) {
     hairfieApi
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
         .then(function (response) {
-            console.log("picture uploaded", response.result.files.image.name);
-            console.log("picture uploaded", response.result.files.image.url);
+            var picture = response.result.files.image;
+            var pictures = payload.business.pictures.map(function(picture) {
+
+                if(picture.name.length === 0) {
+                    return picture.url;
+                } else {
+                    return picture.name;
+                }
+            });
+
+            pictures.push(picture.name);
+
+            var business = {
+                id: payload.business.id,
+                pictures : pictures
+            };
+            console.log("business", business);
             context.dispatch(BusinessEvents.ADD_PICTURE_SUCCESS, {
-                picture: response.result.files.image
+                picture: picture
+            });
+            return hairfieApi.saveBusiness(business, context.getAuthToken())
+        })
+        .then(function(business) {
+            context.dispatch(BusinessEvents.SAVE_SUCCESS, {
+                business: business
             });
         })
         .fail(function () {
