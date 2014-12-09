@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./server.js",
-    "postinstall": "bower install && grunt watchify"
+    "postinstall": "bower install; ./node_modules/grunt-cli/bin/grunt watchify"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
