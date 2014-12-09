@@ -10,14 +10,17 @@ module.exports = function (context, payload, done) {
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
         .then(function (response) {
             var picture = response.result.files.image;
-            var pictures = payload.business.pictures.map(function(picture) {
-
-                if(picture.name.length === 0) {
-                    return picture.url;
-                } else {
-                    return picture.name;
-                }
-            });
+            if(payload.business.length > 0) {
+                var pictures = payload.business.pictures.map(function(picture) {
+                    if(picture.name.length === 0) {
+                        return picture.url;
+                    } else {
+                        return picture.name;
+                    }
+                });
+            } else {
+                var pictures = [];
+            }
 
             pictures.push(picture.name);
 
