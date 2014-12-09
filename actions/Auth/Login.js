@@ -3,6 +3,7 @@
 var hairfieApi = require('../../services/hairfie-api-client');
 var authStorage = require('../../services/auth-storage');
 var Events = require('../../constants/AuthConstants').Events;
+var Notify = require('../Flash/Notify');
 
 module.exports = function (context, payload, done) {
     context.dispatch(Events.LOGIN);
@@ -15,9 +16,15 @@ module.exports = function (context, payload, done) {
             context.dispatch(Events.LOGIN_SUCCESS, result);
             done();
         })
-        .catch(function (e) {
+        .fail(function (error) {
             context.dispatch(Events.LOGIN_FAILURE);
-            done();
+
+            context.executeAction(Notify, {
+                type: 'FAILURE',
+                body: 'Les identifiants que vous avez saisis sont invalides, veuillez réessayer.'
+            });
+
+            done(error);
         })
     ;
 };
