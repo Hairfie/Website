@@ -67,17 +67,17 @@ module.exports = function (grunt) {
         }
       }
     },
-    // browserify: {
-    //   options: {
-    //     transform: [
-    //       require('grunt-react').browserify
-    //     ]
-    //   },
-    //   client: {
-    //     src: 'client.js',
-    //     dest: 'public/js/app.js'
-    //   }
-    // },
+    browserify: {
+      options: {
+        transform: [
+          require('grunt-react').browserify
+        ]
+      },
+      client: {
+        src: 'client.js',
+        dest: 'public/js/app.js'
+      }
+    },
     watchify: {
       options: {
           // defaults options used in b.bundle(opts)

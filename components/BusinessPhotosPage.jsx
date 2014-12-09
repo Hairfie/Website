@@ -18,7 +18,8 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            business: this.getStore(BusinessStore).getBusiness()
+            business: this.getStore(BusinessStore).getBusiness(),
+            fileInput: null
         };
     },
     getInitialState: function () {
@@ -52,7 +53,7 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-6 col-md-4 business-item">
                 <div className="thumbnail">
-                    <input className="btn btn-primary" type="file" accept="image/*" ref="newPhoto" onChange={this.handleChange} />
+                    <input className="btn btn-primary" type="file" accept="image/*" ref="newPhoto" value={this.state.fileInput} onChange={this.handleChange} />
                 </div>
             </div>
         );
@@ -61,8 +62,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     handleChange: function(event) {
-        console.log("handleChange() fileName = " + event.target.files[0].name);
-        console.log("handleChange() file handle = " + event.target.files[0]);
+        this.setState({fileInput: event.target.value, business: this.state.business});
         this._uploadPicture(event.target.files[0]);
     },
     _uploadPicture: function(file) {
