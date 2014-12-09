@@ -5553,7 +5553,10 @@ footer {
 nav.header {
   background-color: #f9f9fa; }
   nav.header #formLogin {
-    padding: 17px; }
+    padding: 17px;
+    min-width: 250px; }
+    nav.header #formLogin input {
+      margin-bottom: 5px; }
 
 @media (min-width: 768px) {
   nav.header {

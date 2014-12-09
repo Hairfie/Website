@@ -2,11 +2,11 @@
 
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
-
 var NavLink = require('flux-router-component').NavLink;
-
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');
+var Input = require('react-bootstrap/Input');
+var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -69,9 +69,11 @@ module.exports = React.createClass({
                     <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
                     <div className="dropdown-menu">
                         <form className="form" id="formLogin">
-                            <input type="text" ref="email" placeholder="julia@hairfie.com" />
-                            <input type="password" ref="password" placeholder="Password" onSubmit={this.logIn} /><br />
-                            <button type="button" id="btnLogin" className="btn" type="submit" onClick={this.logIn}>Login</button>
+                            <Input ref="email" type="email"  placeholder="email" />
+                            <Input ref="password" type="password" placeholder="Password" onSubmit={this.logIn} />
+                            <Button className="btn-block btn-primary" type="submit" onClick={this.logIn}>
+                                Login
+                            </Button>
                         </form>
                     </div>
                 </li>
