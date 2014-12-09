@@ -10,35 +10,9 @@ var PublicLayout = require('./PublicLayout.jsx');
 
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
-
-var Google = require('../services/google');
+var AddressInput = require('./Form/AddressInput.jsx');
 
 module.exports = React.createClass({
-    componentDidMount: function () {
-        Google
-            .loadMaps()
-            .then(function (google) {
-                var input = this.refs.businessAddress.getInputDOMNode();
-
-                var options = {};
-                options.types = ['geocode'];
-
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-                google.maps.event.addListener(autocomplete, 'place_changed', this.handleBusinessAddressPlaceChanged);
-
-                this.setState({
-                    businessAddressAutocomplete: autocomplete
-                });
-            }.bind(this));
-    },
-    getInitialState: function () {
-        return {
-            businessAddress             : null,
-            businessGps                 : null,
-            businessAddressAutocomplete : null
-        };
-    },
     render: function () {
         return (
             <PublicLayout context={this.props.context} withLogin={true} customClass={'home-pro'}>
@@ -81,7 +55,7 @@ module.exports = React.createClass({
                             <Input ref="userPassword" type="password" placeholder="Choisissez un mot de passe" />
                             <hr />
                             <Input ref="businessName" type="text" placeholder="Nom de votre société" />
-                            <Input ref="businessAddress" type="text" placeholder="Adresse postale" />
+                            <AddressInput ref="businessAddress" placeholder="Adresse postale" />
                             <Input ref="businessPhoneNumber" type="text" placeholder="Numéro de téléphone" />
                             <Button className="btn-red btn-block" onClick={this.submit}>Commencer maintenant !</Button>
                         </form>
@@ -103,61 +77,10 @@ module.exports = React.createClass({
             business    : {
                 name        : this.refs.businessName.getValue(),
                 phoneNumber : this.refs.businessPhoneNumber.getValue(),
-                address     : this.state.businessAddress,
-                gps         : this.state.businessGps
+                address     : this.refs.businessAddress.getAddress(),
+                gps         : this.refs.businessAddress.getGps()
             }
-        });
-    },
-    handleBusinessAddressPlaceChanged: function () {
-        var place   = this.state.businessAddressAutocomplete.getPlace(),
-            address = addressFromPlace(place),
-            gps     = gpsFromPlace(place);
-
-        this.setState({
-            businessAddress : address,
-            businessGps     : gps
         });
     }
 });
 
-function addressFromPlace(place) {
-    var parts = {};
-
-    if (place && place.address_components) {
-        place.address_components.map(function (component) {
-            switch (component.types[0]) {
-                case 'street_number':
-                    parts.streetNumber = component.short_name;
-                    break;
-                case 'route':
-                    parts.streetName = component.long_name;
-                    break;
-                case 'locality':
-                    parts.city = component.long_name;
-                    break;
-                case 'postal_code':
-                    parts.zipCode = component.short_name;
-                    break;
-                case 'country':
-                    parts.country = component.short_name;
-                    break;
-            }
-        });
-    }
-
-    return {
-        street  : [parts.streetNumber, parts.streetName].join(' '),
-        city    : parts.city,
-        zipCode : parts.zipCode,
-        country : parts.country
-    };
-}
-
-function gpsFromPlace(place) {
-    if (place && place.geometry && place.geometry.location) {
-        return {
-            lat: place.geometry.location.lat(),
-            lng: place.geometry.location.lng()
-        };
-    }
-}

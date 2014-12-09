@@ -18,7 +18,11 @@ module.exports = {
 
         'RECEIVE_HAIRDRESSERS',
         'RECEIVE_HAIRDRESSERS_SUCCESS',
-        'RECEIVE_HAIRDRESSERS_FAILURE'
+        'RECEIVE_HAIRDRESSERS_FAILURE',
+
+        'CLAIM',
+        'CLAIM_SUCCESS',
+        'CLAIM_FAILURE'
     ]),
     Kinds: define([
         'SALON',

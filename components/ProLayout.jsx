@@ -68,7 +68,7 @@ module.exports = React.createClass({
         return (
             <ul className="nav nav-sidebar">
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_dashboard" navParams={{id: business.id, step:'general'}}>
+                    <NavLink context={this.props.context} routeName="pro_business" navParams={{id: business.id, step:'general'}}>
                         {business.name}
                     </NavLink>
                 </li>

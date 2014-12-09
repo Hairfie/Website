@@ -6,4 +6,5 @@ module.exports = {
     RefreshManaged      : require('./RefreshManaged'),
     Save                : require('./Save'),
     RefreshHairdressers : require('./RefreshHairdressers'),
+    Claim               : require('./Claim')
 };
