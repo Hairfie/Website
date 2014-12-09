@@ -54,6 +54,7 @@ module.exports = React.createClass({
                         <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i>Dashboard</NavLink></li>
                         <li className="divider"></li>
                         {managedBusinesses}
+                        <li className="divider"></li>
                         <li>
                             <NavLink context={this.props.context} routeName="pro_business_new">
                                 + claim a business
@@ -69,8 +70,8 @@ module.exports = React.createClass({
                     <div className="dropdown-menu">
                         <form className="form" id="formLogin">
                             <input type="text" ref="email" placeholder="julia@hairfie.com" />
-                            <input type="password" ref="password" placeholder="Password" /><br />
-                            <button type="button" id="btnLogin" className="btn" onClick={this.logIn}>Login</button>
+                            <input type="password" ref="password" placeholder="Password" onSubmit={this.logIn} /><br />
+                            <button type="button" id="btnLogin" className="btn" type="submit" onClick={this.logIn}>Login</button>
                         </form>
                     </div>
                 </li>
@@ -80,7 +81,8 @@ module.exports = React.createClass({
     logOut: function () {
         this.props.context.executeAction(AuthActions.Logout);
     },
-    logIn: function () {
+    logIn: function (e) {
+        e.preventDefault();
         this.props.context.executeAction(AuthActions.Login, {
             email   : this.refs.email.getDOMNode().value,
             password: this.refs.password.getDOMNode().value
