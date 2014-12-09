@@ -7,5 +7,9 @@ module.exports = resolve({
     defaults: {
         APP_ID          : '1567052370184577',
         APP_NAMESPACE   : 'hairfie-dev'
+    },
+    production: {
+        APP_ID          : '726709544031609',
+        APP_NAMESPACE   : 'hairfie'
     }
 });

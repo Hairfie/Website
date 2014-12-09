@@ -6,5 +6,8 @@ module.exports = resolve({
     namespace:  'HAIRFIE_API',
     defaults: {
         URL: 'http://api-staging.hairfie.com/api'
+    },
+    production: {
+        URL: 'http://api.hairfie.com/api'
     }
 });
