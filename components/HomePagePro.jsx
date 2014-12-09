@@ -4,13 +4,51 @@ var React = require('react');
 
 var AuthActions = require('../actions/Auth');
 var UserConstants = require('../constants/UserConstants');
+var BusinessKinds = require('../constants/BusinessConstants').Kinds;
 
 var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
 
+var Row = require('react-bootstrap/Row');
+var Col = require('react-bootstrap/Col');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var AddressInput = require('./Form/AddressInput.jsx');
+
+var KindChoice = React.createClass({
+    getInitialState: function () {
+        return {
+            kind: this.props.defaultValue || BusinessKinds.SALON
+        };
+    },
+    render: function () {
+        return (
+            <Input>
+                <Row>
+                    <Col xs={6} >
+                        {this.renderButton(BusinessKinds.SALON, 'Salon de coiffure')}
+                    </Col>
+                    <Col xs={6}>
+                        {this.renderButton(BusinessKinds.HOME, 'Coiffure à domicile')}
+                    </Col>
+                </Row>
+            </Input>
+        );
+    },
+    renderButton: function (kind, label) {
+        return (
+            <Button className="btn-block" active={this.state.kind == kind} onClick={this.choose.bind(this, kind)}>
+                {label}
+            </Button>
+        );
+    },
+    choose: function (kind) {
+        this.setState({kind: kind});
+    },
+    getValue: function () {
+        return this.state.kind;
+    }
+});
 
 module.exports = React.createClass({
     render: function () {
@@ -54,6 +92,8 @@ module.exports = React.createClass({
                             <Input ref="userEmail" type="email" placeholder="Email" />
                             <Input ref="userPassword" type="password" placeholder="Choisissez un mot de passe" />
                             <hr />
+
+                            <KindChoice ref="businessKind" />
                             <Input ref="businessName" type="text" placeholder="Nom de votre société" />
                             <AddressInput ref="businessAddress" placeholder="Adresse postale" />
                             <Input ref="businessPhoneNumber" type="text" placeholder="Numéro de téléphone" />
@@ -75,6 +115,7 @@ module.exports = React.createClass({
                 password    : this.refs.userPassword.getValue()
             },
             business    : {
+                kind        : this.refs.businessKind.getValue(),
                 name        : this.refs.businessName.getValue(),
                 phoneNumber : this.refs.businessPhoneNumber.getValue(),
                 address     : this.refs.businessAddress.getAddress(),

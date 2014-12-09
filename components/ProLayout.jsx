@@ -73,7 +73,7 @@ module.exports = React.createClass({
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step:'general'}}>
+                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id}}>
                         Infos <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>

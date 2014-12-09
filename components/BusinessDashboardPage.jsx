@@ -57,7 +57,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{infos}</h3>
-                        <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id, step: 'general'}}>
+                        <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes infos</button>
                         </NavLink>
                     </div>
