@@ -86,8 +86,8 @@ module.exports = React.createClass({
     logIn: function (e) {
         e.preventDefault();
         this.props.context.executeAction(AuthActions.Login, {
-            email   : this.refs.email.getDOMNode().value,
-            password: this.refs.password.getDOMNode().value
+            email   : this.refs.email.getValue(),
+            password: this.refs.password.getValue()
         });
     },
     onChange: function () {

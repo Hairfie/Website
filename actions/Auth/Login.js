@@ -22,7 +22,7 @@ module.exports = function (context, payload, done) {
             context.executeAction(Notify, {
                 type: 'FAILURE',
                 body: 'Les identifiants que vous avez saisis sont invalides, veuillez réessayer.'
-            });
+            }, function() {});
 
             done(error);
         })
