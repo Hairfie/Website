@@ -155,7 +155,7 @@ module.exports = React.createClass({
             <li key={index+'-'+start+'-'+end} className="list-group-item">
                 {timeWindow.startTime} - {timeWindow.endTime}
                 <Button bsSize="xsmall" className="pull-right" onClick={remove}>
-                    remove
+                    Supprimer
                 </Button>
             </li>
         );

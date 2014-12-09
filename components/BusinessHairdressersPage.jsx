@@ -64,10 +64,10 @@ module.exports = React.createClass({
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
-                            <th>Active ?</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Adresse email</th>
+                            <th>Actif ?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,11 +77,11 @@ module.exports = React.createClass({
                 </table>
 
                 <p>
-                    <Button onClick={this.addHairdresser}>Add hairdresser</Button>
+                    <Button onClick={this.addHairdresser}>Ajouter un coiffeur</Button>
                 </p>
 
                 <p>
-                    <Button onClick={this.saveHairdressers}>Save</Button>
+                    <Button onClick={this.saveHairdressers}>Sauver les modifications</Button>
                 </p>
             </Layout>
         );
