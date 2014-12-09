@@ -21,6 +21,7 @@ module.exports = createStore({
         'handleLoginSuccess': [AuthEvents.LOGIN_SUCCESS, AuthEvents.SIGNUP_SUCCESS],
         'handleLogoutSuccess': AuthEvents.LOGOUT_SUCCESS,
         'handleReceiveManagedBusinessesSuccess': BusinessEvents.RECEIVE_MANAGED_SUCCESS,
+        'handleClaimSuccess': BusinessEvents.CLAIM_SUCCESS
     }),
     dehydrate: function () {
         return {
@@ -46,10 +47,7 @@ module.exports = createStore({
         if (payload.managedBusinesses) {
             this.managedBusinesses = payload.managedBusinesses;
         } else {
-            this.dispatcher.getContext().executeAction(BusinessActions.RefreshManaged, {
-                user    : this.user,
-                token   : this.token
-            });
+            this._refreshManagedBusinesses();
         }
 
         this.emitChange();
@@ -72,6 +70,10 @@ module.exports = createStore({
         this.managedBusinesses = payload.businesses;
         this.emitChange();
     },
+    handleClaimSuccess: function (payload) {
+        // lazy way: let's reload the managed businesses list
+        this._refreshManagedBusinesses();
+    },
     getUser: function () {
         return this.user;
     },
@@ -83,5 +85,11 @@ module.exports = createStore({
     },
     getManagedBusinesses: function () {
         return this.managedBusinesses || [];
+    },
+    _refreshManagedBusinesses: function () {
+        this.dispatcher.getContext().executeAction(BusinessActions.RefreshManaged, {
+            user    : this.user,
+            token   : this.token
+        });
     }
 });

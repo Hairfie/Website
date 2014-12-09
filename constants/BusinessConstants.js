@@ -22,7 +22,11 @@ module.exports = {
 
         'ADD_PICTURE',
         'ADD_PICTURE_SUCCESS',
-        'ADD_PICTURE_FAILURE'
+        'ADD_PICTURE_FAILURE',
+
+        'CLAIM',
+        'CLAIM_SUCCESS',
+        'CLAIM_FAILURE'
     ]),
     Kinds: define([
         'SALON',

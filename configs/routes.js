@@ -22,13 +22,13 @@ module.exports = {
         path: '/pro/businesses/:id',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
-        pageComponent: require('../components/ShowBusinessPage.jsx'),
+        pageComponent: require('../components/BusinessDashboardPage.jsx'),
         authRequired: true
     },
     pro_business_new: {
         path: '/pro/claim',
         method: 'get',
-        pageComponent: require('../components/NewBusinessPage.jsx'),
+        pageComponent: require('../components/BusinessClaimPage.jsx'),
         authRequired: true
     },
     pro_business_photos: {
@@ -64,13 +64,6 @@ module.exports = {
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessInfosPage.jsx'),
-        authRequired: true
-    },
-    pro_business_dashboard: {
-        path: '/pro/businesses/:id/dashboard',
-        method: 'get',
-        action: require('../actions/Business/RouteOpen'),
-        pageComponent: require('../components/BusinessDashboardPage.jsx'),
         authRequired: true
     },
     show_hairfie: {
