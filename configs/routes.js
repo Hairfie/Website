@@ -60,7 +60,7 @@ module.exports = {
         authRequired: true
     },
     pro_business_infos: {
-        path: '/pro/businesses/:id/infos/:step',
+        path: '/pro/businesses/:id/infos',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessInfosPage.jsx'),
