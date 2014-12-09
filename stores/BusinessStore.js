@@ -14,11 +14,14 @@ module.exports = createStore({
         handleOpenSuccess: BusinessEvents.OPEN_SUCCESS,
         handleSaveSuccess: BusinessEvents.SAVE_SUCCESS,
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
-        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS
+        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
+        handleAddPicture: BusinessEvents.ADD_PICTURE,
+        handleAddPictureSuccess: BusinessEvents.ADD_PICTURE_SUCCESS
     }),
     initialize: function () {
         this.business = null;
         this.hairdressers = null;
+        this.uploadInProgress = false;
     },
     handleOpenSuccess: function (payload) {
         if (this.business && this.business.id != payload.business.id) {
@@ -35,6 +38,7 @@ module.exports = createStore({
         }
 
         this.business = payload.business;
+        this.uploadInProgress = false;
         this.emitChange();
     },
     handleReceiveHairdressersSuccess: function (payload) {
@@ -60,6 +64,14 @@ module.exports = createStore({
 
         this.emitChange();
     },
+    handleAddPicture: function() {
+        this.uploadInProgress = true;
+        this.emitChange();
+    },
+    handleAddPictureSuccess: function() {
+        this.uploadInProgress = false;
+        this.emitChange();
+    },
     getBusiness: function () {
         return this.business;
     },
@@ -71,6 +83,9 @@ module.exports = createStore({
         }
 
         return this.hairdressers || [];
+    },
+    isUploadInProgress: function () {
+        return this.uploadInProgress;
     },
     dehydrate: function () {
         return {

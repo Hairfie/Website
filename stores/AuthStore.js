@@ -9,12 +9,6 @@ var BusinessActions = require('../actions/Business');
 
 module.exports = createStore({
     storeName: 'AuthStore',
-    init: function () {
-        this.loginInProgress = false;
-        this.user = null;
-        this.token = null;
-        this.managedBusinesses = [];
-    },
     handlers: makeHandlers({
         'handleLogin': AuthEvents.LOGIN,
         'handleLoginFailure': AuthEvents.LOGIN_FAILURE,
@@ -23,6 +17,12 @@ module.exports = createStore({
         'handleReceiveManagedBusinessesSuccess': BusinessEvents.RECEIVE_MANAGED_SUCCESS,
         'handleClaimSuccess': BusinessEvents.CLAIM_SUCCESS
     }),
+    initialize: function () {
+        this.loginInProgress = false;
+        this.user = null;
+        this.token = null;
+        this.managedBusinesses = [];
+    },
     dehydrate: function () {
         return {
             user                : this.user,

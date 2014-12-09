@@ -19,6 +19,7 @@ module.exports = React.createClass({
     getStateFromStores: function () {
         return {
             business: this.getStore(BusinessStore).getBusiness(),
+            loading: this.getStore(BusinessStore).isUploadInProgress(),
             fileInput: null
         };
     },
@@ -50,13 +51,24 @@ module.exports = React.createClass({
         );
     },
     renderNewPicture: function() {
-        return (
-            <div className="col-sm-6 col-md-4 business-item">
-                <div className="thumbnail">
-                    <input className="btn btn-primary" type="file" accept="image/*" ref="newPhoto" value={this.state.fileInput} onChange={this.handleChange} />
+        console.log("loading", this.state.loading);
+        if (this.state.loading) {
+            return (
+                <div className="col-sm-6 col-md-4 business-item">
+                    <div className="thumbnail">
+                        Upload en cours
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div className="col-sm-6 col-md-4 business-item">
+                    <div className="thumbnail">
+                        <input className="btn btn-primary" type="file" accept="image/*" ref="newPhoto" value={this.state.fileInput} onChange={this.handleChange} />
+                    </div>
+                </div>
+            );
+        }
     },
     onChange: function() {
         this.setState(this.getStateFromStores());
