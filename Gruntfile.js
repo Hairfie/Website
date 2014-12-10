@@ -1,6 +1,7 @@
 'use strict';
 
 var request = require('request');
+var envify = require('envify');
 
 module.exports = function (grunt) {
   // show elapsed time at the end
@@ -70,7 +71,8 @@ module.exports = function (grunt) {
     browserify: {
       options: {
         transform: [
-          require('grunt-react').browserify
+          require('grunt-react').browserify,
+          envify
         ]
       },
       client: {
