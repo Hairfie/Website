@@ -9,13 +9,13 @@ module.exports = function (context, payload, done) {
     hairfieApi
         .getBusiness(payload.id)
         .then(function (business) {
-            console.log("business open", payload);
-            if(business.slug != payload.slug) {
-                var path = context.router.makePath('show_business', {id: business.id, slug: business.slug});
-                context.dispatch(BusinessEvents.OPEN_WITH_BAD_SLUG, {
-                    path: path
-                });
-            }
+            // console.log("business open", payload);
+            // if(business.slug != payload.slug) {
+            //     var path = context.router.makePath('show_business', {id: business.id, slug: business.slug});
+            //     context.dispatch(BusinessEvents.OPEN_WITH_BAD_SLUG, {
+            //         path: path
+            //     });
+            // }
             context.dispatch(BusinessEvents.OPEN_SUCCESS, {
                 business: business
             });
