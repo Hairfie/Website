@@ -112,9 +112,9 @@ module.exports = React.createClass({
                 </td>
                 <td>
                     <ModalTrigger modal={<BusinessServiceModal businessService={businessService} services={this.state.services} onSave={this.saveBusinessService} />}>
-                        <Button>Modifier</Button>
+                        <Button bsSize="xsmall">Modifier</Button>
                     </ModalTrigger>
-                    <Button xsSize="xsmall" onClick={this.deleteBusinessService.bind(this, businessService)}>Supprimer</Button>
+                    <Button bsSize="xsmall" onClick={this.deleteBusinessService.bind(this, businessService)}>Supprimer</Button>
                 </td>
             </tr>
         );
