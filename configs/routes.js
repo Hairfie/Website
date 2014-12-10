@@ -77,5 +77,11 @@ module.exports = {
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
+    },
+    show_business_slug: {
+        path: '/businesses/:id/:slug',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/ShowBusinessPage.jsx')
     }
 };
