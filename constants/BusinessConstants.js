@@ -5,6 +5,7 @@ var define = require('../lib/constants/define');
 module.exports = {
     Events: define('BUSINESS', [
         'OPEN',
+        'OPEN_WITH_BAD_SLUG',
         'OPEN_SUCCESS',
         'OPEN_FAILURE',
 

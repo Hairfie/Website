@@ -65,13 +65,16 @@ server.use(function (req, res, next) {
 
             res.expose(appState, 'App');
 
+            var markup = React.renderToString(AppComponent({
+                context: context.getComponentContext()
+            }));
+
+            console.log("markup", markup);
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: res.locals.state,
                 metas: metas,
                 title: title,
-                markup: React.renderToString(AppComponent({
-                    context: context.getComponentContext()
-                }))
+                markup: markup
             }));
 
             res.write(html);

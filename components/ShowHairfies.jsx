@@ -53,7 +53,7 @@ module.exports = React.createClass({
             price = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
         }
         return (
-            <div className="hairfie-picture col-sm-3">
+            <div className="hairfie-picture col-sm-3" key={hairfie.id}>
                 <div className="img-container">
                     { price }
                     <NavLink routeName="show_hairfie" navParams={{id: hairfie.id}} context={this.props.context}>

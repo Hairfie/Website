@@ -60,7 +60,7 @@ module.exports = React.createClass({
             if(this.state.hairfie.business) {
                 business = (
                     <div className="business">
-                        <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id}} context={context}>
+                        <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id, slug: this.state.hairfie.business.slug}} context={context}>
                             Made at { this.state.hairfie.business.name }
                         </NavLink>
                     </div>

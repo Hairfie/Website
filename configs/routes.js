@@ -73,13 +73,13 @@ module.exports = {
         pageComponent: require('../components/ShowHairfiePage.jsx')
     },
     show_business: {
-        path: '/businesses/:id',
+        path: '/businesses/:id/:slug',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
-    show_business_slug: {
-        path: '/businesses/:id/:slug',
+    show_business_without_slug: {
+        path: '/businesses/:id',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')

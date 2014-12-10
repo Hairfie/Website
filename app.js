@@ -44,5 +44,6 @@ app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/ServiceStore'));
 app.registerStore(require('./stores/BusinessServiceStore'));
 app.registerStore(require('./stores/FlashStore'));
+app.registerStore(require('./stores/SlugStore'));
 
 module.exports = app;
