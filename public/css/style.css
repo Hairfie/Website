@@ -5692,6 +5692,9 @@ div.day {
 
 .row.business-hairfies {
   margin-top: 50px; }
+  .row.business-hairfies .hairfie-picture {
+    min-height: 150px;
+    min-width: 150px; }
 
 .row.hairfie .hairfie-picture {
   margin-bottom: 20px; }

@@ -3,7 +3,7 @@
 var React = require('react');
 
 var StoreMixin = require('fluxible-app').StoreMixin;
-var InfiniteScrollMixin = require('react-infinite-scroll-mixin');
+var InfiniteScrollMixin = require('./mixins/infinite-scroll.js');
 
 var NavLink = require('flux-router-component').NavLink;
 
@@ -14,9 +14,6 @@ module.exports = React.createClass({
     mixins: [InfiniteScrollMixin, StoreMixin],
     statics: {
         storeListeners: [HairfiesStore]
-    },
-    componentWillMount: function() {
-        this.fetchNextPage(0);
     },
     getInitialState: function () {
         return this.getStateFromStores();
@@ -31,6 +28,7 @@ module.exports = React.createClass({
         }
     },
     fetchNextPage: function (page) {
+        console.log("fetchNextPage !");
         if(!this.state.endOfScroll) {
             this.props.context.executeAction(HairfieActions.List, {
                 businessId: this.props.businessId,
@@ -45,6 +43,7 @@ module.exports = React.createClass({
         return (
             <div className="hairfies-list">
                 {hairfiesNodes}
+                <div className="clearfix" />
             </div>
         );
     },
