@@ -20,10 +20,10 @@ var Col = require('react-bootstrap/Col');
 
 var TimePicker = React.createClass({
     render: function () {
-        return <Input ref="input" {...this.props} type="time" />
+        return <Input ref="input" {...this.props} type="time" />;
     },
     getValue: function () {
-        return this.refs.input.getDOMNode().value;
+        return this.refs.input.getValue();
     }
 });
 
@@ -57,7 +57,7 @@ var NewTimeWindowModal = React.createClass({
                     </Input>
                 </div>
                 <div className="modal-footer">
-                    <Button onClick={this.save}>Add</Button>
+                    <Button onClick={this.save}>Ajouter</Button>
                 </div>
             </Modal>
         );
