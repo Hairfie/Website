@@ -28,7 +28,6 @@ module.exports = React.createClass({
         }
     },
     fetchNextPage: function (page) {
-        console.log("fetchNextPage !");
         if(!this.state.endOfScroll) {
             this.props.context.executeAction(HairfieActions.List, {
                 businessId: this.props.businessId,

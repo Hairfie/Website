@@ -66,6 +66,13 @@ module.exports = {
         pageComponent: require('../components/BusinessInfosPage.jsx'),
         authRequired: true
     },
+    pro_business_members: {
+        path: '/pro/businesses/:id/members',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessMembersPage.jsx'),
+        authRequired: true
+    },
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',

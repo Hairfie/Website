@@ -1,5 +1,7 @@
+/** @jsx React.DOM */
 
 'use strict';
+
 var React = require('react');
 var _     = require('lodash');
 
@@ -21,6 +23,7 @@ var Html = React.createClass({
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
 
                 <script src="/components/jquery/dist/jquery.js"></script>
+                <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>

@@ -25,7 +25,6 @@ module.exports = createStore({
         this.uploadInProgress = false;
     },
     handleOpenSuccess: function (payload) {
-        console.log("handleOpenSuccess", payload);
         if (this.business && this.business.id != payload.business.id) {
             // destroy business dependant data when business changes
             this.hairdressers = null;

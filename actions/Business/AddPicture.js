@@ -11,14 +11,12 @@ module.exports = function (context, payload, done) {
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
         .then(function (response) {
             var pictureUploaded = response.result.files.image;
-            console.log("picture", pictureUploaded);
             var pictures = _.reduce(payload.business.pictures, function(arr, picture) {
                 if(picture.name) {
                     arr.push(picture.name);
                 }
                 return arr;
             }, []);
-            console.log("pictures", pictures);
 
             pictures.push(pictureUploaded.name);
             var business = {

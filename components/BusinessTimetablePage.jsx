@@ -170,7 +170,6 @@ module.exports = React.createClass({
         this._saveTimetable(timetable);
     },
     removeTimeWindow: function (weekday, startTime, endTime) {
-        console.log('remove', weekday, startTime, endTime);
         var timetable = _.cloneDeep(this.state.business.timetable || {});
         if (!timetable[weekday]) return;
         timetable[weekday] = _.filter(timetable[weekday], function (tw) {

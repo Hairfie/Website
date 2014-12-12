@@ -69,7 +69,6 @@ server.use(function (req, res, next) {
                 context: context.getComponentContext()
             }));
 
-            console.log("markup", markup);
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: res.locals.state,
                 metas: metas,
