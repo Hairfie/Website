@@ -4,6 +4,7 @@ var createStore = require('fluxible-app/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var BusinessMemberEvents = require('../constants/BusinessMemberConstants').Events;
 var BusinessMemberActions = require('../actions/BusinessMember');
+var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'BusinessMemberStore',
@@ -19,9 +20,23 @@ module.exports = createStore({
         this.emitChange();
     },
     handleSaveSuccess: function (payload) {
-        var businessCollection = this.businessMembers[payload.businessMembers.business.id];
-        if (businessCollection) {
-            businessCollection.push(payload.businessMember);
+        var businessMember = payload.businessMember,
+            business       = businessMember.business;
+
+        if (this.businessMembers[business.id]) {
+            var exists = false;
+            // try to replace with new values if already in collection
+            this.businessMembers[business.id] = _.map(this.businessMembers[business.id], function (existing) {
+                if (existing.id == businessMember.id) {
+                    exists = true;
+                    return businessMember;
+                }
+                return existing;
+            });
+            if (!exists) {
+                // it's new, add it to the collection
+                this.businessMembers[business.id].push(businessMember);
+            }
             this.emitChange();
         }
     },

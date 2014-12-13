@@ -46,7 +46,7 @@ module.exports = React.createClass({
         $input.on('typeahead:selected', this._handleSelected);
         $input.on('typeahead:closed', this._handleClosed);
 
-        this.onChange();
+        this._updateInputFromSelection();
     },
     componentWillUnmount: function () {
         jQuery(this.refs.input.getInputDOMNode()).typeahead('destroy');
@@ -55,7 +55,7 @@ module.exports = React.createClass({
         return {
             query    : null,
             callback : null,
-            user     : this.props.defaultValue
+            user     : this.props.defaultUser
         };
     },
     render: function () {

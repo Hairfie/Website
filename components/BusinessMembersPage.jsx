@@ -19,23 +19,25 @@ var _ = require('lodash');
 var BusinessMemberModal = React.createClass({
     getInitialState: function () {
         return {
-            selectedUser: null
+            selectedUser: this.props.businessMember && this.props.businessMember.user
         };
     },
     render: function () {
-        var user    = this.state.selectedUser || {},
-            hasUser = !!this.state.selectedUser;
+        var user           = this.state.selectedUser || {},
+            hasUser        = !!this.state.selectedUser,
+            businessMember = this.props.businessMember || {};
 
         return (
             <Modal {...this.props}>
                 <div className="modal-body">
-                    <UserPicker ref="user" context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
-                    <Input ref="firstName" label="Prénom" type="text" value={user.firstName} readOnly={hasUser} />
-                    <Input ref="lastName" label="Nom" type="text" value={user.lastName} readOnly={hasUser} />
-                    <Input ref="hidden" label="Cacher ce membre" type="checkbox" />
+                    <UserPicker ref="user" defaultUser={this.state.selectedUser} context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
+                    <Input ref="firstName" label="Prénom" type="text" defaultValue={businessMember.firstName} value={user.firstName} readOnly={hasUser} />
+                    <Input ref="lastName" label="Nom" type="text" defaultValue={businessMember.lastName} value={user.lastName} readOnly={hasUser} />
+                    <Input ref="hidden" label="Cacher ce membre" type="checkbox" defaultChecked={businessMember.hidden} />
+                    <Input ref="active" label="Activer ce membre" type="checkbox" defaultChecked={!businessMember || businessMember.active} />
                 </div>
                 <div className="modal-footer">
-                    <Button onClick={this.save}>Ajouter à l'équipe</Button>
+                    <Button onClick={this.save}>{this.props.businessMember ? 'Sauver les modifications' : 'Ajouter à l\'équipe'}</Button>
                 </div>
             </Modal>
         );
@@ -45,11 +47,12 @@ var BusinessMemberModal = React.createClass({
     },
     save: function () {
         this.props.onSave({
-            user: this.refs.user.getUser(),
-            firstName: this.refs.firstName.getValue(),
-            lastName: this.refs.lastName.getValue(),
-            hidden: this.refs.hidden.getChecked(),
-            active: true
+            id          : this.props.businessMember && this.props.businessMember.id,
+            user        : this.refs.user.getUser(),
+            firstName   : this.refs.firstName.getValue(),
+            lastName    : this.refs.lastName.getValue(),
+            hidden      : this.refs.hidden.getChecked(),
+            active      : this.refs.active.getChecked()
         });
         this.props.onRequestHide();
     }
@@ -84,6 +87,7 @@ module.exports = React.createClass({
                             <th>Nom</th>
                             <th>Caché ?</th>
                             <th>Actif ?</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,6 +107,11 @@ module.exports = React.createClass({
                 <td>{businessMember.firstName} {businessMember.lastName}</td>
                 <td>{businessMember.hidden ? 'oui' : 'non'}</td>
                 <td>{businessMember.active ? 'oui' : 'non'}</td>
+                <td>
+                    <ModalTrigger modal={<BusinessMemberModal context={this.props.context} businessMember={businessMember} onSave={this.saveBusinessMember} />}>
+                        <Button bsSize="xsmall">Modifier</Button>
+                    </ModalTrigger>
+                </td>
             </tr>
         );
     },

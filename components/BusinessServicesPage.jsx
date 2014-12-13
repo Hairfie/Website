@@ -43,7 +43,7 @@ var BusinessServiceModal = React.createClass({
     handleSave: function () {
         var bs = this.props.businessService || {};
         this.props.onSave({
-            id              :  bs.id,
+            id              : bs.id,
             serviceId       : this.refs.serviceId.getValue(),
             price           : {
                 currency    : 'EUR',
