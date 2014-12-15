@@ -5,6 +5,7 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');
+var FacebookActions = require('../actions/Facebook');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 
@@ -74,6 +75,11 @@ module.exports = React.createClass({
                             <Button className="btn-block btn-primary" type="submit" onClick={this.logIn}>
                                 Login
                             </Button>
+                            <hr />
+                            <Button className="btn-block btn-social btn-facebook" onClick={this.logInWithFacebook}>
+                                <i className="fa fa-facebook"></i>
+                                Login with facebook
+                            </Button>
                         </form>
                     </div>
                 </li>
@@ -89,6 +95,10 @@ module.exports = React.createClass({
             email   : this.refs.email.getValue(),
             password: this.refs.password.getValue()
         });
+    },
+    logInWithFacebook: function (e) {
+        e.preventDefault();
+        this.props.context.executeAction(FacebookActions.Login, {});
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

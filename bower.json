@@ -9,7 +9,9 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "bootstrap-sass-official": "~3.3.0",
-    "typeahead.js": "~0.10.5"
+    "typeahead.js": "~0.10.5",
+    "bootstrap-social": "~4.8.0",
+    "fontawesome": "~4.2.0"
   },
   "resolutions": {
     "jquery": "~2.1.1"

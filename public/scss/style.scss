@@ -1,5 +1,9 @@
+$fa-font-path: "../components/font-awesome/fonts";
+
 // bower:scss
 @import "../components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../components/bootstrap-social/bootstrap-social.scss";
+@import "../components/font-awesome/scss/font-awesome.scss";
 // endbower
 @import "partials/colors";
 @import "partials/icons";
