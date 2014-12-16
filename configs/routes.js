@@ -80,6 +80,13 @@ module.exports = {
         pageComponent: require('../components/BusinessMembersPage.jsx'),
         authRequired: true
     },
+    pro_business_social_networks: {
+        path: '/pro/businesses/:id/social-networks',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessSocialNetworksPage.jsx'),
+        authRequired: true
+    },
     show_hairfie: {
         path: '/hairfies/:id',
         method: 'get',

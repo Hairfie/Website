@@ -77,7 +77,7 @@ module.exports = React.createClass({
                             </Button>
                             <hr />
                             <Button className="btn-block btn-social btn-facebook" onClick={this.logInWithFacebook}>
-                                <i className="fa fa-facebook"></i>
+                                <i className="fa fa-facebook" />
                                 Login with facebook
                             </Button>
                         </form>
