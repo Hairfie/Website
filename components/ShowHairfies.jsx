@@ -56,7 +56,7 @@ module.exports = React.createClass({
         var isAllowedToDelete = (hairfie.author.id === this.state.user.id);
 
         if(this.props.withDeleteButton && isAllowedToDelete) {
-            deleteNode =(<Button onClick={this.deleteHairfie(hairfie)} bsStyle="danger" block>Delete</Button>)
+            deleteNode =(<Button onClick={this.deleteHairfie.bind(this, hairfie)} bsStyle="danger" block>Delete</Button>)
         }
         return (
             <div className="hairfie-picture col-sm-3" key={hairfie.id}>
@@ -71,6 +71,8 @@ module.exports = React.createClass({
         );
     },
     deleteHairfie: function(hairfie) {
-        console.log("TODO : delete", hairfie);
+        this.props.context.executeAction(HairfieActions.Delete, {
+            hairfie: hairfie
+        });
     }
 });

@@ -17,6 +17,8 @@ module.exports = function (context, payload, done) {
             return hairfieApi.loginWithFacebookToken(token);
         })
         .then(function (result) {
+            authStorage.setToken(result.token);
+
             context.dispatch(AuthEvents.LOGIN_SUCCESS, {
                 user    : result.user,
                 token   : result.token
