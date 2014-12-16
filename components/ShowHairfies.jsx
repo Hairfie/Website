@@ -1,19 +1,19 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React                = require('react');
+var StoreMixin           = require('fluxible-app').StoreMixin;
+var InfiniteScrollMixin  = require('./mixins/infinite-scroll.js');
+var NavLink              = require('flux-router-component').NavLink;
+var HairfieActions       = require('../actions/Hairfie');
+var HairfiesStore        = require('../stores/HairfiesStore');
+var AuthStore            = require('../stores/AuthStore');
 
-var StoreMixin = require('fluxible-app').StoreMixin;
-var InfiniteScrollMixin = require('./mixins/infinite-scroll.js');
-
-var NavLink = require('flux-router-component').NavLink;
-
-var HairfieActions = require('../actions/Hairfie');
-var HairfiesStore = require('../stores/HairfiesStore');
+var Button               = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
     mixins: [InfiniteScrollMixin, StoreMixin],
     statics: {
-        storeListeners: [HairfiesStore]
+        storeListeners: [HairfiesStore, AuthStore]
     },
     getInitialState: function () {
         return this.getStateFromStores();
@@ -23,8 +23,9 @@ module.exports = React.createClass({
     },
     getStateFromStores: function() {
         return {
-            hairfies: this.getStore(HairfiesStore).getHairfiesForBusiness(this.props.businessId),
-            endOfScroll: this.getStore(HairfiesStore).isEndOfScroll(this.props.businessId)
+            hairfies    : this.getStore(HairfiesStore).getHairfiesForBusiness(this.props.businessId),
+            endOfScroll : this.getStore(HairfiesStore).isEndOfScroll(this.props.businessId),
+            user        : this.getStore(AuthStore).getUser(),
         }
     },
     fetchNextPage: function (page) {
@@ -52,19 +53,24 @@ module.exports = React.createClass({
             priceNode = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
         }
 
-        if(this.props.withDeleteButton) {
-            deleteNode =(<div> DELETE </div>)
+        var isAllowedToDelete = (hairfie.author.id === this.state.user.id);
+
+        if(this.props.withDeleteButton && isAllowedToDelete) {
+            deleteNode =(<Button onClick={this.deleteHairfie(hairfie)} bsStyle="danger" block>Delete</Button>)
         }
         return (
             <div className="hairfie-picture col-sm-3" key={hairfie.id}>
                 <div className="img-container">
                     { priceNode }
-                    { deleteNode }
                     <NavLink routeName="show_hairfie" navParams={{id: hairfie.id}} context={this.props.context}>
                         <img src={hairfie.picture.url} alt=""/>
                     </NavLink>
+                    { deleteNode }
                 </div>
             </div>
         );
+    },
+    deleteHairfie: function(hairfie) {
+        console.log("TODO : delete", hairfie);
     }
 });
