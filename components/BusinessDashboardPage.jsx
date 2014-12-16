@@ -89,7 +89,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{business.numHairfies} Hairfie(s)</h3>
-                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{id: business.id, step: 'general'}}>
+                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{id: business.id}}>
                             <button className="btn btn-primary" role="button">Gérer mes hairfies</button>
                         </NavLink>
                     </div>
@@ -97,7 +97,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{business.pictures.length} photos(s)</h3>
-                        <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{id: business.id, step: 'general'}}>
+                        <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{id: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes photos</button>
                         </NavLink>
                     </div>

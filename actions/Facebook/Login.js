@@ -5,6 +5,7 @@ var AuthEvents = require('../../constants/AuthConstants').Events;
 var LoginStatus = require('../../constants/FacebookConstants').LoginStatus;
 var Facebook = require('../../services/facebook');
 var hairfieApi = require('../../services/hairfie-api-client');
+var authStorage = require('../../services/auth-storage');
 var scope = require('../../configs/facebook').SCOPE;
 
 module.exports = function (context, payload, done) {

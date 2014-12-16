@@ -71,7 +71,10 @@ module.exports = React.createClass({
             return (
                 <div className="col-sm-6 col-md-4 business-item">
                     <div className="thumbnail">
-                        <input className="btn btn-primary" type="file" accept="image/*" ref="newPhoto" value={this.state.fileInput} onChange={this.handleChange} />
+                        <span className="btn add-file">
+                            <input type="file" accept="image/*" ref="newPhoto" value={this.state.fileInput} onChange={this.handleChange} />
+                            <div className="clearfix" />
+                        </span>
                     </div>
                 </div>
             );
