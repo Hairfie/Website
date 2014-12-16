@@ -52,8 +52,20 @@ module.exports = React.createClass({
                     <span>
                         <h1>{business.name}</h1>
                     </span>
-                    <hr />
                 </div>
+
+                <h3 className="sub-title">Monitoring</h3>
+                <div className="col-sm-6 col-md-4 business-dashboard-item">
+                    <div className="thumbnail">
+                        <h3>{business.numHairfies} Hairfie(s)</h3>
+                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{id: business.id}}>
+                            <button className="btn btn-primary" role="button">Gérer mes hairfies</button>
+                        </NavLink>
+                    </div>
+                </div>
+                <div className="clearfix" />
+
+                <h3 className="sub-title">Paramètres du salon</h3>
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{infos}</h3>
@@ -88,20 +100,13 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
-                        <h3>{business.numHairfies} Hairfie(s)</h3>
-                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{id: business.id}}>
-                            <button className="btn btn-primary" role="button">Gérer mes hairfies</button>
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="col-sm-6 col-md-4 business-dashboard-item">
-                    <div className="thumbnail">
                         <h3>{business.pictures.length} photos(s)</h3>
                         <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{id: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes photos</button>
                         </NavLink>
                     </div>
                 </div>
+                <div className="clearfix" />
             </Layout>
         );
     },

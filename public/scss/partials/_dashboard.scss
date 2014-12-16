@@ -47,8 +47,18 @@
     font-weight: 200;
   }
 
+  h3.sub-title {
+      font-weight: 200;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+      padding: 15px;
+  }
+
   .title {
-    padding: 15px;
+    padding: 0 15px 0 15px;
 
     span {
       display: inline-block;
@@ -63,6 +73,7 @@
   }
   .business-dashboard-item .thumbnail {
     height: 150px;
+    padding: 10px;
 
     a {
       position: absolute;

@@ -7987,8 +7987,16 @@ div.day {
 
 .business-dashboard h3, .business-dashboard h1 {
   font-weight: 200; }
-.business-dashboard .title {
+.business-dashboard h3.sub-title {
+  font-weight: 200;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
   padding: 15px; }
+.business-dashboard .title {
+  padding: 0 15px 0 15px; }
   .business-dashboard .title span {
     display: inline-block; }
   .business-dashboard .title img {
@@ -7998,7 +8006,8 @@ div.day {
     margin-bottom: 15px;
     margin-right: 15px; }
 .business-dashboard .business-dashboard-item .thumbnail {
-  height: 150px; }
+  height: 150px;
+  padding: 10px; }
   .business-dashboard .business-dashboard-item .thumbnail a {
     position: absolute;
     bottom: 30px;
