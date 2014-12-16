@@ -7,7 +7,10 @@ module.exports = resolve({
     defaults: {
         URL: 'http://api-staging.hairfie.com/api'
     },
-    production: {
+    staging: {
         URL: 'http://api-staging.hairfie.com/api'
+    },
+    production: {
+        URL: 'http://api.hairfie.com/api'
     }
 });

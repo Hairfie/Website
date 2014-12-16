@@ -2,7 +2,7 @@
 
 var request = require('request');
 var envify = require('envify');
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.REAL_ENV || process.env.NODE_ENV || 'development';
 
 module.exports = function (grunt) {
   // show elapsed time at the end

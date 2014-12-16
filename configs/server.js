@@ -16,7 +16,7 @@ module.exports = resolve({
         DEBUG           : true,
     },
     staging: {
-        HOST            : 'harifie-website-staging.herokuapp.com',
+        HOST            : 'www-staging.hairfie.com',
     },
     production: {
         HOST            : 'www.hairfie.com',
