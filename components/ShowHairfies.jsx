@@ -47,18 +47,18 @@ module.exports = React.createClass({
         );
     },
     renderHairfie: function (hairfie) {
-        var price;
+        var priceNode, deleteNode;
         if(hairfie.price) {
-            price = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
+            priceNode = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
         }
         return (
             <div className="hairfie-picture col-sm-3" key={hairfie.id}>
                 <div className="img-container">
-                    { price }
+                    { priceNode }
+                    { deleteNode }
                     <NavLink routeName="show_hairfie" navParams={{id: hairfie.id}} context={this.props.context}>
                         <img src={hairfie.picture.url} alt=""/>
                     </NavLink>
-                    <div className="share-button"></div>
                 </div>
             </div>
         );

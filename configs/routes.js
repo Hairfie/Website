@@ -38,6 +38,13 @@ module.exports = {
         pageComponent: require('../components/BusinessPhotosPage.jsx'),
         authRequired: true
     },
+    pro_business_hairfies: {
+        path: '/pro/businesses/:id/hairfies',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessHairfiesPage.jsx'),
+        authRequired: true
+    },
     pro_business_hairdressers: {
         path: '/pro/businesses/:id/hairdressers',
         method: 'get',
