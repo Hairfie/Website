@@ -51,6 +51,10 @@ module.exports = React.createClass({
         if(hairfie.price) {
             priceNode = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
         }
+
+        if(this.props.withDeleteButton) {
+            deleteNode =(<div> DELETE </div>)
+        }
         return (
             <div className="hairfie-picture col-sm-3" key={hairfie.id}>
                 <div className="img-container">
