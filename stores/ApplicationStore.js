@@ -9,7 +9,9 @@ var debug = require('debug')('App:ApplicationStore');
 var routes = require('../configs/routes');
 
 var ROUTE_LOGIN = 'pro_home';
-var ROUTE_AFTER_LOGIN = 'pro_dashboard';
+var ROUTE_AFTER_LOGIN = 'pro_business';
+var ROUTE_AFTER_LOGIN_FALLBACK = 'pro_dashboard';
+
 
 module.exports = createStore({
     storeName: 'ApplicationStore',
@@ -47,13 +49,19 @@ module.exports = createStore({
         this.dispatcher.waitFor([AuthStore], this.applyAuthRules.bind(this, false));
     },
     applyAuthRules: function (alwaysEmitChange) {
-        var currentRoute = this.getCurrentRoute(),
-            oldRouteName = this.getCurrentRouteName(),
-            isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
+        var currentRoute        = this.getCurrentRoute(),
+            oldRouteName        = this.getCurrentRouteName(),
+            isAuthenticated     = !!this.dispatcher.getStore(AuthStore).getUser(),
+            managedBusinesses   = this.dispatcher.getStore(AuthStore).getManagedBusinesses();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
             debug('user is authenticated, redirecting user to after login page');
-            this.redirectToRoute(ROUTE_AFTER_LOGIN);
+            console.log("managedBusinesses", managedBusinesses);
+            if(managedBusinesses.length > 0) {
+                this.redirectToRoute(ROUTE_AFTER_LOGIN, {id: managedBusinesses[0].id})
+            } else {
+                this.redirectToRoute(ROUTE_AFTER_LOGIN_FALLBACK);
+            }
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
@@ -65,10 +73,10 @@ module.exports = createStore({
             this.emitChange();
         }
     },
-    redirectToRoute: function (routeName) {
+    redirectToRoute: function (routeName, params) {
         this.currentRouteName = routeName;
         this.currentPath = routes[routeName].path;
-        this.currentParams = {};
+        this.currentParams = params || {};
     },
     getCurrentRoute: function () {
         if (!this.currentRouteName) return;
