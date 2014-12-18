@@ -6,9 +6,7 @@ module.exports = {
     Events: define('FACEBOOK', [
         'RECEIVE_LOGIN_STATUS',
         'RECEIVE_PERMISSIONS',
-        'RECEIVE_MANAGED_PAGES',
-
-        'REFRESH_BUSINESS_PAGE_SUCCESS'
+        'RECEIVE_MANAGED_PAGES'
     ]),
     LoginStatus: {
         'CONNECTED'     : 'connected',

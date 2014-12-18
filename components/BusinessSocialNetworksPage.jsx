@@ -12,6 +12,7 @@ var FacebookPermissions = require('../constants/FacebookConstants').Permissions;
 var Layout = require('./ProLayout.jsx');
 var Panel = require('react-bootstrap/Panel');
 var Label = require('react-bootstrap/Label');
+var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
@@ -36,9 +37,6 @@ var ConnectFacebookPageModal = React.createClass({
                 <div className="modal-body">
                     {this.renderBody()}
                 </div>
-                <div className="modal-footer">
-
-                </div>
             </Modal>
         );
     },
@@ -46,8 +44,18 @@ var ConnectFacebookPageModal = React.createClass({
         if (!this.state.canManagePages) return this.renderBodyLogin();
         if (0 == this.state.managedPages.length) return this.renderBodyNoManagedPage();
 
+        var managedPageOptions = this.state.managedPages.map(function (page) {
+            return <option key={page.id} value={page.id}>{page.name}</option>;
+        });
+
         return (
-            <p>Choisissez la page à associer.</p>
+            <div>
+                <p>Sélectionnez dans la liste ci-dessous la page facebook que vous souhaitez connecter à votre activité Hairfie.</p>
+                <Input type="select">
+                    {managedPageOptions}
+                </Input>
+                <Button>Connecter la page</Button>
+            </div>
         );
     },
     renderBodyLogin: function () {
@@ -75,6 +83,26 @@ var ConnectFacebookPageModal = React.createClass({
 });
 
 var FacebookPanel = React.createClass({
+    mixins: [StoreMixin],
+    statics: {
+        storeListeners: [BusinessStore, BusinessFacebookPageStore]
+    },
+    getStateFromStores: function () {
+        var business = this.getStore(BusinessStore).getBusiness(),
+            page     = null;
+
+        if (business) {
+            page = this.getStore(BusinessFacebookPageStore).getFacebookPageByBusiness(business);
+        }
+
+        return {
+            business: business,
+            page    : page
+        };
+    },
+    getInitialState: function () {
+        return this.getStateFromStores();
+    },
     render: function () {
         return (
             <Panel {...this.props} header={this.renderHeader()}>
@@ -84,7 +112,7 @@ var FacebookPanel = React.createClass({
     },
     renderHeader: function () {
         var status;
-        if (this.props.page) {
+        if (this.state.page) {
             status = <Label bsStyle="success">Connecté</Label>;
         } else {
             status = <Label bsStyle="danger">Non connecté</Label>;
@@ -98,12 +126,12 @@ var FacebookPanel = React.createClass({
         );
     },
     renderBody: function () {
-        if (this.props.page) return this.renderBodyWithPage();
+        if (this.state.page) return this.renderBodyWithPage();
         else return this.renderBodyWithoutPage();
     },
     renderBodyWithPage: function () {
         return (
-            <p>Connecté à la page "{this.props.page.name}".</p>
+            <p>Connecté à la page "{this.state.page.name}".</p>
         );
     },
     renderBodyWithoutPage: function () {
@@ -112,6 +140,9 @@ var FacebookPanel = React.createClass({
                 <Button>Connecter une page facebook</Button>
             </ModalTrigger>
         );
+    },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
     }
 });
 

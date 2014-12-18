@@ -2,8 +2,8 @@
 
 var createStore = require('fluxible-app/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var FacebookEvents = require('../constants/FacebookConstants').Events;
-var FacebookActions = require('../actions/Facebook');
+var BusinessEvents = require('../constants/BusinessConstants').Events;
+var BusinessActions = require('../actions/Business');
 
 module.exports = createStore({
     storeName: 'BusinessFacebookPageStore',
@@ -11,15 +11,15 @@ module.exports = createStore({
         this.pages = {};
     },
     handlers: makeHandlers({
-        handleRefreshBusinessPageSuccess: FacebookEvents.REFRESH_BUSINESS_PAGE_SUCCESS
+        handleReceiveFacebookPageSuccess: BusinessEvents.RECEIVE_FACEBOOK_PAGE_SUCCESS
     }),
-    handleRefreshBusinessPageSuccess: function (payload) {
+    handleReceiveFacebookPageSuccess: function (payload) {
         this.pages[payload.business.id] = payload.facebookPage;
         this.emitChange();
     },
     getFacebookPageByBusiness: function (business) {
         if (typeof this.pages[business.id] == 'undefined') {
-            this.dispatcher.getContext().executeAction(FacebookActions.RefreshBusinessPage, {
+            this.dispatcher.getContext().executeAction(BusinessActions.RefreshFacebookPage, {
                 business: business
             });
         }
