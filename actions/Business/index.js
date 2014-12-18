@@ -7,5 +7,8 @@ module.exports = {
     Save                : require('./Save'),
     RefreshHairdressers : require('./RefreshHairdressers'),
     AddPicture          : require('./AddPicture'),
-    Claim               : require('./Claim')
+    Claim               : require('./Claim'),
+    RefreshFacebookPage : require('./RefreshFacebookPage'),
+    SaveFacebookPage    : require('./SaveFacebookPage'),
+    DeleteFacebookPage  : require('./DeleteFacebookPage')
 };
