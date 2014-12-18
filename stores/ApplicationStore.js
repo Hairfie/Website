@@ -8,6 +8,8 @@ var debug = require('debug')('App:ApplicationStore');
 
 var routes = require('../configs/routes');
 
+var _ = require('lodash');
+
 var ROUTE_LOGIN = 'pro_home';
 var ROUTE_AFTER_LOGIN = 'pro_business';
 var ROUTE_AFTER_LOGIN_FALLBACK = 'pro_dashboard';
@@ -56,12 +58,11 @@ module.exports = createStore({
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
             debug('user is authenticated, redirecting user to after login page');
-            console.log("managedBusinesses", managedBusinesses);
-            if(managedBusinesses.length > 0) {
-                this.redirectToRoute(ROUTE_AFTER_LOGIN, {id: managedBusinesses[0].id})
-            } else {
+            //if(managedBusinesses.length) {
+            //    this.redirectToRoute(ROUTE_AFTER_LOGIN, {id: managedBusinesses[0].id})
+            //} else {
                 this.redirectToRoute(ROUTE_AFTER_LOGIN_FALLBACK);
-            }
+            //}
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
@@ -74,8 +75,14 @@ module.exports = createStore({
         }
     },
     redirectToRoute: function (routeName, params) {
+        var path = routes[routeName].path;
+
+        _.forIn(params, function (value, param) {
+            path = path.replace(param, value);
+        });
+
         this.currentRouteName = routeName;
-        this.currentPath = routes[routeName].path;
+        this.currentPath = path;
         this.currentParams = params || {};
     },
     getCurrentRoute: function () {

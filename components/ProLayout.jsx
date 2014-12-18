@@ -9,7 +9,6 @@ var FlashMessages = require('./FlashMessages.jsx');
 
 module.exports = React.createClass({
     displayName: 'ProLayout',
-
     render: function () {
         var hairdresser = this.props.hairdresser || {};
         var main;
