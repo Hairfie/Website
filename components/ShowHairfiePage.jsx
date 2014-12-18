@@ -54,19 +54,19 @@ module.exports = React.createClass({
                 </PublicLayout>
             );
         } else {
-            var business,
+            var businessNode,
                 context = this.props.context;
-
             if(this.state.hairfie.business) {
-                business = (
+                var business = this.state.hairfie.business;
+                businessNode = (
                     <div className="business">
-                        <NavLink routeName="show_business" navParams={{id: this.state.hairfie.business.id, slug: this.state.hairfie.business.slug}} context={context}>
+                        <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
                             Made at { this.state.hairfie.business.name }
                         </NavLink>
                     </div>
                 )
             } else {
-                business = null;
+                businessNode = null;
             }
             var price;
             if(this.state.hairfie.price) {
@@ -98,7 +98,7 @@ module.exports = React.createClass({
                                     { this.state.hairfie.descriptions.display }
                                 </div>
                                 <div className="clearfix"></div>
-                                {business}
+                                {businessNode}
                             </div>
                         </div>
                     </div>
