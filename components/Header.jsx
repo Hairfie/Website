@@ -10,7 +10,7 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
         } else {
-            custom = (<li><NavLink context={this.props.context} href="/pro">For Hairdresser Partners</NavLink></li>);
+            custom = (<li><NavLink context={this.props.context} href="/pro">Vous êtes coiffeur ?</NavLink></li>);
         }
 
         return (
