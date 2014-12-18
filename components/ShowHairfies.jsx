@@ -19,13 +19,14 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     onChange: function () {
+        console.log("onChange", this.getStateFromStores());
         this.setState(this.getStateFromStores());
     },
     getStateFromStores: function() {
         return {
             hairfies    : this.getStore(HairfiesStore).getHairfiesForBusiness(this.props.businessId),
             endOfScroll : this.getStore(HairfiesStore).isEndOfScroll(this.props.businessId),
-            user        : this.getStore(AuthStore).getUser(),
+            user        : this.getStore(AuthStore).getUser()
         }
     },
     fetchNextPage: function (page) {
@@ -53,7 +54,7 @@ module.exports = React.createClass({
             priceNode = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
         }
 
-        var isAllowedToDelete = (hairfie.author.id === this.state.user.id);
+        var isAllowedToDelete = this.state.user ? (hairfie.author.id === this.state.user.id) : false;
 
         if(this.props.withDeleteButton && isAllowedToDelete) {
             deleteNode =(<Button onClick={this.deleteHairfie.bind(this, hairfie)} bsStyle="danger" bsSize="xsmall" className="delete-button">X</Button>)
