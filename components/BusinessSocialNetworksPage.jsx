@@ -5,6 +5,7 @@
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 var BusinessStore = require('../stores/BusinessStore');
+var BusinessActions = require('../actions/Business');
 var BusinessFacebookPageStore = require('../stores/BusinessFacebookPageStore');
 var FacebookStore = require('../stores/FacebookStore');
 var FacebookActions = require('../actions/Facebook');
@@ -16,14 +17,16 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
+var _ = require('lodash');
 
 var ConnectFacebookPageModal = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [FacebookStore]
+        storeListeners: [BusinessStore, FacebookStore]
     },
     getStateFromStores: function () {
         return {
+            business        : this.getStore(BusinessStore).getBusiness(),
             canManagePages  : this.getStore(FacebookStore).canManagePages(),
             managedPages    : this.getStore(FacebookStore).getPagesWithCreateContentPermission()
         }
@@ -42,7 +45,7 @@ var ConnectFacebookPageModal = React.createClass({
     },
     renderBody: function () {
         if (!this.state.canManagePages) return this.renderBodyLogin();
-        if (0 == this.state.managedPages.length) return this.renderBodyNoManagedPage();
+        if (!this.state.managedPages.length) return this.renderBodyNoManagedPage();
 
         var managedPageOptions = this.state.managedPages.map(function (page) {
             return <option key={page.id} value={page.id}>{page.name}</option>;
@@ -51,10 +54,10 @@ var ConnectFacebookPageModal = React.createClass({
         return (
             <div>
                 <p>Sélectionnez dans la liste ci-dessous la page facebook que vous souhaitez connecter à votre activité Hairfie.</p>
-                <Input type="select">
+                <Input ref="page" type="select">
                     {managedPageOptions}
                 </Input>
-                <Button>Connecter la page</Button>
+                <Button onClick={this.connectPage}>Connecter la page</Button>
             </div>
         );
     },
@@ -79,6 +82,17 @@ var ConnectFacebookPageModal = React.createClass({
         this.props.context.executeAction(FacebookActions.Link, {
             scope: [FacebookPermissions.MANAGE_PAGES]
         });
+    },
+    connectPage: function () {
+        var facebookPage = _.find(this.state.managedPages, {id: this.refs.page.getValue()});
+        if (facebookPage) {
+            this.props.context.executeAction(BusinessActions.SaveFacebookPage, {
+                business    : this.state.business,
+                facebookPage: facebookPage
+            });
+
+            this.props.onRequestHide();
+        }
     }
 });
 
@@ -131,7 +145,10 @@ var FacebookPanel = React.createClass({
     },
     renderBodyWithPage: function () {
         return (
-            <p>Connecté à la page "{this.state.page.name}".</p>
+            <div>
+                <p>Connecté à la page "{this.state.page.name}".</p>
+                <Button onClick={this.disconnectPage}>Déconnecter la page</Button>
+            </div>
         );
     },
     renderBodyWithoutPage: function () {
@@ -143,6 +160,11 @@ var FacebookPanel = React.createClass({
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
+    },
+    disconnectPage: function () {
+        this.props.context.executeAction(BusinessActions.DeleteFacebookPage, {
+            business: this.state.business
+        });
     }
 });
 
