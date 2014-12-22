@@ -5,6 +5,7 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');
+var UserManagedBusinessStore = require('../stores/UserManagedBusinessStore');
 var FacebookActions = require('../actions/Facebook');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
@@ -12,12 +13,13 @@ var Button = require('react-bootstrap/Button');
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [AuthStore]
+        storeListeners: [AuthStore, UserManagedBusinessStore]
     },
     getStateFromStores: function () {
+        var user = this.getStore(AuthStore).getUser();
         return {
-            user                : this.getStore(AuthStore).getUser(),
-            managedBusinesses   : this.getStore(AuthStore).getManagedBusinesses(),
+            user                : user,
+            managedBusinesses   : user && this.getStore(UserManagedBusinessStore).getManagedBusinessesByUser(user),
             loading             : this.getStore(AuthStore).isLoginInProgress()
         }
     },
@@ -35,7 +37,7 @@ module.exports = React.createClass({
             var context = this.props.context;
             var pictureSrc = this.state.user.picture ? this.state.user.picture.url : '/img/profile-picture/default-'+('MALE' == this.state.user.gender ? 'man' : 'woman')+'.png';
 
-            var managedBusinesses = this.state.managedBusinesses.map(function (business) {
+            var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
                 return (
                     <li key={business.id}>
                         <NavLink context={context} routeName="pro_business" navParams={{id: business.id, step: 'general'}}>

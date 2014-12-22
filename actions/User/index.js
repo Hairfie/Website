@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    RefreshSuggestions: require('./RefreshSuggestions')
+    RefreshSuggestions      : require('./RefreshSuggestions'),
+    RefreshManagedBusinesses: require('./RefreshManagedBusinesses')
 };

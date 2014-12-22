@@ -11,9 +11,7 @@ var routes = require('../configs/routes');
 var _ = require('lodash');
 
 var ROUTE_LOGIN = 'pro_home';
-var ROUTE_AFTER_LOGIN = 'pro_business';
-var ROUTE_AFTER_LOGIN_FALLBACK = 'pro_dashboard';
-
+var ROUTE_AFTER_LOGIN = 'pro_dashboard';
 
 module.exports = createStore({
     storeName: 'ApplicationStore',
@@ -53,16 +51,11 @@ module.exports = createStore({
     applyAuthRules: function (alwaysEmitChange) {
         var currentRoute        = this.getCurrentRoute(),
             oldRouteName        = this.getCurrentRouteName(),
-            isAuthenticated     = !!this.dispatcher.getStore(AuthStore).getUser(),
-            managedBusinesses   = this.dispatcher.getStore(AuthStore).getManagedBusinesses();
+            isAuthenticated     = !!this.dispatcher.getStore(AuthStore).getUser();
 
         if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
             debug('user is authenticated, redirecting user to after login page');
-            //if(managedBusinesses.length) {
-            //    this.redirectToRoute(ROUTE_AFTER_LOGIN, {id: managedBusinesses[0].id})
-            //} else {
-                this.redirectToRoute(ROUTE_AFTER_LOGIN_FALLBACK);
-            //}
+            this.redirectToRoute(ROUTE_AFTER_LOGIN);
         }
 
         if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {

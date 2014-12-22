@@ -5,6 +5,7 @@ var authStorage = require('../../services/auth-storage');
 var hairfieApi = require('../../services/hairfie-api-client');
 var navigateAction = require('flux-router-component').navigateAction;
 var AuthEvents = require('../../constants/AuthConstants').Events;
+var UserEvents = require('../../constants/UserConstants').Events;
 var BusinessActions = require('../../actions/Business');
 
 module.exports = function (context, payload, done) {
@@ -30,9 +31,12 @@ function loginWithAuthToken(context, token) {
                     .getManagedBusinesses(user, token)
                     .then(function (businesses) {
                         context.dispatch(AuthEvents.LOGIN_SUCCESS, {
+                            user    : user,
+                            token   : token
+                        });
+                        context.dispatch(UserEvents.RECEIVE_MANAGED_BUSINESSES_SUCCESS, {
                             user                : user,
-                            token               : token,
-                            managedBusinesses   : businesses,
+                            managedBusinesses   : businesses
                         });
                     });
             },
