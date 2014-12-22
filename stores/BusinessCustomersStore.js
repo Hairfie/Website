@@ -24,7 +24,6 @@ module.exports = createStore({
                 business: business
             });
         }
-
         return this.customers[business.id];
     }
 });

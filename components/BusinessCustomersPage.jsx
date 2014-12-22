@@ -12,20 +12,30 @@ var BusinessKinds = require('../constants/BusinessConstants').Kinds;
 
 var Layout = require('./ProLayout.jsx');
 
+var _ = require('lodash');
+
+if (typeof global.Intl == 'undefined') {
+    global.Intl = require('intl');
+}
+
+var ReactIntlMixin = require('react-intl');
+
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [StoreMixin, ReactIntlMixin],
     statics: {
         storeListeners: [BusinessStore, BusinessCustomersStore]
     },
     getStateFromStores: function () {
-        var business = this.getStore(BusinessStore).getBusiness();
+        var business  = this.getStore(BusinessStore).getBusiness();
+        var customers = this.getStore(BusinessCustomersStore).getCustomersByBusiness(business);
+
 
         return {
             business        : business,
-            businessMembers : this.getStore(BusinessCustomersStore).getCustomersByBusiness(business)
+            customers       : customers
         };
     },
     getInitialState: function () {
@@ -33,22 +43,63 @@ module.exports = React.createClass({
     },
     render: function () {
         var business = this.state.business || {};
-        var businessMembers = this.state.customers || [];
-        var businessMemberRows = customers.map(this.renderCustomerRow);
+        var customers = this.state.customers || [];
+        var customersRow = customers.map(this.renderCustomerRow);
 
         return (
             <Layout context={this.props.context} business={this.state.business}>
                 <h2>Clients</h2>
-                { businessMemberRows }
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Email</td>
+                            <td>Nombre de hairfies</td>
+                            <td>Date</td>
+                            <td>Prix</td>
+                            <td>Hairfie</td>
+                        </tr>
+                    </thead>
+                    { customersRow }
+                </table>
             </Layout>
         );
     },
     renderCustomerRow: function (customer) {
+        var hairfieNodes = _.map(customer.hairfies, function(hairfie, index) {
+            return this.renderHairfieRow(customer, hairfie, index);
+        }, this);
         return (
-            <tr key={customer.email}>
-                <td>{customer.email}</td>
-            </tr>
+            <tbody>
+                { hairfieNodes }
+            </tbody>
         );
+
+    },
+    renderHairfieRow: function(customer, hairfie, index) {
+        var tdHairfie = (
+            <td><a href={hairfie.landingPageUrl} target="_blank"><img src={hairfie.picture.url + "?width=100"} alt={hairfie.description} /></a></td>
+        );
+        var date = (<td>{ this.formatDate(hairfie.createdAt) } </td>);
+        var price = hairfie.price ? (<td>{ hairfie.price.amount } €</td>) : (<td> </td>);
+        if(index === 0) {
+            return (
+                <tr key={hairfie.id}>
+                    <td rowSpan={customer.numHairfies}>{customer.email}</td>
+                    <td rowSpan={customer.numHairfies}>{customer.numHairfies}</td>
+                    { date }
+                    { price }
+                    { tdHairfie }
+                </tr>
+            );
+        } else {
+            return (
+                <tr key={hairfie.id}>
+                    { date }
+                    { price }
+                    { tdHairfie }
+                </tr>
+            );
+        }
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
