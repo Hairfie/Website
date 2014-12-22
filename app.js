@@ -41,6 +41,7 @@ app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfiesStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/BusinessMemberStore'));
+app.registerStore(require('./stores/BusinessCustomersStore'));
 app.registerStore(require('./stores/BusinessServiceStore'));
 app.registerStore(require('./stores/BusinessFacebookPageStore'));
 app.registerStore(require('./stores/MetaStore'));
