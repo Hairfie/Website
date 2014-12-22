@@ -50,7 +50,7 @@ module.exports = React.createClass({
             <Layout context={this.props.context} business={this.state.business}>
                 <h2>Clients</h2>
                 <div className="alert alert-success">
-                    <strong>Attention, pour remplir cette page pensez à prendre systématiquement les emails de vos clients au moment de poster un hairfie !
+                    <strong>Attention, pour remplir cette page</strong> pensez à prendre systématiquement les emails de vos clients au moment de poster un hairfie !
                 </div>
                 <table className="table table-bordered">
                     <thead>
