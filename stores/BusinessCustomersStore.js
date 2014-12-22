@@ -12,7 +12,7 @@ module.exports = createStore({
         this.customers = {};
     },
     handlers: makeHandlers({
-        handleReceiveCustomersSuccess: BusinessMemberEvents.RECEIVE_CUSTOMERS_SUCCESS
+        handleReceiveCustomersSuccess: BusinessCustomersEvents.RECEIVE_CUSTOMERS_SUCCESS
     }),
     handleReceiveCustomersSuccess: function (payload) {
         this.customers[payload.business.id] = payload.customers;
@@ -20,7 +20,7 @@ module.exports = createStore({
     },
     getCustomersByBusiness: function (business) {
         if (!this.customers[business.id]) {
-            this.dispatcher.getContext().executeAction(BusinessCustomers.RefreshCustomers, {
+            this.dispatcher.getContext().executeAction(BusinessCustomersActions.RefreshCustomers, {
                 business: business
             });
         }
