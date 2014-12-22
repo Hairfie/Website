@@ -29,7 +29,7 @@ module.exports = function (context, payload, done) {
             return hairfieApi.saveBusiness(business, context.getAuthToken())
         })
         .then(function(business) {
-            context.dispatch(BusinessEvents.SAVE_SUCCESS, {
+            context.dispatch(BusinessEvents.RECEIVE_SUCCESS, {
                 business: business
             });
         })

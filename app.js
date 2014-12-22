@@ -49,6 +49,7 @@ app.registerStore(require('./stores/ServiceStore'));
 app.registerStore(require('./stores/FlashStore'));
 app.registerStore(require('./stores/SlugStore'));
 app.registerStore(require('./stores/UserSuggestionStore'));
+app.registerStore(require('./stores/UserManagedBusinessStore'));
 app.registerStore(require('./stores/FacebookStore'));
 
 module.exports = app;

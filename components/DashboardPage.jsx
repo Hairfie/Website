@@ -6,16 +6,19 @@ var StoreMixin = require('fluxible-app').StoreMixin;
 var ProLayout = require('./ProLayout.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
+var UserManagedBusinessStore = require('../stores/UserManagedBusinessStore');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [AuthStore]
+        storeListeners: [AuthStore, UserManagedBusinessStore]
     },
     getStateFromStores: function () {
+        var user = this.getStore(AuthStore).getUser();
+
         return {
-            user                : this.getStore(AuthStore).getUser(),
-            managedBusinesses   : this.getStore(AuthStore).getManagedBusinesses()
+            user                : user,
+            managedBusinesses   : user && this.getStore(UserManagedBusinessStore).getManagedBusinessesByUser(user)
         }
     },
     getInitialState: function () {
@@ -25,7 +28,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     render: function () {
-        var managedBusinesses = this.state.managedBusinesses.map(function (business) {
+        var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
             return this.renderBusiness(business);
         }, this);
         return (

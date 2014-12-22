@@ -12,7 +12,7 @@ module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: makeHandlers({
         handleOpenSuccess: BusinessEvents.OPEN_SUCCESS,
-        handleSaveSuccess: BusinessEvents.SAVE_SUCCESS,
+        handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
         handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
         handleAddPicture: BusinessEvents.ADD_PICTURE,
@@ -33,7 +33,7 @@ module.exports = createStore({
         this.business = payload.business;
         this.emitChange();
     },
-    handleSaveSuccess: function (payload) {
+    handleReceiveSuccess: function (payload) {
         if (!this.business || payload.business.id != this.business.id) {
             return;
         }
