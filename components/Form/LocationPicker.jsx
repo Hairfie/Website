@@ -1,27 +1,20 @@
 /** @jsx React.DOM */
 
-'use strict';
-
 var React = require('react');
 var Promise = require('q');
 
 var Google = require('../../services/google');
-var Geocoder = require('../../services/geocoder');
+
+var DEFAULT_LOCATION = {lat: 48.867439, lng: 2.343644};
 
 module.exports = React.createClass({
     getInitialState: function () {
         return {
-            location: {lat: 48.867439, lng: 2.343644},
-            map: null,
-            marker: null,
-            markerHasMoved: false
+            location        : this.props.defaultLocation || DEFAULT_LOCATION,
+            map             : null,
+            marker          : null,
+            markerHasMoved  : false
         }
-    },
-    componentWillMount: function () {
-        Geocoder.getAddressLocation(this.props.businessClaim.address)
-            .then(function (location) {
-                this.setState({location: location})
-            }.bind(this));
     },
     componentDidMount: function () {
         createMap(this.refs.map.getDOMNode())
@@ -36,11 +29,7 @@ module.exports = React.createClass({
     render: function () {
         this.updateMap();
 
-        return (
-            <div>
-                <div ref="map" style={{width:'600', height:'400'}} />
-            </div>
-        );
+        return <div ref="map" style={{width:this.props.width, height:this.props.height}} />
     },
     updateMap: function () {
         if (this.state.map && !this.state.markerHasMoved) {
@@ -53,14 +42,16 @@ module.exports = React.createClass({
     onMarkerMoved: function () {
         this.setState({
             markerHasMoved: true,
-            location: {
+            location      : {
                 lat: this.state.marker.position.lat(),
                 lng: this.state.marker.position.lng()
             }
         });
+
+        this.props.onChange();
     },
-    getValues: function () {
-        return {gps: this.state.location};
+    getLocation: function () {
+        return this.state.location;
     }
 });
 
