@@ -51,5 +51,6 @@ app.registerStore(require('./stores/SlugStore'));
 app.registerStore(require('./stores/UserSuggestionStore'));
 app.registerStore(require('./stores/UserManagedBusinessStore'));
 app.registerStore(require('./stores/FacebookStore'));
+app.registerStore(require('./stores/BusinessSearchStore'));
 
 module.exports = app;

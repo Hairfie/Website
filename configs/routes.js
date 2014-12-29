@@ -111,5 +111,10 @@ module.exports = {
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
+    },
+    search: {
+        path: '/search',
+        method: 'get',
+        pageComponent: require('../components/SearchPage.jsx')
     }
 };

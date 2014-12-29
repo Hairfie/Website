@@ -32,7 +32,7 @@ module.exports = React.createClass({
         if (this.state.user && !business.owner) {
             return (
                 <Button className="btn-block btn-primary" type="submit" onClick={this.ClaimExistingBusiness}>
-                    Claim this Business
+                    Ce salon est le vôtre ? Commencez à le gérer
                 </Button>
             )
         } else return(null);
