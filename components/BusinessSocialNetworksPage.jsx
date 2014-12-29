@@ -20,6 +20,10 @@ var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var _ = require('lodash');
 
 var ConnectFacebookPageModal = React.createClass({
+    facebookPermissions: [
+        FacebookPermissions.MANAGE_PAGES,
+        FacebookPermissions.PUBLISH_ACTIONS
+    ],
     mixins: [StoreMixin],
     statics: {
         storeListeners: [BusinessStore, FacebookStore]
@@ -27,7 +31,7 @@ var ConnectFacebookPageModal = React.createClass({
     getStateFromStores: function () {
         return {
             business        : this.getStore(BusinessStore).getBusiness(),
-            canManagePages  : this.getStore(FacebookStore).canManagePages(),
+            hasPermissions  : this.getStore(FacebookStore).hasPermissions(this.facebookPermissions),
             managedPages    : this.getStore(FacebookStore).getPagesWithCreateContentPermission()
         }
     },
@@ -44,7 +48,7 @@ var ConnectFacebookPageModal = React.createClass({
         );
     },
     renderBody: function () {
-        if (!this.state.canManagePages) return this.renderBodyLogin();
+        if (!this.state.hasPermissions) return this.renderBodyLogin();
         if (!this.state.managedPages.length) return this.renderBodyNoManagedPage();
 
         var managedPageOptions = this.state.managedPages.map(function (page) {
@@ -80,7 +84,7 @@ var ConnectFacebookPageModal = React.createClass({
     },
     linkFacebook: function () {
         this.props.context.executeAction(FacebookActions.Link, {
-            scope: [FacebookPermissions.MANAGE_PAGES]
+            scope: this.facebookPermissions
         });
     },
     connectPage: function () {

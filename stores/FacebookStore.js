@@ -10,6 +10,7 @@ var LoginStatus = FacebookConstants.LoginStatus;
 var Permissions = FacebookConstants.Permissions;
 var PagePerms = FacebookConstants.PagePerms;
 var PermissionStatus = FacebookConstants.PermissionStatus;
+var debug = require('debug')('App:FacebookStore');
 
 module.exports = createStore({
     storeName: 'FacebookStore',
@@ -19,22 +20,43 @@ module.exports = createStore({
         handleReceiveManagedPages: FacebookEvents.RECEIVE_MANAGED_PAGES
     }),
     handleReceiveLoginStatus: function (payload) {
+        debug('Receive login status:', payload.loginStatus);
+
+        var sameToken = accessToken(payload.loginStatus) == accessToken(this.loginStatus);
+
+        if (sameToken && !payload.refreshPermissions) {
+            return;
+        }
+
         this.loginStatus = payload.loginStatus;
-        this.permissions = null;
-        this.managedPages = null;
+
+        if (payload.refreshPermissions) {
+            this.permissions = null;
+        }
+
         this.emitChange();
     },
     handleReceivePermissions: function (payload) {
-        this.permissions = _.mapValues(_.indexBy(payload.permissions, 'permission'), function (permission) {
+        debug('Receive permissions:', payload.permissions);
+        this.loginStatus = payload.loginStatus;
+        var permissions = _.mapValues(_.indexBy(payload.permissions, 'permission'), function (permission) {
             return permission.status == PermissionStatus.GRANTED;
         })
+
+        if (_.isEqual(this.permissions, permissions)) return;
+
+        this.permissions = permissions;
         this.emitChange();
     },
     handleReceiveManagedPages: function (payload) {
+        debug('Receive managed pages:', payload.managedPages);
+
+        if (_.isEqual(payload.managedPages, this.managedPages)) return;
+
         this.managedPages = payload.managedPages;
         this.emitChange();
     },
-    getLoginStatus: function () {
+    _getLoginStatus: function () {
         if (!this.loginStatus) {
             this._refreshLoginStatus();
         }
@@ -42,13 +64,13 @@ module.exports = createStore({
         return this.loginStatus;
     },
     isConnected: function () {
-        var loginStatus = this.getLoginStatus();
+        var loginStatus = this._getLoginStatus();
         if (!loginStatus) return false;
 
         return LoginStatus.CONNECTED == loginStatus.status;
     },
-    canManagePages: function () {
-        return this._hasPermission(Permissions.MANAGE_PAGES);
+    hasPermissions: function (permissions) {
+        return _.every(_.map(permissions, this._hasPermission, this));
     },
     getManagedPages: function () {
         if (!this.managedPages) {
@@ -82,3 +104,7 @@ module.exports = createStore({
         this.dispatcher.getContext().executeAction(FacebookActions.RefreshManagedPages);
     }
 });
+
+function accessToken(ls) {
+    return ls && ls.authResponse && ls.authResponse.accessToken;
+}
