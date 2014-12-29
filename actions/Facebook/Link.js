@@ -16,7 +16,8 @@ module.exports =  function (context, payload, done) {
                     // TODO: dispatch a dedicated event?
                     fb.getLoginStatus(function (loginStatus) {
                         context.dispatch(FacebookEvents.RECEIVE_LOGIN_STATUS, {
-                            loginStatus: loginStatus
+                            loginStatus         : loginStatus,
+                            refreshPermissions  : true
                         });
                     });
 
