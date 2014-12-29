@@ -21,6 +21,10 @@ module.exports = {
         'ADD_PICTURE_SUCCESS',
         'ADD_PICTURE_FAILURE',
 
+        'CLAIM_EXISTING',
+        'CLAIM_EXISTING_SUCCESS',
+        'CLAIM_EXISTING_FAILURE',
+
         'CLAIM',
         'CLAIM_SUCCESS',
         'CLAIM_FAILURE'

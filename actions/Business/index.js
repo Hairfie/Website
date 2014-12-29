@@ -9,5 +9,6 @@ module.exports = {
     Claim               : require('./Claim'),
     RefreshFacebookPage : require('./RefreshFacebookPage'),
     SaveFacebookPage    : require('./SaveFacebookPage'),
-    DeleteFacebookPage  : require('./DeleteFacebookPage')
+    DeleteFacebookPage  : require('./DeleteFacebookPage'),
+    ClaimExisting       : require('./ClaimExisting'),
 };

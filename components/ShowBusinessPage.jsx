@@ -7,6 +7,7 @@ var BusinessStore = require('../stores/BusinessStore');
 var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
+var ClaimExistingBusiness = require('./ClaimExistingBusiness.jsx');
 
 
 module.exports = React.createClass({
@@ -69,6 +70,9 @@ module.exports = React.createClass({
                                     <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
                                 </span>
                             </p>
+                            <p>
+                                <ClaimExistingBusiness context={this.props.context} business={business} />
+                            </p>
                         </div>
                         <div className="col-sm-3 col-xs-12 map">
                             {mapElement}
@@ -83,7 +87,7 @@ module.exports = React.createClass({
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
-    },
+    }
 });
 
 function createMap(el) {
