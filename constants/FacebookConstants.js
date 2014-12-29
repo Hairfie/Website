@@ -14,7 +14,8 @@ module.exports = {
         'UNKNOWN'       : 'unknown'
     },
     Permissions: {
-        'MANAGE_PAGES': 'manage_pages'
+        'MANAGE_PAGES'      : 'manage_pages',
+        'PUBLISH_ACTIONS'   : 'publish_actions'
     },
     PermissionStatus: {
         'GRANTED'   : 'granted',

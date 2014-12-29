@@ -80,7 +80,10 @@ var ConnectFacebookPageModal = React.createClass({
     },
     linkFacebook: function () {
         this.props.context.executeAction(FacebookActions.Link, {
-            scope: [FacebookPermissions.MANAGE_PAGES]
+            scope: [
+                FacebookPermissions.MANAGE_PAGES,
+                FacebookPermissions.PUBLISH_ACTIONS
+            ]
         });
     },
     connectPage: function () {
