@@ -1,0 +1,38 @@
+.search {
+    .search-bar {
+        position: absolute; left:0; right:0;
+        background-color: $grey-footer;
+        border-top: 10px solid $hairfie;
+        height: 130px;
+
+        input {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            font-size: 20px;
+            font-weight: 200;
+            height: 50px;
+        }
+
+        .form-group {
+            display: inline-block;
+        }
+    }
+
+    .form-container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+
+        form {
+            background: url(/img/search-icon.png) no-repeat left;
+            background-position-y: 10px;
+            background-size: 27px 27px;
+        }
+    }
+
+    .search-results {
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+}

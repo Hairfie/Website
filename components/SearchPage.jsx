@@ -34,17 +34,17 @@ module.exports = React.createClass({
         var searchResultNodes = (businesses.length > 0) ? businesses.map(this.renderBusinessRow) : null;
 
         return (
-            <PublicLayout context={this.props.context} withLogin={true} customClass={'search'}>
-                <div className="row">
-                    <div className="col-sm-5 col-sm-offset-3">
+            <PublicLayout context={this.props.context} withLogin={false} customClass={'search'}>
+                <div className="row search-bar">
+                    <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
                             <Input ref="businessName" type="text" placeholder="Nom du Salon" />
-                            <AddressInput ref="businessAddress" placeholder="Ville ou Adresse " />
+                            <AddressInput ref="businessAddress" placeholder="Ville ou Adresse " onKeyDown={this.onKeyDown} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row search-results">
                     { searchResultNodes }
                 </div>
             </PublicLayout>
@@ -65,9 +65,7 @@ module.exports = React.createClass({
         );
     },
     submit: function (e) {
-        e.preventDefault();
-        console.log("nom", this.refs.businessName.getValue());
-        console.log("gps", this.refs.businessAddress.getGps());
+        if(e) e.preventDefault();
         var gps = this.refs.businessAddress.getGps();
 
         this.props.context.executeAction(BusinessSearchActions.Search, {
@@ -76,6 +74,11 @@ module.exports = React.createClass({
                 gps         : gps.lng + ',' + gps.lat
             }
         });
+    },
+    onKeyDown: function(e) {
+        if(e.key === 'Enter' && this.refs.businessAddress.getGps()) {
+            this.submit();
+        }
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

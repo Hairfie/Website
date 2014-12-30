@@ -5,17 +5,19 @@ $grey: #818896;
 $grey-separator: #E5E5E8;
 $red-title: #FE5B5F;
 $red-hairfie: #EA5C62;
+$hairfie: #fe5b5f;
 $black: #333E49;
 $grey-footer: #dfe1e4;
 $dark-grey: #929292;
 
 .label-red {
     @extend .label-default;
-    background-color: $red-title;
+    background-color: $hairfie;
 }
 
 .btn-red {
     @extend .btn;
-    background-color: $red-title;
+    background-color: $hairfie;
     color: white;
 }
+

@@ -8122,3 +8122,31 @@ div.day {
     background-color: #428bca; }
   .twitter-typeahead .tt-suggestion p {
     margin: 0; }
+
+.search .search-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: #dfe1e4;
+  border-top: 10px solid #fe5b5f;
+  height: 130px; }
+  .search .search-bar input {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    font-weight: 200;
+    height: 50px; }
+  .search .search-bar .form-group {
+    display: inline-block; }
+.search .form-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center; }
+  .search .form-container form {
+    background: url(/img/search-icon.png) no-repeat left;
+    background-position-y: 10px;
+    background-size: 27px 27px; }
+.search .search-results {
+  margin-top: 150px;
+  margin-bottom: 30px; }

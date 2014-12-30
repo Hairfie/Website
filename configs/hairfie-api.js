@@ -5,7 +5,7 @@ var resolve = require('../lib/config').resolve;
 module.exports = resolve({
     namespace:  'HAIRFIE_API',
     defaults: {
-        URL: 'http://localhost:3000/api'
+        URL: 'http://api-staging.hairfie.com/api'
     },
     staging: {
         URL: 'http://api-staging.hairfie.com/api'
