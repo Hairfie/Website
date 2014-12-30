@@ -25,13 +25,13 @@ module.exports = React.createClass({
     },
     render: function () {
         var business = this.state.business;
-
         if(!business) {
             return (
                 <div>Loading Business in progress</div>
             );
         } else {
             var address;
+
             if (business.address) {
                 address = (
                     <span className="content">

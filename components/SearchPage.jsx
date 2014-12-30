@@ -37,10 +37,10 @@ module.exports = React.createClass({
             <PublicLayout context={this.props.context} withLogin={true} customClass={'search'}>
                 <div className="row">
                     <div className="col-sm-5 col-sm-offset-3">
-                        <form role="form" className="claim">
+                        <form role="form" className="form-inline">
                             <Input ref="businessName" type="text" placeholder="Nom du Salon" />
                             <AddressInput ref="businessAddress" placeholder="Ville ou Adresse " />
-                            <Button className="btn-red btn-block" onClick={this.submit}>Rechercher</Button>
+                            <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
                 </div>
