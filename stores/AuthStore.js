@@ -7,10 +7,10 @@ var AuthEvents = require('../constants/AuthConstants').Events;
 module.exports = createStore({
     storeName: 'AuthStore',
     handlers: makeHandlers({
-        'handleLogin': AuthEvents.LOGIN,
-        'handleLoginFailure': AuthEvents.LOGIN_FAILURE,
-        'handleLoginSuccess': [AuthEvents.LOGIN_SUCCESS, AuthEvents.SIGNUP_SUCCESS],
-        'handleLogoutSuccess': AuthEvents.LOGOUT_SUCCESS
+        handleLogin: AuthEvents.LOGIN,
+        handleLoginFailure: AuthEvents.LOGIN_FAILURE,
+        handleLoginSuccess: [AuthEvents.LOGIN_SUCCESS, AuthEvents.SIGNUP_SUCCESS],
+        handleLogoutSuccess: AuthEvents.LOGOUT_SUCCESS
     }),
     initialize: function () {
         this.loginInProgress = false;
@@ -42,7 +42,7 @@ module.exports = createStore({
         this.emitChange();
     },
     handleLogoutSuccess: function (payload) {
-        this.user = this.token;
+        this.user = this.token = null;
         this.emitChange();
     },
     getUser: function () {
