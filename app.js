@@ -52,5 +52,6 @@ app.registerStore(require('./stores/UserSuggestionStore'));
 app.registerStore(require('./stores/UserManagedBusinessStore'));
 app.registerStore(require('./stores/FacebookStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
+app.registerStore(require('./stores/PasswordRecoveryStore'));
 
 module.exports = app;

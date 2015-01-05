@@ -6,6 +6,11 @@ module.exports = {
         method: 'get',
         pageComponent: require('../components/HomePage.jsx')
     },
+    reset_password: {
+        path: '/reset-password/:userId/:token',
+        method: 'get',
+        pageComponent: require('../components/ResetPasswordPage.jsx')
+    },
     pro_home: {
         path: '/pro/',
         method: 'get',
