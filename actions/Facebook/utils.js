@@ -11,8 +11,10 @@ module.exports = {
 
 function login(fb, scope) {
     var deferred = Promise.defer();
-
+    console.log("utils, login");
     fb.login(function (result) {
+        console.log("inside login");
+
         if (LoginStatus.CONNECTED == result.status) {
             deferred.resolve(result.authResponse.accessToken);
         } else {
@@ -30,6 +32,6 @@ function scopeString(scope) {
 
 function scopeArray(scope) {
     if (Array.isArray(scope)) return scope;
-    if (typeof scope == "string") return 
+    if (typeof scope == "string") return
     return []; // kinda optimistic...
 }

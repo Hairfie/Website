@@ -99,7 +99,7 @@ module.exports = React.createClass({
         });
     },
     logInWithFacebook: function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         this.props.context.executeAction(FacebookActions.Login, {});
     },
     onChange: function () {

@@ -43,11 +43,20 @@ var NewTimeWindowModal = React.createClass({
             <Modal {...this.props} title="Ajout d'une heure d'ouverture">
                 <div className="modal-body">
                     <Row>
-                        <Col xs={6}>
+                        <Col xs={3}>
                             <TimePicker ref="startTime" label="Heure de début" />
                         </Col>
-                        <Col xs={6}>
+                        <Col xs={3}>
                             <TimePicker ref="endTime" label="Heure de fin" />
+                        </Col>
+                        <Col xs={6}>
+                            <Input ref="discount" type="select" label="Promotion" defaultValue="">
+                                <option value="">Pas de promotion</option>
+                                <option value="20">-20%</option>
+                                <option value="30">-30%</option>
+                                <option value="40">-40%</option>
+                                <option value="50">-50%</option>
+                            </Input>
                         </Col>
                     </Row>
                     <Input label="Jour(s) de la semaine">
@@ -63,10 +72,16 @@ var NewTimeWindowModal = React.createClass({
         );
     },
     save: function () {
+        console.log("timeWindow", {
+            startTime   : this.refs.startTime.getValue(),
+            endTime     : this.refs.endTime.getValue(),
+            discount    : this.refs.discount.getValue()
+        });
         this.props.handleSave({
             timeWindow  : {
                 startTime   : this.refs.startTime.getValue(),
-                endTime     : this.refs.endTime.getValue()
+                endTime     : this.refs.endTime.getValue(),
+                discount    : this.refs.discount.getValue()
             },
             weekdays    : this._getSelectedWeekdays()
         });
@@ -151,9 +166,12 @@ module.exports = React.createClass({
             end     = timeWindow.endTime,
             remove  = this.removeTimeWindow.bind(this, weekDay, start, end);
 
+        var discount = timeWindow.discount ? ' - Promotion : -'+timeWindow.discount + '% ' : null;
+
         return (
             <li key={index+'-'+start+'-'+end} className="list-group-item">
                 {timeWindow.startTime} - {timeWindow.endTime}
+                {discount}
                 <Button bsSize="xsmall" className="pull-right" onClick={remove}>
                     Supprimer
                 </Button>
