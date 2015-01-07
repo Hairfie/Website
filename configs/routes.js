@@ -117,6 +117,12 @@ module.exports = {
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
+    book_business: {
+        path: '/businesses/:id/:slug/booking',
+        method: 'get',
+        action: require('../actions/Business/RouteOpen'),
+        pageComponent: require('../components/BusinessBookingPage.jsx')
+    },
     search: {
         path: '/search',
         method: 'get',

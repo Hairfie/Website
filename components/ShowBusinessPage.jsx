@@ -9,6 +9,8 @@ var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
 var ClaimExistingBusiness = require('./ClaimExistingBusiness.jsx');
 
+var NavLink = require('flux-router-component').NavLink;
+var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -69,6 +71,13 @@ module.exports = React.createClass({
                                 <span className="content">
                                     <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
                                 </span>
+                            </p>
+                            <p>
+                                <Button className="btn-red btn-block">
+                                    <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                                        Réserver
+                                    </NavLink>
+                                </Button>
                             </p>
                             <p>
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
