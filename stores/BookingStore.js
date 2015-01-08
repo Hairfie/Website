@@ -16,7 +16,8 @@ module.exports = createStore({
         handleReceiveBusinessSuccess: BookingEvents.RECEIVE_BUSINESS_SUCCESS
     }),
     handleSaveSuccess: function (payload) {
-        this.booking = payload.businessService;
+        this.booking = payload.booking;
+        console.log("this.booking", payload);
         this.emitChange();
     },
     getBooking: function () {

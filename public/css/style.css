@@ -8150,3 +8150,21 @@ div.day {
 .search .search-results {
   margin-top: 150px;
   margin-bottom: 30px; }
+
+.rbc-calendar td,
+.rbc-calendar th {
+  text-align: center; }
+
+.rbc-calendar td {
+  border-radius: 5px; }
+
+.rbc-calendar td.today {
+  background-color: #ddd; }
+
+.rbc-calendar td.bookable {
+  cursor: pointer;
+  background-color: #00cf98; }
+  .rbc-calendar td.bookable.selected {
+    background-color: #357ebd;
+    color: #fff;
+    font-weight: bold; }
