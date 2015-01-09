@@ -20,5 +20,16 @@ $background-grey: #eeeeee;
     @extend .btn;
     background-color: $hairfie;
     color: white;
+    border: none;
+    &:hover {
+        color: $grey;
+    }
 }
 
+.btn-red a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+        color: $grey;
+    }
+}

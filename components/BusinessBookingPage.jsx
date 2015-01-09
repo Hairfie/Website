@@ -62,10 +62,38 @@ module.exports = React.createClass({
         return(
             <div className="row">
                 <div className="col-sm-6 left">
-                    <h1>Réservation chez {business.name} confirmée</h1>
-                    <h4>ID de réservation : {booking.id}</h4>
+                    <div className="business">
+                        <div className="col-sm-4 picture">
+                            <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                        </div>
+                        <div className="col-sm-8">
+                            <h2>{business.name}</h2>
+                            <span className="address">
+                                {business.address.street} <br />
+                                {business.address.zipCode} {business.address.city}
+                            </span>
+                        </div>
+                    </div>
+                    <hr />
                 </div>
                 <div className="col-sm-6 right">
+                    <div className="confirmation">
+                        <h3>Demande de réservation  confirmée</h3>
+                        <dl className="dl-horizontal">
+                            <dt>Numéro de réservation :</dt>
+                            <dd>{booking.id}</dd>
+                            <dt>Date & Horaire :</dt>
+                            <dd>{booking.timeslot}</dd>
+                            <dt>Nom :</dt>
+                            <dd>{booking.firstName} {booking.lastName}</dd>
+                            <dt>Email :</dt>
+                            <dd>{booking.email}</dd>
+                            <dt>Numéro de téléphone :</dt>
+                            <dd>{booking.phoneNumber}</dd>
+                            <dt>Prestation :</dt>
+                            <dd>{booking.comment}</dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         );
@@ -94,7 +122,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-4 picture">
-                            <img src={business.pictures[0].url} className="img-responsive" />
+                            <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
                         </div>
                         <div className="col-sm-8">
                             <h2>{business.name}</h2>
@@ -104,6 +132,7 @@ module.exports = React.createClass({
                             </span>
                         </div>
                     </div>
+                    <hr />
                     <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
                     {timeSelectNode}
                 </div>
@@ -154,7 +183,7 @@ module.exports = React.createClass({
         });
 
         return (
-            <div>
+            <div className="timeselect">
                 <h4>Horaires pour le {weekDayLabelFromInt(daySelected.day())} {daySelected.format("D/MM/YYYY")}</h4>
                 <div>
                     { _.map(hours, this.renderTimeButton, this) }

@@ -10,8 +10,10 @@ $open-color: #00CF98;
         .business {
             h2 { font-size: 25px; }
             span.address { font-size: 18px; }
-            height: 130px;
+            height: 150px;
             text-align: center;
+            max-width: 350px;
+            margin: auto;
         }
 
         .picture {
@@ -21,11 +23,26 @@ $open-color: #00CF98;
                 max-height: 100%
             }
         }
+
+        .rbc-calendar {
+            max-width: 350px;
+            margin: auto;
+        }
+
+        .timeselect {
+            max-width: 350px;
+            margin: auto;
+        }
     }
 
     .right {
         background-color: $background-grey;
         padding: 30px;
+
+        form {
+            max-width: 350px;
+            margin: auto;
+        }
     }
 }
 

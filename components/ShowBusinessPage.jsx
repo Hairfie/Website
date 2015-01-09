@@ -54,6 +54,20 @@ module.exports = React.createClass({
                 mapElement = <Map marker={{lat: business.gps.lat, lng: business.gps.lng, title: business.name}} />
             }
 
+            var bookingButtonNode;
+            console.log("business", business);
+            if(business.owner) {
+                bookingButtonNode = (
+                    <p>
+                        <Button className="btn-red btn-block">
+                            <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                                Réserver
+                            </NavLink>
+                        </Button>
+                    </p>
+                );
+            }
+
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
@@ -72,13 +86,7 @@ module.exports = React.createClass({
                                     <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
                                 </span>
                             </p>
-                            <p>
-                                <Button className="btn-red btn-block">
-                                    <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
-                                        Réserver
-                                    </NavLink>
-                                </Button>
-                            </p>
+                            {bookingButtonNode}
                             <p>
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
                             </p>
