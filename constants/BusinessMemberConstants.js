@@ -8,7 +8,6 @@ module.exports = {
         'RECEIVE_BUSINESS_SUCCESS',
         'RECEIVE_BUSINESS_FAILURE',
 
-        'SAVE',
         'SAVE_SUCCESS',
         'SAVE_FAILURE'
     ])

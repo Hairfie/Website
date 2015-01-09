@@ -11,6 +11,11 @@ module.exports = {
         method: 'get',
         pageComponent: require('../components/ResetPasswordPage.jsx')
     },
+    write_verified_business_review: {
+        path: '/write-business-review/:businessReviewTokenId',
+        method: 'get',
+        pageComponent: require('../components/WriteVerifiedBusinessReviewPage.jsx')
+    },
     pro_home: {
         path: '/pro/',
         method: 'get',

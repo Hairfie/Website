@@ -6,8 +6,6 @@ var BusinessMemberEvents = require('../../constants/BusinessMemberConstants').Ev
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
-    context.dispatch(BusinessMemberEvents.SAVE);
-
     hairfieApi
         .saveBusinessMember(payload.businessMember, context.getAuthToken())
         .then(function (businessMember) {
