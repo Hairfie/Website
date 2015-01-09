@@ -179,11 +179,9 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        return (
-            <Layout context={this.props.context}>
-                {this.renderBody()}
-            </Layout>
-        );
+        var body = this.renderBody();
+
+        return <Layout context={this.props.context}>{body}</Layout>;
     },
     renderBody: function () {
         var brt = this.state.businessReviewToken;
