@@ -25,7 +25,10 @@ module.exports = React.createClass({
     render: function () {
         var route = this.state.route;
         if (route && route.config && route.config.pageComponent) {
-            return React.createElement(route.config.pageComponent, {context: this.props.context});
+            return React.createElement(route.config.pageComponent, {
+                context : this.props.context,
+                route   : route
+            });
         } else {
             return <NotFoundPage context={this.props.context} />
         }

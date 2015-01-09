@@ -54,5 +54,6 @@ app.registerStore(require('./stores/FacebookStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
+app.registerStore(require('./stores/BusinessReviewTokenStore'));
 
 module.exports = app;

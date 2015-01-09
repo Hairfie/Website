@@ -90,6 +90,9 @@ module.exports = React.createClass({
         return (
             <Layout context={this.props.context} business={this.state.business}>
                 <Input ref="name" type="text" label="Nom de la société" defaultValue={business.name} />
+                <Input ref="men" type="checkbox" label="Pour hommes" defaultChecked={business.men} />
+                <Input ref="women" type="checkbox" label="Pour femmes" defaultChecked={business.women} />
+                <Input ref="children" type="checkbox" label="Pour enfants" defaultChecked={business.children} />
                 <Input ref="kind" type="select" label="Activité" defaultValue={business.kind}>
                     <option value={BusinessKinds.SALON}>Salon de coiffure</option>
                     <option value={BusinessKinds.HOME}>Coiffure à domicile</option>
@@ -109,6 +112,9 @@ module.exports = React.createClass({
         var business = {};
         business.id = this.state.business.id;
         business.name = this.refs.name.getValue();
+        business.men = this.refs.men.getChecked();
+        business.women = this.refs.women.getChecked();
+        business.children = this.refs.children.getChecked();
         business.kind = this.refs.kind.getValue();
         business.phoneNumber = this.refs.phoneNumber.getValue();
         business.address = this.refs.address.getAddress();
