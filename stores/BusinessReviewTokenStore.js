@@ -16,12 +16,7 @@ module.exports = createStore({
     },
     handleReceiveSuccess: function (payload) {
         this.tokens[payload.id] = payload.businessReviewToken;
-        try {
         this.emitChange();
-        } catch (e) {
-            console.log('exception', e);
-            throw e;
-        }
     },
     getById: function (id) {
         var token = this.tokens[id];
