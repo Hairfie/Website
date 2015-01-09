@@ -3,6 +3,7 @@
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 var moment = require('moment');
+var _ = require('lodash');
 
 var BusinessStore = require('../stores/BusinessStore');
 var BookingStore  = require('../stores/BookingStore');
@@ -14,8 +15,10 @@ var BookingActions = require('../actions/Booking');
 
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
-var weekDayLabelFromInt = require('../constants/DateTimeConstants').weekDayLabelFromInt;
 
+var DateTimeConstants = require('../constants/DateTimeConstants');
+var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
+var weekDaysNumber = DateTimeConstants.weekDaysNumber;
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -69,17 +72,17 @@ module.exports = React.createClass({
     },
     renderBookingForm: function() {
         var business = this.state.business;
-        var timeSelectNode = null;
-        if(this.state.daySelected) {
-            timeSelectNode = (
-                <div>
-                    <h4>Vous souhaitez réserver le {weekDayLabelFromInt(this.state.daySelected.day())} {this.state.daySelected.format("D/M/YYYY")}</h4>
-                    <div>
+        var timeSelectNode = this.renderTimeSelect();
+        var timeslotNode = null;
 
-                    </div>
-                </div>
+        if(this.state.timeslot) {
+            timeslotNode = (
+                <h4>
+                    Rdv le {this.state.timeslot.format("D/MM/YYYY [à] HH:mm")}
+                </h4>
             );
         }
+
         return (
             <div className="row">
                 <div className="col-sm-6 left">
@@ -90,6 +93,7 @@ module.exports = React.createClass({
                     {timeSelectNode}
                 </div>
                 <div className="col-sm-6 right">
+                    {timeslotNode}
                     <form role="form" className="claim">
                         <Input className="radio">
                             <label className="radio-inline">
@@ -115,6 +119,46 @@ module.exports = React.createClass({
     handleDaySelectedChange: function(m) {
         this.setState({daySelected: m});
     },
+    renderTimeSelect: function() {
+        if(!this.state.daySelected) {
+            return null;
+        }
+        var daySelected = this.state.daySelected,
+            timetable = this.state.business.timetable,
+            timetableSelected = timetable[weekDaysNumber[daySelected.day()]],
+            hours = [];
+
+        timetableSelected.forEach(function(slot){
+            var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
+                stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]);
+            console.log("start", start);
+            console.log("stop", stop);
+
+            moment().range(start, stop).by('hours', function(hour) {
+                hours.push(hour);
+            });
+        });
+
+        return (
+            <div>
+                <h4>Vous souhaitez réserver le {weekDayLabelFromInt(daySelected.day())} {daySelected.format("D/M/YYYY")}</h4>
+                <div>
+                    { _.map(hours, this.renderTimeButton, this) }
+                </div>
+            </div>
+        );
+
+    },
+    renderTimeButton: function(timeslot) {
+        return (
+            <Button className="btn" onClick={this.handleTimeSlotChange.bind(this, timeslot)}>
+                {timeslot.format("HH:mm")}
+            </Button>
+        );
+    },
+    handleTimeSlotChange: function(timeslot) {
+        this.setState({timeslot: timeslot});
+    },
     submit: function (e) {
         e.preventDefault();
         this.props.context.executeAction(BookingActions.Save, {
@@ -125,7 +169,8 @@ module.exports = React.createClass({
                 lastName    : this.refs.userLastName.getValue(),
                 email       : this.refs.userEmail.getValue(),
                 phoneNumber : this.refs.userPhoneNumber.getValue(),
-                comment     : this.refs.userComment.getValue()
+                comment     : this.refs.userComment.getValue(),
+                timeslot    : this.state.timeslot
             }
         });
     }
