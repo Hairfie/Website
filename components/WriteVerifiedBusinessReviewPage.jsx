@@ -11,7 +11,6 @@ var Button = require('react-bootstrap/Button');
 var Alert = require('react-bootstrap/Alert');
 var Row = require('react-bootstrap/Row');
 var Col = require('react-bootstrap/Col');
-var revalidator = require('revalidator');
 var BusinessReviewActions = require('../actions/BusinessReview');
 var _ = require('lodash');
 
