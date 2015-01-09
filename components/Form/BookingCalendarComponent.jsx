@@ -50,7 +50,7 @@ module.exports = React.createClass({
                 <thead>
                     <tr>
                         <th onClick={this.prevMonth}><i className="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th>
-                        <th colSpan="5">{m.get('month')+1} / {m.get('year')}</th>
+                        <th colSpan="5">{m.format('MM/YYYY')}</th>
                         <th onClick={this.nextMonth}><i className="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th>
                     </tr>
                     <tr>

@@ -7666,7 +7666,9 @@ nav.header {
   .navbar-nav li a {
     line-height: 100px;
     height: 100px;
-    padding-top: 0; }
+    padding-top: 0;
+    font-weight: 200;
+    font-size: 21px; }
 
   #logo {
     width: 138px;
@@ -8151,6 +8153,23 @@ div.day {
   margin-top: 150px;
   margin-bottom: 30px; }
 
+.booking .row {
+  margin-top: 50px; }
+.booking .left .business {
+  height: 130px;
+  text-align: center; }
+  .booking .left .business h2 {
+    font-size: 25px; }
+  .booking .left .business span.address {
+    font-size: 18px; }
+.booking .left .picture {
+  height: 100%; }
+  .booking .left .picture img {
+    max-height: 100%; }
+.booking .right {
+  background-color: #eeeeee;
+  padding: 30px; }
+
 .rbc-calendar td,
 .rbc-calendar th {
   text-align: center; }
@@ -8168,3 +8187,14 @@ div.day {
     background-color: #357ebd;
     color: #fff;
     font-weight: bold; }
+
+.btn.timeslot, .timeslot.btn-red {
+  margin: 5px; }
+
+.btn.timeslot:focus, .timeslot.btn-red:focus {
+  outline: none; }
+
+.btn.timeslot.selected, .timeslot.selected.btn-red {
+  background-color: #357ebd;
+  color: #fff;
+  font-weight: bold; }

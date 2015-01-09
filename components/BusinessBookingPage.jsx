@@ -48,7 +48,7 @@ module.exports = React.createClass({
         }
 
             return (
-                <PublicLayout context={this.props.context}>
+                <PublicLayout context={this.props.context} customClass={'booking'}>
                     {contentNode}
                 </PublicLayout>
             );
@@ -77,24 +77,40 @@ module.exports = React.createClass({
 
         if(this.state.timeslot) {
             timeslotNode = (
-                <h4>
-                    Rdv le {this.state.timeslot.format("D/MM/YYYY [à] HH:mm")}
-                </h4>
+                <Input type="text"  value={this.state.timeslot.format("[Le] D/MM/YYYY [à] HH:mm")} disabled />
+            );
+        } else {
+            timeslotNode = (
+                <div className="form-group">
+                    <span>
+                        Commencez par choisir une date et un horaire.
+                    </span>
+                </div>
             );
         }
 
         return (
             <div className="row">
                 <div className="col-sm-6 left">
-                    <div>
-                        <h1>{business.name}</h1>
+                    <div className="business">
+                        <div className="col-sm-4 picture">
+                            <img src={business.pictures[0].url} className="img-responsive" />
+                        </div>
+                        <div className="col-sm-8">
+                            <h2>{business.name}</h2>
+                            <span className="address">
+                                {business.address.street} <br />
+                                {business.address.zipCode} {business.address.city}
+                            </span>
+                        </div>
                     </div>
                     <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
                     {timeSelectNode}
                 </div>
                 <div className="col-sm-6 right">
-                    {timeslotNode}
                     <form role="form" className="claim">
+                        <h3>Votre réservation</h3>
+                        {timeslotNode}
                         <Input className="radio">
                             <label className="radio-inline">
                               <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.MALE} />
@@ -109,8 +125,8 @@ module.exports = React.createClass({
                         <Input ref="userLastName" type="text" placeholder="Nom" />
                         <Input ref="userEmail" type="email" placeholder="Email" />
                         <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone" />
-                        <Input ref="userComment" type="text" placeholder="Prestation souhaitée" />
-                        <Button className="btn-red btn-block" onClick={this.submit}>Réserver</Button>
+                        <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing" />
+                        <Button className="btn-red btn-block" onClick={this.submit}>Demande de réservation</Button>
                     </form>
                 </div>
             </div>
@@ -130,9 +146,7 @@ module.exports = React.createClass({
 
         timetableSelected.forEach(function(slot){
             var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
-                stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]);
-            console.log("start", start);
-            console.log("stop", stop);
+                stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
 
             moment().range(start, stop).by('hours', function(hour) {
                 hours.push(hour);
@@ -141,7 +155,7 @@ module.exports = React.createClass({
 
         return (
             <div>
-                <h4>Vous souhaitez réserver le {weekDayLabelFromInt(daySelected.day())} {daySelected.format("D/M/YYYY")}</h4>
+                <h4>Horaires pour le {weekDayLabelFromInt(daySelected.day())} {daySelected.format("D/MM/YYYY")}</h4>
                 <div>
                     { _.map(hours, this.renderTimeButton, this) }
                 </div>
@@ -150,8 +164,10 @@ module.exports = React.createClass({
 
     },
     renderTimeButton: function(timeslot) {
+        var cls = 'btn timeslot';
+            cls += timeslot.isSame(this.state.timeslot) ? ' selected' : '';
         return (
-            <Button className="btn" onClick={this.handleTimeSlotChange.bind(this, timeslot)}>
+            <Button className={cls} onClick={this.handleTimeSlotChange.bind(this, timeslot)}>
                 {timeslot.format("HH:mm")}
             </Button>
         );
