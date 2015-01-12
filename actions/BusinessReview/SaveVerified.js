@@ -1,20 +1,22 @@
 'use strict';
 
 var hairfieApi = require('../../services/hairfie-api-client');
-var BusinessReviewTokenActions = require('../../actions/BusinessReviewToken');
+var BusinessReviewActions = require('./');
+var _ = require('lodash');
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
+    var review = _.cloneDeep(payload.businessReview);
+    review.request = payload.request;
+
     hairfieApi
-        .saveBusinessReview(payload.businessReview)
-        .then(function (businessReview) {
+        .saveBusinessReview(review)
+        .then(function () {
             // refresh the token
-            context.executeAction(BusinessReviewTokenActions.Fetch, {
-                id: payload.businessReviewToken.id
+            context.executeAction(BusinessReviewActions.FetchRequest, {
+                id: payload.businessReviewRequest.id
             });
         })
-        .fail(function (error) {
-            done(error);
-        });
+        .fail(done);
 };

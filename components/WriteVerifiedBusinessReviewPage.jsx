@@ -4,7 +4,7 @@
 
 var React = require('react/addons');
 var StoreMixin = require('fluxible-app').StoreMixin;
-var BusinessReviewTokenStore = require('../stores/BusinessReviewTokenStore');
+var BusinessReviewRequestStore = require('../stores/BusinessReviewRequestStore');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
@@ -87,13 +87,13 @@ var ReviewForm = React.createClass({
                 {errorsNode}
                 <Row>
                     <Col md={4}>
-                        <Input ref="firstName" type="text" label="Prénom (requis)" />
+                        <Input ref="firstName" type="text" label="Votre prénom (requis)" />
                     </Col>
                     <Col md={4}>
-                        <Input ref="lastName" type="text" label="Nom (requis)" />
+                        <Input ref="lastName" type="text" label="Votre nom (requis)" />
                     </Col>
                     <Col md={4}>
-                        <Input ref="phoneNumber" type="text" label="Numéro de téléphone" />
+                        <Input ref="phoneNumber" type="text" label="Votre téléphone (au cas où)" />
                     </Col>
                 </Row>
                 <hr />
@@ -112,10 +112,9 @@ var ReviewForm = React.createClass({
                     </Col>
                     <Col md={3}>
                         <RatingInput ref="treatment" label="Soins" />
-                        <RatingInput ref="priceQualityRatio" label="Rapport qualité/prix" />
+                        <RatingInput ref="resultQuality" label="Qualité du résultat" />
                     </Col>
                     <Col md={3}>
-                        <RatingInput ref="resultQuality" label="Qualité du résultat" />
                         <RatingInput ref="availability" label="Disponibilité" />
                     </Col>
                 </Row>
@@ -130,7 +129,6 @@ var ReviewForm = React.createClass({
     },
     getReview: function () {
         return {
-            token       : this.props.token,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
             phoneNumber : this.refs.phoneNumber.getValue().trim(),
@@ -165,14 +163,14 @@ var ReviewForm = React.createClass({
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [BusinessReviewTokenStore]
+        storeListeners: [BusinessReviewRequestStore]
     },
     getStateFromStores: function () {
-        var businessReviewTokenId = this.props.route.params.businessReviewTokenId,
-            businessReviewToken   = this.getStore(BusinessReviewTokenStore).getById(businessReviewTokenId);
+        var businessReviewRequestId = this.props.route.params.businessReviewRequestId,
+            businessReviewRequest   = this.getStore(BusinessReviewRequestStore).getById(businessReviewRequestId);
 
         return {
-            businessReviewToken: businessReviewToken
+            businessReviewRequest: businessReviewRequest
         };
     },
     getInitialState: function () {
@@ -182,14 +180,20 @@ module.exports = React.createClass({
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
     renderBody: function () {
-        var brt = this.state.businessReviewToken;
+        var brr = this.state.businessReviewRequest;
 
-        if (undefined === brt) return <p>Chargement des informations...</p>;
-        if (!brt) return <p>La page que vous avez demandée est introuvable.</p>;
-        if (brt.used) return <p>Votre avis a bien été envoyé.</p>;
-        if (!brt.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
+        if (undefined === brr) return <p>Chargement des informations...</p>;
+        if (!brr) return <p>La page que vous avez demandée est introuvable.</p>;
+        if (brr.used) return <p>Votre avis a bien été envoyé.</p>;
+        if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
 
-        return <ReviewForm token={brt} onSubmit={this.submitReview} />
+        return (
+            <div>
+                <p>Votre avis intéresse la communauté, partagez votre expérience :</p>
+                <br />
+                <ReviewForm onSubmit={this.submitReview} />
+            </div>
+        );
     },
 
     onChange: function () {
@@ -197,8 +201,8 @@ module.exports = React.createClass({
     },
     submitReview: function (review) {
         this.props.context.executeAction(BusinessReviewActions.SaveVerified, {
-            businessReviewToken: this.state.businessReviewToken,
-            businessReview     : review
+            businessReviewRequest: this.state.businessReviewRequest,
+            businessReview       : review
         });
     }
 });

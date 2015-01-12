@@ -44,6 +44,7 @@ app.registerStore(require('./stores/BusinessMemberStore'));
 app.registerStore(require('./stores/BusinessCustomersStore'));
 app.registerStore(require('./stores/BusinessServiceStore'));
 app.registerStore(require('./stores/BusinessFacebookPageStore'));
+app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/ServiceStore'));
 app.registerStore(require('./stores/FlashStore'));
@@ -54,6 +55,5 @@ app.registerStore(require('./stores/FacebookStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
-app.registerStore(require('./stores/BusinessReviewTokenStore'));
 
 module.exports = app;
