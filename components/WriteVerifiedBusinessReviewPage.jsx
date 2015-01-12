@@ -4,7 +4,7 @@
 
 var React = require('react/addons');
 var StoreMixin = require('fluxible-app').StoreMixin;
-var BusinessReviewTokenStore = require('../stores/BusinessReviewTokenStore');
+var BusinessReviewRequestStore = require('../stores/BusinessReviewRequestStore');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
@@ -130,7 +130,6 @@ var ReviewForm = React.createClass({
     },
     getReview: function () {
         return {
-            token       : this.props.token,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
             phoneNumber : this.refs.phoneNumber.getValue().trim(),
@@ -165,14 +164,14 @@ var ReviewForm = React.createClass({
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [BusinessReviewTokenStore]
+        storeListeners: [BusinessReviewRequestStore]
     },
     getStateFromStores: function () {
-        var businessReviewTokenId = this.props.route.params.businessReviewTokenId,
-            businessReviewToken   = this.getStore(BusinessReviewTokenStore).getById(businessReviewTokenId);
+        var businessReviewRequestId = this.props.route.params.businessReviewRequestId,
+            businessReviewRequest   = this.getStore(BusinessReviewRequestStore).getById(businessReviewRequestId);
 
         return {
-            businessReviewToken: businessReviewToken
+            businessReviewRequest: businessReviewRequest
         };
     },
     getInitialState: function () {
@@ -182,14 +181,14 @@ module.exports = React.createClass({
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
     renderBody: function () {
-        var brt = this.state.businessReviewToken;
+        var brr = this.state.businessReviewRequest;
 
-        if (undefined === brt) return <p>Chargement des informations...</p>;
-        if (!brt) return <p>La page que vous avez demandée est introuvable.</p>;
-        if (brt.used) return <p>Votre avis a bien été envoyé.</p>;
-        if (!brt.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
+        if (undefined === brr) return <p>Chargement des informations...</p>;
+        if (!brr) return <p>La page que vous avez demandée est introuvable.</p>;
+        if (brr.used) return <p>Votre avis a bien été envoyé.</p>;
+        if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
 
-        return <ReviewForm token={brt} onSubmit={this.submitReview} />
+        return <ReviewForm onSubmit={this.submitReview} />
     },
 
     onChange: function () {
@@ -197,8 +196,8 @@ module.exports = React.createClass({
     },
     submitReview: function (review) {
         this.props.context.executeAction(BusinessReviewActions.SaveVerified, {
-            businessReviewToken: this.state.businessReviewToken,
-            businessReview     : review
+            businessReviewRequest: this.state.businessReviewRequest,
+            businessReview       : review
         });
     }
 });

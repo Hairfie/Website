@@ -3,7 +3,7 @@
 var define = require('../lib/constants/define');
 
 module.exports = {
-    Events: define('BusinessReviewToken', [
-        'RECEIVE_SUCCESS'
+    Events: define('BusinessReview', [
+        'RECEIVE_REQUEST_SUCCESS'
     ])
 };

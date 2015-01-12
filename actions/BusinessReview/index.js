@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    SaveVerified: require('./SaveVerified')
+    SaveVerified: require('./SaveVerified'),
+    FetchRequest: require('./FetchRequest')
 };
