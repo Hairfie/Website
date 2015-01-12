@@ -87,13 +87,13 @@ var ReviewForm = React.createClass({
                 {errorsNode}
                 <Row>
                     <Col md={4}>
-                        <Input ref="firstName" type="text" label="Prénom (requis)" />
+                        <Input ref="firstName" type="text" label="Votre prénom (requis)" />
                     </Col>
                     <Col md={4}>
-                        <Input ref="lastName" type="text" label="Nom (requis)" />
+                        <Input ref="lastName" type="text" label="Votre nom (requis)" />
                     </Col>
                     <Col md={4}>
-                        <Input ref="phoneNumber" type="text" label="Numéro de téléphone" />
+                        <Input ref="phoneNumber" type="text" label="Votre téléphone (au cas où)" />
                     </Col>
                 </Row>
                 <hr />
@@ -112,10 +112,9 @@ var ReviewForm = React.createClass({
                     </Col>
                     <Col md={3}>
                         <RatingInput ref="treatment" label="Soins" />
-                        <RatingInput ref="priceQualityRatio" label="Rapport qualité/prix" />
+                        <RatingInput ref="resultQuality" label="Qualité du résultat" />
                     </Col>
                     <Col md={3}>
-                        <RatingInput ref="resultQuality" label="Qualité du résultat" />
                         <RatingInput ref="availability" label="Disponibilité" />
                     </Col>
                 </Row>
@@ -188,7 +187,13 @@ module.exports = React.createClass({
         if (brr.used) return <p>Votre avis a bien été envoyé.</p>;
         if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
 
-        return <ReviewForm onSubmit={this.submitReview} />
+        return (
+            <div>
+                <p>Votre avis intéresse la communauté, partagez votre expérience :</p>
+                <br />
+                <ReviewForm onSubmit={this.submitReview} />
+            </div>
+        );
     },
 
     onChange: function () {
