@@ -8162,8 +8162,10 @@ div.day {
   margin-top: 150px;
   margin-bottom: 30px; }
 
-.booking .row {
-  margin-top: 50px; }
+.booking h3 {
+  text-align: center;
+  font-weight: 200;
+  margin-bottom: 30px; }
 .booking .left .business {
   height: 150px;
   text-align: center;
@@ -8183,12 +8185,6 @@ div.day {
 .booking .left .timeselect {
   max-width: 350px;
   margin: auto; }
-.booking .right {
-  background-color: #eeeeee;
-  padding: 30px; }
-  .booking .right form {
-    max-width: 350px;
-    margin: auto; }
 
 .rbc-calendar td,
 .rbc-calendar th {
@@ -8218,6 +8214,15 @@ div.day {
   background-color: #357ebd;
   color: #fff;
   font-weight: bold; }
+
+.panel-heading .panel-title a:after {
+  font-family: 'FontAwesome';
+  content: "\f078";
+  float: right;
+  color: grey; }
+
+.panel-heading .panel-title a.collapsed:after {
+  content: "\f054"; }
 
 .star-rating {
   /* clear */

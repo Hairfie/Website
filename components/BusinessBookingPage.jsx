@@ -15,6 +15,8 @@ var BookingActions = require('../actions/Booking');
 
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
+var Panel = require('react-bootstrap/Panel');
+var PanelGroup = require('react-bootstrap/PanelGroup');
 
 var DateTimeConstants = require('../constants/DateTimeConstants');
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
@@ -103,9 +105,23 @@ module.exports = React.createClass({
         var timeSelectNode = this.renderTimeSelect();
         var timeslotNode = null;
 
+        var daySelectHeader, timeSelectHeader;
+
+        if(this.state.daySelected) {
+            daySelectHeader = weekDayLabelFromInt(this.state.daySelected.day()) + ' ' + this.state.daySelected.format("D/MM/YYYY");
+            if(this.state.timeslot) {
+                timeSelectHeader = this.state.timeslot.format("HH:mm")
+            } else {
+                timeSelectHeader = 'Choisir une heure'
+            }
+        } else {
+            daySelectHeader = 'Choisir un jour';
+            timeSelectHeader = 'Choisir une heure'
+        }
+
         if(this.state.timeslot) {
             timeslotNode = (
-                <Input type="text"  value={this.state.timeslot.format("[Le] D/MM/YYYY [à] HH:mm")} disabled />
+                <Input type="text"  value={this.state.timeslot.format("[Demande pour le] D/MM/YYYY [à] HH:mm")} disabled />
             );
         } else {
             timeslotNode = (
@@ -119,6 +135,9 @@ module.exports = React.createClass({
 
         return (
             <div className="row">
+                <div className="col-sm-12">
+                    <h3>Votre Demande de réservation</h3>
+                </div>
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-4 picture">
@@ -133,36 +152,46 @@ module.exports = React.createClass({
                         </div>
                     </div>
                     <hr />
-                    <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
-                    {timeSelectNode}
                 </div>
                 <div className="col-sm-6 right">
-                    <form role="form" className="claim">
-                        <h3>Votre réservation</h3>
-                        {timeslotNode}
-                        <Input className="radio">
-                            <label className="radio-inline">
-                              <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.MALE} />
-                              Homme
-                            </label>
-                            <label className="radio-inline">
-                              <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.FEMALE} />
-                              Femme
-                            </label>
-                        </Input>
-                        <Input ref="userFirstName" type="text"  placeholder="Prénom" />
-                        <Input ref="userLastName" type="text" placeholder="Nom" />
-                        <Input ref="userEmail" type="email" placeholder="Email" />
-                        <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone" />
-                        <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing" />
-                        <Button className="btn-red btn-block" onClick={this.submit}>Demande de réservation</Button>
-                    </form>
+                    <PanelGroup activeKey={this.state.activeKey ? this.state.activeKey : '1'} onSelect={this.handleSelect.bind(this)} accordion>
+                        <Panel header={daySelectHeader} eventKey='1'>
+                            <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
+                        </Panel>
+                        <Panel header={timeSelectHeader} eventKey='2'>
+                            {timeSelectNode}
+                        </Panel>
+                        <Panel header="Précisez votre demande" eventKey='3'>
+                            <form role="form" className="claim">
+                                {timeslotNode}
+                                <Input className="radio">
+                                    <label className="radio-inline">
+                                      <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.MALE} />
+                                      Homme
+                                    </label>
+                                    <label className="radio-inline">
+                                      <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.FEMALE} />
+                                      Femme
+                                    </label>
+                                </Input>
+                                <Input ref="userFirstName" type="text"  placeholder="Prénom" />
+                                <Input ref="userLastName" type="text" placeholder="Nom" />
+                                <Input ref="userEmail" type="email" placeholder="Email" />
+                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone" />
+                                <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing" />
+                                <Button className="btn-red btn-block" onClick={this.submit}>Envoyer une demande</Button>
+                            </form>
+                        </Panel>
+                    </PanelGroup>
                 </div>
             </div>
         );
     },
+    handleSelect: function(selectedKey) {
+        this.setState({activeKey: selectedKey});
+    },
     handleDaySelectedChange: function(m) {
-        this.setState({daySelected: m});
+        this.setState({daySelected: m, activeKey: '2'});
     },
     renderTimeSelect: function() {
         if(!this.state.daySelected) {
@@ -202,7 +231,7 @@ module.exports = React.createClass({
         );
     },
     handleTimeSlotChange: function(timeslot) {
-        this.setState({timeslot: timeslot});
+        this.setState({timeslot: timeslot, activeKey: '3'});
     },
     submit: function (e) {
         e.preventDefault();

@@ -55,7 +55,7 @@ module.exports = React.createClass({
             }
 
             var bookingButtonNode;
-            console.log("business", business);
+
             if(business.owner) {
                 bookingButtonNode = (
                     <p>

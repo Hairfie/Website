@@ -3,7 +3,13 @@ $open-color: #00CF98;
 .booking {
 
     .row {
-        margin-top: 50px;
+        //margin-top: 30px;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: 200;
+        margin-bottom: 30px;
     }
 
     .left {
@@ -36,13 +42,13 @@ $open-color: #00CF98;
     }
 
     .right {
-        background-color: $background-grey;
-        padding: 30px;
+        // background-color: $background-grey;
+        // padding: 30px;
 
-        form {
-            max-width: 350px;
-            margin: auto;
-        }
+        // form {
+        //     //max-width: 350px;
+        //     margin: auto;
+        // }
     }
 }
 
@@ -80,4 +86,15 @@ $open-color: #00CF98;
     background-color: #357ebd;
     color: #fff;
     font-weight: bold;
+}
+
+// Chevron for panels
+.panel-heading .panel-title a:after {
+    font-family: 'FontAwesome';
+    content: $fa-var-chevron-down;
+    float: right;
+    color: grey;
+}
+.panel-heading .panel-title a.collapsed:after {
+    content: $fa-var-chevron-right;
 }
