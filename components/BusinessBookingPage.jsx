@@ -80,12 +80,10 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-6 right">
                     <div className="confirmation">
-                        <h3>Demande de réservation  confirmée</h3>
+                        <h3>Demande de réservation confirmée</h3>
                         <dl className="dl-horizontal">
-                            <dt>Numéro de réservation :</dt>
-                            <dd>{booking.id}</dd>
                             <dt>Date & Horaire :</dt>
-                            <dd>{booking.timeslot}</dd>
+                            <dd>{moment(booking.timeslot).format("D/MM/YYYY [à] HH:mm")}</dd>
                             <dt>Nom :</dt>
                             <dd>{booking.firstName} {booking.lastName}</dd>
                             <dt>Email :</dt>
