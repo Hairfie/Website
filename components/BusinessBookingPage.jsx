@@ -164,11 +164,11 @@ module.exports = React.createClass({
                                 {timeslotNode}
                                 <Input className="radio">
                                     <label className="radio-inline">
-                                      <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.MALE} />
+                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
                                       Homme
                                     </label>
                                     <label className="radio-inline">
-                                      <input type="radio" name="gender" ref="userGender" value={UserConstants.Genders.FEMALE} />
+                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
                                       Femme
                                     </label>
                                 </Input>
@@ -184,6 +184,11 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    handleGenderChanged: function (e) {
+        this.setState({
+            userGender: e.currentTarget.value
+        });
     },
     handleSelect: function(selectedKey) {
         this.setState({activeKey: selectedKey});
@@ -236,7 +241,7 @@ module.exports = React.createClass({
         this.props.context.executeAction(BookingActions.Save, {
             booking: {
                 businessId  : this.state.business.id,
-                gender      : this.refs.userGender.getDOMNode().value,
+                gender      : this.state.userGender,
                 firstName   : this.refs.userFirstName.getValue(),
                 lastName    : this.refs.userLastName.getValue(),
                 email       : this.refs.userEmail.getValue(),
