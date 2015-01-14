@@ -8,7 +8,7 @@ module.exports = function (context, payload, done) {
     var done = done || function () {};
 
     var review = _.cloneDeep(payload.businessReview);
-    review.request = payload.request;
+    review.request = payload.businessReviewRequest;
 
     hairfieApi
         .saveBusinessReview(review)
