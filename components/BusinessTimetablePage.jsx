@@ -51,7 +51,7 @@ var NewTimeWindowModal = React.createClass({
                         </Col>
                         <Col xs={6}>
                             <Input ref="discount" type="select" label="Promotion" defaultValue="">
-                                <option value="">Pas de promotion</option>
+                                <option value>Pas de promotion</option>
                                 <option value="20">-20%</option>
                                 <option value="30">-30%</option>
                                 <option value="40">-40%</option>
@@ -72,17 +72,15 @@ var NewTimeWindowModal = React.createClass({
         );
     },
     save: function () {
-        console.log("timeWindow", {
-            startTime   : this.refs.startTime.getValue(),
-            endTime     : this.refs.endTime.getValue(),
-            discount    : this.refs.discount.getValue()
-        });
-        this.props.handleSave({
-            timeWindow  : {
+        var timeWindow  = {
                 startTime   : this.refs.startTime.getValue(),
                 endTime     : this.refs.endTime.getValue(),
-                discount    : this.refs.discount.getValue()
-            },
+        };
+        if(this.refs.discount.getValue()) {
+            timeWindow.discount = this.refs.discount.getValue();
+        }
+        this.props.handleSave({
+            timeWindow  : timeWindow,
             weekdays    : this._getSelectedWeekdays()
         });
         this.props.onRequestHide();

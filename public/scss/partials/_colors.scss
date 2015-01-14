@@ -10,10 +10,16 @@ $black: #333E49;
 $grey-footer: #dfe1e4;
 $dark-grey: #929292;
 $background-grey: #eeeeee;
+$discount-color: #ff6600;
 
 .label-red {
     @extend .label-default;
     background-color: $hairfie;
+}
+
+.label-discount {
+    @extend .label-default;
+    background-color: $discount-color;
 }
 
 .btn-red {

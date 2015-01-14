@@ -77,13 +77,38 @@ module.exports = React.createClass({
         );
     },
     renderDay: function(d) {
+        var currentTimetable = this.state.timetable[weekDaysNumber[d.day()]];
+
         var cls = d.isSame(this.state.today, 'day') ? 'today' : '';
         if (this.state.selectedDate && d.isSame(this.state.selectedDate, 'day')) cls += ' selected';
         var tomorrow = moment().add(1, 'days');
-        var isOpen = this.state.timetable[weekDaysNumber[d.day()]].length > 0 ? true : false;
+
+        // Display Text : to refactor
+        var isOpen, discount;
+        var text = d.get('date');
+        if(currentTimetable && currentTimetable.length > 0) {
+            isOpen = true;
+            _.each(currentTimetable, function(timewindow) {
+                if(timewindow.discount) {
+                    if(!discount) {
+                        discount = timewindow.discount;
+                    } else {
+                        discount = timewindow.discount > discount ? timewindow.discount : discount;
+                    }
+                }
+            });
+            if(discount) {
+                text = text + ' (-' + discount + '%)';
+                cls += ' discount';
+            }
+        } else {
+            isOpen = false;
+        }
+        var text;
+
         if(d.isAfter(tomorrow, 'day') && isOpen) {
             cls += ' bookable'
-            return <td className={cls} key={d.get('date')} onClick={this.dayCallback(d)}>{ d.get('date') }</td>;
+            return <td className={cls} key={d.get('date')} onClick={this.dayCallback(d)}>{ text }</td>;
         } else {
             cls += ' disabled';
             return <td className={cls} key={d.get('date')}>{ d.get('date') }</td>;

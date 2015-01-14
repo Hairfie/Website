@@ -4015,9 +4015,9 @@ a.label:hover, a.label:focus {
   text-decoration: none;
   cursor: pointer; }
 
-.label-default, .label-red {
+.label-default, .label-red, .label-discount {
   background-color: #777777; }
-  .label-default[href]:hover, [href].label-red:hover, .label-default[href]:focus, [href].label-red:focus {
+  .label-default[href]:hover, [href].label-red:hover, [href].label-discount:hover, .label-default[href]:focus, [href].label-red:focus, [href].label-discount:focus {
     background-color: #5e5e5e; }
 
 .label-primary {
@@ -7585,6 +7585,9 @@ button.close {
 .label-red {
   background-color: #fe5b5f; }
 
+.label-discount {
+  background-color: #ff6600; }
+
 .btn-red {
   background-color: #fe5b5f;
   color: white;
@@ -7598,7 +7601,7 @@ button.close {
   .btn-red a:hover {
     color: #818896; }
 
-.icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description, .icon-right-arrow {
+.icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description, .icon-right-arrow, .icon-discount {
   display: inline-block;
   width: 20px;
   height: 20px; }
@@ -7625,6 +7628,10 @@ button.close {
 
 .icon-right-arrow {
   background: url(/img/icons/right-arrow@2x.png) no-repeat center;
+  background-size: 20px 20px; }
+
+.icon-discount {
+  background: url(/img/icons/discount@2x.png) no-repeat center;
   background-size: 20px 20px; }
 
 html {
@@ -7716,7 +7723,7 @@ div.row#business-header {
       div.row#business-header div.infos p.info span {
         display: inline-block;
         float: left; }
-      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description, div.row#business-header div.infos p.info .icon-right-arrow {
+      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description, div.row#business-header div.infos p.info .icon-right-arrow, div.row#business-header div.infos p.info .icon-discount {
         float: left; }
       div.row#business-header div.infos p.info span.content {
         margin-left: 20px;
@@ -8059,7 +8066,7 @@ div.day {
   padding-right: 20px;
   padding-left: 20px;
   color: #FFFFFF; }
-  .nav-sidebar > li > a span.icon, .nav-sidebar > li > a span.icon-address, .nav-sidebar > li > a span.icon-phone, .nav-sidebar > li > a span.icon-website, .nav-sidebar > li > a span.icon-timetable, .nav-sidebar > li > a span.icon-description, .nav-sidebar > li > a span.icon-right-arrow {
+  .nav-sidebar > li > a span.icon, .nav-sidebar > li > a span.icon-address, .nav-sidebar > li > a span.icon-phone, .nav-sidebar > li > a span.icon-website, .nav-sidebar > li > a span.icon-timetable, .nav-sidebar > li > a span.icon-description, .nav-sidebar > li > a span.icon-right-arrow, .nav-sidebar > li > a span.icon-discount {
     float: right; }
 
 .nav-sidebar > .active > a,
@@ -8067,7 +8074,7 @@ div.day {
 .nav-sidebar > .active > a:focus {
   color: #818896;
   background-color: #f6f6f7; }
-  .nav-sidebar > .active > a span.icon, .nav-sidebar > .active > a span.icon-address, .nav-sidebar > .active > a span.icon-phone, .nav-sidebar > .active > a span.icon-website, .nav-sidebar > .active > a span.icon-timetable, .nav-sidebar > .active > a span.icon-description, .nav-sidebar > .active > a span.icon-right-arrow,
+  .nav-sidebar > .active > a span.icon, .nav-sidebar > .active > a span.icon-address, .nav-sidebar > .active > a span.icon-phone, .nav-sidebar > .active > a span.icon-website, .nav-sidebar > .active > a span.icon-timetable, .nav-sidebar > .active > a span.icon-description, .nav-sidebar > .active > a span.icon-right-arrow, .nav-sidebar > .active > a span.icon-discount,
   .nav-sidebar > .active > a:hover span.icon,
   .nav-sidebar > .active > a:hover span.icon-address,
   .nav-sidebar > .active > a:hover span.icon-phone,
@@ -8075,13 +8082,15 @@ div.day {
   .nav-sidebar > .active > a:hover span.icon-timetable,
   .nav-sidebar > .active > a:hover span.icon-description,
   .nav-sidebar > .active > a:hover span.icon-right-arrow,
+  .nav-sidebar > .active > a:hover span.icon-discount,
   .nav-sidebar > .active > a:focus span.icon,
   .nav-sidebar > .active > a:focus span.icon-address,
   .nav-sidebar > .active > a:focus span.icon-phone,
   .nav-sidebar > .active > a:focus span.icon-website,
   .nav-sidebar > .active > a:focus span.icon-timetable,
   .nav-sidebar > .active > a:focus span.icon-description,
-  .nav-sidebar > .active > a:focus span.icon-right-arrow {
+  .nav-sidebar > .active > a:focus span.icon-right-arrow,
+  .nav-sidebar > .active > a:focus span.icon-discount {
     display: none; }
 
 .red-circle, .hairfies-list .hairfie-picture .circle, .hairfies-list .hairfie-picture .delete-button {

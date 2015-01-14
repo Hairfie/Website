@@ -12,6 +12,9 @@ var ClaimExistingBusiness = require('./ClaimExistingBusiness.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var Button = require('react-bootstrap/Button');
 
+var _ = require('lodash');
+var weekDayLabel = require('../constants/DateTimeConstants').weekDayLabel;
+
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
@@ -56,7 +59,7 @@ module.exports = React.createClass({
 
             var bookingButtonNode;
 
-            if(business.owner) {
+            if(business.isBookable) {
                 bookingButtonNode = (
                     <p>
                         <Button className="btn-red btn-block">
@@ -67,6 +70,8 @@ module.exports = React.createClass({
                     </p>
                 );
             }
+
+            var discountNode = this.renderDiscountNode();
 
             return (
                 <PublicLayout context={this.props.context}>
@@ -86,6 +91,7 @@ module.exports = React.createClass({
                                     <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
                                 </span>
                             </p>
+                            {discountNode}
                             {bookingButtonNode}
                             <p>
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
@@ -104,6 +110,35 @@ module.exports = React.createClass({
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
+    },
+    renderDiscountNode: function() {
+        var business = this.state.business,
+            discountNode,
+            discounts = _.reduce(business.timetable, function(result, timetable, day) {
+                var values = _.compact(_.pluck(timetable, 'discount'));
+                if(values.length > 0) {
+                    var label = weekDayLabel(day) + ' : - ' + _.max(values) + '%';
+                    result.push(label);
+                }
+                return result;
+            }, []);
+
+        if(discounts.length > 0) {
+            discountNode = (
+                <p className="info discounts">
+                    <span className="icon icon-discount"></span>
+                    <span className="content">
+                        {_.map(discounts, function(label) {
+                            return (
+                                <span className="label label-discount">{label}</span>
+                            );
+                        }, this)}
+                    </span>
+                </p>
+            );
+        }
+
+        return discountNode;
     }
 });
 

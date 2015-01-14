@@ -203,7 +203,8 @@ module.exports = React.createClass({
         var daySelected = this.state.daySelected,
             timetable = this.state.business.timetable,
             timetableSelected = timetable[weekDaysNumber[daySelected.day()]],
-            hours = [];
+            hours = [],
+            discounts = [];
 
         timetableSelected.forEach(function(slot){
             var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
