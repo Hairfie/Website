@@ -10,6 +10,8 @@ var BookingStore  = require('../stores/BookingStore');
 var PublicLayout  = require('./PublicLayout.jsx');
 var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 
+var NavLink = require('flux-router-component').NavLink;
+
 var UserConstants = require('../constants/UserConstants');
 var BookingActions = require('../actions/Booking');
 
@@ -60,16 +62,21 @@ module.exports = React.createClass({
     },
     renderConfirmation: function() {
         var booking = this.state.booking,
-            business = this.state.business;
+            business = this.state.business,
+            context = this.props.context;
         return(
             <div className="row">
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-4 picture">
-                            <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                                <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                            </NavLink>
                         </div>
                         <div className="col-sm-8">
-                            <h2>{business.name}</h2>
+                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                                <h2>{business.name}</h2>
+                            </NavLink>
                             <span className="address">
                                 {business.address.street} <br />
                                 {business.address.zipCode} {business.address.city}
@@ -99,11 +106,12 @@ module.exports = React.createClass({
         );
     },
     renderBookingForm: function() {
-        var business = this.state.business;
-        var timeSelectNode = this.renderTimeSelect();
-        var timeslotNode = null;
-
-        var daySelectHeader, timeSelectHeader;
+        var business = this.state.business,
+            timeSelectNode = this.renderTimeSelect(),
+            context = this.props.context,
+            timeslotNode = null,
+            daySelectHeader,
+            timeSelectHeader;
 
         if(this.state.daySelected) {
             daySelectHeader = weekDayLabelFromInt(this.state.daySelected.day()) + ' ' + this.state.daySelected.format("D/MM/YYYY");
@@ -139,10 +147,14 @@ module.exports = React.createClass({
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-4 picture">
-                            <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                                <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                            </NavLink>
                         </div>
                         <div className="col-sm-8">
-                            <h2>{business.name}</h2>
+                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                                <h2>{business.name}</h2>
+                            </NavLink>
                             <span className="address">
                                 {business.address.street} <br />
                                 {business.address.zipCode} {business.address.city}
