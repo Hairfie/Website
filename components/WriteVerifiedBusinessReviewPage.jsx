@@ -138,7 +138,6 @@ var ReviewForm = React.createClass({
                 decoration          : this.refs.decoration.getValue(),
                 hygiene             : this.refs.hygiene.getValue(),
                 treatment           : this.refs.treatment.getValue(),
-                priceQualityRatio   : this.refs.priceQualityRatio.getValue(),
                 resultQuality       : this.refs.resultQuality.getValue(),
                 availability        : this.refs.availability.getValue()
             },
