@@ -20,6 +20,7 @@ var PublicLayout = require('./PublicLayout.jsx');
 
 var Carousel = require('react-bootstrap/Carousel');
 var CarouselItem = require('react-bootstrap/CarouselItem');
+var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 
 module.exports = React.createClass({
     mixins: [StoreMixin, ReactIntlMixin],
@@ -85,7 +86,7 @@ module.exports = React.createClass({
                         <div className="col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container">
                             <div className="legend">
                                 <div className="avatar">
-                                    <img src={this.state.hairfie.author.picture.url} className="img-circle" />
+                                    <UserProfilePicture user={this.state.hairfie.author} className="img-circle" />
                                 </div>
                                 <div className="author">
                                     <span className="name">{ this.state.hairfie.author.firstName } { this.state.hairfie.author.lastName.substring(0,1) }.</span>
