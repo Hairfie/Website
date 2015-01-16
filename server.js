@@ -14,6 +14,7 @@ var facebookConfig  = require('./configs/facebook');
 var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');
+var compress        = require('compression');
 
 expressState.extend(server);
 
@@ -33,6 +34,7 @@ server.use(cookieParser());
 // TODO: remove me as soon as v1.1.0 of the iOS app is dead
 server.use(config.API_PROXY_PATH, proxy(url.parse(config.API_PROXY_TARGET)));
 server.use(express.static(path.join(__dirname, 'public')));
+server.use(compress());
 
 server.set('state namespace', 'App');
 

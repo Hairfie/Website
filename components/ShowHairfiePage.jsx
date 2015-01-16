@@ -117,7 +117,7 @@ module.exports = React.createClass({
                 <Carousel>
                     {_.map(this.state.hairfie.pictures, function(picture) {
                         return (
-                            <CarouselItem>
+                            <CarouselItem key={picture.url}>
                                 <img src={picture.url} alt={ this.state.hairfie.descriptions.display }/>
                             </CarouselItem>
                         );
