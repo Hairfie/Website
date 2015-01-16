@@ -8,12 +8,18 @@ if (typeof global.Intl == 'undefined') {
 }
 
 var React = require('react');
+var _ = require('lodash');
+
 var StoreMixin = require('fluxible-app').StoreMixin;
 var ReactIntlMixin = require('react-intl');
 var NavLink = require('flux-router-component').NavLink;
 
 var HairfieStore = require('../stores/HairfieStore');
+
 var PublicLayout = require('./PublicLayout.jsx');
+
+var Carousel = require('react-bootstrap/Carousel');
+var CarouselItem = require('react-bootstrap/CarouselItem');
 
 module.exports = React.createClass({
     mixins: [StoreMixin, ReactIntlMixin],
@@ -68,20 +74,12 @@ module.exports = React.createClass({
             } else {
                 businessNode = null;
             }
-            var price;
-            if(this.state.hairfie.price) {
-                price = (<div className="circle">{ this.state.hairfie.price.amount } { this.state.hairfie.price.currency == "EUR" ? "€" : "" }</div>)
-            }
 
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row hairfie">
                         <div className="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture">
-                            <div className="img-container">
-                                { price }
-                                <img src={this.state.hairfie.picture.url} alt={ this.state.hairfie.descriptions.display }/>
-                                <div className="share-button"></div>
-                            </div>
+                            {this.renderHairfiePicture()}
                         </div>
 
                         <div className="col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container">
@@ -105,5 +103,29 @@ module.exports = React.createClass({
                 </PublicLayout>
             );
         }
+    },
+    renderHairfiePicture: function() {
+        var price;
+        if(this.state.hairfie.price) {
+            price = (<div className="circle">{ this.state.hairfie.price.amount } { this.state.hairfie.price.currency == "EUR" ? "€" : "" }</div>)
+        }
+
+
+
+        return (
+            <div className="img-container">
+                <Carousel>
+                    {_.map(this.state.hairfie.pictures, function(picture) {
+                        return (
+                            <CarouselItem>
+                                <img src={picture.url} alt={ this.state.hairfie.descriptions.display }/>
+                            </CarouselItem>
+                        );
+                    }, this)}
+                </Carousel>
+                { price }
+                <div className="share-button"></div>
+            </div>
+        );
     }
 });

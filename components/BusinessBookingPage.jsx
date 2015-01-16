@@ -184,11 +184,11 @@ module.exports = React.createClass({
                                       Femme
                                     </label>
                                 </Input>
-                                <Input ref="userFirstName" type="text"  placeholder="Prénom" />
-                                <Input ref="userLastName" type="text" placeholder="Nom" />
-                                <Input ref="userEmail" type="email" placeholder="Email" />
-                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone" />
-                                <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing" />
+                                <Input ref="userFirstName" type="text"  placeholder="Prénom *" required />
+                                <Input ref="userLastName" type="text" placeholder="Nom *" />
+                                <Input ref="userEmail" type="email" placeholder="Email *" />
+                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone *" />
+                                <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing *" />
                                 <Button className="btn-red btn-block" onClick={this.submit}>Envoyer une demande</Button>
                             </form>
                         </Panel>
@@ -249,19 +249,24 @@ module.exports = React.createClass({
     handleTimeSlotChange: function(timeslot) {
         this.setState({timeslot: timeslot, activeKey: '3'});
     },
+    validate: function(input) {
+        console.log("input", input);
+        return null;
+    },
     submit: function (e) {
         e.preventDefault();
-        this.props.context.executeAction(BookingActions.Save, {
-            booking: {
-                businessId  : this.state.business.id,
-                gender      : this.state.userGender,
-                firstName   : this.refs.userFirstName.getValue(),
-                lastName    : this.refs.userLastName.getValue(),
-                email       : this.refs.userEmail.getValue(),
-                phoneNumber : this.refs.userPhoneNumber.getValue(),
-                comment     : this.refs.userComment.getValue(),
-                timeslot    : this.state.timeslot
-            }
-        });
+        console.log("this.refs", this.refs.userFirstName);
+        // this.props.context.executeAction(BookingActions.Save, {
+        //     booking: {
+        //         businessId  : this.state.business.id,
+        //         gender      : this.state.userGender,
+        //         firstName   : this.refs.userFirstName.getValue(),
+        //         lastName    : this.refs.userLastName.getValue(),
+        //         email       : this.refs.userEmail.getValue(),
+        //         phoneNumber : this.refs.userPhoneNumber.getValue(),
+        //         comment     : this.refs.userComment.getValue(),
+        //         timeslot    : this.state.timeslot
+        //     }
+        // });
     }
 });

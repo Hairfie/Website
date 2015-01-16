@@ -20,7 +20,7 @@ module.exports = function (context, payload, done) {
             context.dispatch(BookingEvents.SAVE_FAILURE);
                 context.executeAction(Notify, {
                     type: 'FAILURE',
-                    body: 'Un problème est survenu'
+                    body: 'Un problème est survenu, avez vous bien rempli les champs obligatoires ?'
                 }, function() {});
             done(error);
         });

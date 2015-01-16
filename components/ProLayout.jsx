@@ -50,6 +50,7 @@ module.exports = React.createClass({
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
+                                <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
                                 <UserStatus context={this.props.context} currentBusiness={this.props.business} />
                             </ul>
                         </div>
