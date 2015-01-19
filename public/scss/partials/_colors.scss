@@ -33,10 +33,11 @@ $open-color: #5cb85c;
     }
 }
 
-.btn-red a {
+.btn-red a, a .btn-red {
     color: white;
     text-decoration: none;
     &:hover {
+        text-decoration: none;
         color: $grey;
     }
 }

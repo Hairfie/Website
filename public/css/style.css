@@ -7595,10 +7595,11 @@ button.close {
   .btn-red:hover {
     color: #818896; }
 
-.btn-red a {
+.btn-red a, a .btn-red {
   color: white;
   text-decoration: none; }
-  .btn-red a:hover {
+  .btn-red a:hover, a .btn-red:hover {
+    text-decoration: none;
     color: #818896; }
 
 .icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description, .icon-right-arrow, .icon-discount {

@@ -9,6 +9,8 @@ var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
 var ClaimExistingBusiness = require('./ClaimExistingBusiness.jsx');
 
+var Navigate = require('flux-router-component/actions/navigate');
+
 var NavLink = require('flux-router-component').NavLink;
 var Button = require('react-bootstrap/Button');
 
@@ -62,11 +64,11 @@ module.exports = React.createClass({
             if(business.isBookable) {
                 bookingButtonNode = (
                     <p>
-                        <Button className="btn-red btn-block">
-                            <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                        <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                            <Button className="btn-red btn-block">
                                 Réserver
-                            </NavLink>
-                        </Button>
+                            </Button>
+                        </NavLink>
                     </p>
                 );
             }
