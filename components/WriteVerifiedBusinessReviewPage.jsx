@@ -40,7 +40,7 @@ var RatingInput = React.createClass({
             off : !on
         });
 
-        return <a className={className} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
+        return <a href="#" className={className} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
     },
     getValue: function () {
         return this.state.value;
@@ -51,7 +51,8 @@ var RatingInput = React.createClass({
     _mouseLeaveStar: function (n) {
         this.setState({mouseValue: null});
     },
-    _selectStar: function (n) {
+    _selectStar: function (n, e) {
+        e.preventDefault();
         this.setState({value: this._starValue(n)});
     },
     _starLowerBound: function (n) {
