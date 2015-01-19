@@ -38,6 +38,14 @@
             margin: auto;
         }
     }
+
+    a h2 {
+        color: $grey;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 .rbc-calendar td,

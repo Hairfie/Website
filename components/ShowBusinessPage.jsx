@@ -59,7 +59,7 @@ module.exports = React.createClass({
                 mapElement = <Map marker={{lat: business.gps.lat, lng: business.gps.lng, title: business.name}} />
             }
 
-            var bookingButtonNode;
+            var bookingButtonNode, phoneNode;
 
             if(business.isBookable) {
                 bookingButtonNode = (
@@ -69,6 +69,15 @@ module.exports = React.createClass({
                                 Réserver
                             </Button>
                         </NavLink>
+                    </p>
+                );
+            } else {
+                phoneNode = (
+                    <p className="info phone">
+                        <span className="icon icon-phone"></span>
+                        <span className="content">
+                            <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
+                        </span>
                     </p>
                 );
             }
@@ -87,12 +96,7 @@ module.exports = React.createClass({
                                 <span className="icon icon-address"></span>
                                 { address }
                             </p>
-                            <p className="info phone">
-                                <span className="icon icon-phone"></span>
-                                <span className="content">
-                                    <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
-                                </span>
-                            </p>
+                            {phoneNode}
                             {discountNode}
                             {bookingButtonNode}
                             <p>

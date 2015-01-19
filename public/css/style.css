@@ -8195,6 +8195,10 @@ div.day {
 .booking .left .timeselect {
   max-width: 350px;
   margin: auto; }
+.booking a h2 {
+  color: #818896; }
+  .booking a h2:hover {
+    text-decoration: none; }
 
 .rbc-calendar td,
 .rbc-calendar th {
