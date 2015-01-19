@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    Login               : require('./Login'),
+    HandleLoginResponse : require('./HandleLoginResponse'),
     Link                : require('./Link'),
     RefreshLoginStatus  : require('./RefreshLoginStatus'),
     RefreshPermissions  : require('./RefreshPermissions'),

@@ -6,23 +6,26 @@ var config = require('../../configs/facebook');
 var _ = require('lodash');
 
 module.exports = {
-    login: login
+    login              : login,
+    handleLoginResponse: handleLoginResponse
 };
 
 function login(fb, scope) {
     var deferred = Promise.defer();
-    console.log("utils, login");
-    fb.login(function (result) {
-        console.log("inside login");
 
-        if (LoginStatus.CONNECTED == result.status) {
-            deferred.resolve(result.authResponse.accessToken);
-        } else {
-            deferred.reject(new Error('Not granted by user'));
-        }
+    fb.login(function (result) {
+        handleLoginResponse(result).then(deferred.resolve, deferred.reject);
     }, {scope: scopeString(scope || config.SCOPE)});
 
     return deferred.promise;
+}
+
+function handleLoginResponse(response) {
+    if (LoginStatus.CONNECTED == response.status) {
+        return Promise.resolve(response.authResponse.accessToken);
+    } else {
+        return Promise.reject(new Error('Not granted by user'));
+    }
 }
 
 function scopeString(scope) {
