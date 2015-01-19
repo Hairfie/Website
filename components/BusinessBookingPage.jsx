@@ -255,18 +255,18 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
-        console.log("this.refs", this.refs.userFirstName);
-        // this.props.context.executeAction(BookingActions.Save, {
-        //     booking: {
-        //         businessId  : this.state.business.id,
-        //         gender      : this.state.userGender,
-        //         firstName   : this.refs.userFirstName.getValue(),
-        //         lastName    : this.refs.userLastName.getValue(),
-        //         email       : this.refs.userEmail.getValue(),
-        //         phoneNumber : this.refs.userPhoneNumber.getValue(),
-        //         comment     : this.refs.userComment.getValue(),
-        //         timeslot    : this.state.timeslot
-        //     }
-        // });
+        //console.log("this.refs", this.refs.userFirstName);
+        this.props.context.executeAction(BookingActions.Save, {
+            booking: {
+                businessId  : this.state.business.id,
+                gender      : this.state.userGender,
+                firstName   : this.refs.userFirstName.getValue(),
+                lastName    : this.refs.userLastName.getValue(),
+                email       : this.refs.userEmail.getValue(),
+                phoneNumber : this.refs.userPhoneNumber.getValue(),
+                comment     : this.refs.userComment.getValue(),
+                timeslot    : this.state.timeslot
+            }
+        });
     }
 });
