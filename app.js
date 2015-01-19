@@ -30,7 +30,7 @@ app.plug({
     }
 });
 
-app.registerStore(require('./stores/ApplicationStore'));
+app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfiesStore'));

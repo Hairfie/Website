@@ -2,7 +2,7 @@
 
 var createStore = require('fluxible-app/utils/createStore');
 var AuthStore = require('./AuthStore');
-var debug = require('debug')('App:ApplicationStore');
+var debug = require('debug')('App:MetaStore');
 var BusinessEvents = require('../constants/BusinessConstants').Events;
 var HairfieEvents = require('../constants/HairfieConstants').Events;
 

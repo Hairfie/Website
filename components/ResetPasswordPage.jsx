@@ -4,7 +4,6 @@
 
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
-var ApplicationStore = require('../stores/ApplicationStore');
 var PasswordRecoveryStore = require('../stores/PasswordRecoveryStore');
 var AuthActions = require('../actions/Auth');
 var Layout = require('./PublicLayout.jsx');
@@ -17,10 +16,9 @@ module.exports = React.createClass({
         storeListeners: [PasswordRecoveryStore]
     },
     getStateFromStores: function () {
-        var applicationStore      = this.getStore(require('../stores/ApplicationStore')),
-            passwordRecoveryStore = this.getStore(PasswordRecoveryStore),
-            userId                = applicationStore.getRouteParam('userId'),
-            token                 = applicationStore.getRouteParam('token'),
+        var passwordRecoveryStore = this.getStore(PasswordRecoveryStore),
+            userId                = this.props.route.params.userId,
+            token                 = this.props.route.params.token,
             status                = passwordRecoveryStore.getStatus(userId, token);
 
         return {

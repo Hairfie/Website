@@ -47,7 +47,7 @@ server.use(function (req, res, next) {
     var context          = app.createContext();
     var ServerActions    = require('./actions/Server');
     var payload          = {request: req};
-    var ApplicationStore = require('./stores/ApplicationStore');
+    var RouteStore       = require('./stores/RouteStore');
     var MetaStore        = require('./stores/MetaStore');
     var React            = require('react');
     var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
@@ -56,7 +56,7 @@ server.use(function (req, res, next) {
         if (error) return next(error);
 
         try {
-            var currentRoute = context.getActionContext().getStore(ApplicationStore).getCurrentRoute();
+            var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
             if (currentRoute && currentRoute.path != req.path) {
                 res.redirect(currentRoute.path);
                 return;

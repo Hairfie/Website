@@ -3,7 +3,7 @@
 var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 var RouterMixin = require('flux-router-component').RouterMixin;
-var ApplicationStore = require('../stores/ApplicationStore');
+var RouteStore = require('../stores/RouteStore');
 
 var NotFoundPage = require('./NotFoundPage.jsx');
 
@@ -12,11 +12,11 @@ var BusinessInfosPage = require('./BusinessInfosPage.jsx');
 module.exports = React.createClass({
     mixins: [StoreMixin, RouterMixin],
     statics: {
-        storeListeners: [ApplicationStore]
+        storeListeners: [RouteStore]
     },
     getStateFromStores: function () {
         return {
-            route: this.getStore(ApplicationStore).getCurrentRoute()
+            route: this.getStore(RouteStore).getCurrentRoute()
         };
     },
     getInitialState: function () {

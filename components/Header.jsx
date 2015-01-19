@@ -1,8 +1,41 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var StoreMixin = require('fluxible-app').StoreMixin;
 var NavLink = require('flux-router-component').NavLink;
 var UserStatus = require('./UserStatus.jsx');
+
+var MenuItem = React.createClass({
+    mixins: [StoreMixin],
+    statics: {
+        storeListeners: ['RouteStore']
+    },
+    getStateFromStores: function () {
+        var route = this.getStore('RouteStore').getCurrentRoute();
+
+        return {
+            current: this.props.routeName == route.name || this.props.href == route.path
+        };
+    },
+    getInitialState: function () {
+        return this.getStateFromStores();
+    },
+    render: function () {
+        var className;
+        if (this.state.current) className = 'active';
+
+        return (
+            <li className={className}>
+                <NavLink {...this.props} />
+            </li>
+        );
+    },
+    onChange: function () {
+        if (this.isMounted()) {
+            this.setState(this.getStateFromStores());
+        }
+    }
+});
 
 module.exports = React.createClass({
     render: function () {
@@ -10,7 +43,7 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
         } else {
-            custom = (<li><NavLink context={this.props.context} href="/pro">Vous êtes coiffeur ?</NavLink></li>);
+            custom = (<MenuItem context={this.props.context} href="/pro">Vous êtes coiffeur ?</MenuItem>);
         }
 
         return (
@@ -27,8 +60,8 @@ module.exports = React.createClass({
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
-                            <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
+                            <MenuItem context={this.props.context} href="/">Home</MenuItem>
+                            <MenuItem context={this.props.context} routeName="search">Trouver son coiffeur</MenuItem>
                             { custom }
                         </ul>
                     </div>
