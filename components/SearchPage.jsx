@@ -66,13 +66,10 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         if(e) e.preventDefault();
-        var gps = this.refs.businessAddress.getGps();
 
         this.props.context.executeAction(BusinessSearchActions.Search, {
-            params    : {
-                query       : this.refs.businessName.getValue(),
-                gps         : gps.lng + ',' + gps.lat
-            }
+            query   : this.refs.businessName.getValue(),
+            gps     : this.refs.businessAddress.getGps()
         });
     },
     onKeyDown: function(e) {

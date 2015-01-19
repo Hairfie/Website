@@ -9,7 +9,7 @@ module.exports = function (context, payload, done) {
     context.dispatch(BusinessSearchEvents.SEARCH);
 
     hairfieApi
-        .searchNearby(payload.params)
+        .searchNearby(payload.gps, payload.query)
         .then(function (businesses) {
             context.dispatch(BusinessSearchEvents.SEARCH_SUCCESS, {
                 businesses: businesses
