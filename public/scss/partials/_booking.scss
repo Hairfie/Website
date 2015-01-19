@@ -1,5 +1,3 @@
-$open-color: #00CF98;
-
 .booking {
 
     .row {
@@ -40,16 +38,6 @@ $open-color: #00CF98;
             margin: auto;
         }
     }
-
-    .right {
-        // background-color: $background-grey;
-        // padding: 30px;
-
-        // form {
-        //     //max-width: 350px;
-        //     margin: auto;
-        // }
-    }
 }
 
 .rbc-calendar td,
@@ -57,7 +45,7 @@ $open-color: #00CF98;
   text-align: center;
 }
 .rbc-calendar td {
-  border-radius: 5px;
+  //border-radius: 5px;
 }
 .rbc-calendar td.today {
   background-color: #ddd;
@@ -65,19 +53,35 @@ $open-color: #00CF98;
 
 .rbc-calendar td.bookable {
     cursor: pointer;
+    color: white;
     background-color: $open-color;
     &.selected {
         background-color: #357ebd;
-        color: #fff;
         font-weight: bold;
+    }
+
+    &.discount {
+        background-color: $discount-color;
+        span {
+            font-size: 14px;
+        }
     }
 }
 .rbc-calendar td.disabled {
 
 }
 
+
 .btn.timeslot {
     margin: 5px;
+
+    &.discount {
+        background-color: $discount-color;
+        color: white;
+        span {
+            font-size: 14px;
+        }
+    }
 }
 
 .btn.timeslot:focus { outline: none; }

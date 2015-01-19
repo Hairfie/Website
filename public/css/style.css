@@ -8199,22 +8199,28 @@ div.day {
 .rbc-calendar th {
   text-align: center; }
 
-.rbc-calendar td {
-  border-radius: 5px; }
-
 .rbc-calendar td.today {
   background-color: #ddd; }
 
 .rbc-calendar td.bookable {
   cursor: pointer;
-  background-color: #00cf98; }
+  color: white;
+  background-color: #5cb85c; }
   .rbc-calendar td.bookable.selected {
     background-color: #357ebd;
-    color: #fff;
     font-weight: bold; }
+  .rbc-calendar td.bookable.discount {
+    background-color: #ff6600; }
+    .rbc-calendar td.bookable.discount span {
+      font-size: 14px; }
 
 .btn.timeslot, .timeslot.btn-red {
   margin: 5px; }
+  .btn.timeslot.discount, .timeslot.discount.btn-red {
+    background-color: #ff6600;
+    color: white; }
+    .btn.timeslot.discount span, .timeslot.discount.btn-red span {
+      font-size: 14px; }
 
 .btn.timeslot:focus, .timeslot.btn-red:focus {
   outline: none; }

@@ -126,8 +126,10 @@ module.exports = React.createClass({
         }
 
         if(this.state.timeslot) {
+            var timeSlotLabel = this.state.timeslot.format("[Demande pour le] D/MM/YYYY [à] HH:mm");
+            if(this.state.discount) timeSlotLabel += ' avec -' + this.state.discount + '%';
             timeslotNode = (
-                <Input type="text"  value={this.state.timeslot.format("[Demande pour le] D/MM/YYYY [à] HH:mm")} disabled />
+                <Input type="text"  value={timeSlotLabel} disabled />
             );
         } else {
             timeslotNode = (
@@ -189,7 +191,7 @@ module.exports = React.createClass({
                                 <Input ref="userEmail" type="email" placeholder="Email *" />
                                 <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone *" />
                                 <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing *" />
-                                <Button className="btn-red btn-block" onClick={this.submit}>Envoyer une demande</Button>
+                                <Button className="btn-red btn-block" onClick={this.submit}>Réserver</Button>
                             </form>
                         </Panel>
                     </PanelGroup>
@@ -223,7 +225,7 @@ module.exports = React.createClass({
                 stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
 
             moment().range(start, stop).by('hours', function(hour) {
-                hours.push(hour);
+                hours.push({hour: hour, discount: slot.discount});
             });
         });
 
@@ -237,25 +239,27 @@ module.exports = React.createClass({
         );
 
     },
-    renderTimeButton: function(timeslot) {
+    renderTimeButton: function(timeBtnObj) {
+        var timeslot = timeBtnObj.hour,
+            discount = timeBtnObj.discount,
+            label = timeslot.format("HH:mm");
         var cls = 'btn timeslot';
             cls += timeslot.isSame(this.state.timeslot) ? ' selected' : '';
+        if(discount) {
+            cls += ' discount';
+            label += '<span>(-' + discount + '%)</span>';
+        }
         return (
-            <Button className={cls} onClick={this.handleTimeSlotChange.bind(this, timeslot)}>
-                {timeslot.format("HH:mm")}
+            <Button className={cls} onClick={this.handleTimeSlotChange.bind(this, timeslot, discount)} dangerouslySetInnerHTML={{__html: label }}>
             </Button>
         );
     },
-    handleTimeSlotChange: function(timeslot) {
-        this.setState({timeslot: timeslot, activeKey: '3'});
-    },
-    validate: function(input) {
-        console.log("input", input);
-        return null;
+    handleTimeSlotChange: function(timeslot, discount) {
+        this.setState({timeslot: timeslot, discount: discount, activeKey: '3'});
     },
     submit: function (e) {
         e.preventDefault();
-        //console.log("this.refs", this.refs.userFirstName);
+
         this.props.context.executeAction(BookingActions.Save, {
             booking: {
                 businessId  : this.state.business.id,
@@ -265,7 +269,8 @@ module.exports = React.createClass({
                 email       : this.refs.userEmail.getValue(),
                 phoneNumber : this.refs.userPhoneNumber.getValue(),
                 comment     : this.refs.userComment.getValue(),
-                timeslot    : this.state.timeslot
+                timeslot    : this.state.timeslot,
+                discount    : this.state.discount
             }
         });
     }

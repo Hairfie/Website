@@ -98,7 +98,7 @@ module.exports = React.createClass({
                 }
             });
             if(discount) {
-                text = text + ' (-' + discount + '%)';
+                text = text + '<span>(-' + discount + '%)</span>';
                 cls += ' discount';
             }
         } else {
@@ -108,7 +108,7 @@ module.exports = React.createClass({
 
         if(d.isAfter(tomorrow, 'day') && isOpen) {
             cls += ' bookable'
-            return <td className={cls} key={d.get('date')} onClick={this.dayCallback(d)}>{ text }</td>;
+            return <td className={cls} key={d.get('date')} dangerouslySetInnerHTML={{__html: text }} onClick={this.dayCallback(d)}></td>;
         } else {
             cls += ' disabled';
             return <td className={cls} key={d.get('date')}>{ d.get('date') }</td>;
