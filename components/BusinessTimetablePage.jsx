@@ -51,7 +51,7 @@ var NewTimeWindowModal = React.createClass({
                         </Col>
                         <Col xs={6}>
                             <Input ref="discount" type="select" label="Promotion" defaultValue="">
-                                <option value>Pas de promotion</option>
+                                <option value="">Pas de promotion</option>
                                 <option value="20">-20%</option>
                                 <option value="30">-30%</option>
                                 <option value="40">-40%</option>
