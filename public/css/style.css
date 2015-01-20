@@ -8244,6 +8244,9 @@ div.day {
 .panel-heading .panel-title a.collapsed:after {
   content: "\f054"; }
 
+.confirmation h3 {
+  text-align: left; }
+
 .star-rating {
   /* clear */
   zoom: 1;

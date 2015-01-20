@@ -14,6 +14,11 @@ module.exports = function (context, payload, done) {
                 booking: booking
             });
 
+            context.executeAction(Notify, {
+                type: 'SUCCESS',
+                body: 'Votre réservation a bien été enregistrée !'
+            }, function() {});
+
             done();
         })
         .fail(function (error) {

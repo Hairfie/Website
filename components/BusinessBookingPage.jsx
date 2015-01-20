@@ -63,7 +63,17 @@ module.exports = React.createClass({
     renderConfirmation: function() {
         var booking = this.state.booking,
             business = this.state.business,
-            context = this.props.context;
+            context = this.props.context,
+            discountNode;
+
+        if(booking.discount) {
+            discountNode = (
+                <div>
+                    <dt>Votre promotion :</dt>
+                    <dd>-{booking.discount} % sur toute la carte</dd>
+                </div>
+            )
+        }
         return(
             <div className="row">
                 <div className="col-sm-6 left">
@@ -87,18 +97,24 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-6 right">
                     <div className="confirmation">
-                        <h3>Demande de réservation confirmée</h3>
+                        <h3>Votre demande</h3>
                         <dl className="dl-horizontal">
-                            <dt>Date & Horaire :</dt>
+                            <dt>Date :</dt>
                             <dd>{moment(booking.timeslot).format("D/MM/YYYY [à] HH:mm")}</dd>
-                            <dt>Nom :</dt>
+                            <dt>Horaire :</dt>
+                            <dd>{weekDayLabelFromInt(moment(booking.timeslot).day())}</dd>
+                            {discountNode}
+                            <dt>Note :</dt>
+                            <dd>{booking.comment}</dd>
+                        </dl>
+                        <h3>Vos coordonnées</h3>
+                        <dl className="dl-horizontal">
+                            <dt>Votre Nom :</dt>
                             <dd>{booking.firstName} {booking.lastName}</dd>
-                            <dt>Email :</dt>
+                            <dt>Votre Email :</dt>
                             <dd>{booking.email}</dd>
                             <dt>Numéro de téléphone :</dt>
                             <dd>{booking.phoneNumber}</dd>
-                            <dt>Prestation :</dt>
-                            <dd>{booking.comment}</dd>
                         </dl>
                     </div>
                 </div>
