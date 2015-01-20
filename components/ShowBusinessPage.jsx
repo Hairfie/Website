@@ -43,7 +43,7 @@ module.exports = React.createClass({
                 address = (
                     <span className="content">
                         {business.address.street} <br />
-                        {business.address.zipCode} {business.address.city}
+                        {business.address.zipCode + ' ' + business.address.city}
                     </span>
                 )
             } else {
