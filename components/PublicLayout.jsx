@@ -7,7 +7,6 @@ var Header = require('./Header.jsx');
 var Footer = require('./Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
 
-
 module.exports = React.createClass({
     displayName: 'PublicLayout',
     render: function () {

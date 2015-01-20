@@ -6,8 +6,9 @@ var RouterMixin = require('flux-router-component').RouterMixin;
 var RouteStore = require('../stores/RouteStore');
 
 var NotFoundPage = require('./NotFoundPage.jsx');
-
 var BusinessInfosPage = require('./BusinessInfosPage.jsx');
+
+var ga = require('../services/analytics');
 
 module.exports = React.createClass({
     mixins: [StoreMixin, RouterMixin],
@@ -25,6 +26,10 @@ module.exports = React.createClass({
     render: function () {
         var route = this.state.route;
         if (route && route.config && route.config.pageComponent) {
+            ga('send', 'pageview', {
+                'page': route.path
+            });
+
             return React.createElement(route.config.pageComponent, {
                 context : this.props.context,
                 route   : route
