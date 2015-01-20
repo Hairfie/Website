@@ -8244,8 +8244,13 @@ div.day {
 .panel-heading .panel-title a.collapsed:after {
   content: "\f054"; }
 
+.confirmation h2 i {
+  color: #5cb85c;
+  margin-right: 20px; }
 .confirmation h3 {
   text-align: left; }
+.confirmation .btn-apple {
+  height: 31px; }
 
 .star-rating {
   /* clear */

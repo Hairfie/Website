@@ -3,6 +3,7 @@
 var hairfieApi = require('../../services/hairfie-api-client');
 var BookingEvents = require('../../constants/BookingConstants').Events;
 var Notify = require('../Flash/Notify');
+var Navigate = require('flux-router-component/actions/navigate');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BookingEvents.SAVE);
@@ -14,10 +15,13 @@ module.exports = function (context, payload, done) {
                 booking: booking
             });
 
-            context.executeAction(Notify, {
-                type: 'SUCCESS',
-                body: 'Votre réservation a bien été enregistrée !'
-            }, function() {});
+            // context.executeAction(Notify, {
+            //     type: 'SUCCESS',
+            //     body: 'Votre réservation a bien été enregistrée !'
+            // }, function() {});
+
+            var path = context.router.makePath('booking_confirmation', {id: booking.id});
+            context.executeAction(Navigate, {path: path}, done);
 
             done();
         })

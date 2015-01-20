@@ -128,6 +128,12 @@ module.exports = {
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessBookingPage.jsx')
     },
+    booking_confirmation: {
+        path: '/bookings/:id',
+        method: 'get',
+        action: require('../actions/Booking/RouteOpen'),
+        pageComponent: require('../components/BusinessBookingConfirmation.jsx')
+    },
     search: {
         path: '/search',
         method: 'get',

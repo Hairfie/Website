@@ -13,11 +13,15 @@ module.exports = createStore({
     },
     handlers: makeHandlers({
         handleSaveSuccess           : BookingEvents.SAVE_SUCCESS,
+        handleOpenSuccess           : BookingEvents.OPEN_SUCCESS,
         handleReceiveBusinessSuccess: BookingEvents.RECEIVE_BUSINESS_SUCCESS
     }),
     handleSaveSuccess: function (payload) {
         this.booking = payload.booking;
-        console.log("this.booking", payload);
+        this.emitChange();
+    },
+    handleOpenSuccess: function (payload) {
+        this.booking = payload.booking;
         this.emitChange();
     },
     getBooking: function () {

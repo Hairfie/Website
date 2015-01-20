@@ -32,7 +32,6 @@ module.exports = React.createClass({
         var business  = this.getStore(BusinessStore).getBusiness();
         var customers = this.getStore(BusinessCustomersStore).getCustomersByBusiness(business);
 
-
         return {
             business        : business,
             customers       : customers
