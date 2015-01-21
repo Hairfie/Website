@@ -63,9 +63,9 @@ module.exports = React.createClass({
 
             if(business.isBookable) {
                 bookingButtonNode = (
-                    <p>
+                    <p className="booking-container">
                         <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
-                            <Button className="btn-red btn-block">
+                            <Button className="btn-booking">
                                 Réserver
                             </Button>
                         </NavLink>
@@ -87,8 +87,8 @@ module.exports = React.createClass({
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
-                        <div className="col-sm-3 col-xs-3 pictures">
-                            <img src={business.pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
+                        <div className="col-sm-3 col-xs-12 map">
+                            {mapElement}
                         </div>
                         <div className="col-sm-6 col-xs-8 infos">
                             <h1>{business.name}</h1>
@@ -103,8 +103,8 @@ module.exports = React.createClass({
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
                             </p>
                         </div>
-                        <div className="col-sm-3 col-xs-12 map">
-                            {mapElement}
+                        <div className="col-sm-3 col-xs-3 pictures">
+                            <img src={business.pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
                         </div>
                     </div>
                     <div className="row business-hairfies">
@@ -123,7 +123,7 @@ module.exports = React.createClass({
             discounts = _.reduce(business.timetable, function(result, timetable, day) {
                 var values = _.compact(_.pluck(timetable, 'discount'));
                 if(values.length > 0) {
-                    var label = weekDayLabel(day) + ' : - ' + _.max(values) + '%';
+                    var label =  _.max(values);
                     result.push(label);
                 }
                 return result;
@@ -134,12 +134,14 @@ module.exports = React.createClass({
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
-                        {_.map(discounts, function(label) {
-                            return (
-                                <span className="label label-discount">{label}</span>
-                            );
-                        }, this)}
+                        <span className="label label-discount">
+                            {_.max(discounts)} %
+                        </span>
+                        <span className="legend">
+                            sur toutes les prestations et tous les achats *
+                        </span>
                     </span>
+                    <div className="clearfix" />
                 </p>
             );
         }
