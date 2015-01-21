@@ -23,6 +23,7 @@ var PanelGroup = require('react-bootstrap/PanelGroup');
 var DateTimeConstants = require('../constants/DateTimeConstants');
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 var weekDaysNumber = DateTimeConstants.weekDaysNumber;
+var weekDayLabel = DateTimeConstants.weekDayLabel;
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -92,17 +93,14 @@ module.exports = React.createClass({
 
         return (
             <div className="row">
-                <div className="col-sm-12">
-                    <h3>Votre Demande de réservation</h3>
-                </div>
                 <div className="col-sm-6 left">
                     <div className="business">
-                        <div className="col-sm-4 picture">
+                        <div className="col-sm-5 picture">
                             <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
-                                <img src={business.pictures[0].url + '?height=300&width=160'} className="img-responsive" />
+                                <img src={business.pictures[0].url + '?height=300&width=300'} className="img-responsive" />
                             </NavLink>
                         </div>
-                        <div className="col-sm-8">
+                        <div className="col-sm-7">
                             <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
                                 <h2>{business.name}</h2>
                             </NavLink>
@@ -113,8 +111,10 @@ module.exports = React.createClass({
                         </div>
                     </div>
                     <hr />
+                    { this.renderDiscountsNode() }
                 </div>
                 <div className="col-sm-6 right">
+                    <h3>Votre Demande de réservation</h3>
                     <PanelGroup activeKey={this.state.activeKey ? this.state.activeKey : '1'} onSelect={this.handleSelect.bind(this)} accordion>
                         <Panel header={daySelectHeader} eventKey='1'>
                             <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
@@ -145,6 +145,48 @@ module.exports = React.createClass({
                         </Panel>
                     </PanelGroup>
                 </div>
+            </div>
+        );
+    },
+    renderDiscountsNode: function() {
+        var business = this.state.business,
+            discounts;
+        discounts = _.reduce(business.timetable, function(result, timetable, day) {
+            var values = _.compact(_.pluck(timetable, 'discount'));
+            if(values.length > 0) {
+                _.each(values, function(value) {
+                    if(result[value]) {
+                        result[value].push(day);
+                    } else {
+                        result[value] = [day];
+                    }
+                })
+            }
+            return result;
+        }, {});
+
+        if(discounts.length === 0) {
+            return null;
+        }
+
+        return (
+            <div className="discounts-container">
+                { _.map(discounts, this.renderDiscountNode, this) }
+                <p className="conditions">
+                    * Cette offre n'est valable que pour les réservations en ligne. L'achat de produits du salon avec cette offre est exclusivement liée à une prestation.
+                </p>
+            </div>
+        );
+    },
+    renderDiscountNode: function(days, amount) {
+        return (
+            <div className="discount">
+                <h4><strong>{amount}%</strong> sur toutes les prestations et tous les achats</h4>
+                <p className="discount-description">
+                    Disponible {_.map(days, function(day) {
+                        return weekDayLabel(day) + ' ';
+                    }, this)} *
+                </p>
             </div>
         );
     },

@@ -8271,23 +8271,30 @@ div.day {
   margin-bottom: 30px; }
 .booking .left .business {
   height: 150px;
-  text-align: center;
-  max-width: 350px;
   margin: auto; }
   .booking .left .business h2 {
-    font-size: 25px; }
+    font-size: 25px;
+    font-weight: 400; }
   .booking .left .business span.address {
-    font-size: 18px; }
+    font-size: 18px;
+    font-weight: 200; }
 .booking .left .picture {
   height: 100%; }
   .booking .left .picture img {
-    max-height: 100%; }
-.booking .left .rbc-calendar {
-  max-width: 350px;
-  margin: auto; }
-.booking .left .timeselect {
-  max-width: 350px;
-  margin: auto; }
+    height: 100%;
+    width: 100%; }
+.booking .left .discounts-container p {
+  font-weight: 200; }
+.booking .left .discounts-container .discount {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 30px solid #ff6600;
+  background-color: #f9f9fa; }
+  .booking .left .discounts-container .discount p:last-child {
+    margin-bottom: 0; }
+  .booking .left .discounts-container .discount h4 {
+    margin-top: 0;
+    color: #ff6600; }
 .booking a h2 {
   color: #818896; }
   .booking a h2:hover {

@@ -1,5 +1,4 @@
 .booking {
-
     .row {
         //margin-top: 30px;
     }
@@ -12,11 +11,9 @@
 
     .left {
         .business {
-            h2 { font-size: 25px; }
-            span.address { font-size: 18px; }
+            h2 { font-size: 25px; font-weight: 400;}
+            span.address { font-size: 18px; font-weight: 200;}
             height: 150px;
-            text-align: center;
-            max-width: 350px;
             margin: auto;
         }
 
@@ -24,18 +21,31 @@
             height: 100%;
 
             img {
-                max-height: 100%;
+                height: 100%;
+                width: 100%;
             }
         }
 
-        .rbc-calendar {
-            max-width: 350px;
-            margin: auto;
-        }
+        .discounts-container {
+            p {
+                font-weight: 200;
+            }
 
-        .timeselect {
-            max-width: 350px;
-            margin: auto;
+            .discount {
+                margin: 20px 0;
+                padding: 15px 30px 15px 15px;
+                border-left: 30px solid $discount-color;
+                background-color: $discount-background-color;
+
+                p:last-child {
+                    margin-bottom: 0;
+                }
+
+                h4 {
+                    margin-top: 0;
+                    color: $discount-color;
+                }
+            }
         }
     }
 
