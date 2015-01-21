@@ -134,9 +134,11 @@ module.exports = React.createClass({
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
-                        <span className="label label-discount">
-                            {_.max(discounts)} %
-                        </span>
+                        <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                            <span className="label label-discount">
+                                {_.max(discounts)} %
+                            </span>
+                        </NavLink>
                         <span className="legend">
                             sur toutes les prestations et tous les achats *
                         </span>
