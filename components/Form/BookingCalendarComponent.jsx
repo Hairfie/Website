@@ -98,7 +98,7 @@ module.exports = React.createClass({
                 }
             });
             if(discount) {
-                text = text + '<span>(-' + discount + '%)</span>';
+                text = text;// + '<span>(-' + discount + '%)</span>';
                 cls += ' discount';
             }
         } else {
