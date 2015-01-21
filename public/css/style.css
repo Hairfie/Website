@@ -7787,7 +7787,7 @@ div.row#business-header {
   div.row#business-header div.infos {
     height: 100%; }
     div.row#business-header div.infos h1 {
-      font-weight: 200;
+      font-weight: 400;
       font-size: 28px;
       margin-bottom: 40px; }
     div.row#business-header div.infos p.info {
@@ -7795,7 +7795,8 @@ div.row#business-header {
       font-size: 16px;
       min-height: 30px; }
       div.row#business-header div.infos p.info.address {
-        min-height: 50px; }
+        min-height: 50px;
+        font-weight: 200; }
       div.row#business-header div.infos p.info span {
         display: inline-block;
         float: left; }
