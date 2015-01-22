@@ -132,7 +132,6 @@ module.exports = React.createClass({
                             sur toutes les prestations et tous les achats *
                         </span>
                     </span>
-                    <div className="clearfix" />
                 </p>
             );
         } else {
@@ -140,7 +139,17 @@ module.exports = React.createClass({
         }
     },
     renderServicesNode: function() {
-        return null;
+        var services = this.state.business.services;
+        if(services && services.length > 0) {
+            return (
+                <p className="info services">
+                    <span className="icon icon-price"></span>
+                    <span className="content">
+                        {_.map(services, function(service) {return service.price.amount + '€, ' })}
+                    </span>
+                </p>
+            );
+        };
     }
 });
 

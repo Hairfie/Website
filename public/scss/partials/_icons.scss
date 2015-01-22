@@ -10,9 +10,9 @@ $icons: address "home@2x.png",
         timetable "timetable@2x.png",
         description "description@2x.png",
         right-arrow "right-arrow@2x.png",
-        discount "discount@2x.png"
-        price "price@2x.png"
-        open "open@2x.png"
+        discount "discount@2x.png",
+        price "price@2x.png",
+        open "open@2x.png",
         closed "closed@2x.png";
 
 @each $icon in $icons {

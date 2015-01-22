@@ -59,7 +59,7 @@ module.exports = React.createClass({
             deleteNode =(<Button onClick={this.deleteHairfie.bind(this, hairfie)} bsStyle="danger" bsSize="xsmall" className="delete-button">X</Button>)
         }
         return (
-            <div className="hairfie-picture col-sm-3" key={hairfie.id}>
+            <div className="hairfie-picture col-sm-3 col-xs-6" key={hairfie.id}>
                 <div className="img-container">
                     { priceNode }
                     <NavLink routeName="show_hairfie" navParams={{id: hairfie.id}} context={this.props.context}>
