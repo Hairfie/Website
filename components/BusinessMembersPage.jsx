@@ -13,7 +13,9 @@ var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
+var Picture = require('./Partial/Picture.jsx');
 var UserPicker = require('./Form/UserPicker.jsx');
+var PictureInput = require('./Form/PictureInput.jsx');
 var _ = require('lodash');
 
 var BusinessMemberModal = React.createClass({
@@ -31,6 +33,7 @@ var BusinessMemberModal = React.createClass({
             <Modal {...this.props}>
                 <div className="modal-body">
                     <UserPicker ref="user" defaultUser={this.state.selectedUser} context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
+                    <PictureInput context={this.props.context} container="business-pictures" ref="picture" label="Photo" defaultPicture={businessMember.picture} />
                     <Input ref="firstName" label="Prénom" type="text" defaultValue={businessMember.firstName} value={user.firstName} readOnly={hasUser} />
                     <Input ref="lastName" label="Nom" type="text" defaultValue={businessMember.lastName} value={user.lastName} readOnly={hasUser} />
                     <Input ref="hidden" label="Cacher ce membre" type="checkbox" defaultChecked={businessMember.hidden} />
@@ -49,6 +52,7 @@ var BusinessMemberModal = React.createClass({
         this.props.onSave({
             id          : this.props.businessMember && this.props.businessMember.id,
             user        : this.refs.user.getUser(),
+            picture     : this.refs.picture.getPicture(),
             firstName   : this.refs.firstName.getValue(),
             lastName    : this.refs.lastName.getValue(),
             hidden      : this.refs.hidden.getChecked(),
@@ -84,6 +88,7 @@ module.exports = React.createClass({
                 <Table>
                     <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>Nom</th>
                             <th>Caché ?</th>
                             <th>Actif ?</th>
@@ -102,8 +107,14 @@ module.exports = React.createClass({
         );
     },
     renderBusinessMemberRow: function (businessMember) {
+        var picture;
+        if (businessMember.picture) {
+            picture = <Picture picture={businessMember.picture} width={50} height={50} />;
+        }
+
         return (
             <tr key={businessMember.id}>
+                <td style={{width: '50px'}}>{picture}</td>
                 <td>{businessMember.firstName} {businessMember.lastName}</td>
                 <td>{businessMember.hidden ? 'oui' : 'non'}</td>
                 <td>{businessMember.active ? 'oui' : 'non'}</td>
