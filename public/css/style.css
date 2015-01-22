@@ -1537,7 +1537,7 @@ pre {
     width: 41.66667%; }
 
   .col-sm-6 {
-    /* width: 50%; */ }
+    width: 50%; }
 
   .col-sm-7 {
     width: 58.33333%; }
@@ -7790,8 +7790,8 @@ div.row#business-header {
     height: 100%; }
     div.row#business-header div.infos h1 {
       font-weight: 400;
-      font-size: 24px;
-      margin-bottom: 20px; }
+      font-size: 14px;
+      margin-bottom: 40px; }
     div.row#business-header div.infos .info {
       border-bottom: 1px solid #E5E5E8;
       font-size: 16px;
@@ -7817,7 +7817,7 @@ div.row#business-header {
         padding-left: 5px; }
       div.row#business-header div.infos .info.services ul {
         font-weight: 200;
-        font-size: 14px;
+        font-size: 12px;
         list-style-type: none; }
     div.row#business-header div.infos p.booking-container {
       position: absolute;
