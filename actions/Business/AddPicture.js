@@ -3,37 +3,36 @@
 var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
 var _ = require('lodash');
+var debug = require('debug')('Action:Business:AddPicture');
 
 module.exports = function (context, payload, done) {
+    var done = done || function () {};
+
     context.dispatch(BusinessEvents.ADD_PICTURE);
 
     hairfieApi
         .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
-        .then(function (response) {
-            var pictureUploaded = response.result.files.image;
-            var pictures = _.reduce(payload.business.pictures, function(arr, picture) {
-                if(picture.name) {
-                    arr.push(picture.name);
-                }
-                return arr;
-            }, []);
-
-            pictures.push(pictureUploaded.name);
-            var business = {
-                id: payload.business.id,
-                pictures : pictures
-            };
+        .then(function (picture) {
             context.dispatch(BusinessEvents.ADD_PICTURE_SUCCESS, {
-                picture: pictureUploaded
+                picture: picture
             });
-            return hairfieApi.saveBusiness(business, context.getAuthToken())
+
+            var business = {};
+            business.id = payload.business.id;
+            business.pictures = _.cloneDeep(payload.business.pictures) || [];
+            business.pictures.push(picture);
+
+            return hairfieApi.saveBusiness(business, context.getAuthToken());
         })
         .then(function(business) {
             context.dispatch(BusinessEvents.RECEIVE_SUCCESS, {
                 business: business
             });
+            done();
         })
-        .fail(function () {
+        .fail(function (e) {
+            debug('Failed to add picture', e);
             context.dispatch(BusinessEvents.ADD_PICTURE_FAILURE);
+            done(e);
         });
 };

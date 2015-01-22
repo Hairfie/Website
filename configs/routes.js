@@ -55,13 +55,6 @@ module.exports = {
         pageComponent: require('../components/BusinessHairfiesPage.jsx'),
         authRequired: true
     },
-    pro_business_hairdressers: {
-        path: '/pro/businesses/:id/hairdressers',
-        method: 'get',
-        action: require('../actions/Business/RouteOpen'),
-        pageComponent: require('../components/BusinessHairdressersPage.jsx'),
-        authRequired: true
-    },
     pro_business_timetable: {
         path: '/pro/businesses/:id/timetable',
         method: 'get',
