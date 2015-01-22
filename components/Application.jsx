@@ -26,7 +26,6 @@ module.exports = React.createClass({
     render: function () {
         var route = this.state.route;
         if (route && route.config && route.config.pageComponent) {
-            console.log('route.path', route.path);
             ga('send', 'pageview', {
                 'page': route.path
             });

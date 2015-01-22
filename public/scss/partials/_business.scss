@@ -16,11 +16,11 @@ div.row#business-header {
         height: 100%;
         h1 {
             font-weight: 400;
-            font-size: 28px;
-            margin-bottom: 40px;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
-        p.info {
+        .info {
             border-bottom: 1px solid $grey-separator;
             font-size: 16px;
             min-height: 30px;
@@ -57,6 +57,16 @@ div.row#business-header {
                     font-style: italic;
                     padding-left: 5px;
                 }
+            }
+
+            &.services {
+                ul {
+                    font-weight: 200;
+                    font-size: 12px;
+                    list-style-type: none;
+                }
+
+
             }
         }
 

@@ -4,6 +4,8 @@ var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
 var BusinessStore = require('../stores/BusinessStore');
+var BusinessServiceStore = require('../stores/BusinessServiceStore');
+
 var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
@@ -20,11 +22,17 @@ var weekDayLabel = require('../constants/DateTimeConstants').weekDayLabel;
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [BusinessStore]
+        storeListeners: [BusinessStore, BusinessServiceStore]
     },
     getStateFromStores: function () {
+        var business = this.getStore(BusinessStore).getBusiness(),
+            discountObj = this.getStore(BusinessStore).getDiscountForBusiness(),
+            services = this.getStore(BusinessServiceStore).getBusinessServicesByBusiness(business);
+
         return {
-            business: this.getStore(BusinessStore).getBusiness(),
+            business: business,
+            discountObj: discountObj,
+            services: services
         }
     },
     getInitialState: function () {
@@ -82,28 +90,27 @@ module.exports = React.createClass({
                 );
             }
 
-            var discountNode = this.renderDiscountNode();
-
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
                         <div className="col-sm-3 col-xs-12 map">
                             {mapElement}
                         </div>
-                        <div className="col-sm-6 col-xs-8 infos">
+                        <div className="col-sm-6 col-xs-6 infos">
                             <h1>{business.name}</h1>
                             <p className="info address">
                                 <span className="icon icon-address"></span>
                                 { address }
                             </p>
                             {phoneNode}
-                            {discountNode}
+                            {this.renderDiscountNode()}
+                            {this.renderServicesNode()}
                             {bookingButtonNode}
                             <p>
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
                             </p>
                         </div>
-                        <div className="col-sm-3 col-xs-3 pictures">
+                        <div className="col-sm-3 col-xs-6 pictures">
                             <img src={business.pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
                         </div>
                     </div>
@@ -118,35 +125,46 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     renderDiscountNode: function() {
-        var business = this.state.business,
-            discountNode,
-            discounts = _.reduce(business.timetable, function(result, timetable, day) {
-                var values = _.compact(_.pluck(timetable, 'discount'));
-                if(values.length > 0) {
-                    var label =  _.max(values);
-                    result.push(label);
-                }
-                return result;
-            }, []);
-
-        if(discounts.length > 0) {
-            discountNode = (
+        if(this.state.discountObj.max) {
+            return (
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
-                        <span className="label label-discount">
-                            {_.max(discounts)} %
-                        </span>
+                        <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                            <span className="label label-discount">
+                                {this.state.discountObj.max} %
+                            </span>
+                        </NavLink>
                         <span className="legend">
                             sur toutes les prestations et tous les achats *
                         </span>
                     </span>
-                    <div className="clearfix" />
                 </p>
             );
+        } else {
+            return null;
         }
-
-        return discountNode;
+    },
+    renderServicesNode: function() {
+        var services = this.state.services;
+        if(services && services.length > 0) {
+            return (
+                <div className="info services">
+                    <span className="icon icon-price"></span>
+                    <ul className="content">
+                        {_.map(services, this.renderServiceNode)}
+                        <li className="clearfix" />
+                    </ul>
+                </div>
+            );
+        };
+    },
+    renderServiceNode: function(service) {
+        return (
+            <li>
+                { service.service.label + ' : ' + service.price.amount + '€' }
+            </li>
+        );
     }
 });
 
