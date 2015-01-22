@@ -20,6 +20,9 @@ module.exports = function (grunt) {
       }
     },
     sass: {
+      options: {
+          sourceMap: 'auto'
+        },
       dist: {
         files: {
           'public/css/style.css' : 'public/scss/style.scss'

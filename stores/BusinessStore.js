@@ -93,6 +93,32 @@ module.exports = createStore({
 
         return this.hairdressers || [];
     },
+    getDiscountForBusiness: function() {
+        var max =  _.chain(this.business.timetable)
+            .map(function(day) {return _.max(_.compact(_.pluck(day, 'discount'))) })
+            .max()
+            .value();
+        var discountsAvailable = _.chain(this.business.timetable)
+            .reduce(function(result, timetable, day) {
+                var values = _.compact(_.pluck(timetable, 'discount'));
+                if(values.length > 0) {
+                    _.each(values, function(value) {
+                        if(result[value]) {
+                            result[value].push(day);
+                        } else {
+                            result[value] = [day];
+                        }
+                    })
+                }
+                return result;
+            }, {})
+            .value();
+        var discountObj = {
+            max: _.isFinite(max) ? max : null,
+            discountsAvailable: discountsAvailable
+        };
+        return discountObj;
+    },
     isUploadInProgress: function () {
         return this.uploadInProgress;
     },

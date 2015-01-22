@@ -32,10 +32,12 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         var booking  = this.getStore(BookingStore).getBooking(),
-            business = this.getStore(BusinessStore).getBusiness();
+            business = this.getStore(BusinessStore).getBusiness(),
+            discountObj = this.getStore(BusinessStore).getDiscountForBusiness();
         return {
             business: business,
-            booking: booking
+            booking: booking,
+            discountObj: discountObj
         }
     },
     getInitialState: function () {
@@ -150,20 +152,7 @@ module.exports = React.createClass({
     },
     renderDiscountsNode: function() {
         var business = this.state.business,
-            discounts;
-        discounts = _.reduce(business.timetable, function(result, timetable, day) {
-            var values = _.compact(_.pluck(timetable, 'discount'));
-            if(values.length > 0) {
-                _.each(values, function(value) {
-                    if(result[value]) {
-                        result[value].push(day);
-                    } else {
-                        result[value] = [day];
-                    }
-                })
-            }
-            return result;
-        }, {});
+            discounts = this.state.discountObj.discountsAvailable;
 
         if(discounts.length === 0) {
             return null;

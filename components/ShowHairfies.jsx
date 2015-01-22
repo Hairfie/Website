@@ -19,7 +19,6 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     onChange: function () {
-        console.log("onChange", this.getStateFromStores());
         this.setState(this.getStateFromStores());
     },
     getStateFromStores: function() {

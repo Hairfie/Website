@@ -25,6 +25,7 @@ module.exports = React.createClass({
     getStateFromStores: function () {
         return {
             business: this.getStore(BusinessStore).getBusiness(),
+            discountObj: this.getStore(BusinessStore).getDiscountForBusiness()
         }
     },
     getInitialState: function () {
@@ -82,8 +83,6 @@ module.exports = React.createClass({
                 );
             }
 
-            var discountNode = this.renderDiscountNode();
-
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="row" id="business-header">
@@ -97,7 +96,8 @@ module.exports = React.createClass({
                                 { address }
                             </p>
                             {phoneNode}
-                            {discountNode}
+                            {this.renderDiscountNode()}
+                            {this.renderServicesNode()}
                             {bookingButtonNode}
                             <p>
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
@@ -118,25 +118,14 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     renderDiscountNode: function() {
-        var business = this.state.business,
-            discountNode,
-            discounts = _.reduce(business.timetable, function(result, timetable, day) {
-                var values = _.compact(_.pluck(timetable, 'discount'));
-                if(values.length > 0) {
-                    var label =  _.max(values);
-                    result.push(label);
-                }
-                return result;
-            }, []);
-
-        if(discounts.length > 0) {
-            discountNode = (
+        if(this.state.discountObj.max) {
+            return (
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
                         <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
                             <span className="label label-discount">
-                                {_.max(discounts)} %
+                                {this.state.discountObj.max} %
                             </span>
                         </NavLink>
                         <span className="legend">
@@ -146,9 +135,12 @@ module.exports = React.createClass({
                     <div className="clearfix" />
                 </p>
             );
+        } else {
+            return null;
         }
-
-        return discountNode;
+    },
+    renderServicesNode: function() {
+        return null;
     }
 });
 
