@@ -1537,7 +1537,7 @@ pre {
     width: 41.66667%; }
 
   .col-sm-6 {
-    width: 50%; }
+    /* width: 50%; */ }
 
   .col-sm-7 {
     width: 58.33333%; }
@@ -7790,33 +7790,35 @@ div.row#business-header {
     height: 100%; }
     div.row#business-header div.infos h1 {
       font-weight: 400;
-      font-size: 14px;
-      margin-bottom: 40px; }
-    div.row#business-header div.infos p.info {
+      font-size: 24px;
+      margin-bottom: 20px; }
+    div.row#business-header div.infos .info {
       border-bottom: 1px solid #E5E5E8;
       font-size: 16px;
-      min-height: 30px; 
-      font-weight: 200;
-}
-      div.row#business-header div.infos p.info.address {
+      min-height: 30px; }
+      div.row#business-header div.infos .info.address {
         min-height: 50px;
         font-weight: 200; }
-      div.row#business-header div.infos p.info span {
+      div.row#business-header div.infos .info span {
         display: inline-block;
         float: left; }
-      div.row#business-header div.infos p.info .icon, div.row#business-header div.infos p.info .icon-address, div.row#business-header div.infos p.info .icon-phone, div.row#business-header div.infos p.info .icon-website, div.row#business-header div.infos p.info .icon-timetable, div.row#business-header div.infos p.info .icon-description, div.row#business-header div.infos p.info .icon-right-arrow, div.row#business-header div.infos p.info .icon-discount, div.row#business-header div.infos p.info .icon-price, div.row#business-header div.infos p.info .icon-open, div.row#business-header div.infos p.info .icon-closed {
+      div.row#business-header div.infos .info .icon, div.row#business-header div.infos .info .icon-address, div.row#business-header div.infos .info .icon-phone, div.row#business-header div.infos .info .icon-website, div.row#business-header div.infos .info .icon-timetable, div.row#business-header div.infos .info .icon-description, div.row#business-header div.infos .info .icon-right-arrow, div.row#business-header div.infos .info .icon-discount, div.row#business-header div.infos .info .icon-price, div.row#business-header div.infos .info .icon-open, div.row#business-header div.infos .info .icon-closed {
         float: left; }
-      div.row#business-header div.infos p.info span.content {
+      div.row#business-header div.infos .info span.content {
         margin-left: 20px;
         font-size: 16px; }
-      div.row#business-header div.infos p.info .label {
+      div.row#business-header div.infos .info .label {
         font-size: 14px;
         font-weight: 200; }
-      div.row#business-header div.infos p.info.discounts .legend {
+      div.row#business-header div.infos .info.discounts .legend {
         font-weight: 200;
         font-size: 14px;
         font-style: italic;
         padding-left: 5px; }
+      div.row#business-header div.infos .info.services ul {
+        font-weight: 200;
+        font-size: 14px;
+        list-style-type: none; }
     div.row#business-header div.infos p.booking-container {
       position: absolute;
       bottom: -10px;

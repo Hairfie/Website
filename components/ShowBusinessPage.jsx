@@ -4,6 +4,8 @@ var React = require('react');
 var StoreMixin = require('fluxible-app').StoreMixin;
 
 var BusinessStore = require('../stores/BusinessStore');
+var BusinessServiceStore = require('../stores/BusinessServiceStore');
+
 var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
@@ -20,12 +22,17 @@ var weekDayLabel = require('../constants/DateTimeConstants').weekDayLabel;
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [BusinessStore]
+        storeListeners: [BusinessStore, BusinessServiceStore]
     },
     getStateFromStores: function () {
+        var business = this.getStore(BusinessStore).getBusiness(),
+            discountObj = this.getStore(BusinessStore).getDiscountForBusiness(),
+            services = this.getStore(BusinessServiceStore).getBusinessServicesByBusiness(business);
+
         return {
-            business: this.getStore(BusinessStore).getBusiness(),
-            discountObj: this.getStore(BusinessStore).getDiscountForBusiness()
+            business: business,
+            discountObj: discountObj,
+            services: services
         }
     },
     getInitialState: function () {
@@ -89,7 +96,7 @@ module.exports = React.createClass({
                         <div className="col-sm-3 col-xs-12 map">
                             {mapElement}
                         </div>
-                        <div className="col-sm-6 col-xs-8 infos">
+                        <div className="col-sm-6 col-xs-6 infos">
                             <h1>{business.name}</h1>
                             <p className="info address">
                                 <span className="icon icon-address"></span>
@@ -103,7 +110,7 @@ module.exports = React.createClass({
                                 <ClaimExistingBusiness context={this.props.context} business={business} />
                             </p>
                         </div>
-                        <div className="col-sm-3 col-xs-3 pictures">
+                        <div className="col-sm-3 col-xs-6 pictures">
                             <img src={business.pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
                         </div>
                     </div>
@@ -139,17 +146,25 @@ module.exports = React.createClass({
         }
     },
     renderServicesNode: function() {
-        var services = this.state.business.services;
+        var services = this.state.services;
         if(services && services.length > 0) {
             return (
-                <p className="info services">
+                <div className="info services">
                     <span className="icon icon-price"></span>
-                    <span className="content">
-                        {_.map(services, function(service) {return service.price.amount + '€, ' })}
-                    </span>
-                </p>
+                    <ul className="content">
+                        {_.map(services, this.renderServiceNode)}
+                        <li className="clearfix" />
+                    </ul>
+                </div>
             );
         };
+    },
+    renderServiceNode: function(service) {
+        return (
+            <li>
+                { service.service.label + ' : ' + service.price.amount + '€' }
+            </li>
+        );
     }
 });
 
