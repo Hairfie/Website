@@ -69,6 +69,7 @@ module.exports = React.createClass({
             daySelectHeader = weekDayLabelFromInt(this.state.daySelected.day()) + ' ' + this.state.daySelected.format("D/MM/YYYY");
             if(this.state.timeslot) {
                 timeSelectHeader = this.state.timeslot.format("HH:mm")
+                if(this.state.discount) timeSelectHeader += ' avec ' + this.state.discount + '% de réduction';
             } else {
                 timeSelectHeader = 'Choisir une heure'
             }
