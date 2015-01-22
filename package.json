@@ -6,7 +6,7 @@
     "start": "node ./server.js",
     "postinstall": "npm run bower && npm run build",
     "bower": "bower install",
-    "build": "grunt browserify"
+    "build": "grunt browserify && grunt sass"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
