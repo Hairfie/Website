@@ -10,6 +10,8 @@ var AuthStore            = require('../stores/AuthStore');
 
 var Button               = require('react-bootstrap/Button');
 
+var _ = require('lodash');
+
 module.exports = React.createClass({
     mixins: [InfiniteScrollMixin, StoreMixin],
     statics: {
@@ -58,12 +60,14 @@ module.exports = React.createClass({
         if(this.props.withDeleteButton && isAllowedToDelete) {
             deleteNode =(<Button onClick={this.deleteHairfie.bind(this, hairfie)} bsStyle="danger" bsSize="xsmall" className="delete-button">X</Button>)
         }
+        console.log("renderHairfie");
         return (
             <div className="hairfie-picture col-sm-3 col-xs-6" key={hairfie.id}>
                 <div className="img-container">
                     { priceNode }
                     <NavLink routeName="show_hairfie" navParams={{id: hairfie.id}} context={this.props.context}>
-                        <img src={hairfie.picture.url} alt=""/>
+                        <img className="main" src={_.last(hairfie.pictures).url} alt=""/>
+                        { hairfie.pictures.length > 1  ? (<img className="thumb" src={_.first(hairfie.pictures).url} />) : null }
                     </NavLink>
                     { deleteNode }
                 </div>
