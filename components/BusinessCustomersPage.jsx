@@ -29,12 +29,9 @@ module.exports = React.createClass({
         storeListeners: [BusinessStore, BusinessCustomersStore]
     },
     getStateFromStores: function () {
-        var business  = this.getStore(BusinessStore).getBusiness();
-        var customers = this.getStore(BusinessCustomersStore).getCustomersByBusiness(business);
-
         return {
-            business        : business,
-            customers       : customers
+            business    : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
+            customers   : this.getStore(BusinessCustomersStore).getByBusiness(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {

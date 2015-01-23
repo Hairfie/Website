@@ -3,6 +3,7 @@
 module.exports = {
     RouteOpen           : require('./RouteOpen'),
     Open                : require('./Open'),
+    Fetch               : require('./Fetch'),
     Save                : require('./Save'),
     RefreshHairdressers : require('./RefreshHairdressers'),
     AddPicture          : require('./AddPicture'),

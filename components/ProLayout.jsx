@@ -68,47 +68,47 @@ module.exports = React.createClass({
         return (
             <ul className="nav nav-sidebar">
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business" navParams={{id: business.id, step:'general'}}>
+                    <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id}}>
                         <i className="fa fa-home"></i> {business.name}
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{businessId: business.id}}>
                         Infos <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{businessId: business.id}}>
                         Photos <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{businessId: business.id}}>
                         Hairfies <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_members" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_members" navParams={{businessId: business.id}}>
                         Votre équipe <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_timetable" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_timetable" navParams={{businessId: business.id}}>
                         Horaires <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_services" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_services" navParams={{businessId: business.id}}>
                         Services & Prix <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_customers" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_customers" navParams={{businessId: business.id}}>
                         Vos clients <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink context={this.props.context} routeName="pro_business_social_networks" navParams={{id: business.id}}>
+                    <NavLink context={this.props.context} routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
                         Réseaux sociaux <span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>

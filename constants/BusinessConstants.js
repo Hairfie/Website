@@ -9,7 +9,9 @@ module.exports = {
         'OPEN_SUCCESS',
         'OPEN_FAILURE',
 
+        'RECEIVE',
         'RECEIVE_SUCCESS',
+        'RECEIVE_FAILURE',
 
         'RECEIVE_HAIRDRESSERS',
         'RECEIVE_HAIRDRESSERS_SUCCESS',

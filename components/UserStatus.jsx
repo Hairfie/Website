@@ -53,7 +53,7 @@ module.exports = React.createClass({
         var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
             return (
                 <li key={business.id}>
-                    <NavLink context={context} routeName="pro_business" navParams={{id: business.id, step: 'general'}}>
+                    <NavLink context={context} routeName="pro_business" navParams={{businessId: business.id}}>
                         {business.name}
                     </NavLink>
                 </li>
