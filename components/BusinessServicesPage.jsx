@@ -64,17 +64,18 @@ module.exports = React.createClass({
         return {
             services        : this.getStore(ServiceStore).getServices(),
             business        : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
-            businessServices: this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId) || []
+            businessServices: this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {
         return this.getStateFromStores();
     },
     render: function () {
-        var businessServiceRows = this.state.businessServices.map(this.renderBusinessServiceRow);
+        var loading = !this.state.businessServices;
+        var businessServiceRows = (this.state.businessServices || []).map(this.renderBusinessServiceRow);
 
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business} loading={loading}>
                 <Table>
                     <thead>
                         <tr>

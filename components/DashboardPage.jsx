@@ -28,13 +28,15 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     render: function () {
-        var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
+        var loading = !this.state.managedBusinesses;
+
+        var businessNodes = (this.state.managedBusinesses || []).map(function (business) {
             return this.renderBusiness(business);
         }, this);
         return (
-            <ProLayout context={this.props.context} withoutSideBar={true}>
+            <ProLayout context={this.props.context} withoutSideBar={true} loading={loading}>
                 <h3>Mes salons</h3>
-                {managedBusinesses}
+                {businessNodes}
             </ProLayout>
         );
     },

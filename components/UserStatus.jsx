@@ -67,7 +67,7 @@ module.exports = React.createClass({
                 <ul className="dropdown-menu account">
                     <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
                     <li className="divider"></li>
-                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i>Dashboard</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i> Dashboard</NavLink></li>
                     <li className="divider"></li>
                     {managedBusinesses}
                     <li className="divider"></li>

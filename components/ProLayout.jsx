@@ -6,17 +6,19 @@ var NavLink = require('flux-router-component').NavLink;
 var UserStatus = require('./UserStatus.jsx');
 var Footer = require('./Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
+var Loader = require('./Partial/Loader.jsx');
 
 module.exports = React.createClass({
     displayName: 'ProLayout',
     render: function () {
-        var hairdresser = this.props.hairdresser || {};
         var main;
-        if(this.props.withoutSideBar) {
+        if (this.props.withoutSideBar) {
             main = (
                 <div className="row dashboard">
                     <div className="col-sm-12 main">
-                        {this.props.children}
+                        <Loader loading={this.props.loading}>
+                            {this.props.children}
+                        </Loader>
                     </div>
                 </div>
             );
@@ -27,7 +29,9 @@ module.exports = React.createClass({
                         {this.renderBusinessMenu(this.props.business)}
                     </div>
                     <div className="col-sm-10 col-sm-offset-2 main">
-                        {this.props.children}
+                        <Loader loading={this.props.loading}>
+                            {this.props.children}
+                        </Loader>
                     </div>
                 </div>
             );

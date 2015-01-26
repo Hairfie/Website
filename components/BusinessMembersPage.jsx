@@ -77,11 +77,12 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
+        var loading = !this.state.businessMembers;
         var businessMembers = this.state.businessMembers || [];
         var businessMemberRows = businessMembers.map(this.renderBusinessMemberRow);
 
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business} loading={loading}>
                 <h2>Membres de l'équipe</h2>
                 <Table>
                     <thead>

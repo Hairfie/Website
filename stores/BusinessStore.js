@@ -11,7 +11,6 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: makeHandlers({
-        handleOpenSuccess: BusinessEvents.OPEN_SUCCESS,
         handleReceive: BusinessEvents.RECEIVE,
         handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
         handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE,
@@ -22,23 +21,14 @@ module.exports = createStore({
         handleAddPictureFailure: BusinessEvents.ADD_PICTURE_FAILURE
     }),
     initialize: function () {
-        this.businesses = [];
+        this.businesses = {};
 
         this.business = null;
         this.hairdressers = null;
         this.uploadInProgress = false;
     },
-    handleOpenSuccess: function (payload) {
-        if (this.business && this.business.id != payload.business.id) {
-            // destroy business dependant data when business changes
-            this.hairdressers = null;
-        }
-
-        this.business = payload.business;
-        this.emitChange();
-    },
     handleReceive: function (payload) {
-        this.businesses[payload.id] = _.merge({}, {
+        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
             loading: true
         });
         this.emitChange();
