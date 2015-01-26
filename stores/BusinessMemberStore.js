@@ -12,11 +12,27 @@ module.exports = createStore({
         this.businessMembers = {};
     },
     handlers: makeHandlers({
+        handleReceiveBusiness: BusinessMemberEvents.RECEIVE_BUSINESS,
         handleReceiveBusinessSuccess: BusinessMemberEvents.RECEIVE_BUSINESS_SUCCESS,
+        handleReceiveBusinessFailure: BusinessMemberEvents.RECEIVE_BUSINESS_FAILURE,
         handleSaveSuccess: BusinessMemberEvents.SAVE_SUCCESS
     }),
+    handleReceiveBusiness: function (payload) {
+        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+            loading: true
+        });
+    },
     handleReceiveBusinessSuccess: function (payload) {
-        this.businessMembers[payload.business.id] = payload.businessMembers;
+        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+            loading : false,
+            entities: payload.businessMembers
+        });
+        this.emitChange();
+    },
+    handleReceiveBusinessFailure: function (payload) {
+        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+            loading : false
+        });
         this.emitChange();
     },
     handleSaveSuccess: function (payload) {
@@ -26,7 +42,7 @@ module.exports = createStore({
         if (this.businessMembers[business.id]) {
             var exists = false;
             // try to replace with new values if already in collection
-            this.businessMembers[business.id] = _.map(this.businessMembers[business.id], function (existing) {
+            this.businessMembers[business.id].entities = _.map(this.businessMembers[business.id].entities, function (existing) {
                 if (existing.id == businessMember.id) {
                     exists = true;
                     return businessMember;
@@ -35,18 +51,23 @@ module.exports = createStore({
             });
             if (!exists) {
                 // it's new, add it to the collection
-                this.businessMembers[business.id].push(businessMember);
+                this.businessMembers[business.id].entities.push(businessMember);
             }
             this.emitChange();
         }
     },
-    getBusinessMembersByBusiness: function (business) {
-        if (!this.businessMembers[business.id]) {
-            this.dispatcher.getContext().executeAction(BusinessMemberActions.RefreshBusiness, {
-                business: business
-            });
+    getByBusiness: function (businessId) {
+        var stored = this.businessMembers[businessId];
+
+        if (typeof stored == "undefined") {
+            this._loadByBusiness(businessId);
         }
 
-        return this.businessMembers[business.id];
+        return stored && stored.entities;
+    },
+    _loadByBusiness: function (businessId) {
+        this.dispatcher.getContext().executeAction(BusinessMemberActions.RefreshBusiness, {
+            businessId: businessId
+        });
     }
 });

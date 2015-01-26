@@ -1,7 +1,9 @@
 'use strict';
 
-var Open = require('./Open');
+var Fetch = require('./Fetch');
 
 module.exports = function (context, payload, done) {
-    context.executeAction(Open, {id: payload.params.id, slug: payload.params.slug}, done);
+    var businessId = payload.params.businessId || payload.params.id;
+
+    context.executeAction(Fetch, {id: businessId}, done);
 };

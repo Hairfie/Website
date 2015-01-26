@@ -5,20 +5,24 @@ var BusinessMemberEvents = require('../../constants/BusinessMemberConstants').Ev
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
-    context.dispatch(BusinessMemberEvents.RECEIVE_BUSINESS);
+
+    context.dispatch(BusinessMemberEvents.RECEIVE_BUSINESS, {
+        businessId: payload.businessId
+    });
 
     hairfieApi
-        .getBusinessMembersByBusiness(payload.business, context.getAuthToken())
+        .getBusinessMembersByBusiness(payload.businessId, context.getAuthToken())
         .then(function (businessMembers) {
             context.dispatch(BusinessMemberEvents.RECEIVE_BUSINESS_SUCCESS, {
-                business        : payload.business,
+                businessId      : payload.businessId,
                 businessMembers : businessMembers
             });
             done();
         })
         .fail(function (error) {
-            console.log(error);
-            context.dispatch(BusinessMemberEvents.RECEIVE_BUSINESS_FAILURE);
+            context.dispatch(BusinessMemberEvents.RECEIVE_BUSINESS_FAILURE, {
+                businessId: payload.businessId
+            });
             done(error);
         });
 };

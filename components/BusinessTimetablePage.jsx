@@ -133,7 +133,7 @@ module.exports = React.createClass({
         );
     },
     renderWeekday: function (weekday) {
-        var business    = this.state.business,
+        var business    = this.state.business || {},
             timetable   = business.timetable || {},
             timeWindows = timetable[weekday] || [];
 

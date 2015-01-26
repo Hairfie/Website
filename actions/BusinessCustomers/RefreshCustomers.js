@@ -7,10 +7,10 @@ module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.RECEIVE_CUSTOMERS);
 
     hairfieApi
-        .getBusinessCustomers(payload.business, context.getAuthToken())
+        .getBusinessCustomers(payload.businessId, context.getAuthToken())
         .then(function (customers) {
             context.dispatch(BusinessEvents.RECEIVE_CUSTOMERS_SUCCESS, {
-                business    : payload.business,
+                businessId  : payload.businessId,
                 customers   : customers
             });
             done();

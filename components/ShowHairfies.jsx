@@ -33,9 +33,9 @@ module.exports = React.createClass({
     fetchNextPage: function (page) {
         if(!this.state.endOfScroll) {
             this.props.context.executeAction(HairfieActions.List, {
-                businessId: this.props.businessId,
-                limit: 6,
-                skip: page*6
+                businessId  : this.props.businessId,
+                limit       : 6,
+                skip        : page * 6
             });
         }
     },
@@ -52,7 +52,7 @@ module.exports = React.createClass({
     renderHairfie: function (hairfie) {
         var priceNode, deleteNode;
         if(hairfie.price) {
-            priceNode = (<div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>)
+            priceNode = <div className="circle">{hairfie.price.amount} {hairfie.price.currency == "EUR" ? "€" : ""}</div>;
         }
 
         var isAllowedToDelete = this.state.user ? (hairfie.author.id === this.state.user.id) : false;

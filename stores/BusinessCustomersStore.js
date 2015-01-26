@@ -15,15 +15,16 @@ module.exports = createStore({
         handleReceiveCustomersSuccess: BusinessCustomersEvents.RECEIVE_CUSTOMERS_SUCCESS
     }),
     handleReceiveCustomersSuccess: function (payload) {
-        this.customers[payload.business.id] = payload.customers;
+        this.customers[payload.businessId] = payload.customers;
         this.emitChange();
     },
-    getCustomersByBusiness: function (business) {
-        if (!this.customers[business.id]) {
+    getByBusiness: function (businessId) {
+        if (!this.customers[businessId]) {
             this.dispatcher.getContext().executeAction(BusinessCustomersActions.RefreshCustomers, {
-                business: business
+                businessId: businessId
             });
         }
-        return this.customers[business.id];
+
+        return this.customers[businessId];
     }
 });

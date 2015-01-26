@@ -18,7 +18,7 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            business: this.getStore(BusinessStore).getBusiness(),
+            business: this.getStore(BusinessStore).getById(this.props.route.params.businessId),
             loading: this.getStore(BusinessStore).isUploadInProgress(),
             fileInput: null
         };
@@ -27,8 +27,8 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        var business = this.state.business;
-        var pictureNodes = business.pictures.map(function(picture) {
+        var business = this.state.business || {};
+        var pictureNodes = _.map(business.pictures || [], function(picture) {
             return this.renderPicture(picture);
         }, this);
 

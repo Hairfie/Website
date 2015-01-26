@@ -29,7 +29,7 @@ module.exports = {
         authRequired: true
     },
     pro_business: {
-        path: '/pro/businesses/:id',
+        path: '/pro/businesses/:businessId',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessDashboardPage.jsx'),
@@ -42,56 +42,56 @@ module.exports = {
         authRequired: true
     },
     pro_business_photos: {
-        path: '/pro/businesses/:id/photos',
+        path: '/pro/businesses/:businessId/photos',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessPhotosPage.jsx'),
         authRequired: true
     },
     pro_business_hairfies: {
-        path: '/pro/businesses/:id/hairfies',
+        path: '/pro/businesses/:businessId/hairfies',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessHairfiesPage.jsx'),
         authRequired: true
     },
     pro_business_timetable: {
-        path: '/pro/businesses/:id/timetable',
+        path: '/pro/businesses/:businessId/timetable',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessTimetablePage.jsx'),
         authRequired: true
     },
     pro_business_services: {
-        path: '/pro/businesses/:id/services',
+        path: '/pro/businesses/:businessId/services',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessServicesPage.jsx'),
         authRequired: true
     },
     pro_business_infos: {
-        path: '/pro/businesses/:id/infos',
+        path: '/pro/businesses/:businessId/infos',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessInfosPage.jsx'),
         authRequired: true
     },
     pro_business_members: {
-        path: '/pro/businesses/:id/members',
+        path: '/pro/businesses/:businessId/members',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessMembersPage.jsx'),
         authRequired: true
     },
     pro_business_social_networks: {
-        path: '/pro/businesses/:id/social-networks',
+        path: '/pro/businesses/:businessId/social-networks',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessSocialNetworksPage.jsx'),
         authRequired: true
     },
     pro_business_customers: {
-        path: '/pro/businesses/:id/customers',
+        path: '/pro/businesses/:businessId/customers',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessCustomersPage.jsx'),

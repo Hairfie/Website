@@ -45,16 +45,16 @@ module.exports = createStore({
         }
     },
     handleReceiveBusinessSuccess: function (payload) {
-        this.businessServices[payload.business.id] = payload.businessServices;
+        this.businessServices[payload.businessId] = payload.businessServices;
         this.emitChange();
     },
-    getBusinessServicesByBusiness: function (business) {
-        if (!this.businessServices[business.id]) {
+    getByBusiness: function (businessId) {
+        if (!this.businessServices[businessId]) {
             this.dispatcher.getContext().executeAction(BusinessServiceActions.RefreshBusiness, {
-                business: business
+                businessId: businessId
             });
         }
 
-        return this.businessServices[business.id];
+        return this.businessServices[businessId];
     }
 });

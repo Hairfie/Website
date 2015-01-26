@@ -68,22 +68,21 @@ module.exports = React.createClass({
         storeListeners: [BusinessStore, BusinessMemberStore]
     },
     getStateFromStores: function () {
-        var business = this.getStore(BusinessStore).getBusiness();
-
         return {
-            business        : business,
-            businessMembers : this.getStore(BusinessMemberStore).getBusinessMembersByBusiness(business)
+            business        : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
+            businessMembers : this.getStore(BusinessMemberStore).getByBusiness(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {
         return this.getStateFromStores();
     },
     render: function () {
+        var loading = !this.state.businessMembers;
         var businessMembers = this.state.businessMembers || [];
         var businessMemberRows = businessMembers.map(this.renderBusinessMemberRow);
 
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business} loading={loading}>
                 <h2>Membres de l'équipe</h2>
                 <Table>
                     <thead>

@@ -11,8 +11,9 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: makeHandlers({
-        handleOpenSuccess: BusinessEvents.OPEN_SUCCESS,
+        handleReceive: BusinessEvents.RECEIVE,
         handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
+        handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE,
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
         handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
         handleAddPicture: BusinessEvents.ADD_PICTURE,
@@ -20,27 +21,35 @@ module.exports = createStore({
         handleAddPictureFailure: BusinessEvents.ADD_PICTURE_FAILURE
     }),
     initialize: function () {
+        this.businesses = {};
+
         this.business = null;
         this.hairdressers = null;
         this.uploadInProgress = false;
     },
-    handleOpenSuccess: function (payload) {
-        if (this.business && this.business.id != payload.business.id) {
-            // destroy business dependant data when business changes
-            this.hairdressers = null;
-        }
-
-        this.business = payload.business;
+    handleReceive: function (payload) {
+        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+            loading: true
+        });
         this.emitChange();
     },
     handleReceiveSuccess: function (payload) {
-        if (!this.business || payload.business.id != this.business.id) {
-            return;
+        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+            entity  : payload.business,
+            loading : false
+        });
+
+        if (this.business && payload.business.id == this.business.id) {
+            this.business = payload.business;
+            this.uploadInProgress = false;
         }
 
-        this.business = payload.business;
-        this.uploadInProgress = false;
         this.emitChange();
+    },
+    handleReceiveFailure: function (payload) {
+        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+            loading: false
+        });
     },
     handleReceiveHairdressersSuccess: function (payload) {
         if (!this.business || payload.business.id != this.business.id) {
@@ -82,7 +91,11 @@ module.exports = createStore({
         this.emitChange();
     },
     getBusiness: function () {
-        return this.business;
+        // temporary compatibility
+        var routeStore = this.dispatcher.getStore('RouteStore'),
+            businessId = routeStore.getRouteParam('businessId') || routeStore.getRouteParam('id');
+
+        return this.getById(businessId);
     },
     getHairdressers: function () {
         if (this.business && !this.hairdressers) {
@@ -122,12 +135,28 @@ module.exports = createStore({
     isUploadInProgress: function () {
         return this.uploadInProgress;
     },
+    getById: function (businessId) {
+        var business = this.businesses[businessId];
+
+        if (typeof business == 'undefined') {
+            this._loadById(businessId);
+        }
+
+        return business && business.entity;
+    },
     dehydrate: function () {
         return {
-            business: this.business
+            business    : this.business,
+            businesses  : this.businesses
         };
     },
     rehydrate: function (state) {
         this.business = state.business;
+        this.businesses = state.businesses;
+    },
+    _loadById: function (businessId) {
+        this.dispatcher.getContext().executeAction(BusinessActions.Fetch, {
+            id: businessId
+        });
     }
 });

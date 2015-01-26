@@ -28,13 +28,15 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     render: function () {
-        var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
+        var loading = !this.state.managedBusinesses;
+
+        var businessNodes = (this.state.managedBusinesses || []).map(function (business) {
             return this.renderBusiness(business);
         }, this);
         return (
-            <ProLayout context={this.props.context} withoutSideBar={true}>
+            <ProLayout context={this.props.context} withoutSideBar={true} loading={loading}>
                 <h3>Mes salons</h3>
-                {managedBusinesses}
+                {businessNodes}
             </ProLayout>
         );
     },
@@ -46,7 +48,7 @@ module.exports = React.createClass({
                     <div className="caption">
                         <h3>{business.name}</h3>
                         <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
-                        <NavLink context={this.props.context} routeName="pro_business" navParams={{id: business.id, step: 'general'}}>
+                        <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id, step: 'general'}}>
                             <button className="btn btn-primary" role="button">Gérer ce business</button>
                         </NavLink>
 
