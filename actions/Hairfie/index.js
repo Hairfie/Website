@@ -2,7 +2,7 @@
 
 module.exports = {
     RouteOpen       : require('./RouteOpen'),
-    Open            : require('./Open'),
+    Fetch           : require('./Fetch'),
     Delete          : require('./Delete'),
     List            : require('./List')
 };

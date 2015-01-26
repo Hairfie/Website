@@ -3,34 +3,67 @@
 var createStore = require('fluxible-app/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var HairfieEvents = require('../constants/HairfieConstants').Events;
+var HairfieActions = require('../actions/Hairfie');
 var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: makeHandlers({
-        'handleOpenSuccess': HairfieEvents.OPEN_SUCCESS,
+        handleReceive       : HairfieEvents.RECEIVE,
+        handleReceiveSuccess: HairfieEvents.RECEIVE_SUCCESS,
+        handleReceiveFailure: HairfieEvents.RECEIVE_FAILURE
     }),
     initialize: function () {
-        this.hairfie = null;
-    },
-    handleOpenSuccess: function (payload) {
-        this.hairfie = payload.hairfie;
-        this.hairfie.descriptions = this.descriptionsGenerator(this.hairfie);
-        this.emitChange();
-    },
-    getHairfie: function () {
-        return this.hairfie;
+        this.hairfies = {};
     },
     dehydrate: function () {
         return {
-            hairfie: this.hairfie
+            hairfies: this.hairfies
         };
     },
     rehydrate: function (state) {
-        this.hairfie = state.hairfie;
+        this.hairfies = state.hairfies;
+    },
+    handleReceive: function (payload) {
+        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+            loading: true
+        });
+        this.emitChange();
+    },
+    handleReceiveSuccess: function (payload) {
+        var hairfie = payload.hairfie;
+        if (hairfie) hairfie.descriptions = this._generateDescriptions(hairfie);
+
+        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+            entity  : hairfie,
+            loading : false
+        });
+
+        this.emitChange();
+    },
+    handleReceiveFailure: function (payload) {
+        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+            loading: false
+        });
+
+        this.emitChange();
+    },
+    getById: function (hairfieId) {
+        var hairfie = this.hairfies[hairfieId];
+
+        if (_.isUndefined(hairfie)) {
+            this._loadById(hairfieId);
+        }
+
+        return hairfie && hairfie.entity;
+    },
+    _fetchById: function (hairfieId) {
+        this.dispatcher.getContext().executeAction(HairfieActions.Fetch, {
+            id: hairfieId
+        });
     },
     // Is this the right place ?
-    descriptionsGenerator: function(hairfie) {
+    _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';
         if(hairfie.tags) {
             tags = _.map(hairfie.tags, function(tag) { return '#'+tag.name.replace(/ /g,''); }).join(" ");

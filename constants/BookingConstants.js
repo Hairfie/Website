@@ -8,8 +8,8 @@ module.exports = {
         'SAVE_SUCCESS',
         'SAVE_FAILURE',
 
-        'OPEN',
-        'OPEN_SUCCESS',
-        'OPEN_FAILURE'
+        'RECEIVE',
+        'RECEIVE_SUCCESS',
+        'RECEIVE_FAILURE'
     ])
 };

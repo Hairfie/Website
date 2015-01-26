@@ -8,23 +8,53 @@ var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'BookingStore',
-    initialize: function () {
-        this.booking = {};
-    },
     handlers: makeHandlers({
-        handleSaveSuccess           : BookingEvents.SAVE_SUCCESS,
-        handleOpenSuccess           : BookingEvents.OPEN_SUCCESS,
-        handleReceiveBusinessSuccess: BookingEvents.RECEIVE_BUSINESS_SUCCESS
+        handleReceive       : BookingEvents.RECEIVE,
+        handleReceiveSuccess: BookingEvents.RECEIVE_SUCCESS,
+        handleReceiveFailure: BookingEvents.RECEIVE_FAILURE
     }),
-    handleSaveSuccess: function (payload) {
-        this.booking = payload.booking;
+    initialize: function () {
+        this.bookings = {};
+    },
+    dehydrate: function () {
+        return {
+            bookings: this.bookings
+        };
+    },
+    rehydrate: function (state) {
+        this.bookings = state.bookings || {};
+    },
+    handleReceive: function (payload) {
+        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+            loading: true
+        });
         this.emitChange();
     },
-    handleOpenSuccess: function (payload) {
-        this.booking = payload.booking;
+    handleReceiveSuccess: function (payload) {
+        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+            loading : false,
+            entity  : payload.booking
+        });
         this.emitChange();
     },
-    getBooking: function () {
-        return this.booking;
+    handleReceiveFailure: function (payload) {
+        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+            loading: false
+        });
+        this.emitChange();
+    },
+    getById: function (bookingId) {
+        var booking = this.bookings[bookingId];
+
+        if (_.isUndefined(booking)) {
+            this._loadById(bookingId);
+        }
+
+        return booking && booking.entity;
+    },
+    _loadById: function (bookingId) {
+        this.dispatcher.getContext().executeAction(BookingActions.Fetch, {
+            id: bookingId
+        });
     }
 });

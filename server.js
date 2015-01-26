@@ -62,8 +62,8 @@ server.use(function (req, res, next) {
                 return;
             }
 
-            var metas = context.getActionContext().getStore(MetaStore).getCurrentMetadata();
-            var title = context.getActionContext().getStore(MetaStore).getCurrentTitle();
+            var title = context.getActionContext().getStore(MetaStore).getTitle();
+            var metas = context.getActionContext().getStore(MetaStore).getMetas();
 
             var appState = app.dehydrate(context);
             var AppComponent = app.getAppComponent();
@@ -75,10 +75,10 @@ server.use(function (req, res, next) {
             }));
 
             var html = React.renderToStaticMarkup(HtmlComponent({
-                state: res.locals.state,
-                metas: metas,
-                title: title,
-                markup: markup
+                state   : res.locals.state,
+                title   : title,
+                metas   : metas,
+                markup  : markup
             }));
 
             res.write(html);

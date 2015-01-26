@@ -22,8 +22,6 @@ module.exports = createStore({
     }),
     initialize: function () {
         this.businesses = {};
-
-        this.business = null;
         this.hairdressers = null;
         this.uploadInProgress = false;
     },
@@ -50,6 +48,7 @@ module.exports = createStore({
         this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
             loading: false
         });
+        this.emitChange();
     },
     handleReceiveHairdressersSuccess: function (payload) {
         if (!this.business || payload.business.id != this.business.id) {
@@ -90,13 +89,6 @@ module.exports = createStore({
         });
         this.emitChange();
     },
-    getBusiness: function () {
-        // temporary compatibility
-        var routeStore = this.dispatcher.getStore('RouteStore'),
-            businessId = routeStore.getRouteParam('businessId') || routeStore.getRouteParam('id');
-
-        return this.getById(businessId);
-    },
     getHairdressers: function () {
         if (this.business && !this.hairdressers) {
             this.dispatcher.getContext().executeAction(BusinessActions.RefreshHairdressers, {
@@ -106,12 +98,16 @@ module.exports = createStore({
 
         return this.hairdressers || [];
     },
-    getDiscountForBusiness: function() {
-        var max =  _.chain(this.business.timetable)
+    // TODO: move discount code into a discount store
+    getDiscountForBusiness: function(businessId) {
+        var business = this.getById(businessId);
+        if (!business) return;
+
+        var max =  _.chain(business.timetable)
             .map(function(day) {return _.max(_.compact(_.pluck(day, 'discount'))) })
             .max()
             .value();
-        var discountsAvailable = _.chain(this.business.timetable)
+        var discountsAvailable = _.chain(business.timetable)
             .reduce(function(result, timetable, day) {
                 var values = _.compact(_.pluck(timetable, 'discount'));
                 if(values.length > 0) {

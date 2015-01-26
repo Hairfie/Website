@@ -15,22 +15,20 @@ module.exports = function (context, payload, done) {
                 booking: booking
             });
 
-            // context.executeAction(Notify, {
-            //     type: 'SUCCESS',
-            //     body: 'Votre réservation a bien été enregistrée !'
-            // }, function() {});
-
-            var path = context.router.makePath('booking_confirmation', {id: booking.id});
+            var path = context.router.makePath('booking_confirmation', {bookingId: booking.id});
             context.executeAction(Navigate, {path: path}, done);
 
             done();
         })
         .fail(function (error) {
+            console.log(error);
             context.dispatch(BookingEvents.SAVE_FAILURE);
-                context.executeAction(Notify, {
-                    type: 'FAILURE',
-                    body: 'Un problème est survenu, avez vous bien rempli les champs obligatoires ?'
-                }, function() {});
+
+            context.executeAction(Notify, {
+                type: 'FAILURE',
+                body: 'Un problème est survenu, avez vous bien rempli les champs obligatoires ?'
+            }, function() {});
+
             done(error);
         });
 };

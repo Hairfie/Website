@@ -2,6 +2,6 @@
 
 module.exports = {
     Save            : require('./Save'),
-    Open            : require('./Open'),
+    Fetch           : require('./Fetch'),
     RouteOpen       : require('./RouteOpen')
 };

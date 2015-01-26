@@ -98,34 +98,34 @@ module.exports = {
         authRequired: true
     },
     show_hairfie: {
-        path: '/hairfies/:id',
+        path: '/hairfies/:hairfieId',
         method: 'get',
         action: require('../actions/Hairfie/RouteOpen'),
         pageComponent: require('../components/ShowHairfiePage.jsx')
     },
     show_business: {
-        path: '/businesses/:id/:slug',
+        path: '/businesses/:businessId/:businessSlug',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
     show_business_without_slug: {
-        path: '/businesses/:id',
+        path: '/businesses/:businessId',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
     book_business: {
-        path: '/businesses/:id/:slug/booking',
+        path: '/businesses/:businessId/:businessSlug/booking',
         method: 'get',
         action: require('../actions/Business/RouteOpen'),
         pageComponent: require('../components/BusinessBookingPage.jsx')
     },
     booking_confirmation: {
-        path: '/bookings/:id',
+        path: '/bookings/:bookingId',
         method: 'get',
         action: require('../actions/Booking/RouteOpen'),
-        pageComponent: require('../components/BusinessBookingConfirmation.jsx')
+        pageComponent: require('../components/BusinessBookingConfirmationPage.jsx')
     },
     search: {
         path: '/search',

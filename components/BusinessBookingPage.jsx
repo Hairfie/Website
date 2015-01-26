@@ -31,28 +31,22 @@ module.exports = React.createClass({
         storeListeners: [BusinessStore, BookingStore]
     },
     getStateFromStores: function () {
-        var booking  = this.getStore(BookingStore).getBooking(),
-            business = this.getStore(BusinessStore).getBusiness(),
-            discountObj = this.getStore(BusinessStore).getDiscountForBusiness();
         return {
-            business: business,
-            booking: booking,
-            discountObj: discountObj
+            business    : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
+            discountObj : this.getStore(BusinessStore).getDiscountForBusiness(this.props.route.params.businessId)
         }
     },
     getInitialState: function () {
         return this.getStateFromStores()
     },
     render: function () {
-        var business = this.state.business,
-            booking = this.state.booking,
-            contentNode = this.renderBookingForm();
+        var loading = _.isUndefined(this.state.business);
 
-            return (
-                <PublicLayout context={this.props.context} customClass={'booking'}>
-                    {contentNode}
-                </PublicLayout>
-            );
+        return (
+            <PublicLayout loading={loading} context={this.props.context} customClass="booking">
+                {this.renderBookingForm()}
+            </PublicLayout>
+        );
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
@@ -99,12 +93,12 @@ module.exports = React.createClass({
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-5 picture">
-                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
                                 <img src={business.pictures[0].url + '?height=300&width=300'} className="img-responsive" />
                             </NavLink>
                         </div>
                         <div className="col-sm-7">
-                            <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={context}>
+                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
                                 <h2>{business.name}</h2>
                             </NavLink>
                             <span className="address">

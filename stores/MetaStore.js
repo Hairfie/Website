@@ -1,40 +1,54 @@
 'use strict';
 
 var createStore = require('fluxible-app/utils/createStore');
-var AuthStore = require('./AuthStore');
-var debug = require('debug')('App:MetaStore');
-var BusinessEvents = require('../constants/BusinessConstants').Events;
-var HairfieEvents = require('../constants/HairfieConstants').Events;
-
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var metaGenerator = require('../lib/metaGenerator.js');
-
 var _ = require('lodash');
-
-var routes = require('../configs/routes');
 
 module.exports = createStore({
     storeName: 'MetaStore',
     handlers: makeHandlers({
-        'getBusinessMetadata': BusinessEvents.OPEN_SUCCESS,
-        'getHairfieMetadata': HairfieEvents.OPEN_SUCCESS
+        handleChangeRouteSuccess: 'CHANGE_ROUTE_SUCCESS'
     }),
-    getCurrentMetadata: function() {
-        if (!this.currentMetas) {
-            return { metas: metaGenerator.getBasicMetadata() };
-        } else {
-            return { metas: this.currentMetas };
+    initialize: function () {
+        this.metas = [];
+    },
+    handleChangeRouteSuccess: function (payload) {
+        switch (payload.name) {
+            case 'show_business':
+            case 'show_business_without_slug':
+            case 'book_business':
+                this._setupBusinessMetas(payload.params.businessId);
+                break;
+
+            case 'show_hairfie':
+                this._setupHairfieMetas(payload.params.hairfieId);
+                break;
+
+            default:
+                this._setupDefaultMetas();
         }
     },
-    getBusinessMetadata: function (payload) {
-        this.currentMetas = metaGenerator.getBusinessMetadata(payload.business);
+    getTitle: function () {
+        var meta = _.find(this.metas, {property: 'og:title'});
+
+        return meta && meta.content;
+    },
+    getMetas: function() {
+        return this.metas;
+    },
+    _setupDefaultMetas: function () {
+        this.metas = metaGenerator.getBasicMetadata();
         this.emitChange();
     },
-    getHairfieMetadata: function (payload) {
-        this.currentMetas = metaGenerator.getHairfieMetadata(payload.hairfie);
+    _setupBusinessMetas: function (businessId) {
+        var business = this.dispatcher.getStore('BusinessStore').getById(businessId);
+        this.metas = metaGenerator.getBusinessMetadata(business);
         this.emitChange();
     },
-    getCurrentTitle: function() {
-        return _.find(this.getCurrentMetadata().metas, { property: 'og:title' }).content;
+    _setupHairfieMetas: function (hairfieId) {
+        var hairfie = this.dispatcher.getStore('HairfieStore').getById(hairfieId);
+        this.metas = metaGenerator.getHairfieMetadata(hairfie);
+        this.emitChange();
     }
 });

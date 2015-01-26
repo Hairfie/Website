@@ -13,7 +13,7 @@ var Html = React.createClass({
                 <meta charSet="utf-8" />
                 <title>{this.props.title}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-                {this.props.metas.metas.map(function(metaObj) {
+                {this.props.metas.map(function(metaObj) {
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
                 <link rel="stylesheet" href="/css/style.css" />

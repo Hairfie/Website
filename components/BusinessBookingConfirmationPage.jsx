@@ -27,28 +27,21 @@ module.exports = React.createClass({
         storeListeners: [BookingStore]
     },
     getStateFromStores: function () {
-        var booking  = this.getStore(BookingStore).getBooking(),
-            business = booking ? booking.business : null;
         return {
-            business: business,
-            booking: booking
+            booking: this.getStore(BookingStore).getById(this.props.route.params.bookingId)
         }
     },
     getInitialState: function () {
         return this.getStateFromStores()
     },
     render: function () {
-        var business = this.state.business,
-            booking = this.state.booking,
-            context = this.props.context,
-            discountNode = this.renderDiscount(booking);
-
-        if(!booking) {
-            return (<span>Loading in progress</span>);
-        }
+        var loading  = _.isUndefined(this.state.booking),
+            booking  = this.state.booking || {},
+            business = booking.business || {},
+            address  = business.address || {};
 
         return (
-            <PublicLayout context={this.props.context} customClass={'booking confirmation'}>
+            <PublicLayout context={this.props.context} loading={loading} customClass="booking confirmation">
                 <div className="row">
                     <Jumbotron>
                         <h2>
@@ -61,7 +54,7 @@ module.exports = React.createClass({
                         <p>
                             En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon
                         </p>
-                        <NavLink routeName="show_business" navParams={{id: business.id, slug: business.slug}} context={this.props.context}>
+                        <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                             <Button className="btn-primary">
                                 Voir les Hairfies de mon salon
                             </Button>
@@ -77,13 +70,13 @@ module.exports = React.createClass({
                             <dd>{weekDayLabelFromInt(moment(booking.timeslot).day())} {moment(booking.timeslot).format("D/MM/YYYY")}</dd>
                             <dt>Horaire :</dt>
                             <dd>{moment(booking.timeslot).format("HH:mm")}</dd>
-                            {discountNode}
+                            {this.renderDiscount(booking)}
                             <dt>Note :</dt>
                             <dd>{booking.comment}</dd>
                             <dt>Nom du salon :</dt>
                             <dd>{business.name}</dd>
                             <dt>Adresse :</dt>
-                            <dd>{business.address.street} {business.address.zipCode} {business.address.city}</dd>
+                            <dd>{address.street} {address.zipCode} {address.city}</dd>
                             <dt>Téléphone :</dt>
                             <dd>{business.phoneNumber}</dd>
                         </dl>
@@ -107,14 +100,13 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     renderDiscount: function(booking) {
-        console.log("booking.discount", booking.discount);
-        if(booking.discount) {
-            return (
-                <div>
-                    <dt>Votre promotion :</dt>
-                    <dd>-{booking.discount} % sur toute la carte</dd>
-                </div>
-            );
-        }
+        if (!booking.discount) return;
+
+        return (
+            <div>
+                <dt>Votre promotion :</dt>
+                <dd>-{booking.discount} % sur toute la carte</dd>
+            </div>
+        );
     }
 });

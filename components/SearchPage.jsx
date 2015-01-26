@@ -53,7 +53,7 @@ module.exports = React.createClass({
     renderBusinessRow: function(business) {
         return (
             <div className="media" key={business.id}>
-                <NavLink context={this.props.context} className="media-left" routeName="show_business" navParams={{id: business.id, slug: business.slug}}>
+                <NavLink context={this.props.context} className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
                     <img src={business.pictures[0].url + '?height=100&width=100'} className="img-responsive" />
                 </NavLink>
                 <div className="media-body">

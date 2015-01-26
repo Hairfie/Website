@@ -4,6 +4,8 @@ var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
 
 module.exports = function (context, payload, done) {
+    var done = done || function () {};
+
     context.dispatch(BusinessEvents.RECEIVE_HAIRDRESSERS);
 
     hairfieApi

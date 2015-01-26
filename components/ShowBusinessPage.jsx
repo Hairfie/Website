@@ -25,114 +25,92 @@ module.exports = React.createClass({
         storeListeners: [BusinessStore, BusinessServiceStore]
     },
     getStateFromStores: function () {
-        var business = this.getStore(BusinessStore).getBusiness(),
-            discountObj = this.getStore(BusinessStore).getDiscountForBusiness(),
-            services = this.getStore(BusinessServiceStore).getBusinessServicesByBusiness(business);
-
         return {
-            business: business,
-            discountObj: discountObj,
-            services: services
-        }
+            business    : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
+            discountObj : this.getStore(BusinessStore).getDiscountForBusiness(this.props.route.params.businessId),
+            services    : this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId)
+        };
     },
     getInitialState: function () {
         return this.getStateFromStores();
     },
     render: function () {
-        var business = this.state.business;
-        if(!business) {
-            return (
-                <div>Loading Business in progress</div>
-            );
-        } else {
-            var address;
+        var loading  = _.isUndefined(this.state.business),
+            business = this.state.business || {};
 
-            if (business.address) {
-                address = (
-                    <span className="content">
-                        {business.address.street} <br />
-                        {business.address.zipCode + ' ' + business.address.city}
-                    </span>
-                )
-            } else {
-                address = (
-                    <p>
-                        Information not available
-                    </p>
-                )
-            }
-
-            var mapElement;
-            if (business.gps) {
-                mapElement = <Map marker={{lat: business.gps.lat, lng: business.gps.lng, title: business.name}} />
-            }
-
-            var bookingButtonNode, phoneNode;
-
-            if(business.isBookable) {
-                bookingButtonNode = (
-                    <p className="booking-container">
-                        <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
-                            <Button className="btn-booking">
-                                Réserver
-                            </Button>
-                        </NavLink>
-                    </p>
-                );
-            } else {
-                phoneNode = (
-                    <p className="info phone">
-                        <span className="icon icon-phone"></span>
-                        <span className="content">
-                            <span className="label label-red">{this.state.business.phoneNumber ? this.state.business.phoneNumber : 'Information not available'  }</span>
-                        </span>
-                    </p>
-                );
-            }
-
-            return (
-                <PublicLayout context={this.props.context}>
-                    <div className="row" id="business-header">
-                        <div className="col-sm-3 col-xs-12 map">
-                            {mapElement}
-                        </div>
-                        <div className="col-sm-6 col-xs-6 infos">
-                            <h1>{business.name}</h1>
-                            <p className="info address">
-                                <span className="icon icon-address"></span>
-                                { address }
-                            </p>
-                            {phoneNode}
-                            {this.renderDiscountNode()}
-                            {this.renderServicesNode()}
-                            {bookingButtonNode}
-                            <p>
-                                <ClaimExistingBusiness context={this.props.context} business={business} />
-                            </p>
-                        </div>
-                        <div className="col-sm-3 col-xs-6 pictures">
-                            <img src={business.pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
-                        </div>
+        return (
+            <PublicLayout context={this.props.context}>
+                <div className="row" id="business-header">
+                    <div className="col-sm-3 col-xs-12 map">
+                        {this.renderMap()}
                     </div>
-                    <div className="row business-hairfies">
-                        <ShowHairfies businessId={this.state.business.id} context={this.props.context} />
+                    <div className="col-sm-6 col-xs-6 infos">
+                        <h1>{business.name}</h1>
+                        <p className="info address">
+                            <span className="icon icon-address"></span>
+                            {this.renderAddress()}
+                        </p>
+                        {this.renderPhoneNode()}
+                        {this.renderDiscountNode()}
+                        {this.renderServicesNode()}
+                        {this.renderBookingButton()}
+                        <p>
+                            <ClaimExistingBusiness context={this.props.context} business={business} />
+                        </p>
                     </div>
-                </PublicLayout>
-            );
-        }
+                    <div className="col-sm-3 col-xs-6 pictures">
+                        {this.renderPictures() }
+                    </div>
+                </div>
+                <div className="row business-hairfies">
+                    <ShowHairfies businessId={business.id} context={this.props.context} />
+                </div>
+            </PublicLayout>
+        );
     },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
+    renderPictures: function () {
+        var pictures = this.state.business && this.state.business.pictures;
+
+        if (!pictures || 0 == pictures.length) return;
+
+        return <img src={pictures[0].url + '?height=430&width=300'} className="img-rounded img-responsive"/>
+    },
+    renderAddress: function () {
+        var address = this.state.business && this.state.business.address;
+
+        if (!address) {
+            return <p>Information non disponible.</p>;
+        }
+
+        return (
+            <span className="content">
+                {address.street} <br />
+                {address.zipCode + ' ' + address.city}
+            </span>
+        );
+    },
+    renderMap: function () {
+        var business = this.state.business,
+            gps      = business && business.gps;
+
+        if (!business) return;
+
+        return <Map marker={{lat: gps.lat, lng: gps.lng, title: business.name}} />;
     },
     renderDiscountNode: function() {
+        var business    = this.state.business,
+            discountObj = this.state.discountObj;
+
+        if (!discountObj || !discountObj.max) return;
+
         if(this.state.discountObj.max) {
             return (
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
-                        <NavLink routeName="book_business" navParams={{id: this.state.business.id, slug: this.state.business.slug}} context={this.props.context}>
+                        <NavLink routeName="book_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                             <span className="label label-discount">
-                                {this.state.discountObj.max} %
+                                {discountObj.max} %
                             </span>
                         </NavLink>
                         <span className="legend">
@@ -165,6 +143,38 @@ module.exports = React.createClass({
                 { service.service.label + ' : ' + service.price.amount + '€' }
             </li>
         );
+    },
+    renderBookingButton: function () {
+        var business = this.state.business;
+
+        if (!business || !business.isBookable) return;
+
+        return (
+            <p className="booking-container">
+                <NavLink routeName="book_business" navParams={{businessId: this.state.business.id, businessSlug: this.state.business.slug}} context={this.props.context}>
+                    <Button className="btn-booking">
+                        Réserver
+                    </Button>
+                </NavLink>
+            </p>
+        );
+    },
+    renderPhoneNode: function () {
+        var business = this.state.business;
+
+        if (!business || business.isBookable) return;
+
+        return (
+            <p className="info phone">
+                <span className="icon icon-phone"></span>
+                <span className="content">
+                    <span className="label label-red">{business.phoneNumber ? business.phoneNumber : 'Information indisponible'  }</span>
+                </span>
+            </p>
+        );
+    },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
     }
 });
 
