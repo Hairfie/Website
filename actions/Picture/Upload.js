@@ -32,7 +32,6 @@ module.exports = function (context, payload, done) {
             done();
         })
         .fail(function (error) {
-            console.log(error);
             context.dispatch(PictureEvents.UPLOAD_FAILURE, {
                 id: payload.id
             });
