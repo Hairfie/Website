@@ -9,6 +9,8 @@ var BusinessMemberStore = require('../stores/BusinessMemberStore');
 var BusinessMemberActions = require('../actions/BusinessMember');
 var Layout = require('./ProLayout.jsx');
 var Table = require('react-bootstrap/Table');
+var Row = require('react-bootstrap/Row');
+var Col = require('react-bootstrap/Col');
 var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var Input = require('react-bootstrap/Input');
@@ -35,8 +37,22 @@ var BusinessMemberModal = React.createClass({
                 <div className="modal-body">
                     <UserPicker ref="user" defaultUser={this.state.selectedUser} context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
                     <PictureInput context={this.props.context} container="business-pictures" ref="picture" label="Photo" defaultPicture={businessMember.picture} />
-                    <Input ref="firstName" label="Prénom" type="text" defaultValue={businessMember.firstName} value={user.firstName} readOnly={hasUser} />
-                    <Input ref="lastName" label="Nom" type="text" defaultValue={businessMember.lastName} value={user.lastName} readOnly={hasUser} />
+                    <Row>
+                        <Col xs={4}>
+                            <Input ref="gender" label="Genre" type="select" defaultValue={businessMember.gender} value={user.gender} readOnly={hasUser}>
+                                <option value="MALE">Homme</option>
+                                <option value="FEMALE">Femme</option>
+                            </Input>
+                        </Col>
+                        <Col xs={4}>
+                            <Input ref="firstName" label="Prénom" type="text" defaultValue={businessMember.firstName} value={user.firstName} readOnly={hasUser} />
+                        </Col>
+                        <Col xs={4}>
+                            <Input ref="lastName" label="Nom" type="text" defaultValue={businessMember.lastName} value={user.lastName} readOnly={hasUser} />
+                        </Col>
+                    </Row>
+                    <Input ref="email" label="Email" type="text" defaultValue={businessMember.email} />
+                    <Input ref="phoneNumber" label="Téléphone" type="text" defaultValue={businessMember.phoneNumber} />
                     <Input ref="hidden" label="Cacher ce membre" type="checkbox" defaultChecked={businessMember.hidden} />
                 </div>
                 <div className="modal-footer">
@@ -55,6 +71,8 @@ var BusinessMemberModal = React.createClass({
             picture     : this.refs.picture.getPicture(),
             firstName   : this.refs.firstName.getValue(),
             lastName    : this.refs.lastName.getValue(),
+            email       : this.refs.email.getValue(),
+            phoneNumber : this.refs.phoneNumber.getValue(),
             hidden      : this.refs.hidden.getChecked(),
             active      : true
         });
