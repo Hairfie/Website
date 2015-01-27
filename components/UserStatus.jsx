@@ -2,7 +2,7 @@
 
 var React = require('react');
 var debug = require('debug')('Component:UserStatus');
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');

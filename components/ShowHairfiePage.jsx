@@ -10,7 +10,7 @@ if (typeof global.Intl == 'undefined') {
 var React = require('react');
 var _ = require('lodash');
 
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var ReactIntlMixin = require('react-intl');
 var NavLink = require('flux-router-component').NavLink;
 

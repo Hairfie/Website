@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var ServiceStore = require('../stores/ServiceStore');
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessServiceStore = require('../stores/BusinessServiceStore');

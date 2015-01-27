@@ -1,6 +1,6 @@
 'use strict';
 
-var createStore = require('fluxible-app/utils/createStore');
+var createStore = require('fluxible/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var _ = require('lodash');
 var FacebookActions = require('../actions/Facebook');

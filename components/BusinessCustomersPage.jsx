@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessCustomersStore = require('../stores/BusinessCustomersStore');
 var BusinessActions = require('../actions/Business');

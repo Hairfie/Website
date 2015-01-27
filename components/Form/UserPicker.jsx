@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var UserSuggestionStore = require('../../stores/UserSuggestionStore');
 var Input = require('react-bootstrap/Input');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');

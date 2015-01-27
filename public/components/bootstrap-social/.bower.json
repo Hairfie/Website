@@ -21,6 +21,5 @@
   },
   "_source": "git://github.com/lipis/bootstrap-social.git",
   "_target": "~4.8.0",
-  "_originalSource": "bootstrap-social",
-  "_direct": true
+  "_originalSource": "bootstrap-social"
 }

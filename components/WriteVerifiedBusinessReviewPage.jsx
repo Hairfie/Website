@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react/addons');
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 var BusinessReviewRequestStore = require('../stores/BusinessReviewRequestStore');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');

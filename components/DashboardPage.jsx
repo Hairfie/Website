@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 
 var ProLayout = require('./ProLayout.jsx');
 var NavLink = require('flux-router-component').NavLink;
