@@ -56,6 +56,11 @@ module.exports = createStore({
             this.emitChange();
         }
     },
+    getActiveByBusiness: function (businessId) {
+        var members = this.getByBusiness(businessId);
+
+        return members && _.filter(members, 'active');
+    },
     getByBusiness: function (businessId) {
         var stored = this.businessMembers[businessId];
 

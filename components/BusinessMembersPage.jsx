@@ -13,6 +13,7 @@ var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
+var Glyphicon = require('react-bootstrap/Glyphicon');
 var Picture = require('./Partial/Picture.jsx');
 var UserPicker = require('./Form/UserPicker.jsx');
 var PictureInput = require('./Form/PictureInput.jsx');
@@ -37,7 +38,6 @@ var BusinessMemberModal = React.createClass({
                     <Input ref="firstName" label="Prénom" type="text" defaultValue={businessMember.firstName} value={user.firstName} readOnly={hasUser} />
                     <Input ref="lastName" label="Nom" type="text" defaultValue={businessMember.lastName} value={user.lastName} readOnly={hasUser} />
                     <Input ref="hidden" label="Cacher ce membre" type="checkbox" defaultChecked={businessMember.hidden} />
-                    <Input ref="active" label="Activer ce membre" type="checkbox" defaultChecked={!businessMember || businessMember.active} />
                 </div>
                 <div className="modal-footer">
                     <Button onClick={this.save}>{this.props.businessMember ? 'Sauver les modifications' : 'Ajouter à l\'équipe'}</Button>
@@ -56,7 +56,7 @@ var BusinessMemberModal = React.createClass({
             firstName   : this.refs.firstName.getValue(),
             lastName    : this.refs.lastName.getValue(),
             hidden      : this.refs.hidden.getChecked(),
-            active      : this.refs.active.getChecked()
+            active      : true
         });
         this.props.onRequestHide();
     }
@@ -70,7 +70,7 @@ module.exports = React.createClass({
     getStateFromStores: function () {
         return {
             business        : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
-            businessMembers : this.getStore(BusinessMemberStore).getByBusiness(this.props.route.params.businessId)
+            businessMembers : this.getStore(BusinessMemberStore).getActiveByBusiness(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {
@@ -90,7 +90,6 @@ module.exports = React.createClass({
                             <th>Photo</th>
                             <th>Nom</th>
                             <th>Caché ?</th>
-                            <th>Actif ?</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -116,14 +115,24 @@ module.exports = React.createClass({
                 <td style={{width: '50px'}}>{picture}</td>
                 <td>{businessMember.firstName} {businessMember.lastName}</td>
                 <td>{businessMember.hidden ? 'oui' : 'non'}</td>
-                <td>{businessMember.active ? 'oui' : 'non'}</td>
                 <td>
                     <ModalTrigger modal={<BusinessMemberModal context={this.props.context} businessMember={businessMember} onSave={this.saveBusinessMember} />}>
                         <Button bsSize="xsmall">Modifier</Button>
                     </ModalTrigger>
+                    <Button bsSize="xsmall" onClick={this.delete.bind(this, businessMember)}><Glyphicon glyph="remove" /> Supprimer</Button>
                 </td>
             </tr>
         );
+    },
+    delete: function (businessMember) {
+        if (!confirm('Voulez-vous vraiment supprimer ce membre ?')) return;
+
+        this.props.context.executeAction(BusinessMemberActions.Save, {
+            businessMember: {
+                id      : businessMember.id,
+                active  : false
+            }
+        });
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
@@ -134,8 +143,5 @@ module.exports = React.createClass({
         this.props.context.executeAction(BusinessMemberActions.Save, {
             businessMember: businessMember
         });
-    },
-    updateBusinessMemberWithValues: function (businessMember, values) {
-        this.saveBusinessMember(_.merge({}, values, {id: businessMember.id}));
     }
 });

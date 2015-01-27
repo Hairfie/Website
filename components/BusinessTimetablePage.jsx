@@ -99,7 +99,7 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            business: this.getStore(BusinessStore).getBusiness()
+            business: this.getStore(BusinessStore).getById(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {
