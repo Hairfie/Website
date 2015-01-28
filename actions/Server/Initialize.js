@@ -25,8 +25,7 @@ function authenticateRequest(context, request) {
 function loginWithAuthToken(context, token) {
     return hairfieApi
         .getUser(token.userId, token)
-        .then(
-            function (user) {
+        .then(function (user) {
                 return hairfieApi
                     .getManagedBusinesses(user, token)
                     .then(function (businesses) {
@@ -39,11 +38,10 @@ function loginWithAuthToken(context, token) {
                             managedBusinesses   : businesses
                         });
                     });
-            },
-            function () {
-                context.dispatch(AuthEvents.LOGIN_FAILURE);
-            }
-        );
+        })
+        .fail(function () {
+            context.dispatch(AuthEvents.LOGIN_FAILURE);
+        });
 }
 
 function navigate(context, request) {
