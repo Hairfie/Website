@@ -26,6 +26,7 @@ module.exports = function (context, payload, done) {
         })
         .then(function(business) {
             context.dispatch(BusinessEvents.RECEIVE_SUCCESS, {
+                id      : business.id,
                 business: business
             });
             done();

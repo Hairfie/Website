@@ -18,19 +18,19 @@ module.exports = createStore({
         handleSaveSuccess: BusinessMemberEvents.SAVE_SUCCESS
     }),
     handleReceiveBusiness: function (payload) {
-        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+        this.businessMembers[payload.businessId] = _.assign({}, this.businessMembers[payload.businessId], {
             loading: true
         });
     },
     handleReceiveBusinessSuccess: function (payload) {
-        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+        this.businessMembers[payload.businessId] = _.assign({}, this.businessMembers[payload.businessId], {
             loading : false,
             entities: payload.businessMembers
         });
         this.emitChange();
     },
     handleReceiveBusinessFailure: function (payload) {
-        this.businessMembers[payload.businessId] = _.merge({}, this.businessMembers[payload.businessId], {
+        this.businessMembers[payload.businessId] = _.assign({}, this.businessMembers[payload.businessId], {
             loading : false
         });
         this.emitChange();

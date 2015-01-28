@@ -26,13 +26,15 @@ module.exports = createStore({
         this.uploadInProgress = false;
     },
     handleReceive: function (payload) {
-        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
             loading: true
         });
         this.emitChange();
     },
     handleReceiveSuccess: function (payload) {
-        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+        console.log('receive business', payload);
+
+        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
             entity  : payload.business,
             loading : false
         });
@@ -45,7 +47,7 @@ module.exports = createStore({
         this.emitChange();
     },
     handleReceiveFailure: function (payload) {
-        this.businesses[payload.id] = _.merge({}, this.businesses[payload.id], {
+        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
             loading: false
         });
         this.emitChange();

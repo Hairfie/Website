@@ -25,7 +25,7 @@ module.exports = createStore({
         this.hairfies = state.hairfies;
     },
     handleReceive: function (payload) {
-        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
             loading: true
         });
         this.emitChange();
@@ -34,7 +34,7 @@ module.exports = createStore({
         var hairfie = payload.hairfie;
         if (hairfie) hairfie.descriptions = this._generateDescriptions(hairfie);
 
-        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
             entity  : hairfie,
             loading : false
         });
@@ -42,7 +42,7 @@ module.exports = createStore({
         this.emitChange();
     },
     handleReceiveFailure: function (payload) {
-        this.hairfies[payload.id] = _.merge({}, this.hairfies[payload.id], {
+        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
             loading: false
         });
 

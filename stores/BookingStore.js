@@ -25,20 +25,20 @@ module.exports = createStore({
         this.bookings = state.bookings || {};
     },
     handleReceive: function (payload) {
-        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
             loading: true
         });
         this.emitChange();
     },
     handleReceiveSuccess: function (payload) {
-        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
             loading : false,
             entity  : payload.booking
         });
         this.emitChange();
     },
     handleReceiveFailure: function (payload) {
-        this.bookings[payload.id] = _.merge({}, this.bookings[payload.id], {
+        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
             loading: false
         });
         this.emitChange();

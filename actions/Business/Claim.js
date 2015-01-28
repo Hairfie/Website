@@ -19,7 +19,7 @@ module.exports = function (context, payload, done) {
                 business: business
             });
 
-            var path = context.router.makePath('pro_business', {id: business.id});
+            var path = context.router.makePath('pro_business', {businessId: business.id});
 
             context.executeAction(Navigate, {path: path}, done);
         })
