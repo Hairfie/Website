@@ -30,7 +30,6 @@ var ConnectFacebookPageModal = React.createClass({
     },
     getStateFromStores: function () {
         return {
-            business        : this.getStore(BusinessStore).getBusiness(),
             hasPermissions  : this.getStore(FacebookStore).hasPermissions(this.facebookPermissions),
             managedPages    : this.getStore(FacebookStore).getPagesWithCreateContentPermission()
         }
@@ -91,7 +90,7 @@ var ConnectFacebookPageModal = React.createClass({
         var facebookPage = _.find(this.state.managedPages, {id: this.refs.page.getValue()});
         if (facebookPage) {
             this.props.context.executeAction(BusinessActions.SaveFacebookPage, {
-                business    : this.state.business,
+                business    : this.props.business,
                 facebookPage: facebookPage
             });
 
@@ -106,16 +105,8 @@ var FacebookPanel = React.createClass({
         storeListeners: [BusinessStore, BusinessFacebookPageStore]
     },
     getStateFromStores: function () {
-        var business = this.getStore(BusinessStore).getBusiness(),
-            page     = null;
-
-        if (business) {
-            page = this.getStore(BusinessFacebookPageStore).getFacebookPageByBusiness(business);
-        }
-
         return {
-            business: business,
-            page    : page
+            page: this.props.business && this.getStore(BusinessFacebookPageStore).getFacebookPageByBusiness(this.props.business)
         };
     },
     getInitialState: function () {
@@ -157,7 +148,7 @@ var FacebookPanel = React.createClass({
     },
     renderBodyWithoutPage: function () {
         return (
-            <ModalTrigger modal={<ConnectFacebookPageModal context={this.props.context} />}>
+            <ModalTrigger modal={<ConnectFacebookPageModal context={this.props.context} business={this.props.business} />}>
                 <Button>Connecter une page facebook</Button>
             </ModalTrigger>
         );
@@ -167,7 +158,7 @@ var FacebookPanel = React.createClass({
     },
     disconnectPage: function () {
         this.props.context.executeAction(BusinessActions.DeleteFacebookPage, {
-            business: this.state.business
+            business: this.props.business
         });
     }
 });
@@ -178,7 +169,7 @@ module.exports = React.createClass({
         storeListeners: [BusinessStore, BusinessFacebookPageStore]
     },
     getStateFromStores: function () {
-        var business = this.getStore(BusinessStore).getBusiness();
+        var business = this.getStore(BusinessStore).getById(this.props.route.params.businessId);
 
         return {
             business: business
@@ -191,7 +182,7 @@ module.exports = React.createClass({
         return (
             <Layout context={this.props.context} business={this.state.business}>
                 <h2>Réseaux Sociaux</h2>
-                <FacebookPanel context={this.props.context} />
+                <FacebookPanel context={this.props.context} business={this.state.business} />
             </Layout>
         );
     },
