@@ -68,7 +68,7 @@ module.exports = React.createClass({
                 businessNode = (
                     <div className="business">
                         <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
-                            Made at { this.state.hairfie.business.name }
+                            { 'Réalisé chez ' + this.state.hairfie.business.name }
                         </NavLink>
                     </div>
                 )
@@ -94,7 +94,9 @@ module.exports = React.createClass({
                                 </div>
                                 <div className="clearfix"></div>
                                 <div className="description">
-                                    { this.state.hairfie.descriptions.display }
+                                    { this.state.hairfie.tags.map(function(tag) {
+                                        return (<span className="label label-default">{tag.name}</span>)
+                                    }) }
                                 </div>
                                 <div className="clearfix"></div>
                                 {businessNode}

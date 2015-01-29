@@ -71,6 +71,11 @@
 
         .description, .business {
             padding-left: 54px;
+            min-height: 20px;
+        }
+
+        .label {
+            margin: 2px;
         }
 
         .business {

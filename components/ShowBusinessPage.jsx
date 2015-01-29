@@ -130,7 +130,9 @@ module.exports = React.createClass({
                 <div className="info services">
                     <span className="icon icon-price"></span>
                     <ul className="content">
+                        <li className="title">Extrait des tarifs :</li>
                         {_.map(services, this.renderServiceNode)}
+                        <li>...</li>
                         <li className="clearfix" />
                     </ul>
                 </div>
