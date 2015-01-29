@@ -24,6 +24,7 @@ var DateTimeConstants = require('../constants/DateTimeConstants');
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 var weekDaysNumber = DateTimeConstants.weekDaysNumber;
 var weekDayLabel = DateTimeConstants.weekDayLabel;
+var orderWeekDays = DateTimeConstants.orderWeekDays;
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -167,7 +168,7 @@ module.exports = React.createClass({
             <div className="discount">
                 <h4><strong>{amount}%</strong> sur toutes les prestations et tous les achats</h4>
                 <p className="discount-description">
-                    Disponible {_.map(days, function(day) {
+                    Disponible {_.map(orderWeekDays(days), function(day) {
                         return weekDayLabel(day) + ' ';
                     }, this)} *
                 </p>

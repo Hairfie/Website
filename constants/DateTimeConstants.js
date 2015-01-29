@@ -1,6 +1,7 @@
 'use strict';
 
 var define = require('../lib/constants/define');
+var _ = require('lodash');
 
 module.exports = {
     Weekdays: define([
@@ -34,5 +35,14 @@ module.exports = {
     },
     weekDayLabelFromInt: function(i) {
         return module.exports.weekDayLabel(module.exports.weekDaysNumber[i]);
+    },
+    orderWeekDays: function(days) {
+        var sortedDays = [];
+
+        _.each(module.exports.Weekdays, function(day) {
+            if(days.indexOf(day) > 0) sortedDays.push(day);
+        });
+
+        return sortedDays;
     }
 };
