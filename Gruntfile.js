@@ -5,73 +5,103 @@ var envify = require('envify');
 var env = process.env.REAL_ENV || process.env.NODE_ENV || 'development';
 
 module.exports = function (grunt) {
-  // show elapsed time at the end
   require('time-grunt')(grunt);
-  // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
   var reloadPort = 35729, files;
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    concurrent: {
+      dev: ['sass', 'watchify', 'nodemon', 'watch'],
+      options: {
+        logConcurrentOutput: true
+      }
+    },
+
     develop: {
       server: {
         file: 'server.js'
       }
     },
+
     sass: {
       options: {
-          sourcemap: 'auto'
-        },
+        sourcemap: 'auto',
+        update: true
+      },
       dist: {
         files: {
           'public/css/style.css' : 'public/scss/style.scss'
         }
       }
     },
-    watch: {
-      options: {
-          nospawn: true,
-          livereload: reloadPort
-      },
-      js: {
-        files: [
-          '*.js',
-          'configs/**/*.js',
-          'services/**/*.js',
-          'lib/**/*.js',
-          'stores/**/*.js',
-          'actions/**/*.js',
-          'components/**/*.jsx',
-          'components/*.jsx',
-        ],
-        tasks: ['watchify', 'develop', 'delayed-livereload']
-      },
-      views: {
-        files: [
-          'views/*.swig',
-          'views/**/*.swig'
-        ],
-        options: { livereload: reloadPort }
-      },
-      css: {
-        files: 'public/scss/**/*.scss',
-        tasks: ['sass']
-      }
-    },
-    wiredep: {
-      task: {
-        src: [
-          'views/**/*.swig',
-          'public/scss/**/*.scss',
-        ],
 
+    nodemon: {
+      dev: {
+        script: 'server.js',
         options: {
-          // https://github.com/taptapship/wiredep#configuration
-          ignorePath: '/public'
+          env: {
+            "NODE_ENV": 'development'
+          },
+          watch: ['server.js', 'client.js', 'app.js', 'public/build/js/app.js'],
+          delay: 0,
+
+          callback: function (nodemon) {
+            nodemon.on('log', function (event) {console.log(event.colour);});
+
+            // Open the application in a new browser window and is optional
+            //nodemon.on('config:update', function () {setTimeout(function() {require('open')('http://localhost:3090', 'Google Chrome Canary');}, 1000);});
+
+            // Update .rebooted to fire Live-Reload
+            nodemon.on('restart', function () {setTimeout(function() {
+              require('fs').writeFileSync('.rebooted', 'rebooted');
+            }, 1000);});
+          }
         }
       }
     },
+
+    watch: {
+      scss: {
+        files: 'public/scss/**/*.scss',
+        tasks: ['sass']
+      },
+      livereload: {
+        files: ['public/build/js/app.js', 'public/css/style.css'],
+        options: {
+          livereload: true,
+          debounceDelay: 5000,
+        }
+      }
+    },
+
+    watchify: {
+      options: {
+        keepalive: true,
+        callback: function(b) {
+          b.transform(require('grunt-react').browserify);
+          return b;
+        }
+      },
+      client: {
+        src: [
+          './client.js',
+          './app.js',
+          './configs/**/*.js',
+          './services/**/*.js',
+          './lib/**/*.js',
+          './stores/**/*.js',
+          './actions/**/*.js',
+          './components/**/*.jsx',
+          './components/*.jsx'
+        ],
+        dest: 'public/build/js/app.js'
+      }
+    },
+
+    // Only used for deployment
     browserify: {
       options: {
         transform: [
@@ -84,48 +114,15 @@ module.exports = function (grunt) {
         dest: 'public/build/js/app.js'
       }
     },
-    watchify: {
-      options: {
-          // defaults options used in b.bundle(opts)
-          detectGlobals: true,
-          insertGlobals: false,
-          ignoreMissing: false,
-          debug: true,
-          standalone: false,
-          keepalive: false,
-          callback: function(b) {
-            b.transform(require('grunt-react').browserify);
-            return b;
-          }
-        },
-        client: {
-          src: ['process', './client.js'],
-          dest: 'public/build/js/app.js'
-        }
-    }
   });
 
-  grunt.config.requires('watch.js.files');
-  files = grunt.config('watch.js.files');
-  files = grunt.file.expand(files);
-
-  grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted.', function () {
-    var done = this.async();
-    setTimeout(function () {
-      request.get('http://localhost:' + reloadPort + '/changed?files=' + files.join(','),  function(err, res) {
-          var reloaded = !err && res.statusCode === 200;
-          if (reloaded)
-            grunt.log.ok('Delayed live reload successful.');
-          else
-            grunt.log.error('Unable to make a delayed live reload.');
-          done(reloaded);
-        });
-    }, 500);
-  });
-
+  // Dev tasks
+  grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-watchify');
-  grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.registerTask('default', ['develop', 'watchify', 'watch', 'sass']);
+
+  grunt.registerTask('default', ['concurrent']);
 };

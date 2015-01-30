@@ -83,7 +83,7 @@ module.exports = React.createClass({
                 </li>
                 <li>
                     <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{businessId: business.id}}>
-                        Photos <span className="icon icon-right-arrow" aria-hidden="true"></span>
+                        Photos du salon<span className="icon icon-right-arrow" aria-hidden="true"></span>
                     </NavLink>
                 </li>
                 <li>

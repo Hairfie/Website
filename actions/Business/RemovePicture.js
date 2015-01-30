@@ -1,1 +1,1 @@
-RemovePicture.js
+//RemovePicture.js
