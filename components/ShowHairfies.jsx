@@ -66,7 +66,7 @@ module.exports = React.createClass({
                 <div className="img-container">
                     { priceNode }
                     <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
-                        <img className="main" src={_.last(hairfie.pictures).url} alt=""/>
+                        <img className="main-picture" src={_.last(hairfie.pictures).url} alt=""/>
                         { hairfie.pictures.length > 1  ? (<img className="thumb" src={_.first(hairfie.pictures).url} />) : null }
                     </NavLink>
                     { deleteNode }
