@@ -68,6 +68,7 @@ var BusinessMemberModal = React.createClass({
         this.props.onSave({
             id          : this.props.businessMember && this.props.businessMember.id,
             user        : this.refs.user.getUser(),
+            gender      : this.refs.gender.getValue(),
             picture     : this.refs.picture.getPicture(),
             firstName   : this.refs.firstName.getValue(),
             lastName    : this.refs.lastName.getValue(),
