@@ -7824,6 +7824,10 @@ button.close {
     text-decoration: none;
     color: #818896; }
 
+.formControl .media-object.thumbnail {
+  width: 58px;
+  height: 58px; }
+
 .icon, .icon-address, .icon-phone, .icon-website, .icon-timetable, .icon-description, .icon-right-arrow, .icon-discount, .icon-price, .icon-open, .icon-closed {
   display: inline-block;
   width: 20px;

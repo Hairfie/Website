@@ -6,7 +6,7 @@ var React = require('react');
 
 module.exports = React.createClass({
     render: function () {
-        return <img {...this.props} src={this.getSrc()} />
+        return <img {...this.props} style={{width:'50px', height:'50px'}} src={this.getSrc()} />
     },
     getSrc: function () {
         var query = [];
