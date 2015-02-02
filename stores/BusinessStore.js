@@ -32,8 +32,6 @@ module.exports = createStore({
         this.emitChange();
     },
     handleReceiveSuccess: function (payload) {
-        console.log('receive business', payload);
-
         this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
             entity  : payload.business,
             loading : false

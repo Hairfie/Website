@@ -17,6 +17,7 @@ module.exports = React.createClass({
                 <div className="row dashboard">
                     <div className="col-sm-12 main">
                         <Loader loading={this.props.loading}>
+                            <FlashMessages context={this.props.context} />
                             {this.props.children}
                         </Loader>
                     </div>
@@ -30,6 +31,7 @@ module.exports = React.createClass({
                     </div>
                     <div className="col-sm-10 col-sm-offset-2 main">
                         <Loader loading={this.props.loading}>
+                            <FlashMessages context={this.props.context} />
                             {this.props.children}
                         </Loader>
                     </div>
@@ -39,7 +41,6 @@ module.exports = React.createClass({
 
         return (
             <div className="proLayout">
-                <FlashMessages context={this.props.context} />
                 <nav className="navbar navbar-default navbar-fixed-top header" role="navigation">
                     <div className="container-fluid">
                         <div className="navbar-header">
