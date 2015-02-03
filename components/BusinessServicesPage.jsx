@@ -23,11 +23,9 @@ var BusinessServiceModal = React.createClass({
         return (
             <Modal {...this.props}>
                 <div className="modal-body">
-                    <Input ref="serviceId" label="Service" type="select" defaultValue={bs.serviceId}>
-                        {this.renderServiceOptions()}
-                    </Input>
+                    <Input ref="label" label="Service" placeholder="Shampoing Coupe Brushing" type="string" defaultValue={bs.label ? bs.label : 'Shampoing Coupe Brushing'} />
                     <Input ref="priceAmount" label="Prix (en €)" type="text" defaultValue={bs.price ? bs.price.amount : null} />
-                    <Input ref="durationMinutes" label="Durée (en minutes)" type="number" defaultValue={bs.durationMinutes} />
+                    <Input ref="durationMinutes" label="Durée (en minutes)" type="number" defaultValue={bs.durationMinutes ? bs.durationMinutes : 60} />
                 </div>
                 <div className="modal-footer">
                     <Button onClick={this.handleSave}>Sauver</Button>
@@ -44,10 +42,10 @@ var BusinessServiceModal = React.createClass({
         var bs = this.props.businessService || {};
         this.props.onSave({
             id              : bs.id,
-            serviceId       : this.refs.serviceId.getValue(),
+            label           : this.refs.label.getValue(),
             price           : {
                 currency    : 'EUR',
-                amount      : this.refs.priceAmount.getValue(),
+                amount      : this.refs.priceAmount.getValue() ? this.refs.priceAmount.getValue() : null,
             },
             durationMinutes : this.refs.durationMinutes.getValue()
         });
@@ -100,7 +98,7 @@ module.exports = React.createClass({
         return (
             <tr key={businessService.id}>
                 <td>
-                    {businessService.service.label}
+                    {businessService.label}
                 </td>
                 <td>
                     {businessService.price}
