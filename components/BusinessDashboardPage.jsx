@@ -112,6 +112,14 @@ module.exports = React.createClass({
                         </NavLink>
                     </div>
                 </div>
+                <div className="col-sm-6 col-md-4 business-dashboard-item">
+                    <div className="thumbnail">
+                        <h3>Réseaux sociaux</h3>
+                        <NavLink context={this.props.context} routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
+                            <button className="btn btn-primary" role="button">Modifier mes réseaux sociaux</button>
+                        </NavLink>
+                    </div>
+                </div>
                 <div className="clearfix" />
             </Layout>
         );
