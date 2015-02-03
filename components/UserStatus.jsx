@@ -125,7 +125,7 @@ module.exports = React.createClass({
             this.props.context.executeAction(FacebookActions.HandleLoginResponse, {
                 response: response
             });
-        }.bind(this), {scopes: facebookConfig.SCOPE});
+        }.bind(this), {scope: facebookConfig.SCOPE});
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

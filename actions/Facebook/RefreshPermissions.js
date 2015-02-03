@@ -1,5 +1,6 @@
 'use strict';
 
+var Promise = require('q');
 var Facebook = require('../../services/facebook');
 var FacebookEvents = require('../../constants/FacebookConstants').Events;
 

@@ -17,6 +17,7 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var Modal = require('react-bootstrap/Modal');
 var ModalTrigger = require('react-bootstrap/ModalTrigger');
+var Facebook = require('../services/facebook');
 var _ = require('lodash');
 
 var ConnectFacebookPageModal = React.createClass({
@@ -27,6 +28,10 @@ var ConnectFacebookPageModal = React.createClass({
     mixins: [StoreMixin],
     statics: {
         storeListeners: [BusinessStore, FacebookStore]
+    },
+    componentWillMount: function () {
+        // we need to be sure Facebook is loaded (@see linkFacebook)
+        Facebook.load();
     },
     getStateFromStores: function () {
         return {
@@ -81,10 +86,21 @@ var ConnectFacebookPageModal = React.createClass({
     onChange: function () {
         this.setState(this.getStateFromStores());
     },
-    linkFacebook: function () {
-        this.props.context.executeAction(FacebookActions.Link, {
-            scope: this.facebookPermissions
-        });
+    linkFacebook: function (e) {
+        e.preventDefault();
+
+        if (typeof window.FB == "undefined") {
+            debug('Facebook not loaded');
+            return;
+        }
+
+        // NOTE: we are breaking the flux architecture here, this si necessary
+        //       to make the Facebook's login popup work on some browsers
+        window.FB.login(function (response) {
+            this.props.context.executeAction(FacebookActions.HandleLinkResponse, {
+                response: response
+            });
+        }.bind(this), {scope: this.facebookPermissions.join(',')});
     },
     connectPage: function () {
         var facebookPage = _.find(this.state.managedPages, {id: this.refs.page.getValue()});

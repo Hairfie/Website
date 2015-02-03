@@ -34,6 +34,10 @@ module.exports = createStore({
             this.permissions = null;
         }
 
+        if (payload.refreshManagedPages) {
+            this.managedPages = null;
+        }
+
         this.emitChange();
     },
     handleReceivePermissions: function (payload) {
