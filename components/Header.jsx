@@ -59,7 +59,7 @@ module.exports = React.createClass({
                         <NavLink context={this.props.context} className="navbar-brand" href="/"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
-                        <ul className="nav navbar-nav navbar-right">
+                        <ul className="nav top-nav navbar-right">
                             <MenuItem context={this.props.context} href="/">Home</MenuItem>
                             <MenuItem context={this.props.context} routeName="search">Trouver son coiffeur</MenuItem>
                             { custom }

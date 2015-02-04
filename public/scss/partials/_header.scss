@@ -10,6 +10,15 @@ nav.header {
     }
 }
 
+.top-nav > li {
+    display: inline-block;
+    float: left;
+
+    a {
+        color: $grey;
+    }
+}
+
 @media (min-width: $screen-sm-min) {
     nav.header {
         height: 100px;
@@ -20,12 +29,16 @@ nav.header {
     }
 
     .navbar-brand,
-    .navbar-nav li a  {
+    .top-nav li a  {
         line-height: 100px;
         height: 100px;
         padding-top: 0;
         font-weight: 200;
         font-size: 21px;
+
+        @media (max-width: $screen-sm-max) {
+            font-size: 15px;
+        }
     }
 
     #logo {
@@ -41,13 +54,24 @@ nav.header {
 }
 
 @media (max-width: $screen-sm-min) {
-
     #logo {
         width:70px;
+    }
+
+    .top-nav > li a {
+        font-weight: 200;
+        font-size: 12px;
     }
 }
 
 img.profile {
-    width: 50px;
-    height: 50px;
+    @media (max-width: $screen-sm-min) {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    @media (min-width: $screen-sm-min) {
+        width: 50px;
+        height: 50px;
+    }
 }

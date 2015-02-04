@@ -1,46 +1,62 @@
+.proLayout {
+    #wrapper {
+        margin-top: 100px;
+    }
+}
+
 .proLayout .navbar .container-fluid {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.sidebar {
-  display: none;
-}
 @media (min-width: $screen-sm-min) {
-  .sidebar {
+  #wrapper:not(.withoutSidebar) {
+    padding-left: 225px;
+  }
+
+  #page-wrapper {
+    padding: 10px;
+  }
+
+  .side-nav {
     position: fixed;
     top: 100px;
     bottom: 0;
-    left: 0;
+    left: 225px;
+    margin-left: -225px;
+    margin-right: -21px; /* 20px padding + 1px border */
+    width: 225px;
     z-index: 1000;
     display: block;
-    padding: 20px;
+    padding: 10px;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    overflow-y: auto;
     background-color: $red-hairfie;
+  }
+  .side-nav>li>a {
+      width: 205px;
+  }
+  .side-nav > li > a {
+    color: white !important;
+
+    span.icon {
+      float: right;
+    }
+  }
+
+  .side-nav > .active > a,
+  .side-nav > .active > a:hover,
+  .side-nav > .active > a:focus {
+    color: $grey;
+    background-color: $grey-body;
+    span.icon {
+      display: none;
+    }
   }
 }
 
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-  color: #FFFFFF;
-
-  span.icon {
-    float: right;
-}
-}
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-  color: $grey;
-  background-color: $grey-body;
-  span.icon {
-    display: none;
+@media (max-width: $screen-sm-min) {
+  .navbar-collapse.navbar-ex1-collapse.collapse {
+    max-height: 100%;
   }
 }
