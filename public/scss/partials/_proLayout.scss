@@ -59,4 +59,10 @@
   .navbar-collapse.navbar-ex1-collapse.collapse {
     max-height: 100%;
   }
+
+  #wrapper.withoutSidebar {
+    .navbar-toggle.collapsed {
+      display: none !important;
+    }
+  }
 }

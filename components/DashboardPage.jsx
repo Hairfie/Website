@@ -44,7 +44,7 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-6 col-md-4 business-item" key={business.id}>
                 <div className="thumbnail">
-                    <img src={business.pictures[0].url + '?height=200'} className="img-responsive" />
+                    <img src={business.pictures[0].url + '?height=200&width=440'} className="img-responsive" />
                     <div className="caption">
                         <h3>{business.name}</h3>
                         <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>

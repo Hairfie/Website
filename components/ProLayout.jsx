@@ -36,21 +36,23 @@ module.exports = React.createClass({
     renderHeader: function() {
         return (
             <nav className="navbar navbar-default navbar-fixed-top header" role="navigation">
-                <div className="navbar-header">
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-expanded="false" aria-controls="navbar">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                    </button>
-                    <NavLink context={this.props.context} className="navbar-brand" href="/"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                <div className="container">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-expanded="false" aria-controls="navbar">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                        <NavLink context={this.props.context} className="navbar-brand" href="/"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                    </div>
+                    <ul className="nav navbar-right top-nav">
+                        <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
+                        <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
+                        <UserStatus context={this.props.context} currentBusiness={this.props.business} />
+                    </ul>
+                    {this.renderBusinessMenu(this.props.business)}
                 </div>
-                <ul className="nav navbar-right top-nav">
-                    <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
-                    <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
-                    <UserStatus context={this.props.context} currentBusiness={this.props.business} />
-                </ul>
-                {this.renderBusinessMenu(this.props.business)}
             </nav>
         );
     },

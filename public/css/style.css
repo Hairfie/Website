@@ -7953,8 +7953,8 @@ nav.header {
     font-size: 12px; } }
 @media (max-width: 768px) {
   img.profile {
-    width: 25px !important;
-    height: 25px !important; } }
+    width: 20px !important;
+    height: 20px !important; } }
 @media (min-width: 768px) {
   img.profile {
     width: 50px;
@@ -8394,7 +8394,10 @@ div.day {
       display: none; } }
 @media (max-width: 768px) {
   .navbar-collapse.navbar-ex1-collapse.collapse {
-    max-height: 100%; } }
+    max-height: 100%; }
+
+  #wrapper.withoutSidebar .navbar-toggle.collapsed {
+    display: none !important; } }
 .red-circle, .hairfies-list .hairfie-picture .circle, .hairfies-list .hairfie-picture .delete-button {
   width: 25px;
   height: 25px;
