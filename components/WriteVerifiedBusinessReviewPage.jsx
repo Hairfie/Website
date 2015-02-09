@@ -14,6 +14,12 @@ var Col = require('react-bootstrap/Col');
 var BusinessReviewActions = require('../actions/BusinessReview');
 var _ = require('lodash');
 
+var RequiredAsterisk = React.createClass({
+    render: function () {
+        return <span className="required-asterisk">*</span>;
+    }
+});
+
 var RatingInput = React.createClass({
     getInitialState: function () {
         return {
@@ -87,13 +93,18 @@ var ReviewForm = React.createClass({
             <div>
                 {errorsNode}
                 <Row>
-                    <Col md={4}>
-                        <Input ref="firstName" type="text" label="Votre prénom (requis)" />
+                    <Col md={6}>
+                        <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
                     </Col>
-                    <Col md={4}>
-                        <Input ref="lastName" type="text" label="Votre nom (requis)" />
+                    <Col md={6}>
+                        <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> (sera masqué)</div>} />
                     </Col>
-                    <Col md={4}>
+                </Row>
+                <Row>
+                    <Col md={6}>
+                        <Input ref="email" type="email" label="Votre adresse email" disabled={true} value={this.props.businessReviewRequest.email} />
+                    </Col>
+                    <Col md={6}>
                         <Input ref="phoneNumber" type="text" label="Votre téléphone (au cas où)" />
                     </Col>
                 </Row>
@@ -122,9 +133,13 @@ var ReviewForm = React.createClass({
 
                 <hr />
 
-                <Input ref="comment" type="textarea" label="Votre commentaire" />
+                <Input ref="comment" type="textarea" label={<div>Votre commentaire <RequiredAsterisk /></div>} />
 
                 <Button onClick={this.submit}>Déposer l'avis</Button>
+
+                <hr />
+
+                <p><RequiredAsterisk /> Indique les champs requis.</p>
             </div>
         );
     },
@@ -182,16 +197,16 @@ module.exports = React.createClass({
     renderBody: function () {
         var brr = this.state.businessReviewRequest;
 
-        if (undefined === brr) return <p>Chargement des informations...</p>;
+        if (_.isUndefined(brr)) return <p>Chargement des informations...</p>;
         if (!brr) return <p>La page que vous avez demandée est introuvable.</p>;
         if (brr.used) return <p>Votre avis a bien été envoyé.</p>;
         if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
 
         return (
             <div>
-                <p>Votre avis intéresse la communauté, partagez votre expérience :</p>
+                <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>, votre avis intéresse la communauté, partagez votre expérience :</p>
                 <br />
-                <ReviewForm onSubmit={this.submitReview} />
+                <ReviewForm businessReviewRequest={brr} onSubmit={this.submitReview} />
             </div>
         );
     },

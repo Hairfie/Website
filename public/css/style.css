@@ -8592,4 +8592,8 @@ div.day {
   .star-rating:after {
     clear: both; }
 
+.required-asterisk {
+  color: red;
+  font-weight: large; }
+
 /*# sourceMappingURL=style.css.map */
