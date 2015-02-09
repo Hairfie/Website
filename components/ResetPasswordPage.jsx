@@ -9,6 +9,7 @@ var AuthActions = require('../actions/Auth');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
+var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -53,7 +54,15 @@ module.exports = React.createClass({
         return <p>Le jeton de réinitialisation est expiré. Si vous êtes toujours à la recherche de votre mot de passe, veuillez recommencer le processus de réinitialisation de mot de passe.</p>;
     },
     renderSuccessBody: function () {
-        return <p>Votre nouveau mot de passe a bien été pris en compte, vous pouvez maintenant vous connecter avec.</p>
+        return (
+            <div>
+                <p>Votre nouveau mot de passe a bien été pris en compte. Pour continuer, vous pouvez</p>
+                <ul>
+                    <li><NavLink context={this.props.context} routeName="home">retourner à sur le site</NavLink></li>
+                    <li><a href="hairfie://login">ou retourner sur l'application mobile.</a></li>
+                </ul>
+            </div>
+        );
     },
     renderFormBody: function () {
         var button;
