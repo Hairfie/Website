@@ -41,7 +41,6 @@ app.registerStore(require('./stores/BusinessServiceStore'));
 app.registerStore(require('./stores/BusinessFacebookPageStore'));
 app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
-app.registerStore(require('./stores/ServiceStore'));
 app.registerStore(require('./stores/FlashStore'));
 app.registerStore(require('./stores/SlugStore'));
 app.registerStore(require('./stores/UserSuggestionStore'));

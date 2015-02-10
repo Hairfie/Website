@@ -4,7 +4,6 @@
 
 var React = require('react');
 var StoreMixin = require('fluxible').StoreMixin;
-var ServiceStore = require('../stores/ServiceStore');
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessServiceStore = require('../stores/BusinessServiceStore');
 var BusinessServiceActions = require('../actions/BusinessService');
@@ -33,11 +32,6 @@ var BusinessServiceModal = React.createClass({
             </Modal>
         );
     },
-    renderServiceOptions: function () {
-        return this.props.services.map(function (service) {
-            return <option key={service.id} value={service.id}>{service.label}</option>;
-        });
-    },
     handleSave: function () {
         var bs = this.props.businessService || {};
         this.props.onSave({
@@ -56,11 +50,10 @@ var BusinessServiceModal = React.createClass({
 module.exports = React.createClass({
     mixins: [StoreMixin],
     statics: {
-        storeListeners: [ServiceStore, BusinessStore, BusinessServiceStore]
+        storeListeners: [BusinessStore, BusinessServiceStore]
     },
     getStateFromStores: function () {
         return {
-            services        : this.getStore(ServiceStore).getServices(),
             business        : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
             businessServices: this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId)
         };
@@ -88,7 +81,7 @@ module.exports = React.createClass({
                     </tbody>
                 </Table>
 
-                <ModalTrigger modal={<BusinessServiceModal services={this.state.services} onSave={this.saveBusinessService} />}>
+                <ModalTrigger modal={<BusinessServiceModal onSave={this.saveBusinessService} />}>
                     <Button>Ajouter un service</Button>
                 </ModalTrigger>
             </Layout>
@@ -107,7 +100,7 @@ module.exports = React.createClass({
                     {businessService.durationMinutes}
                 </td>
                 <td>
-                    <ModalTrigger modal={<BusinessServiceModal businessService={businessService} services={this.state.services} onSave={this.saveBusinessService} />}>
+                    <ModalTrigger modal={<BusinessServiceModal businessService={businessService} onSave={this.saveBusinessService} />}>
                         <Button bsSize="xsmall">Modifier</Button>
                     </ModalTrigger>
                     <Button bsSize="xsmall" onClick={this.deleteBusinessService.bind(this, businessService)}>Supprimer</Button>
