@@ -43,7 +43,7 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
         } else {
-            custom = (<MenuItem context={this.props.context} href="/pro">Vous êtes coiffeur ?</MenuItem>);
+            custom = (<MenuItem context={this.props.context} routeName="pro_home">Vous êtes coiffeur ?</MenuItem>);
         }
 
         return (
@@ -56,11 +56,11 @@ module.exports = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink context={this.props.context} className="navbar-brand" href="/"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                        <NavLink context={this.props.context} className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav top-nav navbar-right">
-                            <MenuItem context={this.props.context} href="/">Home</MenuItem>
+                            <MenuItem context={this.props.context} routeName="home">Home</MenuItem>
                             <MenuItem context={this.props.context} routeName="search">Trouver son coiffeur</MenuItem>
                             { custom }
                         </ul>

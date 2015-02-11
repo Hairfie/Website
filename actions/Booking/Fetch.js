@@ -1,7 +1,6 @@
 'use strict';
 
 var BookingEvents = require('../../constants/BookingConstants').Events;
-var hairfieApi = require('../../services/hairfie-api-client');
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
@@ -10,8 +9,9 @@ module.exports = function (context, payload, done) {
         id: payload.id
     });
 
-    hairfieApi
-        .getBooking(payload.id, context.getAuthToken())
+    context
+        .getHairfieApi()
+        .getBooking(payload.id, context.getAuthToken(), context.getLocale())
         .then(function (booking) {
             context.dispatch(BookingEvents.RECEIVE_SUCCESS, {
                 id      : payload.id,

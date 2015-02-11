@@ -1,13 +1,13 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var UserEvents = require('../../constants/UserConstants').Events;
 
 module.exports = function (context, payload, done) {
     context.dispatch(UserEvents.RECEIVE_SUGGESTIONS);
 
-    hairfieApi
-        .getUsersByQuery(payload.query, context.getAuthToken())
+    context
+        .getHairfieApi()
+        .getUsersByQuery(payload.query)
         .then(function (users) {
             context.dispatch(UserEvents.RECEIVE_SUGGESTIONS_SUCCESS, {
                 query: payload.query,

@@ -1,13 +1,16 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var AuthEvents = require('../../constants/AuthConstants').Events;
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
-    hairfieApi
-        .getUser(payload.userId, {id: payload.token})
+    var token = {};
+    token.id = payload.token;
+
+    context
+        .getHairfieApi()
+        .getUser(payload.userId, {token: token})
         .then(function (user) {
             context.dispatch(AuthEvents.START_PASSWORD_RECOVERY_SUCCESS, {
                 userId  : payload.userId,

@@ -1,14 +1,14 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessMemberEvents = require('../../constants/BusinessMemberConstants').Events;
 var Notify = require('../Flash/Notify');
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
-    hairfieApi
-        .saveBusinessMember(payload.businessMember, context.getAuthToken())
+    context
+        .getHairfieApi()
+        .saveBusinessMember(payload.businessMember)
         .then(function (businessMember) {
             context.dispatch(BusinessMemberEvents.SAVE_SUCCESS, {
                 businessMember: businessMember

@@ -5,96 +5,79 @@ var makeHandlers = require('../lib/fluxible/makeHandlers');
 var AuthStore = require('./AuthStore');
 var AuthEvents = require('../constants/AuthConstants').Events;
 var debug = require('debug')('App:RouteStore');
-
-var routes = require('../configs/routes');
-
 var _ = require('lodash');
 
-var ROUTE_LOGIN = 'pro_home';
-var ROUTE_AFTER_LOGIN = 'pro_dashboard';
+var navigateAction = require('flux-router-component/actions/navigate');
 
 module.exports = createStore({
     storeName: 'RouteStore',
     handlers: makeHandlers({
-        onChangeRouteSuccess: 'CHANGE_ROUTE_SUCCESS',
-        onAuthChange: [
-            AuthEvents.LOGIN_SUCCESS,
-            AuthEvents.LOGOUT_SUCCESS
-        ]
+        handleChangeRouteSuccess: 'CHANGE_ROUTE_SUCCESS',
+        handleAuthChange: [AuthEvents.LOGIN_SUCCESS, AuthEvents.LOGOUT_SUCCESS]
     }),
+    initialize: function () {
+        this.currentRoute = null;
+    },
     dehydrate: function () {
         return {
-            currentPath: this.currentPath,
-            currentParams: this.currentParams,
-            currentRouteName: this.currentRouteName,
-        }
+            currentRoute: _.assign({}, this.currentRoute, {config: undefined})
+        };
     },
     rehydrate: function (state) {
-        this.currentPath = state.currentPath;
-        this.currentParams = state.currentParams;
-        this.currentRouteName = state.currentRouteName;
-    },
-    onChangeRouteSuccess: function (payload) {
-        if (payload.path != this.currentPath) {
-            debug('routing from '+this.currentPath+' to '+payload.path);
-            this.currentPath = payload.path;
-            this.currentParams = payload.params;
-            this.currentRouteName = payload.name;
-            this.applyAuthRules(true);
-        } else {
-            debug('no change in path, ignoring route change');
+        this.currentRoute = null;
+
+        if (state.currentRoute) {
+            var routeConfig = this.getContext().getRoutes()[state.currentRoute.name];
+            this.currentRoute = _.assign(state.currentRoute, {config: routeConfig});
         }
     },
-    onAuthChange: function (payload) {
+    handleChangeRouteSuccess: function (route) {
+        if (this.currentRoute && (this.currentRoute.url === route.url)) {
+            return;
+        }
+
+        this.currentRoute = route;
+
+        this.emitChange();
+
+        // should not be the responsability of the auth store
+        this.applyAuthRules();
+    },
+    handleAuthChange: function (payload) {
         this.dispatcher.waitFor([AuthStore], this.applyAuthRules.bind(this, false));
     },
     applyAuthRules: function (alwaysEmitChange) {
-        var currentRoute        = this.getCurrentRoute(),
-            oldRouteName        = this.getCurrentRouteName(),
-            isAuthenticated     = !!this.dispatcher.getStore(AuthStore).getUser();
+        var isAuthenticated = !!this.dispatcher.getStore(AuthStore).getUser();
 
-        if (isAuthenticated && currentRoute && currentRoute.config.leaveAfterAuth) {
+        if (isAuthenticated && this.currentRoute && this.currentRoute.config.leaveAfterAuth) {
             debug('user is authenticated, redirecting user to after login page');
-            this.redirectToRoute(ROUTE_AFTER_LOGIN);
+            this.getContext().executeAction(navigateAction, {
+                url: this.getContext().makePath('pro_dashboard')
+            }, function () {});
         }
 
-        if (!isAuthenticated && currentRoute && currentRoute.config.authRequired) {
+        if (!isAuthenticated && this.currentRoute && this.currentRoute.config.authRequired) {
             debug('user is not authenticated, redirecting user to login page');
-            this.redirectToRoute(ROUTE_LOGIN);
-        }
-
-        if (alwaysEmitChange || oldRouteName != this.getCurrentRouteName()) {
-            this.emitChange();
+            this.getContext().executeAction(navigateAction, {
+                url: this.getContext().makePath('pro_home')
+            }, function () {});
         }
     },
-    redirectToRoute: function (routeName, params) {
-        var path = routes[routeName].path;
+    navigateTo: function (routeName, params) {
+        var url = routes[routeName].path;
 
         _.forIn(params, function (value, param) {
-            path = path.replace(param, value);
+            url = url.replace(param, value);
         });
 
         this.currentRouteName = routeName;
-        this.currentPath = path;
+        this.currentUrl = url;
         this.currentParams = params || {};
     },
     getCurrentRoute: function () {
-        if (!this.currentRouteName) return;
-
-        return {
-            name: this.currentRouteName,
-            path: this.currentPath,
-            params: this.currentParams,
-            config: routes[this.currentRouteName],
-            navigate: {
-                path: this.currentPath,
-            }
-        }
+        return this.currentRoute;
     },
-    getCurrentRouteName: function () {
-        return this.currentRouteName;
-    },
-    getRouteParam: function (name) {
-        return this.currentParams[name];
+    getParam: function (name) {
+        return this.currentRoute && this.currentRoute.params[name];
     }
 });

@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var FetchRequest = require('./FetchRequest');
 var _ = require('lodash');
 
@@ -10,8 +9,9 @@ module.exports = function (context, payload, done) {
     var review = _.cloneDeep(payload.businessReview);
     review.request = payload.businessReviewRequest;
 
-    hairfieApi
-        .saveBusinessReview(review)
+    context
+        .getHairfieApi()
+        .saveBusinessReview(review, {token: null})
         .then(function () {
             // refresh the token
             context.executeAction(FetchRequest, {

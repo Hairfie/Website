@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
 var _ = require('lodash');
 var debug = require('debug')('Action:Business:AddPicture');
@@ -10,8 +9,9 @@ module.exports = function (context, payload, done) {
 
     context.dispatch(BusinessEvents.ADD_PICTURE);
 
-    hairfieApi
-        .uploadPicture(payload.pictureToUpload, 'business-pictures', context.getAuthToken())
+    context
+        .getHairfieApi()
+        .uploadPicture(payload.pictureToUpload, 'business-pictures')
         .then(function (picture) {
             context.dispatch(BusinessEvents.ADD_PICTURE_SUCCESS, {
                 picture: picture
@@ -22,7 +22,7 @@ module.exports = function (context, payload, done) {
             business.pictures = _.cloneDeep(payload.business.pictures) || [];
             business.pictures.push(picture);
 
-            return hairfieApi.saveBusiness(business, context.getAuthToken());
+            return context.getHairfieApi().saveBusiness(business);
         })
         .then(function(business) {
             context.dispatch(BusinessEvents.RECEIVE_SUCCESS, {

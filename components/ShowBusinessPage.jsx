@@ -142,7 +142,7 @@ module.exports = React.createClass({
     renderServiceNode: function(service) {
         return (
             <li>
-                { service.service.label + ' : ' + service.price.amount + '€' }
+                { service.label + ' : ' + service.price.amount + '€' }
             </li>
         );
     },

@@ -2,15 +2,46 @@
 
 var React = require('react');
 var FluxibleApp = require('fluxible');
-var routrPlugin = require('fluxible-plugin-routr');
+var Router = require('routr');
+var _ = require('lodash');
 
 var app = new FluxibleApp({
     appComponent: React.createFactory(require('./components/Application.jsx'))
 });
 
-app.plug(routrPlugin({
-    routes: require('./configs/routes')
-}));
+var routes = _.mapValues(require('./configs/routes'), function (route) {
+    return _.assign(route, {path: '/:locale'+route.path});
+});
+
+app.plug({
+    name: 'Router',
+    plugContext: function (options, context) {
+        var router = new Router(routes);
+
+        var makePath = router.makePath.bind(router);
+        router.makePath = function (routeName, params) {
+            var params = _.assign({}, params, {
+                locale: context.getActionContext().getStore('RouteStore').getParam('locale')
+            });
+            return makePath(routeName, params);
+        };
+
+        return {
+            plugActionContext: function (actionContext) {
+                actionContext.router = router;
+            },
+            plugComponentContext: function (componentContext) {
+                componentContext.makePath = router.makePath.bind(router);
+            },
+            plugStoreContext: function (storeContext) {
+                storeContext.makePath = router.makePath.bind(router);
+                storeContext.getRoutes = function () {
+                    return routes;
+                }
+            }
+        };
+    }
+});
 
 app.plug({
     name: 'App',
@@ -30,7 +61,13 @@ app.plug({
     }
 });
 
+app.plug(require('./context/hairfie-api-plugin')({
+    Client: require('./lib/hairfie/client'),
+    apiUrl: require('./configs/hairfie-api').URL
+}));
+
 app.registerStore(require('./stores/RouteStore'));
+app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfiesStore'));

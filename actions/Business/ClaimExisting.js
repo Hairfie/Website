@@ -1,16 +1,17 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
 var Navigate = require('flux-router-component/actions/navigate');
+var debug = require('debug')('Action:Business:ClaimExisting');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.CLAIM_EXISTING);
 
-    var token = context.getAuthToken();
-    console.log("business to claim", payload.business);
-    return hairfieApi
-        .claimExistingBusiness(payload.business, token)
+    debug("business to claim", payload.business);
+
+    return context
+        .getHairfieApi()
+        .claimExistingBusiness(payload.business)
         .then(function (success) {
             context.dispatch(BusinessEvents.CLAIM_EXISTING_SUCCESS, {
                 business: payload.business
@@ -18,7 +19,7 @@ module.exports = function (context, payload, done) {
 
             var path = context.router.makePath('pro_business', {id: payload.business.id});
 
-            context.executeAction(Navigate, {path: path}, done);
+            context.executeAction(Navigate, {url: path}, done);
         })
         .fail(function (error) {
             context.dispatch(BusinessEvents.CLAIM_EXISTING_FAILURE);

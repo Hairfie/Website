@@ -1,12 +1,12 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessReviewEvents = require('../../constants/BusinessReviewConstants').Events;
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
-    hairfieApi
+    context
+        .getHairfieApi()
         .getBusinessReviewRequest(payload.id)
         .then(function (businessReviewRequest) {
             context.dispatch(BusinessReviewEvents.RECEIVE_REQUEST_SUCCESS, {

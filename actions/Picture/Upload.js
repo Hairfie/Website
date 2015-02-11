@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var PictureEvents = require('../../constants/PictureConstants').Events;
 
 module.exports = function (context, payload, done) {
@@ -17,13 +16,9 @@ module.exports = function (context, payload, done) {
         });
     };
 
-    hairfieApi
-        .uploadPicture(
-            payload.file,
-            payload.container,
-            context.getAuthToken(),
-            onProgress
-        )
+    context
+        .getHairfieApi()
+        .uploadPicture(payload.file, payload.container, onProgress)
         .then(function (picture) {
             context.dispatch(PictureEvents.UPLOAD_SUCCESS, {
                 id      : payload.id,

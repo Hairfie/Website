@@ -95,7 +95,7 @@ module.exports = React.createClass({
                                 <div className="clearfix"></div>
                                 <div className="description">
                                     { _.map(this.state.hairfie.tags, function(tag) {
-                                        return (<span className="label label-default">{tag.name}</span>)
+                                        return (<span key={tag.id} className="label label-default">{tag.name}</span>)
                                     }) }
                                 </div>
                                 <div className="clearfix"></div>
