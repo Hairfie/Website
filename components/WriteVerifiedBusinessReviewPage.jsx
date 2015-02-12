@@ -97,7 +97,7 @@ var ReviewForm = React.createClass({
                         <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
                     </Col>
                     <Col md={6}>
-                        <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> (sera masqué)</div>} />
+                        <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>} />
                     </Col>
                 </Row>
                 <Row>
@@ -105,14 +105,12 @@ var ReviewForm = React.createClass({
                         <Input ref="email" type="email" label="Votre adresse email" disabled={true} value={this.props.businessReviewRequest.email} />
                     </Col>
                     <Col md={6}>
-                        <Input ref="phoneNumber" type="text" label="Votre téléphone (au cas où)" />
+                        <Input ref="phoneNumber" type="text" label={<div>Votre téléphone <small>(au cas où)</small></div>} />
                     </Col>
                 </Row>
                 <hr />
-
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
                 <br />
-
                 <Row>
                     <Col md={3}>
                         <RatingInput ref="welcome" label="Accueil" />
@@ -130,15 +128,10 @@ var ReviewForm = React.createClass({
                         <RatingInput ref="availability" label="Disponibilité" />
                     </Col>
                 </Row>
-
                 <hr />
-
                 <Input ref="comment" type="textarea" label={<div>Votre commentaire <RequiredAsterisk /></div>} />
-
                 <Button onClick={this.submit}>Déposer l'avis</Button>
-
                 <hr />
-
                 <p><RequiredAsterisk /> Indique les champs requis.</p>
             </div>
         );
@@ -204,7 +197,8 @@ module.exports = React.createClass({
 
         return (
             <div>
-                <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>, votre avis intéresse la communauté, partagez votre expérience :</p>
+                <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
+                <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
                 <ReviewForm businessReviewRequest={brr} onSubmit={this.submitReview} />
             </div>
