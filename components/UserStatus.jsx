@@ -42,7 +42,7 @@ module.exports = React.createClass({
     renderLoading: function () {
         return (
             <li>
-                <a className="dropdown-toggle" href="#">Login in progress...</a>
+                <a className="dropdown-toggle" href="#">Connexion en cours...</a>
             </li>
         );
     },
@@ -65,15 +65,15 @@ module.exports = React.createClass({
                 <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
                 <UserProfilePicture user={this.state.user} width={100} height={100} className="img-circle profile" /> {this.state.user.firstName} {this.state.user.lastName} { this.props.currentBusiness ?  ' @ ' + this.props.currentBusiness.name : ''}<b className="caret"></b></a>
                 <ul className="dropdown-menu account">
-                    <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Sign-out</a></li>
+                    <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Se déconnecter</a></li>
                     <li className="divider"></li>
-                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i> Dashboard</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i> Tableau de bord</NavLink></li>
                     <li className="divider"></li>
                     {managedBusinesses}
                     <li className="divider"></li>
                     <li>
                         <NavLink context={this.props.context} routeName="pro_business_new">
-                            + claim a business
+                            + déclarer une nouvelle activité
                         </NavLink>
                     </li>
                 </ul>
@@ -83,18 +83,18 @@ module.exports = React.createClass({
     renderNotLoggedIn: function () {
         return (
             <li className="dropdown" id="menuLogin">
-                <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Connexion</a>
                 <div className="dropdown-menu">
                     <form className="form" id="formLogin">
-                        <Input ref="email" type="email"  placeholder="email" />
-                        <Input ref="password" type="password" placeholder="Password" onSubmit={this.logIn} />
+                        <Input ref="email" type="email"  placeholder="Email" />
+                        <Input ref="password" type="password" placeholder="Mot de passe" onSubmit={this.logIn} />
                         <Button className="btn-block btn-primary" type="submit" onClick={this.logIn}>
-                            Login
+                            Se connecter
                         </Button>
                         <hr />
                         <Button className="btn-block btn-social btn-facebook" onClick={this.logInWithFacebook}>
                             <i className="fa fa-facebook" />
-                            Login with facebook
+                            Se connecter via Facebook
                         </Button>
                     </form>
                 </div>
