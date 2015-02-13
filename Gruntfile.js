@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     concurrent: {
-      dev: ['sass', 'watchify', 'nodemon', 'watch'],
+      dev: ['exec:sass', 'watchify', 'nodemon', 'watch'],
       options: {
         logConcurrentOutput: true
       }
@@ -25,7 +25,9 @@ module.exports = function (grunt) {
         file: 'server.js'
       }
     },
-
+    exec: {
+      sass: 'node-sass public/scss/style.scss public/css/style.css'
+    },
     sass: {
       options: {
         sourcemap: 'auto',
@@ -66,13 +68,13 @@ module.exports = function (grunt) {
     watch: {
       scss: {
         files: 'public/scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['exec:sass']
       },
       livereload: {
         files: ['public/build/js/app.js', 'public/css/style.css'],
         options: {
           livereload: true,
-          debounceDelay: 5000,
+          debounceDelay: 1000,
         }
       }
     },
@@ -117,8 +119,9 @@ module.exports = function (grunt) {
   });
 
   // Dev tasks
-  grunt.loadNpmTasks("grunt-concurrent");
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-concurrent');
+  //grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-watchify');
