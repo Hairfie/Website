@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessSearchEvents = require('../../constants/BusinessSearchConstants').Events;
 
 module.exports = function (context, payload, done) {
@@ -8,7 +7,8 @@ module.exports = function (context, payload, done) {
 
     context.dispatch(BusinessSearchEvents.SEARCH);
 
-    hairfieApi
+    context
+        .getHairfieApi()
         .searchNearby(payload.gps, payload.query)
         .then(function (businesses) {
             context.dispatch(BusinessSearchEvents.SEARCH_SUCCESS, {

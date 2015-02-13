@@ -2,7 +2,6 @@
 
 var Promise = require('q');
 var authStorage = require('../../services/auth-storage');
-var hairfieApi = require('../../services/hairfie-api-client');
 var navigateAction = require('flux-router-component').navigateAction;
 var AuthEvents = require('../../constants/AuthConstants').Events;
 var UserEvents = require('../../constants/UserConstants').Events;
@@ -23,11 +22,13 @@ function authenticateRequest(context, request) {
 }
 
 function loginWithAuthToken(context, token) {
-    return hairfieApi
-        .getUser(token.userId, token)
+    return context
+        .getHairfieApi()
+        .getUser(token.userId, {token: token})
         .then(function (user) {
-                return hairfieApi
-                    .getManagedBusinesses(user, token)
+                return context
+                    .getHairfieApi()
+                    .getManagedBusinesses(user, {token: token})
                     .then(function (businesses) {
                         context.dispatch(AuthEvents.LOGIN_SUCCESS, {
                             user    : user,
@@ -46,7 +47,7 @@ function loginWithAuthToken(context, token) {
 
 function navigate(context, request) {
     var payload = {};
-    payload.path = request.path;
+    payload.url = request.url;
 
     return function () {
         var deferred = Promise.defer();
@@ -60,15 +61,4 @@ function navigate(context, request) {
 
         return deferred.promise;
     };
-}
-
-function executeAction(context, action, payload) {
-    var deferred = Promise.defer();
-
-    context.executeAction(action, payload, function (error) {
-        if (error) return deferred.reject(error);
-        deferred.resolve();
-    });
-
-    return deferred.promise;
 }

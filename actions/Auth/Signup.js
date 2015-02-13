@@ -1,7 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
-var navigateAction = require('flux-router-component/actions/navigate');
 var Events = require('../../constants/AuthConstants').Events;
 var Notify = require('../Flash/Notify');
 var BusinessActions = require('../Business');
@@ -19,7 +17,8 @@ module.exports = function (context, payload, done) {
 function signupUser(context, userValues) {
     context.dispatch(Events.SIGNUP);
 
-    return hairfieApi
+    return context
+        .getHairfieApi()
         .signup(userValues)
         .then(function (result) {
             context.dispatch(Events.SIGNUP_SUCCESS, {

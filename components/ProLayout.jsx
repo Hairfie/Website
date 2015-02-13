@@ -44,10 +44,10 @@ module.exports = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink context={this.props.context} className="navbar-brand" href="/"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                        <NavLink context={this.props.context} className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
                     </div>
                     <ul className="nav navbar-right top-nav">
-                        <li><NavLink context={this.props.context} href="/">Home</NavLink></li>
+                        <li><NavLink context={this.props.context} routeName="home">Home</NavLink></li>
                         <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
                         <UserStatus context={this.props.context} currentBusiness={this.props.business} />
                     </ul>

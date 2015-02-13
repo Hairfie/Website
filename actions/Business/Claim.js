@@ -1,18 +1,16 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
 var Navigate = require('flux-router-component/actions/navigate');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.CLAIM);
 
-    var token = context.getAuthToken();
-
-    return hairfieApi
-        .saveBusinessClaim(payload.business, token)
+    return context
+        .getHairfieApi()
+        .saveBusinessClaim(payload.business)
         .then(function (claim) {
-            return hairfieApi.submitBusinessClaim(claim, token);
+            return context.getHairfieApi().submitBusinessClaim(claim);
         })
         .then(function (business) {
             context.dispatch(BusinessEvents.CLAIM_SUCCESS, {
@@ -21,7 +19,7 @@ module.exports = function (context, payload, done) {
 
             var path = context.router.makePath('pro_business', {businessId: business.id});
 
-            context.executeAction(Navigate, {path: path}, done);
+            context.executeAction(Navigate, {url: path}, done);
         })
         .fail(function (error) {
             context.dispatch(BusinessEvents.CLAIM_FAILURE);

@@ -49,10 +49,10 @@ module.exports = React.createClass({
                         <h3>{business.name}</h3>
                         <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
                         <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id, step: 'general'}}>
-                            <button className="btn btn-primary" role="button">Gérer ce business</button>
+                            <button className="btn btn-primary" role="button">Gérer cette activité</button>
                         </NavLink>
 
-                        <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Afficher la page publique</a>
+                        <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Se rendre sur la page publique</a>
                     </div>
                 </div>
             </div>

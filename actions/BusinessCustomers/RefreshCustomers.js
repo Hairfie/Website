@@ -1,13 +1,13 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BusinessEvents = require('../../constants/BusinessCustomersConstants').Events;
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.RECEIVE_CUSTOMERS);
 
-    hairfieApi
-        .getBusinessCustomers(payload.businessId, context.getAuthToken())
+    context
+        .getHairfieApi()
+        .getBusinessCustomers(payload.businessId)
         .then(function (customers) {
             context.dispatch(BusinessEvents.RECEIVE_CUSTOMERS_SUCCESS, {
                 businessId  : payload.businessId,

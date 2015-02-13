@@ -7,10 +7,10 @@ var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 var url             = require('url');
-var proxy           = require('proxy-middleware');
 var swig            = require('swig');
 var config          = require('./configs/server');
 var facebookConfig  = require('./configs/facebook');
+var i18nConfig      = require('./configs/i18n');
 var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');
@@ -34,12 +34,23 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 
-// TODO: remove me as soon as v1.1.0 of the iOS app is dead
-server.use(config.API_PROXY_PATH, proxy(url.parse(config.API_PROXY_TARGET)));
-
 server.use(express.static(path.join(__dirname, 'public')));
 
 server.set('state namespace', 'App');
+
+function bestLocale(req) {
+    return req.acceptsLanguages(i18nConfig.SUPPORTED_LOCALES) || i18nConfig.DEFAULT_LOCALE;
+}
+
+function redirectToLocalized(req, res, next) {
+    res.redirect('/'+bestLocale(req)+req.url, 301);
+    next();
+}
+
+server.get('/', redirectToLocalized);
+server.get('/hairfies/:hairfieId', redirectToLocalized);
+server.get('/businesses/:businessId', redirectToLocalized);
+server.get('/businesses/:businessId/:slug', redirectToLocalized);
 
 // serve application
 server.use(function (req, res, next) {
@@ -57,8 +68,8 @@ server.use(function (req, res, next) {
 
         try {
             var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
-            if (currentRoute && currentRoute.path != req.path) {
-                res.redirect(currentRoute.path);
+            if (currentRoute && currentRoute.url != req.url) {
+                res.redirect(currentRoute.url);
                 return;
             }
 
@@ -83,7 +94,7 @@ server.use(function (req, res, next) {
 
             res.write(html);
             res.end();
-
+            next();
         } catch (e) {
             next(e);
         }

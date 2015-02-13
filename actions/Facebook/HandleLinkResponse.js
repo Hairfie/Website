@@ -1,7 +1,6 @@
 'use strict';
 
 var handleLoginResponse = require('./utils').handleLoginResponse;
-var hairfieApi = require('../../services/hairfie-api-client');
 var Facebook = require('../../services/facebook');
 var FacebookEvents = require('../../constants/FacebookConstants').Events;
 
@@ -24,7 +23,7 @@ module.exports = function (context, payload, done) {
             return token;
         })
         .then(function (token) {
-            return hairfieApi.linkFacebookToken(token, context.getAuthToken());
+            return context.getHairfieApi().linkFacebookToken(token);
         })
         .then(done.bind(null, null), done);
 };

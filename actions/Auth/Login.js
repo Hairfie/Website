@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var authStorage = require('../../services/auth-storage');
 var Events = require('../../constants/AuthConstants').Events;
 var Notify = require('../Flash/Notify');
@@ -8,7 +7,8 @@ var Notify = require('../Flash/Notify');
 module.exports = function (context, payload, done) {
     context.dispatch(Events.LOGIN);
 
-    hairfieApi
+    context
+        .getHairfieApi()
         .login(payload.email, payload.password)
         .then(function (result) {
             authStorage.setToken(result.token);

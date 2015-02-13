@@ -1,14 +1,15 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var BookingEvents = require('../../constants/BookingConstants').Events;
 var Notify = require('../Flash/Notify');
 var Navigate = require('flux-router-component/actions/navigate');
+var debug = require('debug')('Action:Booking:Save');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BookingEvents.SAVE);
 
-    hairfieApi
+    context
+        .getHairfieApi()
         .saveBooking(payload.booking)
         .then(function (booking) {
             context.dispatch(BookingEvents.SAVE_SUCCESS, {
@@ -16,12 +17,12 @@ module.exports = function (context, payload, done) {
             });
 
             var path = context.router.makePath('booking_confirmation', {bookingId: booking.id});
-            context.executeAction(Navigate, {path: path}, done);
+            context.executeAction(Navigate, {url: path}, done);
 
             done();
         })
         .fail(function (error) {
-            console.log(error);
+            debug('Failed to save booking', error);
             context.dispatch(BookingEvents.SAVE_FAILURE);
 
             context.executeAction(Notify, {

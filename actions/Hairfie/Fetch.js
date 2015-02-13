@@ -1,6 +1,5 @@
 'use strict';
 
-var hairfieApi = require('../../services/hairfie-api-client');
 var HairfieEvents = require('../../constants/HairfieConstants').Events;
 
 module.exports = function (context, payload, done) {
@@ -10,7 +9,8 @@ module.exports = function (context, payload, done) {
         id: payload.id
     });
 
-    hairfieApi
+    context
+        .getHairfieApi()
         .getHairfie(payload.id)
         .then(function (hairfie) {
             context.dispatch(HairfieEvents.RECEIVE_SUCCESS, {
