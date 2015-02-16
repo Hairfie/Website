@@ -4,6 +4,8 @@ var Uuid = require('uuid');
 var FlashEvents = require('../../constants/FlashConstants').Events;
 
 module.exports = function (context, payload, done) {
+    var done = done || function () {};
+
     var message = {};
     message.id = Uuid.v4();
     message.body = payload.body;
