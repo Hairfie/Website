@@ -9,7 +9,7 @@ module.exports = function (context, payload, done) {
     });
 
     var user = {};
-    user.id = payload.id;
+    user.id = payload.userId;
     user.password = payload.password;
 
     var token = {};
