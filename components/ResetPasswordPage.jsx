@@ -58,7 +58,7 @@ module.exports = React.createClass({
             <div>
                 <p>Votre nouveau mot de passe a bien été pris en compte. Pour continuer, vous pouvez</p>
                 <ul>
-                    <li><NavLink context={this.props.context} routeName="home">retourner à sur le site</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="home">retourner sur le site</NavLink></li>
                     <li><a href="hairfie://login">ou retourner sur l'application mobile.</a></li>
                 </ul>
             </div>
