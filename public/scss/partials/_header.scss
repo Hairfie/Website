@@ -75,3 +75,12 @@ img.profile {
         height: 50px;
     }
 }
+
+.navbar-collapse.in {
+  overflow-y: visible;
+}
+.dropdown-menu.login {
+    right: 0;
+    left: auto;
+    min-width: 300px;
+}

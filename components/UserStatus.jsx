@@ -83,8 +83,10 @@ module.exports = React.createClass({
     renderNotLoggedIn: function () {
         return (
             <li className="dropdown" id="menuLogin">
-                <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Connexion</a>
-                <div className="dropdown-menu">
+                <a className="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">
+                    Connexion<b className="caret"></b>
+                </a>
+                <ul className="dropdown-menu login">
                     <form className="form" id="formLogin">
                         <Input ref="email" type="email"  placeholder="Email" />
                         <Input ref="password" type="password" placeholder="Mot de passe" onSubmit={this.logIn} />
@@ -97,7 +99,7 @@ module.exports = React.createClass({
                             Se connecter via Facebook
                         </Button>
                     </form>
-                </div>
+                </ul>
             </li>
         );
     },
