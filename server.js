@@ -51,6 +51,7 @@ server.get('/', redirectToLocalized);
 server.get('/hairfies/:hairfieId', redirectToLocalized);
 server.get('/businesses/:businessId', redirectToLocalized);
 server.get('/businesses/:businessId/:slug', redirectToLocalized);
+server.get('/reset-password/:userId/:token', redirectToLocalized);
 
 // serve application
 server.use(function (req, res, next) {
