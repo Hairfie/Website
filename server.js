@@ -43,7 +43,7 @@ function bestLocale(req) {
 }
 
 function redirectToLocalized(req, res, next) {
-    res.redirect('/'+bestLocale(req)+req.url, 301);
+    res.redirect('/'+bestLocale(req)+req.url, 302);
     next();
 }
 
