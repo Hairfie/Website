@@ -19,11 +19,13 @@ var Facebook = require('../services/facebook');
 var PasswordLostModal = React.createClass({
     render: function () {
         return (
-            <Modal title="Réinitialiser votre mot de passe">
+            <Modal {...this.props} title="Réinitialiser votre mot de passe">
                 <div className="modal-body">
                     <p>Entrez l'adresse e-mail associée à votre compte, et nous vous enverrons par e-mail un lien pour réinitialiser votre mot de passe.</p>
                     <Input ref="email" type="email"  placeholder="Email" />
-                    <Button className="btn-block btn-primary" type="submit" onClick={this.submit}>
+                </div>
+                <div className="modal-footer">
+                    <Button className="btn-primary" type="submit" onClick={this.submit}>
                         Envoyer le lien de réinitialisation
                     </Button>
                 </div>
@@ -118,10 +120,12 @@ module.exports = React.createClass({
                     <form className="form" id="formLogin">
                         <Input ref="email" type="email"  placeholder="Email" />
                         <Input ref="password" type="password" placeholder="Mot de passe" onSubmit={this.logIn} />
-                        <Button className="btn-block btn-primary" type="submit" onClick={this.logIn}>
+                        <Button className="btn-block" bsStyle="primary" type="submit" onClick={this.logIn}>
                             Se connecter
                         </Button>
-                        <p><ModalTrigger modal={<PasswordLostModal context={this.props.context} />}><a href="#" >Mot de passe oublié ?</a></ModalTrigger></p>
+                        <ModalTrigger modal={<PasswordLostModal context={this.props.context} />}>
+                            <Button className="btn-block" bsStyle="link">Mot de passe oublié ?</Button>
+                        </ModalTrigger>
                         <hr />
                         <Button className="btn-block btn-social btn-facebook" onClick={this.logInWithFacebook}>
                             <i className="fa fa-facebook" />
