@@ -10,9 +10,39 @@ var UserManagedBusinessStore = require('../stores/UserManagedBusinessStore');
 var FacebookActions = require('../actions/Facebook');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
+var Modal = require('react-bootstrap/Modal');
+var ModalTrigger = require('react-bootstrap/ModalTrigger');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var facebookConfig = require('../configs/facebook');
 var Facebook = require('../services/facebook');
+
+var PasswordLostModal = React.createClass({
+    render: function () {
+        return (
+            <Modal {...this.props} title="Réinitialiser votre mot de passe">
+                <div className="modal-body">
+                    <p>Entrez l'adresse e-mail associée à votre compte, et nous vous enverrons par e-mail un lien pour réinitialiser votre mot de passe.</p>
+                    <Input ref="email" type="email"  placeholder="Email" />
+                </div>
+                <div className="modal-footer">
+                    <Button className="btn-primary" type="submit" onClick={this.submit}>
+                        Envoyer le lien de réinitialisation
+                    </Button>
+                </div>
+            </Modal>
+        );
+    },
+    submit: function () {
+        var email = this.refs.email.getValue();
+
+        if (!email) return;
+
+        this.props.context.executeAction(AuthActions.ReportLostPassword, {
+            email: this.refs.email.getValue()
+        });
+        this.props.onRequestHide();
+    }
+});
 
 module.exports = React.createClass({
     mixins: [StoreMixin],
@@ -90,9 +120,12 @@ module.exports = React.createClass({
                     <form className="form" id="formLogin">
                         <Input ref="email" type="email"  placeholder="Email" />
                         <Input ref="password" type="password" placeholder="Mot de passe" onSubmit={this.logIn} />
-                        <Button className="btn-block btn-primary" type="submit" onClick={this.logIn}>
+                        <Button className="btn-block" bsStyle="primary" type="submit" onClick={this.logIn}>
                             Se connecter
                         </Button>
+                        <ModalTrigger modal={<PasswordLostModal context={this.props.context} />}>
+                            <Button className="btn-block" bsStyle="link">Mot de passe oublié ?</Button>
+                        </ModalTrigger>
                         <hr />
                         <Button className="btn-block btn-social btn-facebook" onClick={this.logInWithFacebook}>
                             <i className="fa fa-facebook" />
