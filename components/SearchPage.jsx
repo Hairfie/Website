@@ -38,8 +38,7 @@ module.exports = React.createClass({
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
-                            <Input ref="businessName" type="text" placeholder="Nom du Salon" />
-                            <AddressInput ref="businessAddress" placeholder="Ville ou Adresse " onKeyDown={this.onKeyDown} />
+                            <Input ref="businessName" type="text" placeholder="Nom du Salon" onChange={this.submit} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
@@ -57,7 +56,11 @@ module.exports = React.createClass({
                     <img src={business.pictures[0].url + '?height=100&width=100'} className="img-responsive" />
                 </NavLink>
                 <div className="media-body">
-                    <h4 className="media-heading">{business.name}</h4>
+                    <h4 className="media-heading">
+                        <NavLink context={this.props.context} className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                            {business.name}
+                        </NavLink>
+                    </h4>
                     <p>{business.address.street} - {business.address.zipCode} {business.address.city}</p>
                     <p>{business.numHairfies} Hairfie(s)</p>
                 </div>
@@ -66,11 +69,12 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         if(e) e.preventDefault();
+        var params = {
+            query   : this.refs.businessName.getValue()
+        }
+        //if(this.refs.businessAddress.getGps()) params.gps = this.refs.businessAddress.getGps();
 
-        this.props.context.executeAction(BusinessSearchActions.Search, {
-            query   : this.refs.businessName.getValue(),
-            gps     : this.refs.businessAddress.getGps()
-        });
+        this.props.context.executeAction(BusinessSearchActions.Search, params);
     },
     onKeyDown: function(e) {
         if(e.key === 'Enter' && this.refs.businessAddress.getGps()) {

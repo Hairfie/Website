@@ -7547,7 +7547,10 @@ div.day {
     font-weight: 200;
     height: 50px; }
   .search .search-bar .form-group {
-    display: inline-block; }
+    display: inline-block;
+    width: 80%; }
+  .search .search-bar button {
+    max-width: 20%; }
 .search .form-container {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -7559,6 +7562,8 @@ div.day {
 .search .search-results {
   margin-top: 150px;
   margin-bottom: 30px; }
+  .search .search-results .media-left {
+    min-width: 100px; }
 
 .booking .row {
   margin-top: 30px; }

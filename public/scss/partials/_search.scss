@@ -16,6 +16,10 @@
 
         .form-group {
             display: inline-block;
+            width: 80%;
+        }
+        button {
+            max-width: 20%;
         }
     }
 
@@ -34,5 +38,9 @@
     .search-results {
         margin-top: 150px;
         margin-bottom: 30px;
+
+        .media-left {
+            min-width: 100px;
+        }
     }
 }
