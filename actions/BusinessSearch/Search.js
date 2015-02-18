@@ -9,7 +9,7 @@ module.exports = function (context, payload, done) {
 
     context
         .getHairfieApi()
-        .search(payload.query)
+        .search(payload.query, payload.isGeoipable)
         .then(function (businesses) {
             context.dispatch(BusinessSearchEvents.SEARCH_SUCCESS, {
                 businesses: businesses

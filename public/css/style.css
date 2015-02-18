@@ -7547,10 +7547,11 @@ div.day {
     font-weight: 200;
     height: 50px; }
   .search .search-bar .form-group {
-    display: inline-block;
+    float: left;
     width: 80%; }
-  .search .search-bar button {
-    max-width: 20%; }
+    .search .search-bar .form-group input.main {
+      width: 100%;
+      text-align: center; }
 .search .form-container {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -7562,6 +7563,8 @@ div.day {
 .search .search-results {
   margin-top: 150px;
   margin-bottom: 30px; }
+  .search .search-results .filters {
+    background-color: #dfe1e4; }
   .search .search-results .media-left {
     min-width: 100px; }
 

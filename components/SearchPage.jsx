@@ -38,13 +38,20 @@ module.exports = React.createClass({
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
-                            <Input ref="businessName" type="text" placeholder="Nom du Salon" onChange={this.submit} />
+                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." onChange={this.submit} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
+
                 </div>
                 <div className="row search-results">
-                    { searchResultNodes }
+                    <div className="filters col-sm-3">
+                        <h4>Filtres</h4>
+                        <Input ref="geoloc" type="checkbox" className="geoloc" label="Autour de moi" defaultChecked={true} onChange={this.onGeolocChange} />
+                    </div>
+                    <div className="col-sm-9">
+                        { searchResultNodes }
+                    </div>
                 </div>
             </PublicLayout>
         );
@@ -72,9 +79,12 @@ module.exports = React.createClass({
         var params = {
             query   : this.refs.businessName.getValue()
         }
-        //if(this.refs.businessAddress.getGps()) params.gps = this.refs.businessAddress.getGps();
+        if(this.refs.geoloc.getChecked()) params.isGeoipable = true;
 
         this.props.context.executeAction(BusinessSearchActions.Search, params);
+    },
+    onGeolocChange: function(e) {
+        this.submit();
     },
     onKeyDown: function(e) {
         if(e.key === 'Enter' && this.refs.businessAddress.getGps()) {

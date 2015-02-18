@@ -15,11 +15,12 @@
         }
 
         .form-group {
-            display: inline-block;
+            float: left;
             width: 80%;
-        }
-        button {
-            max-width: 20%;
+            input.main {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 
@@ -38,6 +39,11 @@
     .search-results {
         margin-top: 150px;
         margin-bottom: 30px;
+
+        .filters {
+            background-color: $grey-footer;
+
+        }
 
         .media-left {
             min-width: 100px;
