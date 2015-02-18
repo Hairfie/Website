@@ -51,6 +51,9 @@ module.exports = createStore({
     getToken: function () {
         return this.token;
     },
+    isAuthenticated: function () {
+        return !!this.token;
+    },
     isLoginInProgress: function () {
         return this.loginInProgress;
     }
