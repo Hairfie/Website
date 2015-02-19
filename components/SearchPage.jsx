@@ -47,7 +47,7 @@ module.exports = React.createClass({
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
-                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." value={queryParams.query} onChange={this.submit} />
+                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." defaultValue={queryParams.query} onChange={this.submit} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
