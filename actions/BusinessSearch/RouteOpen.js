@@ -23,5 +23,5 @@ module.exports = function (context, payload, done) {
             context.dispatch(BusinessSearchEvents.SEARCH_FAILURE);
             done(error);
         });
-    done();
+    //done();
 };
