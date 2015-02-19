@@ -13,34 +13,45 @@ module.exports = createStore({
         handleSearchSuccess: BusinessSearchEvents.SEARCH_SUCCESS
     }),
     initialize: function () {
-        this.businesses = [];
-        this.queryParams = {};
+        this.results = {};
     },
     dehydrate: function () {
         return {
-            businesses: this.businesses,
-            queryParams: this.queryParams
+            results: this.results,
         };
     },
     rehydrate: function (state) {
-        this.businesses = state.businesses || [];
-        this.queryParams = state.queryParams || {};
+        this.results = state.results || {};
     },
     handleSearch: function(payload) {
-        this.queryParams = payload.queryParams;
+        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
+            loading: true
+        });
         this.emitChange();
     },
     handleSearchSuccess: function (payload) {
-        this.businesses = payload.businesses;
-        this.queryParams = payload.queryParams;
-        console.log("search success !!", this.queryParams);
+        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
+            loading : false,
+            entity  : payload.businesses
+        });
         this.emitChange();
     },
-    getBusinesses: function () {
-        return this.businesses;
+    handleSearchFailure: function (payload) {
+        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
+            loading : false
+        });
+        this.emitChange();
     },
-    getQueryParams: function () {
-        console.log("getQueryParams", this.queryParams);
-        return this.queryParams;
+    getByQueryString: function (queryString) {
+        var businesses = this.results[queryString];
+
+        if (_.isUndefined(businesses)) {
+            this._loadByQueryString(queryString);
+        }
+
+        return businesses && businesses.entity;
+    },
+    _loadByQueryString: function (queryString) {
+        // TODO
     }
 });

@@ -4,6 +4,7 @@ var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
 
 var BusinessSearchActions = require('../actions/BusinessSearch');
+var Navigate = require('flux-router-component/actions/navigate');
 var BusinessSearchStore = require('../stores/BusinessSearchStore');
 
 var NavLink = require('flux-router-component').NavLink;
@@ -14,6 +15,7 @@ var Col = require('react-bootstrap/Col');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var AddressInput = require('./Form/AddressInput.jsx');
+var toQueryString = require('../lib/queryString.js');
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
@@ -21,31 +23,31 @@ module.exports = React.createClass({
         storeListeners: [BusinessSearchStore]
     },
     getStateFromStores: function () {
-        var businesses  = this.getStore(BusinessSearchStore).getBusinesses();
-        var queryParams = this.getStore(BusinessSearchStore).getQueryParams();
+        console.log("getStateFromStores");
+        var queryString = toQueryString(this.props.route.query);
+        var businesses  = this.getStore(BusinessSearchStore).getByQueryString(queryString);
 
         return {
-            businesses        : businesses,
-            queryParams       : queryParams
+            businesses        : businesses
         };
     },
     getInitialState: function () {
         return this.getStateFromStores();
     },
     onChange: function () {
-        console.log("onchange");
         this.setState(this.getStateFromStores());
     },
     render: function () {
         var businesses = this.state.businesses;
         var searchResultNodes = (businesses.length > 0) ? businesses.map(this.renderBusinessRow) : null;
+        var queryParams = this.props.route.query;
 
         return (
             <PublicLayout context={this.props.context} withLogin={false} customClass={'search'}>
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
-                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." value={this.state.queryParams.query} onChange={this.submit} />
+                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." value={queryParams.query} onChange={this.submit} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
@@ -54,7 +56,7 @@ module.exports = React.createClass({
                 <div className="row search-results">
                     <div className="filters col-sm-3">
                         <h4>Filtres</h4>
-                        <Input ref="geoloc" type="checkbox" className="geoloc" label="Autour de moi" defaultChecked={this.state.queryParams.isGeoipable} onChange={this.onGeolocChange} />
+                        <Input ref="geoloc" type="checkbox" className="geoloc" label="Autour de moi" defaultChecked={queryParams.isGeoipable} onChange={this.onGeolocChange} />
                     </div>
                     <div className="col-sm-9">
                         { searchResultNodes }
@@ -83,12 +85,15 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         if(e) e.preventDefault();
+
         var queryParams = {
             query       : this.refs.businessName.getValue(),
             isGeoipable : this.refs.geoloc.getChecked()
         }
 
-        this.props.context.executeAction(BusinessSearchActions.Search, queryParams);
+        this.props.context.executeAction(Navigate, {
+            url: this.props.context.makePath('search') + '?' + toQueryString(queryParams)
+        });
     },
     onGeolocChange: function(e) {
         this.submit();
