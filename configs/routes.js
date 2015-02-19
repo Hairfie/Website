@@ -130,6 +130,7 @@ module.exports = {
     search: {
         path: '/search',
         method: 'get',
+        action: require('../actions/BusinessSearch/RouteOpen'),
         pageComponent: require('../components/SearchPage.jsx')
     }
 };

@@ -22,12 +22,19 @@ module.exports = React.createClass({
     },
     getStateFromStores: function () {
         var businesses  = this.getStore(BusinessSearchStore).getBusinesses();
+        var queryParams = this.getStore(BusinessSearchStore).getQueryParams();
+
         return {
-            businesses        : businesses
+            businesses        : businesses,
+            queryParams       : queryParams
         };
     },
     getInitialState: function () {
         return this.getStateFromStores();
+    },
+    onChange: function () {
+        console.log("onchange");
+        this.setState(this.getStateFromStores());
     },
     render: function () {
         var businesses = this.state.businesses;
@@ -38,7 +45,7 @@ module.exports = React.createClass({
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
-                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." onChange={this.submit} />
+                            <Input ref="businessName" type="text" className="main" placeholder="Salon, Ville etc..." value={this.state.queryParams.query} onChange={this.submit} />
                             <Button className="btn-red" onClick={this.submit}>Rechercher</Button>
                         </form>
                     </div>
@@ -47,7 +54,7 @@ module.exports = React.createClass({
                 <div className="row search-results">
                     <div className="filters col-sm-3">
                         <h4>Filtres</h4>
-                        <Input ref="geoloc" type="checkbox" className="geoloc" label="Autour de moi" defaultChecked={true} onChange={this.onGeolocChange} />
+                        <Input ref="geoloc" type="checkbox" className="geoloc" label="Autour de moi" defaultChecked={this.state.queryParams.isGeoipable} onChange={this.onGeolocChange} />
                     </div>
                     <div className="col-sm-9">
                         { searchResultNodes }
@@ -76,12 +83,12 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         if(e) e.preventDefault();
-        var params = {
-            query   : this.refs.businessName.getValue()
+        var queryParams = {
+            query       : this.refs.businessName.getValue(),
+            isGeoipable : this.refs.geoloc.getChecked()
         }
-        if(this.refs.geoloc.getChecked()) params.isGeoipable = true;
 
-        this.props.context.executeAction(BusinessSearchActions.Search, params);
+        this.props.context.executeAction(BusinessSearchActions.Search, queryParams);
     },
     onGeolocChange: function(e) {
         this.submit();
@@ -90,9 +97,6 @@ module.exports = React.createClass({
         if(e.key === 'Enter' && this.refs.businessAddress.getGps()) {
             this.submit();
         }
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
     }
 });
 

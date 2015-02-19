@@ -8,17 +8,39 @@ var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'BusinessSearchStore',
-    initialize: function () {
-        this.businesses = [];
-    },
     handlers: makeHandlers({
+        handleSearch       : BusinessSearchEvents.SEARCH,
         handleSearchSuccess: BusinessSearchEvents.SEARCH_SUCCESS
     }),
+    initialize: function () {
+        this.businesses = [];
+        this.queryParams = {};
+    },
+    dehydrate: function () {
+        return {
+            businesses: this.businesses,
+            queryParams: this.queryParams
+        };
+    },
+    rehydrate: function (state) {
+        this.businesses = state.businesses || [];
+        this.queryParams = state.queryParams || {};
+    },
+    handleSearch: function(payload) {
+        this.queryParams = payload.queryParams;
+        this.emitChange();
+    },
     handleSearchSuccess: function (payload) {
         this.businesses = payload.businesses;
+        this.queryParams = payload.queryParams;
+        console.log("search success !!", this.queryParams);
         this.emitChange();
     },
     getBusinesses: function () {
         return this.businesses;
+    },
+    getQueryParams: function () {
+        console.log("getQueryParams", this.queryParams);
+        return this.queryParams;
     }
 });

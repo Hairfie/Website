@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    Search            : require('./Search')
+    Search            : require('./Search'),
+    RouteOpen       : require('./RouteOpen')
 };
