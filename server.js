@@ -69,6 +69,7 @@ server.use(function (req, res, next) {
 
         try {
             var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
+
             if (currentRoute && currentRoute.url != req.url) {
                 res.redirect(currentRoute.url);
                 return;
@@ -92,6 +93,8 @@ server.use(function (req, res, next) {
                 metas   : metas,
                 markup  : markup
             }));
+
+            if (!currentRoute) res.status(404);
 
             res.write(html);
             res.end();
