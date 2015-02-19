@@ -46,6 +46,8 @@ module.exports = React.createClass({
             this.props.context.executeAction(Navigate, {
                 url: this.props.context.makePath('pro_dashboard')
             });
+
+            return <p>Redirect in progress</p>;
         }
 
         ga('send', 'pageview', {
