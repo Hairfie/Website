@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var moment = require('moment');
 var _ = require('lodash');
 
@@ -27,7 +27,7 @@ var weekDayLabel = DateTimeConstants.weekDayLabel;
 var orderWeekDays = DateTimeConstants.orderWeekDays;
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore, BookingStore]
     },

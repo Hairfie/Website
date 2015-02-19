@@ -1,9 +1,13 @@
 /** @jsx React.DOM */
 
+/**
+ * TODO: only the controller component (*Page) should be a store listener
+ */
+
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessActions = require('../actions/Business');
 var BusinessFacebookPageStore = require('../stores/BusinessFacebookPageStore');
@@ -25,7 +29,7 @@ var ConnectFacebookPageModal = React.createClass({
         FacebookPermissions.MANAGE_PAGES,
         FacebookPermissions.PUBLISH_ACTIONS
     ],
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore, FacebookStore]
     },
@@ -116,7 +120,7 @@ var ConnectFacebookPageModal = React.createClass({
 });
 
 var FacebookPanel = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore, BusinessFacebookPageStore]
     },
@@ -180,7 +184,7 @@ var FacebookPanel = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore, BusinessFacebookPageStore]
     },

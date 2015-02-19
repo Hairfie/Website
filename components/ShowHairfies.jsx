@@ -1,19 +1,19 @@
 /** @jsx React.DOM */
 
-var React                = require('react');
-var StoreMixin           = require('fluxible').StoreMixin;
-var InfiniteScrollMixin  = require('./mixins/infinite-scroll.js');
-var NavLink              = require('flux-router-component').NavLink;
-var HairfieActions       = require('../actions/Hairfie');
-var HairfiesStore        = require('../stores/HairfiesStore');
-var AuthStore            = require('../stores/AuthStore');
+var React               = require('react');
+var FluxibleMixin       = require('fluxible').Mixin;
+var InfiniteScrollMixin = require('./mixins/infinite-scroll.js');
+var NavLink             = require('flux-router-component').NavLink;
+var HairfieActions      = require('../actions/Hairfie');
+var HairfiesStore       = require('../stores/HairfiesStore');
+var AuthStore           = require('../stores/AuthStore');
 
-var Button               = require('react-bootstrap/Button');
+var Button              = require('react-bootstrap/Button');
 
 var _ = require('lodash');
 
 module.exports = React.createClass({
-    mixins: [InfiniteScrollMixin, StoreMixin],
+    mixins: [InfiniteScrollMixin, FluxibleMixin],
     statics: {
         storeListeners: [HairfiesStore, AuthStore]
     },

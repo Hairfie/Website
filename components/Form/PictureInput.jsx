@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var PictureUploadStore = require('../../stores/PictureUploadStore');
 var PictureActions = require('../../actions/Picture');
 var Uuid = require('uuid');
@@ -10,7 +10,7 @@ var Button = require('react-bootstrap/Button');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [PictureUploadStore]
     },

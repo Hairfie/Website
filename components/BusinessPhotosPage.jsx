@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessActions = require('../actions/Business');
 var Layout = require('./ProLayout.jsx');
@@ -12,7 +12,7 @@ var _ = require('lodash');
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore]
     },

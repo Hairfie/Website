@@ -2,7 +2,7 @@
 
 var React = require('react');
 var debug = require('debug')('Component:UserStatus');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var AuthActions = require('../actions/Auth');
@@ -45,7 +45,7 @@ var PasswordLostModal = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [AuthStore, UserManagedBusinessStore]
     },

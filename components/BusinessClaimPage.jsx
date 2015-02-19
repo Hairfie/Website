@@ -3,7 +3,6 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
 
 var BusinessActions = require('../actions/Business');
 var BusinessKinds = require('../constants/BusinessConstants').Kinds;

@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var PasswordRecoveryStore = require('../stores/PasswordRecoveryStore');
 var AuthActions = require('../actions/Auth');
 var Layout = require('./PublicLayout.jsx');
@@ -12,7 +12,7 @@ var Button = require('react-bootstrap/Button');
 var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [PasswordRecoveryStore]
     },

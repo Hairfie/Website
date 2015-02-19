@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var RouterMixin = require('flux-router-component').RouterMixin;
 var RouteStore = require('../stores/RouteStore');
 var AuthStore = require('../stores/AuthStore');
@@ -9,11 +9,12 @@ var AuthStore = require('../stores/AuthStore');
 var NotFoundPage = require('./NotFoundPage.jsx');
 var BusinessInfosPage = require('./BusinessInfosPage.jsx');
 var Navigate = require('flux-router-component/actions/navigate');
+var _ = require('lodash');
 
 var ga = require('../services/analytics');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin, RouterMixin],
+    mixins: [FluxibleMixin, RouterMixin],
     statics: {
         storeListeners: [RouteStore, AuthStore]
     },
@@ -27,35 +28,37 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        var route = this.state.route;
-        if (route && route.config && route.config.pageComponent) {
-            console.log(route.config, this.state.isAuthenticated);
-            // check access is granted
-            if (route.config.authRequired && !this.state.isAuthenticated) {
-                this.props.context.executeAction(Navigate, {
-                    url: this.props.context.makePath('pro_home')
-                });
+        var route     = this.state.route,
+            component = route && route.config && route.config.pageComponent;
 
-                return <p>Access denied</p>;
-            }
+        if (!component) return this.renderNotFound();
 
-            if (route.config.leaveAfterAuth && this.state.isAuthenticated) {
-                this.props.context.executeAction(Navigate, {
-                    url: this.props.context.makePath('pro_dashboard')
-                });
-            }
-
-            ga('send', 'pageview', {
-                'page': route.url
+        // check access is granted
+        if (route.config.authRequired && !this.state.isAuthenticated) {
+            this.props.context.executeAction(Navigate, {
+                url: this.props.context.makePath('pro_home')
             });
 
-            return React.createElement(route.config.pageComponent, {
-                context : this.props.context,
-                route   : route
-            });
-        } else {
-            return <NotFoundPage context={this.props.context} />
+            return <p>Access denied</p>;
         }
+
+        if (route.config.leaveAfterAuth && this.state.isAuthenticated) {
+            this.props.context.executeAction(Navigate, {
+                url: this.props.context.makePath('pro_dashboard')
+            });
+        }
+
+        ga('send', 'pageview', {
+            'page': route.url
+        });
+
+        return React.createElement(route.config.pageComponent, {
+            context : this.props.context,
+            route   : route
+        });
+    },
+    renderNotFound: function () {
+        return <NotFoundPage context={this.props.context} />
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

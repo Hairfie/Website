@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var Layout = require('./ProLayout.jsx');
 var NavLink = require('flux-router-component').NavLink;
@@ -13,7 +13,7 @@ var Picture = require('./Partial/Picture.jsx');
 var lodash = require('lodash');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore]
     },

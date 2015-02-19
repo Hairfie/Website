@@ -3,13 +3,13 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var FlashStore = require('../stores/FlashStore');
 var FlashActions = require('../actions/Flash');
 var Alert = require('react-bootstrap/Alert');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [FlashStore]
     },

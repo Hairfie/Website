@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessActions = require('../actions/Business');
 var BusinessKinds = require('../constants/BusinessConstants').Kinds;
@@ -71,7 +71,7 @@ var AddressWithMap = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore]
     },

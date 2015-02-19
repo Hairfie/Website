@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessCustomersStore = require('../stores/BusinessCustomersStore');
 var BusinessActions = require('../actions/Business');
@@ -24,7 +24,7 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin, ReactIntlMixin],
+    mixins: [FluxibleMixin, ReactIntlMixin],
     statics: {
         storeListeners: [BusinessStore, BusinessCustomersStore]
     },

@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var UserSuggestionStore = require('../../stores/UserSuggestionStore');
 var Input = require('react-bootstrap/Input');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
@@ -19,7 +19,7 @@ var Suggestion = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [UserSuggestionStore]
     },

@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react/addons');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessReviewRequestStore = require('../stores/BusinessReviewRequestStore');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
@@ -169,7 +169,7 @@ var ReviewForm = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessReviewRequestStore]
     },

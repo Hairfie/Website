@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 
 var BusinessSearchActions = require('../actions/BusinessSearch');
 var BusinessSearchStore = require('../stores/BusinessSearchStore');
@@ -16,7 +16,7 @@ var Button = require('react-bootstrap/Button');
 var AddressInput = require('./Form/AddressInput.jsx');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessSearchStore]
     },

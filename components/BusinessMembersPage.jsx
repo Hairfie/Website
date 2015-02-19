@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react');
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessMemberStore = require('../stores/BusinessMemberStore');
 var BusinessMemberActions = require('../actions/BusinessMember');
@@ -82,7 +82,7 @@ var BusinessMemberModal = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [StoreMixin],
+    mixins: [FluxibleMixin],
     statics: {
         storeListeners: [BusinessStore, BusinessMemberStore]
     },

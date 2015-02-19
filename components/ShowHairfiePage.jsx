@@ -10,7 +10,7 @@ if (typeof global.Intl == 'undefined') {
 var React = require('react');
 var _ = require('lodash');
 
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 var ReactIntlMixin = require('react-intl');
 var NavLink = require('flux-router-component').NavLink;
 
@@ -23,9 +23,12 @@ var CarouselItem = require('react-bootstrap/CarouselItem');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 
 module.exports = React.createClass({
-    mixins: [StoreMixin, ReactIntlMixin],
+    mixins: [FluxibleMixin, ReactIntlMixin],
     statics: {
-        storeListeners: [HairfieStore]
+        storeListeners: [HairfieStore],
+        isNotFound: function (context) {
+            return _.isNull(this.state.hairfie);
+        }
     },
     getStateFromStores: function () {
         return {
