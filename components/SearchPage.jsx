@@ -15,7 +15,8 @@ var Col = require('react-bootstrap/Col');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var AddressInput = require('./Form/AddressInput.jsx');
-var toQueryString = require('../lib/queryString.js');
+
+var lodash = require('lodash-contrib');
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
@@ -23,8 +24,7 @@ module.exports = React.createClass({
         storeListeners: [BusinessSearchStore]
     },
     getStateFromStores: function () {
-        console.log("getStateFromStores");
-        var queryString = toQueryString(this.props.route.query);
+        var queryString = lodash.toQuery(this.props.route.query);
         var businesses  = this.getStore(BusinessSearchStore).getByQueryString(queryString);
 
         return {
@@ -39,7 +39,7 @@ module.exports = React.createClass({
     },
     render: function () {
         var businesses = this.state.businesses;
-        var searchResultNodes = (businesses.length > 0) ? businesses.map(this.renderBusinessRow) : null;
+        var searchResultNodes = (businesses && businesses.length > 0) ? businesses.map(this.renderBusinessRow) : null;
         var queryParams = this.props.route.query;
 
         return (
@@ -92,7 +92,7 @@ module.exports = React.createClass({
         }
 
         this.props.context.executeAction(Navigate, {
-            url: this.props.context.makePath('search') + '?' + toQueryString(queryParams)
+            url: this.props.context.makePath('search') + '?' + lodash.toQuery(queryParams)
         });
     },
     onGeolocChange: function(e) {

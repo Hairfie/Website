@@ -4,7 +4,7 @@ var createStore = require('fluxible/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var BusinessSearchEvents = require('../constants/BusinessSearchConstants').Events;
 var BusinessSearchActions = require('../actions/BusinessSearch');
-var _ = require('lodash');
+var _ = require('lodash-contrib');
 
 module.exports = createStore({
     storeName: 'BusinessSearchStore',
@@ -45,6 +45,8 @@ module.exports = createStore({
     getByQueryString: function (queryString) {
         var businesses = this.results[queryString];
 
+        console.log("businesses", businesses);
+
         if (_.isUndefined(businesses)) {
             this._loadByQueryString(queryString);
         }
@@ -53,5 +55,8 @@ module.exports = createStore({
     },
     _loadByQueryString: function (queryString) {
         // TODO
+        this.dispatcher.getContext().executeAction(BusinessSearchActions.Search, {
+            query: _.fromQuery(queryString)
+        });
     }
 });

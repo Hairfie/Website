@@ -1,11 +1,11 @@
 'use strict';
 
 var BusinessSearchEvents = require('../../constants/BusinessSearchConstants').Events;
-var toQueryString = require('../../lib/queryString.js');
+var lodash = require('lodash-contrib');
 
 module.exports = function (context, payload, done) {
     var query = payload.query;
-    var queryString = toQueryString(query);
+    var queryString = lodash.toQuery(query);
 
     context.dispatch(BusinessSearchEvents.SEARCH, {
         queryString: queryString
