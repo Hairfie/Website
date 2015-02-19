@@ -14,6 +14,10 @@ var Layout = require('./ProLayout.jsx');
 
 var _ = require('lodash');
 
+if (typeof global == 'undefined') {
+    global = {};
+}
+
 if (typeof global.Intl == 'undefined') {
     global.Intl = require('intl');
 }
