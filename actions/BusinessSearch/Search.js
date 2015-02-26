@@ -4,8 +4,8 @@ var BusinessSearchEvents = require('../../constants/BusinessSearchConstants').Ev
 var lodash = require('lodash-contrib');
 
 module.exports = function (context, payload, done) {
-    var query = payload.query;
-    var queryString = lodash.toQuery(query);
+    var queryParams = payload.query;
+    var queryString = lodash.toQuery(queryParams);
 
     context.dispatch(BusinessSearchEvents.SEARCH, {
         queryString: queryString
@@ -13,7 +13,7 @@ module.exports = function (context, payload, done) {
 
     context
         .getHairfieApi()
-        .search(query.query, query.isGeoipable)
+        .search(queryParams)
         .then(function (businesses) {
             context.dispatch(BusinessSearchEvents.SEARCH_SUCCESS, {
                 businesses: businesses,

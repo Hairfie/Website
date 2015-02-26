@@ -45,8 +45,6 @@ module.exports = createStore({
     getByQueryString: function (queryString) {
         var businesses = this.results[queryString];
 
-        console.log("businesses", businesses);
-
         if (_.isUndefined(businesses)) {
             this._loadByQueryString(queryString);
         }
