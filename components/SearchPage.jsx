@@ -25,11 +25,14 @@ module.exports = React.createClass({
         storeListeners: [BusinessSearchStore]
     },
     getStateFromStores: function () {
-        var queryString = lodashContrib.toQuery(this.props.route.query);
+        var queryParams = this.props.route.query;
+        var queryString = lodashContrib.toQuery(queryParams);
         var businesses  = this.getStore(BusinessSearchStore).getByQueryString(queryString);
 
         return {
-            businesses        : businesses
+            businesses        : businesses,
+            queryString       : queryString,
+            queryParams       : queryParams
         };
     },
     getInitialState: function () {
@@ -41,13 +44,10 @@ module.exports = React.createClass({
     render: function () {
         var businesses = this.state.businesses;
         var searchResultNodes = (businesses && businesses.length > 0) ? businesses.map(this.renderBusinessRow) : null;
-        var queryParams = this.props.route.query;
+        var queryParams = this.state.queryParams;
 
         var defaultWomen = true;
         var defaultMen = true;
-
-        queryParams.clientTypes = queryParams['clientTypes[]'];
-        delete queryParams['clientTypes[]'];
 
         if(queryParams.clientTypes) {
             if(lodash.isString(queryParams.clientTypes)) queryParams.clientTypes = queryParams.clientTypes.split();
@@ -105,13 +105,14 @@ module.exports = React.createClass({
 
         var queryParams = {
             query       : this.refs.businessName.getValue(),
-            isGeoipable : this.refs.geoloc.getChecked(),
-            clientTypes : []
+            isGeoipable : this.refs.geoloc.getChecked()
         }
-
-        if(this.refs.men.getChecked())      queryParams.clientTypes.push("men");
-        if(this.refs.women.getChecked())    queryParams.clientTypes.push("women");
-
+        if(this.refs.men.getChecked() || this.refs.women.getChecked()) {
+            var arr = [];
+            if(this.refs.men.getChecked())      arr.push("men");
+            if(this.refs.women.getChecked())    arr.push("women");
+            queryParams.clientTypes = arr;
+        }
 
         this.props.context.executeAction(Navigate, {
             url: this.props.context.makePath('search') + '?' + lodashContrib.toQuery(queryParams)
