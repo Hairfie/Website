@@ -15,6 +15,7 @@ var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');
 var compress        = require('compression');
+var robots          = require('robots.txt')
 
 expressState.extend(server);
 
@@ -33,6 +34,7 @@ server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
+server.use(robots(__dirname + '/public/robots/' + config.ROBOTS));
 
 server.use(express.static(path.join(__dirname, 'public')));
 

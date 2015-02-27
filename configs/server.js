@@ -10,6 +10,7 @@ module.exports = resolve({
         HOST            : 'localhost',
         PORT            : 3001,
         API_PROXY_PATH  : '/api',
+        ROBOTS          : 'robots-staging.txt',
         API_PROXY_TARGET: hairfieApi.URL
     },
     development: {
@@ -20,5 +21,6 @@ module.exports = resolve({
     },
     production: {
         HOST            : 'www.hairfie.com',
+        ROBOT           : 'robots-production.txt'
     }
 });
