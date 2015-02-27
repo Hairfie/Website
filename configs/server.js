@@ -21,6 +21,6 @@ module.exports = resolve({
     },
     production: {
         HOST            : 'www.hairfie.com',
-        ROBOT           : 'robots-production.txt'
+        ROBOTS           : 'robots-production.txt'
     }
 });
