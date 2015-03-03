@@ -2,7 +2,7 @@
 
 var FetchRequest = require('./FetchRequest');
 var _ = require('lodash');
-var ga = require('../services/analytics');
+var ga = require('../../services/analytics');
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
