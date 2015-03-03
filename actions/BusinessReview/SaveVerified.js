@@ -2,6 +2,7 @@
 
 var FetchRequest = require('./FetchRequest');
 var _ = require('lodash');
+var ga = require('../services/analytics');
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
@@ -17,6 +18,9 @@ module.exports = function (context, payload, done) {
             context.executeAction(FetchRequest, {
                 id: payload.businessReviewRequest.id
             });
+
+            // track the event
+            ga('send', 'event', 'Business Reviews', 'Submit');
         })
         .fail(done);
 };
