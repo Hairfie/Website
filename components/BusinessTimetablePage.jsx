@@ -111,7 +111,7 @@ module.exports = React.createClass({
         var newTimeWindowModal = <NewTimeWindowModal container={this} handleSave={this.handleSaveNewTimeWindow} />
 
         return (
-            <Layout business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business}>
                 <h2>Horaires</h2>
 
                 <table className="table">
@@ -199,7 +199,7 @@ module.exports = React.createClass({
     _saveTimetable: function (timetable) {
         // TODO: In most cases I prefer to save specific attributes only, should
         //       we rename the action or change the payload's structure?
-        this.executeAction(BusinessActions.Save, {
+        this.props.context.executeAction(BusinessActions.Save, {
             business: {
                 id          : this.state.business.id,
                 timetable   : timetable

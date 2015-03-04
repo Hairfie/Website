@@ -66,7 +66,7 @@ module.exports = React.createClass({
         var businessServiceRows = (this.state.businessServices || []).map(this.renderBusinessServiceRow);
 
         return (
-            <Layout business={this.state.business} loading={loading}>
+            <Layout context={this.props.context} business={this.state.business} loading={loading}>
                 <Table>
                     <thead>
                         <tr>
@@ -110,12 +110,12 @@ module.exports = React.createClass({
     },
     saveBusinessService: function (businessService) {
         businessService.business = this.state.business;
-        this.executeAction(BusinessServiceActions.Save, {
+        this.props.context.executeAction(BusinessServiceActions.Save, {
             businessService: businessService
         });
     },
     deleteBusinessService: function (businessService) {
-        this.executeAction(BusinessServiceActions.Delete, {
+        this.props.context.executeAction(BusinessServiceActions.Delete, {
             businessService: businessService
         });
     },

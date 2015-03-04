@@ -35,7 +35,7 @@ module.exports = React.createClass({
 
         // check access is granted
         if (route.config.authRequired && !this.state.isAuthenticated) {
-            this.executeAction(Navigate, {
+            this.props.context.executeAction(Navigate, {
                 url: this.props.context.makePath('pro_home')
             });
 
@@ -43,7 +43,7 @@ module.exports = React.createClass({
         }
 
         if (route.config.leaveAfterAuth && this.state.isAuthenticated) {
-            this.executeAction(Navigate, {
+            this.props.context.executeAction(Navigate, {
                 url: this.props.context.makePath('pro_dashboard')
             });
 
@@ -55,11 +55,12 @@ module.exports = React.createClass({
         });
 
         return React.createElement(route.config.pageComponent, {
-            route: route
+            context : this.props.context,
+            route   : route
         });
     },
     renderNotFound: function () {
-        return <NotFoundPage />
+        return <NotFoundPage context={this.props.context} />
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

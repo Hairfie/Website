@@ -12,12 +12,12 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div>
-                <FlashMessages />
-                <Header withLogin={this.props.withLogin} />
+                <FlashMessages context={this.props.context} />
+                <Header context={this.props.context} withLogin={this.props.withLogin} />
                 <div className={ 'container public-layout ' + this.props.customClass }>
                     {this.props.children}
                 </div>
-                <Footer />
+                <Footer context={this.props.context} />
             </div>
         );
     }

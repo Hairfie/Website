@@ -185,7 +185,7 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        return <Layout>{this.renderBody()}</Layout>;
+        return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
     renderBody: function () {
         var brr = this.state.businessReviewRequest;
@@ -209,7 +209,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     submitReview: function (review) {
-        this.executeAction(BusinessReviewActions.SaveVerified, {
+        this.props.context.executeAction(BusinessReviewActions.SaveVerified, {
             businessReviewRequest: this.state.businessReviewRequest,
             businessReview       : review
         });

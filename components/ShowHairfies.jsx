@@ -32,7 +32,7 @@ module.exports = React.createClass({
     },
     fetchNextPage: function (page) {
         if(!this.state.endOfScroll) {
-            this.executeAction(HairfieActions.List, {
+            this.props.context.executeAction(HairfieActions.List, {
                 businessId  : this.props.businessId,
                 limit       : 6,
                 skip        : page * 6
@@ -65,7 +65,7 @@ module.exports = React.createClass({
             <div className="hairfie-picture col-sm-3 col-xs-6" key={hairfie.id}>
                 <div className="img-container">
                     { priceNode }
-                    <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                    <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
                         <img className="main-picture" src={_.last(hairfie.pictures).url} alt=""/>
                         { hairfie.pictures.length > 1  ? (<img className="thumb" src={_.first(hairfie.pictures).url} />) : null }
                     </NavLink>
@@ -75,7 +75,7 @@ module.exports = React.createClass({
         );
     },
     deleteHairfie: function(hairfie) {
-        this.executeAction(HairfieActions.Delete, {
+        this.props.context.executeAction(HairfieActions.Delete, {
             hairfie: hairfie
         });
     }

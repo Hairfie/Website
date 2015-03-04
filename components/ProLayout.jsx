@@ -23,7 +23,7 @@ module.exports = React.createClass({
                     <div id="page-wrapper">
                         <div className={bodyClassName}>
                             <Loader loading={this.props.loading}>
-                                <FlashMessages />
+                                <FlashMessages context={this.props.context} />
                                 {this.props.children}
                             </Loader>
                         </div>
@@ -44,12 +44,12 @@ module.exports = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                        <NavLink context={this.props.context} className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
                     </div>
                     <ul className="nav navbar-right top-nav">
-                        <li><NavLink routeName="home">Home</NavLink></li>
-                        <li><NavLink routeName="search">Trouver son coiffeur</NavLink></li>
-                        <UserStatus currentBusiness={this.props.business} />
+                        <li><NavLink context={this.props.context} routeName="home">Home</NavLink></li>
+                        <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
+                        <UserStatus context={this.props.context} currentBusiness={this.props.business} />
                     </ul>
                     {this.renderBusinessMenu(this.props.business)}
                 </div>
@@ -63,47 +63,47 @@ module.exports = React.createClass({
             <div className="collapse navbar-collapse navbar-ex1-collapse">
                 <ul className="nav navbar-nav side-nav">
                     <li>
-                        <NavLink routeName="pro_business" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id}}>
                             <i className="fa fa-home"></i> {business.name}
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_infos" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{businessId: business.id}}>
                             Infos <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_photos" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{businessId: business.id}}>
                             Photos du salon<span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_hairfies" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{businessId: business.id}}>
                             Hairfies <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_members" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_members" navParams={{businessId: business.id}}>
                             Votre équipe <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_timetable" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_timetable" navParams={{businessId: business.id}}>
                             Horaires <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_services" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_services" navParams={{businessId: business.id}}>
                             Services & Prix <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_customers" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_customers" navParams={{businessId: business.id}}>
                             Vos clients <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
                             Réseaux sociaux <span className="icon icon-right-arrow" aria-hidden="true"></span>
                         </NavLink>
                     </li>

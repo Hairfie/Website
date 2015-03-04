@@ -41,7 +41,7 @@ module.exports = React.createClass({
             address  = business.address || {};
 
         return (
-            <PublicLayout loading={loading} customClass="booking confirmation">
+            <PublicLayout context={this.props.context} loading={loading} customClass="booking confirmation">
                 <div className="row">
                     <Jumbotron>
                         <h2>
@@ -54,7 +54,7 @@ module.exports = React.createClass({
                         <p>
                             En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon
                         </p>
-                        <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                        <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                             <Button className="btn-primary">
                                 Voir les Hairfies de mon salon
                             </Button>

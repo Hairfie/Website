@@ -84,7 +84,7 @@ module.exports = React.createClass({
 
         var uploadId = Uuid.v4();
 
-        this.executeAction(PictureActions.Upload, {
+        this.props.context.executeAction(PictureActions.Upload, {
             id          : uploadId,
             container   : this.props.container,
             file        : e.target.files[0]

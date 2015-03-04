@@ -44,7 +44,7 @@ module.exports = React.createClass({
         var loading = _.isUndefined(this.state.business);
 
         return (
-            <PublicLayout loading={loading} customClass="booking">
+            <PublicLayout loading={loading} context={this.props.context} customClass="booking">
                 {this.renderBookingForm()}
             </PublicLayout>
         );
@@ -94,12 +94,12 @@ module.exports = React.createClass({
                 <div className="col-sm-6 left">
                     <div className="business">
                         <div className="col-sm-5 picture">
-                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
                                 <img src={business.pictures[0].url + '?height=300&width=300'} className="img-responsive" />
                             </NavLink>
                         </div>
                         <div className="col-sm-7">
-                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
                                 <h2>{business.name}</h2>
                             </NavLink>
                             <span className="address">
@@ -196,7 +196,7 @@ module.exports = React.createClass({
             hours = [],
             discounts = [];
 
-        _.forEach(timetableSelected, function(slot){
+        timetableSelected.forEach(function(slot){
             var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
                 stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
 
@@ -236,7 +236,7 @@ module.exports = React.createClass({
     submit: function (e) {
         e.preventDefault();
 
-        this.executeAction(BookingActions.Save, {
+        this.props.context.executeAction(BookingActions.Save, {
             booking: {
                 businessId  : this.state.business.id,
                 gender      : this.state.userGender,

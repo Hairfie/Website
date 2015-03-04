@@ -37,7 +37,7 @@ var PasswordLostModal = React.createClass({
 
         if (!email) return;
 
-        this.executeAction(AuthActions.ReportLostPassword, {
+        this.props.context.executeAction(AuthActions.ReportLostPassword, {
             email: this.refs.email.getValue()
         });
         this.props.onRequestHide();
@@ -83,7 +83,7 @@ module.exports = React.createClass({
         var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
             return (
                 <li key={business.id}>
-                    <NavLink routeName="pro_business" navParams={{businessId: business.id}}>
+                    <NavLink context={context} routeName="pro_business" navParams={{businessId: business.id}}>
                         {business.name}
                     </NavLink>
                 </li>
@@ -98,12 +98,12 @@ module.exports = React.createClass({
                     <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Se déconnecter</a></li>
                     <li className="divider"></li>
                     <li>
-                        <NavLink routeName="pro_business_new">
+                        <NavLink context={this.props.context} routeName="pro_business_new">
                             + déclarer une nouvelle activité
                         </NavLink>
                     </li>
                     <li className="divider"></li>
-                    <li><NavLink routeName="pro_dashboard"><i className="fa fa-cog"></i> Tableau de bord</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i> Tableau de bord</NavLink></li>
                     <li className="divider"></li>
                     {managedBusinesses}
                 </ul>
@@ -123,7 +123,7 @@ module.exports = React.createClass({
                         <Button className="btn-block" bsStyle="primary" type="submit" onClick={this.logIn}>
                             Se connecter
                         </Button>
-                        <ModalTrigger modal={<PasswordLostModal />}>
+                        <ModalTrigger modal={<PasswordLostModal context={this.props.context} />}>
                             <Button className="btn-block" bsStyle="link">Mot de passe oublié ?</Button>
                         </ModalTrigger>
                         <hr />
@@ -137,11 +137,11 @@ module.exports = React.createClass({
         );
     },
     logOut: function () {
-        this.executeAction(AuthActions.Logout);
+        this.props.context.executeAction(AuthActions.Logout);
     },
     logIn: function (e) {
         e.preventDefault();
-        this.executeAction(AuthActions.Login, {
+        this.props.context.executeAction(AuthActions.Login, {
             email   : this.refs.email.getValue(),
             password: this.refs.password.getValue()
         });
@@ -157,7 +157,7 @@ module.exports = React.createClass({
         // NOTE: we are breaking the flux architecture here, this si necessary
         //       to make the Facebook's login popup work on some browsers
         window.FB.login(function (response) {
-            this.executeAction(FacebookActions.HandleLoginResponse, {
+            this.props.context.executeAction(FacebookActions.HandleLoginResponse, {
                 response: response
             });
         }.bind(this), {scope: facebookConfig.SCOPE});
