@@ -46,6 +46,7 @@
     "moment": "^2.8.4",
     "moment-range": "^1.0.5",
     "morgan": "~1.3.0",
+    "newrelic": "^1.17.0",
     "node-jsx": "^0.12.0",
     "node-sass": "^2.0.1",
     "proxy-middleware": "^0.7.0",
