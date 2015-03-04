@@ -11,7 +11,7 @@ module.exports = function (context, payload, done) {
 
     context
         .getHairfieApi()
-        .getBooking(payload.id, context.getAuthToken(), context.getLocale())
+        .getBooking(payload.id)
         .then(function (booking) {
             context.dispatch(BookingEvents.RECEIVE_SUCCESS, {
                 id      : payload.id,
