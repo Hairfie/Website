@@ -39,11 +39,13 @@ var MenuItem = React.createClass({
 
 module.exports = React.createClass({
     render: function () {
-        var custom;
+        var custom, blog;
         if (this.props.withLogin) {
             custom = (<UserStatus />);
         } else {
-            custom = (<MenuItem routeName="pro_home">Vous êtes coiffeur ?</MenuItem>);
+            custom = (
+                <MenuItem routeName="pro_home">Vous êtes coiffeur ?</MenuItem>
+            );
         }
 
         return (

@@ -61,6 +61,8 @@ nav.header {
     .top-nav > li a {
         font-weight: 200;
         font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
@@ -78,9 +80,11 @@ img.profile {
 
 .navbar-collapse.in {
   overflow-y: visible;
+
+  padding: 5px;
 }
 .dropdown-menu.login {
     right: 0;
     left: auto;
-    min-width: 300px;
+    min-width: 290px;
 }

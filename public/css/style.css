@@ -7047,7 +7047,9 @@ nav.header {
     width: 70px; }
   .top-nav > li a {
     font-weight: 200;
-    font-size: 12px; } }
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px; } }
 
 @media (max-width: 768px) {
   img.profile {
@@ -7059,12 +7061,13 @@ nav.header {
     height: 50px; } }
 
 .navbar-collapse.in {
-  overflow-y: visible; }
+  overflow-y: visible;
+  padding: 5px; }
 
 .dropdown-menu.login, .twitter-typeahead .login.tt-dropdown-menu {
   right: 0;
   left: auto;
-  min-width: 300px; }
+  min-width: 290px; }
 
 div.row#business-header {
   height: 300px;
