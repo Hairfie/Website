@@ -55,11 +55,12 @@ module.exports = React.createClass({
         });
 
         return React.createElement(route.config.pageComponent, {
-            route: route
+            context : this.props.context,
+            route   : route
         });
     },
     renderNotFound: function () {
-        return <NotFoundPage />
+        return <NotFoundPage context={this.props.context} />
     },
     onChange: function () {
         this.setState(this.getStateFromStores());

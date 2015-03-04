@@ -39,13 +39,11 @@ var MenuItem = React.createClass({
 
 module.exports = React.createClass({
     render: function () {
-        var custom, blog;
+        var custom;
         if (this.props.withLogin) {
-            custom = (<UserStatus />);
+            custom = (<UserStatus context={this.props.context} />);
         } else {
-            custom = (
-                <MenuItem routeName="pro_home">Vous êtes coiffeur ?</MenuItem>
-            );
+            custom = (<MenuItem context={this.props.context} routeName="pro_home">Vous êtes coiffeur ?</MenuItem>);
         }
 
         return (
@@ -58,12 +56,12 @@ module.exports = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
+                        <NavLink context={this.props.context} className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav top-nav navbar-right">
-                            <MenuItem routeName="home">Home</MenuItem>
-                            <MenuItem routeName="search">Trouver son coiffeur</MenuItem>
+                            <MenuItem context={this.props.context} routeName="home">Home</MenuItem>
+                            <MenuItem context={this.props.context} routeName="search">Trouver son coiffeur</MenuItem>
                             <li><a href="http://blog.hairfie.com" target="_blank">Blog</a></li>
                             { custom }
                         </ul>

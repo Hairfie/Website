@@ -88,7 +88,7 @@ module.exports = React.createClass({
             address  = business.address || {};
 
         return (
-            <Layout business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business}>
                 <Input ref="name" type="text" label="Nom de la société" defaultValue={business.name} />
                 <Input ref="men" type="checkbox" label="Pour hommes" defaultChecked={business.men} />
                 <Input ref="women" type="checkbox" label="Pour femmes" defaultChecked={business.women} />

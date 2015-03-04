@@ -65,7 +65,7 @@ module.exports = React.createClass({
             <div className="hairfie-picture col-sm-3 col-xs-6" key={hairfie.id}>
                 <div className="img-container">
                     { priceNode }
-                    <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                    <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
                         <img className="main-picture" src={_.last(hairfie.pictures).url} alt=""/>
                         { hairfie.pictures.length > 1  ? (<img className="thumb" src={_.first(hairfie.pictures).url} />) : null }
                     </NavLink>

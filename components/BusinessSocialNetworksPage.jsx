@@ -168,7 +168,7 @@ var FacebookPanel = React.createClass({
     },
     renderBodyWithoutPage: function () {
         return (
-            <ModalTrigger modal={<ConnectFacebookPageModal business={this.props.business} />}>
+            <ModalTrigger modal={<ConnectFacebookPageModal context={this.props.context} business={this.props.business} />}>
                 <Button>Connecter une page facebook</Button>
             </ModalTrigger>
         );
@@ -200,9 +200,9 @@ module.exports = React.createClass({
     },
     render: function () {
         return (
-            <Layout business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business}>
                 <h2>Réseaux Sociaux</h2>
-                <FacebookPanel business={this.state.business} />
+                <FacebookPanel context={this.props.context} business={this.state.business} />
             </Layout>
         );
     },

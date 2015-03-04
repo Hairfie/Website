@@ -66,7 +66,7 @@ module.exports = React.createClass({
         var businessServiceRows = (this.state.businessServices || []).map(this.renderBusinessServiceRow);
 
         return (
-            <Layout business={this.state.business} loading={loading}>
+            <Layout context={this.props.context} business={this.state.business} loading={loading}>
                 <Table>
                     <thead>
                         <tr>

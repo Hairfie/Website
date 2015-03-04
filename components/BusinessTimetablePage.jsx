@@ -111,7 +111,7 @@ module.exports = React.createClass({
         var newTimeWindowModal = <NewTimeWindowModal container={this} handleSave={this.handleSaveNewTimeWindow} />
 
         return (
-            <Layout business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business}>
                 <h2>Horaires</h2>
 
                 <table className="table">

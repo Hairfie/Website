@@ -44,7 +44,7 @@ module.exports = React.createClass({
         }
 
         return (
-            <Layout>
+            <Layout context={this.props.context}>
                 <h2>Réinitialisation de votre mot de passe</h2>
                 {body}
             </Layout>
@@ -58,7 +58,7 @@ module.exports = React.createClass({
             <div>
                 <p>Votre nouveau mot de passe a bien été pris en compte. Pour continuer, vous pouvez</p>
                 <ul>
-                    <li><NavLink routeName="home">retourner sur le site</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="home">retourner sur le site</NavLink></li>
                     <li><a href="hairfie://login">ou retourner sur l'application mobile.</a></li>
                 </ul>
             </div>

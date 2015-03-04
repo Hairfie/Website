@@ -83,7 +83,7 @@ module.exports = React.createClass({
         var managedBusinesses = (this.state.managedBusinesses || []).map(function (business) {
             return (
                 <li key={business.id}>
-                    <NavLink routeName="pro_business" navParams={{businessId: business.id}}>
+                    <NavLink context={context} routeName="pro_business" navParams={{businessId: business.id}}>
                         {business.name}
                     </NavLink>
                 </li>
@@ -98,12 +98,12 @@ module.exports = React.createClass({
                     <li><a href="#" onClick={this.logOut}><i className="fa fa-sign-out"></i> Se déconnecter</a></li>
                     <li className="divider"></li>
                     <li>
-                        <NavLink routeName="pro_business_new">
+                        <NavLink context={this.props.context} routeName="pro_business_new">
                             + déclarer une nouvelle activité
                         </NavLink>
                     </li>
                     <li className="divider"></li>
-                    <li><NavLink routeName="pro_dashboard"><i className="fa fa-cog"></i> Tableau de bord</NavLink></li>
+                    <li><NavLink context={this.props.context} routeName="pro_dashboard"><i className="fa fa-cog"></i> Tableau de bord</NavLink></li>
                     <li className="divider"></li>
                     {managedBusinesses}
                 </ul>
@@ -123,7 +123,7 @@ module.exports = React.createClass({
                         <Button className="btn-block" bsStyle="primary" type="submit" onClick={this.logIn}>
                             Se connecter
                         </Button>
-                        <ModalTrigger modal={<PasswordLostModal />}>
+                        <ModalTrigger modal={<PasswordLostModal context={this.props.context} />}>
                             <Button className="btn-block" bsStyle="link">Mot de passe oublié ?</Button>
                         </ModalTrigger>
                         <hr />

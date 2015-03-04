@@ -29,7 +29,7 @@ module.exports = React.createClass({
         var business = this.state.business;
 
         if (!business) {
-            return <Layout loading={true} />
+            return <Layout context={this.props.context} loading={true} />
         }
 
         var infos;
@@ -50,7 +50,7 @@ module.exports = React.createClass({
         });
 
         return (
-            <Layout business={business} customClass={'business-dashboard'}>
+            <Layout context={this.props.context} business={business} customClass={'business-dashboard'}>
                 <div className="title">
                     <span>
                         <Picture picture={business.pictures[0]} className="img-circle" />
@@ -64,7 +64,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{business.numHairfies} Hairfie(s)</h3>
-                        <NavLink routeName="pro_business_hairfies" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_hairfies" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Gérer mes hairfies</button>
                         </NavLink>
                     </div>
@@ -75,7 +75,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{infos}</h3>
-                        <NavLink routeName="pro_business_infos" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_infos" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes infos</button>
                         </NavLink>
                     </div>
@@ -83,7 +83,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{business.activeHairdressers.length} coiffeur(s)</h3>
-                        <NavLink routeName="pro_business_members" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_members" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes coiffeurs</button>
                         </NavLink>
                     </div>
@@ -91,7 +91,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{(business.services||[]).length} service(s) proposé(s)</h3>
-                        <NavLink routeName="pro_business_services" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_services" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes services</button>
                         </NavLink>
                     </div>
@@ -99,7 +99,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{openDays} jour(s) d'ouverture renseigné(s)</h3>
-                        <NavLink routeName="pro_business_timetable" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_timetable" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes horaires</button>
                         </NavLink>
                     </div>
@@ -107,7 +107,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>{business.pictures.length} photos(s)</h3>
-                        <NavLink routeName="pro_business_photos" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_photos" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes photos</button>
                         </NavLink>
                     </div>
@@ -115,7 +115,7 @@ module.exports = React.createClass({
                 <div className="col-sm-6 col-md-4 business-dashboard-item">
                     <div className="thumbnail">
                         <h3>Réseaux sociaux</h3>
-                        <NavLink routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
+                        <NavLink context={this.props.context} routeName="pro_business_social_networks" navParams={{businessId: business.id}}>
                             <button className="btn btn-primary" role="button">Modifier mes réseaux sociaux</button>
                         </NavLink>
                     </div>

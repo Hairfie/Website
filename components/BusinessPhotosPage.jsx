@@ -35,7 +35,7 @@ module.exports = React.createClass({
         pictureNodes.push(this.renderNewPicture());
 
         return (
-            <Layout business={business} customClass={'business-photos'}>
+            <Layout context={this.props.context} business={business} customClass={'business-photos'}>
                 <h2>Photos du salon</h2>
                 {pictureNodes}
             </Layout>

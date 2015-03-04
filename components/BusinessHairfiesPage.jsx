@@ -33,10 +33,10 @@ module.exports = React.createClass({
             address  = business.address || {};
 
         return (
-            <Layout business={this.state.business}>
+            <Layout context={this.props.context} business={this.state.business}>
                 <h2>Hairfies du salon</h2>
                 <div className="row business-hairfies">
-                    <ShowHairfies businessId={business.id} withDeleteButton={true} />
+                    <ShowHairfies businessId={business.id} withDeleteButton={true} context={this.props.context} />
                 </div>
             </Layout>
         );

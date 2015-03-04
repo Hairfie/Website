@@ -76,7 +76,7 @@ var GenderChoice = React.createClass({
 module.exports = React.createClass({
     render: function () {
         return (
-            <PublicLayout withLogin={true} customClass={'home-pro'}>
+            <PublicLayout context={this.props.context} withLogin={true} customClass={'home-pro'}>
                 <div className="row first">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">
                         <h1>Augmentez votre visibilité et votre chiffre d'affaires</h1>
