@@ -61,7 +61,6 @@ module.exports = React.createClass({
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav top-nav navbar-right">
                             <MenuItem context={this.props.context} routeName="home">Home</MenuItem>
-                            <MenuItem context={this.props.context} routeName="search">Trouver son coiffeur</MenuItem>
                             <li><a href="http://blog.hairfie.com" target="_blank">Blog</a></li>
                             { custom }
                         </ul>
