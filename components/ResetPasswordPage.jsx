@@ -83,7 +83,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     submitNewPassword: function () {
-        this.props.context.executeAction(AuthActions.ResetPassword, {
+        this.executeAction(AuthActions.ResetPassword, {
             userId  : this.state.userId,
             token   : this.state.token,
             password: this.refs.password.getValue()

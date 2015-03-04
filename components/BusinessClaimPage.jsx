@@ -36,7 +36,7 @@ module.exports = React.createClass({
             phoneNumber : this.refs.phoneNumber.getValue()
         };
 
-        this.props.context.executeAction(BusinessActions.Claim, {
+        this.executeAction(BusinessActions.Claim, {
             business: business
         });
     }

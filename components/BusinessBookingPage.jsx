@@ -236,7 +236,7 @@ module.exports = React.createClass({
     submit: function (e) {
         e.preventDefault();
 
-        this.props.context.executeAction(BookingActions.Save, {
+        this.executeAction(BookingActions.Save, {
             booking: {
                 businessId  : this.state.business.id,
                 gender      : this.state.userGender,

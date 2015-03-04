@@ -95,7 +95,7 @@ module.exports = React.createClass({
             return arr;
         }, []);
 
-        this.props.context.executeAction(BusinessActions.Save, {
+        this.executeAction(BusinessActions.Save, {
             business: {
                 id          : this.state.business.id,
                 pictures    : pictures
@@ -103,7 +103,7 @@ module.exports = React.createClass({
         });
     },
     _uploadPicture: function(file) {
-        this.props.context.executeAction(BusinessActions.AddPicture, {
+        this.executeAction(BusinessActions.AddPicture, {
             pictureToUpload: file,
             business: this.state.business
         });

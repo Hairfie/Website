@@ -146,7 +146,7 @@ module.exports = React.createClass({
     delete: function (businessMember) {
         if (!confirm('Voulez-vous vraiment supprimer ce membre ?')) return;
 
-        this.props.context.executeAction(BusinessMemberActions.Save, {
+        this.executeAction(BusinessMemberActions.Save, {
             businessMember: {
                 id      : businessMember.id,
                 active  : false
@@ -159,7 +159,7 @@ module.exports = React.createClass({
     saveBusinessMember: function (businessMember) {
         businessMember.business = this.state.business;
 
-        this.props.context.executeAction(BusinessMemberActions.Save, {
+        this.executeAction(BusinessMemberActions.Save, {
             businessMember: businessMember
         });
     }

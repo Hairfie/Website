@@ -114,7 +114,7 @@ module.exports = React.createClass({
             queryParams.clientTypes = arr;
         }
 
-        this.props.context.executeAction(Navigate, {
+        this.executeAction(Navigate, {
             url: this.props.context.makePath('search') + '?' + lodashContrib.toQuery(queryParams)
         });
     },

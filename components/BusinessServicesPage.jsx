@@ -110,12 +110,12 @@ module.exports = React.createClass({
     },
     saveBusinessService: function (businessService) {
         businessService.business = this.state.business;
-        this.props.context.executeAction(BusinessServiceActions.Save, {
+        this.executeAction(BusinessServiceActions.Save, {
             businessService: businessService
         });
     },
     deleteBusinessService: function (businessService) {
-        this.props.context.executeAction(BusinessServiceActions.Delete, {
+        this.executeAction(BusinessServiceActions.Delete, {
             businessService: businessService
         });
     },

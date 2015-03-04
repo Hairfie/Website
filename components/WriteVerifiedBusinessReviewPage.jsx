@@ -209,7 +209,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     submitReview: function (review) {
-        this.props.context.executeAction(BusinessReviewActions.SaveVerified, {
+        this.executeAction(BusinessReviewActions.SaveVerified, {
             businessReviewRequest: this.state.businessReviewRequest,
             businessReview       : review
         });

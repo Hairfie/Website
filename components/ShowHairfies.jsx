@@ -32,7 +32,7 @@ module.exports = React.createClass({
     },
     fetchNextPage: function (page) {
         if(!this.state.endOfScroll) {
-            this.props.context.executeAction(HairfieActions.List, {
+            this.executeAction(HairfieActions.List, {
                 businessId  : this.props.businessId,
                 limit       : 6,
                 skip        : page * 6
@@ -75,7 +75,7 @@ module.exports = React.createClass({
         );
     },
     deleteHairfie: function(hairfie) {
-        this.props.context.executeAction(HairfieActions.Delete, {
+        this.executeAction(HairfieActions.Delete, {
             hairfie: hairfie
         });
     }

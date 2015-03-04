@@ -37,7 +37,7 @@ var PasswordLostModal = React.createClass({
 
         if (!email) return;
 
-        this.props.context.executeAction(AuthActions.ReportLostPassword, {
+        this.executeAction(AuthActions.ReportLostPassword, {
             email: this.refs.email.getValue()
         });
         this.props.onRequestHide();
@@ -137,11 +137,11 @@ module.exports = React.createClass({
         );
     },
     logOut: function () {
-        this.props.context.executeAction(AuthActions.Logout);
+        this.executeAction(AuthActions.Logout);
     },
     logIn: function (e) {
         e.preventDefault();
-        this.props.context.executeAction(AuthActions.Login, {
+        this.executeAction(AuthActions.Login, {
             email   : this.refs.email.getValue(),
             password: this.refs.password.getValue()
         });
@@ -157,7 +157,7 @@ module.exports = React.createClass({
         // NOTE: we are breaking the flux architecture here, this si necessary
         //       to make the Facebook's login popup work on some browsers
         window.FB.login(function (response) {
-            this.props.context.executeAction(FacebookActions.HandleLoginResponse, {
+            this.executeAction(FacebookActions.HandleLoginResponse, {
                 response: response
             });
         }.bind(this), {scope: facebookConfig.SCOPE});

@@ -199,7 +199,7 @@ module.exports = React.createClass({
     _saveTimetable: function (timetable) {
         // TODO: In most cases I prefer to save specific attributes only, should
         //       we rename the action or change the payload's structure?
-        this.props.context.executeAction(BusinessActions.Save, {
+        this.executeAction(BusinessActions.Save, {
             business: {
                 id          : this.state.business.id,
                 timetable   : timetable

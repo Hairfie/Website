@@ -120,7 +120,7 @@ module.exports = React.createClass({
         business.address = this.refs.address.getAddress();
         business.gps = this.refs.address.getGps();
 
-        this.props.context.executeAction(BusinessActions.Save, {
+        this.executeAction(BusinessActions.Save, {
             business: business
         });
     },

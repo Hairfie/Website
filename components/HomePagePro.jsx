@@ -120,7 +120,7 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
-        this.props.context.executeAction(AuthActions.Signup, {
+        this.executeAction(AuthActions.Signup, {
             user        : {
                 gender      : this.refs.userGender.getValue(),
                 firstName   : this.refs.userFirstName.getValue(),

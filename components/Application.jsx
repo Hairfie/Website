@@ -35,7 +35,7 @@ module.exports = React.createClass({
 
         // check access is granted
         if (route.config.authRequired && !this.state.isAuthenticated) {
-            this.props.context.executeAction(Navigate, {
+            this.executeAction(Navigate, {
                 url: this.props.context.makePath('pro_home')
             });
 
@@ -43,7 +43,7 @@ module.exports = React.createClass({
         }
 
         if (route.config.leaveAfterAuth && this.state.isAuthenticated) {
-            this.props.context.executeAction(Navigate, {
+            this.executeAction(Navigate, {
                 url: this.props.context.makePath('pro_dashboard')
             });
 
