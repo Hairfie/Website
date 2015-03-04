@@ -34,7 +34,7 @@ module.exports = React.createClass({
             return this.renderBusiness(business);
         }, this);
         return (
-            <ProLayout context={this.props.context} withoutSideBar={true} loading={loading}>
+            <ProLayout withoutSideBar={true} loading={loading}>
                 <h3>Mes salons</h3>
                 {businessNodes}
             </ProLayout>
@@ -48,7 +48,7 @@ module.exports = React.createClass({
                     <div className="caption">
                         <h3>{business.name}</h3>
                         <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
-                        <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id, step: 'general'}}>
+                        <NavLink routeName="pro_business" navParams={{businessId: business.id, step: 'general'}}>
                             <button className="btn btn-primary" role="button">Gérer cette activité</button>
                         </NavLink>
 

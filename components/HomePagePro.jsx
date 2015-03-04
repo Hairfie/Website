@@ -76,7 +76,7 @@ var GenderChoice = React.createClass({
 module.exports = React.createClass({
     render: function () {
         return (
-            <PublicLayout context={this.props.context} withLogin={true} customClass={'home-pro'}>
+            <PublicLayout withLogin={true} customClass={'home-pro'}>
                 <div className="row first">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">
                         <h1>Augmentez votre visibilité et votre chiffre d'affaires</h1>
@@ -120,7 +120,7 @@ module.exports = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
-        this.props.context.executeAction(AuthActions.Signup, {
+        this.executeAction(AuthActions.Signup, {
             user        : {
                 gender      : this.refs.userGender.getValue(),
                 firstName   : this.refs.userFirstName.getValue(),

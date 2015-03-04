@@ -101,7 +101,7 @@ var ConnectFacebookPageModal = React.createClass({
         // NOTE: we are breaking the flux architecture here, this si necessary
         //       to make the Facebook's login popup work on some browsers
         window.FB.login(function (response) {
-            this.props.context.executeAction(FacebookActions.HandleLinkResponse, {
+            this.executeAction(FacebookActions.HandleLinkResponse, {
                 response: response
             });
         }.bind(this), {scope: this.facebookPermissions.join(',')});
@@ -109,7 +109,7 @@ var ConnectFacebookPageModal = React.createClass({
     connectPage: function () {
         var facebookPage = _.find(this.state.managedPages, {id: this.refs.page.getValue()});
         if (facebookPage) {
-            this.props.context.executeAction(BusinessActions.SaveFacebookPage, {
+            this.executeAction(BusinessActions.SaveFacebookPage, {
                 business    : this.props.business,
                 facebookPage: facebookPage
             });
@@ -168,7 +168,7 @@ var FacebookPanel = React.createClass({
     },
     renderBodyWithoutPage: function () {
         return (
-            <ModalTrigger modal={<ConnectFacebookPageModal context={this.props.context} business={this.props.business} />}>
+            <ModalTrigger modal={<ConnectFacebookPageModal business={this.props.business} />}>
                 <Button>Connecter une page facebook</Button>
             </ModalTrigger>
         );
@@ -177,7 +177,7 @@ var FacebookPanel = React.createClass({
         this.setState(this.getStateFromStores());
     },
     disconnectPage: function () {
-        this.props.context.executeAction(BusinessActions.DeleteFacebookPage, {
+        this.executeAction(BusinessActions.DeleteFacebookPage, {
             business: this.props.business
         });
     }
@@ -200,9 +200,9 @@ module.exports = React.createClass({
     },
     render: function () {
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout business={this.state.business}>
                 <h2>Réseaux Sociaux</h2>
-                <FacebookPanel context={this.props.context} business={this.state.business} />
+                <FacebookPanel business={this.state.business} />
             </Layout>
         );
     },

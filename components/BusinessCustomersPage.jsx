@@ -47,7 +47,7 @@ module.exports = React.createClass({
         var customersRow = customers.map(this.renderCustomerRow);
 
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout business={this.state.business}>
                 <h2>Clients</h2>
                 <div className="alert alert-success">
                     <strong>Attention, pour remplir cette page</strong> pensez à prendre systématiquement les emails de vos clients au moment de poster un hairfie !

@@ -14,7 +14,7 @@ var Button = require('react-bootstrap/Button');
 module.exports = React.createClass({
     render: function () {
         return (
-            <Layout context={this.props.context}>
+            <Layout>
                 <Input ref="name" type="text" label="Nom de votre société" />
                 <Input ref="kind" label="Activité" type="select">
                     <option value={BusinessKinds.SALON}>Salon de coiffure</option>
@@ -36,7 +36,7 @@ module.exports = React.createClass({
             phoneNumber : this.refs.phoneNumber.getValue()
         };
 
-        this.props.context.executeAction(BusinessActions.Claim, {
+        this.executeAction(BusinessActions.Claim, {
             business: business
         });
     }

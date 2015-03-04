@@ -48,7 +48,7 @@ module.exports = React.createClass({
         );
     },
     closeMessage: function (message) {
-        this.props.context.executeAction(FlashActions.CloseMessage, {
+        this.executeAction(FlashActions.CloseMessage, {
             message: message
         });
     },
