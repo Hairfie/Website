@@ -58,6 +58,8 @@ server.get('/hairfies/:hairfieId', redirectToLocalized);
 server.get('/businesses/:businessId', redirectToLocalized);
 server.get('/businesses/:businessId/:slug', redirectToLocalized);
 server.get('/reset-password/:userId/:token', redirectToLocalized);
+server.get('/write-business-review/:businessReviewRequestId', redirectToLocalized);
+
 
 // serve application
 server.use(function (req, res, next) {
