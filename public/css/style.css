@@ -7045,6 +7045,8 @@ nav.header {
 @media (max-width: 768px) {
   #logo {
     width: 70px; }
+  .top-nav {
+    float: right; }
   .top-nav > li a {
     font-weight: 200;
     font-size: 12px;
