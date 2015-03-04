@@ -196,7 +196,7 @@ module.exports = React.createClass({
             hours = [],
             discounts = [];
 
-        timetableSelected.forEach(function(slot){
+         _.forEach(timetableSelected, function(slot) {
             var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
                 stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
 
