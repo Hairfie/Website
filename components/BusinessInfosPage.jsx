@@ -88,7 +88,7 @@ module.exports = React.createClass({
             address  = business.address || {};
 
         return (
-            <Layout context={this.props.context} business={this.state.business}>
+            <Layout business={this.state.business}>
                 <Input ref="name" type="text" label="Nom de la société" defaultValue={business.name} />
                 <Input ref="men" type="checkbox" label="Pour hommes" defaultChecked={business.men} />
                 <Input ref="women" type="checkbox" label="Pour femmes" defaultChecked={business.women} />
@@ -120,7 +120,7 @@ module.exports = React.createClass({
         business.address = this.refs.address.getAddress();
         business.gps = this.refs.address.getGps();
 
-        this.props.context.executeAction(BusinessActions.Save, {
+        this.executeAction(BusinessActions.Save, {
             business: business
         });
     },

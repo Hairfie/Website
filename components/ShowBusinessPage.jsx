@@ -39,7 +39,7 @@ module.exports = React.createClass({
             business = this.state.business || {};
 
         return (
-            <PublicLayout context={this.props.context}>
+            <PublicLayout>
                 <div className="row" id="business-header">
                     <div className="col-sm-3 col-xs-12 map">
                         {this.renderMap()}
@@ -55,7 +55,7 @@ module.exports = React.createClass({
                         {this.renderServicesNode()}
                         {this.renderBookingButton()}
                         <p>
-                            <ClaimExistingBusiness context={this.props.context} business={business} />
+                            <ClaimExistingBusiness business={business} />
                         </p>
                     </div>
                     <div className="col-sm-3 col-xs-6 pictures">
@@ -63,7 +63,7 @@ module.exports = React.createClass({
                     </div>
                 </div>
                 <div className="row business-hairfies">
-                    <ShowHairfies businessId={business.id} context={this.props.context} />
+                    <ShowHairfies businessId={business.id} />
                 </div>
             </PublicLayout>
         );
@@ -108,7 +108,7 @@ module.exports = React.createClass({
                 <p className="info discounts">
                     <span className="icon icon-discount"></span>
                     <span className="content">
-                        <NavLink routeName="book_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                        <NavLink routeName="book_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
                             <span className="label label-discount">
                                 {discountObj.max} %
                             </span>
@@ -153,7 +153,7 @@ module.exports = React.createClass({
 
         return (
             <p className="booking-container">
-                <NavLink routeName="book_business" navParams={{businessId: this.state.business.id, businessSlug: this.state.business.slug}} context={this.props.context}>
+                <NavLink routeName="book_business" navParams={{businessId: this.state.business.id, businessSlug: this.state.business.slug}}>
                     <Button className="btn-booking">
                         Réserver
                     </Button>

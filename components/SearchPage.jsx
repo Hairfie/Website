@@ -57,7 +57,7 @@ module.exports = React.createClass({
         }
 
         return (
-            <PublicLayout context={this.props.context} withLogin={false} customClass={'search'}>
+            <PublicLayout withLogin={false} customClass={'search'}>
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
@@ -85,12 +85,12 @@ module.exports = React.createClass({
     renderBusinessRow: function(business) {
         return (
             <div className="media" key={business.id}>
-                <NavLink context={this.props.context} className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                <NavLink className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
                     <img src={business.pictures[0].url + '?height=100&width=100'} className="img-responsive" />
                 </NavLink>
                 <div className="media-body">
                     <h4 className="media-heading">
-                        <NavLink context={this.props.context} className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
+                        <NavLink className="media-left" routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
                             {business.name}
                         </NavLink>
                     </h4>
@@ -114,7 +114,7 @@ module.exports = React.createClass({
             queryParams.clientTypes = arr;
         }
 
-        this.props.context.executeAction(Navigate, {
+        this.executeAction(Navigate, {
             url: this.props.context.makePath('search') + '?' + lodashContrib.toQuery(queryParams)
         });
     },

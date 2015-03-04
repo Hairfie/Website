@@ -41,7 +41,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     ClaimExistingBusiness: function() {
-        this.props.context.executeAction(BusinessActions.ClaimExisting, {
+        this.executeAction(BusinessActions.ClaimExisting, {
             business: this.props.business
         });
     }

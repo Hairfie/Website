@@ -59,7 +59,7 @@ module.exports = React.createClass({
     render: function () {
         if(!this.state.hairfie) {
             return (
-                <PublicLayout context={this.props.context}>
+                <PublicLayout>
                     <div>Loading Hairfie in progress</div>
                 </PublicLayout>
             );
@@ -70,7 +70,7 @@ module.exports = React.createClass({
                 var business = this.state.hairfie.business;
                 businessNode = (
                     <div className="business">
-                        <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
+                        <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}}>
                             { 'Réalisé chez ' + this.state.hairfie.business.name }
                         </NavLink>
                     </div>
@@ -80,7 +80,7 @@ module.exports = React.createClass({
             }
 
             return (
-                <PublicLayout context={this.props.context}>
+                <PublicLayout>
                     <div className="row hairfie">
                         <div className="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1 hairfie-picture">
                             {this.renderHairfiePicture()}

@@ -44,7 +44,7 @@ module.exports = React.createClass({
         }
 
         return (
-            <Layout context={this.props.context}>
+            <Layout>
                 <h2>Réinitialisation de votre mot de passe</h2>
                 {body}
             </Layout>
@@ -58,7 +58,7 @@ module.exports = React.createClass({
             <div>
                 <p>Votre nouveau mot de passe a bien été pris en compte. Pour continuer, vous pouvez</p>
                 <ul>
-                    <li><NavLink context={this.props.context} routeName="home">retourner sur le site</NavLink></li>
+                    <li><NavLink routeName="home">retourner sur le site</NavLink></li>
                     <li><a href="hairfie://login">ou retourner sur l'application mobile.</a></li>
                 </ul>
             </div>
@@ -83,7 +83,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     submitNewPassword: function () {
-        this.props.context.executeAction(AuthActions.ResetPassword, {
+        this.executeAction(AuthActions.ResetPassword, {
             userId  : this.state.userId,
             token   : this.state.token,
             password: this.refs.password.getValue()

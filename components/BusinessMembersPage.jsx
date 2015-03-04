@@ -35,8 +35,8 @@ var BusinessMemberModal = React.createClass({
         return (
             <Modal {...this.props}>
                 <div className="modal-body">
-                    <UserPicker ref="user" defaultUser={this.state.selectedUser} context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
-                    <PictureInput context={this.props.context} container="business-pictures" ref="picture" label="Photo" defaultPicture={businessMember.picture} />
+                    <UserPicker ref="user" defaultUser={this.state.selectedUser} onUserChange={this.handleUserChange} label="Utilisateur" />
+                    <PictureInput ref="picture" label="Photo" defaultPicture={businessMember.picture} />
                     <Row>
                         <Col xs={4}>
                             <Input ref="gender" label="Genre" type="select" defaultValue={businessMember.gender} value={user.gender} readOnly={hasUser}>
@@ -101,7 +101,7 @@ module.exports = React.createClass({
         var businessMemberRows = businessMembers.map(this.renderBusinessMemberRow);
 
         return (
-            <Layout context={this.props.context} business={this.state.business} loading={loading}>
+            <Layout business={this.state.business} loading={loading}>
                 <h2>Membres de l'équipe</h2>
                 <Table>
                     <thead>
@@ -117,7 +117,7 @@ module.exports = React.createClass({
                     </tbody>
                 </Table>
 
-                <ModalTrigger modal={<BusinessMemberModal context={this.props.context} onSave={this.saveBusinessMember} />}>
+                <ModalTrigger modal={<BusinessMemberModal onSave={this.saveBusinessMember} />}>
                     <Button>Ajouter un membre à l'équipe</Button>
                 </ModalTrigger>
             </Layout>
@@ -135,7 +135,7 @@ module.exports = React.createClass({
                 <td>{businessMember.firstName} {businessMember.lastName}</td>
                 <td>{businessMember.hidden ? 'oui' : 'non'}</td>
                 <td>
-                    <ModalTrigger modal={<BusinessMemberModal context={this.props.context} businessMember={businessMember} onSave={this.saveBusinessMember} />}>
+                    <ModalTrigger modal={<BusinessMemberModal businessMember={businessMember} onSave={this.saveBusinessMember} />}>
                         <Button bsSize="xsmall">Modifier</Button>
                     </ModalTrigger>
                     <Button bsSize="xsmall" onClick={this.delete.bind(this, businessMember)}><Glyphicon glyph="remove" /> Supprimer</Button>
@@ -146,7 +146,7 @@ module.exports = React.createClass({
     delete: function (businessMember) {
         if (!confirm('Voulez-vous vraiment supprimer ce membre ?')) return;
 
-        this.props.context.executeAction(BusinessMemberActions.Save, {
+        this.executeAction(BusinessMemberActions.Save, {
             businessMember: {
                 id      : businessMember.id,
                 active  : false
@@ -159,7 +159,7 @@ module.exports = React.createClass({
     saveBusinessMember: function (businessMember) {
         businessMember.business = this.state.business;
 
-        this.props.context.executeAction(BusinessMemberActions.Save, {
+        this.executeAction(BusinessMemberActions.Save, {
             businessMember: businessMember
         });
     }
