@@ -8,7 +8,7 @@ module.exports = resolve({
         URL: 'http://api-staging.hairfie.com/api'
     },
     local: {
-        URL: 'http://api-staging.hairfie.com/api'
+        URL: 'http://localhost:3001/api'
     },
     staging: {
         URL: 'http://api-staging.hairfie.com/api'

@@ -70,6 +70,36 @@ var AddressWithMap = React.createClass({
     }
 });
 
+var DescriptionInputGroup = React.createClass({
+    render: function () {
+        var description = this.props.defaultDescription || {};
+
+        return (
+            <div>
+                <Input ref="geoTitle" type="text" label="Titre ayant référence à la localisation" defaultValue={description.geoTitle} onChange={this.handleChange} />
+                <Input ref="geoText" type="textarea" label="Texte sur la localisation" defaultValue={description.geoText} onChange={this.handleChange} />
+                <Input ref="proTitle" type="text" label="Titre donnant une spécialité/spécificité du coiffeur" defaultValue={description.proTitle} onChange={this.handleChange} />
+                <Input ref="proText" type="textarea" label="Text sur le/les coiffeurs et leurs spécialités" defaultValue={description.proText} onChange={this.handleChange} />
+                <Input ref="businessTitle" type="text" label="Titre référence au salon" defaultValue={description.businessTitle} onChange={this.handleChange} />
+                <Input ref="businessText" type="textarea" label="Texte sur les salons" defaultValue={description.businessText} onChange={this.handleChange} />
+            </div>
+        );
+    },
+    getDescription: function () {
+        return {
+            geoTitle  : this.refs.geoTitle.getValue(),
+            geoText    : this.refs.geoText.getValue(),
+            proTitle : this.refs.proTitle.getValue(),
+            proText : this.refs.proText.getValue(),
+            businessTitle : this.refs.businessTitle.getValue(),
+            businessText : this.refs.businessText.getValue()
+        };
+    },
+    handleChange: function () {
+        //this.props.onChange();
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -99,6 +129,8 @@ module.exports = React.createClass({
                 </Input>
                 <Input ref="phoneNumber" type="text" label="Numéro de téléphone" defaultValue={business.phoneNumber} />
 
+                <DescriptionInputGroup ref="description" defaultDescription={business.description} />
+
                 <AddressWithMap ref="address" defaultAddress={business.address} defaultGps={business.gps} />
 
                 <Button onClick={this.save}>Sauver les modifications</Button>
@@ -119,6 +151,7 @@ module.exports = React.createClass({
         business.phoneNumber = this.refs.phoneNumber.getValue();
         business.address = this.refs.address.getAddress();
         business.gps = this.refs.address.getGps();
+        business.description = this.refs.description.getDescription();
 
         this.executeAction(BusinessActions.Save, {
             business: business
