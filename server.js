@@ -49,7 +49,7 @@ function bestLocale(req) {
 }
 
 function redirectToLocalized(req, res, next) {
-    res.redirect('/'+bestLocale(req)+req.url, 302);
+    res.redirect(302, '/'+bestLocale(req)+req.url);
     next();
 }
 
