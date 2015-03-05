@@ -17,6 +17,7 @@ var facebookConfig = require('../configs/facebook');
 var Facebook = require('../services/facebook');
 
 var PasswordLostModal = React.createClass({
+    mixins: [FluxibleMixin],
     render: function () {
         return (
             <Modal {...this.props} title="Réinitialiser votre mot de passe">
