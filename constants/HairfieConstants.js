@@ -8,6 +8,10 @@ module.exports = {
         'RECEIVE_SUCCESS',
         'RECEIVE_FAILURE',
 
+        'RECEIVE_TOP',
+        'RECEIVE_TOP_SUCCESS',
+        'RECEIVE_TOP_FAILURE',
+
         'DELETE',
         'DELETE_SUCCESS',
         'DELETE_FAILURE',

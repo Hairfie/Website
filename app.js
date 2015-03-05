@@ -71,6 +71,7 @@ app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfiesStore'));
+app.registerStore(require('./stores/TopHairfiesStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/BusinessMemberStore'));
 app.registerStore(require('./stores/BusinessCustomersStore'));

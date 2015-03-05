@@ -3,11 +3,39 @@
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
+var FluxibleMixin = require('fluxible').Mixin;
+var TopHairfiesStore = require('../stores/TopHairfiesStore');
+var _ = require('lodash');
+
+var TopHairfies = React.createClass({
+    render: function () {
+        return <ol>{_.map(this.props.hairfies, this.renderHairfie)}</ol>;
+    },
+    renderHairfie: function (hairfie) {
+        return <li>{hairfie.id}</li>;
+    }
+});
 
 module.exports = React.createClass({
+    mixins: [FluxibleMixin],
+    statics: {
+        storeListeners: [TopHairfiesStore]
+    },
+    getStateFromStores: function () {
+        return {
+            topHairfies: this.getStore(TopHairfiesStore).get(3)
+        };
+    },
+    getInitialState: function () {
+        return this.getStateFromStores();
+    },
     render: function () {
         return (
-            <PublicLayout context={this.props.context} customClass={'home-bg'}>
+            <PublicLayout customClass={'home-bg'}>
+                <div className="row">
+                    <h3>Top hairfies du moment</h3>
+                    <TopHairfies context={this.props.context} hairfies={this.state.topHairfies} />
+                </div>
                 <div className="row home">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">
                         <h1>
@@ -31,5 +59,8 @@ module.exports = React.createClass({
                 </div>
             </PublicLayout>
         );
+    },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
     }
 });
