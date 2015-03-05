@@ -69,6 +69,7 @@ server.use(function (req, res, next) {
     var payload          = {request: req};
     var RouteStore       = require('./stores/RouteStore');
     var MetaStore        = require('./stores/MetaStore');
+    var BusinessStore    = require('./stores/BusinessStore');
     var React            = require('react');
     var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
 
@@ -103,6 +104,20 @@ server.use(function (req, res, next) {
             }));
 
             if (!currentRoute) res.status(404);
+
+            if(currentRoute.name == 'show_business_without_slug') {
+                var businessSlug = context.getActionContext().getStore(BusinessStore).getById(currentRoute.params.businessId).slug;
+                var newUrl = currentRoute.url;
+
+                if(newUrl.substr(-1) == '/') {
+                    newUrl += businessSlug;
+                } else {
+                    newUrl += '/' + businessSlug;
+                }
+                res.redirect(newUrl);
+
+                return;
+            }
 
             res.write(html);
             res.end();
