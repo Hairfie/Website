@@ -105,7 +105,7 @@ server.use(function (req, res, next) {
 
             if (!currentRoute) res.status(404);
 
-            if(currentRoute.name == 'show_business_without_slug') {
+            if(currentRoute && currentRoute.name == 'show_business_without_slug') {
                 var businessSlug = context.getActionContext().getStore(BusinessStore).getById(currentRoute.params.businessId).slug;
                 var newUrl = currentRoute.url;
 
