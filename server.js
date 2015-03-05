@@ -114,7 +114,7 @@ server.use(function (req, res, next) {
                 } else {
                     newUrl += '/' + businessSlug;
                 }
-                res.redirect(newUrl);
+                res.redirect(301, newUrl);
 
                 return;
             }
