@@ -52,6 +52,8 @@ module.exports = React.createClass({
                         </p>
                         {this.renderPhoneNode()}
                         {this.renderDiscountNode()}
+                        {this.renderAveragePrice()}
+                        {this.renderDescriptionNode()}
                         {this.renderServicesNode()}
                         {this.renderBookingButton()}
                         <p>
@@ -123,6 +125,20 @@ module.exports = React.createClass({
             return null;
         }
     },
+    renderAveragePrice: function() {
+        var averagePrice = this.state.business.averagePrice;
+        if(!averagePrice) return null;
+
+        return (
+            <div className="info services">
+                <span className="icon icon-price"></span>
+                <ul className="content">
+                    <li>Femme : { Math.round(averagePrice.women) } €</li>
+                    <li>Homme : { Math.round(averagePrice.men) } €</li>
+                </ul>
+            </div>
+        );
+    },
     renderServicesNode: function() {
         var services = this.state.services;
         if(services && services.length > 0) {
@@ -171,6 +187,23 @@ module.exports = React.createClass({
                 <span className="icon icon-phone"></span>
                 <span className="content">
                     <span className="label label-red">{business.phoneNumber ? business.phoneNumber : 'Information indisponible'  }</span>
+                </span>
+            </p>
+        );
+    },
+    renderDescriptionNode: function () {
+        var business = this.state.business;
+        if (!business || !business.description) return;
+
+        var description = business.description;
+
+        return (
+            <p className="info description">
+                <span className="icon icon-phone"></span>
+                <span className="content">
+                    {description.geoTitle} :{description.geoText}<br />
+                    {description.proTitle} :{description.proText}<br />
+                    {description.businessTitle} :{description.businessText}<br />
                 </span>
             </p>
         );
