@@ -4,7 +4,10 @@ module.exports = {
     home: {
         path: '/',
         method: 'get',
-        pageComponent: require('../components/HomePage.jsx')
+        pageComponent: require('../components/HomePage.jsx'),
+        action: require('../actions/Page/Home'),
+        numTopDeals: 3,
+        numTopHairfies: 3
     },
     reset_password: {
         path: '/reset-password/:userId/:token',
