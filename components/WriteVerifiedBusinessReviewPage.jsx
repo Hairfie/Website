@@ -100,14 +100,6 @@ var ReviewForm = React.createClass({
                         <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>} />
                     </Col>
                 </Row>
-                <Row>
-                    <Col md={6}>
-                        <Input ref="email" type="email" label="Votre adresse email" disabled={true} value={this.props.businessReviewRequest.email} />
-                    </Col>
-                    <Col md={6}>
-                        <Input ref="phoneNumber" type="text" label={<div>Votre téléphone <small>(au cas où)</small></div>} />
-                    </Col>
-                </Row>
                 <hr />
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
                 <br />
@@ -129,7 +121,7 @@ var ReviewForm = React.createClass({
                     </Col>
                 </Row>
                 <hr />
-                <Input ref="comment" type="textarea" label={<div>Votre commentaire <RequiredAsterisk /></div>} />
+                <Input ref="comment" type="textarea" label="Votre commentaire" />
                 <Button onClick={this.submit}>Déposer l'avis</Button>
                 <hr />
                 <p><RequiredAsterisk /> Indique les champs requis.</p>
@@ -140,7 +132,6 @@ var ReviewForm = React.createClass({
         return {
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
-            phoneNumber : this.refs.phoneNumber.getValue().trim(),
             criteria    : {
                 welcome             : this.refs.welcome.getValue(),
                 discussion          : this.refs.discussion.getValue(),
@@ -160,7 +151,6 @@ var ReviewForm = React.createClass({
         if ('' == review.firstName) errors.push('Veuillez saisir votre prénom.');
         if ('' == review.lastName) errors.push('Veuillez saisir votre nom.');
         if (_.some(_.values(review.criteria), function (v) { return !v })) errors.push('Veuillez attribuer une note à chacun des critères.');
-        if ('' == review.comment) errors.push('Veuillez saisir un commentaire.');
 
         this.setState({errors: errors});
 
