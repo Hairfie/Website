@@ -5,6 +5,7 @@ var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
 var FluxibleMixin = require('fluxible').Mixin;
 var TopHairfiesStore = require('../stores/TopHairfiesStore');
+var TopDealsStore = require('../stores/TopDealsStore');
 var _ = require('lodash');
 
 var TopHairfies = React.createClass({
@@ -16,14 +17,24 @@ var TopHairfies = React.createClass({
     }
 });
 
+var TopDeals = React.createClass({
+    render: function () {
+        return <ol>{_.map(this.props.deals, this.renderDeal)}</ol>;
+    },
+    renderDeal: function (deal) {
+        return <li>{deal.discount}% chez {deal.business.name}</li>;
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
-        storeListeners: [TopHairfiesStore]
+        storeListeners: [TopHairfiesStore, TopDealsStore]
     },
     getStateFromStores: function () {
         return {
-            topHairfies: this.getStore(TopHairfiesStore).get(3)
+            topHairfies: this.getStore(TopHairfiesStore).get(this.props.route.config.numTopHairfies),
+            topDeals   : this.getStore(TopDealsStore).get(this.props.route.config.numTopDeals)
         };
     },
     getInitialState: function () {
@@ -35,6 +46,10 @@ module.exports = React.createClass({
                 <div className="row">
                     <h3>Top hairfies du moment</h3>
                     <TopHairfies context={this.props.context} hairfies={this.state.topHairfies} />
+                </div>
+                <div className="row">
+                    <h3>Top promotions du moment</h3>
+                    <TopDeals context={this.props.context} deals={this.state.topDeals} />
                 </div>
                 <div className="row home">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">

@@ -52,6 +52,15 @@ app.plug({
                 actionContext.getAuthToken = function () {
                     return actionContext.getStore(require('./stores/AuthStore')).getToken();
                 };
+
+                // executes actions in //. It doesn't take care of errors yet :(
+                actionContext.executeActions = function (actions, done) {
+                    var done = _.after(actions.length, done || _.noop());
+                    _.forEach(actions, function (action, i) {
+                        console.log(action);
+                        actionContext.executeAction(action[0], action[1], done);
+                    });
+                };
             },
             plugStoreContext: function (storeContext) {
                 // allow to execute actions from stores
@@ -72,6 +81,7 @@ app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfiesStore'));
 app.registerStore(require('./stores/TopHairfiesStore'));
+app.registerStore(require('./stores/TopDealsStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/BusinessMemberStore'));
 app.registerStore(require('./stores/BusinessCustomersStore'));
