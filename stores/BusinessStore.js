@@ -13,22 +13,17 @@ module.exports = createStore({
     handlers: makeHandlers({
         handleReceive: BusinessEvents.RECEIVE,
         handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
-        handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE,
-        handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
-        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS
+        handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE
     }),
     initialize: function () {
         this.businesses = {};
-        this.hairdressers = null;
     },
     dehydrate: function () {
         return {
-            business    : this.business,
-            businesses  : this.businesses
+            businesses: this.businesses
         };
     },
     rehydrate: function (state) {
-        this.business = state.business;
         this.businesses = state.businesses;
     },
     handleReceive: function (payload) {
@@ -55,38 +50,6 @@ module.exports = createStore({
             loading: false
         });
         this.emitChange();
-    },
-    handleReceiveHairdressersSuccess: function (payload) {
-        if (!this.business || payload.business.id != this.business.id) {
-            return;
-        }
-
-        this.hairdressers = payload.hairdressers;
-        this.emitChange();
-    },
-    handleHairdresserSaveSuccess: function (payload) {
-        var hairdresser = payload.hairdresser;
-        if (!this.business || hairdresser.business.id != this.business.id) {
-            return;
-        }
-
-        var index = _.findIndex(this.hairdressers, {id: hairdresser.id});
-        if (-1 == index) {
-            this.hairdressers.push(hairdresser);
-        } else {
-            this.hairdressers[index] = hairdresser;
-        }
-
-        this.emitChange();
-    },
-    getHairdressers: function () {
-        if (this.business && !this.hairdressers) {
-            this.dispatcher.getContext().executeAction(BusinessActions.RefreshHairdressers, {
-                business: this.business
-            });
-        }
-
-        return this.hairdressers || [];
     },
     // TODO: move discount code into a discount store
     getDiscountForBusiness: function(businessId) {
