@@ -19,10 +19,6 @@ module.exports = {
 
         'RECEIVE_FACEBOOK_PAGE_SUCCESS',
 
-        'ADD_PICTURE',
-        'ADD_PICTURE_SUCCESS',
-        'ADD_PICTURE_FAILURE',
-
         'CLAIM_EXISTING',
         'CLAIM_EXISTING_SUCCESS',
         'CLAIM_EXISTING_FAILURE',

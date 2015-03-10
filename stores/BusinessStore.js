@@ -15,15 +15,21 @@ module.exports = createStore({
         handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
         handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE,
         handleReceiveHairdressersSuccess: BusinessEvents.RECEIVE_HAIRDRESSERS_SUCCESS,
-        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS,
-        handleAddPicture: BusinessEvents.ADD_PICTURE,
-        handleAddPictureSuccess: BusinessEvents.ADD_PICTURE_SUCCESS,
-        handleAddPictureFailure: BusinessEvents.ADD_PICTURE_FAILURE
+        handleHairdresserSaveSuccess: HairdresserEvents.SAVE_SUCCESS
     }),
     initialize: function () {
         this.businesses = {};
         this.hairdressers = null;
-        this.uploadInProgress = false;
+    },
+    dehydrate: function () {
+        return {
+            business    : this.business,
+            businesses  : this.businesses
+        };
+    },
+    rehydrate: function (state) {
+        this.business = state.business;
+        this.businesses = state.businesses;
     },
     handleReceive: function (payload) {
         this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
@@ -73,22 +79,6 @@ module.exports = createStore({
 
         this.emitChange();
     },
-    handleAddPicture: function() {
-        this.uploadInProgress = true;
-        this.emitChange();
-    },
-    handleAddPictureSuccess: function() {
-        this.uploadInProgress = false;
-        this.emitChange();
-    },
-    handleAddPictureFailure: function() {
-        this.uploadInProgress = false;
-        context.executeAction(Notify, {
-            type: "FAILURE",
-            body: "Echec de l'upload de la photo"
-        });
-        this.emitChange();
-    },
     getHairdressers: function () {
         if (this.business && !this.hairdressers) {
             this.dispatcher.getContext().executeAction(BusinessActions.RefreshHairdressers, {
@@ -128,9 +118,6 @@ module.exports = createStore({
         };
         return discountObj;
     },
-    isUploadInProgress: function () {
-        return this.uploadInProgress;
-    },
     getById: function (businessId) {
         var business = this.businesses[businessId];
 
@@ -139,16 +126,6 @@ module.exports = createStore({
         }
 
         return business && business.entity;
-    },
-    dehydrate: function () {
-        return {
-            business    : this.business,
-            businesses  : this.businesses
-        };
-    },
-    rehydrate: function (state) {
-        this.business = state.business;
-        this.businesses = state.businesses;
     },
     _loadById: function (businessId) {
         this.dispatcher.getContext().executeAction(BusinessActions.Fetch, {

@@ -6,6 +6,7 @@ module.exports = {
     Save                : require('./Save'),
     RefreshHairdressers : require('./RefreshHairdressers'),
     AddPicture          : require('./AddPicture'),
+    RemovePicture       : require('./RemovePicture'),
     Claim               : require('./Claim'),
     RefreshFacebookPage : require('./RefreshFacebookPage'),
     SaveFacebookPage    : require('./SaveFacebookPage'),
