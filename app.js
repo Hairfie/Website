@@ -57,7 +57,6 @@ app.plug({
                 actionContext.executeActions = function (actions, done) {
                     var done = _.after(actions.length, done || _.noop());
                     _.forEach(actions, function (action, i) {
-                        console.log(action);
                         actionContext.executeAction(action[0], action[1], done);
                     });
                 };
