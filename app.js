@@ -6,7 +6,7 @@ var Router = require('routr');
 var _ = require('lodash');
 
 var app = new FluxibleApp({
-    appComponent: React.createFactory(require('./components/Application.jsx'))
+    component: React.createFactory(require('./components/Application.jsx'))
 });
 
 var routes = _.mapValues(require('./configs/routes'), function (route) {
