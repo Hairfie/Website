@@ -6,6 +6,8 @@ var PublicLayout = require('./PublicLayout.jsx');
 var FluxibleMixin = require('fluxible').Mixin;
 var TopHairfiesStore = require('../stores/TopHairfiesStore');
 var TopDealsStore = require('../stores/TopDealsStore');
+var CategoriesStore = require('../stores/CategoriesStore');
+
 var _ = require('lodash');
 
 var TopHairfies = React.createClass({
@@ -26,15 +28,25 @@ var TopDeals = React.createClass({
     }
 });
 
+var Categories = React.createClass({
+    render: function () {
+        return <ol>{_.map(this.props.categories, this.renderCategory)}</ol>;
+    },
+    renderCategory: function (cat) {
+        return <li>{cat.name}</li>;
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
-        storeListeners: [TopHairfiesStore, TopDealsStore]
+        storeListeners: [TopHairfiesStore, TopDealsStore, CategoriesStore]
     },
     getStateFromStores: function () {
         return {
             topHairfies: this.getStore(TopHairfiesStore).get(this.props.route.config.numTopHairfies),
-            topDeals   : this.getStore(TopDealsStore).get(this.props.route.config.numTopDeals)
+            topDeals   : this.getStore(TopDealsStore).get(this.props.route.config.numTopDeals),
+            categories : this.getStore(CategoriesStore).get()
         };
     },
     getInitialState: function () {
@@ -50,6 +62,10 @@ module.exports = React.createClass({
                 <div className="row">
                     <h3>Top promotions du moment</h3>
                     <TopDeals context={this.props.context} deals={this.state.topDeals} />
+                </div>
+                <div className="row">
+                    <h3>Les catégories</h3>
+                    <Categories context={this.props.context} categories={this.state.categories} />
                 </div>
                 <div className="row home">
                     <div className="col-sm-7 col-md-5 col-md-offset-1 left">

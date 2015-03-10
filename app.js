@@ -98,5 +98,6 @@ app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/PictureUploadStore'));
+app.registerStore(require('./stores/CategoriesStore'));
 
 module.exports = app;
