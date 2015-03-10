@@ -37,7 +37,7 @@ module.exports = createStore({
     },
     handleFetchAllSuccess: function (payload) {
         this.loading = false;
-        this.categories = payload.categories;
+        this.categories = _.sortBy(payload.categories, 'position');
         try {
         this.emitChange();
         } catch (e) {console.log(e); };
