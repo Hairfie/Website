@@ -6,7 +6,7 @@ var Router = require('routr');
 var _ = require('lodash');
 
 var app = new FluxibleApp({
-    appComponent: React.createFactory(require('./components/Application.jsx'))
+    component: React.createFactory(require('./components/Application.jsx'))
 });
 
 var routes = _.mapValues(require('./configs/routes'), function (route) {
@@ -57,7 +57,6 @@ app.plug({
                 actionContext.executeActions = function (actions, done) {
                     var done = _.after(actions.length, done || _.noop());
                     _.forEach(actions, function (action, i) {
-                        console.log(action);
                         actionContext.executeAction(action[0], action[1], done);
                     });
                 };
