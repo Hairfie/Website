@@ -28,7 +28,19 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     render: function () {
-        var loading = !this.state.managedBusinesses;
+        var loading    = !this.state.managedBusinesses,
+            businesses = this.state.managedBusinesses || [];
+
+        // TODO: move this redirect logic into the route opening action
+        if (!loading && businesses.length == 0) {
+            // no business yet, redirect to claim page
+            this.props.context.redirect(this.props.context.makePath('pro_business_new'));
+        } else if (!loading && businesses.length == 1) {
+            // redirect to the only business's dashboard
+            this.props.context.redirect(this.props.context.makePath('pro_business', {
+                businessId: businesses[0].id
+            }));
+        }
 
         var businessNodes = (this.state.managedBusinesses || []).map(function (business) {
             return this.renderBusiness(business);
