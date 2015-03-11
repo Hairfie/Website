@@ -7,9 +7,9 @@ var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'RouteStore',
-    handlers: makeHandlers({
-        handleChangeRouteSuccess: 'CHANGE_ROUTE_SUCCESS'
-    }),
+    handlers: {
+        CHANGE_ROUTE_SUCCESS: 'handleChangeRoute'
+    },
     initialize: function () {
         this.currentRoute = null;
     },
@@ -26,7 +26,7 @@ module.exports = createStore({
             this.currentRoute = _.assign(state.currentRoute, {config: routeConfig});
         }
     },
-    handleChangeRouteSuccess: function (route) {
+    handleChangeRoute: function (route) {
         if (this.currentRoute && (this.currentRoute.url === route.url)) {
             return;
         }

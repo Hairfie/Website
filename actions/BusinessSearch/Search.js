@@ -10,10 +10,6 @@ module.exports = function (context, payload, done) {
     context.dispatch(BusinessSearchEvents.SEARCH, {
         queryString: queryString
     });
-    console.log("####### SEARCH #######");
-    console.log("queryParams", queryParams);
-    console.log("queryString", queryString);
-
 
     context
         .getHairfieApi()

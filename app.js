@@ -20,9 +20,9 @@ app.plug({
 
         var makePath = router.makePath.bind(router);
         router.makePath = function (routeName, params) {
-            var params = _.assign({}, params, {
+            var params = _.assign({
                 locale: context.getActionContext().getStore('RouteStore').getParam('locale')
-            });
+            }, params);
             return makePath(routeName, params);
         };
 
@@ -53,11 +53,28 @@ app.plug({
                     return actionContext.getStore(require('./stores/AuthStore')).getToken();
                 };
 
+                actionContext.redirect = function (url, permanent) {
+                    actionContext.dispatch('REDIRECT', {
+                        url      : url,
+                        permanent: permanent
+                    });
+                };
+
                 // executes actions in //. It doesn't take care of errors yet :(
                 actionContext.executeActions = function (actions, done) {
                     var done = _.after(actions.length, done || _.noop());
                     _.forEach(actions, function (action, i) {
                         actionContext.executeAction(action[0], action[1], done);
+                    });
+                };
+            },
+            plugComponentContext: function (componentContext) {
+                componentContext.redirect = function (url, permanent) {
+                    componentContext.executeAction(function (actionContext) {
+                        actionContext.dispatch('REDIRECT', {
+                            url      : url,
+                            permanent: permanent
+                        });
                     });
                 };
             },
@@ -75,6 +92,7 @@ app.plug(require('./context/hairfie-api-plugin')({
 }));
 
 app.registerStore(require('./stores/RouteStore'));
+app.registerStore(require('./stores/RedirectStore'));
 app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));

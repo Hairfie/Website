@@ -1,7 +1,6 @@
 'use strict';
 
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
-var Navigate = require('flux-router-component/actions/navigate');
 var debug = require('debug')('Action:Business:ClaimExisting');
 
 module.exports = function (context, payload, done) {
@@ -17,9 +16,8 @@ module.exports = function (context, payload, done) {
                 business: payload.business
             });
 
-            var path = context.router.makePath('pro_business', {id: payload.business.id});
-
-            context.executeAction(Navigate, {url: path}, done);
+            context.redirect(context.router.makePath('pro_business', {businessId: payload.business.id}));
+            done();
         })
         .fail(function (error) {
             context.dispatch(BusinessEvents.CLAIM_EXISTING_FAILURE);

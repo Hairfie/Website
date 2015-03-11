@@ -109,13 +109,13 @@ module.exports = {
     show_business: {
         path: '/businesses/:businessId/:businessSlug',
         method: 'get',
-        action: require('../actions/Business/RouteOpen'),
+        action: require('../actions/Page/Business'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
     show_business_without_slug: {
         path: '/businesses/:businessId',
         method: 'get',
-        action: require('../actions/Business/RouteOpen'),
+        action: require('../actions/Page/Business'),
         pageComponent: require('../components/ShowBusinessPage.jsx')
     },
     book_business: {

@@ -68,6 +68,7 @@ server.use(function (req, res, next) {
     var ServerActions    = require('./actions/Server');
     var payload          = {request: req};
     var RouteStore       = require('./stores/RouteStore');
+    var RedirectStore    = require('./stores/RedirectStore');
     var MetaStore        = require('./stores/MetaStore');
     var BusinessStore    = require('./stores/BusinessStore');
     var React            = require('react');
@@ -77,12 +78,13 @@ server.use(function (req, res, next) {
         if (error) return next(error);
 
         try {
-            var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
-
-            if (currentRoute && currentRoute.url != req.url) {
-                res.redirect(currentRoute.url);
+            var redirect = context.getActionContext().getStore(RedirectStore).getPending();
+            if (redirect) {
+                res.redirect(redirect.url, redirect.permanent ? 301 : 302);
                 return;
             }
+
+            var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
 
             var title = context.getActionContext().getStore(MetaStore).getTitle();
             var metas = context.getActionContext().getStore(MetaStore).getMetas();
@@ -104,20 +106,6 @@ server.use(function (req, res, next) {
             }));
 
             if (!currentRoute) res.status(404);
-
-            if(currentRoute && currentRoute.name == 'show_business_without_slug') {
-                var businessSlug = context.getActionContext().getStore(BusinessStore).getById(currentRoute.params.businessId).slug;
-                var newUrl = currentRoute.url;
-
-                if(newUrl.substr(-1) == '/') {
-                    newUrl += businessSlug;
-                } else {
-                    newUrl += '/' + businessSlug;
-                }
-                res.redirect(301, newUrl);
-
-                return;
-            }
 
             res.write(html);
             res.end();

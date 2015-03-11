@@ -8,8 +8,6 @@ module.exports = function (context, payload, done) {
         .getHairfieApi()
         .getBusinessReviewRequest(payload.id)
         .then(function (businessReviewRequest) {
-                console.log("businessReviewRequest", businessReviewRequest);
-
             context.dispatch(BusinessReviewEvents.RECEIVE_REQUEST_SUCCESS, {
                 id                      : payload.id,
                 businessReviewRequest   : businessReviewRequest

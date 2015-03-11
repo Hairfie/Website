@@ -5,6 +5,7 @@ var FluxibleMixin = require('fluxible').Mixin;
 var RouterMixin = require('flux-router-component').RouterMixin;
 var RouteStore = require('../stores/RouteStore');
 var AuthStore = require('../stores/AuthStore');
+var RedirectStore = require('../stores/RedirectStore');
 
 var NotFoundPage = require('./NotFoundPage.jsx');
 var BusinessInfosPage = require('./BusinessInfosPage.jsx');
@@ -16,11 +17,12 @@ var ga = require('../services/analytics');
 module.exports = React.createClass({
     mixins: [FluxibleMixin, RouterMixin],
     statics: {
-        storeListeners: [RouteStore, AuthStore]
+        storeListeners: [RouteStore, AuthStore, RedirectStore]
     },
     getStateFromStores: function () {
         return {
-            route: this.getStore(RouteStore).getCurrentRoute(),
+            route          : this.getStore(RouteStore).getCurrentRoute(),
+            pendingRedirect: this.getStore(RedirectStore).getPending(),
             isAuthenticated: this.getStore(AuthStore).isAuthenticated()
         };
     },
@@ -28,6 +30,15 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
+        if (this.state.pendingRedirect) {
+            this.executeAction(Navigate, {
+                url: this.state.pendingRedirect.url
+            });
+
+            return <div />;
+        }
+
+
         var route     = this.state.route,
             component = route && route.config && route.config.pageComponent;
 
@@ -35,19 +46,15 @@ module.exports = React.createClass({
 
         // check access is granted
         if (route.config.authRequired && !this.state.isAuthenticated) {
-            this.executeAction(Navigate, {
-                url: this.props.context.makePath('pro_home')
-            });
+            this.props.context.redirect(this.props.context.makePath('pro_home'));
 
-            return <p>Access denied</p>;
+            return <div />;
         }
 
         if (route.config.leaveAfterAuth && this.state.isAuthenticated) {
-            this.executeAction(Navigate, {
-                url: this.props.context.makePath('pro_dashboard')
-            });
+            this.props.context.redirect(this.props.context.makePath('pro_dashboard'));
 
-            return <p>Redirect in progress</p>;
+            return <div />;
         }
 
         ga('send', 'pageview', {
