@@ -13,8 +13,9 @@ var MenuItem = React.createClass({
     getStateFromStores: function () {
         var route = this.getStore('RouteStore').getCurrentRoute();
 
+
         return {
-            current: this.props.routeName == route.name || this.props.href == route.path
+            current: route && (this.props.routeName == route.name || this.props.href == route.path)
         };
     },
     getInitialState: function () {
