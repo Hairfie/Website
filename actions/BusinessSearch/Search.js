@@ -1,11 +1,13 @@
 'use strict';
 
 var BusinessSearchEvents = require('../../constants/BusinessSearchConstants').Events;
-var lodash = require('lodash-contrib');
+var _ = require('lodash-contrib');
 
 module.exports = function (context, payload, done) {
+    var done = done || _.noop();
+
     var queryParams = payload.query;
-    var queryString = lodash.toQuery(queryParams);
+    var queryString = _.toQuery(queryParams);
 
     context.dispatch(BusinessSearchEvents.SEARCH, {
         queryString: queryString
@@ -21,7 +23,7 @@ module.exports = function (context, payload, done) {
             });
             done();
         })
-        .fail(function (error) {
+       .fail(function (error) {
             context.dispatch(BusinessSearchEvents.SEARCH_FAILURE, {
                 queryString: queryString
             });

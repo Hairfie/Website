@@ -3,51 +3,17 @@
 'use strict';
 
 var React = require('react');
-var Input = require('react-bootstrap/Input');
-var Google = require('../../services/google');
+var PlaceAutocompleteInput = require('./PlaceAutocompleteInput.jsx');
 
 module.exports = React.createClass({
-    componentDidMount: function () {
-        Google
-            .loadMaps()
-            .then(function (google) {
-                var input = this.refs.input.getInputDOMNode();
-
-                var options = {};
-                options.types = ['geocode'];
-
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-                google.maps.event.addListener(autocomplete, 'place_changed', this.handlePlaceChanged);
-
-                this.setState({
-                    autocomplete: autocomplete
-                });
-            }.bind(this));
-    },
-    getInitialState: function () {
-        return {
-            address     : null,
-            gps         : null,
-            autocomplete: null
-        }
-    },
     render: function () {
-        return <Input ref="input" {...this.props} type="text" />
-    },
-    handlePlaceChanged: function () {
-        var place = this.state.autocomplete.getPlace();
-
-        this.setState({
-            address : addressFromPlace(place),
-            gps     : gpsFromPlace(place)
-        });
+        return <PlaceAutocompleteInput ref="input" {...this.props} />
     },
     getAddress: function () {
-        return this.state.address;
+        return addressFromPlace(this.refs.input.getPlace());
     },
     getGps: function () {
-        return this.state.gps;
+        return gpsFromPlace(this.refs.input.getPlace());
     }
 });
 

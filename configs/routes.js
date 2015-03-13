@@ -135,5 +135,11 @@ module.exports = {
         method: 'get',
         action: require('../actions/BusinessSearch/RouteOpen'),
         pageComponent: require('../components/SearchPage.jsx')
+    },
+    business_search_results: {
+        path: '/coiffeurs/:location',
+        method: 'get',
+        action: require('../actions/Page/BusinessSearchResults'),
+        pageComponent: require('../components/BusinessSearchResultsPage.jsx')
     }
 };

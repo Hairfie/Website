@@ -12,4 +12,5 @@ module.exports = {
     SaveFacebookPage    : require('./SaveFacebookPage'),
     DeleteFacebookPage  : require('./DeleteFacebookPage'),
     ClaimExisting       : require('./ClaimExisting'),
+    SubmitSearch        : require('./SubmitSearch'),
 };

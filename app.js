@@ -116,5 +116,6 @@ app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/PictureUploadStore'));
 app.registerStore(require('./stores/CategoriesStore'));
+app.registerStore(require('./stores/PlaceStore'));
 
 module.exports = app;

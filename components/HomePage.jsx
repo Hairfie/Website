@@ -37,6 +37,30 @@ var Categories = React.createClass({
     }
 });
 
+var PlaceAutocompleteInput = require('./Form/PlaceAutocompleteInput.jsx');
+var Input = require('react-bootstrap/Input');
+var Button = require('react-bootstrap/Button');
+
+var BusinessActions = require('../actions/Business');
+
+var SearchBar = React.createClass({
+    render: function () {
+        return (
+            <div>
+                <PlaceAutocompleteInput ref="location" placeholder="Où ?" />
+                <Button onClick={this.submit}>Go</Button>
+            </div>
+       );
+    },
+    submit: function (e) {
+        e.preventDefault();
+
+        this.props.context.executeAction(BusinessActions.SubmitSearch, {
+            location: this.refs.location.getValue()
+        });
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -55,6 +79,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <PublicLayout customClass={'home-bg'}>
+                <SearchBar context={this.props.context} />
                 <div className="row">
                     <h3>Top hairfies du moment</h3>
                     <TopHairfies context={this.props.context} hairfies={this.state.topHairfies} />
