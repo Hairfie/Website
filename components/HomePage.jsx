@@ -56,7 +56,7 @@ var SearchBar = React.createClass({
         e.preventDefault();
 
         this.props.context.executeAction(BusinessActions.SubmitSearch, {
-            location: this.refs.location.getValue()
+            location: this.refs.location.getFormattedAddress()
         });
     }
 });

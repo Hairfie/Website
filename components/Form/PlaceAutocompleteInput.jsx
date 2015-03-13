@@ -50,6 +50,10 @@ module.exports = React.createClass({
     getValue: function () {
         return this.refs.input.getValue();
     },
+    getFormattedAddress: function () {
+        var place = this.state.autocomplete.getPlace();
+        return place.formatted_address;
+    },
     getPlace: function () {
         return this.state.autocomplete.getPlace();
     }
