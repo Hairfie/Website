@@ -5,7 +5,7 @@ var HairfieEvents = require('../../constants/HairfieConstants').Events;
 module.exports = function (context, payload, done) {
     var done = done || function () {};
 
-    context.dispatch(HairfieEvents.FETCH, {
+    context.dispatch(HairfieEvents.RECEIVE, {
         id: payload.id
     });
 
