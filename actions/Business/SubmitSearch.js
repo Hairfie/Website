@@ -7,9 +7,12 @@ var SearchUtils = require('../../lib/search-utils');
 module.exports = function SubmitBusinessSearch(context, payload, done) {
     var done = done || noop;
 
-    context.redirect(context.router.makePath('business_search_results', {
-        location: SearchUtils.locationToUrlParameter(payload.location)
-    }));
+    var pathParams = {location: SearchUtils.locationToUrlParameter(payload.location)};
+    var queryParams = {};
+
+    if (!_.isUndefined(payload.radius)) queryParams.radius = payload.radius;
+
+    context.redirect(context.router.makeUrl('business_search_results', pathParams, queryParams));
 
     done();
 };

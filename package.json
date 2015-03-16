@@ -52,6 +52,7 @@
     "proxy-middleware": "^0.7.0",
     "q": "^1.0.1",
     "qs": "^2.3.3",
+    "query-string": "^1.0.0",
     "react": "^0.12.1",
     "react-bootstrap": "^0.13.0",
     "react-google-analytics": "^0.2.0",

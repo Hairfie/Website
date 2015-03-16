@@ -7,8 +7,6 @@ var debug = require('debug');
 var Facebook = require('./services/facebook');
 var FacebookEvents = require('./constants/FacebookConstants').Events;
 
-debug.enable('*');
-
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
     React.render(

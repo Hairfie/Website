@@ -156,8 +156,5 @@ module.exports = React.createClass({
         this.executeAction(BusinessActions.Save, {
             business: business
         });
-    },
-    handleAddressChange: function () {
-        console.log('new address', this.refs.address.getAddress());
     }
 });

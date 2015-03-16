@@ -4,6 +4,7 @@ var React = require('react');
 var FluxibleApp = require('fluxible');
 var Router = require('routr');
 var _ = require('lodash');
+var QueryString = require('query-string');
 
 var app = new FluxibleApp({
     component: React.createFactory(require('./components/Application.jsx'))
@@ -24,6 +25,13 @@ app.plug({
                 locale: context.getActionContext().getStore('RouteStore').getParam('locale')
             }, params);
             return makePath(routeName, params);
+        };
+
+        router.makeUrl = function (routeName, pathParams, queryParams) {
+            var path = this.makePath(routeName, pathParams);
+            var query = QueryString.stringify(queryParams);
+
+            return query ? path+'?'+query : path;
         };
 
         return {

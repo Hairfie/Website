@@ -30,12 +30,12 @@ module.exports = React.createClass({
         return this.getStateFromStores();
     },
     render: function () {
-        if (this.state.pendingRedirect) {
+        var isRedirect = !!this.state.pendingRedirect;
+
+        if (isRedirect) {
             this.executeAction(Navigate, {
                 url: this.state.pendingRedirect.url
             });
-
-            return <div />;
         }
 
 
@@ -57,9 +57,11 @@ module.exports = React.createClass({
             return <div />;
         }
 
-        ga('send', 'pageview', {
-            'page': route.url
-        });
+        if (!isRedirect) {
+            ga('send', 'pageview', {
+                'page': route.url
+            });
+        }
 
         return React.createElement(route.config.pageComponent, {
             context : this.props.context,
