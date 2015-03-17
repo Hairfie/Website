@@ -25,7 +25,11 @@ module.exports = {
 
         'CLAIM',
         'CLAIM_SUCCESS',
-        'CLAIM_FAILURE'
+        'CLAIM_FAILURE',
+
+        'FETCH_SEARCH',
+        'FETCH_SEARCH_SUCCESS',
+        'FETCH_SEARCH_FAILURE'
     ]),
     Kinds: define([
         'SALON',

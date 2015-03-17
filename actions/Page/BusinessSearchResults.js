@@ -7,11 +7,21 @@ var SearchUtils = require('../../lib/search-utils');
 var Q = require('q');
 
 module.exports = function BusinessSearchResults(context, payload, done) {
-    var address = SearchUtils.locationFromUrlParameter(payload.params.location);
+    var address = SearchUtils.locationFromUrlParameter(payload.params.address);
+
+    var search = {
+        radius: payload.query.radius
+    };
 
     // load place if necessary
-    getPlaceByAddress(context, address).then(done.bind(null, null), done);
+    getPlaceByAddress(context, address)
+        //.then(getSearchResults.bind(null, context, payload))
+        .then(done.bind(null, null), done);
 };
+
+function getSearchResults(context, route, place) {
+    // TODO
+}
 
 function getPlaceByAddress(context, address) {
     var deferred = Q.defer();

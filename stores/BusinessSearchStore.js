@@ -2,59 +2,65 @@
 
 var createStore = require('fluxible/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BusinessSearchEvents = require('../constants/BusinessSearchConstants').Events;
-var BusinessSearchActions = require('../actions/BusinessSearch');
+var BusinessEvents = require('../constants/BusinessConstants').Events;
+var BusinessActions = require('../actions/Business');
 var _ = require('lodash-contrib');
 
 module.exports = createStore({
     storeName: 'BusinessSearchStore',
     handlers: makeHandlers({
-        handleSearch       : BusinessSearchEvents.SEARCH,
-        handleSearchSuccess: BusinessSearchEvents.SEARCH_SUCCESS
+        handleFetch         : BusinessEvents.FETCH_SEARCH,
+        handleFetchSuccess  : BusinessEvents.FETCH_SEARCH_SUCCESS,
+        handleFetchFailure  : BusinessEvents.FETCH_SEARCH_FAILURE
     }),
     initialize: function () {
-        this.results = {};
+        this.searches = {};
     },
     dehydrate: function () {
         return {
-            results: this.results,
+            searches: this.searches,
         };
     },
     rehydrate: function (state) {
-        this.results = state.results || {};
+        this.searches = state.searches || {};
     },
-    handleSearch: function(payload) {
-        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
+    handleFetch: function (payload) {
+        var key = this._searchKey(payload.query);
+        this.searches[key] = _.assign({}, this.searches[key], {
             loading: true
         });
-        this.emitChange();
     },
-    handleSearchSuccess: function (payload) {
-        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
-            loading : false,
-            entity  : payload.businesses
+    handleFetchSuccess: function (payload) {
+        var key = this._searchKey(payload.query);
+        this.searches[key] = _.assign({}, this.searches[key], {
+            loading: false,
+            result: payload.result
         });
         this.emitChange();
     },
-    handleSearchFailure: function (payload) {
-        this.results[payload.queryString] = _.assign({}, this.results[payload.queryString], {
-            loading : false
+    handleFetchFailure: function (payload) {
+        var key = this._searchKey(payload.query);
+        this.searches[key] = _.assign({}, this.searches[key], {
+            loading: false
         });
         this.emitChange();
     },
-    getByQueryString: function (queryString) {
-        var businesses = this.results[queryString];
+    getResult: function (query) {
+        var key = this._searchKey(query);
+        var search = this.searches[key];
 
-        if (_.isUndefined(businesses)) {
-            this._loadByQueryString(queryString);
+        if (_.isUndefined(search)) {
+            this._loadResult(query);
         }
 
-        return businesses && businesses.entity;
+        return search && search.result;
     },
-    _loadByQueryString: function (queryString) {
-        // TODO
-        this.dispatcher.getContext().executeAction(BusinessSearchActions.Search, {
-            query: _.fromQuery(queryString)
+    _loadResult: function (query) {
+        this.dispatcher.getContext().executeAction(BusinessActions.FetchSearch, {
+            query: query
         });
+    },
+    _searchKey: function (search) {
+        return JSON.stringify(search); // TODO: order keys
     }
 });

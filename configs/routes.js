@@ -137,7 +137,7 @@ module.exports = {
         pageComponent: require('../components/SearchPage.jsx')
     },
     business_search_results: {
-        path: '/coiffeurs/:location',
+        path: '/coiffeurs/:address',
         method: 'get',
         action: require('../actions/Page/BusinessSearchResults'),
         pageComponent: require('../components/BusinessSearchResultsPage.jsx')

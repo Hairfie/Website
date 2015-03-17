@@ -7,13 +7,12 @@ var FluxibleMixin = require('fluxible').Mixin;
 var PlaceStore = require('../stores/PlaceStore');
 var RouteStore = require('../stores/RouteStore');
 var BusinessSearchStore = require('../stores/BusinessSearchStore');
-var SearchUtils = require('../lib/search-utils');
 var BusinessActions = require('../actions/Business');
 var NavLink = require('flux-router-component').NavLink;
+var SearchUtils = require('../lib/search-utils');
+var SearchConfig = require('../configs/search');
 
 var _ = require('lodash');
-
-var DEFAULT_RADIUS = 1000;
 
 function noop() {};
 
@@ -82,7 +81,7 @@ var RadiusFilter = React.createClass({
         };
     },
     render: function () {
-        var value = this.props.defaultValue;
+        var value = Number(this.props.defaultValue);
 
         return (
             <FilterBox title="Rayon de la recherche">
@@ -145,25 +144,47 @@ var SearchFilters = React.createClass({
     }
 });
 
+var SearchResults = React.createClass({
+    render: function () {
+        var result = this.props.result || {};
+
+        var businessNodes = _.map(result.businesses, function (business) {
+            return (
+                <li key={business.id}>
+                    <NavLink routeName="show_business" navParams={{businessId:business.id, businessSlug:business.slug}}>
+                        {business.name}
+                    </NavLink>
+                </li>
+            );
+        });
+
+        return (
+            <div>
+                <h3>{result.nbHits} résultat(s) trouvé(s)</h3>
+                <ul>
+                    {businessNodes}
+                </ul>
+            </div>
+        );
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
-        storeListeners: [BusinessSearchStore]
-    },
-    getSearchFromProps: function (props) {
-        var search = {};
-        search.location = SearchUtils.locationFromUrlParameter(props.route.params.location);
-        search.radius = Number(props.route.query.radius) || DEFAULT_RADIUS;
-
-        return search;
+        storeListeners: [PlaceStore, BusinessSearchStore]
     },
     getStateFromStores: function (props) {
-        var props  = props || this.props;
-        var search = this.getSearchFromProps(props);
+        var props   = props || this.props;
+        var address = SearchUtils.locationFromUrlParameter(props.route.params.address);
+        var place   = this.getStore(PlaceStore).getByAddress(address);
+        var search  = SearchUtils.searchQueryFromRouteAndPlace(props.route, place);
 
         return {
+            address : address,
+            place   : place,
             search  : search,
-            place   : this.getStore(PlaceStore).getByAddress(search.location)
+            result  : this.getStore(BusinessSearchStore).getResult(search)
         };
     },
     componentWillReceiveProps: function (nextProps) {
@@ -187,7 +208,7 @@ module.exports = React.createClass({
                             onChange={this.handleFilterChange} />
                     </div>
                     <div className="col-xs-9">
-                        <h3>Résultats de la recherche</h3>
+                        <SearchResults context={this.props.context} result={this.state.result} />
                     </div>
                 </div>
             </div>
@@ -204,7 +225,7 @@ module.exports = React.createClass({
 
         var crumbs = _.map(places, function (place) {
             var navParams = {
-                location: SearchUtils.locationToUrlParameter(place.name)
+                address: SearchUtils.locationToUrlParameter(place.name)
             };
 
             return (
@@ -226,7 +247,9 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     },
     handleFilterChange: function (nextSearch) {
-        var search = _.assign(this.state.search, nextSearch);
-        this.props.context.executeAction(BusinessActions.SubmitSearch, search);
+        var params = _.assign(this.state.search, nextSearch);
+        params.address = this.state.address;
+
+        this.props.context.executeAction(BusinessActions.SubmitSearch, params);
     }
 });
