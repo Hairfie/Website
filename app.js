@@ -22,7 +22,7 @@ app.plug({
         var makePath = router.makePath.bind(router);
         router.makePath = function (routeName, params) {
             var params = _.assign({
-                locale: context.getActionContext().getStore('RouteStore').getParam('locale')
+                locale: context.getActionContext().getStore('RouteStore').getPathParam('locale')
             }, params);
             return makePath(routeName, params);
         };

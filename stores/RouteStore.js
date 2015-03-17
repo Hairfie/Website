@@ -38,7 +38,10 @@ module.exports = createStore({
     getCurrentRoute: function () {
         return this.currentRoute;
     },
-    getParam: function (name) {
+    getPathParam: function (name) {
         return this.currentRoute && this.currentRoute.params[name];
+    },
+    getQueryParam: function (name) {
+        return this.currentRoute && this.currentRoute.query[name];
     }
 });

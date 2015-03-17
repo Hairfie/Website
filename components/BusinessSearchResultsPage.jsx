@@ -5,9 +5,13 @@
 var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
 var PlaceStore = require('../stores/PlaceStore');
+var RouteStore = require('../stores/RouteStore');
 var BusinessSearchStore = require('../stores/BusinessSearchStore');
 var SearchUtils = require('../lib/search-utils');
 var BusinessActions = require('../actions/Business');
+var NavLink = require('flux-router-component').NavLink;
+
+var _ = require('lodash');
 
 var DEFAULT_RADIUS = 1000;
 
@@ -33,6 +37,9 @@ var Slider = React.createClass({
     },
     componentWillUnmount: function () {
         this.$slider.off('change');
+    },
+    componentWillReceiveProps: function (nextProps) {
+        this.$slider.val(nextProps.defaultValue);
     },
     render: function () {
         return <div ref="slider" />;
@@ -143,19 +150,24 @@ module.exports = React.createClass({
     statics: {
         storeListeners: [BusinessSearchStore]
     },
-    getCurrentSearch: function () {
+    getSearchFromProps: function (props) {
         var search = {};
-        search.location = SearchUtils.locationFromUrlParameter(this.props.route.params.location);
-        search.radius = Number(this.props.route.query.radius) || DEFAULT_RADIUS;
+        search.location = SearchUtils.locationFromUrlParameter(props.route.params.location);
+        search.radius = Number(props.route.query.radius) || DEFAULT_RADIUS;
 
         return search;
     },
-    getStateFromStores: function () {
-        var search = this.getCurrentSearch();
+    getStateFromStores: function (props) {
+        var props  = props || this.props;
+        var search = this.getSearchFromProps(props);
 
         return {
-            place: this.getStore(PlaceStore).getByAddress(search.location)
+            search  : search,
+            place   : this.getStore(PlaceStore).getByAddress(search.location)
         };
+    },
+    componentWillReceiveProps: function (nextProps) {
+        this.setState(this.getStateFromStores(nextProps));
     },
     getInitialState: function () {
         return this.getStateFromStores();
@@ -166,11 +178,12 @@ module.exports = React.createClass({
         return (
             <div className="container">
                 <h2>{place.name}</h2>
+                {this.renderPlaceBreadcrumb()}
                 <div className="row">
                     <div className="col-xs-3">
                         <SearchFilters
                             place={this.state.place}
-                            search={this.getCurrentSearch()}
+                            search={this.state.search}
                             onChange={this.handleFilterChange} />
                     </div>
                     <div className="col-xs-9">
@@ -180,11 +193,40 @@ module.exports = React.createClass({
             </div>
         );
     },
+    renderPlaceBreadcrumb: function () {
+        var places = [];
+        var place = this.state.place;
+        while (place) {
+            places.push(place);
+            place = place.parent;
+        }
+        var places = places.reverse();
+
+        var crumbs = _.map(places, function (place) {
+            var navParams = {
+                location: SearchUtils.locationToUrlParameter(place.name)
+            };
+
+            return (
+                <li>
+                    <NavLink routeName="business_search_results" navParams={navParams}>
+                        {place.name}
+                    </NavLink>
+                </li>
+            );
+        });
+
+        return (
+            <ol className="breadcrumb">
+                {crumbs}
+            </ol>
+        );
+    },
     onChange: function () {
         this.setState(this.getStateFromStores());
     },
     handleFilterChange: function (nextSearch) {
-        var search = _.assign(this.getCurrentSearch(), nextSearch);
+        var search = _.assign(this.state.search, nextSearch);
         this.props.context.executeAction(BusinessActions.SubmitSearch, search);
     }
 });
