@@ -10,6 +10,7 @@ var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
 var ShowHairfies = require('./ShowHairfies.jsx');
 var ClaimExistingBusiness = require('./ClaimExistingBusiness.jsx');
+var StationComponent = require('./Partial/StationComponent.jsx');
 
 var Navigate = require('flux-router-component/actions/navigate');
 
@@ -53,6 +54,7 @@ module.exports = React.createClass({
                         {this.renderPhoneNode()}
                         {this.renderDiscountNode()}
                         {this.renderAveragePrice()}
+                        <StationComponent business={business} />
                         {this.renderDescriptionNode()}
                         {this.renderServicesNode()}
                         {this.renderBookingButton()}
