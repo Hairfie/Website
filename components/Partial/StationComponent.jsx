@@ -13,9 +13,9 @@ module.exports = React.createClass({
         storeListeners: [StationStore]
     },
     getStateFromStores: function () {
-        var statio
+        var stations = this.getStore(StationStore).getByBusiness(this.props.business);
         return {
-            stations    : lodash.groupBy(this.getStore(StationStore).getByBusiness(this.props.business), 'type')
+            stations    : lodash.groupBy(stations, 'type')
         };
     },
     getInitialState: function () {

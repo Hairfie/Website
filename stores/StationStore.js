@@ -20,7 +20,7 @@ module.exports = createStore({
         };
     },
     rehydrate: function (state) {
-        this.stations = state.stations | {};
+        this.stations = state.stations || {};
     },
     handleFetchSuccess: function (payload) {
         this.stations[payload.businessId] = payload.stations;
