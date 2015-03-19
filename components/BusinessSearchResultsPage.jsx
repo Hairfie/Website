@@ -11,57 +11,11 @@ var BusinessActions = require('../actions/Business');
 var NavLink = require('flux-router-component').NavLink;
 var SearchUtils = require('../lib/search-utils');
 var SearchConfig = require('../configs/search');
+var Slider = require('./Form/Slider.jsx');
 
 var _ = require('lodash');
 
-function noop() {};
-
-var Slider = React.createClass({
-    propTypes: {
-        min: React.PropTypes.number.isRequired,
-        max: React.PropTypes.number.isRequired,
-        step: React.PropTypes.number,
-        defaultValue: React.PropTypes.number.isRequired,
-        onChange: React.PropTypes.func
-    },
-    getDefaultProps: function () {
-        return {
-            onChange: noop
-        }
-    },
-    componentDidMount: function () {
-        this.$slider = $(this.refs.slider.getDOMNode());
-        this.$slider.noUiSlider(this._buildSliderOptions(this.props));
-        this.$slider.on('change', this._onChange);
-    },
-    componentWillUnmount: function () {
-        this.$slider.off('change');
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.$slider.val(nextProps.defaultValue);
-    },
-    render: function () {
-        return <div ref="slider" />;
-    },
-    getValue: function () {
-        return this.$slider.val();
-    },
-    _buildSliderOptions: function (props) {
-        return {
-            start: props.defaultValue,
-            range: {
-                min: props.min,
-                max: props.max
-            },
-            step: props.step
-        };
-    },
-    _onChange: function () {
-        this.props.onChange(this.getValue());
-    }
-});
-
-var FilterBox = React.createClass({
+var FilterSection = React.createClass({
     render: function () {
         return (
             <div className="panel panel-default">
@@ -74,20 +28,76 @@ var FilterBox = React.createClass({
     }
 });
 
+var FacetFilterSection = React.createClass({
+    propTypes: {
+        facet: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string.isRequired,
+        search: React.PropTypes.object.isRequired,
+        result: React.PropTypes.object,
+        onChange: React.PropTypes.func
+    },
+    getInitialState: function () {
+        return {
+            choices: this._buildChoices(this.props)
+        };
+    },
+    render: function () {
+        var choiceNodes = _.map(this.state.choices, function (checked, value) {
+            return (
+                <li key={value}>
+                    <input ref={value} type="checkbox" checked={checked} />
+                    {value}
+                </li>
+            );
+        });
+
+        return (
+            <FilterSection title={this.props.title}>
+                <ul>
+                    {choiceNodes}
+                </ul>
+            </FilterSection>
+        );
+    },
+    getValues: function () {
+        var values = [];
+        _.forEach(this.getChoices(), function (defaultChecked, value) {
+            if (this.refs[value] && this.refs[value].getDOMNode.checked) {
+                values.push(value);
+            }
+        }, this);
+        return values;
+    },
+    _buildChoices: function (props) {
+        var search = props.search;
+        var result = props.result || {facets: {}};
+
+        var choices = {};
+        _.forEach(result.facets[props.facet], function (count, value) {
+            choices[value] = false;
+        });
+        _.forEach(search.facets && search.facets[props.facet], function (value) {
+            choices[value] = true;
+        });
+
+        return choices;
+    }
+});
+
 var RadiusFilter = React.createClass({
     getDefaultProps: function () {
         return {
-            onChange: noop
+            onChange: _.noop()
         };
     },
     render: function () {
         var value = Number(this.props.defaultValue);
 
         return (
-            <FilterBox title="Rayon de la recherche">
+            <FilterSection title="Rayon de la recherche">
                 <Slider ref="radius" type="number" onChange={this._onChange} min={1000} max={50000} step={1000} defaultValue={value} />
                 Distance de 0 à {value / 1000}km
-            </FilterBox>
+            </FilterSection>
         );
     },
     getValue: function () {
@@ -99,26 +109,10 @@ var RadiusFilter = React.createClass({
     }
 });
 
-var CategoryFilter = React.createClass({
-    getDefaultProps: function () {
-        return {
-            onChange: noop
-        };
-    },
-    render: function () {
-        return (
-            <FilterBox title="Catégorie">
-                <em>Todo</em>
-            </FilterBox>
-        );
-    }
-});
-
-
 var SearchFilters = React.createClass({
     getDefaultProps: function () {
         return {
-            onChange: noop
+            onChange: _.noop()
         };
     },
     render: function () {
@@ -126,7 +120,13 @@ var SearchFilters = React.createClass({
             <div>
                 <h3>Affiner la recherche</h3>
                 {this.renderRadius()}
-                <CategoryFilter onChange={this._onChange} />
+                <FacetFilterSection
+                    ref="categories"
+                    title="Catégories"
+                    facet="categories"
+                    search={this.props.search}
+                    result={this.props.result}
+                    onChange={this._onChange} />
             </div>
         );
     },
@@ -148,7 +148,7 @@ var SearchResults = React.createClass({
     render: function () {
         var result = this.props.result || {};
 
-        var businessNodes = _.map(result.businesses, function (business) {
+        var businessNodes = _.map(result.hits, function (business) {
             return (
                 <li key={business.id}>
                     <NavLink routeName="show_business" navParams={{businessId:business.id, businessSlug:business.slug}}>
@@ -178,7 +178,7 @@ module.exports = React.createClass({
         var props   = props || this.props;
         var address = SearchUtils.locationFromUrlParameter(props.route.params.address);
         var place   = this.getStore(PlaceStore).getByAddress(address);
-        var search  = SearchUtils.searchQueryFromRouteAndPlace(props.route, place);
+        var search  = SearchUtils.searchFromRouteAndPlace(props.route, place);
 
         return {
             address : address,
@@ -205,6 +205,7 @@ module.exports = React.createClass({
                         <SearchFilters
                             place={this.state.place}
                             search={this.state.search}
+                            result={this.state.result}
                             onChange={this.handleFilterChange} />
                     </div>
                     <div className="col-xs-9">
@@ -228,10 +229,12 @@ module.exports = React.createClass({
                 address: SearchUtils.locationToUrlParameter(place.name)
             };
 
+            var shortName = place.name.split(',')[0];
+
             return (
                 <li>
                     <NavLink routeName="business_search_results" navParams={navParams}>
-                        {place.name}
+                        {shortName}
                     </NavLink>
                 </li>
             );
@@ -248,6 +251,12 @@ module.exports = React.createClass({
     },
     handleFilterChange: function (nextSearch) {
         var params = _.assign(this.state.search, nextSearch);
+        params.address = this.state.address;
+
+        this.props.context.executeAction(BusinessActions.SubmitSearch, params);
+    },
+    handlePageChange: function (pageNumber) {
+        var params = _.assign(this.state.search, {page: pageNumber});
         params.address = this.state.address;
 
         this.props.context.executeAction(BusinessActions.SubmitSearch, params);

@@ -9,9 +9,9 @@ var _ = require('lodash-contrib');
 module.exports = createStore({
     storeName: 'BusinessSearchStore',
     handlers: makeHandlers({
-        handleFetch         : BusinessEvents.FETCH_SEARCH,
-        handleFetchSuccess  : BusinessEvents.FETCH_SEARCH_SUCCESS,
-        handleFetchFailure  : BusinessEvents.FETCH_SEARCH_FAILURE
+        handleFetch         : BusinessEvents.FETCH_SEARCH_RESULT,
+        handleFetchSuccess  : BusinessEvents.FETCH_SEARCH_RESULT_SUCCESS,
+        handleFetchFailure  : BusinessEvents.FETCH_SEARCH_RESULT_FAILURE
     }),
     initialize: function () {
         this.searches = {};
@@ -56,7 +56,7 @@ module.exports = createStore({
         return search && search.result;
     },
     _loadResult: function (query) {
-        this.dispatcher.getContext().executeAction(BusinessActions.FetchSearch, {
+        this.dispatcher.getContext().executeAction(BusinessActions.FetchSearchResult, {
             query: query
         });
     },
