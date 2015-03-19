@@ -3,6 +3,7 @@
 var FetchBusiness = require('../Business/Fetch');
 var StationActions = require('../Station');
 var BusinessServiceActions = require('../BusinessService');
+var BusinessMemberActions = require('../BusinessMember');
 var BusinessStore = require('../../stores/BusinessStore');
 var debug = require('debug')('App:Action:PageBusiness');
 
@@ -25,7 +26,8 @@ module.exports = function (context, payload, done) {
 
         context.executeActions([
             [StationActions.FetchForBusiness, {businessId: business.id,location: business.gps}],
-            [BusinessServiceActions.RefreshBusiness, {businessId: business.id}]
+            [BusinessServiceActions.RefreshBusiness, {businessId: business.id}],
+            [BusinessMemberActions.RefreshBusiness, {businessId: business.id}]
         ], done);
     });
 };

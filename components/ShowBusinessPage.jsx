@@ -5,6 +5,7 @@ var FluxibleMixin = require('fluxible').Mixin;
 
 var BusinessStore = require('../stores/BusinessStore');
 var BusinessServiceStore = require('../stores/BusinessServiceStore');
+var BusinessMemberStore = require('../stores/BusinessMemberStore');
 
 var PublicLayout = require('./PublicLayout.jsx');
 var Map = require('./MapComponent.jsx');
@@ -23,13 +24,14 @@ var weekDayLabel = require('../constants/DateTimeConstants').weekDayLabel;
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
-        storeListeners: [BusinessStore, BusinessServiceStore]
+        storeListeners: [BusinessStore, BusinessServiceStore, BusinessMemberStore]
     },
     getStateFromStores: function () {
         return {
             business    : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
             discountObj : this.getStore(BusinessStore).getDiscountForBusiness(this.props.route.params.businessId),
-            services    : this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId)
+            services    : this.getStore(BusinessServiceStore).getByBusiness(this.props.route.params.businessId),
+            members    : this.getStore(BusinessMemberStore).getVisibleByBusiness(this.props.route.params.businessId)
         };
     },
     getInitialState: function () {
@@ -57,6 +59,7 @@ module.exports = React.createClass({
                         <StationComponent business={business} />
                         {this.renderDescriptionNode()}
                         {this.renderServicesNode()}
+                        {this.renderMembersNode()}
                         {this.renderBookingButton()}
                         <p>
                             <ClaimExistingBusiness context={this.props.context} business={business} />
@@ -151,6 +154,21 @@ module.exports = React.createClass({
                         <li className="title">Extrait des tarifs :</li>
                         {_.map(services, this.renderServiceNode)}
                         <li>...</li>
+                        <li className="clearfix" />
+                    </ul>
+                </div>
+            );
+        };
+    },
+    renderMembersNode: function() {
+        var members = this.state.members;
+        if(members && members.length > 0) {
+            return (
+                <div className="info services">
+                    <span className="icon icon-price"></span>
+                    <ul className="content">
+                        <li className="title">Membres</li>
+                        {_.map(members, 'firstName').join(', ')}
                         <li className="clearfix" />
                     </ul>
                 </div>

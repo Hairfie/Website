@@ -61,6 +61,11 @@ module.exports = createStore({
 
         return members && _.filter(members, 'active');
     },
+    getVisibleByBusiness: function (businessId) {
+        var members = this.getActiveByBusiness(businessId);
+
+        return members && _.filter(members, {'hidden': false});
+    },
     getByBusiness: function (businessId) {
         var stored = this.businessMembers[businessId];
 
