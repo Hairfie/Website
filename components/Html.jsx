@@ -17,27 +17,15 @@ var Html = React.createClass({
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
                 <link rel="stylesheet" href="/css/style.css" />
-                <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
-                <link rel="stylesheet" href="/components/nouislider/distribute/jquery.nouislider.min.css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
 
                 <script src="/components/jquery/dist/jquery.js"></script>
                 <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
                 <script src="/components/nouislider/distribute/jquery.nouislider.min.js"></script>
+                <script src="/components/gsap/src/minified/TweenLite.min.js"></script>
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src="/js/share.min.js"></script>

@@ -1,0 +1,188 @@
+.hairfie-singleView#content {
+	
+	min-height: #{"calc(100vh - 60px)"};
+	height: 100%;
+
+	.single-view {
+		margin: 40px auto;
+		background-color: white;
+		> .col-sm-6:first-child {
+			padding-right: 0;
+		}
+		figure {
+			height: 100%;
+			position: relative;
+			margin-left: -15px;
+
+			img {
+				position: relative;
+				display: block; 
+				height: 100%; width: 100%;
+				margin: 0 auto;
+			}
+			figcaption {
+				position: absolute;
+				top: 0; left: 0;
+				.pricetag {
+					font-size: 1.6em;
+					top: 20px;left: 20px;
+					color: white;
+					font-weight: $semiBold;
+				}
+				.user {
+					position: absolute;
+					width: 50px; height: 50px;
+					right: 20px;top: 20px;
+					overflow: hidden;
+					img {
+						width: 100%; height: 100%;
+					}
+				}
+			}
+		}
+		> div:nth-child(2) {
+			padding: 20px;
+
+			.salon-infos {
+				height: auto;
+				border-bottom: 1px solid $border-color;
+
+				.col-xs-9 {
+					padding-left: 0;
+				}
+				> div:first-child {
+					padding-left: 0;
+					.col-xs-3 {
+						max-height: 95px;
+						a {
+							display: inline-block;
+							width: 100%;height: auto;
+							max-height: 95px;
+							overflow: hidden;
+							img {
+								width: 100%;
+								height: auto;
+							}
+						}
+					}
+					
+				}
+				a {
+					color: $font-color;
+				}
+				h2 {
+					text-transform: uppercase;
+					font-weight: $semiBold;
+					letter-spacing: 2px;
+					font-size: 1.5em;
+					margin-bottom: 0;
+				}
+				p {letter-spacing: 1px; margin-top: 0; font-size: 1.5em;}
+				p a {text-decoration: underline;&:hover {color: #343434;}}
+				.tags {
+					margin-left: -3px;
+					.tag {
+						margin-bottom: 2px;
+						a {
+						color: white !important; 
+						font-size: 1.4em;
+						text-decoration: none;
+						&:hover{text-decoration: none;}}
+					}
+				}
+				.likes {
+					padding: 0;
+					padding-top: 5px;
+					a {
+						float: none;
+						text-decoration: none;
+						font-size: 0.786em;
+						&:after {
+							content: " ";
+							width: 72%;
+							height: 1px;
+							background-color: $font-color;
+							position: absolute; bottom: -1px;
+							left: 15px;
+						}
+					}
+					a:first-child {
+						padding-left: 0;
+						&:after {
+							left: 0;
+						}
+					}
+					a:nth-child(2) {
+						&:after {
+							width: 66%;	
+						}
+					}
+				}
+			}
+		}
+		.like-group {
+			width: 100%;
+			height: 65px;
+			position: absolute;
+			bottom:0;
+			left: 100%;
+			.like-btn {
+				border-top: 1px solid $border-color;
+				float: left; display: inline-block;
+				a {
+					display: block;
+					// width: 100%;height: 100%;
+					width: 65px;height: 65px;
+					position: relative;
+					border-right: 1px solid $border-color;
+
+					.glyphicon {
+						position: absolute;
+						top: 0;left: 0;right: 0;bottom: 0;
+						margin: auto;
+						font-size: 2.1em;
+						color: #b9b9b9;
+						height: 1.2em;
+						line-height: 1.2em;
+						@include transition(all 0.1s ease);
+						&.full {
+							color: $red;
+						}
+					}
+				}
+			}
+			.cta {
+				float: none; display: inline-block;
+				width: #{"calc(100% - 65px)"}; height: 65px;
+
+				a {
+					text-transform: uppercase;
+					float: right; 
+					margin: 14px;
+					letter-spacing: 0;
+					@include box-shadow(0px 1px 3px rgba(0,0,0,0.15));
+				}
+				a.full {
+					display: block;width: 100%;height: 65px;
+					text-transform: uppercase;
+					border-radius: 0; margin: 0;
+					font-weight: $semiBold;letter-spacing: 2px;
+					@include box-shadow(0 0 0 rgba(0,0,0,0.0));
+					line-height: 50px;
+				}
+			}
+		}
+	}
+	.related-hairfies {
+		margin-bottom: 60px;
+		h3 {
+			text-align: center;
+			margin: 0 auto 40px;
+		}
+		div {
+			padding: 3px;
+			padding-top: 0;
+			padding-left: 0;
+		}
+	}
+}

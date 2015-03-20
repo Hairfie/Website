@@ -1,24 +1,50 @@
 $fa-font-path: "../components/font-awesome/fonts";
 $icon-font-path: "../components/bootstrap/fonts/";
 
-// bower:scss
 @import "../components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "../components/bootstrap-social/bootstrap-social.scss";
 @import "../components/font-awesome/scss/font-awesome.scss";
-// endbower
-@import "partials/colors";
-@import "partials/icons";
-@import "partials/main";
-@import "partials/header";
-@import "partials/business";
-@import "partials/hairfie";
-@import "partials/home";
-@import "partials/homePro";
-@import "partials/dashboard";
-@import "partials/proLayout";
-@import "partials/hairfiesList";
-@import "partials/typeahead";
-@import "partials/search";
-@import "partials/booking";
-@import "partials/starRating";
-@import "partials/form";
+
+@import "../fonts/socicon/socicon.css";
+
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+.front {
+    // Import variales and helpers:
+    @import "front/variables";
+    @import "front/helpers";
+    @import "front/buttons";
+    @import "front/calendar";
+
+    // Import general styles:
+    @import "front/general";
+    // Import page specific style:
+
+    @import "front/header";
+    @import "front/footer";
+    @import "front/page-home";
+    @import "front/page-search";
+    @import "front/page-salon";
+    @import "front/page-hairfie";
+}
+
+.backoffice {
+    @import "backoffice/colors";
+    @import "backoffice/icons";
+    @import "backoffice/main";
+    @import "backoffice/header";
+    @import "backoffice/business";
+    @import "backoffice/hairfie";
+    @import "backoffice/home";
+    @import "backoffice/homePro";
+    @import "backoffice/dashboard";
+    @import "backoffice/proLayout";
+    @import "backoffice/hairfiesList";
+    @import "backoffice/typeahead";
+    @import "backoffice/search";
+    @import "backoffice/booking";
+    @import "backoffice/starRating";
+    @import "backoffice/form";
+}

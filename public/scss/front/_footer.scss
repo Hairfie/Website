@@ -1,0 +1,52 @@
+/*////////////////////////////////
+	   F O O T E R
+////////////////////////////////*/
+footer {
+	background-color: $bgfooter;
+	padding-top: 55px;
+	@include fullWidthBg($bgfooter);
+	@media screen and (max-width: $screen-sm-min) {
+		@include hide;
+	}
+	p, h4 {
+		font-size: 1.6em;
+		font-weight: $regular;
+		color: white; text-align: center;
+		letter-spacing: .5px;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+	.hr {
+		@include hr(#6b6b6b,2px,20px);
+	}
+	.footer-links {
+		list-style-type: none;
+		margin: 0 auto;padding: 0;
+		@extend .nofloat;
+		li {
+			padding-left: 0;
+		}
+		li:last-child {
+			position: relative;
+			height: 2.2em;
+			.btn-red {
+				position: absolute;
+				top:-7px;
+				@media screen and (max-width: 880px) {
+					left: -80px;
+				}
+			}
+		}
+		a {
+			font-size: 1.6em;
+			font-weight: $regular;
+			color: white;
+			letter-spacing: .5px;
+		}
+	}
+
+	p {
+		padding: 20px 0 30px;
+	}
+}

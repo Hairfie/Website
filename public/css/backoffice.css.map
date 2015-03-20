@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "backoffice.css",
+	"sources": [
+		"../../backoffice.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "",
+	"names": []
+}

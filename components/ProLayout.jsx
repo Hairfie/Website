@@ -17,7 +17,7 @@ module.exports = React.createClass({
         });
 
         return (
-            <div className="proLayout">
+            <div className="backoffice proLayout">
                 <div id="wrapper"  className={wrapperClassName}>
                     {this.renderHeader()}
                     <div id="page-wrapper">

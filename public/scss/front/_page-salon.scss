@@ -1,0 +1,360 @@
+/*////////////////////////////////
+	   P A G E  S A L O N
+////////////////////////////////*/
+.carousel-inner .item {
+	min-height: 470px;
+	background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+	background-size: cover;
+}
+.salon#content {
+	.main-content {
+		position: relative;
+		min-height: 100vh;
+		@include fullWidthBg($bg3);
+
+		section.salon-info	{
+			position: relative;
+			background-color: white;
+			width: 100%;
+  			padding-top: 16px;
+
+			.row {
+				background-color: white;
+				padding-left: 35px;
+			}
+			.row:first-child {
+				margin-top: -105px; // for -90 offset
+				width: auto;
+				padding-top: 30px;
+				padding-left: 35px;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				h1 {margin-top: 0;}
+			}
+
+			.prix, .horraires, .tags {
+				font-size: 1.077em;
+				letter-spacing: 1px;
+
+				.small {
+					font-size:0.9em;
+					color: $font-color;
+					&:hover {
+						color: $font-color;
+					}
+				}
+
+				span.glyphicon {
+					color: $font-color; width: 1.4em;
+				}
+			}
+			.horraires {
+				.opened, .closed {
+					font-weight: $semiBold;
+				}
+			}
+			.social {
+				height: auto;
+				padding: 20px 0px 40px 35px;
+				a {
+					background: #f4f4f4;
+					border:1px solid #d2d5d6;
+					color: $font-color;
+
+					font-size: 1.4em;
+					border-radius: 2px;
+					padding: 4px 20px 6px;
+					width: 100%;
+					&:hover {
+						@include transition(all 0.25s ease-out);
+						text-decoration: none;
+					}
+					.socicon {
+						position: absolute;
+						left: 38px;
+					}
+					@include transition(all 0.25s ease-out);
+				}
+				a.facebook {
+					&:hover {
+						background-color: #6788ce;
+						border-color: #6788ce;
+						color: white;
+					}
+				}
+				a.twitter {
+					&:hover {
+						background-color: #29c5f6;
+						border-color: #29c5f6;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+	section.salon-content {
+		margin-top: 20px;
+		margin-bottom: 70px;
+
+		> .row {
+			background-color: white;
+		}
+		ul.nav {
+			li {
+				&:first-child {
+					.icon-nav {
+						background: url(../images/icon-salon-nav1.jpg) no-repeat center center;
+					}
+				}
+				&:nth-child(2) {
+					.icon-nav {
+						background: url(../images/icon-salon-nav2.jpg) no-repeat center center;
+					}
+				}
+				&:last-child {
+					border-right: none;
+					.icon-nav {
+						background: url(../images/icon-salon-nav3.jpg) no-repeat center center;
+					}
+				}
+			}
+		}
+		section {
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-bottom: 35px;
+			border-bottom: 2px solid $border-color;
+			h4 {
+				color: #343434;
+			}
+			&:nth-child(4) {
+				h4 {
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+				p {
+					letter-spacing: 1px;
+				}
+			}
+			.coiffeur {
+
+				img {
+					display: block;
+					width: 14em;
+					border-radius: 100%;
+					margin: 0 auto 20px;
+					border: 10px solid $bg2;
+				}
+				// img + p {
+				// 	&:hover {
+				// 		a {
+				// 			text-decoration: underline;
+				// 		}
+				// 	}
+				// }
+				p > a {
+					font-size: 1em;
+					color: #343434;
+					text-align: center;
+					letter-spacing: 1px;
+					width: 100%; display: block;
+
+					&:hover {
+						color: darken(#343434,10%);
+						text-decoration: underline;
+					}
+				}
+			}
+			.table-price {
+				border: 1px solid $border-color;
+				margin-left: 0;
+				div {
+					border: 1px solid $border-color;
+					padding: 12px 0 12px 24px;
+					text-align: center;
+					p {
+						margin-bottom: 2px;
+						text-align: left;
+						color: #343434;
+						font-size: 1.4em;
+						span {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+			.promo {
+				padding-top: 0;padding-bottom: 0;
+				border-left: 15px solid $promo-color;
+				padding-left: 15px;
+				h4 {
+					font-size: 1.6em;
+					color: $promo-color;
+					font-weight: $regular;
+				}
+				p {
+					font-size: 1.4em;
+					color: $font-color;
+				}
+			}
+			.map {
+				height: 247px;
+				width: auto;
+				background: url(../images/placeholder-map.jpg) no-repeat center center;
+				margin: 30px -50px 0;
+				background-size:cover;
+			}
+			.salon-hairfies {
+				padding-left: 15px;
+  				padding-right: 15px;
+  				.single-hairfie {
+					padding: 0;
+				}
+			}
+
+		}
+	}
+	.sidebar {
+		margin-top: -90px;
+		@include fullWidthBg($bg3);
+
+		.phone {
+			.btn-red {
+				position: relative;
+				display: block;
+				width: 100%;
+				padding: 20px 0 20px 0;
+				font-size: 2.1em;
+				font-weight: $semiBold;
+				margin-bottom: 10px;
+				@include box-shadow(0 1px 3px rgba(0,0,0,0.1));
+				//#gradient@include vertical(#fc5b62;#d7474d;);
+				@include gradient-vertical(#fc5b62, #d7474d);
+
+				&:active {
+					//#gradient@include vertical(#d7474d; #fc5b62;);
+					@include gradient-vertical(#d7474d, #fc5b62);
+				}
+				&:after {
+					content: " ";
+					background: url(../images/icon-phone.png) no-repeat center center;
+					position: absolute;
+					width: 25px;
+					height: 25px;
+					left: 70px;
+					top: 21px;
+				}
+			}
+		}
+
+		.promo-sidebar {
+			.inline-promo {
+				background-color: white;
+				font-size: 2.1em !important;
+				padding: 20px;
+				margin: 10px auto;
+				text-align: left;
+				width: 100%;
+				border-radius: 3px;
+				padding-left: 35px;
+				border: 1px solid $border-color;
+				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+				.icon-promo {
+					float:none;margin-right: 10px;
+				}
+			}
+			.btn-red {
+				display: block;
+				font-weight: $semiBold;
+				font-size: 1.9em;
+				width: 100%;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding-top: 20px;padding-bottom: 20px;
+				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+			}
+		}
+		.related-content {
+			background: white;
+			border-radius: 3px;
+			border: 1px solid $border-color;
+			@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+			padding: 5px 20px 0px 20px;
+			margin-top: 15px;
+			margin-bottom: 20px;
+
+			h5 {
+				color: $darkgrey;
+				font-size: 1.6em;
+				border-bottom: 1px solid $border-color;
+				padding-bottom: 15px;
+				letter-spacing: 1px;
+			}
+			.rival {
+				padding: 20px 0;
+				border-bottom: 1px solid $border-color;
+				&:last-child {
+					border:none;
+				}
+				a:nth-child(2) {
+					font-size: 1.4em;
+					color: $darkgrey;
+					font-weight: $light;
+					padding-left: 0;
+
+					span {
+						display: block;
+						font-weight: $semiBold;
+						letter-spacing: .5px;
+						text-transform: uppercase;
+					}
+				}
+				p:nth-child(3) {
+					line-height: 26px;
+					font-weight: $regular;
+					color: $promo-color;
+					text-align: left;
+					padding-top: 45px;
+					margin-bottom: 0px;
+
+					.icon-promo {
+						width: 26px;height: 26px;
+						line-height: 26px;
+						background-size: 100%;
+						margin-right: 10px;
+					}
+				}
+				p:nth-child(4) {
+					padding-left: 38px;
+					letter-spacing: .5px;
+					display: inline-block;
+  					margin-bottom: 0;
+				}
+			}
+		}
+		.networks {
+			margin-bottom: 60px;
+			p {
+				text-align: center;
+				color:$font-color;
+				font-size: 2.1em;
+				font-weight: $regular;
+				letter-spacing: 2px;
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+
+			ul {
+				padding: 20px;
+				margin: 10px auto;
+				width: 89%;
+				li {
+					a {
+						color: $font-color;
+						border-color: $font-color;
+					}
+				}
+			}
+		}
+	}
+}

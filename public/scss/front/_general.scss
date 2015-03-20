@@ -1,0 +1,376 @@
+/*////////////////////////////////
+	   M A I N  S T Y L E
+////////////////////////////////*/
+body {
+	font-size: 1em;font-size: 100%;font-size: 10px;
+	font-family: $font-main; font-weight: $light;
+	width: 100%; height: 100%; max-width: 100vw;
+	overflow-x: hidden;
+	background-color: $bg3;
+}
+
+h1 {
+	font-family: $font-second;
+	font-weight: $latoBold;
+	font-size: 4.2em; // 42px
+}
+h2 {
+	font-family: $font-second;
+	font-weight: $regular;
+	font-size: 1.6em; // 16px
+}
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+#content {
+	color: $font-color;
+	background-color: $bg3;
+	min-height: 100%;
+	height: 100%;
+	@include fullWidthBg($bg3);
+
+	h1,h2,h3,h4 {
+		font-family: $font-main;
+		font-weight: $regular;
+		color: $font-color;
+	}
+	h1 {
+		font-size: 3.6em;
+		letter-spacing: 2px;
+	}
+	h2 {
+		font-size: 1.6em;
+		font-weight: $light;
+		letter-spacing: 2px;
+		margin-top: 0;
+	}
+	h3 {
+		font-size: 2.4;
+		margin-top:25px;
+		margin-bottom:25px;
+		letter-spacing: 2px;
+	}
+	h4 {
+		font-size: 1.6em;
+		letter-spacing: 1px;
+	}
+	p {
+		font-size: 1.3em;
+	}
+	ul.nav {
+		margin-left: 15px;
+		margin-right: 15px;
+		li {
+			// padding: 22px 0;
+			text-align: center;
+			height: 80px;
+			border-right: 1px solid $border-color;
+			border-bottom:1px solid $border-color;
+			cursor: pointer;
+			background: white;
+
+			.icon-nav {
+				position: absolute;
+				display: block;
+				width: 20px;height: 21px;
+				top: 18px; left: 50%;margin-left: -10px;
+				z-index: 999;
+			}
+			a {
+				width: 100%;
+				height: 79px;
+				border:none;
+				margin: 0;
+				color: $font-color;
+				font-weight: $semiBold;
+				letter-spacing: 2px;
+				font-size: 1.6em;
+				text-transform: uppercase;
+				padding-top: 40px;
+				position: relative;
+
+				&:hover,&:visited,&:active,&:focus {
+					color: $font-color;
+					text-decoration: none;
+					background-color: transparent;
+				}
+			}
+
+			&.active {
+				position: relative;
+				&:after {
+					content: " ";
+					height: 5px;width: 100%;
+					background-color: $red;
+					position: absolute;
+					top: -5px; left: 0;
+					border-top-left-radius: 2px;
+					border-top-right-radius: 2px;
+				}
+			}
+		}
+	}
+}
+// Rating stars
+.stars {
+	height: 3.9em;
+	padding-left: 0;
+
+	.star {
+		height: 24px;width: 24px;
+		background: url(../images/star.png) no-repeat center center;
+		background-size:100%;
+		margin: 6px;
+		cursor: pointer;
+
+		display: block;
+		position: relative;
+		float: left;
+		&:after {
+			content: " ";
+			opacity: 0;
+			@include transition(all 0.15s ease-out);
+
+			width: 100%;height: 100%;
+			background: url(../images/star-full.png) no-repeat center center;
+			background-size:100%;
+			position: absolute; top: 0;left: 0;bottom: 0;right: 0;margin: auto;
+		}
+		&:hover {
+			&:after {
+				opacity: 1;
+				@include transition(all 0.15s ease-out);
+			}
+		}
+		&.full{
+			background: url(../images/star-full.png) no-repeat center center;
+			background-size:100%;
+		}
+	}
+	a.avis {
+		padding-right: 15px;
+		line-height: 3.3em;
+		color: $font-color;
+		font-weight: $semiBold;
+		font-size: 1.2em;
+
+		display: inline-block;
+		height: 100%; float: right;
+	}
+}
+// Search bar general style
+.searchbar {
+	input {
+		background-color: white;
+		border: 2px solid #e6e6e6;
+		font-family: $font-second;
+		font-weight: $latoBold;
+		font-size: 1.4em; letter-spacing: 2px;
+		color: $grey;
+		&:focus {
+			outline:0;
+		}
+	}
+	input[type='search'] {
+		-webkit-appearance: textfield;
+		-moz-appearance: textfield;
+	}
+}
+// Search bar home specific style
+.main-searchbar {
+	background-color: rgba(255,255,255,0.9);
+
+	input {
+		float: left;
+		padding-left: 20px;
+	}
+	.btn-red {
+		height: 100%;
+		text-transform: uppercase;
+		float: right;
+		font-family: $font-second;
+		font-weight: $latoBold;
+		border-radius:0;
+		padding: 16px 30px;
+		border-radius: 0 !important;
+		letter-spacing: 2px;
+	}
+}
+// Search bar all other pages style
+.searchbar {
+	padding: 5px 15px;
+	background-color: $bg2;
+	@include fullWidthBg($bg2);
+	input {
+		box-sizing: border-box;
+		margin-right: 10px;
+		height: 40px;line-height: 40px;
+		border-width: 1px;
+
+		&[type="search"] {
+			width: 64.9% !important;
+		}
+	}
+	.btn-red {
+		height:40px;
+		line-height: 25px;
+		border-radius: 0;
+	}
+}
+// figure
+figure {
+	position: relative;
+	img {
+		position: relative;
+		width: 100%;
+	}
+	figcaption {
+		position: absolute;
+		width: 100%; height: 100%;
+		@include transition(all 0.3s ease-out);
+		.pricetag {
+			position: absolute;	top: 15px; left: 15px;
+			padding:15px 10px;
+			text-align: center;
+			background-color: $red;
+			border-radius: 100%;
+		}
+	}
+}
+// small inline tag:
+.tag {
+	display: inline-block;
+	padding: 2px 10px; background-color: $darkgrey;
+	color: white; border-radius: 2px;
+	margin: 0 3px;
+	@include transition(all 0.2s ease-out);
+
+	&:hover {
+		color: white; text-decoration: none;
+		background-color: darken($darkgrey,10%);
+	}
+}
+// Icon promotion
+.icon-promo {
+	float: left;
+	width: 34px;height: 34px;
+	display: inline-block;
+	background: url(../images/icon-promo.png) no-repeat center center;
+
+	text-align: center;
+	color: white; line-height: 34px;
+	font-weight: $semiBold;
+}
+p.inline-promo {
+	line-height: 34px;
+	font-size: 2.1em;
+	font-weight: $regular;
+	color: $promo-color;
+	text-align: right;
+
+	display: block;
+	width: 70%;
+	margin: 20px auto;
+	.black {
+		color: $font-color !important;
+	}
+}
+
+// Checkbox hack
+// pour utiliser contstruire html comme ça:
+// label
+//	input checkbox/
+//	span/ vide
+//	string
+// /label
+
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+input[type="checkbox"] + span {
+	position: relative;
+	padding-left: 10px;
+	cursor: pointer;
+}
+/* Aspect des checkboxes */
+/* :before sert à créer la case à cocher */
+input[type="checkbox"]:not(:checked) + span:before,
+input[type="checkbox"]:checked + span:before {
+	content: '';
+	position: absolute;
+	left:-20px; top: 2px;
+	width: 17px; height: 17px;
+	background: white;
+	border-radius: 3px;
+	@include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Aspect général de la coche */
+input[type="checkbox"]:not(:checked) + span:after,
+input[type="checkbox"]:checked + span:after {
+	content: '';
+	position: absolute;
+	top: 0;left: -18px;
+	width: 14px; height: 15px;
+	background: url(../images/sign-checkbox.png) no-repeat center center;
+	@include transition(all .2s);
+}
+/* Aspect si "pas cochée" */
+input[type="checkbox"]:not(:checked) + span:after {
+	opacity: 0;
+	transform: scale(0);
+}
+/* Aspect si "cochée" */
+input[type="checkbox"]:checked + span:after {
+	opacity: 1;
+	transform: scale(1);
+}
+input[type="checkbox"]:disabled:not(:checked) + span:after, input[type="checkbox"]:disabled:checked + span:after {
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: -18px;
+	width: 13px;
+	height: 13px;
+	background: url(../images/sign-checkbox-locked.png) no-repeat center center;
+	background-size: 100%;
+}
+.hairfies {
+	margin-left: 0;margin-right: 0;
+	> .single-hairfie {
+		padding: 10px 5px;
+		padding-top: 0;
+		figure {
+			width: 100%;overflow: hidden;
+			img {
+  				width: 100%;
+			}
+		}
+	}
+}
+.social-links {
+	list-style-type: none;
+	margin: 20px auto; padding: 0;
+	//@include nofloat();
+	@extend .nofloat;
+	li {
+		display: inline-block;
+		margin-right:20px;
+		&:last-child {
+			margin-right: 0;
+		}
+		a {
+			@include socicon(1.6em,#fff);
+			border: 1px solid white;
+			border-radius: 100%;
+				padding: 10px;
+				&:hover {
+					color: black !important;
+					background-color: white !important;
+				}
+		}
+	}
+}

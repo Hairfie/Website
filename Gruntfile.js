@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'public/css/style.css' : 'public/scss/style.scss'
+          'public/css/style.css'      : 'public/scss/style.scss'
         }
       }
     },

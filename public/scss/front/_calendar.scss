@@ -1,0 +1,149 @@
+
+.cal {
+  display: block;
+  width: 100%;
+  $border-color: #e5e5e5;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: $screen-sm-min) {
+    width: 248px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: $screen-md-min) {
+    width: 324px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: $screen-lg-min) {
+    width: 388px;
+  }
+
+  a { text-decoration: none; }
+
+  caption {
+    display: block;
+    line-height: 3.2em;
+    font-family: $font-second;
+    font-weight: $latoBold;
+    font-size: 2.1em;
+    color: white;
+    text-align: center;
+    background: #343434;
+    position: relative;
+    
+    a {
+      display: block;
+      line-height: 4.2em;
+      padding: 0 10px;
+      font-size: 15px;
+      color: #e2e2e2;
+      height: 100%;
+
+      &:hover { color: white; }
+    }
+
+    .prev { 
+      background: url(../images/arrow-left.png) no-repeat center center; 
+      background-size: 11px 20px;
+      width: 11px; height: 20px;
+
+      position: absolute; top: 50%; margin-top: -10px;
+      left: 24px;      
+    }
+    .next { 
+      background: url(../images/arrow-right.png) no-repeat center center; 
+      background-size: 11px 20px;
+      width: 11px; height: 20px;
+
+      position: absolute; top: 50%; margin-top: -10px;
+      right: 24px;      
+    }
+  }
+  thead {
+    border-top:2px solid $border-color;
+    border-left:2px solid $border-color;
+    border-right:2px solid $border-color;
+    th {
+      height: 20px;
+      font-size: 1.6em;
+      font-weight: $latoBold;
+      color: #353535;
+      text-transform: none;
+    }
+  }
+  tbody {
+    border: 2px solid $border-color;
+  }
+  th, td {
+    text-align: center;
+    background: white;
+
+    &:first-child { border-left: 0; }
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: $screen-sm-min) {
+      width: 248px;
+      height: 36px; // 248/7
+    }
+
+    /* Medium devices (desktops, 992px and up) */
+    @media (min-width: $screen-md-min) {
+      width: 324px;
+      height: 47px; // 324/7
+    }
+
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: $screen-lg-min) {
+      width: 388px;
+      height: 56px; // 388/7
+    }
+  }
+
+  th {
+    line-height: 20px;
+    font-size: 1.6em;
+    color: #353535;
+    text-transform: uppercase;
+    background: white;
+    border-left: 2px solid $border-color;
+  }
+
+  td {
+    font-size: 1.6em;
+    font-weight: $latoBold;
+    border-top: 2px solid $border-color;
+    border-left: 2px solid $border-color;
+    @include transition(all 0.2s ease-in-out);
+
+    a {
+      clear: both;
+      display: block;
+      position: relative;
+      width: 20px;
+      line-height: 28px;
+      color: #666;
+      margin: 0 auto;
+    }
+
+    &.off { background: #f3f3f3; }
+
+    &.off a { color: #dbdddf; }
+
+    &.active {
+      background-color: $red !important;
+      line-height: 2.2em;
+      a {
+        color: white;
+        border-bottom: 2px solid white;
+      }
+    }
+    &:hover {
+      background-color: $border-color;
+      @include transition(all 0.2s ease-in-out);
+    }
+    &.active:first-child a, &:first-child a:active { border-left: 0; margin-left: 0; }
+    &.active:last-child a, &:last-child a:active { border-right: 0; margin-right: 0; }
+  }
+
+  tr:last-child { td.active a, td a:active { border-bottom: 0; margin-bottom: 0; } }
+}

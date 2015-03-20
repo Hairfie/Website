@@ -1,0 +1,138 @@
+header {
+	$headerHeight: 60px;
+	width: 100%;height: $headerHeight;
+	background-color: transparent;
+	font-size: 1em;
+	.logo {
+		background: url(../images/logo.png) no-repeat center center;
+		width: 128px; height: 41px; margin-top: 9px;display: block;
+		float: left; background-size: 100%;
+	}
+	div {
+		height: inherit;
+	}
+	.user {
+		color: white;
+		// display: none;
+		// visibility: hidden;
+		img {
+			height: 40px;width: 40px;
+			border-radius: 100%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 15px;
+			margin-top: -6px;
+		}
+		
+
+	}
+	nav {
+		height: inherit;
+		padding-right: 0 !important;
+		ul {
+			list-style-type: none;
+			padding: 0;margin: 0;
+			float: right; height: inherit;
+			li {
+				padding-top: 17px;padding-left: 20px;
+				display: inline-block;
+				&:first-child {
+					padding-left: 0;
+				}
+				&:last-child {
+					// position: relative;
+					// padding-right: 186px;
+					// a {
+					// 	position: absolute;
+					// 	top:2px;
+					// 	line-height: 1.6;
+					// }
+				}
+				a {
+					font-family: $font-main;
+					font-weight: $semiBold;
+					color: white; text-decoration: none;
+					font-size: 1.6em;
+					letter-spacing: 1px;
+
+					&:visited,&:active,&:focus {
+						text-decoration: none;
+						color: white;
+					}
+					&:hover {
+						text-decoration: underline;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+	&.white {
+		background-color: white;
+
+		.user {
+			display: inline-block;
+			visibility: visible;
+		}
+
+		> .row:first-child {
+			@include fullWidthBg(#fff);
+
+			&:after {
+				height: $headerHeight;
+			}
+		}
+
+		.logo {
+			background: url(../images/logo-red.png) no-repeat center center;
+			background-size: 100%;
+		}
+		nav ul li {
+			a {
+				color: $darkgrey;
+			}
+			// &:last-child {
+			// 	position: relative;
+			// 	padding-right: 182px;
+			// 	a {
+			// 		color: white;
+			// 	}
+			// }
+		}
+	}
+}
+.dropdown {
+	font-weight:$regular;
+	
+	.dropdown-menu {
+		border: 0;
+		border-radius: 2px;
+		li {
+			padding: 0;
+			font-size: 1em;
+			font-size: .7em;
+			width: 100%;
+
+			a {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+header:not(.white) {
+	.dropdown-menu {
+		background: transparent;
+		@include box-shadow(none);
+		li {
+			background: transparent;
+		}
+		a {
+			color: white;
+			&:hover {
+				text-decoration: underline;
+				background: transparent;
+			}
+		}
+	}
+}
