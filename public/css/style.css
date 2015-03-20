@@ -1073,7 +1073,7 @@ hr {
   clip: auto; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  /* font-family: inherit; */
+  font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit; }
@@ -6911,24 +6911,618 @@ button.close {
 .fa-meanpath:before {
   content: "\f20c"; }
 
-.front {
-  /*////////////////////////////////
+/*////////////////////////////////
 	    V A R I A B L E S 
 ////////////////////////////////*/
-  /*////////////////////////////////
+/*////////////////////////////////
 	      H E L P E R S
 ////////////////////////////////*/
-  /*////////////////////////////////
+.green {
+  color: #20af69 !important; }
+
+.red {
+  color: #fc5a5f !important; }
+
+.white {
+  color: white !important; }
+
+.black {
+  color: black; }
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+.nofloat, .social-links, .front footer .footer-links, .front .landing .headline, .front section.home-section .btn.home-cta, .front section.home-section .backoffice .home-cta.btn-red, .backoffice .front section.home-section .home-cta.btn-red, .front section.home-section .backoffice div.row#business-header div.infos .home-cta.btn-booking, .backoffice div.row#business-header div.infos .front section.home-section .home-cta.btn-booking {
+  float: none !important; }
+
+.socicon {
+  font-family: 'socicon'; }
+
+/*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-  /*////////////////////////////////
+.btn-red, .backoffice div.row#business-header div.infos .btn-booking {
+  background-color: #fc5a5f;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out; }
+  .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover {
+    background-color: #fc4147;
+    color: white;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out; }
+  .btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active {
+    background-image: -webkit-linear-gradient(top, #fb3238 10%, #fc4147 100%);
+    background-image: -o-linear-gradient(top, #fb3238 10%, #fc4147 100%);
+    background-image: linear-gradient(to bottom, #fb3238 10%, #fc4147 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFB3238', endColorstr='#FFFC4147', GradientType=0); }
+  .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus {
+    background-color: #fc4147;
+    color: white; }
+
+.carousel-control {
+  background: transparent !important; }
+  .carousel-control:hover {
+    background: transparent !important; }
+
+span.arrow {
+  width: 20px;
+  height: 37px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -19px; }
+
+span.arrow-left {
+  background: url(../images/arrow-left.png) no-repeat center center;
+  left: 60px; }
+
+span.arrow-right {
+  background: url(../images/arrow-right.png) no-repeat center center;
+  right: 60px; }
+
+.cal {
+  display: block;
+  width: 100%;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */ }
+  @media (min-width: 768px) {
+    .cal {
+      width: 248px; } }
+  @media (min-width: 992px) {
+    .cal {
+      width: 324px; } }
+  @media (min-width: 1200px) {
+    .cal {
+      width: 388px; } }
+  .cal a {
+    text-decoration: none; }
+  .cal caption {
+    display: block;
+    line-height: 3.2em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 2.1em;
+    color: white;
+    text-align: center;
+    background: #343434;
+    position: relative; }
+    .cal caption a {
+      display: block;
+      line-height: 4.2em;
+      padding: 0 10px;
+      font-size: 15px;
+      color: #e2e2e2;
+      height: 100%; }
+      .cal caption a:hover {
+        color: white; }
+    .cal caption .prev {
+      background: url(../images/arrow-left.png) no-repeat center center;
+      background-size: 11px 20px;
+      width: 11px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      left: 24px; }
+    .cal caption .next {
+      background: url(../images/arrow-right.png) no-repeat center center;
+      background-size: 11px 20px;
+      width: 11px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      right: 24px; }
+  .cal thead {
+    border-top: 2px solid #e5e5e5;
+    border-left: 2px solid #e5e5e5;
+    border-right: 2px solid #e5e5e5; }
+    .cal thead th {
+      height: 20px;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #353535;
+      text-transform: none; }
+  .cal tbody {
+    border: 2px solid #e5e5e5; }
+  .cal th, .cal td {
+    text-align: center;
+    background: white;
+    /* Small devices (tablets, 768px and up) */
+    /* Medium devices (desktops, 992px and up) */
+    /* Large devices (large desktops, 1200px and up) */ }
+    .cal th:first-child, .cal td:first-child {
+      border-left: 0; }
+    @media (min-width: 768px) {
+      .cal th, .cal td {
+        width: 248px;
+        height: 36px; } }
+    @media (min-width: 992px) {
+      .cal th, .cal td {
+        width: 324px;
+        height: 47px; } }
+    @media (min-width: 1200px) {
+      .cal th, .cal td {
+        width: 388px;
+        height: 56px; } }
+  .cal th {
+    line-height: 20px;
+    font-size: 1.6em;
+    color: #353535;
+    text-transform: uppercase;
+    background: white;
+    border-left: 2px solid #e5e5e5; }
+  .cal td {
+    font-size: 1.6em;
+    font-weight: 700;
+    border-top: 2px solid #e5e5e5;
+    border-left: 2px solid #e5e5e5;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+    .cal td a {
+      clear: both;
+      display: block;
+      position: relative;
+      width: 20px;
+      line-height: 28px;
+      color: #666;
+      margin: 0 auto; }
+    .cal td.off {
+      background: #f3f3f3; }
+    .cal td.off a {
+      color: #dbdddf; }
+    .cal td.active {
+      background-color: #fc5a5f !important;
+      line-height: 2.2em; }
+      .cal td.active a {
+        color: white;
+        border-bottom: 2px solid white; }
+    .cal td:hover {
+      background-color: #e5e5e5;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
+    .cal td.active:first-child a, .cal td:first-child a:active {
+      border-left: 0;
+      margin-left: 0; }
+    .cal td.active:last-child a, .cal td:last-child a:active {
+      border-right: 0;
+      margin-right: 0; }
+  .cal tr:last-child td.active a, .cal tr:last-child td a:active {
+    border-bottom: 0;
+    margin-bottom: 0; }
+
+/*////////////////////////////////
 	   M A I N  S T Y L E
 ////////////////////////////////*/
-  /* Aspect des checkboxes */
-  /* :before sert à créer la case à cocher */
-  /* Aspect général de la coche */
-  /* Aspect si "pas cochée" */
-  /* Aspect si "cochée" */
+body {
+  font-size: 1em;
+  font-size: 100%;
+  font-size: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #f4f4f4; }
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 4.2em; }
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.6em; }
+
+ul {
+  list-style: none;
+  padding-left: 0; }
+
+#content {
+  color: #595959;
+  background-color: #f4f4f4;
+  min-height: 100%;
+  height: 100%;
+  position: relative; }
+  #content:before {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    background: #f4f4f4;
+    z-index: -1; }
+  #content:after {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    right: -100vw;
+    top: 0;
+    background: #f4f4f4;
+    z-index: -1; }
+  #content h1, #content h2, #content h3, #content h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    color: #595959; }
+  #content h1 {
+    font-size: 3.6em;
+    letter-spacing: 2px; }
+  #content h2 {
+    font-size: 1.6em;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-top: 0; }
+  #content h3 {
+    font-size: 2.4;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    letter-spacing: 2px; }
+  #content h4 {
+    font-size: 1.6em;
+    letter-spacing: 1px; }
+  #content p {
+    font-size: 1.3em; }
+  #content ul.nav {
+    margin-left: 15px;
+    margin-right: 15px; }
+    #content ul.nav li {
+      text-align: center;
+      height: 80px;
+      border-right: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+      cursor: pointer;
+      background: white; }
+      #content ul.nav li .icon-nav {
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 21px;
+        top: 18px;
+        left: 50%;
+        margin-left: -10px;
+        z-index: 999; }
+      #content ul.nav li a {
+        width: 100%;
+        height: 79px;
+        border: none;
+        margin: 0;
+        color: #595959;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        padding-top: 40px;
+        position: relative; }
+        #content ul.nav li a:hover, #content ul.nav li a:visited, #content ul.nav li a:active, #content ul.nav li a:focus {
+          color: #595959;
+          text-decoration: none;
+          background-color: transparent; }
+      #content ul.nav li.active {
+        position: relative; }
+        #content ul.nav li.active:after {
+          content: " ";
+          height: 5px;
+          width: 100%;
+          background-color: #fc5a5f;
+          position: absolute;
+          top: -5px;
+          left: 0;
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px; }
+
+.stars {
+  height: 3.9em;
+  padding-left: 0; }
+  .stars .star {
+    height: 24px;
+    width: 24px;
+    background: url(../images/star.png) no-repeat center center;
+    background-size: 100%;
+    margin: 6px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    float: left; }
+    .stars .star:after {
+      content: " ";
+      opacity: 0;
+      -webkit-transition: all 0.15s ease-out;
+      -moz-transition: all 0.15s ease-out;
+      -ms-transition: all 0.15s ease-out;
+      -o-transition: all 0.15s ease-out;
+      width: 100%;
+      height: 100%;
+      background: url(../images/star-full.png) no-repeat center center;
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto; }
+    .stars .star:hover:after {
+      opacity: 1;
+      -webkit-transition: all 0.15s ease-out;
+      -moz-transition: all 0.15s ease-out;
+      -ms-transition: all 0.15s ease-out;
+      -o-transition: all 0.15s ease-out; }
+    .stars .star.full {
+      background: url(../images/star-full.png) no-repeat center center;
+      background-size: 100%; }
+  .stars a.avis {
+    padding-right: 15px;
+    line-height: 3.3em;
+    color: #595959;
+    font-weight: 600;
+    font-size: 1.2em;
+    display: inline-block;
+    height: 100%;
+    float: right; }
+
+.searchbar input {
+  background-color: white;
+  border: 2px solid #e6e6e6;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  color: #c4c4c4; }
+  .searchbar input:focus {
+    outline: 0; }
+.searchbar input[type='search'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield; }
+
+.main-searchbar {
+  background-color: rgba(255, 255, 255, 0.9); }
+  .main-searchbar input {
+    float: left;
+    padding-left: 20px; }
+  .main-searchbar .btn-red, .main-searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .main-searchbar .btn-booking {
+    height: 100%;
+    text-transform: uppercase;
+    float: right;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    border-radius: 0;
+    padding: 16px 30px;
+    border-radius: 0 !important;
+    letter-spacing: 2px; }
+
+.searchbar {
+  padding: 5px 15px;
+  background-color: #f0f0f1;
+  position: relative; }
+  .searchbar:before {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+  .searchbar:after {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    right: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+  .searchbar input {
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: 40px;
+    line-height: 40px;
+    border-width: 1px; }
+    .searchbar input[type="search"] {
+      width: 64.9% !important; }
+  .searchbar .btn-red, .searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .searchbar .btn-booking {
+    height: 40px;
+    line-height: 25px;
+    border-radius: 0; }
+
+figure {
+  position: relative; }
+  figure img {
+    position: relative;
+    width: 100%; }
+  figure figcaption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out; }
+    figure figcaption .pricetag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 15px 10px;
+      text-align: center;
+      background-color: #fc5a5f;
+      border-radius: 100%; }
+
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: #595959;
+  color: white;
+  border-radius: 2px;
+  margin: 0 3px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out; }
+  .tag:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #3f3f3f; }
+
+.icon-promo {
+  float: left;
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+  background: url(../images/icon-promo.png) no-repeat center center;
+  text-align: center;
+  color: white;
+  line-height: 34px;
+  font-weight: 600; }
+
+p.inline-promo {
+  line-height: 34px;
+  font-size: 2.1em;
+  font-weight: 400;
+  color: #f39c12;
+  text-align: right;
+  display: block;
+  width: 70%;
+  margin: 20px auto; }
+  p.inline-promo .black {
+    color: #595959 !important; }
+
+input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+input[type="checkbox"] + span {
+  position: relative;
+  padding-left: 10px;
+  cursor: pointer; }
+
+/* Aspect des checkboxes */
+/* :before sert à créer la case à cocher */
+input[type="checkbox"]:not(:checked) + span:before, input[type="checkbox"]:checked + span:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 2px;
+  width: 17px;
+  height: 17px;
+  background: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+
+/* Aspect général de la coche */
+input[type="checkbox"]:not(:checked) + span:after, input[type="checkbox"]:checked + span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -18px;
+  width: 14px;
+  height: 15px;
+  background: url(../images/sign-checkbox.png) no-repeat center center;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s; }
+
+/* Aspect si "pas cochée" */
+input[type="checkbox"]:not(:checked) + span:after {
+  opacity: 0;
+  transform: scale(0); }
+
+/* Aspect si "cochée" */
+input[type="checkbox"]:checked + span:after {
+  opacity: 1;
+  transform: scale(1); }
+
+input[type="checkbox"]:disabled:not(:checked) + span:after, input[type="checkbox"]:disabled:checked + span:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -18px;
+  width: 13px;
+  height: 13px;
+  background: url(../images/sign-checkbox-locked.png) no-repeat center center;
+  background-size: 100%; }
+
+.hairfies {
+  margin-left: 0;
+  margin-right: 0; }
+  .hairfies > .single-hairfie {
+    padding: 10px 5px;
+    padding-top: 0; }
+    .hairfies > .single-hairfie figure {
+      width: 100%;
+      overflow: hidden; }
+      .hairfies > .single-hairfie figure img {
+        width: 100%; }
+
+.social-links {
+  list-style-type: none;
+  margin: 20px auto;
+  padding: 0; }
+  .social-links li {
+    display: inline-block;
+    margin-right: 20px; }
+    .social-links li:last-child {
+      margin-right: 0; }
+    .social-links li a {
+      font-family: 'socicon';
+      font-size: 1.6em;
+      text-align: center;
+      color: #fff;
+      border: 1px solid white;
+      border-radius: 100%;
+      padding: 10px; }
+      .social-links li a:hover, .social-links li a:focus, .social-links li a:active, .social-links li a:visited {
+        outline: none;
+        text-decoration: none;
+        color: #fff; }
+      .social-links li a:hover {
+        color: black !important;
+        background-color: white !important; }
+
+.front {
   /*////////////////////////////////
 	   F O O T E R
 ////////////////////////////////*/
@@ -6941,565 +7535,6 @@ button.close {
   /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/ }
-  .front .green {
-    color: #20af69 !important; }
-  .front .red {
-    color: #fc5a5f !important; }
-  .front .white {
-    color: white !important; }
-  .front .black {
-    color: black; }
-  .front .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0; }
-  .front .nofloat, .front .social-links, .front footer .footer-links, .front .landing .headline, .front section.home-section .btn.home-cta, .front section.home-section .backoffice .home-cta.btn-red, .backoffice .front section.home-section .home-cta.btn-red, .front section.home-section .backoffice div.row#business-header div.infos .home-cta.btn-booking, .backoffice div.row#business-header div.infos .front section.home-section .home-cta.btn-booking {
-    float: none !important; }
-  .front .socicon {
-    font-family: 'socicon'; }
-  .front .btn-red, .front .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .front .btn-booking {
-    background-color: #fc5a5f;
-    color: white;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    font-size: 1.6em;
-    letter-spacing: 1px;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out; }
-    .front .btn-red:hover, .front .backoffice div.row#business-header div.infos .btn-booking:hover, .backoffice div.row#business-header div.infos .front .btn-booking:hover {
-      background-color: #fc4147;
-      color: white;
-      -webkit-transition: all 0.3s ease-out;
-      -moz-transition: all 0.3s ease-out;
-      -ms-transition: all 0.3s ease-out;
-      -o-transition: all 0.3s ease-out; }
-    .front .btn-red:active, .front .backoffice div.row#business-header div.infos .btn-booking:active, .backoffice div.row#business-header div.infos .front .btn-booking:active {
-      background-image: -webkit-linear-gradient(top, #fb3238 10%, #fc4147 100%);
-      background-image: -o-linear-gradient(top, #fb3238 10%, #fc4147 100%);
-      background-image: linear-gradient(to bottom, #fb3238 10%, #fc4147 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFB3238', endColorstr='#FFFC4147', GradientType=0); }
-    .front .btn-red:focus, .front .backoffice div.row#business-header div.infos .btn-booking:focus, .backoffice div.row#business-header div.infos .front .btn-booking:focus {
-      background-color: #fc4147;
-      color: white; }
-  .front .carousel-control {
-    background: transparent !important; }
-    .front .carousel-control:hover {
-      background: transparent !important; }
-  .front span.arrow {
-    width: 20px;
-    height: 37px;
-    display: block;
-    position: absolute;
-    top: 50%;
-    margin-top: -19px; }
-  .front span.arrow-left {
-    background: url(../images/arrow-left.png) no-repeat center center;
-    left: 60px; }
-  .front span.arrow-right {
-    background: url(../images/arrow-right.png) no-repeat center center;
-    right: 60px; }
-  .front .cal {
-    display: block;
-    width: 100%;
-    /* Small devices (tablets, 768px and up) */
-    /* Medium devices (desktops, 992px and up) */
-    /* Large devices (large desktops, 1200px and up) */ }
-    @media (min-width: 768px) {
-      .front .cal {
-        width: 248px; } }
-    @media (min-width: 992px) {
-      .front .cal {
-        width: 324px; } }
-    @media (min-width: 1200px) {
-      .front .cal {
-        width: 388px; } }
-    .front .cal a {
-      text-decoration: none; }
-    .front .cal caption {
-      display: block;
-      line-height: 3.2em;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      font-size: 2.1em;
-      color: white;
-      text-align: center;
-      background: #343434;
-      position: relative; }
-      .front .cal caption a {
-        display: block;
-        line-height: 4.2em;
-        padding: 0 10px;
-        font-size: 15px;
-        color: #e2e2e2;
-        height: 100%; }
-        .front .cal caption a:hover {
-          color: white; }
-      .front .cal caption .prev {
-        background: url(../images/arrow-left.png) no-repeat center center;
-        background-size: 11px 20px;
-        width: 11px;
-        height: 20px;
-        position: absolute;
-        top: 50%;
-        margin-top: -10px;
-        left: 24px; }
-      .front .cal caption .next {
-        background: url(../images/arrow-right.png) no-repeat center center;
-        background-size: 11px 20px;
-        width: 11px;
-        height: 20px;
-        position: absolute;
-        top: 50%;
-        margin-top: -10px;
-        right: 24px; }
-    .front .cal thead {
-      border-top: 2px solid #e5e5e5;
-      border-left: 2px solid #e5e5e5;
-      border-right: 2px solid #e5e5e5; }
-      .front .cal thead th {
-        height: 20px;
-        font-size: 1.6em;
-        font-weight: 700;
-        color: #353535;
-        text-transform: none; }
-    .front .cal tbody {
-      border: 2px solid #e5e5e5; }
-    .front .cal th, .front .cal td {
-      text-align: center;
-      background: white;
-      /* Small devices (tablets, 768px and up) */
-      /* Medium devices (desktops, 992px and up) */
-      /* Large devices (large desktops, 1200px and up) */ }
-      .front .cal th:first-child, .front .cal td:first-child {
-        border-left: 0; }
-      @media (min-width: 768px) {
-        .front .cal th, .front .cal td {
-          width: 248px;
-          height: 36px; } }
-      @media (min-width: 992px) {
-        .front .cal th, .front .cal td {
-          width: 324px;
-          height: 47px; } }
-      @media (min-width: 1200px) {
-        .front .cal th, .front .cal td {
-          width: 388px;
-          height: 56px; } }
-    .front .cal th {
-      line-height: 20px;
-      font-size: 1.6em;
-      color: #353535;
-      text-transform: uppercase;
-      background: white;
-      border-left: 2px solid #e5e5e5; }
-    .front .cal td {
-      font-size: 1.6em;
-      font-weight: 700;
-      border-top: 2px solid #e5e5e5;
-      border-left: 2px solid #e5e5e5;
-      -webkit-transition: all 0.2s ease-in-out;
-      -moz-transition: all 0.2s ease-in-out;
-      -ms-transition: all 0.2s ease-in-out;
-      -o-transition: all 0.2s ease-in-out; }
-      .front .cal td a {
-        clear: both;
-        display: block;
-        position: relative;
-        width: 20px;
-        line-height: 28px;
-        color: #666;
-        margin: 0 auto; }
-      .front .cal td.off {
-        background: #f3f3f3; }
-      .front .cal td.off a {
-        color: #dbdddf; }
-      .front .cal td.active {
-        background-color: #fc5a5f !important;
-        line-height: 2.2em; }
-        .front .cal td.active a {
-          color: white;
-          border-bottom: 2px solid white; }
-      .front .cal td:hover {
-        background-color: #e5e5e5;
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
-        -ms-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out; }
-      .front .cal td.active:first-child a, .front .cal td:first-child a:active {
-        border-left: 0;
-        margin-left: 0; }
-      .front .cal td.active:last-child a, .front .cal td:last-child a:active {
-        border-right: 0;
-        margin-right: 0; }
-    .front .cal tr:last-child td.active a, .front .cal tr:last-child td a:active {
-      border-bottom: 0;
-      margin-bottom: 0; }
-  .front body {
-    font-size: 1em;
-    font-size: 100%;
-    font-size: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 200;
-    width: 100%;
-    height: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
-    background-color: #f4f4f4; }
-  .front h1 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 4.2em; }
-  .front h2 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 1.6em; }
-  .front ul {
-    list-style: none;
-    padding-left: 0; }
-  .front #content {
-    color: #595959;
-    background-color: #f4f4f4;
-    min-height: 100%;
-    height: 100%;
-    position: relative; }
-    .front #content:before {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      left: -100vw;
-      top: 0;
-      background: #f4f4f4;
-      z-index: -1; }
-    .front #content:after {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      right: -100vw;
-      top: 0;
-      background: #f4f4f4;
-      z-index: -1; }
-    .front #content h1, .front #content h2, .front #content h3, .front #content h4 {
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 400;
-      color: #595959; }
-    .front #content h1 {
-      font-size: 3.6em;
-      letter-spacing: 2px; }
-    .front #content h2 {
-      font-size: 1.6em;
-      font-weight: 200;
-      letter-spacing: 2px;
-      margin-top: 0; }
-    .front #content h3 {
-      font-size: 2.4;
-      margin-top: 25px;
-      margin-bottom: 25px;
-      letter-spacing: 2px; }
-    .front #content h4 {
-      font-size: 1.6em;
-      letter-spacing: 1px; }
-    .front #content p {
-      font-size: 1.3em; }
-    .front #content ul.nav {
-      margin-left: 15px;
-      margin-right: 15px; }
-      .front #content ul.nav li {
-        text-align: center;
-        height: 80px;
-        border-right: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
-        cursor: pointer;
-        background: white; }
-        .front #content ul.nav li .icon-nav {
-          position: absolute;
-          display: block;
-          width: 20px;
-          height: 21px;
-          top: 18px;
-          left: 50%;
-          margin-left: -10px;
-          z-index: 999; }
-        .front #content ul.nav li a {
-          width: 100%;
-          height: 79px;
-          border: none;
-          margin: 0;
-          color: #595959;
-          font-weight: 600;
-          letter-spacing: 2px;
-          font-size: 1.6em;
-          text-transform: uppercase;
-          padding-top: 40px;
-          position: relative; }
-          .front #content ul.nav li a:hover, .front #content ul.nav li a:visited, .front #content ul.nav li a:active, .front #content ul.nav li a:focus {
-            color: #595959;
-            text-decoration: none;
-            background-color: transparent; }
-        .front #content ul.nav li.active {
-          position: relative; }
-          .front #content ul.nav li.active:after {
-            content: " ";
-            height: 5px;
-            width: 100%;
-            background-color: #fc5a5f;
-            position: absolute;
-            top: -5px;
-            left: 0;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px; }
-  .front .stars {
-    height: 3.9em;
-    padding-left: 0; }
-    .front .stars .star {
-      height: 24px;
-      width: 24px;
-      background: url(../images/star.png) no-repeat center center;
-      background-size: 100%;
-      margin: 6px;
-      cursor: pointer;
-      display: block;
-      position: relative;
-      float: left; }
-      .front .stars .star:after {
-        content: " ";
-        opacity: 0;
-        -webkit-transition: all 0.15s ease-out;
-        -moz-transition: all 0.15s ease-out;
-        -ms-transition: all 0.15s ease-out;
-        -o-transition: all 0.15s ease-out;
-        width: 100%;
-        height: 100%;
-        background: url(../images/star-full.png) no-repeat center center;
-        background-size: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto; }
-      .front .stars .star:hover:after {
-        opacity: 1;
-        -webkit-transition: all 0.15s ease-out;
-        -moz-transition: all 0.15s ease-out;
-        -ms-transition: all 0.15s ease-out;
-        -o-transition: all 0.15s ease-out; }
-      .front .stars .star.full {
-        background: url(../images/star-full.png) no-repeat center center;
-        background-size: 100%; }
-    .front .stars a.avis {
-      padding-right: 15px;
-      line-height: 3.3em;
-      color: #595959;
-      font-weight: 600;
-      font-size: 1.2em;
-      display: inline-block;
-      height: 100%;
-      float: right; }
-  .front .searchbar input {
-    background-color: white;
-    border: 2px solid #e6e6e6;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 1.4em;
-    letter-spacing: 2px;
-    color: #c4c4c4; }
-    .front .searchbar input:focus {
-      outline: 0; }
-  .front .searchbar input[type='search'] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield; }
-  .front .main-searchbar {
-    background-color: rgba(255, 255, 255, 0.9); }
-    .front .main-searchbar input {
-      float: left;
-      padding-left: 20px; }
-    .front .main-searchbar .btn-red, .front .main-searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .front .main-searchbar .btn-booking {
-      height: 100%;
-      text-transform: uppercase;
-      float: right;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      border-radius: 0;
-      padding: 16px 30px;
-      border-radius: 0 !important;
-      letter-spacing: 2px; }
-  .front .searchbar {
-    padding: 5px 15px;
-    background-color: #f0f0f1;
-    position: relative; }
-    .front .searchbar:before {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      left: -100vw;
-      top: 0;
-      background: #f0f0f1;
-      z-index: -1; }
-    .front .searchbar:after {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      right: -100vw;
-      top: 0;
-      background: #f0f0f1;
-      z-index: -1; }
-    .front .searchbar input {
-      box-sizing: border-box;
-      margin-right: 10px;
-      height: 40px;
-      line-height: 40px;
-      border-width: 1px; }
-      .front .searchbar input[type="search"] {
-        width: 64.9% !important; }
-    .front .searchbar .btn-red, .front .searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .front .searchbar .btn-booking {
-      height: 40px;
-      line-height: 25px;
-      border-radius: 0; }
-  .front figure {
-    position: relative; }
-    .front figure img {
-      position: relative;
-      width: 100%; }
-    .front figure figcaption {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-transition: all 0.3s ease-out;
-      -moz-transition: all 0.3s ease-out;
-      -ms-transition: all 0.3s ease-out;
-      -o-transition: all 0.3s ease-out; }
-      .front figure figcaption .pricetag {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        padding: 15px 10px;
-        text-align: center;
-        background-color: #fc5a5f;
-        border-radius: 100%; }
-  .front .tag {
-    display: inline-block;
-    padding: 2px 10px;
-    background-color: #595959;
-    color: white;
-    border-radius: 2px;
-    margin: 0 3px;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out; }
-    .front .tag:hover {
-      color: white;
-      text-decoration: none;
-      background-color: #3f3f3f; }
-  .front .icon-promo {
-    float: left;
-    width: 34px;
-    height: 34px;
-    display: inline-block;
-    background: url(../images/icon-promo.png) no-repeat center center;
-    text-align: center;
-    color: white;
-    line-height: 34px;
-    font-weight: 600; }
-  .front p.inline-promo {
-    line-height: 34px;
-    font-size: 2.1em;
-    font-weight: 400;
-    color: #f39c12;
-    text-align: right;
-    display: block;
-    width: 70%;
-    margin: 20px auto; }
-    .front p.inline-promo .black {
-      color: #595959 !important; }
-  .front input[type="checkbox"]:not(:checked), .front input[type="checkbox"]:checked {
-    position: absolute;
-    left: -9999px; }
-  .front input[type="checkbox"] + span {
-    position: relative;
-    padding-left: 10px;
-    cursor: pointer; }
-  .front input[type="checkbox"]:not(:checked) + span:before, .front input[type="checkbox"]:checked + span:before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 2px;
-    width: 17px;
-    height: 17px;
-    background: white;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
-  .front input[type="checkbox"]:not(:checked) + span:after, .front input[type="checkbox"]:checked + span:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -18px;
-    width: 14px;
-    height: 15px;
-    background: url(../images/sign-checkbox.png) no-repeat center center;
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -ms-transition: all .2s;
-    -o-transition: all .2s; }
-  .front input[type="checkbox"]:not(:checked) + span:after {
-    opacity: 0;
-    transform: scale(0); }
-  .front input[type="checkbox"]:checked + span:after {
-    opacity: 1;
-    transform: scale(1); }
-  .front input[type="checkbox"]:disabled:not(:checked) + span:after, .front input[type="checkbox"]:disabled:checked + span:after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: -18px;
-    width: 13px;
-    height: 13px;
-    background: url(../images/sign-checkbox-locked.png) no-repeat center center;
-    background-size: 100%; }
-  .front .hairfies {
-    margin-left: 0;
-    margin-right: 0; }
-    .front .hairfies > .single-hairfie {
-      padding: 10px 5px;
-      padding-top: 0; }
-      .front .hairfies > .single-hairfie figure {
-        width: 100%;
-        overflow: hidden; }
-        .front .hairfies > .single-hairfie figure img {
-          width: 100%; }
-  .front .social-links {
-    list-style-type: none;
-    margin: 20px auto;
-    padding: 0; }
-    .front .social-links li {
-      display: inline-block;
-      margin-right: 20px; }
-      .front .social-links li:last-child {
-        margin-right: 0; }
-      .front .social-links li a {
-        font-family: 'socicon';
-        font-size: 1.6em;
-        text-align: center;
-        color: #fff;
-        border: 1px solid white;
-        border-radius: 100%;
-        padding: 10px; }
-        .front .social-links li a:hover, .front .social-links li a:focus, .front .social-links li a:active, .front .social-links li a:visited {
-          outline: none;
-          text-decoration: none;
-          color: #fff; }
-        .front .social-links li a:hover {
-          color: black !important;
-          background-color: white !important; }
   .front header {
     width: 100%;
     height: 60px;

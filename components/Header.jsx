@@ -43,31 +43,23 @@ module.exports = React.createClass({
         var custom;
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
-        } else {
-            custom = (<MenuItem context={this.props.context} routeName="pro_home">Vous êtes coiffeur ?</MenuItem>);
         }
-
         return (
-            <nav className="navbar navbar-default navbar-static-top header" role="navigation">
-                <div className="container">
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <NavLink context={this.props.context} className="navbar-brand" routeName="home"><img id="logo" src="/img/logo@2x.png" alt="Hairfie"/></NavLink>
-                    </div>
-                    <div id="navbar" className="navbar-collapse collapse">
-                        <ul className="nav top-nav navbar-right">
-                            <MenuItem context={this.props.context} routeName="home">Home</MenuItem>
-                            <li><a href="http://blog.hairfie.com" target="_blank">Blog</a></li>
-                            { custom }
-                        </ul>
+            <header>
+                <div className="row">
+                    <div className="col-md-12">
+                        <NavLink context={this.props.context} className="logo col-md-4" routeName="home" />
+                        <nav className='col-md-8 pull-right'>
+                            <ul>
+                                <li><a href="#">Inscription</a></li>
+                                <li><a href="#">Connexion</a></li>
+                                {custom}
+                                <li><NavLink context={this.props.context} routeName="pro_home" className="btn btn-red hide">Déclarez votre salon</NavLink></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-            </nav>
+            </header>
         );
     }
 });

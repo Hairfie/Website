@@ -12,8 +12,8 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="front">
-                <FlashMessages context={this.props.context} />
                 <Header context={this.props.context} withLogin={this.props.withLogin} />
+                <FlashMessages context={this.props.context} />
                 <div className={ 'container public-layout ' + this.props.customClass }>
                     {this.props.children}
                 </div>

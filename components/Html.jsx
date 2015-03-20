@@ -20,6 +20,8 @@ var Html = React.createClass({
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href="/css/style.css" />
                 <script src="/components/modernizr/modernizr.js"></script>
+                <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
+                <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>

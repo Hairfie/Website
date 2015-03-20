@@ -11,17 +11,17 @@ $icon-font-path: "../components/bootstrap/fonts/";
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+// Import variales and helpers:
+@import "front/variables";
+@import "front/helpers";
+@import "front/buttons";
+@import "front/calendar";
+
+// Import general styles:
+@import "front/general";
+// Import page specific style:
+
 .front {
-    // Import variales and helpers:
-    @import "front/variables";
-    @import "front/helpers";
-    @import "front/buttons";
-    @import "front/calendar";
-
-    // Import general styles:
-    @import "front/general";
-    // Import page specific style:
-
     @import "front/header";
     @import "front/footer";
     @import "front/page-home";
