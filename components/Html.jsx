@@ -16,6 +16,8 @@ var Html = React.createClass({
                 {this.props.metas.map(function(metaObj) {
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
+                <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
+                <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href="/css/style.css" />
                 <script src="/components/modernizr/modernizr.js"></script>
             </head>
