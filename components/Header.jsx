@@ -44,8 +44,10 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
         }
+        var headerClassName = this.props.headerClass ? this.props.headerClass : 'white';
+
         return (
-            <header>
+            <header className={headerClassName}>
                 <div className="row">
                     <div className="col-md-12">
                         <NavLink context={this.props.context} className="logo col-md-4" routeName="home" />

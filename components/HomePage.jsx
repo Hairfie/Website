@@ -78,7 +78,7 @@ module.exports = React.createClass({
     },
     render: function () {
         return (
-            <PublicLayout customClass={'home-bg'}>
+            <PublicLayout customClass={'home-bg'} headerClass={'normal'}>
                 <SearchBar context={this.props.context} />
                 <div className="row">
                     <h3>Top hairfies du moment</h3>

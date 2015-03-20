@@ -12,7 +12,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="front">
-                <Header context={this.props.context} withLogin={this.props.withLogin} />
+                <Header context={this.props.context} withLogin={this.props.withLogin} headerClass={this.props.headerClass} />
                 <FlashMessages context={this.props.context} />
                 <div className={ 'container public-layout ' + this.props.customClass }>
                     {this.props.children}
