@@ -17,6 +17,7 @@ var Html = React.createClass({
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
                 <link rel="stylesheet" href="/css/style.css" />
+                <script src="/components/modernizr/modernizr.js"></script>
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>

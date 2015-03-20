@@ -16,7 +16,8 @@ module.exports = React.createClass({
                         <li className="col-sm-2"><a href="#">Presse</a></li>
                         <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
                         <li className="col-sm-4"><a href="api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions Générales</a></li>
-                        <li className="col-sm-2"><a href="#" className="btn btn-red">Déclarez votre salon</a></li>
+                        <li className="col-sm-2"><NavLink context={this.props.context} routeName="pro_home" className="btn btn-red">Déclarez votre salon</NavLink></li>
+
                         </ul>
                     </div>
                     <div className="row">
