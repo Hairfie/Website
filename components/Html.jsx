@@ -19,7 +19,8 @@ var Html = React.createClass({
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
-                <link rel="stylesheet" href="/css/style.css" />
+                <link rel="stylesheet" href="http://lucasfayolle.com/hairfie/styles/main.css" />
+                {/* <link rel="stylesheet" href="/css/style.css" /> */}
                 <script src="/components/modernizr/modernizr.js"></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -27,7 +28,7 @@ var Html = React.createClass({
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
 
-                <script src="/components/jquery/dist/jquery.js"></script>
+                <script src="/components/jquery/dist/jquery.min.js"></script>
                 <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
                 <script src="/components/nouislider/distribute/jquery.nouislider.min.js"></script>
