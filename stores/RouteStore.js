@@ -8,7 +8,7 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'RouteStore',
     handlers: {
-        CHANGE_ROUTE_SUCCESS: 'handleChangeRoute'
+        CHANGE_ROUTE_START: 'handleChangeRoute'
     },
     initialize: function () {
         this.currentRoute = null;

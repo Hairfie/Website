@@ -20,7 +20,7 @@ module.exports = React.createClass({
         Google
             .loadMaps()
             .then(function (google) {
-                var input = this.refs.input.getInputDOMNode();
+                var input = this.refs.input.getDOMNode();
 
                 var options = {};
                 options.types = this.props.types;

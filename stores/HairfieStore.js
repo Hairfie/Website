@@ -52,12 +52,13 @@ module.exports = createStore({
         var hairfie = this.hairfies[hairfieId];
 
         if (_.isUndefined(hairfie)) {
-            this._loadById(hairfieId);
+            this._fetchById(hairfieId);
         }
 
         return hairfie && hairfie.entity;
     },
     _fetchById: function (hairfieId) {
+        this.hairfies[hairfieId] = _.assign({}, this.hairfies[hairfieId], {loading: true });
         this.dispatcher.getContext().executeAction(HairfieActions.Fetch, {
             id: hairfieId
         });
