@@ -12,7 +12,7 @@ var NavLink = require('flux-router-component').NavLink;
 var SearchUtils = require('../lib/search-utils');
 var SearchConfig = require('../configs/search');
 
-var SearchLayout = require('./SearchLayout.jsx');
+var Layout = require('./PublicLayout.jsx');
 var Search = require('./Search');
 
 var _ = require('lodash');
@@ -309,7 +309,7 @@ module.exports = React.createClass({
         var place = this.state.place || {};
 
         return (
-            <SearchLayout>
+            <Layout>
                 <div className="container search" id="content">
                     <div className="row">
                         <Breadcrumb context={this.props.context} place={this.state.place} />
@@ -335,7 +335,7 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
-            </SearchLayout>
+            </Layout>
         );
     },
     handleSearchChange: function (nextSearch) {
