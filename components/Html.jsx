@@ -21,9 +21,12 @@ var Html = React.createClass({
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href="http://lucasfayolle.com/hairfie/styles/main.css" />
                 {/* <link rel="stylesheet" href="/css/style.css" /> */}
+                <link rel="stylesheet" href="/css/temp.css" />
                 <script src="/components/modernizr/modernizr.js"></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+
+
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
@@ -36,6 +39,7 @@ var Html = React.createClass({
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 {/* <script src="/js/share.min.js"></script> */}
+                <script src="/js/main.js"></script>
                 <script type="text/javascript" src={serverConfig.APP_FILE}></script>
             </body>
             </html>

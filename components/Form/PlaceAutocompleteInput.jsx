@@ -3,7 +3,6 @@
 'use strict';
 
 var React = require('react');
-var Input = require('react-bootstrap/Input');
 var Google = require('../../services/google');
 
 module.exports = React.createClass({
@@ -41,7 +40,7 @@ module.exports = React.createClass({
         }
     },
     render: function () {
-        return <Input ref="input" {...this.props} type="text" />
+        return <input ref="input" {...this.props} type="search" className={this.props.className} />
     },
     handlePlaceChanged: function () {
         var place = this.state.autocomplete.getPlace();

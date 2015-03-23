@@ -7,7 +7,7 @@ module.exports = {
         pageComponent: require('../components/HomePage.jsx'),
         action: require('../actions/Page/Home'),
         numTopDeals: 3,
-        numTopHairfies: 3
+        numTopHairfies: 5
     },
     reset_password: {
         path: '/reset-password/:userId/:token',

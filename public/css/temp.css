@@ -1,0 +1,14 @@
+figcaption a span {
+    font-size: 21px !important;
+    font-weight: 400;
+}
+
+figcaption a {
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+figcaption a.address {
+    font-size: 14px !important;
+    font-weight: 600;
+}
