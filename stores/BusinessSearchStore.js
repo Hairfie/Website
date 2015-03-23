@@ -14,50 +14,50 @@ module.exports = createStore({
         handleFetchFailure  : BusinessEvents.FETCH_SEARCH_RESULT_FAILURE
     }),
     initialize: function () {
-        this.searches = {};
+        this.exchanges = {};
     },
     dehydrate: function () {
         return {
-            searches: this.searches,
+            exchanges: this.exchanges,
         };
     },
     rehydrate: function (state) {
-        this.searches = state.searches || {};
+        this.exchanges = state.exchanges || {};
     },
     handleFetch: function (payload) {
-        var key = this._searchKey(payload.query);
-        this.searches[key] = _.assign({}, this.searches[key], {
+        var key = this._searchKey(payload.search);
+        this.exchanges[key] = _.assign({}, this.exchanges[key], {
             loading: true
         });
     },
     handleFetchSuccess: function (payload) {
-        var key = this._searchKey(payload.query);
-        this.searches[key] = _.assign({}, this.searches[key], {
+        var key = this._searchKey(payload.search);
+        this.exchanges[key] = _.assign({}, this.exchanges[key], {
             loading: false,
             result: payload.result
         });
         this.emitChange();
     },
     handleFetchFailure: function (payload) {
-        var key = this._searchKey(payload.query);
-        this.searches[key] = _.assign({}, this.searches[key], {
+        var key = this._searchKey(payload.search);
+        this.exchanges[key] = _.assign({}, this.exchanges[key], {
             loading: false
         });
         this.emitChange();
     },
-    getResult: function (query) {
-        var key = this._searchKey(query);
-        var search = this.searches[key];
+    getResult: function (search) {
+        var key      = this._searchKey(search);
+        var exchange = this.exchanges[key];
 
-        if (_.isUndefined(search)) {
-            this._loadResult(query);
+        if (_.isUndefined(exchange)) {
+            this._loadResult(search);
         }
 
-        return search && search.result;
+        return exchange && exchange.result;
     },
-    _loadResult: function (query) {
+    _loadResult: function (search) {
         this.dispatcher.getContext().executeAction(BusinessActions.FetchSearchResult, {
-            query: query
+            search: search
         });
     },
     _searchKey: function (search) {

@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
+    "jquery-ui": "~1.11.4",
     "bootstrap-sass-official": "~3.3.0",
     "typeahead.js": "~0.10.5",
     "bootstrap-social": "~4.8.0",

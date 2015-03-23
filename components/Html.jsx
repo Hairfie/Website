@@ -9,7 +9,7 @@ var serverConfig   = require('../configs/server');
 var Html = React.createClass({
     render: function() {
         return (
-            <html>
+            <html className="no-js">
             <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hairfie: http://ogp.me/ns/fb/hairfie#">
                 <meta charSet="utf-8" />
                 <title>{this.props.title}</title>
@@ -35,6 +35,7 @@ var Html = React.createClass({
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 {/* <script src="/js/share.min.js"></script> */}
+                <script src="/components/jquery-ui/jquery-ui.min.js"></script>
                 <script type="text/javascript" src={serverConfig.APP_FILE}></script>
             </body>
             </html>

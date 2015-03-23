@@ -9,11 +9,7 @@ var Q = require('q');
 var _ = require('lodash');
 
 module.exports = function BusinessSearchResults(context, payload, done) {
-    var address = SearchUtils.locationFromUrlParameter(payload.params.address);
-
-    var search = {
-        radius: payload.query.radius
-    };
+    var address = SearchUtils.addressFromUrlParameter(payload.params.address);
 
     // load place if necessary
     getPlaceByAddress(context, address)
@@ -25,7 +21,8 @@ function getSearchResult(context, route, place) {
     var deferred = Q.defer();
 
     var search = SearchUtils.searchFromRouteAndPlace(route, place);
-    var store = context.getStore(BusinessSearchStore);
+
+    var store  = context.getStore(BusinessSearchStore);
     var result = store.getResult(search);
 
     if (!_.isUndefined(result)) {

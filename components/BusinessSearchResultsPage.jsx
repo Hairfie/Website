@@ -11,136 +11,130 @@ var BusinessActions = require('../actions/Business');
 var NavLink = require('flux-router-component').NavLink;
 var SearchUtils = require('../lib/search-utils');
 var SearchConfig = require('../configs/search');
-var Slider = require('./Form/Slider.jsx');
+
+var SearchLayout = require('./SearchLayout.jsx');
+var Search = require('./Search');
 
 var _ = require('lodash');
 
-var FilterSection = React.createClass({
-    render: function () {
-        return (
-            <div className="panel panel-default">
-                <div className="panel-heading">{this.props.title}</div>
-                <div className="panel-body">
-                    {this.props.children}
-                </div>
-            </div>
-        );
-    }
-});
-
-var FacetFilterSection = React.createClass({
+var Pagination = React.createClass({
     propTypes: {
-        facet: React.PropTypes.string.isRequired,
-        title: React.PropTypes.string.isRequired,
-        search: React.PropTypes.object.isRequired,
-        result: React.PropTypes.object,
         onChange: React.PropTypes.func
     },
-    getInitialState: function () {
-        return {
-            choices: this._buildChoices(this.props)
-        };
+    getDefaultProps: function () {
+        onChange: _.noop
     },
     render: function () {
-        var choiceNodes = _.map(this.state.choices, function (checked, value) {
-            return (
-                <li key={value}>
-                    <input ref={value} type="checkbox" checked={checked} />
-                    {value}
-                </li>
-            );
-        });
-
         return (
-            <FilterSection title={this.props.title}>
-                <ul>
-                    {choiceNodes}
+            <nav>
+                <ul className="pagination">
+                    {_.map(this._buildListItems(), function (item) {
+                        return (
+                            <li className={item.active && 'disabled'}>
+                                <a href="#" onClick={this.handleClick.bind(this, item)}>
+                                    {item.label}
+                                </a>
+                            </li>
+                        );
+                    }, this)}
                 </ul>
-            </FilterSection>
+            </nav>
         );
     },
-    getValues: function () {
-        var values = [];
-        _.forEach(this.getChoices(), function (defaultChecked, value) {
-            if (this.refs[value] && this.refs[value].getDOMNode.checked) {
-                values.push(value);
-            }
-        }, this);
-        return values;
+    handleClick: function (item, e) {
+        e.preventDefault();
+        if (item.page) this.props.onChange(item.page);
     },
-    _buildChoices: function (props) {
-        var search = props.search;
-        var result = props.result || {facets: {}};
-
-        var choices = {};
-        _.forEach(result.facets[props.facet], function (count, value) {
-            choices[value] = false;
-        });
-        _.forEach(search.facets && search.facets[props.facet], function (value) {
-            choices[value] = true;
-        });
-
-        return choices;
-    }
-});
-
-var RadiusFilter = React.createClass({
-    getDefaultProps: function () {
-        return {
-            onChange: _.noop()
-        };
-    },
-    render: function () {
-        var value = Number(this.props.defaultValue);
-
-        return (
-            <FilterSection title="Rayon de la recherche">
-                <Slider ref="radius" type="number" onChange={this._onChange} min={1000} max={50000} step={1000} defaultValue={value} />
-                Distance de 0 à {value / 1000}km
-            </FilterSection>
-        );
-    },
-    getValue: function () {
-        return this.refs.radius.getValue();
-    },
-    _onChange: function () {
-        var value = this.getValue();
-        this.props.onChange(value);
-    }
-});
-
-var SearchFilters = React.createClass({
-    getDefaultProps: function () {
-        return {
-            onChange: _.noop()
-        };
-    },
-    render: function () {
-        return (
-            <div>
-                <h3>Affiner la recherche</h3>
-                {this.renderRadius()}
-                <FacetFilterSection
-                    ref="categories"
-                    title="Catégories"
-                    facet="categories"
-                    search={this.props.search}
-                    result={this.props.result}
-                    onChange={this._onChange} />
-            </div>
-        );
-    },
-    renderRadius: function () {
-        if (!this.props.place || this.props.place.bounds) {
-            return;
+    _buildListItems: function () {
+        var items = [];
+        for (var i = 1; i <= this.props.numPages; i++) {
+            items.push({
+                label   : i,
+                page    : i,
+                active  : this.props.page == i
+            });
         }
 
-        return <RadiusFilter ref="radius" defaultValue={this.props.search.radius} onChange={this._onChange} />;
+        return items;
+    }
+});
+
+var Slider = React.createClass({
+    componentDidMount: function () {
+        this.slider = jQuery(this.refs.slider.getDOMNode());
+        this.slider.slider({
+            range: false,
+            step: this.props.step,
+            min: this.props.min,
+            max: this.props.max,
+            values: this.props.defaultValue,
+            change: this.handleChange
+        });
     },
-    _onChange: function () {
-        var filters = {};
-        if (this.refs.radius) filters.radius = this.refs.radius.getValue();
-        this.props.onChange(filters);
+    componentWillReceiveProps: function (nextProps) {
+        this.slider.slider('option', 'range', false);
+        this.slider.slider('option', 'step', this.props.step);
+        this.slider.slider('option', 'min', this.props.min);
+        this.slider.slider('option', 'max', this.props.max);
+        this.slider.slider('option', 'values', this.props.defaultValue);
+    },
+    render: function () {
+        return <div ref="slider" id="rangeslider" />;
+    },
+    handleChange: function (e, ui) {
+        this.props.onChange(ui.value);
+    }
+});
+
+var Breadcrumb = React.createClass({
+    render: function () {
+        var crumbs = [];
+        var place  = this.props.place;
+
+        while (place) {
+            crumbs.unshift({
+                last: crumbs.length == 0,
+                label: place.name.split(',')[0],
+                routeName: 'business_search_results',
+                navParams: {
+                    address: SearchUtils.addressToUrlParameter(place.name)
+                }
+            });
+            place = place.parent;
+        }
+
+        return (
+            <div className="col-xs-12">
+                <ol className="breadcrumb">
+                    {_.map(crumbs, function (crumb) {
+                        if (crumb.last) {
+                            return (
+                                <li className="active">
+                                    {crumb.label}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li>
+                                    <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
+                                        {crumb.label}
+                                    </NavLink>
+                                </li>
+                            );
+                        }
+                    }, this)}
+                </ol>
+            </div>
+        );
+
+
+        <div class="col-xs-12">
+                      <ol class="breadcrumb">
+                                  <li><a href="#">Lien</a></li>
+                                              <li><a href="#">Lien 2</a></li>
+                                                          <li class="active">Lien actif</li>
+                                                                    </ol>
+                                                                            </div>
     }
 });
 
@@ -149,23 +143,133 @@ var SearchResults = React.createClass({
         var result = this.props.result || {};
 
         var businessNodes = _.map(result.hits, function (business) {
-            return (
-                <li key={business.id}>
-                    <NavLink routeName="show_business" navParams={{businessId:business.id, businessSlug:business.slug}}>
-                        {business.name}
-                    </NavLink>
-                </li>
-            );
-        });
+            return <Search.BusinessResult key={business.id} context={this.props.context} business={business} />
+        }, this);
+
+        return (
+            <div className="row">
+                {businessNodes}
+            </div>
+        );
+    }
+});
+
+var SearchFilters = React.createClass({
+    render: function () {
+        return (
+            <div className="sidebar col-sm-4">
+                {this.renderCurrentFilters()}
+                <h1>Affiner la recherche</h1>
+                <section>
+                    <form>
+                    {this.renderRadius()}
+                    {this.renderQuery()}
+                    {this.renderCategories()}
+                    </form>
+                </section>
+            </div>
+        );
+    },
+    renderCurrentFilters: function () {
+        var filters = _.flatten([
+            _.map(this.props.search.categories, function (value) {
+                return {type: "categories", value: value};
+            })
+        ]);
+
+        if (filters.length == 0) return;
+
+        return (
+            <section className="filter-recap">
+                <h2>Ma sélection</h2>
+                {_.map(filters, function (filter) {
+                    return (
+                        <label key={filter.type+'|'+filter.value} className="checkbox-inline" onClick={this.removeFilter.bind(this, filter)}>
+                            <input type="checkbox" align="baseline" checked disabled />
+                            <span></span>
+                            {filter.value}
+                        </label>
+                    );
+                }, this)}
+            </section>
+        );
+    },
+    renderRadius: function () {
+        if (!this.props.search.location) return;
+
+        return (
+            <div className="price">
+                <h2>Rayon</h2>
+                <div className="selectRange">
+                    <Slider min={1000} max={50000} step={1000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />
+                    <p className="col-xs-6">1km</p>
+                    <p className="col-xs-6">50km</p>
+                </div>
+            </div>
+        );
+    },
+    renderQuery: function () {
+        return (
+            <div>
+                <h2>Qui ?</h2>
+                <div className="input-group">
+                    <div className="input-group-addon"></div>
+                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.query} onChange={this.handleQueryChange} />
+                    <div className="input-group-addon"><a href="#"></a></div>
+                </div>
+            </div>
+        );
+    },
+    renderCategories: function () {
+        var facets = this.props.result && this.props.result.facets || {};
+
+        var categories = _.keys(facets.categories);
+
+        if (categories.length == 0) return;
 
         return (
             <div>
-                <h3>{result.nbHits} résultat(s) trouvé(s)</h3>
-                <ul>
-                    {businessNodes}
-                </ul>
+                <h2>Catégories</h2>
+                {_.map(categories, function (category) {
+                    var filter   = {type: 'categories', value: category};
+                    var active   = this.props.search && (this.props.search.categories || []).indexOf(category) > -1;
+                    var onChange = active ? this.removeFilter.bind(this, filter) : this.addFilter.bind(this, filter);
+
+                    return (
+                        <label key={category} className="checkbox-inline">
+                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                            <span />
+                            {category}
+                        </label>
+                    );
+                }, this)}
             </div>
         );
+    },
+    addFilter: function (filter) {
+        switch (filter.type) {
+            case 'categories':
+                var categories = _.union(this.props.search.categories || [], [filter.value]);
+                this.props.onChange({categories: categories});
+                break;
+        }
+    },
+    removeFilter: function (filter) {
+        switch (filter.type) {
+            case 'price':
+                this.props.onChange({price: undefined});
+                break;
+            case 'categories':
+                var categories = _.without(this.props.search.categories, filter.value);
+                this.props.onChange({categories: categories});
+                break;
+        }
+    },
+    handleQueryChange: _.debounce(function () {
+        this.props.onChange({query: this.refs.query.getDOMNode().value});
+    }, 500),
+    handleRadiusChange: function (nextRadius) {
+        this.props.onChange({radius: nextRadius});
     }
 });
 
@@ -176,15 +280,20 @@ module.exports = React.createClass({
     },
     getStateFromStores: function (props) {
         var props   = props || this.props;
-        var address = SearchUtils.locationFromUrlParameter(props.route.params.address);
+        var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
         var place   = this.getStore(PlaceStore).getByAddress(address);
-        var search  = SearchUtils.searchFromRouteAndPlace(props.route, place);
+        var search  = {};
+        var result  = {};
+
+        if (place) {
+            search = SearchUtils.searchFromRouteAndPlace(props.route, place);
+            result = this.getStore(BusinessSearchStore).getResult(search);
+        }
 
         return {
-            address : address,
             place   : place,
             search  : search,
-            result  : this.getStore(BusinessSearchStore).getResult(search)
+            result  : result
         };
     },
     componentWillReceiveProps: function (nextProps) {
@@ -193,72 +302,48 @@ module.exports = React.createClass({
     getInitialState: function () {
         return this.getStateFromStores();
     },
+    onChange: function () {
+        this.setState(this.getStateFromStores());
+    },
     render: function () {
         var place = this.state.place || {};
 
         return (
-            <div className="container">
-                <h2>{place.name}</h2>
-                {this.renderPlaceBreadcrumb()}
-                <div className="row">
-                    <div className="col-xs-3">
-                        <SearchFilters
-                            place={this.state.place}
-                            search={this.state.search}
-                            result={this.state.result}
-                            onChange={this.handleFilterChange} />
-                    </div>
-                    <div className="col-xs-9">
-                        <SearchResults context={this.props.context} result={this.state.result} />
+            <SearchLayout>
+                <div className="container search" id="content">
+                    <div className="row">
+                        <Breadcrumb context={this.props.context} place={this.state.place} />
+                        <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} />
+                        <div className="main-content col-md-8 col-sm-12">
+                            <section className="search-content">
+                                <div className="row">
+                                    <div className="col-xs-12 header-part">
+                                        <h3>{(place.name || '').split(',')[0]}</h3>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className='col-xs-12 '>
+                                        <div className="tab-content">
+                                            <div role="tabpanel" className="tab-pane active" id="salons">
+                                                <SearchResults context={this.props.context} result={this.state.result} />
+                                                <Pagination onChange={this.handlePageChange} page={this.state.search.page} numPages={this.state.result && this.state.result.nbPages} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </SearchLayout>
         );
     },
-    renderPlaceBreadcrumb: function () {
-        var places = [];
-        var place = this.state.place;
-        while (place) {
-            places.push(place);
-            place = place.parent;
-        }
-        var places = places.reverse();
-
-        var crumbs = _.map(places, function (place) {
-            var navParams = {
-                address: SearchUtils.locationToUrlParameter(place.name)
-            };
-
-            var shortName = place.name.split(',')[0];
-
-            return (
-                <li>
-                    <NavLink routeName="business_search_results" navParams={navParams}>
-                        {shortName}
-                    </NavLink>
-                </li>
-            );
-        });
-
-        return (
-            <ol className="breadcrumb">
-                {crumbs}
-            </ol>
-        );
+    handleSearchChange: function (nextSearch) {
+        var search = _.assign(this.state.search, nextSearch, {page: 1});
+        this.props.context.executeAction(BusinessActions.SubmitSearch, {search: search});
     },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
-    handleFilterChange: function (nextSearch) {
-        var params = _.assign(this.state.search, nextSearch);
-        params.address = this.state.address;
-
-        this.props.context.executeAction(BusinessActions.SubmitSearch, params);
-    },
-    handlePageChange: function (pageNumber) {
-        var params = _.assign(this.state.search, {page: pageNumber});
-        params.address = this.state.address;
-
-        this.props.context.executeAction(BusinessActions.SubmitSearch, params);
+    handlePageChange: function (nextPage) {
+        var search = _.assign(this.state.search, {page: nextPage});
+        this.props.context.executeAction(BusinessActions.SubmitSearch, {search: search});
     }
 });
