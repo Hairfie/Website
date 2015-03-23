@@ -19,9 +19,9 @@ $icon-font-path: "../components/bootstrap/fonts/";
 
 // Import general styles:
 @import "front/general";
-// Import page specific style:
 
 .front {
+    // Import page specific style:
     @import "front/header";
     @import "front/footer";
     @import "front/page-home";

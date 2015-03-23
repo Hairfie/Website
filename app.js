@@ -127,4 +127,7 @@ app.registerStore(require('./stores/CategoriesStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));
 
+// Front end require
+//var Share = require('public/js/share.min.js');
+
 module.exports = app;

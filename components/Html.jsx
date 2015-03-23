@@ -4,6 +4,7 @@
 
 var React = require('react');
 var _     = require('lodash');
+var serverConfig   = require('../configs/server');
 
 var Html = React.createClass({
     render: function() {
@@ -33,8 +34,8 @@ var Html = React.createClass({
                 <script src="/components/gsap/src/minified/TweenLite.min.js"></script>
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
-                <script src="/js/share.min.js"></script>
-                <script type="text/javascript" src="/build/js/app.js"></script>
+                {/* <script src="/js/share.min.js"></script> */}
+                <script type="text/javascript" src={serverConfig.APP_FILE}></script>
             </body>
             </html>
 

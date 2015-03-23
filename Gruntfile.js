@@ -100,7 +100,17 @@ module.exports = function (grunt) {
       }
     },
 
-    // Only used for deployment
+    // BUILD //
+
+    uglify: {
+      options: {
+        banner: '/*! Hairfie <%= grunt.template.today("yyyy-mm-dd") %> */ '
+      },
+      build: {
+        src: 'public/build/js/app.js',
+        dest: 'public/build/js/app.min.js'
+      }
+    },
     browserify: {
       options: {
         transform: [
@@ -112,7 +122,10 @@ module.exports = function (grunt) {
         src: 'client.js',
         dest: 'public/build/js/app.js'
       }
-    },
+    }
+
+    // END OF BUILD //
+
   });
 
   // Dev tasks
@@ -122,6 +135,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-watchify');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-reduce');
 
   grunt.registerTask('default', ['concurrent']);
+
+  grunt.registerTask('build', [
+    'browserify',
+    'uglify'
+  ]);
 };
