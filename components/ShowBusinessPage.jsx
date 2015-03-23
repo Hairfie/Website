@@ -131,7 +131,7 @@ module.exports = React.createClass({
         }
     },
     renderAveragePrice: function() {
-        var averagePrice = this.state.business.averagePrice;
+        var averagePrice = this.state.business && this.state.business.averagePrice;
         if(!averagePrice) return null;
 
         return (
