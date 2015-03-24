@@ -316,11 +316,7 @@ module.exports = React.createClass({
                         <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} />
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
-                                <div className="row">
-                                    <div className="col-xs-12 header-part">
-                                        <h3>{(place.name || '').split(',')[0]}</h3>
-                                    </div>
-                                </div>
+                                {this.renderHeader()}
                                 <div className="row">
                                     <div className='col-xs-12 '>
                                         <div className="tab-content">
@@ -336,6 +332,24 @@ module.exports = React.createClass({
                     </div>
                 </div>
             </Layout>
+        );
+    },
+    renderHeader: function () {
+        var place = this.state.place || {};
+
+        var coverImage;
+        if (place.picture) {
+            coverImage = <img src={place.picture.url} alt={place.name} className="cover" />;
+        }
+
+        return (
+            <div className="row">
+                <div className="col-xs-12 header-part">
+                    {coverImage}
+                    <h3>{(place.name || '').split(',')[0]}</h3>
+                    <p>{place.description}</p>
+                </div>
+            </div>
         );
     },
     handleSearchChange: function (nextSearch) {

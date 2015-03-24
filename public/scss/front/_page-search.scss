@@ -1,5 +1,5 @@
 /*////////////////////////////////
-	   P A G E  S E A R C H  
+	   P A G E  S E A R C H
 ////////////////////////////////*/
 #content.search {
 	.main-content {
@@ -8,7 +8,7 @@
 		.search-content {
 			@include fullWidthBg($bg3);
 		}
-		
+
 		.header-part {
 			.cover {
 				border-radius: 3px;
@@ -18,6 +18,7 @@
 				margin: 20px 0;
 				letter-spacing: 2px;
 				font-weight: $semiBold;
+                font-size: 24px;
 			}
 			p {
 				font-weight: $light;
@@ -59,7 +60,7 @@
 				font-size: 1.2em;
 				letter-spacing: 1px;
 				// height: 40px;
-				line-height: 40px;	
+				line-height: 40px;
 				margin: 0;
 				position: relative;
 
@@ -107,7 +108,7 @@
 		.tab-pane section {
 			padding-bottom: 20px;
 			margin-bottom: 20px;
-			
+
 			&:after {
 				content:" ";
 				width: 96%;
@@ -271,11 +272,11 @@
 		.filter-recap {
 			h2{line-height: 50px; }
 		}
-		
+
 		.checkbox-inline + .checkbox-inline {
 			margin-left: 0;
 		}
-		
+
 		h1 {
 			color: $font-color;
 			font-weight: $semiBold;
@@ -297,14 +298,14 @@
 			background-color: white;
 			border-bottom: 1px solid #e2e3e6;
 			font-size: 1.6em;
-			font-weight: $regular;	
+			font-weight: $regular;
 			letter-spacing: 1px;
 			line-height: 2.2;
 
 			display: block;
 			width: 100%;
   			padding-left: 30px;
-			
+
 		}
 		div.input-group {
 			padding: 24px 12px;
@@ -324,7 +325,7 @@
 					outline: none !important;
 				}
 			}
-			
+
 			.input-group-addon {
 			    border: none;
 			    border-radius: 0;
@@ -352,7 +353,7 @@
 		.price {
 			.selectRange {
 				padding: 30px 12px;
-				background: white;	
+				background: white;
 			}
 			p {
 				font-size: 1.5em;
@@ -365,13 +366,13 @@
 				}
 			}
 			#rangeslider {
-				height: 11px; 
+				height: 11px;
 				background: #e2e3e6;
 				border:0;
 				margin-bottom: 15px;
 
 				.ui-slider-range {
-					height: 11px; 
+					height: 11px;
 					background: $red;
 				}
 				.ui-slider-handle {
@@ -380,7 +381,7 @@
 					width: 22px;height: 22px;
 					border: 4px solid white;
 					border-radius:100%;
-					background:$red; 
+					background:$red;
 					@include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
 				}
 			}

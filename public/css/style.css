@@ -7530,7 +7530,7 @@ input[type="checkbox"]:disabled:not(:checked) + span:after, input[type="checkbox
 	   P A G E  S T Y L E
 ////////////////////////////////*/
   /*////////////////////////////////
-	   P A G E  S E A R C H  
+	   P A G E  S E A R C H
 ////////////////////////////////*/
   /*////////////////////////////////
 	   P A G E  S A L O N
@@ -8006,7 +8006,8 @@ input[type="checkbox"]:disabled:not(:checked) + span:after, input[type="checkbox
     .front #content.search .main-content .header-part h3 {
       margin: 20px 0;
       letter-spacing: 2px;
-      font-weight: 600; }
+      font-weight: 600;
+      font-size: 24px; }
     .front #content.search .main-content .header-part p {
       font-weight: 200;
       font-size: 1.4em;

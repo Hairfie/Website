@@ -6,15 +6,8 @@ var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
 var NavLink = require('flux-router-component').NavLink;
 var _ = require('lodash');
-
-var HAIRFIE_IDS = [
-    '8bd05981-dcef-4f3b-84e1-7641b2f6dc37',
-    '21cb027e-f404-4326-bcc5-f1d5aaf2fad5',
-    'ab13041f-0365-49f6-98be-6e7c571a6230',
-    'ae42feb4-8c0d-44f3-8f7b-ada4ebfa30e7',
-    'ba8a702c-9699-4a88-b9b3-269863252142',
-    '08cc8f6b-ae18-4cbd-a564-529191b07bba'
-];
+var Picture = require('../Partial/Picture.jsx');
+var HairfieStore = require('../../stores/HairfieStore');
 
 var BusinessLink = React.createClass({
     render: function () {
@@ -33,10 +26,14 @@ var Hairfies = React.createClass({
         storeListeners: ['HairfieStore']
     },
     getStateFromStores: function () {
-        var store = this.getStore('HairfieStore');
-
         return {
-            hairfies: _.filter(_.map(HAIRFIE_IDS, store.getById, store), _.isObject)
+            hairfies: this.getStore(HairfieStore).query({
+                where   : {
+                    businessId: this.props.business.id
+                },
+                sort    : 'createdAt DESC',
+                limit   : 6
+            })
         };
     },
     getInitialState: function () {
@@ -58,7 +55,10 @@ var Hairfies = React.createClass({
         return (
             <li key={hairfie.id}>
                 <NavLink context={this.props.context} routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
-                    <img src="http://placehold.it/55/55" alt="" />
+                    <Picture picture={hairfie.pictures[0]}
+                               width={55}
+                              height={55}
+                                 alt={'Hairfie de '+hairfie.author.firstName} />
                 </NavLink>
             </li>
         );
@@ -74,7 +74,9 @@ module.exports = React.createClass({
         return (
             <section className="col-xs-12">
                 <div className="col-xs-4">
-                    <img src="http://lucasfayolle.com/hairfie/images/placeholder-salon-thumb.jpg" alt="" />
+                    <Picture picture={this.props.business.pictures[0]}
+                               width={440}
+                              height={400} />
                 </div>
                 <div className="col-xs-8">
                     <h3>
@@ -85,11 +87,6 @@ module.exports = React.createClass({
                     <BusinessLink context={this.props.context} business={this.props.business} className="address">
                         {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
                     </BusinessLink>
-                    <p className="inline-promo">
-                        <span className="icon-promo">%</span>
-                        -30% dans tout le salon*
-                        <span className="black">&nbsp;&nbsp;prix moyen 50€</span>
-                    </p>
                     <Hairfies context={this.props.context} business={this.props.business} />
                     <a href="#" className="btn btn-red">Réserver</a>
                     <div className="rating">
@@ -101,5 +98,10 @@ module.exports = React.createClass({
                 </div>
             </section>
         );
+    },
+    renderPicture: function (picture, alt) {
+        if (!picture) return;
+
+        return <img src={picture.url} alt={alt} />
     }
 });

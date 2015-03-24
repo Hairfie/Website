@@ -11,6 +11,7 @@ module.exports = function (context, payload, done) {
     });
 
     var apiQuery = {facetFilters: {}, price: {}};
+    if (payload.search.bounds) apiQuery.bounds = payload.search.bounds;
     if (payload.search.location) apiQuery.location = payload.search.location;
     if (payload.search.radius) apiQuery.radius = payload.search.radius;
     if (payload.search.query) apiQuery.query = payload.search.query;

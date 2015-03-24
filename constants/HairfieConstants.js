@@ -18,6 +18,9 @@ module.exports = {
 
         'LIST',
         'LIST_SUCCESS',
-        'LIST_FAILURE'
+        'LIST_FAILURE',
+
+        'FETCH_QUERY_SUCCESS',
+        'FETCH_QUERY_FAILURE',
     ])
 };
