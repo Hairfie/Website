@@ -9,26 +9,24 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'HairfieStore',
     handlers: makeHandlers({
-        handleReceive       : HairfieEvents.RECEIVE,
         handleReceiveSuccess: HairfieEvents.RECEIVE_SUCCESS,
-        handleReceiveFailure: HairfieEvents.RECEIVE_FAILURE
+        handleReceiveFailure: HairfieEvents.RECEIVE_FAILURE,
+        handleFetchQuerySuccess: HairfieEvents.FETCH_QUERY_SUCCESS,
+        handleFetchQueryFailure: HairfieEvents.FETCH_QUERY_FAILURE
     }),
     initialize: function () {
         this.hairfies = {};
+        this.queries = {};
     },
     dehydrate: function () {
         return {
-            hairfies: this.hairfies
+            hairfies: this.hairfies,
+            queries: this.queries
         };
     },
     rehydrate: function (state) {
         this.hairfies = state.hairfies;
-    },
-    handleReceive: function (payload) {
-        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
-            loading: true
-        });
-        this.emitChange();
+        this.queries = state.queries;
     },
     handleReceiveSuccess: function (payload) {
         var hairfie = payload.hairfie;
@@ -57,11 +55,45 @@ module.exports = createStore({
 
         return hairfie && hairfie.entity;
     },
+    query: function (filter) {
+        var key = this._queryKey(filter);
+        var query = this.queries[key];
+        if (_.isUndefined(query)) {
+            this._fetchQuery(filter);
+        }
+
+        return query && query.results;
+    },
+    handleFetchQuerySuccess: function (payload) {
+        var key = this._queryKey(payload.filter);
+        this.queries[key] = _.assign({}, this.queries[key], {
+            loading: false,
+            results: payload.hairfies
+        });
+        this.emitChange();
+    },
+    handleFetchQueryFailure: function (payload) {
+        var key = this._queryKey(payload.filter);
+        this.queries[key] = _.assign({}, this.queries[key], {
+            loading: false
+        });
+        this.emitChange();
+    },
     _fetchById: function (hairfieId) {
         this.hairfies[hairfieId] = _.assign({}, this.hairfies[hairfieId], {loading: true });
         this.dispatcher.getContext().executeAction(HairfieActions.Fetch, {
             id: hairfieId
         });
+    },
+    _fetchQuery: function (filter) {
+        var key = this._queryKey(filter);
+        this.queries[key] = _.assign({}, this.queries[key], {loading: true});
+        this.dispatcher.getContext().executeAction(HairfieActions.FetchQuery, {
+            filter: filter
+        });
+    },
+    _queryKey: function (filter) {
+        return JSON.stringify(filter);
     },
     // Is this the right place ?
     _generateDescriptions: function(hairfie) {
