@@ -40,6 +40,7 @@ app.plug({
             },
             plugComponentContext: function (componentContext) {
                 componentContext.makePath = router.makePath.bind(router);
+                componentContext.makeUrl  = router.makeUrl.bind(router);
             },
             plugStoreContext: function (storeContext) {
                 storeContext.makePath = router.makePath.bind(router);

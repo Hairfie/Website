@@ -7,6 +7,7 @@ var FluxibleMixin = require('fluxible').Mixin;
 var CategoriesStore = require('../../stores/CategoriesStore');
 var lodash = require('lodash');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
+var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin, NavToLinkMixin],
@@ -41,12 +42,16 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
-        // onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id})}
+        var href = this.props.context.makeUrl('business_search_results', {address: "Paris--France"}, {categories: cat.name});
+
         return (
-            <div className="col-sm-4 col-xs-12" key={cat.id}>
+            <div className="col-sm-4 col-xs-12" key={cat.id} >
                 <figure>
                     <img src={cat.picture.url} alt={cat.name} />
                     <figcaption>
+                        <NavLink href={href} context={this.props.context}>
+                            <span>{cat.name}</span>
+                        </NavLink>
                         <a href="#"><span>{cat.name}</span></a>
                     </figcaption>
                 </figure>
