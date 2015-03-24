@@ -6,9 +6,10 @@ var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
 var CategoriesStore = require('../../stores/CategoriesStore');
 var lodash = require('lodash');
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [FluxibleMixin, NavToLinkMixin],
     statics: {
         storeListeners: [CategoriesStore]
     },
@@ -40,8 +41,9 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
+        // onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id})}
         return (
-            <div className="col-sm-4 col-xs-12">
+            <div className="col-sm-4 col-xs-12" key={cat.id}>
                 <figure>
                     <img src={cat.picture.url} alt={cat.name} />
                     <figcaption>

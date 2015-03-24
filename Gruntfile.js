@@ -104,7 +104,7 @@ module.exports = function (grunt) {
 
     uglify: {
       options: {
-        banner: '/*! Hairfie <%= grunt.template.today("yyyy-mm-dd") %> */ '
+        banner: '/*! Hairfie Website <%= grunt.template.today("yyyy-mm-dd - HH:mm:ss") %> */ '
       },
       build: {
         src: 'public/build/js/app.js',
@@ -135,6 +135,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-watchify');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-bump');
 
   grunt.registerTask('default', ['concurrent']);
 

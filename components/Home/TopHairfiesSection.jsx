@@ -7,9 +7,10 @@ var FluxibleMixin = require('fluxible').Mixin;
 var TopHairfiesStore = require('../../stores/TopHairfiesStore');
 var lodash = require('lodash');
 var NavLink = require('flux-router-component').NavLink;
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [FluxibleMixin, NavToLinkMixin],
     statics: {
         storeListeners: [TopHairfiesStore]
     },
@@ -52,7 +53,7 @@ module.exports = React.createClass({
         var displayBusinessAddress = hairfie.business ? hairfie.business.address.street + ' ' + hairfie.business.address.city : null;
 
         return (
-            <div className={hairfieClass}>
+            <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id})} key={hairfie.id}>
                 <figure>
                     <img src={pictureUrl} />
                     <figcaption>

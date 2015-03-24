@@ -5,6 +5,7 @@
 var React = require('react');
 var _     = require('lodash');
 var serverConfig   = require('../configs/server');
+var pkg = require('../package.json');
 
 var Html = React.createClass({
     render: function() {
@@ -41,7 +42,7 @@ var Html = React.createClass({
                 <script src="/js/share.min.js"></script>
                 <script src="/js/main.js"></script>
                 <script src="/components/jquery-ui/jquery-ui.min.js"></script>
-                <script type="text/javascript" src={serverConfig.APP_FILE}></script>
+                <script type="text/javascript" src={serverConfig.APP_FILE + '?v=' + pkg.version}></script>
             </body>
             </html>
 

@@ -7,9 +7,10 @@ var FluxibleMixin = require('fluxible').Mixin;
 var TopDealsStore = require('../../stores/TopDealsStore');
 var lodash = require('lodash');
 var NavLink = require('flux-router-component').NavLink;
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [FluxibleMixin, NavToLinkMixin],
     statics: {
         storeListeners: [TopDealsStore]
     },
@@ -40,10 +41,11 @@ module.exports = React.createClass({
     },
     renderDeal: function (deal) {
         var displayAddress = deal.business.address ? deal.business.address.street + ' ' + deal.business.address.city : null;
+
         return (
-            <div className="col-sm-4 col-xs-12">
+            <div className="col-sm-4 col-xs-12" key={deal.business.id}>
                 <figure>
-                    <img src={deal.business.pictures[0].url} alt={deal.business.name} />
+                    <img src={deal.business.pictures[0].url} alt={deal.business.name} onClick={this.navToLink.bind(this, "show_business", {businessId: deal.business.id, businessSlug: deal.business.slug})} />
                     <figcaption>
                         <NavLink routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}} context={this.props.context}>
                             {deal.business.name}
@@ -56,5 +58,9 @@ module.exports = React.createClass({
                 </figure>
             </div>
         );
-    }
+    },
+    // navToLink: function(routeName, navParams) {
+    //     var path = this.props.context.makePath(routeName, navParams);
+    //     this.executeAction(Navigate, {url: path});
+    // }
 });
