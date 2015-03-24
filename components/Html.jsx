@@ -36,7 +36,7 @@ var Html = React.createClass({
                 <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>
                 <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
                 <script src="/components/nouislider/distribute/jquery.nouislider.min.js"></script>
-                <script src="/components/gsap/src/minified/TweenLite.min.js"></script>
+                <script src="/components/gsap/src/minified/TweenMax.min.js"></script>
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src="/js/share.min.js"></script>
