@@ -18,7 +18,8 @@ module.exports = resolve({
         DEBUG           : true,
     },
     staging: {
-        HOST            : 'www-staging.hairfie.com',
+        DEBUG            : false,
+        HOST             : 'www-staging.hairfie.com',
         APP_FILE         : '/build/js/app.min.js'
     },
     production: {

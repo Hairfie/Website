@@ -6,6 +6,11 @@ var appState = window.App;
 var debug = require('debug');
 var Facebook = require('./services/facebook');
 var FacebookEvents = require('./constants/FacebookConstants').Events;
+var serverConfig   = require('./configs/server');
+
+if(!serverConfig.DEBUG) {
+    debug.disable('*');
+}
 
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
