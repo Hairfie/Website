@@ -28,7 +28,7 @@ var SearchBar = React.createClass({
             <div className="searchbar main-searchbar">
                 <div className="col-sm-6">
                     <PlaceAutocompleteInput ref="location" placeholder="Où ?" className='col-xs-6' />
-                    <input className='col-xs-6' type="search" placeholder='Nom, spécialité...' />
+                    <input className='col-xs-6' ref="query" type="search" placeholder='Nom, spécialité...' />
                 </div>
                 <div className="col-sm-6">
                     <input type="date" className='col-xs-6'/>
@@ -42,7 +42,8 @@ var SearchBar = React.createClass({
 
         this.props.context.executeAction(BusinessActions.SubmitSearch, {
             search: {
-                address: this.refs.location.getFormattedAddress()
+                address: this.refs.location.getFormattedAddress(),
+                query: this.refs.query.getDOMNode().value
             }
         });
     }
