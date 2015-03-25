@@ -31,30 +31,29 @@ module.exports = React.createClass({
             <section className="home-section">
                 <h2>Les Hairfies du moment</h2>
                 <div className="row">
-                    <div className="col-xs-6 small-hairfies">
+                    <div className="col-md-6 col-xs-12 small-hairfies">
                         <div className="row">
-                            {lodash.map(this.state.hairfies.slice(1, 5), function(h){ return this.renderHairfie(h, null)}, this)}
+                            {lodash.map(this.state.hairfies.slice(1, 5), function(h){ return this.renderHairfie(h, "col-xs-6")}, this)}
                         </div>
                     </div>
 
-                    {this.renderHairfie(this.state.hairfies[0], 'big')}
+                    {this.renderHairfie(this.state.hairfies[0], 'col-md-6 col-xs-12 big', 'col-xs-12')}
                 </div>
                 <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de Hairfies</a>
             </section>
         );
     },
-    renderHairfie: function (hairfie, customClass) {
+    renderHairfie: function (hairfie, hairfieClass, figureClass) {
         var pictureUrl = lodash.last(hairfie.pictures).url;
         var priceNode;
         if(hairfie.price) priceNode = <div className="pricetag">{hairfie.price.amount}{hairfie.price.currency == "EUR" ? "€" : ""}</div>;
-        var hairfieClass = customClass ? "col-xs-6 " + customClass : "col-xs-6";
 
         var displayBusinessName = hairfie.business ? hairfie.business.name : null;
         var displayBusinessAddress = hairfie.business ? hairfie.business.address.street + ' ' + hairfie.business.address.city : null;
 
         return (
             <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id})} key={hairfie.id}>
-                <figure>
+                <figure className={figureClass}>
                     <img src={pictureUrl} />
                     <figcaption>
                         <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
