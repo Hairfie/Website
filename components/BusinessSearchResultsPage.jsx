@@ -60,10 +60,15 @@ var Pagination = React.createClass({
 });
 
 var Slider = React.createClass({
+    getDefaultProps: function () {
+        return {
+            range: false
+        };
+    },
     componentDidMount: function () {
         this.slider = jQuery(this.refs.slider.getDOMNode());
         this.slider.slider({
-            range: false,
+            range: this.props.range,
             step: this.props.step,
             min: this.props.min,
             max: this.props.max,
@@ -72,7 +77,7 @@ var Slider = React.createClass({
         });
     },
     componentWillReceiveProps: function (nextProps) {
-        this.slider.slider('option', 'range', false);
+        this.slider.slider('option', 'range', this.props.range);
         this.slider.slider('option', 'step', this.props.step);
         this.slider.slider('option', 'min', this.props.min);
         this.slider.slider('option', 'max', this.props.max);
@@ -126,15 +131,6 @@ var Breadcrumb = React.createClass({
                 </ol>
             </div>
         );
-
-
-        <div class="col-xs-12">
-                      <ol class="breadcrumb">
-                                  <li><a href="#">Lien</a></li>
-                                              <li><a href="#">Lien 2</a></li>
-                                                          <li class="active">Lien actif</li>
-                                                                    </ol>
-                                                                            </div>
     }
 });
 
@@ -157,12 +153,13 @@ var SearchResults = React.createClass({
 var SearchFilters = React.createClass({
     render: function () {
         return (
-            <div className="sidebar col-sm-4">
+            <div className="sidebar col-md-4 col-sm-12 hidden-xs hidden-sm">
                 {this.renderCurrentFilters()}
                 <h1>Affiner la recherche</h1>
                 <section>
                     <form>
                     {this.renderRadius()}
+                    {this.renderPrice()}
                     {this.renderQuery()}
                     {this.renderCategories()}
                     </form>
@@ -184,8 +181,8 @@ var SearchFilters = React.createClass({
                 <h2>Ma sélection</h2>
                 {_.map(filters, function (filter) {
                     return (
-                        <label key={filter.type+'|'+filter.value} className="checkbox-inline" onClick={this.removeFilter.bind(this, filter)}>
-                            <input type="checkbox" align="baseline" checked disabled />
+                        <label key={filter.type+'|'+filter.value} className="checkbox-inline">
+                            <input type="checkbox" align="baseline" checked onChange={this.removeFilter.bind(this, filter)} className="checkbox-disabled" />
                             <span></span>
                             {filter.value}
                         </label>
@@ -204,6 +201,19 @@ var SearchFilters = React.createClass({
                     <Slider min={1000} max={50000} step={1000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />
                     <p className="col-xs-6">1km</p>
                     <p className="col-xs-6">50km</p>
+                </div>
+            </div>
+        );
+    },
+    renderPrice: function () {
+        var price = this.props.search.price || {};
+        var defaultValue = [price.min || 0, price.max || 1000];
+
+        return (
+            <div className="price">
+                <h2>Prix</h2>
+                <div className="selectRange">
+                    <Slider range={true} min={0} max={1000} step={5} defaultValue={this.props.search.price} onChange={this.handlePriceChange} />
                 </div>
             </div>
         );
@@ -270,6 +280,9 @@ var SearchFilters = React.createClass({
     }, 500),
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
+    },
+    handlePriceChange: function (nextPrice) {
+        console.log(nextPrice);
     }
 });
 
@@ -309,7 +322,7 @@ module.exports = React.createClass({
         var place = this.state.place || {};
 
         return (
-            <Layout>
+            <Layout withSearchBar={true}>
                 <div className="container search" id="content">
                     <div className="row">
                         <Breadcrumb context={this.props.context} place={this.state.place} />
@@ -330,6 +343,10 @@ module.exports = React.createClass({
                             </section>
                         </div>
                     </div>
+                </div>
+                {/* the following container is mandatory, but I don't know why!? */}
+                <div className="container">
+                    <div className="row" />
                 </div>
             </Layout>
         );

@@ -29,10 +29,10 @@ function getSearchResult(context, route, place) {
         deferred.resolve(result);
     }
 
-    var listener = function () {
+    var listener = function onSearchChange() {
         var result = store.getResult(search);
         if (!_.isUndefined(result)) return; // try next change
-        store.removeChangeListener(this);
+        store.removeChangeListener(onSearchChange);
         deferred.resolve(result);
     };
 

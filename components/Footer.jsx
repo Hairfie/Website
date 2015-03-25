@@ -8,7 +8,7 @@ module.exports = React.createClass({
     render: function () {
 
         return (
-            <footer>
+            <footer className="visible-md visible-lg">
                 <div className="container">
                     <div className="row">
                         <ul className="footer-links col-md-7">
