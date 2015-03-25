@@ -12,3 +12,7 @@ figcaption a.address {
     font-size: 14px !important;
     font-weight: 600;
 }
+
+#content h3 {
+  font-size: 21px;
+}
