@@ -13,6 +13,7 @@ var FluxibleMixin = require('fluxible').Mixin;
 var CategoriesSection = require('./Home/CategoriesSection.jsx');
 var DealsSection = require('./Home/DealsSection.jsx');
 var TopHairfiesSection = require('./Home/TopHairfiesSection.jsx');
+var HomePageMixin = require('./Home/HomePageMixin.jsx');
 
 var _ = require('lodash');
 
@@ -57,18 +58,18 @@ var HowSection = React.createClass({
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Titre 1</h3>
-                        <p>dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.</p>
+                        <h3>Trouvez</h3>
+                        <p>Trouvez le coiffeur qui vous correspond en fonction de vos critères : votre style, votre budget etc...</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Titre 2</h3>
-                        <p>dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.</p>
+                        <h3>Réservez</h3>
+                        <p>Réservez gratuitement ce salon en 2 clics</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Titre 3</h3>
-                        <p>dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.</p>
+                        <h3>Partagez votre #Hairfie</h3>
+                        <p>Partagez votre #Hairfie.</p>
                     </div>
                 </div>
             </section>
@@ -76,7 +77,40 @@ var HowSection = React.createClass({
     },
 });
 
+var LinkSection = React.createClass({
+    render: function () {
+        return (
+            <section className="home-section seo">
+                <h2>Les liens les plus recherchés</h2>
+                <div className="row">
+                    <div className="col-sm-4 col-xs-12">
+                        {this.renderLink("Barbier à Paris", "Le Marais, Paris, France", "Barbier")}
+                    </div>
+                    <div className="col-sm-4 col-xs-12">
+                        {this.renderLink("Barbier dans le Marais", "Le Marais, Paris, France", "Barbier")}
+
+                    </div>
+                    <div className="col-sm-4 col-xs-12">
+                        {this.renderLink("Le meilleur du Marais", "Le Marais")}
+                    </div>
+                </div>
+            </section>
+       );
+    },
+    renderLink: function(displayText, address, category) {
+        var href = category ? this.props.context.makeUrl('business_search_results', {address: address}, {categories: category}) : this.props.context.makeUrl('business_search_results', {address: address});
+        return (
+            <p>
+                <NavLink href={href} context={this.props.context}>
+                    <span>{displayText}</span>
+                </NavLink>
+            </p>
+        );
+    }
+});
+
 module.exports = React.createClass({
+    mixins: [FluxibleMixin, HomePageMixin],
     render: function () {
         return (
             <div className="front">
@@ -101,6 +135,7 @@ module.exports = React.createClass({
                         <DealsSection context={this.props.context} numTopDeals={this.props.route.config.numTopDeals} />
                         <TopHairfiesSection context={this.props.context} numTopHairfies={this.props.route.config.numTopHairfies} />
                         <HowSection />
+                        <LinkSection context={this.props.context} />
                     </div>
                 </div>
                 <Footer context={this.props.context} />

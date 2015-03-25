@@ -108,7 +108,7 @@ var RightColumn = React.createClass({
                           <p>
                             {/*<a href="#" className="col-xs-3 like">J'aime</a>
                             - */}
-                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
+                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'{/*' */}aime</span>
                           </p>
                         </div>
                     </div>
@@ -165,25 +165,10 @@ module.exports = React.createClass({
         if(!this.state.hairfie) {
             return (
                 <PublicLayout context={this.props.context}>
-                    <div>Loading Hairfie in progress</div>
+                    <div>Chargement du Hairfie</div>
                 </PublicLayout>
             );
         } else {
-            // var businessNode,
-            //     context = this.props.context;
-            // if(this.state.hairfie.business) {
-            //     var business = this.state.hairfie.business;
-            //     businessNode = (
-            //         <div className="business">
-            //             <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
-            //                 { 'Réalisé chez ' + this.state.hairfie.business.name }
-            //             </NavLink>
-            //         </div>
-            //     )
-            // } else {
-            //     businessNode = null;
-            // }
-
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="container hairfie-singleView" id="content" >
@@ -200,6 +185,17 @@ module.exports = React.createClass({
                         <div className="row related-hairfies hairfies">
                             <h3>Autres Hairfies similaires :</h3>
                             <div className="col-xs-6 col-sm-3 col-lg-2 single-hairfie">
+                                <figure>
+                                    <a href="#">
+                                        <img src="images/placeholder-hairfieSalon.jpg" alt="hairfie" />
+                                    </a>
+                                    <figcaption>
+                                        <p>Coiffé par: <span>Bastien</span></p>
+                                        <p><span>Le 17/02/2015</span></p>
+                                        <p>Où ?<span><a href="salon.html">FictTif</a></span></p>
+                                        <div className="pricetag">125€</div>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>
