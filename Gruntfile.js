@@ -44,7 +44,7 @@ module.exports = function (grunt) {
           env: {
             "NODE_ENV": 'development'
           },
-          watch: ['server.js', 'client.js', 'app.js', 'public/build/js/app.js'],
+          watch: ['server.js', 'client.js', 'public/build/js/app.js'],
           delay: 0,
 
           callback: function (nodemon) {
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
             // Update .rebooted to fire Live-Reload
             nodemon.on('restart', function () {setTimeout(function() {
               require('fs').writeFileSync('.rebooted', 'rebooted');
-            }, 1000);});
+            }, 500);});
           }
         }
       }
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         files: ['public/build/js/app.js', 'public/css/style.css'],
         options: {
           livereload: true,
-          debounceDelay: 1000,
+          debounceDelay: 500,
         }
       }
     },

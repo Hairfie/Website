@@ -25,6 +25,13 @@ var BusinessActions = require('../actions/Business');
 
 var SearchBar = React.createClass({
     render: function () {
+        if(this.props.mobile) {
+            return this.renderMobile();
+        } else {
+            return this.renderMain();
+        }
+    },
+    renderMain: function() {
         return (
             <div className="searchbar main-searchbar">
                 <div className="col-sm-6">
@@ -37,6 +44,28 @@ var SearchBar = React.createClass({
                 </div>
             </div>
        );
+    },
+    renderMobile: function() {
+        return (
+            <div className="mobile-nav visible-xs">
+                <header className="container">
+                    <NavLink context={this.props.context} className="logo col-xs-4" routeName="home" />
+                    <a href="#" className="col-xs-4 menu-trigger pull-right"></a>
+                </header>
+                <div className="mobile-menu">
+                    <div className="container">
+                        <h2>Réservez votre coiffeur</h2>
+                        <span className="hr"></span>
+                        <div className="searchbar col-xs-10">
+                            <PlaceAutocompleteInput className='col-xs-12' ref="location" placeholder="Où ?" />
+                            <input className='col-xs-12' ref="query" type="search" placeholder='Nom, spécialité...' />
+                            <input type="date" className='col-xs-12'/>
+                            <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     },
     submit: function (e) {
         e.preventDefault();
@@ -84,14 +113,14 @@ var LinkSection = React.createClass({
                 <h2>Les liens les plus recherchés</h2>
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Barbier à Paris", "Le Marais, Paris, France", "Barbier")}
+                        {this.renderLink("Barbier à Paris", "Paris--France", "Barbier")}
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Barbier dans le Marais", "Le Marais, Paris, France", "Barbier")}
+                        {this.renderLink("Barbier dans le Marais", "Le-Marais--Paris--France", "Barbier")}
 
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Le meilleur du Marais", "Le Marais")}
+                        {this.renderLink("Le meilleur du Marais", "Le-Marais--Paris--France")}
                     </div>
                 </div>
             </section>
@@ -116,7 +145,8 @@ module.exports = React.createClass({
             <div className="front">
                 <section className="landing">
                     <div className="container">
-                        <Header context={this.props.context} withLogin={this.props.withLogin} headerClass='normal' />
+                        <Header context={this.props.context} withLogin={this.props.withLogin} headerClassName='normal' />
+                        <SearchBar context={this.props.context} mobile={true} />
                         <FlashMessages context={this.props.context} />
                         <div className="row">
                             <div className="headline  col-md-12">

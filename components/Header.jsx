@@ -44,7 +44,8 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
         }
-        var headerClassName = this.props.headerClass ? this.props.headerClass : 'white';
+        var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
+        headerClassName += ' hidden-xs';
 
         return (
             <header className={headerClassName}>

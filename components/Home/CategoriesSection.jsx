@@ -50,7 +50,7 @@ module.exports = React.createClass({
                     <img src={cat.picture.url} alt={cat.name} />
                     <figcaption>
                         <NavLink href={href} context={this.props.context}>
-                            <span>{cat.name}</span>
+                            <span className="oneline">{cat.name}</span>
                         </NavLink>
                         <a href="#"><span>{cat.name}</span></a>
                     </figcaption>
