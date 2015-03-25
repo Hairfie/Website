@@ -30,7 +30,7 @@ var Html = React.createClass({
 
             </head>
             <body>
-                <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
+                <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
 
                 <script src="/components/jquery/dist/jquery.min.js"></script>
                 <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>

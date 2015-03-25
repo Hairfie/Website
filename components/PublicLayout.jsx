@@ -6,18 +6,29 @@ var UserStatus = require('./UserStatus.jsx');
 var Header = require('./Header.jsx');
 var Footer = require('./Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
+var SearchBar = require('./Layout/SearchBar.jsx');
 
 module.exports = React.createClass({
     displayName: 'PublicLayout',
     render: function () {
         return (
             <div className="front">
-                <Header context={this.props.context} withLogin={this.props.withLogin} headerClass={this.props.headerClass} />
-                <FlashMessages context={this.props.context} />
-                <div className={ 'container public-layout ' + this.props.customClass }>
-                    {this.props.children}
+                <div className="container">
+                    <Header context={this.props.context} withLogin={this.props.withLogin} headerClass={this.props.headerClass} />
+                    {this.renderSearchBar()}
                 </div>
+                <FlashMessages context={this.props.context} />
+                {this.props.children}
                 <Footer context={this.props.context} />
+            </div>
+        );
+    },
+    renderSearchBar: function () {
+        if (!this.props.withSearchBar) return;
+
+        return (
+            <div className="row hidden-xs hidden-sm">
+                <SearchBar context={this.props.context} />
             </div>
         );
     }
