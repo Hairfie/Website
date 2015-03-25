@@ -33,7 +33,7 @@ var SearchBar = React.createClass({
     },
     renderMain: function() {
         return (
-            <div className="searchbar main-searchbar">
+            <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-sm-6">
                     <PlaceAutocompleteInput ref="location" placeholder="Où ?" className='col-xs-6' />
                     <input className='col-xs-6' ref="query" type="search" placeholder='Nom, spécialité...' />
