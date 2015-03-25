@@ -10,8 +10,10 @@ module.exports = React.createClass({
     },
     getSrc: function () {
         var query = [];
-        if (this.props.width) query.push('width='+this.props.width);
-        if (this.props.height) query.push('height='+this.props.height);
+
+        var resolution = this.props.resolution || {};
+        if (resolution.width) query.push('width='+resolution.width);
+        if (resolution.height) query.push('height='+resolution.height);
 
         return this.props.picture.url+'?'+query.join('&');
     }
