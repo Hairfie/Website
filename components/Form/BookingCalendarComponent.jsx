@@ -46,27 +46,29 @@ module.exports = React.createClass({
         });
 
         return (
-            <table className="rbc-calendar table">
-                <thead>
-                    <tr>
-                        <th onClick={this.prevMonth}><i className="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th>
-                        <th colSpan="5">{m.format('MM/YYYY')}</th>
-                        <th onClick={this.nextMonth}><i className="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th>
-                    </tr>
-                    <tr>
-                        <th>Lun</th>
-                        <th>Mar</th>
-                        <th>Mer</th>
-                        <th>Jeu</th>
-                        <th>Ven</th>
-                        <th>Sam</th>
-                        <th>Dim</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { month.map(this.renderWeekRow) }
-                </tbody>
-            </table>
+            <div className="calendar">
+                <table className="cal">
+                    <caption>
+                        <span className="prev" onClick={this.prevMonth}><a href="#"></a></span>
+                        <span className="next" onClick={this.nextMonth}><a href="#"></a></span>
+                        {m.format('MMM YYYY')}
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mer</th>
+                            <th>Jeu</th>
+                            <th>Ven</th>
+                            <th>Sam</th>
+                            <th>Dim</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { month.map(this.renderWeekRow) }
+                    </tbody>
+                </table>
+            </div>
         );
     },
     renderWeekRow: function(w) {

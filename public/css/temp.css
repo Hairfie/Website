@@ -29,3 +29,8 @@ figcaption a.address {
 .hairfie-singleView#content .single-view .like-group .cta {
   width: 100%;
 }
+
+.cal caption {
+    display: table-caption;
+    font-size: 21px;
+}

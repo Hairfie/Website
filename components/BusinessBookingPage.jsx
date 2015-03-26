@@ -77,11 +77,11 @@ var LeftColumn = React.createClass({
         );
     },
     renderDiscountNode: function(days, amount) {
+        if (!_.isArray(days)) days = [days];
         return (
             <p>
-                {amount}% sur toutes les prestations et tous les achats. Disponible {_.map(orderWeekDays(days), function(day) {
-                    return weekDayLabel(day) + ' ';
-                }, this)}
+                {amount}% sur toutes les prestations et tous les achats.
+                Disponible {_.map(orderWeekDays(days), weekDayLabel, this).join(' ')}.
             </p>
         );
     },
@@ -100,6 +100,12 @@ var Breadcrumb = React.createClass({
         console.log('Place', place);
 
         crumbs = [
+            {
+                last: false,
+                label: 'Accueil',
+                routeName: 'home',
+                navParams: {}
+            },
             {
                 last: false,
                 label: 'Coiffeurs ' + business.address.city,
@@ -151,6 +157,12 @@ var Breadcrumb = React.createClass({
                 </ol>
             </div>
         );
+    }
+});
+
+var RightColumn = React.createClass({
+    render: function() {
+
     }
 });
 
@@ -222,16 +234,20 @@ module.exports = React.createClass({
                 <div className="row">
                     <Breadcrumb context={this.props.context} business={this.state.business} />
                     <LeftColumn context={this.props.context} business={this.state.business} discountObj={this.state.discountObj} />
-                    <div className="col-sm-6 right">
-                        <h3>Votre Demande de réservation</h3>
-                        <PanelGroup activeKey={this.state.activeKey ? this.state.activeKey : '1'} onSelect={this.handleSelect.bind(this)} accordion>
-                            <Panel header={daySelectHeader} eventKey='1'>
+                    <div className="main-content col-sm-8">
+                        <h3>Demande de réservation</h3>
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <h2>Choisissez votre date</h2>
                                 <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
-                            </Panel>
-                            <Panel header={timeSelectHeader} eventKey='2'>
+                            </div>
+                            <div className="col-xs-6">
+                                <h2>À quelle heure ?</h2>
                                 {timeSelectNode}
-                            </Panel>
-                            <Panel header="Précisez votre demande" eventKey='3'>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-12">
                                 <form role="form" className="claim">
                                     {timeslotNode}
                                     <Input className="radio">
@@ -251,8 +267,8 @@ module.exports = React.createClass({
                                     <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing *" />
                                     <Button className="btn-red btn-block" onClick={this.submit}>Réserver</Button>
                                 </form>
-                            </Panel>
-                        </PanelGroup>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

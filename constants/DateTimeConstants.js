@@ -40,7 +40,7 @@ module.exports = {
         var sortedDays = [];
 
         _.each(module.exports.Weekdays, function(day) {
-            if(days.indexOf(day) > 0) sortedDays.push(day);
+            if(days.indexOf(day) > -1) sortedDays.push(day);
         });
 
         return sortedDays;
