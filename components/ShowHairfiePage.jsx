@@ -74,7 +74,15 @@ var HairfieSingle = React.createClass({
 var RightColumn = React.createClass({
     render: function() {
         var hairdresserNode;
-        if(this.props.hairfie.hairdresser) hairdresserNode = (<p>Réalisé par : <a href="#">{this.props.hairfie.hairdresser.firstName}</a></p>);
+        if(this.props.hairfie.hairdresser) {
+            hairdresserNode = (
+                <p>Réalisé par :
+                    <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                        {this.props.hairfie.hairdresser.firstName}
+                    </NavLink>
+                </p>
+            );
+        }
 
         return (
             <div className="col-xs-12 col-sm-6">

@@ -26,6 +26,134 @@ var weekDaysNumber = DateTimeConstants.weekDaysNumber;
 var weekDayLabel = DateTimeConstants.weekDayLabel;
 var orderWeekDays = DateTimeConstants.orderWeekDays;
 
+var Picture = require('./Partial/Picture.jsx');
+var SearchUtils = require('../lib/search-utils');
+
+var LeftColumn = React.createClass({
+    render: function () {
+        var business = this.props.business;
+        var displayAddress = business.address ? business.address.street + ' ' + business.address.city : null;
+
+        return (
+            <div className="sidebar col-sm-3">
+                <div className="salon-bloc">
+                    <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                        <Picture picture={business.pictures[0]}
+                           width={220}
+                          height={220} />
+                    </NavLink>
+                    <div className="address-bloc">
+                        <h2><a href="#">{business.name}</a></h2>
+                        <a href="#" className="address">{displayAddress}</a>
+                    </div>
+                </div>
+                {this.renderDiscountsNode()}
+                <div>
+                    {this.renderDiscountsConditions()}
+                    <div>
+                        <h3>Réserver en ligne na que des avantages </h3>
+                        <ul>
+                            <li>- Rapide</li>
+                            <li>- Gratuit</li>
+                            <li>- Pratique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        )
+    },
+    renderDiscountsNode: function() {
+        var business = this.props.business,
+            discounts = this.props.discountObj.discountsAvailable;
+
+        if(discounts.length === 0) {
+            return null;
+        }
+
+        return (
+            <div className="promo">
+                { _.map(discounts, this.renderDiscountNode, this) }
+            </div>
+        );
+    },
+    renderDiscountNode: function(days, amount) {
+        return (
+            <p>
+                {amount}% sur toutes les prestations et tous les achats. Disponible {_.map(orderWeekDays(days), function(day) {
+                    return weekDayLabel(day) + ' ';
+                }, this)}
+            </p>
+        );
+    },
+    renderDiscountsConditions: function() {
+        if(this.props.discountObj.discountsAvailable.length > 0) {
+            return (<p>* Cette offre nest valable que pour les réservations en ligne. Lachat de produits du salon avec cette offre est exclusivement liée à une prestation.</p>);
+        }
+    }
+});
+
+var Breadcrumb = React.createClass({
+    render: function () {
+        var crumbs = [];
+        var business = this.props.business;
+        var place  = business.address.city + ', France';
+        console.log('Place', place);
+
+        crumbs = [
+            {
+                last: false,
+                label: 'Coiffeurs ' + business.address.city,
+                routeName: 'business_search_results',
+                navParams: {
+                    address: SearchUtils.addressToUrlParameter(place)
+                }
+            },
+            {
+                last: false,
+                label: business.name,
+                routeName: 'show_business',
+                navParams: {
+                    businessId: business.id,
+                    businessSlug: business.slug
+                }
+            },
+            {
+                last: true,
+                label: 'Réservation',
+                routeName: 'book_business',
+                navParams: {
+                    businessId: business.id,
+                    businessSlug: business.slug
+                }
+            }
+        ];
+
+        return (
+            <div className="col-xs-12">
+                <ol className="breadcrumb">
+                    {_.map(crumbs, function (crumb) {
+                        if (crumb.last) {
+                            return (
+                                <li className="active">
+                                    {crumb.label}
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li>
+                                    <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
+                                        {crumb.label}
+                                    </NavLink>
+                                </li>
+                            );
+                        }
+                    }, this)}
+                </ol>
+            </div>
+        );
+    }
+});
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -90,88 +218,43 @@ module.exports = React.createClass({
         }
 
         return (
-            <div className="row">
-                <div className="col-sm-6 left">
-                    <div className="business">
-                        <div className="col-sm-5 picture">
-                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
-                                <img src={business.pictures[0].url + '?height=300&width=300'} className="img-responsive" />
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-7">
-                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={context}>
-                                <h2>{business.name}</h2>
-                            </NavLink>
-                            <span className="address">
-                                {business.address.street} <br />
-                                {business.address.zipCode} {business.address.city}
-                            </span>
-                        </div>
+            <div className="container reservation" id="content" >
+                <div className="row">
+                    <Breadcrumb context={this.props.context} business={this.state.business} />
+                    <LeftColumn context={this.props.context} business={this.state.business} discountObj={this.state.discountObj} />
+                    <div className="col-sm-6 right">
+                        <h3>Votre Demande de réservation</h3>
+                        <PanelGroup activeKey={this.state.activeKey ? this.state.activeKey : '1'} onSelect={this.handleSelect.bind(this)} accordion>
+                            <Panel header={daySelectHeader} eventKey='1'>
+                                <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
+                            </Panel>
+                            <Panel header={timeSelectHeader} eventKey='2'>
+                                {timeSelectNode}
+                            </Panel>
+                            <Panel header="Précisez votre demande" eventKey='3'>
+                                <form role="form" className="claim">
+                                    {timeslotNode}
+                                    <Input className="radio">
+                                        <label className="radio-inline">
+                                          <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
+                                          Homme
+                                        </label>
+                                        <label className="radio-inline">
+                                          <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
+                                          Femme
+                                        </label>
+                                    </Input>
+                                    <Input ref="userFirstName" type="text"  placeholder="Prénom *" required />
+                                    <Input ref="userLastName" type="text" placeholder="Nom *" />
+                                    <Input ref="userEmail" type="email" placeholder="Email *" />
+                                    <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone *" />
+                                    <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing *" />
+                                    <Button className="btn-red btn-block" onClick={this.submit}>Réserver</Button>
+                                </form>
+                            </Panel>
+                        </PanelGroup>
                     </div>
-                    <hr />
-                    { this.renderDiscountsNode() }
                 </div>
-                <div className="col-sm-6 right">
-                    <h3>Votre Demande de réservation</h3>
-                    <PanelGroup activeKey={this.state.activeKey ? this.state.activeKey : '1'} onSelect={this.handleSelect.bind(this)} accordion>
-                        <Panel header={daySelectHeader} eventKey='1'>
-                            <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
-                        </Panel>
-                        <Panel header={timeSelectHeader} eventKey='2'>
-                            {timeSelectNode}
-                        </Panel>
-                        <Panel header="Précisez votre demande" eventKey='3'>
-                            <form role="form" className="claim">
-                                {timeslotNode}
-                                <Input className="radio">
-                                    <label className="radio-inline">
-                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
-                                      Homme
-                                    </label>
-                                    <label className="radio-inline">
-                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
-                                      Femme
-                                    </label>
-                                </Input>
-                                <Input ref="userFirstName" type="text"  placeholder="Prénom *" required />
-                                <Input ref="userLastName" type="text" placeholder="Nom *" />
-                                <Input ref="userEmail" type="email" placeholder="Email *" />
-                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone *" />
-                                <Input ref="userComment" type="text" placeholder="Prestation souhaitée. Ex: Shampoing Coupe Brushing *" />
-                                <Button className="btn-red btn-block" onClick={this.submit}>Réserver</Button>
-                            </form>
-                        </Panel>
-                    </PanelGroup>
-                </div>
-            </div>
-        );
-    },
-    renderDiscountsNode: function() {
-        var business = this.state.business,
-            discounts = this.state.discountObj.discountsAvailable;
-
-        if(discounts.length === 0) {
-            return null;
-        }
-
-        return (
-            <div className="discounts-container">
-                { _.map(discounts, this.renderDiscountNode, this) }
-                <p className="conditions">
-                    * Cette offre n'est valable que pour les réservations en ligne. L'achat de produits du salon avec cette offre est exclusivement liée à une prestation.
-                </p>
-            </div>
-        );
-    },
-    renderDiscountNode: function(days, amount) {
-        return (
-            <div className="discount">
-                <h4><strong>{amount}%</strong> sur toutes les prestations et tous les achats</h4>
-                <p className="discount-description">
-                    Disponible {_.map(orderWeekDays(days), function(day) {
-                        return weekDayLabel(day) + ' ';
-                    }, this)} *
-                </p>
             </div>
         );
     },
