@@ -52,7 +52,7 @@ module.exports = React.createClass({
             <div className="comments">
                 {_.map(reviews, function (review) {
                     return (
-                        <div className="single-comment col-xs-12">
+                        <div key={review.id} className="single-comment col-xs-12">
                             <span className="user-profil col-xs-1">
                                 <img src={'http://placehold.it/40&text='+initials(review)} alt={'Photo de '+displayName(review)} />
                             </span>
