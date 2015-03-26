@@ -20,3 +20,12 @@ figcaption a.address {
 #home section:nth-child(3) .big figure {
     height: inherit !important;
 }
+
+.hairfie-singleView#content .single-view #carousel-hairfie {
+    height: inherit !important;
+}
+
+/* Fix car pas de bouton like pour le moment */
+.hairfie-singleView#content .single-view .like-group .cta {
+  width: 100%;
+}

@@ -55,11 +55,11 @@ var HairfieSingle = React.createClass({
                     </a>
                 </div>
                 <div className="like-group">
-                    <div className="like-btn">
+                    {/*<div className="like-btn">
                         <a href="#">
                             <span className="glyphicon glyphicon-heart"></span>
                         </a>
-                    </div>
+                    </div> */}
                     <div className="cta">
                         <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
                             Réserver dans ce salon
@@ -172,17 +172,17 @@ module.exports = React.createClass({
             return (
                 <PublicLayout context={this.props.context}>
                     <div className="container hairfie-singleView" id="content" >
-                        <a href="#">
+                        {/* <a href="#">
                             <span className="arrow arrow-left" aria-hidden="true"></span>
                         </a>
                         <a href="#">
                             <span className="arrow arrow-right" aria-hidden="true"></span>
-                        </a>
-                        <div className="row single-view">
+                        </a> */}
+                        <div className="single-view row">
                             <HairfieSingle hairfie={this.state.hairfie} context={this.props.context} />
                             <RightColumn hairfie={this.state.hairfie} context={this.props.context} />
                         </div>
-                        <div className="row related-hairfies hairfies">
+                        {/*<div className="row related-hairfies hairfies">
                             <h3>Autres Hairfies similaires :</h3>
                             <div className="col-xs-6 col-sm-3 col-lg-2 single-hairfie">
                                 <figure>
@@ -197,7 +197,7 @@ module.exports = React.createClass({
                                     </figcaption>
                                 </figure>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </PublicLayout>
             );
