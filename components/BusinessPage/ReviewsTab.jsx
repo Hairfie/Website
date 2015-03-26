@@ -8,7 +8,10 @@ var BusinessReviewStore = require('../../stores/BusinessReviewStore');
 var moment = require('moment');
 var _ = require('lodash');
 
-moment.locale('fr_FR');
+// NOTE: it is necessary to require the language before using it
+//       because otherwise it is not included in the build file
+require('moment/locale/fr');
+moment.locale('fr');
 
 function displayName(n) {
     return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.'
