@@ -25,7 +25,7 @@ module.exports = function (context, payload, done) {
         }
 
         context.executeActions([
-            [StationActions.FetchForBusiness, {businessId: business.id,location: business.gps}],
+            [StationActions.FetchByLocation, {location: business.gps}],
             [BusinessServiceActions.RefreshBusiness, {businessId: business.id}],
             [BusinessMemberActions.RefreshBusiness, {businessId: business.id}]
         ], done);

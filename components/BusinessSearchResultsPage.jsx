@@ -322,7 +322,7 @@ module.exports = React.createClass({
         var place = this.state.place || {};
 
         return (
-            <Layout withSearchBar={true}>
+            <Layout context={this.props.context} withSearchBar={true}>
                 <div className="container search" id="content">
                     <div className="row">
                         <Breadcrumb context={this.props.context} place={this.state.place} />

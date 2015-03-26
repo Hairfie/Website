@@ -9,7 +9,7 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'StationStore',
     handlers: makeHandlers({
-        handleFetchSuccess: StationEvents.FETCH_FOR_BUSINESS_SUCCESS
+        handleFetchSuccess: StationEvents.FETCH_BY_LOCATION_SUCCESS
     }),
     initialize: function () {
         this.stations = {};
@@ -23,19 +23,30 @@ module.exports = createStore({
         this.stations = state.stations || {};
     },
     handleFetchSuccess: function (payload) {
-        this.stations[payload.businessId] = payload.stations;
+        var key = this._locationKey(payload.location);
+        this.stations[key] = _.assign({}, this.stations[key], {
+            stations: payload.stations
+        });
         this.emitChange();
     },
-    getByBusiness: function (business) {
-        if (!this.stations[business.id] && business.gps) {
-            this._load(business.id, business.gps);
+    getByLocation: function (location) {
+        var key = this._locationKey(location);
+        var cache = this.stations[key];
+
+        if (_.isUndefined(cache)) {
+            this._load(location);
         }
-        return this.stations[business.id];
+
+        return cache && cache.stations;
     },
-    _load: function (businessId, location) {
-        this.dispatcher.getContext().executeAction(StationActions.FetchForBusiness, {
-            businessId: businessId,
+    _load: function (location) {
+        var key = this._locationKey(location);
+        this.stations[key] = _.assign({}, this.stations[key]);
+        this.dispatcher.getContext().executeAction(StationActions.FetchByLocation, {
             location: location
         });
+    },
+    _locationKey: function (location) {
+        return location.lat+','+location.lng;
     }
 });
