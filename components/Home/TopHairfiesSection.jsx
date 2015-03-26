@@ -64,6 +64,8 @@ module.exports = React.createClass({
                         </NavLink>
                         {priceNode}
                     </figcaption>
+                                    <div className="clearfix" />
+
                 </figure>
             </div>
         );

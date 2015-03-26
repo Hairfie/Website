@@ -16,3 +16,7 @@ figcaption a.address {
 #content h3 {
     font-size: 21px;
 }
+
+#home section:nth-child(3) .big figure {
+    height: inherit !important;
+}
