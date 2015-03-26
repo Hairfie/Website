@@ -1,8 +1,10 @@
 'use strict';
 
 var BusinessServiceEvents = require('../../constants/BusinessServiceConstants').Events;
+var _ = require('lodash');
 
 module.exports = function (context, payload, done) {
+    var done = done || _.noop;
 
     context.dispatch(BusinessServiceEvents.RECEIVE_BUSINESS, {
         businessId: payload.businessId
@@ -19,6 +21,7 @@ module.exports = function (context, payload, done) {
             done();
         })
         .fail(function (error) {
+            console.log(error);
             context.dispatch(BusinessServiceEvents.RECEIVE_BUSINESS_FAILURE, {
                 businessId: payload.businessId
             });

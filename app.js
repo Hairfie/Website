@@ -113,6 +113,7 @@ app.registerStore(require('./stores/BusinessMemberStore'));
 app.registerStore(require('./stores/BusinessCustomersStore'));
 app.registerStore(require('./stores/BusinessServiceStore'));
 app.registerStore(require('./stores/BusinessFacebookPageStore'));
+app.registerStore(require('./stores/BusinessReviewStore'));
 app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/FlashStore'));

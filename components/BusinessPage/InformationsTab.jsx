@@ -22,14 +22,27 @@ function frenchDay(day) {
     return dayFrenchNames[day];
 }
 
+function displayName(n) {
+    return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.'
+}
+
+function initials(n) {
+    return (n.firstName || '').substr(0, 1)+''+(n.lastName || '').substr(0, 1)
+}
+
 var HairdresserPicture = React.createClass({
     render: function () {
         if (!this.props.hairdresser.picture) return this.renderDefault();
 
-        return <Picture picture={this.props.hairdresser.picture} resolution={{width: 120, height: 120}} />;
+        return <Picture picture={this.props.hairdresser.picture}
+                     resolution={{width: 120, height: 120}}
+                            alt={this.getAlt()} />;
     },
     renderDefault: function () {
-        return <img src="http://placehold.it/120/120" />;
+        return <img src={'http://placehold.it/120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
+    },
+    getAlt: function () {
+        return 'Photo de '+displayName(this.props.hairdresser);
     }
 });
 
