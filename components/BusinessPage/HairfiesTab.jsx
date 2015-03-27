@@ -15,6 +15,10 @@ moment.locale('fr');
 
 var PAGE_SIZE = 8;
 
+function displayName(n) {
+    return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.';
+}
+
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -34,23 +38,25 @@ module.exports = React.createClass({
             skip: (page - 1) * PAGE_SIZE
         });
     },
-    getStateFromStores: function (props) {
+    getStateFromStores: function (props, page) {
         var props = props || this.props;
         var oldState = this.state || {};
-        var page = oldState.page || 1;
+        var page = page || oldState.page || 1;
         var createdAfter = oldState.hairfies && oldState.hairfies[1] && oldState.hairfies[1].createdAt;
 
         var loading   = false;
         var endOfList = false;
         var hairfies  = [];
         for (var i = 1; i <= page; i++) {
-            var pageHairfies = this.getPageHairfies(page);
+            var pageHairfies = this.getPageHairfies(i);
             if (_.isUndefined(pageHairfies)) loading = true;
             else if (pageHairfies.length < PAGE_SIZE) endOfList = true;
+            console.log(pageHairfies);
             hairfies = _.union(hairfies, pageHairfies);
         }
 
         return {
+            page: page,
             hairfies: hairfies,
             loading: loading,
             endOfList: endOfList
@@ -80,6 +86,11 @@ module.exports = React.createClass({
                 <div className="salon-hairfies hairfies">
                     <div className="row">
                         {_.map(this.state.hairfies, function (hairfie) {
+                            var hairdresser = <p>&nbsp;</p>;
+                            if (hairfie.hairdresser) {
+                                hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;
+                            }
+
                             return (
                                 <div key={hairfie.id} className="col-md-3 single-hairfie">
                                     <figure>
@@ -87,18 +98,30 @@ module.exports = React.createClass({
                                             <Picture picture={hairfie.pictures[0]}
                                                   resolution={{width: 640, height: 640}}
                                                          alt="" />
+
+                                            <figcaption>
+                                                {hairdresser}
+                                                <p><span>Le {moment(hairfie.createdAt).format('L')}</span></p>
+                                            </figcaption>
                                         </NavLink>
-                                        <figcaption>
-                                            <p><span>Le {moment(hairfie.createdAt).format('L')}</span></p>
-                                        </figcaption>
                                     </figure>
                                 </div>
                             );
                         }, this)}
                     </div>
+                    {this.renderMoreButton()}
                 </div>
             </section>
         );
+    },
+    renderMoreButton: function () {
+        if (this.state.endOfList) return;
+
+        if (this.state.loading) {
+            return <a className="btn btn-red">Chargment...</a>;
+        }
+
+        return <a href="#" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     renderTextOnly: function (text) {
         return (
@@ -115,8 +138,8 @@ module.exports = React.createClass({
             </p>
         );
     },
-    loadMore: function () {
-        this.setState({page: this.state.page + 1});
-        this.setState(this.getStateFromStores());
+    loadMore: function (e) {
+        e.preventDefault();
+        this.setState(this.getStateFromStores(this.props, this.state.page + 1));
     }
 });
