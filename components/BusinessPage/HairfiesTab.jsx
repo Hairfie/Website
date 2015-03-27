@@ -91,6 +91,11 @@ module.exports = React.createClass({
                                 hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;
                             }
 
+                            var price;
+                            if (hairfie.price) {
+                                price = <div className="pricetag">{hairfie.price.amount}€</div>;
+                            }
+
                             return (
                                 <div key={hairfie.id} className="col-md-3 single-hairfie">
                                     <figure>
@@ -102,6 +107,7 @@ module.exports = React.createClass({
                                             <figcaption>
                                                 {hairdresser}
                                                 <p><span>Le {moment(hairfie.createdAt).format('L')}</span></p>
+                                                {price}
                                             </figcaption>
                                         </NavLink>
                                     </figure>
