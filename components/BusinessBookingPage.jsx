@@ -7,158 +7,23 @@ var _ = require('lodash');
 
 var BusinessStore = require('../stores/BusinessStore');
 var BookingStore  = require('../stores/BookingStore');
-var PublicLayout  = require('./PublicLayout.jsx');
-var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 
-var NavLink = require('flux-router-component').NavLink;
+var PublicLayout  = require('./PublicLayout.jsx');
+
+var BookingCalendar = require('./BookingPage/BookingCalendarComponent.jsx');
+var TimeSelect = require('./BookingPage/TimeSelectComponent.jsx');
+var LeftColumn = require('./BookingPage/LeftColumn.jsx');
+var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 
 var UserConstants = require('../constants/UserConstants');
+
 var BookingActions = require('../actions/Booking');
 
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
-var Panel = require('react-bootstrap/Panel');
-var PanelGroup = require('react-bootstrap/PanelGroup');
 
 var DateTimeConstants = require('../constants/DateTimeConstants');
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
-var weekDaysNumber = DateTimeConstants.weekDaysNumber;
-var weekDayLabel = DateTimeConstants.weekDayLabel;
-var orderWeekDays = DateTimeConstants.orderWeekDays;
-
-var Picture = require('./Partial/Picture.jsx');
-var SearchUtils = require('../lib/search-utils');
-
-var LeftColumn = React.createClass({
-    render: function () {
-        var business = this.props.business;
-        var displayAddress = business.address ? business.address.street + ' ' + business.address.city : null;
-
-        return (
-            <div className="sidebar col-sm-3">
-                <div className="salon-bloc">
-                    <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
-                        <Picture picture={business.pictures[0]}
-                           width={220}
-                          height={220} />
-                    </NavLink>
-                    <div className="address-bloc">
-                        <h2><a href="#">{business.name}</a></h2>
-                        <a href="#" className="address">{displayAddress}</a>
-                    </div>
-                </div>
-                {this.renderDiscountsNode()}
-                <div>
-                    {this.renderDiscountsConditions()}
-                    <div>
-                        <h3>Réserver en ligne na que des avantages </h3>
-                        <ul>
-                            <li>- Rapide</li>
-                            <li>- Gratuit</li>
-                            <li>- Pratique</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        )
-    },
-    renderDiscountsNode: function() {
-        var business = this.props.business,
-            discounts = this.props.discountObj.discountsAvailable;
-
-        if(discounts.length === 0) {
-            return null;
-        }
-
-        return (
-            <div className="promo">
-                { _.map(discounts, this.renderDiscountNode, this) }
-            </div>
-        );
-    },
-    renderDiscountNode: function(days, amount) {
-        if (!_.isArray(days)) days = [days];
-        return (
-            <p>
-                {amount}% sur toutes les prestations et tous les achats.
-                Disponible {_.map(orderWeekDays(days), weekDayLabel, this).join(' ')}.
-            </p>
-        );
-    },
-    renderDiscountsConditions: function() {
-        if(this.props.discountObj.discountsAvailable.length > 0) {
-            return (<p>* Cette offre nest valable que pour les réservations en ligne. Lachat de produits du salon avec cette offre est exclusivement liée à une prestation.</p>);
-        }
-    }
-});
-
-var Breadcrumb = React.createClass({
-    render: function () {
-        var crumbs = [];
-        var business = this.props.business;
-        var place  = business.address.city + ', France';
-        console.log('Place', place);
-
-        crumbs = [
-            {
-                last: false,
-                label: 'Accueil',
-                routeName: 'home',
-                navParams: {}
-            },
-            {
-                last: false,
-                label: 'Coiffeurs ' + business.address.city,
-                routeName: 'business_search_results',
-                navParams: {
-                    address: SearchUtils.addressToUrlParameter(place)
-                }
-            },
-            {
-                last: false,
-                label: business.name,
-                routeName: 'show_business',
-                navParams: {
-                    businessId: business.id,
-                    businessSlug: business.slug
-                }
-            },
-            {
-                last: true,
-                label: 'Réservation',
-                routeName: 'book_business',
-                navParams: {
-                    businessId: business.id,
-                    businessSlug: business.slug
-                }
-            }
-        ];
-
-        return (
-            <div className="col-xs-12">
-                <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb) {
-                        if (crumb.last) {
-                            return (
-                                <li className="active">
-                                    {crumb.label}
-                                </li>
-                            );
-                        } else {
-                            return (
-                                <li>
-                                    <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
-                                        {crumb.label}
-                                    </NavLink>
-                                </li>
-                            );
-                        }
-                    }, this)}
-                </ol>
-            </div>
-        );
-    }
-});
 
 var RightColumn = React.createClass({
     render: function() {
@@ -186,6 +51,7 @@ module.exports = React.createClass({
         return (
             <PublicLayout loading={loading} context={this.props.context} customClass="booking">
                 {this.renderBookingForm()}
+                <div className="row" />
             </PublicLayout>
         );
     },
@@ -194,24 +60,8 @@ module.exports = React.createClass({
     },
     renderBookingForm: function() {
         var business = this.state.business,
-            timeSelectNode = this.renderTimeSelect(),
             context = this.props.context,
-            timeslotNode = null,
-            daySelectHeader,
-            timeSelectHeader;
-
-        if(this.state.daySelected) {
-            daySelectHeader = weekDayLabelFromInt(this.state.daySelected.day()) + ' ' + this.state.daySelected.format("D/MM/YYYY");
-            if(this.state.timeslot) {
-                timeSelectHeader = this.state.timeslot.format("HH:mm")
-                if(this.state.discount) timeSelectHeader += ' avec ' + this.state.discount + '% de réduction';
-            } else {
-                timeSelectHeader = 'Choisir une heure'
-            }
-        } else {
-            daySelectHeader = 'Choisir un jour';
-            timeSelectHeader = 'Choisir une heure'
-        }
+            timeslotNode;
 
         if(this.state.timeslot) {
             var timeSlotLabel = this.state.timeslot.format("[Demande pour le] D/MM/YYYY [à] HH:mm");
@@ -243,11 +93,12 @@ module.exports = React.createClass({
                             </div>
                             <div className="col-xs-6">
                                 <h2>À quelle heure ?</h2>
-                                {timeSelectNode}
+                                <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} timetable={business.timetable} daySelected={this.state.daySelected} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-xs-12">
+                                <h2>Vos informations</h2>
                                 <form role="form" className="claim">
                                     {timeslotNode}
                                     <Input className="radio">
@@ -279,58 +130,11 @@ module.exports = React.createClass({
             userGender: e.currentTarget.value
         });
     },
-    handleSelect: function(selectedKey) {
-        this.setState({activeKey: selectedKey});
-    },
     handleDaySelectedChange: function(m) {
-        this.setState({daySelected: m, activeKey: '2'});
+        this.setState({daySelected: m, timeslot: null});
     },
-    renderTimeSelect: function() {
-        if(!this.state.daySelected) {
-            return null;
-        }
-        var daySelected = this.state.daySelected,
-            timetable = this.state.business.timetable,
-            timetableSelected = timetable[weekDaysNumber[daySelected.day()]],
-            hours = [],
-            discounts = [];
-
-         _.forEach(timetableSelected, function(slot) {
-            var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
-                stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
-
-            moment().range(start, stop).by('hours', function(hour) {
-                hours.push({hour: hour, discount: slot.discount});
-            });
-        });
-
-        return (
-            <div className="timeselect">
-                <h4>Horaires pour le {weekDayLabelFromInt(daySelected.day())} {daySelected.format("D/MM/YYYY")}</h4>
-                <div>
-                    { _.map(hours, this.renderTimeButton, this) }
-                </div>
-            </div>
-        );
-
-    },
-    renderTimeButton: function(timeBtnObj) {
-        var timeslot = timeBtnObj.hour,
-            discount = timeBtnObj.discount,
-            label = timeslot.format("HH:mm");
-        var cls = 'btn timeslot';
-            cls += timeslot.isSame(this.state.timeslot) ? ' selected' : '';
-        if(discount) {
-            cls += ' discount';
-            label += '<span>(-' + discount + '%)</span>';
-        }
-        return (
-            <Button className={cls} onClick={this.handleTimeSlotChange.bind(this, timeslot, discount)} dangerouslySetInnerHTML={{__html: label }}>
-            </Button>
-        );
-    },
-    handleTimeSlotChange: function(timeslot, discount) {
-        this.setState({timeslot: timeslot, discount: discount, activeKey: '3'});
+    handleTimeSlotSelectedChange: function(timeslot, discount) {
+        this.setState({timeslot: timeslot, discount: discount});
     },
     submit: function (e) {
         e.preventDefault();

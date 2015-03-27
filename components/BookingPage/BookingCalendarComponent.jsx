@@ -51,7 +51,7 @@ module.exports = React.createClass({
                     <caption>
                         <span className="prev" onClick={this.prevMonth}><a href="#"></a></span>
                         <span className="next" onClick={this.nextMonth}><a href="#"></a></span>
-                        {m.format('MMM YYYY')}
+                        {m.format('MMMM YYYY')}
                     </caption>
                     <thead>
                         <tr>
@@ -82,11 +82,11 @@ module.exports = React.createClass({
         var currentTimetable = this.state.timetable[weekDaysNumber[d.day()]];
 
         var cls = d.isSame(this.state.today, 'day') ? 'today' : '';
-        if (this.state.selectedDate && d.isSame(this.state.selectedDate, 'day')) cls += ' selected';
+        if (this.state.selectedDate && d.isSame(this.state.selectedDate, 'day')) cls += ' active';
         var tomorrow = moment().add(1, 'days');
 
         // Display Text : to refactor
-        var isOpen, discount;
+        var isOpen, discount, discountNode;
         var text = d.get('date');
         if(currentTimetable && currentTimetable.length > 0) {
             isOpen = true;
@@ -100,7 +100,7 @@ module.exports = React.createClass({
                 }
             });
             if(discount) {
-                text = text;// + '<span>(-' + discount + '%)</span>';
+                discountNode = (<span className="promo-day">{discount}%</span>);
                 cls += ' discount';
             }
         } else {
@@ -110,9 +110,9 @@ module.exports = React.createClass({
 
         if(d.isAfter(tomorrow, 'day') && isOpen) {
             cls += ' bookable'
-            return <td className={cls} key={d.get('date')} dangerouslySetInnerHTML={{__html: text }} onClick={this.dayCallback(d)}></td>;
+            return <td className={cls} key={d.get('date')} onClick={this.dayCallback(d)}>{}<a href="#">{discountNode}{text}</a></td>;
         } else {
-            cls += ' disabled';
+            cls += ' off';
             return <td className={cls} key={d.get('date')}>{ d.get('date') }</td>;
         }
 

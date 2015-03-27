@@ -1,3 +1,7 @@
+#content {
+    height: inherit;
+}
+
 figcaption a span {
     font-size: 21px !important;
     font-weight: 400;
@@ -33,4 +37,12 @@ figcaption a.address {
 .cal caption {
     display: table-caption;
     font-size: 21px;
+}
+
+.cal thead {
+    font-size: 12px;
+}
+
+.cal td {
+    font-size: 16px;
 }
