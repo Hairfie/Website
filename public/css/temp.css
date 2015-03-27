@@ -34,6 +34,15 @@ figcaption a.address {
   width: 100%;
 }
 
+.salon#content section.salon-content section .coiffeur img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.cal {
+  width: 100%;
+}
+
 .cal caption {
     display: table-caption;
     font-size: 21px;

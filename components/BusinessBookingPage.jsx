@@ -10,7 +10,7 @@ var BookingStore  = require('../stores/BookingStore');
 
 var PublicLayout  = require('./PublicLayout.jsx');
 
-var BookingCalendar = require('./BookingPage/BookingCalendarComponent.jsx');
+var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 var TimeSelect = require('./BookingPage/TimeSelectComponent.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
