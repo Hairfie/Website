@@ -13,5 +13,6 @@ module.exports = {
     DeleteFacebookPage  : require('./DeleteFacebookPage'),
     ClaimExisting       : require('./ClaimExisting'),
     SubmitSearch        : require('./SubmitSearch'),
-    FetchSearchResult   : require('./FetchSearchResult')
+    FetchSearchResult   : require('./FetchSearchResult'),
+    FetchSimilar        : require('./FetchSimilar')
 };

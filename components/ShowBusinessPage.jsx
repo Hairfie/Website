@@ -80,6 +80,7 @@ module.exports = React.createClass({
                             </div>
                         </section>
                     </div>
+                    <BusinessPage.Sidebar context={this.props.context} businessId={businessId} />
                 </div>
                 <div className="row"></div>
             </Layout>

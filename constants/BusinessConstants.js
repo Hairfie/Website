@@ -29,7 +29,9 @@ module.exports = {
 
         'FETCH_SEARCH_RESULT',
         'FETCH_SEARCH_RESULT_SUCCESS',
-        'FETCH_SEARCH_RESULT_FAILURE'
+        'FETCH_SEARCH_RESULT_FAILURE',
+
+        'FETCH_SIMILAR_SUCCESS'
     ]),
     Kinds: define([
         'SALON',
