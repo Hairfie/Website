@@ -87,18 +87,18 @@ var HowSection = React.createClass({
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Trouvez</h3>
-                        <p>Trouvez le coiffeur qui vous correspond en fonction de vos critères : votre style, votre budget etc...</p>
+                        <h3>Inspiration</h3>
+                        <p>Trouvez la coiffure et le coiffeur qui vous correspondent</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Réservez</h3>
-                        <p>Réservez gratuitement ce salon en 2 clics</p>
+                        <h3>Réservation</h3>
+                        <p>Réservez en 3 clics, 24/7</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <img src="images/placeholder-homecontent4.png" alt="#" />
-                        <h3>Partagez votre #Hairfie</h3>
-                        <p>Partagez votre #Hairfie.</p>
+                        <h3>Partage</h3>
+                        <p>Partagez votre #Hairfie et donnez votre avis</p>
                     </div>
                 </div>
             </section>
@@ -150,8 +150,8 @@ module.exports = React.createClass({
                         <FlashMessages context={this.props.context} />
                         <div className="row">
                             <div className="headline  col-md-12">
-                                <h1>Réservez votre coiffeur</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetuvr adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <h1>Trouvez votre coupe. Réservez votre coiffeur.</h1>
+                                <p>Un #Hairfie, c'est une photo de coiffure prise depuis votre smartphone. C'est le petit frère du Selfie.</p>
                             </div>
                         </div>
                         <div className="row">
