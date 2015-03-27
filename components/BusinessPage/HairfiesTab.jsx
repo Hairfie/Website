@@ -51,7 +51,6 @@ module.exports = React.createClass({
             var pageHairfies = this.getPageHairfies(i);
             if (_.isUndefined(pageHairfies)) loading = true;
             else if (pageHairfies.length < PAGE_SIZE) endOfList = true;
-            console.log(pageHairfies);
             hairfies = _.union(hairfies, pageHairfies);
         }
 

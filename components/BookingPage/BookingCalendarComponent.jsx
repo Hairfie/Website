@@ -18,7 +18,7 @@ module.exports = React.createClass({
             month: today,
             today: today,
             selectedDate: this.props.selectedDate,
-            timetable: this.props.timetable
+            timetable: this.props.timetable || {}
         };
     },
     prevMonth: function(ev) {
