@@ -179,7 +179,7 @@ module.exports = React.createClass({
         var business = this.state.business || {};
         var description = business.description;
 
-        if (_.keys(description).length == 0) return;
+        if (_.values(description).join('') == '') return;
 
         return (
             <section>
