@@ -23,9 +23,13 @@ var CarouselItem = require('react-bootstrap/CarouselItem');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 
 var Picture = require('./Partial/Picture.jsx');
+var Loader = require('./Partial/Loader.jsx');
 
 var HairfieSingle = React.createClass({
     render: function () {
+        var priceNode;
+        //if(this.props.hairfie.price) priceNode = <div className="pricetag">{this.props.hairfie.price.amount}{this.props.hairfie.price.currency == "EUR" ? "€" : ""}</div>;
+
         return (
             <div className="col-xs-12 col-sm-6">
                 <div id="carousel-hairfie" className="carousel slide" data-ride="carousel">
@@ -34,6 +38,7 @@ var HairfieSingle = React.createClass({
                         <li data-target="#carousel-hairfie" data-slide-to="1"></li>
                     </ol>
                     <div className="carousel-inner" role="listbox">
+                        {priceNode}
                         <div className="item active">
                             <div className="outer-img">
                                 <img src={_.first(this.props.hairfie.pictures).url} alt="..." />
@@ -98,7 +103,7 @@ var RightColumn = React.createClass({
                         <div className="col-xs-9 address-bloc">
                             <h2>
                                 <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
-                                    Alexandre de Paris
+                                    {this.props.hairfie.business.name}
                                 </NavLink>
                             </h2>
                             {hairdresserNode}
@@ -164,16 +169,15 @@ module.exports = React.createClass({
         $('.like-btn').on('click',function(){
           $('.glyphicon-heart').toggleClass('full');
         });
-        $('.like').on('click',function(){
-          console.log("like");
-        });
         $('#carousel-hairfie').carousel();
     },
     render: function () {
         if(!this.state.hairfie) {
             return (
                 <PublicLayout context={this.props.context}>
-                    <div>Chargement du Hairfie</div>
+                    <div className="container hairfie-singleView" id="content" >
+                        <div className="loading" />
+                    </div>
                 </PublicLayout>
             );
         } else {
@@ -190,22 +194,6 @@ module.exports = React.createClass({
                             <HairfieSingle hairfie={this.state.hairfie} context={this.props.context} />
                             <RightColumn hairfie={this.state.hairfie} context={this.props.context} />
                         </div>
-                        {/*<div className="row related-hairfies hairfies">
-                            <h3>Autres Hairfies similaires :</h3>
-                            <div className="col-xs-6 col-sm-3 col-lg-2 single-hairfie">
-                                <figure>
-                                    <a href="#">
-                                        <img src="images/placeholder-hairfieSalon.jpg" alt="hairfie" />
-                                    </a>
-                                    <figcaption>
-                                        <p>Coiffé par: <span>Bastien</span></p>
-                                        <p><span>Le 17/02/2015</span></p>
-                                        <p>Où ?<span><a href="salon.html">FictTif</a></span></p>
-                                        <div className="pricetag">125€</div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div> */}
                     </div>
                 </PublicLayout>
             );
@@ -216,8 +204,6 @@ module.exports = React.createClass({
         if(this.state.hairfie.price) {
             price = (<div className="circle">{ this.state.hairfie.price.amount } { this.state.hairfie.price.currency == "EUR" ? "€" : "" }</div>)
         }
-
-
 
         return (
             <div className="img-container">
@@ -236,23 +222,3 @@ module.exports = React.createClass({
         );
     }
 });
-
-// <div className="col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1 hairfie-legend-container">
-//                             <div className="legend">
-//                                 <div className="avatar">
-//                                     <UserProfilePicture user={this.state.hairfie.author} className="img-circle" />
-//                                 </div>
-//                                 <div className="author">
-//                                     <span className="name">{ this.state.hairfie.author.firstName } { this.state.hairfie.author.lastName.substring(0,1) }.</span>
-//                                     <span className="date"> - { this.formatRelative(this.state.hairfie.createdAt) }</span>
-//                                 </div>
-//                                 <div className="clearfix"></div>
-//                                 <div className="description">
-//                                     { _.map(this.state.hairfie.tags, function(tag) {
-//                                         return (<span key={tag.id} className="label label-default">{tag.name}</span>)
-//                                     }) }
-//                                 </div>
-//                                 <div className="clearfix"></div>
-//                                 {businessNode}
-//                             </div>
-//                         </div>
