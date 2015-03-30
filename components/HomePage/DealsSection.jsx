@@ -28,7 +28,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section">
-                <h2>Les bon plans de la semaine</h2>
+                <h2>Nos offres actuelles</h2>
                 <div className="row">
                     {lodash.map(this.state.topDeals, this.renderDeal).slice(0, 3)}
                 </div>

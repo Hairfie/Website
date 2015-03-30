@@ -29,7 +29,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section">
-                <h2>Les Hairfies du moment</h2>
+                <h2>Nos Hairfies préférés</h2>
                 <div className="row">
                     <div className="col-md-6 col-xs-12 small-hairfies">
                         <div className="row">

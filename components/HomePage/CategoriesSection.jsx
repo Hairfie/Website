@@ -28,7 +28,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section">
-                <h2>Que recherchez-vous ?</h2>
+                <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
                     <div className="row">
                         {lodash.map(this.state.categories, this.renderCategory).slice(0, 3)}
