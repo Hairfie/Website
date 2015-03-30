@@ -18,7 +18,6 @@ module.exports = React.createClass({
     },
     getDefaultProps: function () {
         return {
-            defaultDate : moment().format('YYYY-MM-DD'),
             onDateChange: _.noop
         };
     },
