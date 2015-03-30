@@ -3,11 +3,10 @@
 var React = require('react');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var SubmitSearch = require('../../actions/Business').SubmitSearch;
+var config = require('../../configs/search');
 
 var NavLink = require('flux-router-component').NavLink;
 var Button = require('react-bootstrap/Button');
-
-var PlaceAutocompleteInput = require('../Form/PlaceAutocompleteInput.jsx');
 
 module.exports = React.createClass({
     propTypes: {
@@ -36,7 +35,7 @@ module.exports = React.createClass({
         return (
             <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-sm-6">
-                    <PlaceAutocompleteInput ref="location" placeholder="Où ?" className='col-xs-6' />
+                    <GeoInput ref="address" placeholder="Où ?" className='col-xs-6' />
                     <input className='col-xs-6' ref="query" type="search" placeholder='Nom, spécialité...' />
                 </div>
                 <div className="col-sm-6">
@@ -58,7 +57,7 @@ module.exports = React.createClass({
                         <h2>Réservez votre coiffeur</h2>
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
-                            <PlaceAutocompleteInput className='col-xs-12' ref="location" placeholder="Où ?" />
+                            <GeoInput ref="address" className='col-xs-12' placeholder="Où ?" />
                             <input className='col-xs-12' ref="query" type="search" placeholder='Nom, spécialité...' />
                             <input type="date" className='col-xs-12'/>
                             <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
@@ -69,10 +68,8 @@ module.exports = React.createClass({
         );
     },
     submit: function () {
-        var address = this.refs.address ? this.refs.address.getFormattedAddress() : "Paris--France";
-
         var search = {
-            address : address,
+            address : this.refs.address && this.refs.address.getFormattedAddress(),
             query   : this.refs.query.getDOMNode().value
         };
 

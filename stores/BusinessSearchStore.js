@@ -60,7 +60,5 @@ module.exports = createStore({
             search: search
         });
     },
-    _searchKey: function (search) {
-        return JSON.stringify(search); // TODO: order keys
-    }
+    _searchKey: JSON.stringify // TODO: order keys
 });
