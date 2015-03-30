@@ -12,13 +12,24 @@ require('moment-range');
 var weekDaysNumber = require('../../constants/DateTimeConstants').weekDaysNumber;
 
 module.exports = React.createClass({
+    propTypes: {
+        defaultDate : React.PropTypes.string,
+        onDateChange: React.PropTypes.func
+    },
+    getDefaultProps: function () {
+        return {
+            defaultDate : moment().format('YYYY-MM-DD'),
+            onDateChange: _.noop
+        };
+    },
     getInitialState: function() {
         var today = new Date();
+
         return {
-            month: today,
-            today: today,
-            selectedDate: this.props.selectedDate,
-            timetable: this.props.timetable || {}
+            month       : today,
+            today       : today,
+            selectedDate: this.props.defaultDate,
+            timetable   : this.props.timetable || {}
         };
     },
     prevMonth: function(ev) {
@@ -110,20 +121,18 @@ module.exports = React.createClass({
 
         if(d.isAfter(tomorrow, 'day') && isOpen) {
             cls += ' bookable'
-            return <td className={cls} key={d.get('date')} onClick={this.dayCallback(d)}>{}<a href="#">{discountNode}{text}</a></td>;
+            return <td className={cls} key={d.get('date')} onClick={this.dayCallback.bind(this, d.format('YYYY-MM-DD'))}><a href="#">{discountNode}{text}</a></td>;
         } else {
             cls += ' off';
             return <td className={cls} key={d.get('date')}>{ d.get('date') }</td>;
         }
 
     },
-    dayCallback: function(m) {
-        var self = this;
-        return function(ev) {
-            self.setState({
-                selectedDate: m
-            });
-            self.props.onDayChange && self.props.onDayChange(m);
-        };
+    dayCallback: function(d, e) {
+        e.preventDefault();
+        this.setState({selectedDate: d}, this.props.onDateChange.bind(null, d));
+    },
+    getDate: function () {
+        return this.state.selectedDate;
     }
 });

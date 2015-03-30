@@ -1,9 +1,14 @@
 'use strict';
+
+/**
+ * TODO: why JSX?
+ */
+
 var Navigate = require('flux-router-component/actions/navigate');
 
 var NavToLinkMixin = {
-    navToLink: function(routeName, navParams) {
-        var path = this.props.context.makePath(routeName, navParams);
+    navToLink: function(routeName, pathParams, queryParams) {
+        var path = this.props.context.makeUrl(routeName, pathParams, queryParams);
         this.executeAction(Navigate, {url: path});
     }
 };

@@ -6,9 +6,10 @@ var BusinessStore = require('../../stores/BusinessStore');
 var Calendar = require('../Form/BookingCalendarComponent.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [FluxibleMixin, NavToLinkMixin],
     statics: {
         storeListeners: [BusinessStore]
     },
@@ -42,7 +43,7 @@ module.exports = React.createClass({
 
         return (
             <div className="calendar hidden-xs">
-                <Calendar onDayChange={this.book} timetable={business.timetable} />
+                <Calendar ref="calendar" timetable={business.timetable} />
             </div>
         );
     },
@@ -58,7 +59,8 @@ module.exports = React.createClass({
                     className="btn btn-red hidden-xs"
                     context={this.props.context}
                     routeName="book_business"
-                    navParams={{businessId: business.id, businessSlug: business.slug}}>
+                    navParams={{businessId: business.id, businessSlug: business.slug}}
+                    onClick={this.book}>
                     Réserver maintenant
                 </NavLink>
             </div>
@@ -81,5 +83,14 @@ module.exports = React.createClass({
         if (!crossSell) return;
 
         return <SimilarBusinesses context={this.props.context} businessId={this.props.businessId} />;
+    },
+    book: function (e) {
+        e.preventDefault();
+
+        var business = this.state.business || {};
+        var pathParams = {businessId: business.id, businessSlug: business.slug};
+        var queryParams = {date: this.refs.calendar.getDate()};
+
+        this.navToLink('book_business', pathParams, queryParams);
     }
 });
