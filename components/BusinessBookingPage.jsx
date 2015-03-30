@@ -39,7 +39,8 @@ module.exports = React.createClass({
     getStateFromStores: function () {
         return {
             business    : this.getStore(BusinessStore).getById(this.props.route.params.businessId),
-            discountObj : this.getStore(BusinessStore).getDiscountForBusiness(this.props.route.params.businessId)
+            discountObj : this.getStore(BusinessStore).getDiscountForBusiness(this.props.route.params.businessId),
+            daySelected : this.props.route.query.date ? moment(this.props.route.query.date) : null
         }
     },
     getInitialState: function () {
@@ -47,7 +48,6 @@ module.exports = React.createClass({
     },
     render: function () {
         var loading = _.isUndefined(this.state.business);
-
         return (
             <PublicLayout loading={loading} context={this.props.context} customClass="booking">
                 {this.renderBookingForm()}
@@ -89,7 +89,7 @@ module.exports = React.createClass({
                         <div className="row">
                             <div className="col-xs-6">
                                 <h2>Choisissez votre date</h2>
-                                <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} />
+                                <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={business.timetable} defaultDate={this.state.daySelected}/>
                             </div>
                             <div className="col-xs-6">
                                 <h2>À quelle heure ?</h2>

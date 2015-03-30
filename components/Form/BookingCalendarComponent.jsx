@@ -123,6 +123,7 @@ module.exports = React.createClass({
             return <td className={cls} key={d.get('date')} onClick={this.dayCallback.bind(this, d.format('YYYY-MM-DD'))}><a href="#">{discountNode}{text}</a></td>;
         } else {
             cls += ' off';
+            if (this.state.selectedDate && d.isSame(this.state.selectedDate, 'day')) cls.replace("active", "");
             return <td className={cls} key={d.get('date')}>{ d.get('date') }</td>;
         }
 
