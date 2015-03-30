@@ -79,6 +79,28 @@ var LinkSection = React.createClass({
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin, HomePageMixin],
+    componentDidMount: function () {
+        // animation
+        TweenMax.set('.headline', {opacity:0,top:30});
+        TweenMax.set('.searchbar.hidden-xs', {opacity:0,marginTop:'-=20'});
+        TweenMax.set('.landing header.hidden-xs', {opacity:0});
+        TweenMax.to('.landing header.hidden-xs', 1, {
+            opacity:1,
+            ease:Power4.easeInOut
+        });
+        TweenMax.to('.headline', 0.7, {
+            opacity:1,
+            top:0,
+            ease:Power4.easeInut,
+            delay:0.5
+        });
+        TweenMax.to('.searchbar.hidden-xs', 0.7, {
+            opacity:1,
+            marginTop:'+=20',
+            ease:Power4.easeOut,
+            delay:0.65
+        });
+    },
     render: function () {
         return (
             <div className="front">
@@ -88,7 +110,7 @@ module.exports = React.createClass({
                         <SearchBar context={this.props.context} mobile={true} />
                         <FlashMessages context={this.props.context} />
                         <div className="row">
-                            <div className="headline  col-md-12">
+                            <div className="headline col-md-12">
                                 <h1>Trouvez votre coupe. <br />Réservez votre coiffeur.</h1>
                                 <p>Des photos valent mieux qu'un long discours. <br />Prenez gratuitement RDV avec le coiffeur qui vous correspond.</p>
                             </div>

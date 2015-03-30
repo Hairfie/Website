@@ -37,7 +37,10 @@ module.exports = React.createClass({
                 <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
                     {_.map(_.chunk(categories, 3), function (categories) {
-                        return <div className="row">{_.map(categories, this.renderCategory)}</div>;
+                        return (
+                            <div key={_.pluck(categories, 'id').join('|')} className="row">
+                                {_.map(categories, this.renderCategory)}
+                            </div>;
                     }, this)}
                 </div>
                 <a href="#" onClick={this.toggleShowAll} className="btn btn-red home-cta col-md-3 col-xs-10">
