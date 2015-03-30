@@ -24,7 +24,7 @@ module.exports = React.createClass({
     renderLayout: function () {
         return (
             <div className="searchbar small-search col-sm-12">
-                <GeoInput ref="address" placeholder="Où ? *" className="col-sm-3" />
+                <GeoInput ref="address" placeholder="Où ?" className="col-sm-3" />
                 <input ref="query" type="search" name="s" placeholder="Ex: Coupe, Brushing etc." className="col-sm-3" />
                 <input ref="date" type="date" className="col-sm-3" />
                 <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
@@ -35,7 +35,7 @@ module.exports = React.createClass({
         return (
             <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-sm-6">
-                    <GeoInput ref="address" placeholder="Où ? *" className="col-xs-6" />
+                    <GeoInput ref="address" placeholder="Où ?" className="col-xs-6" />
                     <input className='col-xs-6' ref="query" type="search" placeholder="Ex: Coupe, Brushing etc." />
                 </div>
                 <div className="col-sm-6">
