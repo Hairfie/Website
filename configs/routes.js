@@ -130,12 +130,6 @@ module.exports = {
         action: require('../actions/Booking/RouteOpen'),
         pageComponent: require('../components/BusinessBookingConfirmationPage.jsx')
     },
-    search: {
-        path: '/search',
-        method: 'get',
-        action: require('../actions/BusinessSearch/RouteOpen'),
-        pageComponent: require('../components/SearchPage.jsx')
-    },
     business_search_results: {
         path: '/coiffeurs/:address',
         method: 'get',
