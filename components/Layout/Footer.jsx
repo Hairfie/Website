@@ -2,7 +2,6 @@
 
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
-var UserStatus = require('./UserStatus.jsx');
 
 module.exports = React.createClass({
     render: function () {

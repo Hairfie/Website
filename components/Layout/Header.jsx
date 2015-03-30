@@ -3,7 +3,7 @@
 var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
 var NavLink = require('flux-router-component').NavLink;
-var UserStatus = require('./UserStatus.jsx');
+var UserStatus = require('../UserStatus.jsx');
 
 var MenuItem = React.createClass({
     mixins: [FluxibleMixin],
