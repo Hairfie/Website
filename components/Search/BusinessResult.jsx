@@ -105,20 +105,22 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="col-xs-12">
-                <div className="col-xs-4 image-bloc">
+                <div className="col-xs-12 col-sm-4 image-bloc">
                     <Picture picture={this.state.business.pictures[0]}
                           resolution={{width: 440, height: 400}} />
                 </div>
-                <div className="col-xs-8 info-bloc">
-                    <h3>
-                        <BusinessLink context={this.props.context} business={this.state.business}>
-                            {this.state.business.name}
+                <div className="col-xs-12 col-sm-8 info-bloc">
+                    <div className="address-bloc">
+                        <h3>
+                            <BusinessLink context={this.props.context} business={this.state.business}>
+                                {this.state.business.name}
+                            </BusinessLink>
+                        </h3>
+                        <BusinessLink context={this.props.context} business={this.state.business} className="address">
+                            {this.state.business.address.street}, {this.state.business.address.zipCode} {this.state.business.address.city}
                         </BusinessLink>
-                    </h3>
-                    <BusinessLink context={this.props.context} business={this.state.business} className="address">
-                        {this.state.business.address.street}, {this.state.business.address.zipCode} {this.state.business.address.city}
-                    </BusinessLink>
-                    {this.renderDiscount()}
+                    </div>
+                    {this.renderPricing()}
                     <Hairfies context={this.props.context} business={this.state.business} />
                     <a href="#" className="btn btn-red">Réserver</a>
                     {this.renderRating()}
@@ -141,19 +143,41 @@ module.exports = React.createClass({
                 <div className="note">
                     <span>{rating}</span>/10
                 </div>
-                <a href="#" className="small">{this.state.business.numReviews} avis</a>
+                <BusinessLink context={this.props.context} business={this.state.business} className="small">
+                    {this.state.business.numReviews} avis
+                </BusinessLink>
             </div>
         );
     },
-    renderDiscount: function () {
-        if (!this.state.business.bestDiscount) return;
+    renderPricing: function () {
+        if (this.state.business.bestDiscount) {
+            return (
+                <p className="inline-promo">
+                    <span className="icon-promo">%</span>
+                    -{this.state.business.bestDiscount}% dans tout le salon*
+                    {this.renderAveragePrice()}
+                </p>
+            );
+        }
 
         return (
             <p className="inline-promo">
-                <span className="icon-promo">%</span>
-                -{this.state.business.bestDiscount}% dans tout le salon*
-                <span className="black">&nbsp;&nbsp;prix moyen ???€</span>
+                &nbsp;
+                {this.renderAveragePrice()}
             </p>
         );
+    },
+    renderAveragePrice: function () {
+        var price = this.state.business.averagePrice || {},
+            men   = price.men && Math.round(price.men),
+            women = price.women && Math.round(price.women);
+
+        if (men && women) {
+            return <span className="black">&nbsp;&nbsp;prix moyen homme {men}€ / femme {women}€</span>;
+        } else if (men) {
+            return <span className="black">&nbsp;&nbsp;prix moyen homme {men}€</span>;
+        } else if (women) {
+            return <span className="black">&nbsp;&nbsp;prix moyen femme {women}€</span>;
+        }
     }
 });

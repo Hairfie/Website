@@ -138,13 +138,11 @@ var SearchResults = React.createClass({
     render: function () {
         var result = this.props.result || {};
 
-        var businessNodes = _.map(result.hits, function (business) {
-            return <Search.BusinessResult key={business.id} context={this.props.context} business={business} />
-        }, this);
-
         return (
             <div className="row">
-                {businessNodes}
+                {_.map(result.hits, function (business) {
+                    return <Search.BusinessResult key={business.id} context={this.props.context} business={business} />
+                }, this)}
             </div>
         );
     }
@@ -331,9 +329,9 @@ module.exports = React.createClass({
                             <section className="search-content">
                                 {this.renderHeader()}
                                 <div className="row">
-                                    <div className='col-xs-12 '>
+                                    <div role="tabpanel" className="col-xs-12">
                                         <div className="tab-content">
-                                            <div role="tabpanel" className="tab-pane active" id="salons">
+                                            <div role="tabpanel" className="tab-pane fade active in" id="salons">
                                                 <SearchResults context={this.props.context} result={this.state.result} />
                                                 <Pagination onChange={this.handlePageChange} page={this.state.search.page} numPages={this.state.result && this.state.result.nbPages} />
                                             </div>
