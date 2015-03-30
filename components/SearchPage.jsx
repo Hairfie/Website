@@ -58,6 +58,9 @@ module.exports = React.createClass({
 
         return (
             <PublicLayout context={this.props.context} withLogin={false} customClass={'search'}>
+                <div className="mobile-screen hidden-md hidden-lg">
+                    <a href="#" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
+                </div>
                 <div className="row search-bar">
                     <div className="col-sm-8 col-sm-offset-2 form-container">
                         <form role="form" className="form-inline">
