@@ -28,9 +28,9 @@ var Pagination = React.createClass({
         return (
             <nav>
                 <ul className="pagination">
-                    {_.map(this._buildListItems(), function (item) {
+                    {_.map(this._buildListItems(), function (item, i) {
                         return (
-                            <li className={item.active && 'disabled'}>
+                            <li key={item.label+'-'+i} className={item.active && 'disabled'}>
                                 <a href="#" onClick={this.handleClick.bind(this, item)}>
                                     {item.label}
                                 </a>
@@ -84,7 +84,7 @@ var Slider = React.createClass({
         this.slider.slider('option', 'values', this.props.defaultValue);
     },
     render: function () {
-        return <div ref="slider" id="rangeslider" />;
+        return <div ref="slider" className="rangeslider" />;
     },
     handleChange: function (e, ui) {
         this.props.onChange(ui.value);
@@ -205,17 +205,11 @@ var SearchFilters = React.createClass({
         );
     },
     renderPrice: function () {
-        var price = this.props.search.price || {};
-        var defaultValue = [price.min || 0, price.max || 1000];
+        var min   = 0,
+            max   = 1000,
+            price = _.assign({min: min, max: max}, this.props.search.price);
 
-        return (
-            <div className="price">
-                <h2>Prix</h2>
-                <div className="selectRange">
-                    <Slider range={true} min={0} max={1000} step={5} defaultValue={this.props.search.price} onChange={this.handlePriceChange} />
-                </div>
-            </div>
-        );
+        return <Search.PriceFilter defaultValue={price} min={min} max={max} onChange={this.handlePriceChange} />
     },
     renderQuery: function () {
         return (
@@ -281,7 +275,7 @@ var SearchFilters = React.createClass({
         this.props.onChange({radius: nextRadius});
     },
     handlePriceChange: function (nextPrice) {
-        console.log(nextPrice);
+        this.props.onChange({price: nextPrice});
     }
 });
 

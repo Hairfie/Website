@@ -53,9 +53,12 @@ var Hairfies = React.createClass({
             </div>
         );
     },
-    renderHairfie: function (hairfie) {
+    renderHairfie: function (hairfie, i) {
+        var className = i > 2 ? 'hidden-xs' : '';
+        if (i > 4) className = className+' hidden-md hidden-sm';
+
         return (
-            <li key={hairfie.id}>
+            <li key={hairfie.id} className={className}>
                 <NavLink context={this.props.context} routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
                     <Picture picture={hairfie.pictures[0]}
                           resolution={{width: 55, height: 55}}
