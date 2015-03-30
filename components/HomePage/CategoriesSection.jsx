@@ -40,7 +40,8 @@ module.exports = React.createClass({
                         return (
                             <div key={_.pluck(categories, 'id').join('|')} className="row">
                                 {_.map(categories, this.renderCategory)}
-                            </div>;
+                            </div>
+                        );
                     }, this)}
                 </div>
                 <a href="#" onClick={this.toggleShowAll} className="btn btn-red home-cta col-md-3 col-xs-10">
