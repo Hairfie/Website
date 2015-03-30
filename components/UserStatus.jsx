@@ -22,7 +22,7 @@ var PasswordLostModal = React.createClass({
         return (
             <Modal {...this.props} title="Réinitialiser votre mot de passe">
                 <div className="modal-body">
-                    <p>Entrez l'adresse e-mail associée à votre compte, et nous vous enverrons par e-mail un lien pour réinitialiser votre mot de passe.</p>
+                    <p>Entrez l'{/*'*/}adresse e-mail associée à votre compte, et nous vous enverrons par e-mail un lien pour réinitialiser votre mot de passe.</p>
                     <Input ref="email" type="email"  placeholder="Email" />
                 </div>
                 <div className="modal-footer">

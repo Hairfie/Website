@@ -5,30 +5,36 @@ $icon-font-path: "../components/bootstrap/fonts/";
 @import "../components/bootstrap-social/bootstrap-social.scss";
 @import "../components/font-awesome/scss/font-awesome.scss";
 
-@import "../fonts/socicon/socicon.css";
+// // @import "../fonts/socicon/socicon.css";
 
-
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-// Import variales and helpers:
-@import "front/variables";
-@import "front/helpers";
-@import "front/buttons";
-@import "front/calendar";
-
-// Import general styles:
-@import "front/general";
-
-.front {
-    // Import page specific style:
-    @import "front/header";
-    @import "front/footer";
-    @import "front/page-home";
-    @import "front/page-search";
-    @import "front/page-salon";
-    @import "front/page-hairfie";
+body {
+    font-size: 1em; font-size: 100%; font-size: 10px;
+    width: 100%; height: 100%;
+    overflow-x: hidden;
 }
+
+
+// //@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
+// //@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+// // // Import variales and helpers:
+// // @import "front/variables";
+// // @import "front/helpers";
+// // @import "front/buttons";
+// // @import "front/calendar";
+
+// // // Import general styles:
+// // @import "front/general";
+
+// .front {
+//     // Import page specific style:
+//     // @import "front/header";
+//     // @import "front/footer";
+//     // @import "front/page-home";
+//     // @import "front/page-search";
+//     // @import "front/page-salon";
+//     // @import "front/page-hairfie";
+// }
 
 .backoffice {
     @import "backoffice/colors";

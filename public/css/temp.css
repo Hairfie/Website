@@ -55,3 +55,13 @@ figcaption a.address {
 .cal td {
     font-size: 16px;
 }
+
+/* Homepage Pro */
+.dropdown-menu.login {
+  right: 0;
+  left: auto;
+  min-width: 290px;
+  padding: 10px;
+  top: 57px;
+}
+

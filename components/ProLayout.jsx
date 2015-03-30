@@ -48,7 +48,7 @@ module.exports = React.createClass({
                     </div>
                     <ul className="nav navbar-right top-nav">
                         <li><NavLink context={this.props.context} routeName="home">Home</NavLink></li>
-                        <li><NavLink context={this.props.context} routeName="search">Trouver son coiffeur</NavLink></li>
+                        <li><NavLink context={this.props.context} routeName="pro_dashboard">Mes salons</NavLink></li>
                         <UserStatus context={this.props.context} currentBusiness={this.props.business} />
                     </ul>
                     {this.renderBusinessMenu(this.props.business)}

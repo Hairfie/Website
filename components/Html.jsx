@@ -20,8 +20,8 @@ var Html = React.createClass({
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
+                <link rel="stylesheet" href="/css/style.css" />
                 <link rel="stylesheet" href="http://lucasfayolle.com/hairfie/styles/main.css" />
-                {/* <link rel="stylesheet" href="/css/style.css" /> */}
                 <link rel="stylesheet" href="/css/temp.css" />
                 <script src="/components/modernizr/modernizr.js"></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />

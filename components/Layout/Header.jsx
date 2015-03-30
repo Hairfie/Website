@@ -54,10 +54,10 @@ module.exports = React.createClass({
                         <NavLink context={this.props.context} className="logo col-md-4" routeName="home" />
                         <nav className='col-md-8 pull-right'>
                             <ul>
-                                <li><a href="#">Inscription</a></li>
-                                <li><a href="#">Connexion</a></li>
+                                {/*<li><a href="#">Inscription</a></li>
+                                <li><a href="#">Connexion</a></li> */}
                                 {custom}
-                                <li><NavLink context={this.props.context} routeName="pro_home" className="btn btn-red hide">Déclarez votre salon</NavLink></li>
+                                <li><NavLink context={this.props.context} routeName="pro_home" className="btn btn-red">Déclarez votre salon</NavLink></li>
                             </ul>
                         </nav>
                     </div>
