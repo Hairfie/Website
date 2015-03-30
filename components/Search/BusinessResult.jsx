@@ -122,7 +122,9 @@ module.exports = React.createClass({
                     </div>
                     {this.renderPricing()}
                     <Hairfies context={this.props.context} business={this.state.business} />
-                    <a href="#" className="btn btn-red">Réserver</a>
+                    <NavLink href={this.makeBookingHref()} className="btn btn-red">
+                        Réserver
+                    </NavLink>
                     {this.renderRating()}
                 </div>
             </section>
@@ -179,5 +181,16 @@ module.exports = React.createClass({
         } else if (women) {
             return <span className="black">&nbsp;&nbsp;prix moyen femme {women}€</span>;
         }
+    },
+    makeBookingHref: function () {
+        if (!this.state.business) return;
+
+        var query = {};
+        if (this.props.date) query.date = this.props.date;
+
+        return this.props.context.makeUrl('book_business', {
+            businessId: this.state.business.id,
+            businessSlug: this.state.business.slug
+        }, query);
     }
 });

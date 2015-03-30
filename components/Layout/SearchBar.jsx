@@ -39,7 +39,7 @@ module.exports = React.createClass({
                     <input className='col-xs-6' ref="query" type="search" placeholder="Ex: Coupe, Brushing etc." />
                 </div>
                 <div className="col-sm-6">
-                    <input type="date" className='col-xs-6'/>
+                    <input ref="date" type="date" className='col-xs-6'/>
                     <Button onClick={this.submit} className='btn btn-red col-xs-6'>Trouvez votre coiffeur</Button>
                 </div>
             </div>
@@ -59,7 +59,7 @@ module.exports = React.createClass({
                         <div className="searchbar col-xs-10">
                             <GeoInput ref="address" className='col-xs-12' placeholder="Où ?" />
                             <input className='col-xs-12' ref="query" type="search" placeholder='Nom, spécialité...' />
-                            <input type="date" className='col-xs-12'/>
+                            <input ref="date" type="date" className='col-xs-12'/>
                             <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                         </div>
                     </div>
@@ -70,7 +70,8 @@ module.exports = React.createClass({
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
-            query   : this.refs.query.getDOMNode().value
+            query   : this.refs.query.getDOMNode().value,
+            date    : this.refs.date.getDOMNode().value
         };
 
         this.props.context.executeAction(SubmitSearch, {search: search});

@@ -136,12 +136,13 @@ var Breadcrumb = React.createClass({
 
 var SearchResults = React.createClass({
     render: function () {
-        var result = this.props.result || {};
+        var result = this.props.result || {},
+            date   = this.props.search && this.props.search.date;
 
         return (
             <div className="row">
                 {_.map(result.hits, function (business) {
-                    return <Search.BusinessResult key={business.id} context={this.props.context} business={business} />
+                    return <Search.BusinessResult key={business.id} context={this.props.context} business={business} date={date} />
                 }, this)}
             </div>
         );
@@ -332,7 +333,7 @@ module.exports = React.createClass({
                                     <div role="tabpanel" className="col-xs-12">
                                         <div className="tab-content">
                                             <div role="tabpanel" className="tab-pane fade active in" id="salons">
-                                                <SearchResults context={this.props.context} result={this.state.result} />
+                                                <SearchResults context={this.props.context} search={this.state.search} result={this.state.result} />
                                                 <Pagination onChange={this.handlePageChange} page={this.state.search.page} numPages={this.state.result && this.state.result.nbPages} />
                                             </div>
                                         </div>
