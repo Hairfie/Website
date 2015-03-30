@@ -8,7 +8,9 @@ var _ = require('lodash');
 module.exports = createStore({
     storeName: 'RouteStore',
     handlers: {
-        CHANGE_ROUTE_START: 'handleChangeRoute'
+        CHANGE_ROUTE_START  : 'handleChangeRoute',
+        CHANGE_ROUTE_SUCCESS: 'handleChangeRouteEnd',
+        CHANGE_ROUTE_FAILURE: 'handleChangeRouteEnd',
     },
     initialize: function () {
         this.currentRoute = null;
@@ -32,7 +34,12 @@ module.exports = createStore({
         }
 
         this.currentRoute = route;
+        this.loading = true;
 
+        this.emitChange();
+    },
+    handleChangeRouteEnd: function (route) {
+        this.loading = false;
         this.emitChange();
     },
     getCurrentRoute: function () {
@@ -43,5 +50,8 @@ module.exports = createStore({
     },
     getQueryParam: function (name) {
         return this.currentRoute && this.currentRoute.query[name];
+    },
+    isLoading: function () {
+        return !!this.loading;
     }
 });

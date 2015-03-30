@@ -7,6 +7,7 @@ var UserStatus = require('./UserStatus.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
+var PageProgress = require('./PageProgress.jsx');
 
 var FluxibleMixin = require('fluxible').Mixin;
 
@@ -104,6 +105,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="front">
+                <PageProgress context={this.props.context} />
                 <section className="landing">
                     <div className="container">
                         <Header context={this.props.context} withLogin={this.props.withLogin} headerClassName='normal' />
