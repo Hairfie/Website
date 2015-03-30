@@ -4,40 +4,45 @@
 
 var React = require('react');
 var FluxibleMixin = require('fluxible').Mixin;
-var CategoriesStore = require('../../stores/CategoriesStore');
-var lodash = require('lodash');
+var CategoryStore = require('../../stores/CategoryStore');
+var _ = require('lodash');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin, NavToLinkMixin],
     statics: {
-        storeListeners: [CategoriesStore]
+        storeListeners: [CategoryStore]
     },
     getStateFromStores: function () {
         return {
-            categories : this.getStore(CategoriesStore).get()
+            categories : this.getStore(CategoryStore).all()
         };
     },
     getInitialState: function () {
-        return this.getStateFromStores();
+        return _.assign(this.getStateFromStores(), {
+            showAll: false
+        });
     },
     onChange: function () {
         this.setState(this.getStateFromStores());
     },
     render: function () {
+        var categories = this.state.categories || [];
+
+        if (!this.state.showAll) categories = categories.slice(0, 6);
+
         return (
             <section className="home-section">
                 <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
-                    <div className="row">
-                        {lodash.map(this.state.categories, this.renderCategory).slice(0, 3)}
-                    </div>
-                    <div className="row">
-                        {lodash.map(this.state.categories, this.renderCategory).slice(3, 6)}
-                    </div>
+                    {_.map(_.chunk(categories, 3), function (categories) {
+                        return <div className="row">{_.map(categories, this.renderCategory)}</div>;
+                    }, this)}
                 </div>
-                <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de catégories</a>
+                <a href="#" onClick={this.toggleShowAll} className="btn btn-red home-cta col-md-3 col-xs-10">
+                    {this.state.showAll ? 'Moins' : 'Plus'} de catégories
+                </a>
             </section>
         );
     },
@@ -57,5 +62,9 @@ module.exports = React.createClass({
                 </figure>
             </div>
         );
+    },
+    toggleShowAll: function (e) {
+        e.preventDefault();
+        this.setState({showAll: !this.state.showAll});
     }
 });

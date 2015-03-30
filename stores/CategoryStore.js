@@ -3,19 +3,18 @@
 var createStore = require('fluxible/utils/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var CategoryEvents = require('../constants/CategoryConstants').Events;
-var CategoryActions = require('../actions/Categories');
+var CategoryActions = require('../actions/Category');
 
 var _ = require('lodash');
 
 module.exports = createStore({
-    storeName: 'CategoriesStore',
+    storeName: 'CategoryStore',
     handlers: makeHandlers({
-        handleFetchAll        : CategoryEvents.FETCH_ALL,
         handleFetchAllSuccess : CategoryEvents.FETCH_ALL_SUCCESS,
         handleFetchAllFailure : CategoryEvents.FETCH_ALL_FAILURE
     }),
     initialize: function () {
-        this.categories = [];
+        this.categories;
     },
     dehydrate: function () {
         return {
@@ -26,27 +25,24 @@ module.exports = createStore({
         this.categories = data.categories;
         this.limit = data.limit;
     },
-    get: function () {
-        if (!this.loading && this.categories.length === 0) {
+    all: function () {
+        if (!this.loading && _.isUndefined(this.categories)) {
             this._load();
         }
+
         return this.categories;
-    },
-    handleFetchAll: function (payload) {
-        this.loading = true;
     },
     handleFetchAllSuccess: function (payload) {
         this.loading = false;
         this.categories = _.sortBy(payload.categories, 'position');
-        try {
         this.emitChange();
-        } catch (e) {console.log(e); };
     },
     handleFetchAllFailure: function (payload) {
         this.loading = false;
         this.emitChange();
     },
     _load: function () {
+        this.loading = true;
         this.dispatcher.getContext().executeAction(CategoryActions.FetchAll);
     }
 });

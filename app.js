@@ -126,7 +126,7 @@ app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/PictureUploadStore'));
-app.registerStore(require('./stores/CategoriesStore'));
+app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));
 
