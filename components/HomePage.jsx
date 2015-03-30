@@ -14,13 +14,9 @@ var CategoriesSection = require('./HomePage/CategoriesSection.jsx');
 var DealsSection = require('./HomePage/DealsSection.jsx');
 var TopHairfiesSection = require('./HomePage/TopHairfiesSection.jsx');
 var HomePageMixin = require('./HomePage/HomePageMixin.jsx');
-var SearchBar = require('./Partial/SearchBar.jsx');
+var SearchBar = require('./Layout/SearchBar.jsx');
 
 var _ = require('lodash');
-
-
-var BusinessActions = require('../actions/Business');
-
 
 var HowSection = React.createClass({
     render: function () {
@@ -98,7 +94,7 @@ module.exports = React.createClass({
                             </div>
                         </div>
                         <div className="row">
-                            <SearchBar context={this.props.context} />
+                            <SearchBar context={this.props.context} homepage={true} />
                         </div>
                     </div>
                 </section>

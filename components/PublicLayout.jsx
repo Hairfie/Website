@@ -16,6 +16,7 @@ module.exports = React.createClass({
                 <div className="container">
                     <Header context={this.props.context} withLogin={this.props.withLogin} headerClass={this.props.headerClass} />
                     {this.renderSearchBar()}
+                    <SearchBar context={this.props.context} mobile={true} />
                 </div>
                 <FlashMessages context={this.props.context} />
                 {this.props.children}
