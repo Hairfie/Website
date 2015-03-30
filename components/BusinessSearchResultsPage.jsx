@@ -10,7 +10,6 @@ var BusinessSearchStore = require('../stores/BusinessSearchStore');
 var BusinessActions = require('../actions/Business');
 var NavLink = require('flux-router-component').NavLink;
 var SearchUtils = require('../lib/search-utils');
-var SearchConfig = require('../configs/search');
 
 var Layout = require('./PublicLayout.jsx');
 var Search = require('./Search');
@@ -56,38 +55,6 @@ var Pagination = React.createClass({
         }
 
         return items;
-    }
-});
-
-var Slider = React.createClass({
-    getDefaultProps: function () {
-        return {
-            range: false
-        };
-    },
-    componentDidMount: function () {
-        this.slider = jQuery(this.refs.slider.getDOMNode());
-        this.slider.slider({
-            range: this.props.range,
-            step: this.props.step,
-            min: this.props.min,
-            max: this.props.max,
-            values: this.props.defaultValue,
-            change: this.handleChange
-        });
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.slider.slider('option', 'range', this.props.range);
-        this.slider.slider('option', 'step', this.props.step);
-        this.slider.slider('option', 'min', this.props.min);
-        this.slider.slider('option', 'max', this.props.max);
-        this.slider.slider('option', 'values', this.props.defaultValue);
-    },
-    render: function () {
-        return <div ref="slider" className="rangeslider" />;
-    },
-    handleChange: function (e, ui) {
-        this.props.onChange(ui.value);
     }
 });
 
@@ -193,16 +160,7 @@ var SearchFilters = React.createClass({
     renderRadius: function () {
         if (!this.props.search.location) return;
 
-        return (
-            <div className="price">
-                <h2>Rayon</h2>
-                <div className="selectRange">
-                    <Slider min={1000} max={50000} step={1000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />
-                    <p className="col-xs-6">1km</p>
-                    <p className="col-xs-6">50km</p>
-                </div>
-            </div>
-        );
+        return <Search.RadiusFilter min={1000} max={50000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />
     },
     renderPrice: function () {
         var min   = 0,

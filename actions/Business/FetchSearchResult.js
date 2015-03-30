@@ -17,8 +17,8 @@ module.exports = function (context, payload, done) {
     if (payload.search.query) apiQuery.query = payload.search.query;
     if (payload.search.categories) apiQuery.facetFilters.categories = payload.search.categories;
     if (payload.search.page) apiQuery.page = payload.search.page;
-    if (payload.search.priceMin) apiQuery.price.min = payload.search.priceMin;
-    if (payload.search.priceMax) apiQuery.price.max = payload.search.priceMax;
+    if ((payload.search.price || {}).min) apiQuery.price.min = payload.search.price.min;
+    if ((payload.search.price || {}).max) apiQuery.price.max = payload.search.price.max;
 
     context
         .getHairfieApi()
