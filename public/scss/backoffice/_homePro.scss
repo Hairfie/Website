@@ -2,9 +2,10 @@
     margin-top: -120px;
     //bottom: 0;
     width: 100%;
-    background: url(../img/background-pro-trans.png);
-    background-position: center;
+    background: url(../img/background-pro-trans.jpg);
+    background-position: no-repeat center center fixed;
     padding-top: 100px;
+    background-size: cover;
 
     @media screen and (min-width: $screen-sm-min) {
         height: 100%;
@@ -12,9 +13,9 @@
     }
 
     li {
-        color: $red-title;
+        color: white;
         span, strong {
-            color: $grey;
+            color: black;
         }
     }
 
@@ -23,7 +24,7 @@
 
 
         .left {
-            padding: 20px;
+            padding: 40px;
 
             p.list {
                 margin-top: 20px;
@@ -34,7 +35,7 @@
             }
 
             ul {
-                margin-left: -20px;
+                //margin-left: -20px;
             }
 
             p.btn-app-store {
@@ -78,5 +79,22 @@
             }
         }
 
+    }
+    .btn-app-store {
+        margin-top: 40px;
+
+        .btn img {
+            padding: 0;
+            width:202px;
+            height:64px;
+        }
+    }
+
+    .btn-app-store .btn img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 180px;
+        height: auto;
     }
 }

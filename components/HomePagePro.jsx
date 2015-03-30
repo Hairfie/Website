@@ -76,51 +76,55 @@ var GenderChoice = React.createClass({
 module.exports = React.createClass({
     render: function () {
         return (
-            <PublicLayout context={this.props.context} withLogin={true} customClass={'home-pro'}>
-                <div className="row first">
-                    <div className="col-sm-7 col-md-5 col-md-offset-1 left">
-                        <h1>Augmentez votre visibilité et votre chiffre d'affaires</h1>
-                        <hr />
-                        <p className="list">
-                            <ul>
-                                <li><span>Gagnez en <strong>visibilité</strong> sur le web et les réseaux sociaux</span></li>
-                                <li><span><strong>Différenciez-vous</strong> de vos concurrents</span></li>
-                                <li><span>Augmentez votre <strong>chiffre d'affaires</strong></span></li>
-                                <li><span>Gagnez du <strong>temps</strong> et concentrez vous sur votre métier</span></li>
-                            </ul>
-                        </p>
-
-                        <p className="btn-app-store">
-                            <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" target="_blank" className="btn btn-lg">
-                                <img id="btn-apple" src="/img/btn-apple@2x.png" />
-                            </a>
-                        </p>
-                    </div>
-
-                    <div className="col-sm-5 col-md-4 col-md-offset-1">
-                        <form role="form" className="claim">
-                            <h3>Vous êtes un <strong>professionnel</strong> de la coiffure ?</h3>
-                            <GenderChoice ref="userGender" />
-                            <Input ref="userFirstName" type="text"  placeholder="Prénom" />
-                            <Input ref="userLastName" type="text" placeholder="Nom" />
-                            <Input ref="userEmail" type="email" placeholder="Email" />
-                            <Input ref="userPassword" type="password" placeholder="Choisissez un mot de passe" />
+            <PublicLayout context={this.props.context} withLogin={true} >
+                <section className="home-pro">
+                    <div className="row first">
+                        <div className="col-sm-7 col-md-5 col-md-offset-1 left">
+                            <h1>Augmentez votre visibilité et votre chiffre d'affaires</h1>
                             <hr />
+                            <p className="list">
+                                <ul>
+                                    <li><span>Gagnez en <strong>visibilité</strong> sur le web et les réseaux sociaux</span></li>
+                                    <li><span><strong>Différenciez-vous</strong> de vos concurrents</span></li>
+                                    <li><span>Augmentez votre <strong>chiffre d'affaires</strong></span></li>
+                                    <li><span>Gagnez du <strong>temps</strong> et concentrez vous sur votre métier</span></li>
+                                </ul>
+                            </p>
 
-                            <KindChoice ref="businessKind" />
-                            <Input ref="businessName" type="text" placeholder="Nom de votre société" />
-                            <AddressInput ref="businessAddress" placeholder="Adresse postale" />
-                            <Input ref="businessPhoneNumber" type="text" placeholder="Numéro de téléphone" />
-                            <Button className="btn-red btn-block" onClick={this.submit}>Commencer maintenant !</Button>
-                        </form>
+                            <p className="btn-app-store">
+                                <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=853590611&mt=8" target="_blank" className="btn btn-lg">
+                                    <img id="btn-apple" src="/img/btn-apple@2x.png" />
+                                </a>
+                            </p>
+                        </div>
+
+                        <div className="col-sm-5 col-md-4 col-md-offset-1">
+                            <form role="form" className="claim">
+                                <h3>Vous êtes un <strong>professionnel</strong> de la coiffure ?</h3>
+                                <GenderChoice ref="userGender" />
+                                <Input ref="userFirstName" type="text"  placeholder="Prénom" />
+                                <Input ref="userLastName" type="text" placeholder="Nom" />
+                                <Input ref="userEmail" type="email" placeholder="Email" />
+                                <Input ref="userPassword" type="password" placeholder="Choisissez un mot de passe" />
+                                <hr />
+
+                                <KindChoice ref="businessKind" />
+                                <Input ref="businessName" type="text" placeholder="Nom de votre société" />
+                                <div className="form-group" >
+                                    <AddressInput ref="businessAddress" placeholder="Adresse postale" className="form-control" />
+                                </div>
+                                <Input ref="businessPhoneNumber" type="text" placeholder="Numéro de téléphone" />
+                                <Button className="btn-red btn-block" onClick={this.submit}>Commencer maintenant !</Button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                </section>
             </PublicLayout>
         );
     },
     submit: function (e) {
         e.preventDefault();
-        this.executeAction(AuthActions.Signup, {
+        this.props.context.executeAction(AuthActions.Signup, {
             user        : {
                 gender      : this.refs.userGender.getValue(),
                 firstName   : this.refs.userFirstName.getValue(),

@@ -43,6 +43,8 @@ module.exports = React.createClass({
         var custom;
         if (this.props.withLogin) {
             custom = (<UserStatus context={this.props.context} />);
+        } else {
+            custom = (<li><NavLink context={this.props.context} routeName="pro_home" className="">Déclarez votre salon</NavLink></li>);
         }
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
         headerClassName += ' hidden-xs';
@@ -57,7 +59,6 @@ module.exports = React.createClass({
                                 {/*<li><a href="#">Inscription</a></li>
                                 <li><a href="#">Connexion</a></li> */}
                                 {custom}
-                                <li><NavLink context={this.props.context} routeName="pro_home" className="btn btn-red">Déclarez votre salon</NavLink></li>
                             </ul>
                         </nav>
                     </div>

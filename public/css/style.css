@@ -176,7 +176,7 @@ td, th {
     background: #fff !important; }
   .navbar {
     display: none; }
-  .btn > .caret, .backoffice .btn-red > .caret, .backoffice div.row#business-header div.infos .btn-booking > .caret, .dropup > .btn > .caret, .backoffice .dropup > .btn-red > .caret, .backoffice div.row#business-header div.infos .dropup > .btn-booking > .caret {
+  .btn > .caret, .btn-red > .caret, .backoffice div.row#business-header div.infos .btn-booking > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret, .backoffice div.row#business-header div.infos .dropup > .btn-booking > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -2085,9 +2085,9 @@ input[type="search"] {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
     line-height: 34px; }
-    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .backoffice .input-group-sm > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="date"].btn-booking, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .backoffice .input-group-sm > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="time"].btn-booking, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .backoffice .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .backoffice .input-group-sm > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="month"].btn-booking, .input-group-sm input[type="month"] {
+    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="date"].btn-booking, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="time"].btn-booking, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="month"].btn-booking, .input-group-sm input[type="month"] {
       line-height: 30px; }
-    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .backoffice .input-group-lg > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="date"].btn-booking, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .backoffice .input-group-lg > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="time"].btn-booking, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .backoffice .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .backoffice .input-group-lg > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="month"].btn-booking, .input-group-lg input[type="month"] {
+    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="date"].btn-booking, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="time"].btn-booking, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="month"].btn-booking, .input-group-lg input[type="month"] {
       line-height: 46px; } }
 
 .form-group {
@@ -2138,22 +2138,22 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .backoffice .input-group-lg > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .form-control-static.btn-booking, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .backoffice .input-group-sm > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .form-control-static.btn-booking {
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .input-group-lg > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .form-control-static.btn-booking, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .form-control-static.btn-booking {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .backoffice .input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking {
+.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .backoffice .input-group-sm > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select.btn-booking {
+select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select.btn-booking {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .backoffice .input-group-sm > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > textarea.btn-booking, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .backoffice .input-group-sm > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select[multiple].btn-booking {
+textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > textarea.btn-booking, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select[multiple].btn-booking {
   height: auto; }
 
 .form-group-sm .form-control {
@@ -2173,18 +2173,18 @@ textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > te
   font-size: 12px;
   line-height: 1.5; }
 
-.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .backoffice .input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking {
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .backoffice .input-group-lg > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select.btn-booking {
+select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select.btn-booking {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .backoffice .input-group-lg > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > textarea.btn-booking, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .backoffice .input-group-lg > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select[multiple].btn-booking {
+textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > textarea.btn-booking, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select[multiple].btn-booking {
   height: auto; }
 
 .form-group-lg .form-control {
@@ -2221,12 +2221,12 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .backoffice .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking + .form-control-feedback {
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .backoffice .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking + .form-control-feedback {
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px; }
@@ -2355,7 +2355,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px; } }
 
-.btn, .backoffice .btn-red, .backoffice div.row#business-header div.infos .btn-booking {
+.btn, .btn-red, .backoffice div.row#business-header div.infos .btn-booking, .backoffice .btn-red {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2374,19 +2374,19 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .backoffice .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .backoffice .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking, .btn:active:focus, .backoffice .btn-red:active:focus, .backoffice div.row#business-header div.infos .btn-booking:active:focus, .btn:active.focus, .backoffice .btn-red:active.focus, .backoffice div.row#business-header div.infos .btn-booking:active.focus, .btn.active:focus, .backoffice .active.btn-red:focus, .backoffice div.row#business-header div.infos .active.btn-booking:focus, .btn.active.focus, .backoffice .active.focus.btn-red, .backoffice div.row#business-header div.infos .active.focus.btn-booking {
+  .btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking, .btn:active:focus, .btn-red:active:focus, .backoffice div.row#business-header div.infos .btn-booking:active:focus, .btn:active.focus, .btn-red:active.focus, .backoffice div.row#business-header div.infos .btn-booking:active.focus, .btn.active:focus, .active.btn-red:focus, .backoffice div.row#business-header div.infos .active.btn-booking:focus, .btn.active.focus, .active.focus.btn-red, .backoffice div.row#business-header div.infos .active.focus.btn-booking {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .backoffice .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover, .btn:focus, .backoffice .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .backoffice .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking {
+  .btn:hover, .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover, .btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking {
     color: #333;
     text-decoration: none; }
-  .btn:active, .backoffice .btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active, .btn.active, .backoffice .active.btn-red, .backoffice div.row#business-header div.infos .active.btn-booking {
+  .btn:active, .btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active, .btn.active, .active.btn-red, .backoffice div.row#business-header div.infos .active.btn-booking {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .backoffice .disabled.btn-red, .backoffice div.row#business-header div.infos .disabled.btn-booking, .btn[disabled], .backoffice [disabled].btn-red, .backoffice div.row#business-header div.infos [disabled].btn-booking, fieldset[disabled] .btn, fieldset[disabled] .backoffice .btn-red, .backoffice fieldset[disabled] .btn-red, fieldset[disabled] .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos fieldset[disabled] .btn-booking {
+  .btn.disabled, .disabled.btn-red, .backoffice div.row#business-header div.infos .disabled.btn-booking, .btn[disabled], [disabled].btn-red, .backoffice div.row#business-header div.infos [disabled].btn-booking, fieldset[disabled] .btn, fieldset[disabled] .btn-red, fieldset[disabled] .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos fieldset[disabled] .btn-booking {
     cursor: false;
     pointer-events: none;
     opacity: 0.65;
@@ -2514,19 +2514,19 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .backoffice .btn-group-lg > .btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .backoffice .btn-group-sm > .btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-booking {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-booking {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .backoffice .btn-group-xs > .btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -2701,13 +2701,13 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .backoffice .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-booking, .btn-group-vertical > .btn, .backoffice .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking {
+  .btn-group > .btn, .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-booking, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .backoffice .btn-group > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:hover, .btn-group > .btn:focus, .backoffice .btn-group > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:focus, .btn-group > .btn:active, .backoffice .btn-group > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:active, .btn-group > .btn.active, .backoffice .btn-group > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group > .active.btn-booking, .btn-group-vertical > .btn:hover, .backoffice .btn-group-vertical > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:hover, .btn-group-vertical > .btn:focus, .backoffice .btn-group-vertical > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:focus, .btn-group-vertical > .btn:active, .backoffice .btn-group-vertical > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:active, .btn-group-vertical > .btn.active, .backoffice .btn-group-vertical > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .active.btn-booking {
+    .btn-group > .btn:hover, .btn-group > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group > .active.btn-booking, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:active, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .active.btn-booking {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .backoffice .btn-red + .btn, .backoffice .btn-group .btn-red + .btn, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn, .btn-group .backoffice .btn + .btn-red, .backoffice .btn-group .btn + .btn-red, .btn-group .backoffice .btn-red + .btn-red, .backoffice .btn-group .btn-red + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-red + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-booking, .btn-group .btn + .btn-group, .btn-group .backoffice .btn-red + .btn-group, .backoffice .btn-group .btn-red + .btn-group, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-group, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-group, .btn-group .btn-group + .btn, .btn-group .backoffice .btn-group + .btn-red, .backoffice .btn-group .btn-group + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn-group + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-group + .btn-booking, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-red + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-group, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn-group + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-group + .btn-booking, .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -2719,44 +2719,44 @@ tbody.collapse.in {
     clear: both; }
   .btn-toolbar .btn-group, .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .backoffice .btn-toolbar > .btn-red, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+  .btn-toolbar > .btn, .btn-toolbar > .btn-red, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .backoffice .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .backoffice .btn-group > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child {
+.btn-group > .btn:first-child, .btn-group > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .backoffice .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .backoffice .btn-group > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .backoffice .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .backoffice .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .backoffice .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .backoffice .btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group > .btn-booking + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .backoffice .btn-group-lg.btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group-lg.btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group-lg.btn-group > .btn-booking + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -2767,17 +2767,17 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .backoffice .btn-red .caret, .backoffice div.row#business-header div.infos .btn-booking .caret {
+.btn .caret, .btn-red .caret, .backoffice div.row#business-header div.infos .btn-booking .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .backoffice .btn-group-lg > .btn-red .caret, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .backoffice .btn-group-lg > .btn-red .caret, .backoffice .dropup .btn-group-lg > .btn-red .caret, .dropup .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret, .backoffice div.row#business-header div.infos .dropup .btn-group-lg > .btn-booking .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret, .dropup .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret, .backoffice div.row#business-header div.infos .dropup .btn-group-lg > .btn-booking .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .backoffice .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .backoffice .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
   display: block;
   float: none;
   width: 100%;
@@ -2787,31 +2787,31 @@ tbody.collapse.in {
   display: table; }
 .btn-group-vertical > .btn-group:after {
   clear: both; }
-.btn-group-vertical > .btn-group > .btn, .backoffice .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
   float: none; }
-.btn-group-vertical > .btn + .btn, .backoffice .btn-group-vertical > .btn-red + .btn, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn, .backoffice .btn-group-vertical > .btn + .btn-red, .backoffice .btn-group-vertical > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-booking, .btn-group-vertical > .btn + .btn-group, .backoffice .btn-group-vertical > .btn-red + .btn-group, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-group, .btn-group-vertical > .btn-group + .btn, .backoffice .btn-group-vertical > .btn-group + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group + .btn-booking, .btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group + .btn-booking, .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .backoffice .btn-group-vertical > .btn-red:not(:first-child):not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:not(:first-child):not(:last-child) {
   border-radius: 0; }
-.btn-group-vertical > .btn:first-child:not(:last-child), .backoffice .btn-group-vertical > .btn-red:first-child:not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-.btn-group-vertical > .btn:last-child:not(:first-child), .backoffice .btn-group-vertical > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .backoffice .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .backoffice .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .backoffice .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2820,16 +2820,16 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .backoffice .btn-group-justified > .btn-red, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-booking, .btn-group-justified > .btn-group {
+  .btn-group-justified > .btn, .btn-group-justified > .btn-red, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-booking, .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .backoffice .btn-red, .backoffice .btn-group-justified > .btn-group .btn-red, .btn-group-justified > .btn-group .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-group .btn-booking {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red, .btn-group-justified > .btn-group .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-group .btn-booking {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu, .btn-group-justified > .btn-group .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .btn-group-justified > .btn-group .tt-dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], .backoffice [data-toggle="buttons"] > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], .backoffice [data-toggle="buttons"] > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], .backoffice [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], .backoffice [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="checkbox"] {
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -2869,25 +2869,25 @@ tbody.collapse.in {
   background-color: #eeeeee;
   border: 1px solid #ccc;
   border-radius: 4px; }
-  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .backoffice .input-group-sm > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .input-group-addon.btn-booking {
+  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .input-group-addon.btn-booking {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .backoffice .input-group-lg > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .input-group-addon.btn-booking {
+  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .input-group-addon.btn-booking {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
   .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .backoffice .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group > .btn, .backoffice .input-group-btn:first-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group > .btn-booking, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .backoffice .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .backoffice .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-booking {
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group > .btn-booking, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-booking {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .backoffice .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group > .btn, .backoffice .input-group-btn:last-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group > .btn-booking, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .backoffice .input-group-btn:first-child > .btn-red:not(:first-child), .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .backoffice .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-booking {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group > .btn-booking, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-booking {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2898,15 +2898,15 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .backoffice .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking {
+  .input-group-btn > .btn, .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking {
     position: relative; }
-    .input-group-btn > .btn + .btn, .backoffice .input-group-btn > .btn-red + .btn, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn, .backoffice .input-group-btn > .btn + .btn-red, .backoffice .input-group-btn > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-booking {
+    .input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-red {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .backoffice .input-group-btn > .btn-red:hover, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:hover, .input-group-btn > .btn:focus, .backoffice .input-group-btn > .btn-red:focus, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:focus, .input-group-btn > .btn:active, .backoffice .input-group-btn > .btn-red:active, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:active {
+    .input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn-red:focus, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:focus, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .backoffice .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group {
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .backoffice .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group {
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group {
     margin-left: -1px; }
 
 .nav {
@@ -3260,10 +3260,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .backoffice .btn-group-sm > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .navbar-btn.btn-booking {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .navbar-btn.btn-booking {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .backoffice .btn-group-xs > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .navbar-btn.btn-booking {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .navbar-btn.btn-booking {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -3517,7 +3517,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .backoffice .btn-red .label, .backoffice div.row#business-header div.infos .btn-booking .label {
+  .btn .label, .btn-red .label, .backoffice div.row#business-header div.infos .btn-booking .label {
     position: relative;
     top: -1px; }
 
@@ -3526,9 +3526,9 @@ a.label:hover, a.label:focus {
   text-decoration: none;
   cursor: pointer; }
 
-.label-default, .backoffice .label-red, .backoffice .label-discount {
+.label-default, .label-red, .label-discount, .backoffice .label-red, .backoffice .label-discount {
   background-color: #777777; }
-  .label-default[href]:hover, .backoffice [href].label-red:hover, .backoffice [href].label-discount:hover, .label-default[href]:focus, .backoffice [href].label-red:focus, .backoffice [href].label-discount:focus {
+  .label-default[href]:hover, [href].label-red:hover, [href].label-discount:hover, .label-default[href]:focus, [href].label-red:focus, [href].label-discount:focus {
     background-color: #5e5e5e; }
 
 .label-primary {
@@ -3571,10 +3571,10 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .backoffice .btn-red .badge, .backoffice div.row#business-header div.infos .btn-booking .badge {
+  .btn .badge, .btn-red .badge, .backoffice div.row#business-header div.infos .btn-booking .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .backoffice .btn-group-xs > .btn-red .badge, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -4287,10 +4287,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .backoffice .btn-red + .btn, .backoffice .modal-footer .btn-red + .btn, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn, .modal-footer .backoffice .btn + .btn-red, .backoffice .modal-footer .btn + .btn-red, .modal-footer .backoffice .btn-red + .btn-red, .backoffice .modal-footer .btn-red + .btn-red, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-red, .modal-footer .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-red + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking {
+  .modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red, .modal-footer .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-red + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-red {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .backoffice .btn-red + .btn, .backoffice .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn, .modal-footer .btn-group .backoffice .btn + .btn-red, .backoffice .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .backoffice .btn-red + .btn-red, .backoffice .modal-footer .btn-group .btn-red + .btn-red, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-red, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-red + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-booking {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-red + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-red {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-block, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-block + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-block + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking {
     margin-left: 0; }
@@ -4670,7 +4670,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .backoffice .btn-red, .backoffice .carousel-caption .btn-red, .carousel-caption .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .carousel-caption .btn-booking {
+  .carousel-caption .btn, .carousel-caption .btn-red, .carousel-caption .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .carousel-caption .btn-booking {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -4912,21 +4912,21 @@ button.close {
     font-size: 1.6em;
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2); }
-  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .backoffice .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking, .backoffice .btn-group-lg > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking, .btn-lg.btn-social-icon {
+  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking, .btn-group-lg > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking, .btn-lg.btn-social-icon {
     padding-left: 61px; }
-    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .backoffice .btn-group-lg > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking :first-child, .backoffice .btn-group-lg > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking :first-child, .btn-lg.btn-social-icon :first-child {
+    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-group-lg > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking :first-child, .btn-group-lg > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking :first-child, .btn-lg.btn-social-icon :first-child {
       line-height: 45px;
       width: 45px;
       font-size: 1.8em; }
-  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .backoffice .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking, .backoffice .btn-group-sm > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking, .btn-sm.btn-social-icon {
+  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking, .btn-group-sm > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking, .btn-sm.btn-social-icon {
     padding-left: 38px; }
-    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .backoffice .btn-group-sm > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking :first-child, .backoffice .btn-group-sm > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking :first-child, .btn-sm.btn-social-icon :first-child {
+    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-group-sm > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking :first-child, .btn-group-sm > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking :first-child, .btn-sm.btn-social-icon :first-child {
       line-height: 28px;
       width: 28px;
       font-size: 1.4em; }
-  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .backoffice .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking, .backoffice .btn-group-xs > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking, .btn-xs.btn-social-icon {
+  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking, .btn-group-xs > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking, .btn-xs.btn-social-icon {
     padding-left: 30px; }
-    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .backoffice .btn-group-xs > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking :first-child, .backoffice .btn-group-xs > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking :first-child, .btn-xs.btn-social-icon :first-child {
+    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-group-xs > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking :first-child, .btn-group-xs > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking :first-child, .btn-xs.btn-social-icon :first-child {
       line-height: 20px;
       width: 20px;
       font-size: 1.2em; }
@@ -4939,17 +4939,17 @@ button.close {
     border: none;
     text-align: center;
     width: 100% !important; }
-  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .backoffice .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking {
     height: 45px;
     width: 45px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .backoffice .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking {
     height: 30px;
     width: 30px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .backoffice .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking {
     height: 22px;
     width: 22px;
     padding-left: 0;
@@ -6915,6 +6915,88 @@ body {
   height: 100%;
   overflow-x: hidden; }
 
+.label-red {
+  background-color: #fe5b5f; }
+
+.label-discount {
+  background-color: #ff6600; }
+
+.btn-red, .backoffice div.row#business-header div.infos .btn-booking {
+  background-color: #fe5b5f;
+  color: white;
+  border: none; }
+  .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover {
+    color: #818896; }
+
+.btn-red a, .backoffice div.row#business-header div.infos .btn-booking a, a .btn-red, a .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos a .btn-booking {
+  color: white;
+  text-decoration: none; }
+  .btn-red a:hover, .backoffice div.row#business-header div.infos .btn-booking a:hover, a .btn-red:hover, a .backoffice div.row#business-header div.infos .btn-booking:hover, .backoffice div.row#business-header div.infos a .btn-booking:hover {
+    text-decoration: none;
+    color: #818896; }
+
+.formControl .media-object.thumbnail {
+  width: 58px;
+  height: 58px; }
+
+.home-pro {
+  margin-top: -120px;
+  width: 100%;
+  background: url(../img/background-pro-trans.jpg);
+  background-position: no-repeat center center fixed;
+  padding-top: 100px;
+  background-size: cover; }
+  @media screen and (min-width: 768px) {
+    .home-pro {
+      height: 100%;
+      margin-bottom: 0px; } }
+  .home-pro li {
+    color: white; }
+    .home-pro li span, .home-pro li strong {
+      color: black; }
+  .home-pro .row.first {
+    margin-top: 40px; }
+    .home-pro .row.first .left {
+      padding: 40px; }
+      .home-pro .row.first .left p.list {
+        margin-top: 20px; }
+      .home-pro .row.first .left li {
+        font-size: 16px; }
+      .home-pro .row.first .left p.btn-app-store {
+        text-align: center; }
+    .home-pro .row.first .claim {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px; }
+      @media screen and (max-width: 768px) {
+        .home-pro .row.first .claim {
+          margin: auto;
+          max-width: 80%; } }
+      .home-pro .row.first .claim h3 {
+        margin-top: 0px;
+        font-size: 20px; }
+      .home-pro .row.first .claim .form-group {
+        margin-bottom: 5px; }
+      .home-pro .row.first .claim .btn-red, .home-pro .row.first .claim .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .home-pro .row.first .claim .btn-booking {
+        font-weight: 200; }
+    @media screen and (max-width: 768px) {
+      .home-pro .row.first h1 {
+        font-size: 20px;
+        text-align: center; }
+      .home-pro .row.first li {
+        font-size: 18px; } }
+  .home-pro .btn-app-store {
+    margin-top: 40px; }
+    .home-pro .btn-app-store .btn img, .home-pro .btn-app-store .btn-red img, .home-pro .btn-app-store .backoffice div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img {
+      padding: 0;
+      width: 202px;
+      height: 64px; }
+  .home-pro .btn-app-store .btn img, .home-pro .btn-app-store .btn-red img, .home-pro .btn-app-store .backoffice div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: auto; }
+
 .backoffice .label-red {
   background-color: #fe5b5f; }
 .backoffice .label-discount {
@@ -7286,11 +7368,11 @@ body {
       max-height: 100%; } }
 .backoffice .btn-app-store {
   margin-top: 40px; }
-  .backoffice .btn-app-store .btn img, .backoffice .btn-app-store .btn-red img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img {
+  .backoffice .btn-app-store .btn img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img, .backoffice .btn-app-store .btn-red img {
     padding: 0;
     width: 202px;
     height: 64px; }
-.backoffice .btn-app-store .btn img, .backoffice .btn-app-store .btn-red img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img {
+.backoffice .btn-app-store .btn img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img, .backoffice .btn-app-store .btn-red img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -7299,27 +7381,26 @@ body {
 .backoffice .home-pro {
   margin-top: -120px;
   width: 100%;
-  background: url(../img/background-pro-trans.png);
-  background-position: center;
-  padding-top: 100px; }
+  background: url(../img/background-pro-trans.jpg);
+  background-position: no-repeat center center fixed;
+  padding-top: 100px;
+  background-size: cover; }
   @media screen and (min-width: 768px) {
     .backoffice .home-pro {
       height: 100%;
       margin-bottom: 0px; } }
   .backoffice .home-pro li {
-    color: #FE5B5F; }
+    color: white; }
     .backoffice .home-pro li span, .backoffice .home-pro li strong {
-      color: #818896; }
+      color: black; }
   .backoffice .home-pro .row.first {
     margin-top: 40px; }
     .backoffice .home-pro .row.first .left {
-      padding: 20px; }
+      padding: 40px; }
       .backoffice .home-pro .row.first .left p.list {
         margin-top: 20px; }
       .backoffice .home-pro .row.first .left li {
         font-size: 16px; }
-      .backoffice .home-pro .row.first .left ul {
-        margin-left: -20px; }
       .backoffice .home-pro .row.first .left p.btn-app-store {
         text-align: center; }
     .backoffice .home-pro .row.first .claim {
@@ -7342,6 +7423,18 @@ body {
         text-align: center; }
       .backoffice .home-pro .row.first li {
         font-size: 18px; } }
+  .backoffice .home-pro .btn-app-store {
+    margin-top: 40px; }
+    .backoffice .home-pro .btn-app-store .btn img, .backoffice .home-pro .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img, .backoffice .home-pro .btn-app-store .btn-red img {
+      padding: 0;
+      width: 202px;
+      height: 64px; }
+  .backoffice .home-pro .btn-app-store .btn img, .backoffice .home-pro .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img, .backoffice .home-pro .btn-app-store .btn-red img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: auto; }
 .backoffice .dashboard .main {
   padding: 30px; }
 @media (min-width: 768px) {
@@ -7581,16 +7674,16 @@ body {
     background-color: #ff6600; }
     .backoffice .rbc-calendar td.bookable.discount span {
       font-size: 14px; }
-.backoffice .btn.timeslot, .backoffice .timeslot.btn-red, .backoffice div.row#business-header div.infos .timeslot.btn-booking {
+.backoffice .btn.timeslot, .backoffice div.row#business-header div.infos .timeslot.btn-booking, .backoffice .timeslot.btn-red {
   margin: 5px; }
-  .backoffice .btn.timeslot.discount, .backoffice .timeslot.discount.btn-red, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking {
+  .backoffice .btn.timeslot.discount, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking, .backoffice .timeslot.discount.btn-red {
     background-color: #ff6600;
     color: white; }
-    .backoffice .btn.timeslot.discount span, .backoffice .timeslot.discount.btn-red span, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking span {
+    .backoffice .btn.timeslot.discount span, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking span, .backoffice .timeslot.discount.btn-red span {
       font-size: 14px; }
-.backoffice .btn.timeslot:focus, .backoffice .timeslot.btn-red:focus, .backoffice div.row#business-header div.infos .timeslot.btn-booking:focus {
+.backoffice .btn.timeslot:focus, .backoffice div.row#business-header div.infos .timeslot.btn-booking:focus, .backoffice .timeslot.btn-red:focus {
   outline: none; }
-.backoffice .btn.timeslot.selected, .backoffice .timeslot.selected.btn-red, .backoffice div.row#business-header div.infos .timeslot.selected.btn-booking {
+.backoffice .btn.timeslot.selected, .backoffice div.row#business-header div.infos .timeslot.selected.btn-booking, .backoffice .timeslot.selected.btn-red {
   background-color: #357ebd;
   color: #fff;
   font-weight: bold; }
