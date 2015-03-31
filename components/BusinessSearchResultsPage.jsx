@@ -75,6 +75,13 @@ var Breadcrumb = React.createClass({
             place = place.parent;
         }
 
+        crumbs.unshift({
+            last: false,
+            label: 'Accueil',
+            routeName: 'home',
+            navParams: {}
+        })
+
         return (
             <div className="col-xs-12 hidden-xs hidden-sm">
                 <ol className="breadcrumb">

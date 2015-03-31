@@ -45,7 +45,7 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-4 col-xs-12" key={deal.business.id}>
                 <figure>
-                    <img src={deal.business.pictures[0].url} alt={deal.business.name} onClick={this.navToLink.bind(this, "show_business", {businessId: deal.business.id, businessSlug: deal.business.slug})} />
+                    <img src={deal.business.pictures[0].url} alt={deal.business.name} onClick={this.navToLink.bind(this, "show_business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
                     <figcaption>
                         <NavLink routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}} context={this.props.context}>
                             {deal.business.name}

@@ -52,7 +52,7 @@ module.exports = React.createClass({
         var displayBusinessAddress = hairfie.business ? hairfie.business.address.street + ' ' + hairfie.business.address.city : null;
 
         return (
-            <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id})} key={hairfie.id}>
+            <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id}, null)} key={hairfie.id}>
                 <figure className={figureClass}>
                     <img src={pictureUrl} />
                     <figcaption>
