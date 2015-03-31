@@ -132,6 +132,7 @@ module.exports = React.createClass({
                     </div>
                 </div>
                 <Footer context={this.props.context} />
+                <Footer context={this.props.context} mobile={true} />
             </div>
         );
     }

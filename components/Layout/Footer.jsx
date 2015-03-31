@@ -4,8 +4,14 @@ var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
-    render: function () {
-
+    render: function() {
+        if(this.props.mobile) {
+            return this.renderMobile();
+        } else {
+            return this.renderDesktop();
+        }
+    },
+    renderDesktop: function () {
         return (
             <footer className="visible-md visible-lg">
                 <div className="container">
@@ -36,5 +42,19 @@ module.exports = React.createClass({
                 </div>
             </footer>
         );
+    },
+    renderMobile: function() {
+        return (
+            <footer className="visible-xs visible-sm mobile">
+                <div className="row">
+                    <div className="col-xs-6 pull-left">
+                        <NavLink context={this.props.context} routeName="pro_home" className="btn btn-red">Déclarez votre salon</NavLink>
+                    </div>
+                    <div className="col-xs-6 pull-right">
+                        <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="app-dl" target="_blank"></a>
+                    </div>
+                </div>
+            </footer>
+        )
     }
 });

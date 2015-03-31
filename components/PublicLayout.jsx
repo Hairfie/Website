@@ -23,6 +23,7 @@ module.exports = React.createClass({
                 <FlashMessages context={this.props.context} />
                 {this.props.children}
                 <Footer context={this.props.context} />
+                <Footer context={this.props.context} mobile={true} />
             </div>
         );
     },

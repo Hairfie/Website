@@ -76,7 +76,7 @@ var Breadcrumb = React.createClass({
         }
 
         return (
-            <div className="col-xs-12">
+            <div className="col-xs-12 hidden-xs hidden-sm">
                 <ol className="breadcrumb">
                     {_.map(crumbs, function (crumb) {
                         if (crumb.last) {
@@ -118,8 +118,14 @@ var SearchResults = React.createClass({
 
 var SearchFilters = React.createClass({
     render: function () {
+        var className;
+        if(this.props.mobile) {
+            className = "sidebar col-xs-12";
+        } else {
+            className = "sidebar col-md-4 col-sm-12 hidden-xs hidden-sm";
+        }
         return (
-            <div className="sidebar col-md-4 col-sm-12 hidden-xs hidden-sm">
+            <div className={className}>
                 {this.renderCurrentFilters()}
                 <h1>Affiner la recherche</h1>
                 <section>
@@ -263,6 +269,21 @@ module.exports = React.createClass({
     componentWillReceiveProps: function (nextProps) {
         this.setState(this.getStateFromStores(nextProps));
     },
+    componentDidMount: function() {
+        $('body').on("click",'.trigger-filters',function(){
+            if( $('.mobile-filtres').css('top') != '85px' ) {
+                TweenMax.to('.mobile-filtres', 0.4, {top:85,ease:Power2.easeInOut,onComplete:function(){
+                    $('body').toggleClass('locked');
+                    $('.mobile-filtres').addClass('opened');
+                }});
+            } else if ($('.mobile-filtres').hasClass('opened') ) {
+                TweenMax.to('.mobile-filtres', 0.4, {top:'100%',ease:Power2.easeOut,onComplete:function(){
+                    $('body').toggleClass('locked');
+                    $('.mobile-filtres').removeClass('opened');
+                }});
+            }
+        });
+    },
     getInitialState: function () {
         return this.getStateFromStores();
     },
@@ -274,7 +295,15 @@ module.exports = React.createClass({
 
         return (
             <Layout context={this.props.context} withSearchBar={true}>
+                <div className="mobile-screen hidden-md hidden-lg">
+                    <a href="#" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
+                </div>
                 <div className="container search" id="content">
+                    <div className="mobile-search visible-sm visible-xs">
+                        <div className="mobile-filtres">
+                            <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} mobile={true} />
+                        </div>
+                    </div>
                     <div className="row">
                         <Breadcrumb context={this.props.context} place={this.state.place} />
                         <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} />
