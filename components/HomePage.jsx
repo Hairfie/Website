@@ -26,17 +26,17 @@ var HowSection = React.createClass({
                 <h2>Comment ça marche ?</h2>
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
-                        <img src="images/placeholder-homecontent4.png" alt="#" />
+                        <img src="/img/search.png" alt="#" />
                         <h3>Découvrez</h3>
                         <p>Parcourez nos #Hairfies pour trouver la coiffure qui vous correspond</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        <img src="images/placeholder-homecontent4.png" alt="#" />
+                        <img src="/img/book.png" alt="#" />
                         <h3>Réservez</h3>
                         <p>Réservez votre coiffeur gratuitement en 3 clics, 24/7</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        <img src="images/placeholder-homecontent4.png" alt="#" />
+                        <img src="/img/share.png" alt="#" />
                         <h3>Partagez</h3>
                         <p>Partagez votre #Hairfie <br />et donnez votre avis</p>
                     </div>
