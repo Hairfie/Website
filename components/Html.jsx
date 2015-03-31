@@ -47,7 +47,7 @@ var Html = React.createClass({
                 <script src={cdnSrc("/js/share.min.js")}></script>
                 <script src={cdnSrc("/js/main.js")}></script>
                 <script src={cdnSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
-                <script type="text/javascript" src={serverConfig.APP_FILE + '?v=' + pkg.version}></script>
+                <script type="text/javascript" src={cdnSrc(serverConfig.APP_FILE + '?v=' + pkg.version)}></script>
             </body>
             </html>
 
