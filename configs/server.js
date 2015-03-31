@@ -12,7 +12,8 @@ module.exports = resolve({
         API_PROXY_PATH  : '/api',
         ROBOTS          : 'robots-staging.txt',
         APP_FILE        : '/build/js/app.js',
-        API_PROXY_TARGET: hairfieApi.URL
+        API_PROXY_TARGET: hairfieApi.URL,
+        CDN_URL         : process.env.CDN_URL || ''
     },
     development: {
         DEBUG            : true,

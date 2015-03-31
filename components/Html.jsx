@@ -7,6 +7,10 @@ var _     = require('lodash');
 var serverConfig   = require('../configs/server');
 var pkg = require('../package.json');
 
+function cdnSrc(src) {
+    return serverConfig.CDN_URL + src;
+}
+
 var Html = React.createClass({
     render: function() {
         return (
@@ -23,7 +27,7 @@ var Html = React.createClass({
                 <link rel="stylesheet" href="/css/style.css" />
                 <link rel="stylesheet" href="http://lucasfayolle.com/hairfie/styles/main.css" />
                 <link rel="stylesheet" href="/css/temp.css" />
-                <script src="/components/modernizr/modernizr.js"></script>
+                <script src={cdnSrc("/components/modernizr/modernizr.js")}></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -33,16 +37,16 @@ var Html = React.createClass({
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
 
-                <script src="/components/jquery/dist/jquery.min.js"></script>
-                <script src="/components/typeahead.js/dist/typeahead.jquery.min.js"></script>
-                <script src="/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
-                <script src="/components/nouislider/distribute/jquery.nouislider.min.js"></script>
-                <script src="/components/gsap/src/minified/TweenMax.min.js"></script>
+                <script src={cdnSrc("/components/jquery/dist/jquery.min.js")}></script>
+                <script src={cdnSrc("/components/typeahead.js/dist/typeahead.jquery.min.js")}></script>
+                <script src={cdnSrc("/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js")}></script>
+                <script src={cdnSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
+                <script src={cdnSrc("/components/gsap/src/minified/TweenMax.min.js")}></script>
 
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
-                <script src="/js/share.min.js"></script>
-                <script src="/js/main.js"></script>
-                <script src="/components/jquery-ui/jquery-ui.min.js"></script>
+                <script src={cdnSrc("/js/share.min.js")}></script>
+                <script src={cdnSrc("/js/main.js")}></script>
+                <script src={cdnSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
                 <script type="text/javascript" src={serverConfig.APP_FILE + '?v=' + pkg.version}></script>
             </body>
             </html>
