@@ -271,15 +271,17 @@ module.exports = React.createClass({
     },
     componentDidMount: function() {
         $('body').on("click",'.trigger-filters',function(){
-            if( $('.mobile-filtres').css('top') != '85px' ) {
+            if( jQuery('.mobile-filtres').css('top') != '85px' ) {
                 TweenMax.to('.mobile-filtres', 0.4, {top:85,ease:Power2.easeInOut,onComplete:function(){
-                    $('body').toggleClass('locked');
-                    $('.mobile-filtres').addClass('opened');
+                    jQuery('body').toggleClass('locked');
+                    jQuery('.mobile-filtres').addClass('opened');
+                    jQuery('.trigger-filters').html('Enregistrer les filtres');
                 }});
-            } else if ($('.mobile-filtres').hasClass('opened') ) {
+            } else if (jQuery('.mobile-filtres').hasClass('opened') ) {
                 TweenMax.to('.mobile-filtres', 0.4, {top:'100%',ease:Power2.easeOut,onComplete:function(){
-                    $('body').toggleClass('locked');
-                    $('.mobile-filtres').removeClass('opened');
+                    jQuery('body').toggleClass('locked');
+                    jQuery('.mobile-filtres').removeClass('opened');
+                    jQuery('.trigger-filters').html('Filtrer');
                 }});
             }
         });
