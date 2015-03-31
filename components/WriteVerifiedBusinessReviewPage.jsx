@@ -92,7 +92,7 @@ var ReviewForm = React.createClass({
         return (
             <div>
                 {errorsNode}
-                <Row>
+                <Row className="write-review">
                     <Col md={6}>
                         <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
                     </Col>
