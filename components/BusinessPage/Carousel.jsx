@@ -11,15 +11,19 @@ var CarouselItem = require('react-bootstrap/CarouselItem');
 
 module.exports = React.createClass({
     render: function () {
+        var items = _.map(this.props.pictures, function (picture, i) {
+            return (
+                <CarouselItem>
+                    <Picture picture={picture} />
+                </CarouselItem>
+            );
+        });
+
+        if (items.length == 0) items.push(<CarouselItem />);
+
         return (
             <Carousel id="carousel-salon" className="carousel slide" indicators={false}>
-                {_.map(this.props.pictures, function (picture, i) {
-                    return (
-                        <CarouselItem>
-                            <Picture picture={picture} />
-                        </CarouselItem>
-                    );
-                })}
+                {items}
             </Carousel>
         );
     }

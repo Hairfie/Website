@@ -78,16 +78,16 @@ var Breadcrumb = React.createClass({
         return (
             <div className="col-xs-12 hidden-xs hidden-sm">
                 <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb) {
+                    {_.map(crumbs, function (crumb, i) {
                         if (crumb.last) {
                             return (
-                                <li className="active">
+                                <li key={i+'-'+crumb.label} className="active">
                                     {crumb.label}
                                 </li>
                             );
                         } else {
                             return (
-                                <li>
+                                <li key={i+'-'+crumb.label}>
                                     <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
                                         {crumb.label}
                                     </NavLink>
