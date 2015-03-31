@@ -92,7 +92,7 @@ var ReviewForm = React.createClass({
         return (
             <div>
                 {errorsNode}
-                <Row className="write-review">
+                <Row>
                     <Col md={6}>
                         <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
                     </Col>
@@ -186,7 +186,7 @@ module.exports = React.createClass({
         if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
 
         return (
-            <div>
+            <div className="write-review">
                 <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />

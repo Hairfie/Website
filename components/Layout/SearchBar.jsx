@@ -47,7 +47,7 @@ module.exports = React.createClass({
     },
     renderMobile: function() {
         return (
-            <div className="mobile-nav visible-xs visible-sm">
+            <div className="mobile-nav visible-xs">
                 <header className="container">
                     <NavLink context={this.props.context} className="logo col-xs-4" routeName="home" />
                     <a href="#" className="col-xs-4 menu-trigger pull-right"></a>

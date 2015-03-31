@@ -47,7 +47,7 @@ module.exports = React.createClass({
             custom = (<li><NavLink context={this.props.context} routeName="pro_home" className="">Vous êtes coiffeur ?</NavLink></li>);
         }
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
-        headerClassName += ' hidden-xs hidden-sm';
+        headerClassName += ' hidden-xs';
 
         return (
             <header className={headerClassName}>
