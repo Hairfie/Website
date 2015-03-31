@@ -61,7 +61,8 @@ var Hairfies = React.createClass({
             <li key={hairfie.id} className={className}>
                 <NavLink context={this.props.context} routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
                     <Picture picture={hairfie.pictures[0]}
-                          resolution={{width: 55, height: 55}}
+                          resolution={55}
+                          placeholder="/images/placeholder-55.png"
                                  alt={'Hairfie de '+hairfie.author.firstName} />
                 </NavLink>
             </li>
@@ -73,7 +74,7 @@ var Hairfies = React.createClass({
         return (
             <li className="more">
                 <BusinessLink context={this.props.context} business={this.props.business}>
-                    <img src="/images/placeholder-hairfie-thumb-more.jpg" alt="" />
+                    <img src="/images/placeholder-hairfie-thumb-more.png" alt="" />
                 </BusinessLink>
             </li>
         );
@@ -110,7 +111,9 @@ module.exports = React.createClass({
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
                     <Picture picture={this.state.business.pictures[0]}
-                          resolution={{width: 440, height: 400}} />
+                          resolution={400}
+                          placeholder="/images/placeholder-640.png"
+                          />
                 </div>
                 <div className="col-xs-12 col-sm-8 info-bloc">
                     <div className="address-bloc">
