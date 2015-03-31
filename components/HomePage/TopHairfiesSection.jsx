@@ -39,7 +39,7 @@ module.exports = React.createClass({
 
                     {this.state.hairfies[0] && this.renderHairfie(this.state.hairfies[0], 'col-md-6 col-xs-12 big', 'col-xs-12')}
                 </div>
-                <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de Hairfies</a>
+                {/* <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de Hairfies</a> */}
             </section>
         );
     },

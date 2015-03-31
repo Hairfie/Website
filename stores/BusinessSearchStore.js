@@ -56,7 +56,6 @@ module.exports = createStore({
         return exchange && exchange.result;
     },
     _loadResult: function (search) {
-        console.log('load', search);
         this.dispatcher.getContext().executeAction(BusinessActions.FetchSearchResult, {
             search: search
         });
