@@ -66,7 +66,7 @@ var Breadcrumb = React.createClass({
         while (place) {
             crumbs.unshift({
                 last: crumbs.length == 0,
-                label: place.name.split(',')[0],
+                label: (place.name || '').split(',')[0],
                 routeName: 'business_search_results',
                 navParams: {
                     address: SearchUtils.addressToUrlParameter(place.name)
@@ -110,8 +110,12 @@ var Breadcrumb = React.createClass({
 
 var SearchResults = React.createClass({
     render: function () {
-        var result = this.props.result || {},
-            date   = this.props.search && this.props.search.date;
+        if (!this.props.result) return <div className="loading" />;
+
+        var result = this.props.result;
+        var date   = this.props.search && this.props.search.date;
+
+        if (result.hits.length == 0) return this.renderNoResult();
 
         return (
             <div className="row">
@@ -119,6 +123,17 @@ var SearchResults = React.createClass({
                     return <Search.BusinessResult key={business.id} context={this.props.context} business={business} date={date} />
                 }, this)}
             </div>
+        );
+    },
+    renderNoResult: function () {
+        return (
+            <p className="text-center">
+                <br />
+                <br />
+                Aucun résultat correspondant à votre recherche n'a pu être trouvé.
+                <br />
+                <br />
+            </p>
         );
     }
 });
@@ -138,9 +153,9 @@ var SearchFilters = React.createClass({
                 <section>
                     <form>
                     {this.renderRadius()}
-                    {this.renderPrice()}
                     {this.renderQuery()}
                     {this.renderCategories()}
+                    {this.renderPrice()}
                     </form>
                 </section>
             </div>
