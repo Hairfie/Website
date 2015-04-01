@@ -4,6 +4,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var pkg = require('../../package.json');
 
 module.exports = React.createClass({
     render: function () {
@@ -28,6 +29,8 @@ module.exports = React.createClass({
 
         if (resolution.width) query.push('width='+resolution.width);
         if (resolution.height) query.push('height='+resolution.height);
+
+        query.push('v='+pkg.version);
 
         return this.props.picture.url+'?'+query.join('&');
     }

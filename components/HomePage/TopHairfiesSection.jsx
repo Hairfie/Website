@@ -8,6 +8,7 @@ var TopHairfiesStore = require('../../stores/TopHairfiesStore');
 var lodash = require('lodash');
 var NavLink = require('flux-router-component').NavLink;
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
+var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin, NavToLinkMixin],
@@ -44,7 +45,7 @@ module.exports = React.createClass({
         );
     },
     renderHairfie: function (hairfie, hairfieClass, figureClass) {
-        var pictureUrl = lodash.last(hairfie.pictures).url;
+        var picture = lodash.last(hairfie.pictures);
         var priceNode;
         if(hairfie.price) priceNode = <div className="pricetag">{hairfie.price.amount}{hairfie.price.currency == "EUR" ? "€" : ""}</div>;
 
@@ -54,7 +55,7 @@ module.exports = React.createClass({
         return (
             <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id}, null)} key={hairfie.id}>
                 <figure className={figureClass}>
-                    <img src={pictureUrl} />
+                    <Picture picture={picture} />
                     <figcaption>
                         <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
                             {displayBusinessName}

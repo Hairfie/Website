@@ -8,6 +8,7 @@ var CategoryStore = require('../../stores/CategoryStore');
 var _ = require('lodash');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var NavLink = require('flux-router-component').NavLink;
+var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin, NavToLinkMixin],
@@ -56,7 +57,7 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-4 col-xs-12" key={cat.id} >
                 <figure>
-                    <img src={cat.picture.url} alt={cat.name} />
+                    <Picture picture={cat.picture} alt={cat.name} />
                     <figcaption>
                         <NavLink href={href} context={this.props.context}>
                             <span className="oneline">{cat.name}</span>

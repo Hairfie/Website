@@ -8,7 +8,7 @@ var serverConfig   = require('../configs/server');
 var pkg = require('../package.json');
 
 function cdnSrc(src) {
-    return serverConfig.CDN_URL + src;
+    return serverConfig.CDN_URL + src + '?v=' + pkg.version;
 }
 
 var Html = React.createClass({
@@ -24,9 +24,9 @@ var Html = React.createClass({
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
-                <link rel="stylesheet" href="/css/style.css" />
-                <link rel="stylesheet" href="http://lucasfayolle.com/hairfie/styles/main.css" />
-                <link rel="stylesheet" href="/css/temp.css" />
+                <link rel="stylesheet" href={cdnSrc("/css/style.css")} />
+                <link rel="stylesheet" href={cdnSrc("/css/main.css")} />
+                <link rel="stylesheet" href={cdnSrc("/css/temp.css")} />
                 <script src={cdnSrc("/components/modernizr/modernizr.js")}></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -47,7 +47,7 @@ var Html = React.createClass({
                 <script src={cdnSrc("/js/share.min.js")}></script>
                 <script src={cdnSrc("/js/main.js")}></script>
                 <script src={cdnSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
-                <script type="text/javascript" src={cdnSrc(serverConfig.APP_FILE + '?v=' + pkg.version)}></script>
+                <script type="text/javascript" src={cdnSrc(serverConfig.APP_FILE)}></script>
             </body>
             </html>
 
