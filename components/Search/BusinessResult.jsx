@@ -110,10 +110,12 @@ module.exports = React.createClass({
         return (
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
-                    <Picture picture={this.state.business.pictures[0]}
-                          resolution={400}
-                          placeholder="/images/placeholder-640.png"
-                          />
+                    <BusinessLink context={this.props.context} business={this.props.business}>
+                        <Picture picture={this.state.business.pictures[0]}
+                              resolution={400}
+                              placeholder="/images/placeholder-640.png"
+                              />
+                     </BusinessLink>
                 </div>
                 <div className="col-xs-12 col-sm-8 info-bloc">
                     <div className="address-bloc">
