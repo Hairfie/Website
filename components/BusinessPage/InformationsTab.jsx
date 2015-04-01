@@ -118,7 +118,7 @@ module.exports = React.createClass({
                 <div className="row table-price">
                     {_.map(services, function (service) {
                         return (
-                            <div className="col-xs-6 col-sm-4">
+                            <div key={service.id}>
                                 <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
                             </div>
                         );
@@ -138,7 +138,7 @@ module.exports = React.createClass({
                 <div className="row">
                     {_.map(discounts.discountsAvailable, function (days, percentage) {
                         return (
-                            <div className="col-xs-10 col-sm-12">
+                            <div key={percentage} className="col-xs-10 col-sm-12">
                                 <div className="promo">
                                     <h4>{percentage}% sur toutes les prestations et tous les achats dans le salon de coiffure</h4>
                                     <p>Cette offre n'est valable que pour les réservations en ligne. L'achat de produits du salon avec cette offre est exclusivement liée à une prestation. Le {_.map(sortDays(days), frenchDay).join(', ')}.</p>

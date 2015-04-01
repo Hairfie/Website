@@ -95,9 +95,7 @@ var RightColumn = React.createClass({
                     <div className="row">
                         <div className="col-xs-3">
                             <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
-                                <Picture picture={this.props.hairfie.business.pictures[0]}
-                                   width={220}
-                                  height={220} />
+                                <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
                             </NavLink>
                         </div>
                         <div className="col-xs-9 address-bloc">
