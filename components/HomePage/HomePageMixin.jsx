@@ -9,7 +9,7 @@ var HomePageMixin = {
         TweenMax.to('.headline', 0.7, {
             opacity:1,
             top:0,
-            ease:Power4.easeInut,
+            ease:Power4.easeInOut,
             delay:0.5
         });
         TweenMax.to('.searchbar.hidden-xs', 0.7, {
