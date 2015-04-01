@@ -73,3 +73,7 @@ figcaption a.address {
 .write-review {
   margin-top: 85px;
 }
+
+div#app {
+  overflow-x: hidden;
+}
