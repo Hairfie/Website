@@ -65,21 +65,30 @@ var HairfieSingle = React.createClass({
                             <span className="glyphicon glyphicon-heart"></span>
                         </a>
                     </div> */}
-                    <div className="cta">
-                        <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
-                            Réserver dans ce salon
-                        </NavLink>
-                    </div>
+                    {this.renderBookingButton()}
                 </div>
             </div>
        );
+    },
+    renderBookingButton: function () {
+        if (!this.props.hairfie.business) return;
+
+        return (
+            <div className="cta">
+                <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                    Réserver dans ce salon
+                </NavLink>
+            </div>
+        );
     }
 });
 
 var RightColumn = React.createClass({
     render: function() {
+        if (!this.props.hairfie.business) return <div />;
+
         var hairdresserNode;
-        if(this.props.hairfie.hairdresser) {
+        if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
                 <p>Réalisé par :
                     <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
