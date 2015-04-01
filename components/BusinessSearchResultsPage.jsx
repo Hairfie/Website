@@ -65,6 +65,7 @@ var Breadcrumb = React.createClass({
 
         while (place) {
             crumbs.unshift({
+                id: place.id,
                 last: crumbs.length == 0,
                 label: (place.name || '').split(',')[0],
                 routeName: 'business_search_results',
@@ -76,25 +77,26 @@ var Breadcrumb = React.createClass({
         }
 
         crumbs.unshift({
+            id: 'home',
             last: false,
             label: 'Accueil',
             routeName: 'home',
             navParams: {}
-        })
+        });
 
         return (
             <div className="col-xs-12 hidden-xs hidden-sm">
                 <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb, i) {
+                    {_.map(crumbs, function (crumb) {
                         if (crumb.last) {
                             return (
-                                <li key={i+'-'+crumb.label} className="active">
+                                <li key={crumb.id} className="active">
                                     {crumb.label}
                                 </li>
                             );
                         } else {
                             return (
-                                <li key={i+'-'+crumb.label}>
+                                <li key={crumb.id}>
                                     <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
                                         {crumb.label}
                                     </NavLink>
@@ -275,7 +277,7 @@ module.exports = React.createClass({
         var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
         var place   = this.getStore(PlaceStore).getByAddress(address);
         var search  = {};
-        var result  = {};
+        var result;
 
         if (place) {
             search = SearchUtils.searchFromRouteAndPlace(props.route, place);
