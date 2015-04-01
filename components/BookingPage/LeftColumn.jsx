@@ -18,7 +18,7 @@ module.exports = React.createClass({
         var displayAddress = business.address ? business.address.street + ' ' + business.address.city : null;
 
         return (
-            <div className="sidebar col-sm-3">
+            <div className="sidebar col-md-3 col-sm-12 pull-left">
                 <div className="salon-bloc">
                     <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                         <Picture picture={business.pictures[0]}
@@ -47,9 +47,9 @@ module.exports = React.createClass({
     },
     renderDiscountsNode: function() {
         var business = this.props.business,
-            discounts = this.props.discountObj.discountsAvailable;
+            discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
 
-        if(discounts.length === 0) {
+        if(!discounts || discounts.length === 0) {
             return null;
         }
 
@@ -69,7 +69,7 @@ module.exports = React.createClass({
         );
     },
     renderDiscountsConditions: function() {
-        if(this.props.discountObj.discountsAvailable.length > 0) {
+        if(this.props.discountObj && this.props.discountObj.discountsAvailable.length > 0) {
             return (<p>* Cette offre nest valable que pour les réservations en ligne. Lachat de produits du salon avec cette offre est exclusivement liée à une prestation.</p>);
         }
     }

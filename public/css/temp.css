@@ -77,3 +77,9 @@ figcaption a.address {
 div#app {
   overflow-x: hidden;
 }
+
+#content.reservation.confirmation .confirm-bloc-form form label {
+  width: inherit;
+  line-height: 30px;
+  height: 30px;
+}

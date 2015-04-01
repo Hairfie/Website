@@ -14,12 +14,21 @@ var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
+    propTypes: {
+        onTimeSlotChange: React.PropTypes.func
+    },
+    getDefaultProps: function () {
+        return {
+            onTimeSlotChange: _.noop
+        };
+    },
     getInitialState: function() {
         var today = new Date();
         return {
             timeslotSelected: this.props.timeslotSelected
         };
     },
+
     render: function() {
         if(!this.props.daySelected) {
             return (<p>Commencez par choisir un jour</p>);
@@ -71,16 +80,12 @@ module.exports = React.createClass({
             discountNode = (<span className="promo-day">{discount}%</span>);
         }
 
-        return <td className={cls} onClick={this.timeSlotCallback(timeslot, discount)}><a href="#"><p>{label}</p>{discountNode}</a>
+        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)}><a href="#"><p>{label}</p>{discountNode}</a>
             </td>;
     },
-    timeSlotCallback: function(timeslot, discount) {
-        var self = this;
-        return function(ev) {
-            self.setState({
-                timeslotSelected: timeslot
-            });
-            self.props.onTimeSlotChange && self.props.onTimeSlotChange(timeslot, discount);
-        };
+    timeSlotCallback: function(timeslot, discount, e) {
+        e.preventDefault();
+        this.setState({ timeslotSelected: timeslot});
+        this.props.onTimeSlotChange(timeslot, discount);
     }
 });

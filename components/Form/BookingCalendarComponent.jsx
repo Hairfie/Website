@@ -14,11 +14,11 @@ var weekDaysNumber = require('../../constants/DateTimeConstants').weekDaysNumber
 module.exports = React.createClass({
     propTypes: {
         defaultDate : React.PropTypes.string,
-        onDateChange: React.PropTypes.func
+        onDayChange: React.PropTypes.func
     },
     getDefaultProps: function () {
         return {
-            onDateChange: _.noop
+            onDayChange: _.noop
         };
     },
     getInitialState: function() {
@@ -130,7 +130,7 @@ module.exports = React.createClass({
     },
     dayCallback: function(d, e) {
         e.preventDefault();
-        this.setState({selectedDate: d}, this.props.onDateChange.bind(null, d));
+        this.setState({selectedDate: d}, this.props.onDayChange.bind(null, d));
     },
     getDate: function () {
         return this.state.selectedDate;
