@@ -51,7 +51,7 @@
     "qs": "^2.3.3",
     "query-string": "^1.0.0",
     "react": "^0.12.1",
-    "react-bootstrap": "^0.13.0",
+    "react-bootstrap": "^0.13.3",
     "react-google-analytics": "^0.2.0",
     "react-intl": "^1.0.1",
     "reactify": "^0.17.1",

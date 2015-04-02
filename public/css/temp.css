@@ -83,3 +83,7 @@ div#app {
   line-height: 30px;
   height: 30px;
 }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  margin: auto;
+}

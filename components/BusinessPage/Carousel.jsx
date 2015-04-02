@@ -6,25 +6,33 @@ var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
 
-var Carousel = require('react-bootstrap/Carousel');
-var CarouselItem = require('react-bootstrap/CarouselItem');
-
 module.exports = React.createClass({
     render: function () {
         var items = _.map(this.props.pictures, function (picture, i) {
+            var cls = (i == 0) ? "item active" : "item";
             return (
-                <CarouselItem>
+                <div className={cls}>
                     <Picture picture={picture} />
-                </CarouselItem>
+                </div>
             );
         });
 
-        if (items.length == 0) items.push(<CarouselItem />);
+        if (items.length == 0) items.push(<div className="item" />);
 
         return (
-            <Carousel id="carousel-salon" className="carousel slide" indicators={false}>
-                {items}
-            </Carousel>
+            <div id="carousel-salon" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner" role="listbox">
+                    {items}
+                </div>
+                <a className="left carousel-control" href="#carousel-salon" role="button" data-slide="prev">
+                    <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
+                </a>
+                <a className="right carousel-control" href="#carousel-salon" role="button" data-slide="next">
+                    <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
+                </a>
+            </div>
         );
     }
 });
