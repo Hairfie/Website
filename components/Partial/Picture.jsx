@@ -30,7 +30,7 @@ module.exports = React.createClass({
         if (resolution.width) query.push('width='+resolution.width);
         if (resolution.height) query.push('height='+resolution.height);
 
-        query.push('v=');
+        query.push('v=0.1');
 
         return this.props.picture.url+'?'+query.join('&');
     }
