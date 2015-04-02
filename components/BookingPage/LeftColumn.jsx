@@ -22,8 +22,7 @@ module.exports = React.createClass({
                 <div className="salon-bloc">
                     <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                         <Picture picture={business.pictures[0]}
-                           width={220}
-                          height={220} />
+                           resolution={{width: 220, height: 220}} />
                     </NavLink>
                     <div className="address-bloc">
                         <h2><a href="#">{business.name}</a></h2>

@@ -126,7 +126,7 @@ module.exports = React.createClass({
     renderBusinessMemberRow: function (businessMember) {
         var picture;
         if (businessMember.picture) {
-            picture = <Picture picture={businessMember.picture} width={50} height={50} />;
+            picture = <Picture picture={businessMember.picture} resolution={{width: 50, height: 50}} />;
         }
 
         return (

@@ -12,7 +12,7 @@ var Suggestion = React.createClass({
 
         return (
             <p>
-                <UserProfilePicture user={user} width={32} height={32} /> {user.firstName} {user.lastName}
+                <UserProfilePicture user={user} resolution={{width: 32, height: 32}} /> {user.firstName} {user.lastName}
             </p>
         );
     }

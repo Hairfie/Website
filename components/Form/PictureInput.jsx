@@ -43,7 +43,7 @@ module.exports = React.createClass({
     render: function () {
         var picture;
         if (this.state.picture) {
-            picture = <Picture picture={this.state.picture} width={50} height={50} />;
+            picture = <Picture picture={this.state.picture} resolution={{width: 50, height: 50}} />;
         } else {
             picture = <div style={{width:'50px', height:'50px'}} />;
         }
