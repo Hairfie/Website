@@ -53,7 +53,7 @@ module.exports = React.createClass({
             <Layout context={this.props.context} business={business} customClass={'business-dashboard'}>
                 <div className="title">
                     <span>
-                        <Picture picture={business.pictures[0]} className="img-circle" />
+                        <Picture picture={business.pictures[0]} className="img-circle" placeholder="/images/placeholder-55.png"/>
                     </span>
                     <span>
                         <h1>{business.name}</h1>

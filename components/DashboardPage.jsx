@@ -7,6 +7,9 @@ var ProLayout = require('./ProLayout.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var UserManagedBusinessStore = require('../stores/UserManagedBusinessStore');
+var lodash = require('lodash');
+var Picture = require('./Partial/Picture.jsx');
+
 
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
@@ -42,30 +45,29 @@ module.exports = React.createClass({
             }));
         }
 
-        var businessNodes = (this.state.managedBusinesses || []).map(function (business) {
-            return this.renderBusiness(business);
-        }, this);
+        //var businessNodes = lodash.map(businesses, this.renderBusiness);
+        //console.log("businessNodes", businessNodes);
         return (
             <ProLayout context={this.props.context} withoutSideBar={true} loading={loading}>
                 <h3>Mes salons</h3>
-                {businessNodes}
+                {lodash.map(businesses, this.renderBusiness)}
             </ProLayout>
         );
     },
     renderBusiness: function(business) {
+        console.log("here !", business);
         return (
             <div className="col-sm-6 col-md-4 business-item" key={business.id}>
                 <div className="thumbnail">
-                    <img src={business.pictures[0].url + '?height=200&width=440'} className="img-responsive" />
+                    <Picture picture={business.pictures[0]} resolution={{width: 640, height: 640}} placeholder="/images/placeholder-640.png" />
                     <div className="caption">
-                        <h3>{business.name}</h3>
-                        <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
-                        <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id, step: 'general'}}>
-                            <button className="btn btn-primary" role="button">Gérer cette activité</button>
-                        </NavLink>
-
-                        <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Se rendre sur la page publique</a>
+                    <h3>{business.name}</h3>
+                    <p>{business.numHairfies} Hairfies | {business.numReview ? business.numReview : 0} reviews </p>
+                    <NavLink context={this.props.context} routeName="pro_business" navParams={{businessId: business.id}}>
+                        <button className="btn btn-primary" role="button">Gérer ce salon</button>
+                    </NavLink>
                     </div>
+                    <a href={business.landingPageUrl} className="btn btn-primary" role="button" target="_blank">Se rendre sur la page publique</a>
                 </div>
             </div>
         );

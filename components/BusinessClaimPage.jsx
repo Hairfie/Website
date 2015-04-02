@@ -3,6 +3,7 @@
 'use strict';
 
 var React = require('react');
+var FluxibleMixin = require('fluxible').Mixin;
 
 var BusinessActions = require('../actions/Business');
 var BusinessKinds = require('../constants/BusinessConstants').Kinds;
@@ -12,6 +13,7 @@ var AddressInput = require('./Form/AddressInput.jsx');
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
+    mixins: [FluxibleMixin],
     render: function () {
         return (
             <Layout context={this.props.context}>
@@ -20,7 +22,9 @@ module.exports = React.createClass({
                     <option value={BusinessKinds.SALON}>Salon de coiffure</option>
                     <option value={BusinessKinds.HOME}>Coiffure à domicile</option>
                 </Input>
-                <AddressInput ref="address" label="Adresse" />
+                <div className="form-group" >
+                    <AddressInput ref="address" label="Adresse" className="form-control" />
+                </div>
                 <Input ref="phoneNumber" type="text" label="Numéro de téléphone" />
 
                 <Button onClick={this.save}>Valider</Button>
