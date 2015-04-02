@@ -55,7 +55,6 @@ module.exports = React.createClass({
         );
     },
     renderBusiness: function(business) {
-        console.log("here !", business);
         return (
             <div className="col-sm-6 col-md-4 business-item" key={business.id}>
                 <div className="thumbnail">
