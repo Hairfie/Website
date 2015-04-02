@@ -122,6 +122,11 @@ module.exports = function (grunt) {
         src: 'client.js',
         dest: 'public/build/js/app.js'
       }
+    },
+    bump: {
+      options: {
+        pushTo: 'origin'
+      }
     }
 
     // END OF BUILD //

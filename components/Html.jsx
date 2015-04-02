@@ -24,8 +24,8 @@ var Html = React.createClass({
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
-                <link rel="stylesheet" href={cdnSrc("/css/style.css")} />
-                <link rel="stylesheet" href={cdnSrc("/css/main.css")} />
+                <link rel="stylesheet" href="/css/style.css" />
+                <link rel="stylesheet" href="/css/main.css" />
                 <link rel="stylesheet" href={cdnSrc("/css/temp.css")} />
                 <script src={cdnSrc("/components/modernizr/modernizr.js")}></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
