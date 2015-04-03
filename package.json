@@ -65,9 +65,7 @@
     "swig": "^1.4.2",
     "time-grunt": "~0.3.2",
     "uuid": "^2.0.1",
-    "watchify": "^0.10.2"
-  },
-  "devDependencies": {
+    "watchify": "^0.10.2",
     "coffeeify": "^1.0.0",
     "grunt-coffeeify": "^0.1.3"
   },
