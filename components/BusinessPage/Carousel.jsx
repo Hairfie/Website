@@ -17,7 +17,7 @@ module.exports = React.createClass({
             );
         });
 
-        if (items.length == 0) items.push(<div className="item" />);
+        if (items.length == 0) items.push(<div className="item active" />);
 
         return (
             <div id="carousel-salon" className="carousel slide" data-ride="carousel">
@@ -26,11 +26,11 @@ module.exports = React.createClass({
                 </div>
                 <a className="left carousel-control" href="#carousel-salon" role="button" data-slide="prev">
                     <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
+                    <span className="sr-only">Précédent</span>
                 </a>
                 <a className="right carousel-control" href="#carousel-salon" role="button" data-slide="next">
                     <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
+                    <span className="sr-only">Suivant</span>
                 </a>
             </div>
         );
