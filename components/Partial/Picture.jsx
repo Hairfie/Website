@@ -40,10 +40,15 @@ module.exports = React.createClass({
             resolution.crop = 'thumb';
         }
 
+        var cloudinary = this.props.picture.cloudinary;
+        var options = this.props.options || {};
+
         var options = _.assign({
-            type      : this.props.picture.cloudinary.type,
-            cloud_name: this.props.picture.cloudinary.cloudName,
-        }, this.props.options, resolution);
+            type      : cloudinary.type,
+            cloud_name: cloudinary.cloudName,
+        }, options, resolution, {
+            transformation: _.flatten(cloudinary.transformation, options.transformation)
+        });
 
         return cloudinary.url(this.props.picture.cloudinary.publicId, options);
     },
