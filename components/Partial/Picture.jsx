@@ -7,8 +7,10 @@ var _ = require('lodash');
 var cloudinary = require('cloudinary/lib/utils');
 
 module.exports = React.createClass({
-    render: function () {
-        return <img ref="image" {...this.props} src={this.getSrc()} />
+    getDefaultProps: function () {
+        return {
+            options: {}
+        }
     },
     componentDidMount: function () {
         if (!this.placeholder)
@@ -18,6 +20,9 @@ module.exports = React.createClass({
         $image.one('load', function () {
             $image.attr('src', this.getSrc());
         }.bind(this));
+    },
+    render: function () {
+        return <img ref="image" {...this.props} src={this.getSrc()} />
     },
     getSrc: function () {
         if (!this.props.picture || !this.props.picture.url) return this.props.placeholder;
@@ -40,14 +45,14 @@ module.exports = React.createClass({
             resolution.crop = 'thumb';
         }
 
-        var cloudinary = this.props.picture.cloudinary;
-        var options = this.props.options || {};
-
         var options = _.assign({
-            type      : cloudinary.type,
-            cloud_name: cloudinary.cloudName,
+            type      : this.props.picture.cloudinary.type,
+            cloud_name: this.props.picture.cloudinary.cloudName,
         }, options, resolution, {
-            transformation: _.flatten(cloudinary.transformation, options.transformation)
+            transformation: _.flatten(
+                this.props.picture.cloudinary.transformation,
+                this.props.options.transformation
+            )
         });
 
         return cloudinary.url(this.props.picture.cloudinary.publicId, options);
