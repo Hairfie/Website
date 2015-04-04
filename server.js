@@ -18,7 +18,7 @@ var i18nConfig      = require('./configs/i18n');
 var debug           = require('debug')('Server');
 var server          = express();
 var expressState    = require('express-state');
-var compress        = require('compression');
+//var compress        = require('compression');
 var robots          = require('robots.txt')
 
 expressState.extend(server);
