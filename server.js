@@ -102,7 +102,6 @@ server.use(function (req, res, next) {
 
             res.write(html);
             res.end();
-            next();
         } catch (e) {
             next(e);
         }
