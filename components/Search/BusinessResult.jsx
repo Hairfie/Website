@@ -32,7 +32,7 @@ var Hairfies = React.createClass({
                 where   : {
                     businessId: this.props.business.id
                 },
-                sort    : 'createdAt DESC',
+                order   : 'createdAt DESC',
                 limit   : 6
             })
         };

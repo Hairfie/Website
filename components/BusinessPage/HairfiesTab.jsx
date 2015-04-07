@@ -33,7 +33,7 @@ module.exports = React.createClass({
 
         return this.getStore(HairfieStore).query({
             where: where,
-            sort: 'createdAt DESC',
+            order: 'createdAt DESC',
             limit: PAGE_SIZE,
             skip: (page - 1) * PAGE_SIZE
         });
