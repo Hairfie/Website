@@ -87,3 +87,16 @@ div#app {
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   margin: auto;
 }
+
+.carousel-inner .item {
+    background: none;
+}
+
+.carousel-inner .item img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #838B95;
+    width: 100%;
+    height: 100%;
+}

@@ -12,7 +12,7 @@ module.exports = React.createClass({
             var cls = (i == 0) ? "item active" : "item";
             return (
                 <div className={cls}>
-                    <Picture picture={picture} options={{flags:['lossy']}} />
+                    <Picture picture={picture} options={{flags:['lossy']}} backgroundStyle={true} />
                 </div>
             );
         });
@@ -20,7 +20,7 @@ module.exports = React.createClass({
         if (items.length == 0) items.push(<div className="item active" />);
 
         return (
-            <div id="carousel-salon" className="carousel slide" data-ride="carousel">
+            <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">
                 <div className="carousel-inner" role="listbox">
                     {items}
                 </div>

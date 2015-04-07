@@ -13,16 +13,24 @@ module.exports = React.createClass({
         }
     },
     componentDidMount: function () {
-        if (!this.placeholder)
+        // if (!this.placeholder)
 
-        var $image = jQuery(this.refs.image.getDOMNode());
-        $image.attr('src', this.props.placeholder);
-        $image.one('load', function () {
-            $image.attr('src', this.getSrc());
-        }.bind(this));
+        // var $image = jQuery(this.refs.image.getDOMNode());
+        // $image.attr('src', this.props.placeholder);
+        // $image.one('load', function () {
+        //     $image.attr('src', this.getSrc());
+        // }.bind(this));
     },
     render: function () {
+        if(this.props.backgroundStyle) {
+            return <img ref="image" {...this.props} style={this.getBackgroundStyle()} />
+        }
         return <img ref="image" {...this.props} src={this.getSrc()} />
+    },
+    getBackgroundStyle: function() {
+        return {
+            backgroundImage: 'url(' + this.getSrc() + ')'
+        }
     },
     getSrc: function () {
         if (!this.props.picture || !this.props.picture.url) return this.props.placeholder;
