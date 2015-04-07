@@ -24,12 +24,6 @@ var Button = require('react-bootstrap/Button');
 var DateTimeConstants = require('../constants/DateTimeConstants');
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 
-var RightColumn = React.createClass({
-    render: function() {
-
-    }
-});
-
 module.exports = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -111,7 +105,6 @@ module.exports = React.createClass({
     },
     handleSubmit: function() {
         var booking = this.refs.booking.getBookingInfo();
-
         this.executeAction(BookingActions.Save, {
             booking: booking
         });
