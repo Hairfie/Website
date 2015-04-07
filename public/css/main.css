@@ -6003,10 +6003,10 @@ td.visible-print {
   }
 }
 /*////////////////////////////////
-	    V A R I A B L E S 
+	    V A R I A B L E S
 ////////////////////////////////*/
 /*////////////////////////////////
-	      H E L P E R S 
+	      H E L P E R S
 ////////////////////////////////*/
 .green {
   color: #20af69 !important;
@@ -6033,7 +6033,7 @@ td.visible-print {
   font-family: 'socicon';
 }
 /*////////////////////////////////
-   B U T T O N S  &  I N P U T 
+   B U T T O N S  &  I N P U T
 ////////////////////////////////*/
 .btn-red {
   background-color: #fc5a5f;
@@ -6320,7 +6320,7 @@ span.arrow-right {
   margin-bottom: 0;
 }
 /*////////////////////////////////
-	 G E N E R A L  S T Y L E 
+	 G E N E R A L  S T Y L E
 ////////////////////////////////*/
 body {
   font-size: 1em;
@@ -7308,7 +7308,7 @@ header:not(.white) .dropdown-menu a:hover {
   text-transform: uppercase;
 }
 /*////////////////////////////////
-	   F O O T E R 
+	   F O O T E R
 ////////////////////////////////*/
 footer {
   background-color: #353535;
@@ -7924,7 +7924,7 @@ section.home-footer .row > div p {
   margin: 10px auto;
 }
 /*////////////////////////////////
-	   P A G E  S E A R C H  
+	   P A G E  S E A R C H
 ////////////////////////////////*/
 @media screen and (max-width: 991px) {
   #content.search {
@@ -8416,7 +8416,7 @@ section.home-footer .row > div p {
   top: 100%;
 }
 /*////////////////////////////////
-	   P A G E  S A L O N 
+	   P A G E  S A L O N
 ////////////////////////////////*/
 .carousel-inner .item {
   height: 470px;
@@ -9245,7 +9245,7 @@ section.home-footer .row > div p {
   padding-left: 0;
 }
 /*////////////////////////////////
-	    P A G E  R E S A 
+	    P A G E  R E S A
 ////////////////////////////////*/
 #content.reservation {
   padding-top: 50px;
@@ -9619,4 +9619,3 @@ section.home-footer .row > div p {
   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
-/*# sourceMappingURL=/styles/main.css.map */
