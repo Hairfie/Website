@@ -18,47 +18,69 @@ var HairfieStore = require('../stores/HairfieStore');
 
 var PublicLayout = require('./PublicLayout.jsx');
 
-var Carousel = require('react-bootstrap/Carousel');
-var CarouselItem = require('react-bootstrap/CarouselItem');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 
-var HairfieSingle = React.createClass({
+var Carousel = React.createClass({
+    getInitialState: function () {
+        return {
+            displayIndex: 0
+        };
+    },
+    componentWillReceiveProps: function () {
+        this.setState({displayIndex: 0});
+    },
     render: function () {
-        var priceNode;
-        //if(this.props.hairfie.price) priceNode = <div className="pricetag">{this.props.hairfie.price.amount}{this.props.hairfie.price.currency == "EUR" ? "€" : ""}</div>;
+        var pictures = this.props.hairfie.pictures.slice(0, 2);
 
         return (
-            <div className="col-xs-12 col-sm-6">
-                <div id="carousel-hairfie" className="carousel slide" data-ride="carousel">
-                    <ol className="carousel-indicators hide">
-                        <li data-target="#carousel-hairfie" data-slide-to="0" className="active"></li>
-                        <li data-target="#carousel-hairfie" data-slide-to="1"></li>
-                    </ol>
-                    <div className="carousel-inner" role="listbox">
-                        {priceNode}
-                        <div className="item active">
-                            <div className="outer-img">
-                                <img src={_.first(this.props.hairfie.pictures).url} alt="..." />
+            <div id="carousel-hairfie" className="carousel slide" data-ride="carousel">
+                {this.renderPrice()}
+                {this.renderAuthor()}
+                <div className="carousel-inner" role="listbox">
+                    {_.map(pictures, function (picture, i) {
+                        return (
+                            <div className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
+                                <div className="outer-img">
+                                    <Picture picture={picture} />
+                                </div>
                             </div>
-                        </div>
-                        <div className="item">
-                            <div className="outer-img">
-                                <img src={_.last(this.props.hairfie.pictures).url} alt="..." />
-                            </div>
-                        </div>
-                    </div>
-                    <a className="left carousel-control" href="#carousel-hairfie" role="button" data-slide="prev">
-                        <span className="arrow arrow-left" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="right carousel-control" href="#carousel-hairfie" role="button" data-slide="next">
-                        <span className="arrow arrow-right" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
+                        );
+                    }, this)}
                 </div>
+                {this.renderControl('left', 0, 'Précédent')}
+                {this.renderControl('right', 1, 'Suivant')}
+            </div>
+        );
+    },
+    renderControl: function (position, index, label) {
+        if (this.props.hairfie.pictures.length < 2) return;
+
+        return (
+            <a className={position+' carousel-control'} href="#" role="button" onClick={this.show.bind(this, index)}>
+                <span className={'arrow arrow-'+position} aria-hidden="true" />
+                <span className="sr-only">{label}</span>
+            </a>
+        );
+    },
+    renderPrice: function () {
+
+    },
+    renderAuthor: function () {
+
+    },
+    show: function (i) {
+        this.setState({displayIndex: i});
+    }
+});
+
+var HairfieSingle = React.createClass({
+    render: function () {
+        return (
+            <div className="col-xs-12 col-sm-6">
+                <Carousel hairfie={this.props.hairfie} />
                 <div className="like-group">
                     {/*<div className="like-btn">
                         <a href="#">
@@ -179,53 +201,26 @@ module.exports = React.createClass({
         $('#carousel-hairfie').carousel();
     },
     render: function () {
-        if(!this.state.hairfie) {
-            return (
-                <PublicLayout context={this.props.context}>
-                    <div className="container hairfie-singleView" id="content" >
-                        <div className="loading" />
-                    </div>
-                </PublicLayout>
-            );
-        } else {
-            return (
-                <PublicLayout context={this.props.context}>
-                    <div className="container hairfie-singleView" id="content" >
-                        {/* <a href="#">
-                            <span className="arrow arrow-left" aria-hidden="true"></span>
-                        </a>
-                        <a href="#">
-                            <span className="arrow arrow-right" aria-hidden="true"></span>
-                        </a> */}
-                        <div className="single-view row">
-                            <HairfieSingle hairfie={this.state.hairfie} context={this.props.context} />
-                            <RightColumn hairfie={this.state.hairfie} context={this.props.context} />
-                        </div>
-                    </div>
-                </PublicLayout>
-            );
-        }
-    },
-    renderHairfiePicture: function() {
-        var price;
-        if(this.state.hairfie.price) {
-            price = (<div className="circle">{ this.state.hairfie.price.amount } { this.state.hairfie.price.currency == "EUR" ? "€" : "" }</div>)
-        }
+        if (!this.state.hairfie) return this.renderLoading();
 
         return (
-            <div className="img-container">
-                <Carousel>
-                    {_.map(this.state.hairfie.pictures, function(picture) {
-                        return (
-                            <CarouselItem key={picture.url}>
-                                <img src={picture.url} alt={ this.state.hairfie.descriptions.display }/>
-                            </CarouselItem>
-                        );
-                    }, this)}
-                </Carousel>
-                { price }
-                <div className="share-button"></div>
-            </div>
+            <PublicLayout context={this.props.context}>
+                <div className="container hairfie-singleView" id="content" >
+                    <div className="single-view row">
+                        <HairfieSingle hairfie={this.state.hairfie} context={this.props.context} />
+                        <RightColumn hairfie={this.state.hairfie} context={this.props.context} />
+                    </div>
+                </div>
+            </PublicLayout>
+        );
+    },
+    renderLoading: function () {
+        return (
+            <PublicLayout context={this.props.context}>
+                <div className="container hairfie-singleView" id="content" >
+                    <div className="loading" />
+                </div>
+            </PublicLayout>
         );
     }
 });
