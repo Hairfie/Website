@@ -24,7 +24,7 @@ var robots          = require('robots.txt')
 expressState.extend(server);
 
 // Gzip compression
-server.use(compress());
+//server.use(compress());
 
 // view engine setup
 server.engine('.html.swig', swig.renderFile);
