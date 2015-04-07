@@ -9,11 +9,8 @@ var path            = require('path');
 var favicon         = require('serve-favicon');
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
-var bodyParser      = require('body-parser');
 var url             = require('url');
-var swig            = require('swig');
 var config          = require('./configs/server');
-var facebookConfig  = require('./configs/facebook');
 var i18nConfig      = require('./configs/i18n');
 var debug           = require('debug')('Server');
 var server          = express();
@@ -24,19 +21,10 @@ var robots          = require('robots.txt')
 expressState.extend(server);
 
 // Gzip compression
-//server.use(compress());
-
-// view engine setup
-server.engine('.html.swig', swig.renderFile);
-server.set('view engine', '.html.swig');
-server.set('views', path.join(__dirname, 'views'));
-swig.setDefaults({ cache: false });
-server.set('view cache', !config.DEBUG);
+server.use(compress());
 
 server.use(favicon(__dirname + '/public/favicon.ico'));
 server.use(logger('dev'));
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use(robots(__dirname + '/public/robots/' + config.ROBOTS));
 
@@ -56,7 +44,6 @@ function bestLocale(req) {
 
 function redirectToLocalized(req, res, next) {
     res.redirect(302, '/'+bestLocale(req)+req.url);
-    next();
 }
 
 server.get('/', redirectToLocalized);
