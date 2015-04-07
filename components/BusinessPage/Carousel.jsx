@@ -12,7 +12,7 @@ module.exports = React.createClass({
             var cls = (i == 0) ? "item active" : "item";
             return (
                 <div className={cls}>
-                    <Picture picture={picture} />
+                    <Picture picture={picture} options={{flags:['lossy']}} />
                 </div>
             );
         });
