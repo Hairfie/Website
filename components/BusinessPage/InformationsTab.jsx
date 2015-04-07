@@ -35,7 +35,12 @@ var HairdresserPicture = React.createClass({
         if (!this.props.hairdresser.picture) return this.renderDefault();
 
         return <Picture picture={this.props.hairdresser.picture}
-                     resolution={340}
+                     options={{
+                        width: 340,
+                        height: 340,
+                        crop: 'thumb',
+                        gravity: 'faces'
+                     }}
                     placeholder="/images/placeholder-640.png"
                             alt={this.getAlt()} />;
     },

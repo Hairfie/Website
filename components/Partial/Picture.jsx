@@ -48,7 +48,7 @@ module.exports = React.createClass({
         var options = _.assign({
             type      : this.props.picture.cloudinary.type,
             cloud_name: this.props.picture.cloudinary.cloudName,
-        }, options, resolution, {
+        }, this.props.options, resolution, {
             transformation: _.flatten(
                 this.props.picture.cloudinary.transformation,
                 this.props.options.transformation
