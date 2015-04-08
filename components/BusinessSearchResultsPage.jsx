@@ -112,7 +112,7 @@ var Breadcrumb = React.createClass({
 
 var SearchResults = React.createClass({
     render: function () {
-        if (true) return <div className="loading" />;
+        if (!this.props.result) return <div className="loading" />;
 
         var result = this.props.result;
         var date   = this.props.search && this.props.search.date;

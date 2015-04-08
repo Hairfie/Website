@@ -70,10 +70,10 @@ figcaption a.address {
   max-height: 200px;
   background:url(/img/loader_128.png) no-repeat center center;
   background-size: 64px 64px;
-  -webkit-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
-  -moz-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
-  -o-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
-  animation: spinX 1.5s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
+  -webkit-animation: spinX 2s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
+  -moz-animation: spinX 2s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
+  -o-animation: spinX 2s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
+  animation: spinX 1.5s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
 }
 
 @-webkit-keyframes spinX {
