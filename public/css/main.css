@@ -8420,8 +8420,8 @@ section.home-footer .row > div p {
 ////////////////////////////////*/
 .carousel-inner .item {
   height: 470px;
-  /* background: url(../images/placeholder-salon-img.jpg) no-repeat center center; */
-  /* background-size: cover; */
+  background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+  background-size: cover;
 }
 @media screen and (max-width: 767px) {
   .carousel-inner .item {

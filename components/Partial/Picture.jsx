@@ -13,13 +13,13 @@ module.exports = React.createClass({
         }
     },
     componentDidMount: function () {
-        // if (!this.placeholder)
+        if (!this.placeholder)
 
-        // var $image = jQuery(this.refs.image.getDOMNode());
-        // $image.attr('src', this.props.placeholder);
-        // $image.one('load', function () {
-        //     $image.attr('src', this.getSrc());
-        // }.bind(this));
+        var $image = jQuery(this.refs.image.getDOMNode());
+        $image.attr('src', this.props.placeholder);
+        $image.one('load', function () {
+            $image.attr('src', this.getSrc());
+        }.bind(this));
     },
     render: function () {
         if(this.props.backgroundStyle) {

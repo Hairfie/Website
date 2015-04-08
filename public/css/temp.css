@@ -92,6 +92,12 @@ div#app {
     background: none;
 }
 
+.carousel-inner .item.placeholder {
+  height: 470px;
+  background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+  background-size: cover;
+}
+
 .carousel-inner .item img {
     background-repeat: no-repeat;
     background-size: cover;
