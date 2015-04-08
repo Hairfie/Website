@@ -31,7 +31,7 @@ var Html = React.createClass({
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-                <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css" />
+                <link href="/components/blueimp-gallery/css/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
@@ -40,8 +40,8 @@ var Html = React.createClass({
                 <script src={cdnSrc("/components/typeahead.js/dist/typeahead.jquery.min.js")}></script>
                 <script src={cdnSrc("/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js")}></script>
                 <script src={cdnSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
-                <script src={cdnSrc("/components/gsap/src/minified/TweenMax.min.js")}></script>
-                <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+                <script src={cdnSrc("/components/gsap/src/minified/TweenMax.min.js")} async></script>
+                <script src={cdnSrc("/components/blueimp-gallery/js/jquery.blueimp-gallery.min.js")} async></script>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src={cdnSrc("/js/share.min.js")}></script>
                 <script src={cdnSrc("/js/main.js")}></script>
