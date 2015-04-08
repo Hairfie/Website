@@ -67,7 +67,30 @@ figcaption a.address {
 
 .loading {
   width: 100%; height: 100%;
-  background:url(/img/loader.gif) no-repeat center center;
+  max-height: 200px;
+  background:url(/img/loader_128.png) no-repeat center center;
+  background-size: 64px 64px;
+  -webkit-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
+  -moz-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
+  -o-animation: spinX 2s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
+  animation: spinX 1.5s infinite cubic-bezier(0.33, -0.1, 0.62, 1.07);
+}
+
+@-webkit-keyframes spinX {
+  from   { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-moz-keyframes spinX {
+  from   { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-o-keyframes spinX {
+  from   { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spinX {
+  from   { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .write-review {
