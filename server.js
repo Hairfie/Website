@@ -19,6 +19,16 @@ var compress        = require('compression');
 var robots          = require('robots.txt')
 var swig            = require('swig');
 
+var React            = require('react');
+var app              = require('./app');
+var ServerActions    = require('./actions/Server');
+var RouteStore       = require('./stores/RouteStore');
+var RedirectStore    = require('./stores/RedirectStore');
+var MetaStore        = require('./stores/MetaStore');
+var BusinessStore    = require('./stores/BusinessStore');
+var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
+var ErrorPage        = React.createFactory(require('./components/ErrorPage.jsx'));
+
 expressState.extend(server);
 
 // Configure templating (for error pages)
@@ -65,16 +75,8 @@ server.get('/write-business-review/:businessReviewRequestId', redirectToLocalize
 
 // serve application
 server.use(function (req, res, next) {
-    var app              = require('./app');
-    var context          = app.createContext();
-    var ServerActions    = require('./actions/Server');
-    var payload          = {request: req};
-    var RouteStore       = require('./stores/RouteStore');
-    var RedirectStore    = require('./stores/RedirectStore');
-    var MetaStore        = require('./stores/MetaStore');
-    var BusinessStore    = require('./stores/BusinessStore');
-    var React            = require('react');
-    var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
+    var context = app.createContext();
+    var payload = {request: req};
 
     context.executeAction(ServerActions.Initialize, payload, function (error) {
         if (error) return next(error);
@@ -118,12 +120,15 @@ server.use(function (req, res, next) {
 });
 
 // error handlers
-server.use(function(err, req, res, next) {
+server.use(function (err, req, res, next) {
+    var html = '<!doctype html>'+React.renderToStaticMarkup(ErrorPage({
+        error: err,
+        debug: !!config.DEBUG
+    }));
+
     res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: config.DEBUG ? err: {}
-    });
+    res.write(html);
+    res.end();
 });
 
 module.exports = server;
