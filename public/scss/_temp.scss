@@ -2,6 +2,10 @@
     height: inherit;
 }
 
+header .logo {
+    background-size: 110px 36px !important;
+}
+
 figcaption a span {
     font-size: 21px !important;
     font-weight: 400;
@@ -35,8 +39,8 @@ figcaption a.address {
 }
 
 .salon#content section.salon-content section .coiffeur img {
-  min-width: 100%;
-  min-height: 100%;
+  //min-width: 100%;
+  //min-height: 100%;
 }
 
 .cal {
@@ -128,4 +132,8 @@ div#app {
     background-color: #838B95;
     width: 100%;
     height: 100%;
+}
+
+#content.search .main-content .tab-pane section .rating .note {
+  margin-top: -4px;
 }
