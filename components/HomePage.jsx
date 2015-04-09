@@ -11,10 +11,8 @@ var PageProgress = require('./PageProgress.jsx');
 
 var FluxibleMixin = require('fluxible').Mixin;
 
-var CategoriesSection = require('./HomePage/CategoriesSection.jsx');
-var DealsSection = require('./HomePage/DealsSection.jsx');
-var TopHairfiesSection = require('./HomePage/TopHairfiesSection.jsx');
-var HomePageMixin = require('./HomePage/HomePageMixin.jsx');
+var HomePage = require('./HomePagePartials');
+
 var SearchBar = require('./Layout/SearchBar.jsx');
 
 var _ = require('lodash');
@@ -46,40 +44,8 @@ var HowSection = React.createClass({
     },
 });
 
-var LinkSection = React.createClass({
-    render: function () {
-        return (
-            <section className="home-section seo">
-                <h2>Nos suggestions</h2>
-                <div className="row">
-                    <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Barbier à Paris", "Paris--France", "Barbier")}
-                    </div>
-                    <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Barbier dans le Marais", "Le-Marais--Paris--France", "Barbier")}
-
-                    </div>
-                    <div className="col-sm-4 col-xs-12">
-                        {this.renderLink("Le meilleur du Marais", "Le-Marais--Paris--France")}
-                    </div>
-                </div>
-            </section>
-       );
-    },
-    renderLink: function(displayText, address, category) {
-        var href = category ? this.props.context.makeUrl('business_search_results', {address: address}, {categories: category}) : this.props.context.makeUrl('business_search_results', {address: address});
-        return (
-            <p>
-                <NavLink href={href} context={this.props.context}>
-                    <span>{displayText}</span>
-                </NavLink>
-            </p>
-        );
-    }
-});
-
 module.exports = React.createClass({
-    mixins: [FluxibleMixin, HomePageMixin],
+    mixins: [FluxibleMixin, HomePage.Mixin],
     componentDidMount: function () {
         // animation
         TweenMax.set('.headline', {opacity:0,top:30});
@@ -124,11 +90,11 @@ module.exports = React.createClass({
                 </section>
                 <div className="container">
                     <div className="main-content" id="home">
-                        <CategoriesSection context={this.props.context} />
-                        <DealsSection context={this.props.context} numTopDeals={this.props.route.config.numTopDeals} />
-                        <TopHairfiesSection context={this.props.context} numTopHairfies={this.props.route.config.numTopHairfies} />
+                        <HomePage.Categories context={this.props.context} />
+                        <HomePage.Deals context={this.props.context} numTopDeals={this.props.route.config.numTopDeals} />
+                        <HomePage.TopHairfies context={this.props.context} numTopHairfies={this.props.route.config.numTopHairfies} />
                         <HowSection />
-                        <LinkSection context={this.props.context} />
+                        <HomePage.LinksSection context={this.props.context} links={HomePage.Links} />
                     </div>
                 </div>
                 <Footer context={this.props.context} />
