@@ -11,7 +11,7 @@ var PageProgress = require('./PageProgress.jsx');
 
 var FluxibleMixin = require('fluxible').Mixin;
 
-var HomePage = require('./HomePagePartials');
+var HomePage = require('./Home');
 
 var SearchBar = require('./Layout/SearchBar.jsx');
 

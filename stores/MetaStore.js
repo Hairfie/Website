@@ -25,6 +25,10 @@ module.exports = createStore({
                 this._setupHairfieMetas(payload.params.hairfieId);
                 break;
 
+            case 'pro_home':
+                this._setupHomeProMetas();
+                break;
+
             default:
                 this._setupDefaultMetas();
         }
@@ -49,6 +53,10 @@ module.exports = createStore({
     _setupHairfieMetas: function (hairfieId) {
         var hairfie = this.dispatcher.getStore('HairfieStore').getById(hairfieId);
         this.metas = metaGenerator.getHairfieMetadata(hairfie);
+        this.emitChange();
+    },
+    _setupHomeProMetas: function () {
+        this.metas = metaGenerator.getHomeProMetadata();
         this.emitChange();
     }
 });

@@ -88,8 +88,8 @@ server.use(function (req, res, next) {
 
             var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
 
-            var title = context.getActionContext().getStore(MetaStore).getTitle();
             var metas = context.getActionContext().getStore(MetaStore).getMetas();
+            var title = context.getActionContext().getStore(MetaStore).getTitle();
 
             var appState = app.dehydrate(context);
             var AppComponent = app.getAppComponent();
