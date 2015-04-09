@@ -1,45 +1,23 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var BusinessStore = require('../stores/BusinessStore');
 var Layout = require('./PublicLayout.jsx');
-var BusinessPage = require('./BusinessPage');
+var Business = require('./BusinessPage');
+var connectToStores = require('fluxible/addons/connectToStores');
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BusinessStore]
-    },
-    getStateFromStores: function (props) {
-        var props = props || this.props;
-
-        return {
-            business: this.getStore(BusinessStore).getById(props.route.params.businessId)
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
-    },
+var BusinessPage = React.createClass({
     componentDidMount: function () {
         TweenMax.to('#content.salon .main-content', 0.5, {top:0,opacity:1,ease:Power2.easeIn});
     },
     render: function () {
-        var businessId = this.props.route.params.businessId;
-        var business = this.state.business || {};
+        var business = this.props.business || {};
 
         return (
             <Layout context={this.props.context}>
-                <BusinessPage.Carousel pictures={business.pictures} />
+                <Business.Carousel pictures={business.pictures} />
                 <div className="container salon" id="content">
                     <div className="main-content col-md-8 col-sm-12" style={{opacity: 1, top: '0px'}}>
-                        <BusinessPage.ShortInfos business={business} />
+                        <Business.ShortInfos business={business} />
                         <section className="salon-content">
                             <div className="row">
                                 <div role="tabpannel">
@@ -67,23 +45,51 @@ module.exports = React.createClass({
                                     </div>
                                     <div className="tab-content">
                                         <div role="tabpannel" className="tab-pane fade active in" id="informations">
-                                            <BusinessPage.InformationsTab context={this.props.context} businessId={businessId} />
+                                            <Business.InformationsTab
+                                                context={this.props.context}
+                                                business={this.props.business}
+                                                services={this.props.services}
+                                                discounts={this.props.discounts}
+                                                stations={this.props.stations}
+                                                />
                                         </div>
                                         <div role="tabpannel" className="tab-pane fade" id="reviews">
-                                            <BusinessPage.ReviewsTab context={this.props.context} businessId={businessId} />
+                                            <Business.ReviewsTab
+                                                context={this.props.context}
+                                                reviews={this.props.reviews}
+                                                />
                                         </div>
                                         <div role="tabpannel" className="tab-pane fade" id="hairfies">
-                                            <BusinessPage.HairfiesTab context={this.props.context} businessId={businessId} />
+                                            <Business.HairfiesTab context={this.props.context} businessId={this.props.route.params.businessId} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
-                    <BusinessPage.Sidebar context={this.props.context} businessId={businessId} />
+                    <Business.Sidebar context={this.props.context} businessId={this.props.route.params.businessId} />
                 </div>
                 <div className="row"></div>
             </Layout>
         );
     }
 });
+
+BusinessPage = connectToStores(BusinessPage, [
+    require('../stores/BusinessStore'),
+    require('../stores/BusinessServiceStore'),
+    require('../stores/BusinessReviewStore'),
+    require('../stores/StationStore')
+], function (stores, props) {
+    var business = stores.BusinessStore.getById(props.route.params.businessId);
+
+    return {
+        business: business,
+        services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),
+        discounts: stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
+        stations: business && stores.StationStore.getByLocation(business.gps),
+        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId, 50)
+    };
+});
+
+module.exports = BusinessPage;

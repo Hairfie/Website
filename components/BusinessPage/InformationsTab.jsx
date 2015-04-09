@@ -53,32 +53,6 @@ var HairdresserPicture = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BusinessStore, BusinessServiceStore, StationStore]
-    },
-    getStateFromStores: function (props) {
-        var props = props || this.props;
-
-        var business = this.getStore(BusinessStore).getById(props.businessId);
-        var stations = business && this.getStore(StationStore).getByLocation(business.gps);
-
-        return {
-            business: business,
-            services: this.getStore(BusinessServiceStore).getByBusiness(props.businessId),
-            discounts: this.getStore(BusinessStore).getDiscountForBusiness(props.businessId),
-            stations: _.groupBy(stations, 'type')
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
     render: function () {
         return (
             <div>
@@ -91,7 +65,7 @@ module.exports = React.createClass({
         );
     },
     renderHairdressers: function () {
-        var business     = this.state.business || {};
+        var business     = this.props.business || {};
         var hairdressers = business.activeHairdressers || [];
 
         if (hairdressers.length == 0) return;
@@ -113,7 +87,7 @@ module.exports = React.createClass({
         );
     },
     renderServices: function () {
-        var services = this.state.services || [];
+        var services = this.props.services || [];
 
         if (services.length == 0) return;
 
@@ -133,7 +107,7 @@ module.exports = React.createClass({
         );
     },
     renderDiscounts: function () {
-        var discounts = this.state.discounts || {};
+        var discounts = this.props.discounts || {};
 
         if (!discounts.max) return;
 
@@ -165,7 +139,7 @@ module.exports = React.createClass({
         );
     },
     renderStations: function () {
-        var stations = this.state.stations || {};
+        var stations = _.groupBy(this.props.stations || [], 'type')
 
         if (!stations.rer && !stations.metro) return;
 
@@ -177,12 +151,12 @@ module.exports = React.createClass({
         );
     },
     renderMap: function () {
-        var business = this.state.business || {};
+        var business = this.props.business || {};
 
         return <Map location={business.gps} className="map container-fluid" />;
     },
     renderDescription: function () {
-        var business = this.state.business || {};
+        var business = this.props.business || {};
         var description = business.description;
 
         if (_.values(description).join('') == '') return;

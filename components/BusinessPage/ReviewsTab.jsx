@@ -3,8 +3,6 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var BusinessReviewStore = require('../../stores/BusinessReviewStore');
 var moment = require('moment');
 var _ = require('lodash');
 
@@ -22,28 +20,8 @@ function initials(n) {
 }
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BusinessReviewStore]
-    },
-    getStateFromStores: function (props) {
-        var props = props || this.props;
-
-        return {
-            reviews: this.getStore(BusinessReviewStore).getLatestByBusiness(props.businessId, 50)
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
-    },
     render: function () {
-        var reviews = this.state.reviews;
+        var reviews = this.props.reviews || [];
 
         if (_.isUndefined(reviews)) return this.renderTextOnly('Chargement en cours, veuillez patienter...');
         if (reviews.length == 0) return this.renderTextOnly('Pas encore d\'avis sur ce coiffeur.');
