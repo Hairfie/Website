@@ -53,9 +53,7 @@ function navigate(context, request) {
         var deferred = Promise.defer();
 
         context.executeAction(navigateAction, payload, function (error) {
-            if (error && (!error.status || error.status != 404)) {
-                return deferred.reject(error);
-            }
+            if (error) deferred.reject(error);
             deferred.resolve();
         });
 
