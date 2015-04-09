@@ -1,6 +1,6 @@
 'use strict';
 
-var createStore = require('fluxible/utils/createStore');
+var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var metaGenerator = require('../lib/metaGenerator.js');
 var _ = require('lodash');

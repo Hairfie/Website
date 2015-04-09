@@ -15,7 +15,7 @@ if(!serverConfig.DEBUG) {
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
     React.render(
-        app.getAppComponent()({context: context.getComponentContext()}),
+        app.getComponent()({context: context.getComponentContext()}),
         document.getElementById('app')
     );
 
