@@ -14,6 +14,8 @@ module.exports = function (context, payload, done) {
         var business  = context.getStore(BusinessStore).getById(payload.params.businessId),
             routeSlug = payload.params.businessSlug;
 
+        if (!business) return done({status: 404, message: 'Business not found'});
+
         // redirect user to URL with proper slug
         if (business.slug != routeSlug) {
             debug('Invalid slug used in current URL, redirecting');

@@ -9,7 +9,7 @@ var Footer = require('./Layout/Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
 var PageProgress = require('./PageProgress.jsx');
 
-var FluxibleMixin = require('fluxible').Mixin;
+var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 
 var HomePage = require('./Home');
 

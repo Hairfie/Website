@@ -103,7 +103,7 @@ module.exports = {
     show_hairfie: {
         path: '/hairfies/:hairfieId',
         method: 'get',
-        action: require('../actions/Hairfie/RouteOpen'),
+        action: require('../actions/Page/Hairfie'),
         pageComponent: require('../components/ShowHairfiePage.jsx')
     },
     show_business: {

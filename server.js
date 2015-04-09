@@ -92,7 +92,7 @@ server.use(function (req, res, next) {
             var title = context.getActionContext().getStore(MetaStore).getTitle();
 
             var appState = app.dehydrate(context);
-            var AppComponent = app.getAppComponent();
+            var AppComponent = app.getComponent();
 
             res.expose(appState, 'App');
 
@@ -109,7 +109,7 @@ server.use(function (req, res, next) {
 
             if (!currentRoute) res.status(404);
 
-            res.write(html);
+            res.write('<!doctype html>'+html);
             res.end();
         } catch (e) {
             next(e);
