@@ -6,5 +6,5 @@ module.exports = {
     Mixin: require('./HomePageMixin.jsx'),
     TopHairfies: require('./TopHairfiesSection.jsx'),
     LinksSection: require('./LinksSection.jsx'),
-    Links: require('./Links.js')
+    HowSection: require('./HowSection.jsx')
 };

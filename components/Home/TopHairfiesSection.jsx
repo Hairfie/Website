@@ -3,30 +3,13 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var TopHairfiesStore = require('../../stores/TopHairfiesStore');
-var lodash = require('lodash');
+var _ = require('lodash');
 var NavLink = require('flux-router-component').NavLink;
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin, NavToLinkMixin],
-    statics: {
-        storeListeners: [TopHairfiesStore]
-    },
-    getStateFromStores: function () {
-        var hairfies = this.getStore(TopHairfiesStore).get(this.props.numTopHairfies);
-        return {
-            hairfies   : hairfies
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
+    mixins: [NavToLinkMixin],
     render: function () {
         return (
             <section className="home-section">
@@ -34,18 +17,19 @@ module.exports = React.createClass({
                 <div className="row">
                     <div className="col-md-6 col-xs-12 small-hairfies">
                         <div className="row">
-                            {lodash.map(this.state.hairfies.slice(1, 5), function(h){ return this.renderHairfie(h, "col-xs-6")}, this)}
+                            {_.map(_.rest(this.props.hairfies), function(h){ return this.renderHairfie(h, "col-xs-6")}, this)}
                         </div>
                     </div>
 
-                    {this.state.hairfies[0] && this.renderHairfie(this.state.hairfies[0], 'col-md-6 col-xs-12 big', 'col-xs-12')}
+                    {this.renderHairfie(_.first(this.props.hairfies), 'col-md-6 col-xs-12 big', 'col-xs-12')}
                 </div>
-                {/* <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de Hairfies</a> */}
             </section>
         );
     },
     renderHairfie: function (hairfie, hairfieClass, figureClass) {
-        var picture = lodash.last(hairfie.pictures);
+        if (!hairfie) return;
+
+        var picture = _.last(hairfie.pictures);
         var priceNode;
         if(hairfie.price) priceNode = <div className="pricetag">{hairfie.price.amount}{hairfie.price.currency == "EUR" ? "€" : ""}</div>;
 
@@ -65,8 +49,7 @@ module.exports = React.createClass({
                         </NavLink>
                         {priceNode}
                     </figcaption>
-                                    <div className="clearfix" />
-
+                    <div className="clearfix" />
                 </figure>
             </div>
         );

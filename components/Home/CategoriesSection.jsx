@@ -3,52 +3,38 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var CategoryStore = require('../../stores/CategoryStore');
 var _ = require('lodash');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin, NavToLinkMixin],
-    statics: {
-        storeListeners: [CategoryStore]
-    },
-    getStateFromStores: function () {
+    mixins: [NavToLinkMixin],
+    getInitialState: function () {
         return {
-            categories : this.getStore(CategoryStore).all()
+            showAll: false
         };
     },
-    getInitialState: function () {
-        return _.assign(this.getStateFromStores(), {
-            showAll: false
-        });
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
     render: function () {
-        var categories = this.state.categories || [];
-
-        if (!this.state.showAll) categories = categories.slice(0, 6);
+        var categories = this.state.showAll ? this.props.categories : _.take(this.props.categories, 6);
 
         return (
             <section className="home-section">
                 <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
-                    {_.map(_.chunk(categories, 3), function (categories) {
-                        return (
-                            <div key={_.pluck(categories, 'id').join('|')} className="row">
-                                {_.map(categories, this.renderCategory)}
-                            </div>
-                        );
-                    }, this)}
+                    {_.map(_.chunk(categories, 3), this.renderCategoriesRow)}
                 </div>
                 <a href="#" onClick={this.toggleShowAll} className="btn btn-red home-cta col-md-3 col-xs-10">
                     {this.state.showAll ? 'Moins' : 'Plus'} de catégories
                 </a>
             </section>
+        );
+    },
+    renderCategoriesRow: function (cats) {
+        return (
+            <div key={_.pluck(cats, 'id').join('')} className="row">
+                {_.map(cats, this.renderCategory)}
+            </div>
         );
     },
     renderCategory: function (cat) {

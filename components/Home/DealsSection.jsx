@@ -3,41 +3,26 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var TopDealsStore = require('../../stores/TopDealsStore');
-var lodash = require('lodash');
+var _ = require('lodash');
 var NavLink = require('flux-router-component').NavLink;
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin, NavToLinkMixin],
-    statics: {
-        storeListeners: [TopDealsStore]
-    },
-    getStateFromStores: function () {
-        return {
-            topDeals   : this.getStore(TopDealsStore).get(this.props.numTopDeals)
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
+    mixins: [NavToLinkMixin],
     render: function () {
         return (
             <section className="home-section">
                 <h2>Nos offres actuelles</h2>
-                <div className="row">
-                    {lodash.map(this.state.topDeals, this.renderDeal).slice(0, 3)}
-                </div>
-                <div className="row">
-                    {lodash.map(this.state.topDeals, this.renderDeal).slice(3, 6)}
-                </div>
-                {/* <a href="#" className="btn btn-red home-cta col-md-3 col-xs-10">Plus de bons plans</a> */}
+                {_.map(_.chunk(this.props.deals, 3), this.renderDealsRow)}
             </section>
+        );
+    },
+    renderDealsRow: function (deals, i) {
+        return (
+            <div key={i} className="row">
+                {_.map(deals, this.renderDeal)}
+            </div>
         );
     },
     renderDeal: function (deal) {

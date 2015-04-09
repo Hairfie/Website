@@ -12,9 +12,11 @@ var BusinessInfosPage = require('./BusinessInfosPage.jsx');
 var Navigate = require('flux-router-component/actions/navigate');
 var _ = require('lodash');
 
+var provideContext = require('fluxible/addons/provideContext');
+
 var ga = require('../services/analytics');
 
-module.exports = React.createClass({
+var Application = React.createClass({
     mixins: [FluxibleMixin, RouterMixin],
     statics: {
         storeListeners: [RouteStore, AuthStore, RedirectStore]
@@ -75,3 +77,7 @@ module.exports = React.createClass({
         this.setState(this.getStateFromStores());
     }
 });
+
+Application = provideContext(Application);
+
+module.exports = Application;
