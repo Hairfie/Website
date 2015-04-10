@@ -21,12 +21,12 @@ var HomePage = React.createClass({
     render: function () {
         return (
             <div className="front">
-                <PageProgress context={this.props.context} />
+                <PageProgress />
                 <section className="landing">
                     <div className="container">
-                        <Header context={this.props.context} withLogin={this.props.withLogin} headerClassName='normal' />
-                        <SearchBar context={this.props.context} mobile={true} />
-                        <FlashMessages context={this.props.context} />
+                        <Header withLogin={this.props.withLogin} headerClassName='normal' />
+                        <SearchBar mobile={true} />
+                        <FlashMessages />
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Trouvez votre coupe. <br />Réservez votre coiffeur.</h1>
@@ -34,21 +34,21 @@ var HomePage = React.createClass({
                             </div>
                         </div>
                         <div className="row">
-                            <SearchBar context={this.props.context} homepage={true} />
+                            <SearchBar homepage={true} />
                         </div>
                     </div>
                 </section>
                 <div className="container">
                     <div className="main-content" id="home">
-                        <Home.Categories context={this.props.context} categories={this.props.categories} />
-                        <Home.Deals context={this.props.context} deals={this.props.deals} />
-                        <Home.TopHairfies context={this.props.context} hairfies={this.props.hairfies} />
+                        <Home.Categories categories={this.props.categories} />
+                        <Home.Deals deals={this.props.deals} />
+                        <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
-                        <Home.LinksSection context={this.props.context} links={this.props.links} />
+                        <Home.LinksSection links={this.props.links} />
                     </div>
                 </div>
-                <Footer context={this.props.context} />
-                <Footer context={this.props.context} mobile={true} />
+                <Footer />
+                <Footer mobile={true} />
             </div>
         );
     }

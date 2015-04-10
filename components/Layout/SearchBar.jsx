@@ -9,8 +9,8 @@ var NavLink = require('flux-router-component').NavLink;
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
-    propTypes: {
-        context: React.PropTypes.object.isRequired
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
         if(this.props.mobile) {
@@ -49,7 +49,7 @@ module.exports = React.createClass({
         return (
             <div className="mobile-nav visible-xs">
                 <header className="container">
-                    <NavLink context={this.props.context} className="logo col-xs-4" routeName="home" />
+                    <NavLink className="logo col-xs-4" routeName="home" />
                     <a href="#" className="col-xs-4 menu-trigger pull-right"></a>
                 </header>
                 <div className="mobile-menu">
@@ -74,7 +74,7 @@ module.exports = React.createClass({
             date    : this.refs.date.getDOMNode().value
         };
 
-        this.props.context.executeAction(SubmitSearch, {search: search});
+        this.context.executeAction(SubmitSearch, {search: search});
     },
     componentDidMount: function() {
         $('body').on("click",'.mobile-nav .menu-trigger',function(){

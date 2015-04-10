@@ -33,10 +33,10 @@ module.exports = React.createClass({
                 <figure>
                     <Picture picture={deal.business.pictures[0]} resolution={{width: 640, height: 400}} placeholder="/images/placeholder-640.png" alt={deal.business.name} onClick={this.navToLink.bind(this, "show_business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
                     <figcaption>
-                        <NavLink routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}} context={this.props.context}>
+                        <NavLink routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
                             {deal.business.name}
                         </NavLink>
-                        <NavLink className="address" routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}} context={this.props.context}>
+                        <NavLink className="address" routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
                             {displayAddress}
                         </NavLink>
                         <span className="icon-promo">{deal.discount}%</span>

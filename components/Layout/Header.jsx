@@ -5,46 +5,13 @@ var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 var NavLink = require('flux-router-component').NavLink;
 var UserStatus = require('../UserStatus.jsx');
 
-var MenuItem = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: ['RouteStore']
-    },
-    getStateFromStores: function () {
-        var route = this.getStore('RouteStore').getCurrentRoute();
-
-
-        return {
-            current: route && (this.props.routeName == route.name || this.props.href == route.path)
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    render: function () {
-        var className;
-        if (this.state.current) className = 'active';
-
-        return (
-            <li className={className}>
-                <NavLink {...this.props} />
-            </li>
-        );
-    },
-    onChange: function () {
-        if (this.isMounted()) {
-            this.setState(this.getStateFromStores());
-        }
-    }
-});
-
 module.exports = React.createClass({
     render: function () {
         var custom;
         if (this.props.withLogin) {
-            custom = (<UserStatus context={this.props.context} loginSuccessUrl={this.props.loginSuccessUrl} />);
+            custom = (<UserStatus loginSuccessUrl={this.props.loginSuccessUrl} />);
         } else {
-            custom = (<li><NavLink context={this.props.context} routeName="pro_home" className="">Vous êtes coiffeur ?</NavLink></li>);
+            custom = (<li><NavLink routeName="pro_home" className="">Vous êtes coiffeur ?</NavLink></li>);
         }
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
         headerClassName += ' hidden-xs';
@@ -53,7 +20,7 @@ module.exports = React.createClass({
             <header className={headerClassName}>
                 <div className="row">
                     <div className="col-md-12">
-                        <NavLink context={this.props.context} className="logo col-md-4" routeName="home" />
+                        <NavLink className="logo col-md-4" routeName="home" />
                         <nav className='col-md-8 pull-right'>
                             <ul>
                                 {custom}

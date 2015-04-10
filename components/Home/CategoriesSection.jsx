@@ -10,6 +10,9 @@ var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
     mixins: [NavToLinkMixin],
+    contextTypes: {
+        makeUrl: React.PropTypes.func.isRequired
+    },
     getInitialState: function () {
         return {
             showAll: false
@@ -38,14 +41,14 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
-        var href = this.props.context.makeUrl('business_search_results', {address: "Paris--France"}, {categories: cat.name});
+        var href = this.context.makeUrl('business_search_results', {address: "Paris--France"}, {categories: cat.name});
 
         return (
             <div className="col-sm-4 col-xs-12" key={cat.id} >
                 <figure>
                     <Picture picture={cat.picture} alt={cat.name} />
                     <figcaption>
-                        <NavLink href={href} context={this.props.context}>
+                        <NavLink href={href}>
                             <span className="oneline">{cat.name}</span>
                         </NavLink>
                         <a href="#"><span>{cat.name}</span></a>

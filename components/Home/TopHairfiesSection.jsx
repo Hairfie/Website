@@ -41,10 +41,10 @@ module.exports = React.createClass({
                 <figure className={figureClass}>
                     <Picture picture={picture} />
                     <figcaption>
-                        <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
+                        <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
                             {displayBusinessName}
                         </NavLink>
-                        <NavLink className="address" routeName="show_hairfie" navParams={{hairfieId: hairfie.id}} context={this.props.context}>
+                        <NavLink className="address" routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
                             {displayBusinessAddress}
                         </NavLink>
                         {priceNode}
