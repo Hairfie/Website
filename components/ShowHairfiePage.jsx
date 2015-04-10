@@ -1,27 +1,14 @@
 /** @jsx React.DOM */
 
 var facebookConfig = require('../configs/facebook');
-
-// TODO : remove and make it really global
-if (typeof global.Intl == 'undefined') {
-    global.Intl = require('intl');
-}
-
 var React = require('react');
 var _ = require('lodash');
-
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var ReactIntlMixin = require('react-intl');
 var NavLink = require('flux-router-component').NavLink;
-
-var HairfieStore = require('../stores/HairfieStore');
-
 var PublicLayout = require('./PublicLayout.jsx');
-
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
-
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
+var connectToStores = require('fluxible/addons/connectToStores');
 
 var Carousel = React.createClass({
     getInitialState: function () {
@@ -97,7 +84,7 @@ var HairfieSingle = React.createClass({
 
         return (
             <div className="cta">
-                <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                     Réserver dans ce salon
                 </NavLink>
             </div>
@@ -113,7 +100,7 @@ var RightColumn = React.createClass({
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
                 <p>Réalisé par :
-                    <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                    <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                         {this.props.hairfie.hairdresser.firstName}
                     </NavLink>
                 </p>
@@ -125,13 +112,13 @@ var RightColumn = React.createClass({
                 <div className="salon-infos">
                     <div className="row">
                         <div className="col-xs-3">
-                            <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                            <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                                 <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
                             </NavLink>
                         </div>
                         <div className="col-xs-9 address-bloc">
                             <h2>
-                                <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}} context={this.props.context}>
+                                <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                                     {this.props.hairfie.business.name}
                                 </NavLink>
                             </h2>
@@ -150,7 +137,7 @@ var RightColumn = React.createClass({
                           <p>
                             {/*<a href="#" className="col-xs-3 like">J'aime</a>
                             - */}
-                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'{/*' */}aime</span>
+                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
                           </p>
                         </div>
                     </div>
@@ -160,25 +147,7 @@ var RightColumn = React.createClass({
     }
 });
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin, ReactIntlMixin],
-    statics: {
-        storeListeners: [HairfieStore],
-        isNotFound: function (context) {
-            return _.isNull(this.state.hairfie);
-        }
-    },
-    getStateFromStores: function () {
-        return {
-            hairfie: this.getStore(HairfieStore).getById(this.props.route.params.hairfieId),
-        }
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
+var HairfiePage = React.createClass({
     componentDidMount: function () {
         new Share(".share-button", {
             image: "{{ this.state.hairfie.picture.url }}",
@@ -201,14 +170,14 @@ module.exports = React.createClass({
         $('#carousel-hairfie').carousel();
     },
     render: function () {
-        if (!this.state.hairfie) return this.renderLoading();
+        if (!this.props.hairfie) return this.renderLoading();
 
         return (
-            <PublicLayout context={this.props.context}>
+            <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="single-view row">
-                        <HairfieSingle hairfie={this.state.hairfie} context={this.props.context} />
-                        <RightColumn hairfie={this.state.hairfie} context={this.props.context} />
+                        <HairfieSingle hairfie={this.props.hairfie} />
+                        <RightColumn hairfie={this.props.hairfie} />
                     </div>
                 </div>
             </PublicLayout>
@@ -216,7 +185,7 @@ module.exports = React.createClass({
     },
     renderLoading: function () {
         return (
-            <PublicLayout context={this.props.context}>
+            <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="loading" />
                 </div>
@@ -224,3 +193,13 @@ module.exports = React.createClass({
         );
     }
 });
+
+HairfiePage = connectToStores(HairfiePage, [
+    require('../stores/HairfieStore')
+], function (stores, props) {
+    return {
+        hairfie: stores.HairfieStore.getById(props.route.params.hairfieId)
+    };
+});
+
+module.exports = HairfiePage;
