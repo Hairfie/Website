@@ -40,7 +40,7 @@ var Hairfies = React.createClass({
                     <Picture picture={_.last(hairfie.pictures)}
                              options={{width: 55, height: 55}}
                           placeholder="/images/placeholder-55.png"
-                                 alt={'Hairfie de '+hairfie.author.firstName} />
+                                 alt="" />
                 </NavLink>
             </li>
         );
