@@ -92,7 +92,6 @@ module.exports = React.createClass({
                     timeslotSelected={this.state.timeslotSelected}
                     discount={this.state.discount}
                     business={this.state.business}
-                    context={this.props.context}
                 />
             </div>
         );

@@ -2,6 +2,7 @@
 
 var BookingEvents = require('../../constants/BookingConstants').Events;
 var debug = require('debug')('Action:Booking:Save');
+var Navigate = require('flux-router-component/actions/navigate');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BookingEvents.SAVE);
