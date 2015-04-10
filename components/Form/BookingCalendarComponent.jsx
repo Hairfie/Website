@@ -21,15 +21,19 @@ module.exports = React.createClass({
             onDayChange: _.noop
         };
     },
-    getInitialState: function() {
+    getInitialState: function(props) {
+        var props = props || this.props;
         var today = new Date();
 
         return {
             month       : today,
             today       : today,
-            selectedDate: this.props.defaultDate,
-            timetable   : this.props.timetable || {}
+            selectedDate: props.defaultDate,
+            timetable   : props.timetable || {}
         };
+    },
+    componentWillReceiveProps: function (nextProps) {
+        this.setState(this.getInitialState(nextProps));
     },
     prevMonth: function(ev) {
         this.setState({
