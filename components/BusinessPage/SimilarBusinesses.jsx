@@ -1,8 +1,6 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var SimilarBusinessStore = require('../../stores/SimilarBusinessStore');
 var NavLink = require('flux-router-component').NavLink;
 var Picture = require('../Partial/Picture.jsx');
 var _ = require('lodash');
@@ -23,40 +21,11 @@ var BusinessLink = React.createClass({
 });
 
 module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [SimilarBusinessStore]
-    },
-    propTypes: {
-        businessId  : React.PropTypes.string.isRequired,
-        limit       : React.PropTypes.number
-    },
-    getDefaultProps: function () {
-        return {
-            limit: 3
-        }
-    },
-    getStateFromStores: function (props) {
-        var props = props || this.props;
-
-        return {
-            businesses: this.getStore(SimilarBusinessStore).list(props.businessId, props.limit)
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
-    },
     render: function () {
         return (
             <div className="related-content">
                 <h5>Les coiffeurs similaires</h5>
-                {_.map(this.state.businesses, this.renderBusiness)}
+                {_.map(this.props.businesses, this.renderBusiness)}
             </div>
         );
     },
@@ -64,13 +33,13 @@ module.exports = React.createClass({
         return (
             <section key={business.id} className="rival">
                 <div className="row">
-                    <BusinessLink className="col-xs-4" context={this.props.context} business={business}>
+                    <BusinessLink className="col-xs-4" business={business}>
                         <Picture
                             picture={business.pictures[0]}
                             resolution={{width: 90, height: 90}}
                             alt="" />
                     </BusinessLink>
-                    <BusinessLink className="col-xs-8" context={this.props.context} business={business}>
+                    <BusinessLink className="col-xs-8" business={business}>
                         <span>{business.name}</span>
                         {_.values(_.pick(business.address, ['street', 'zipCode', 'city'])).join(', ')}
                     </BusinessLink>

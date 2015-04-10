@@ -7,7 +7,6 @@ var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
 var Gallery = require('./Gallery.jsx');
 
-
 module.exports = React.createClass({
     getInitialState: function () {
         return {
@@ -19,7 +18,7 @@ module.exports = React.createClass({
             var cls = (i == 0) ? "item active" : "item";
             return (
                 <div className={cls}>
-                    <Picture picture={picture} options={{flags:['lossy']}} backgroundStyle={true} onClick={this.openGallery} />
+                    <Picture picture={picture} backgroundStyle={true} onClick={this.openGallery} />
                 </div>
             );
         }, this);
@@ -32,7 +31,7 @@ module.exports = React.createClass({
                 </div>
                 {this.renderControlLeft()}
                 {this.renderControlRight()}
-                <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} />
+                <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
             </div>
         );
     },
@@ -59,5 +58,8 @@ module.exports = React.createClass({
         if(this.props.pictures) {
             this.setState({openGallery: true});
         }
+    },
+    handleCloseGallery: function () {
+        this.setState({openGallery: false});
     }
 });

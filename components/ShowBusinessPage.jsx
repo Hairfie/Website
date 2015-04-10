@@ -46,7 +46,6 @@ var BusinessPage = React.createClass({
                                     <div className="tab-content">
                                         <div role="tabpannel" className="tab-pane fade active in" id="informations">
                                             <Business.InformationsTab
-                                                context={this.props.context}
                                                 business={this.props.business}
                                                 services={this.props.services}
                                                 discounts={this.props.discounts}
@@ -55,21 +54,22 @@ var BusinessPage = React.createClass({
                                         </div>
                                         <div role="tabpannel" className="tab-pane fade" id="reviews">
                                             <Business.ReviewsTab
-                                                context={this.props.context}
                                                 reviews={this.props.reviews}
                                                 />
                                         </div>
                                         <div role="tabpannel" className="tab-pane fade" id="hairfies">
-                                            <Business.HairfiesTab context={this.props.context} businessId={this.props.route.params.businessId} />
+                                            <Business.HairfiesTab businessId={this.props.route.params.businessId} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
-                    <Business.Sidebar context={this.props.context} businessId={this.props.route.params.businessId} />
+                    <Business.Sidebar
+                        business={this.props.business}
+                        similarBusinesses={this.props.similarBusinesses}
+                        />
                 </div>
-                <div className="row"></div>
             </Layout>
         );
     }
@@ -79,7 +79,8 @@ BusinessPage = connectToStores(BusinessPage, [
     require('../stores/BusinessStore'),
     require('../stores/BusinessServiceStore'),
     require('../stores/BusinessReviewStore'),
-    require('../stores/StationStore')
+    require('../stores/StationStore'),
+    require('../stores/SimilarBusinessStore')
 ], function (stores, props) {
     var business = stores.BusinessStore.getById(props.route.params.businessId);
 
@@ -88,7 +89,8 @@ BusinessPage = connectToStores(BusinessPage, [
         services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),
         discounts: stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
         stations: business && stores.StationStore.getByLocation(business.gps),
-        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId, 50)
+        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId, 50),
+        similarBusinesses: business && business.crossSell && stores.SimilarBusinessStore.list(business.id, 3)
     };
 });
 

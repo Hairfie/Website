@@ -6,22 +6,19 @@ var React = require('react');
 var _ = require('lodash');
 
 module.exports = React.createClass({
+    getDefaultProps: function () {
+        onClose: _.noop
+    },
     componentDidMount: function() {
         if(this.props.isOpen) this.startGallery();
     },
     componentWillReceiveProps: function(nextProps) {
-        if(nextProps.isOpen) this.startGallery();
+        if(!this.props.isOpen && nextProps.isOpen) this.startGallery();
     },
     startGallery: function() {
         var links = _.map(this.props.pictures, 'url');
-        var options = {};
         var options = {
-            onclosed: function() {
-
-            },
-            onOpened: function() {
-
-            }
+            onclosed: this.onClose
         };
         blueimp.Gallery(links, options);
     },
@@ -47,5 +44,8 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    onClose: function () {
+        this.props.onClose();
     }
 });
