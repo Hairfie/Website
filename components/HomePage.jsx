@@ -55,7 +55,7 @@ var HomePage = React.createClass({
 });
 
 HomePage = connectToStores(HomePage, [
-    require('../stores/ategoryStore'),
+    require('../stores/CategoryStore'),
     require('../stores/TopDealsStore'),
     require('../stores/TopHairfiesStore'),
     require('../stores/HomeLinkStore')
