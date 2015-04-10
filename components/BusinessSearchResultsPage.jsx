@@ -3,18 +3,15 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var PlaceStore = require('../stores/PlaceStore');
-var RouteStore = require('../stores/RouteStore');
-var BusinessSearchStore = require('../stores/BusinessSearchStore');
+var _ = require('lodash');
 var BusinessActions = require('../actions/Business');
 var NavLink = require('flux-router-component').NavLink;
 var SearchUtils = require('../lib/search-utils');
+var connectToStores = require('fluxible/addons/connectToStores');
 
 var Layout = require('./PublicLayout.jsx');
 var Search = require('./Search');
 
-var _ = require('lodash');
 
 var Pagination = React.createClass({
     propTypes: {
@@ -122,7 +119,7 @@ var SearchResults = React.createClass({
         return (
             <div className="row">
                 {_.map(result.hits, function (business) {
-                    return <Search.BusinessResult key={business.id} context={this.props.context} business={business} date={date} />
+                    return <Search.BusinessResult key={business.id} business={business} date={date} />
                 }, this)}
             </div>
         );
@@ -267,31 +264,9 @@ var SearchFilters = React.createClass({
     }
 });
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [PlaceStore, BusinessSearchStore]
-    },
-    getStateFromStores: function (props) {
-        var props   = props || this.props;
-        var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
-        var place   = this.getStore(PlaceStore).getByAddress(address);
-        var search  = {};
-        var result;
-
-        if (place) {
-            search = SearchUtils.searchFromRouteAndPlace(props.route, place);
-            result = this.getStore(BusinessSearchStore).getResult(search);
-        }
-
-        return {
-            place   : place,
-            search  : search,
-            result  : result
-        };
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
+var BusinessSearchResultsPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
     },
     componentDidMount: function() {
         $('body').on("click",'.trigger-filters',function(){
@@ -310,29 +285,23 @@ module.exports = React.createClass({
             }
         });
     },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
     render: function () {
-        var place = this.state.place || {};
+        var place = this.props.place || {};
 
         return (
-            <Layout context={this.props.context} withSearchBar={true}>
+            <Layout withSearchBar={true}>
                 <div className="mobile-screen hidden-md hidden-lg">
                     <a href="#" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>
                 <div className="container search" id="content">
                     <div className="mobile-search visible-sm visible-xs">
                         <div className="mobile-filtres">
-                            <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} mobile={true} />
+                            <SearchFilters search={this.props.search} result={this.props.result} onChange={this.handleSearchChange} mobile={true} />
                         </div>
                     </div>
                     <div className="row">
-                        <Breadcrumb context={this.props.context} place={this.state.place} />
-                        <SearchFilters context={this.props.context} search={this.state.search} result={this.state.result} onChange={this.handleSearchChange} />
+                        <Breadcrumb place={this.props.place} />
+                        <SearchFilters search={this.props.search} result={this.props.result} onChange={this.handleSearchChange} />
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
                                 {this.renderHeader()}
@@ -340,8 +309,8 @@ module.exports = React.createClass({
                                     <div role="tabpanel" className="col-xs-12">
                                         <div className="tab-content">
                                             <div role="tabpanel" className="tab-pane fade active in" id="salons">
-                                                <SearchResults context={this.props.context} search={this.state.search} result={this.state.result} />
-                                                <Pagination onChange={this.handlePageChange} page={this.state.search.page} numPages={this.state.result && this.state.result.nbPages} />
+                                                <SearchResults search={this.props.search} result={this.props.result} />
+                                                <Pagination onChange={this.handlePageChange} page={this.props.search.page} numPages={this.props.result && this.props.result.nbPages} />
                                             </div>
                                         </div>
                                     </div>
@@ -350,15 +319,11 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
-                {/* the following container is mandatory, but I don't know why!? */}
-                <div className="container">
-                    <div className="row" />
-                </div>
             </Layout>
         );
     },
     renderHeader: function () {
-        var place = this.state.place || {};
+        var place = this.props.place || {};
 
         var coverImage;
         if (place.picture) {
@@ -376,11 +341,35 @@ module.exports = React.createClass({
         );
     },
     handleSearchChange: function (nextSearch) {
-        var search = _.assign(this.state.search, nextSearch, {page: 1});
-        this.props.context.executeAction(BusinessActions.SubmitSearch, {search: search});
+        var search = _.assign(this.props.search, nextSearch, {page: 1});
+        this.context.executeAction(BusinessActions.SubmitSearch, {search: search});
     },
     handlePageChange: function (nextPage) {
-        var search = _.assign(this.state.search, {page: nextPage});
-        this.props.context.executeAction(BusinessActions.SubmitSearch, {search: search});
+        var search = _.assign(this.props.search, {page: nextPage});
+        this.context.executeAction(BusinessActions.SubmitSearch, {search: search});
     }
 });
+
+BusinessSearchResultsPage = connectToStores(BusinessSearchResultsPage, [
+    require('../stores/RouteStore'),
+    require('../stores/PlaceStore'),
+    require('../stores/BusinessSearchStore')
+], function (stores, props) {
+    var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
+    var place = stores.PlaceStore.getByAddress(address);
+    var search = {};
+    var result;
+
+    if (place) {
+        search = SearchUtils.searchFromRouteAndPlace(props.route, place);
+        result = stores.BusinessSearchStore.getResult(search);
+    }
+
+    return {
+        place: place,
+        search: search,
+        result: result
+    };
+});
+
+module.exports = BusinessSearchResultsPage;

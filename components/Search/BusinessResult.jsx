@@ -3,12 +3,10 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 var NavLink = require('flux-router-component').NavLink;
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
-var HairfieStore = require('../../stores/HairfieStore');
-var BusinessStore = require('../../stores/BusinessStore');
+var connectToStores = require('fluxible/addons/connectToStores');
 
 var BusinessLink = React.createClass({
     render: function () {
@@ -22,32 +20,11 @@ var BusinessLink = React.createClass({
 });
 
 var Hairfies = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: ['HairfieStore']
-    },
-    getStateFromStores: function () {
-        return {
-            hairfies: this.getStore(HairfieStore).query({
-                where   : {
-                    businessId: this.props.business.id
-                },
-                order   : 'createdAt DESC',
-                limit   : 6
-            })
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
     render: function () {
         return (
             <div className="salon-hairfies">
                 <ul>
-                    {_.map(this.state.hairfies, this.renderHairfie)}
+                    {_.map(this.props.hairfies, this.renderHairfie)}
                     {this.renderMore()}
                 </ul>
             </div>
@@ -59,9 +36,9 @@ var Hairfies = React.createClass({
 
         return (
             <li key={hairfie.id} className={className}>
-                <NavLink context={this.props.context} routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
-                    <Picture picture={hairfie.pictures[0]}
-                          resolution={55}
+                <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                    <Picture picture={_.last(hairfie.pictures)}
+                             options={{width: 55, height: 55}}
                           placeholder="/images/placeholder-55.png"
                                  alt={'Hairfie de '+hairfie.author.firstName} />
                 </NavLink>
@@ -69,11 +46,11 @@ var Hairfies = React.createClass({
         );
     },
     renderMore: function () {
-        if ((this.state.hairfies || []).length < 6) return;
+        if ((this.props.hairfies || []).length < 6) return;
 
         return (
             <li className="more">
-                <BusinessLink context={this.props.context} business={this.props.business}>
+                <BusinessLink business={this.props.business}>
                     <img src="/images/placeholder-hairfie-thumb-more.png" alt="" />
                 </BusinessLink>
             </li>
@@ -81,55 +58,52 @@ var Hairfies = React.createClass({
     }
 });
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BusinessStore]
-    },
-    propTypes: {
-        business: React.PropTypes.object.isRequired,
-        context: React.PropTypes.object.isRequired
-    },
-    getStateFromStores: function (props) {
-        var props = props || this.props;
+Hairfies = connectToStores(Hairfies, [
+    require('../../stores/HairfieStore')
+], function (stores, props) {
+    return {
+        hairfies: stores.HairfieStore.query({
+            where   : {
+                businessId: props.business.id
+            },
+            order   : 'createdAt DESC',
+            limit   : 6
+        })
+    };
+});
 
-        return {
-            business: this.getStore(BusinessStore).getById(props.business.id) || props.business
-        };
+var BusinessResult = React.createClass({
+    propTypes: {
+        business: React.PropTypes.object.isRequired
     },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
-    componentWillReceiveProps: function (nextProps) {
-        this.setState(this.getStateFromStores(nextProps));
+    contextTypes: {
+        makeUrl: React.PropTypes.func.isRequired
     },
     render: function () {
         return (
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
-                    <BusinessLink context={this.props.context} business={this.props.business}>
-                        <Picture picture={this.state.business.pictures[0]}
-                              resolution={400}
-                              placeholder="/images/placeholder-640.png"
-                              />
+                    <BusinessLink business={this.props.business}>
+                        <Picture
+                            picture={_.first(this.props.business.pictures)}
+                            options={{width: 400, height: 400}}
+                            placeholder="/images/placeholder-640.png"
+                            />
                      </BusinessLink>
                 </div>
                 <div className="col-xs-12 col-sm-8 info-bloc">
                     <div className="address-bloc">
                         <h3>
-                            <BusinessLink context={this.props.context} business={this.state.business}>
-                                {this.state.business.name}
+                            <BusinessLink business={this.props.business}>
+                                {this.props.business.name}
                             </BusinessLink>
                         </h3>
-                        <BusinessLink context={this.props.context} business={this.state.business} className="address">
-                            {this.state.business.address.street}, {this.state.business.address.zipCode} {this.state.business.address.city}
+                        <BusinessLink business={this.props.business} className="address">
+                            {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
                         </BusinessLink>
                     </div>
                     {this.renderPricing()}
-                    <Hairfies context={this.props.context} business={this.state.business} />
+                    <Hairfies business={this.props.business} />
                     <NavLink href={this.makeBookingHref()} className="btn btn-red">
                         Réserver
                     </NavLink>
@@ -144,27 +118,27 @@ module.exports = React.createClass({
         return <img src={picture.url} alt={alt} />
     },
     renderRating: function () {
-        if (!this.state.business.numReviews) return;
+        if (!this.props.business.numReviews) return;
 
-        var rating = (this.state.business.rating / 10).toPrecision(2);
+        var rating = (this.props.business.rating / 10).toPrecision(2);
 
         return (
             <div className="rating">
                 <div className="note">
                     <span>{rating}</span>/10
                 </div>
-                <BusinessLink context={this.props.context} business={this.state.business} className="small">
-                    {this.state.business.numReviews} avis
+                <BusinessLink business={this.props.business} className="small">
+                    {this.props.business.numReviews} avis
                 </BusinessLink>
             </div>
         );
     },
     renderPricing: function () {
-        if (this.state.business.bestDiscount) {
+        if (this.props.business.bestDiscount) {
             return (
                 <p className="inline-promo">
                     <span className="icon-promo">%</span>
-                    -{this.state.business.bestDiscount}% dans tout le salon*
+                    -{this.props.business.bestDiscount}% dans tout le salon*
                     {this.renderAveragePrice()}
                 </p>
             );
@@ -178,7 +152,7 @@ module.exports = React.createClass({
         );
     },
     renderAveragePrice: function () {
-        var price = this.state.business.averagePrice || {},
+        var price = this.props.business.averagePrice || {},
             men   = price.men && Math.round(price.men),
             women = price.women && Math.round(price.women);
 
@@ -191,14 +165,14 @@ module.exports = React.createClass({
         }
     },
     makeBookingHref: function () {
-        if (!this.state.business) return;
-
         var query = {};
         if (this.props.date) query.date = this.props.date;
 
-        return this.props.context.makeUrl('book_business', {
-            businessId: this.state.business.id,
-            businessSlug: this.state.business.slug
+        return this.context.makeUrl('book_business', {
+            businessId: this.props.business.id,
+            businessSlug: this.props.business.slug
         }, query);
     }
 });
+
+module.exports = BusinessResult;
