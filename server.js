@@ -23,11 +23,10 @@ var React            = require('react');
 var app              = require('./app');
 var ServerActions    = require('./actions/Server');
 var RouteStore       = require('./stores/RouteStore');
-var RedirectStore    = require('./stores/RedirectStore');
 var MetaStore        = require('./stores/MetaStore');
 var BusinessStore    = require('./stores/BusinessStore');
-var HtmlComponent    = React.createFactory(require('./components/Html.jsx'));
-var ErrorPage        = React.createFactory(require('./components/ErrorPage.jsx'));
+var HtmlComponent    = require('./components/Html.jsx');
+var ErrorPage        = require('./components/ErrorPage.jsx');
 
 expressState.extend(server);
 
@@ -79,12 +78,11 @@ server.use(function (req, res, next) {
     var payload = {request: req};
 
     context.executeAction(ServerActions.Initialize, payload, function (error) {
-        if (error) return next(error);
+        if (error && -1 === ([301, 302]).indexOf(error.status)) return next(error);
 
         try {
-            var redirect = context.getActionContext().getStore(RedirectStore).getPending();
-            if (redirect) {
-                res.redirect(redirect.url, redirect.permanent ? 301 : 302);
+            if (error) {
+                res.redirect(error.location, error.status);
                 return;
             }
 
@@ -98,11 +96,11 @@ server.use(function (req, res, next) {
 
             res.expose(appState, 'App');
 
-            var markup = React.renderToString(AppComponent({
+            var markup = React.renderToString(React.createFactory(AppComponent)({
                 context: context.getComponentContext()
             }));
 
-            var html = React.renderToStaticMarkup(HtmlComponent({
+            var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(HtmlComponent)({
                 state   : res.locals.state,
                 title   : title,
                 metas   : metas,
@@ -111,7 +109,7 @@ server.use(function (req, res, next) {
 
             if (!currentRoute) res.status(404);
 
-            res.write('<!doctype html>'+html);
+            res.write(html);
             res.end();
         } catch (e) {
             next(e);
@@ -121,7 +119,7 @@ server.use(function (req, res, next) {
 
 // error handlers
 server.use(function (err, req, res, next) {
-    var html = '<!doctype html>'+React.renderToStaticMarkup(ErrorPage({
+    var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(ErrorPage)({
         error: err,
         debug: !!config.DEBUG
     }));

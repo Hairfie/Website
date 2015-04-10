@@ -1,13 +1,13 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var _ = require('lodash');
 var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 
 var ProLayout = require('./ProLayout.jsx');
 var NavLink = require('flux-router-component').NavLink;
 var AuthStore = require('../stores/AuthStore');
 var UserManagedBusinessStore = require('../stores/UserManagedBusinessStore');
-var lodash = require('lodash');
 var Picture = require('./Partial/Picture.jsx');
 
 
@@ -34,23 +34,10 @@ module.exports = React.createClass({
         var loading    = !this.state.managedBusinesses,
             businesses = this.state.managedBusinesses || [];
 
-        // TODO: move this redirect logic into the route opening action
-        if (!loading && businesses.length == 0) {
-            // no business yet, redirect to claim page
-            this.props.context.redirect(this.props.context.makePath('pro_business_new'));
-        } else if (!loading && businesses.length == 1) {
-            // redirect to the only business's dashboard
-            this.props.context.redirect(this.props.context.makePath('pro_business', {
-                businessId: businesses[0].id
-            }));
-        }
-
-        //var businessNodes = lodash.map(businesses, this.renderBusiness);
-        //console.log("businessNodes", businessNodes);
         return (
             <ProLayout context={this.props.context} withoutSideBar={true} loading={loading}>
                 <h3>Mes salons</h3>
-                {lodash.map(businesses, this.renderBusiness)}
+                {_.map(businesses, this.renderBusiness)}
             </ProLayout>
         );
     },

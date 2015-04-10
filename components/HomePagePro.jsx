@@ -76,7 +76,7 @@ var GenderChoice = React.createClass({
 module.exports = React.createClass({
     render: function () {
         return (
-            <PublicLayout context={this.props.context} withLogin={true} >
+            <PublicLayout context={this.props.context} withLogin={true} loginSuccessUrl={this.props.context.makePath('pro_dashboard')}>
                 <section className="home-pro">
                     <div className="row first">
                         <div className="col-sm-7 col-md-5 col-md-offset-1 left">

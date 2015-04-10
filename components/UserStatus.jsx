@@ -143,8 +143,9 @@ module.exports = React.createClass({
     logIn: function (e) {
         e.preventDefault();
         this.executeAction(AuthActions.Login, {
-            email   : this.refs.email.getValue(),
-            password: this.refs.password.getValue()
+            email       : this.refs.email.getValue(),
+            password    : this.refs.password.getValue(),
+            successUrl  : this.props.loginSuccessUrl
         });
     },
     logInWithFacebook: function (e) {
@@ -159,7 +160,8 @@ module.exports = React.createClass({
         //       to make the Facebook's login popup work on some browsers
         window.FB.login(function (response) {
             this.executeAction(FacebookActions.HandleLoginResponse, {
-                response: response
+                response    : response,
+                successUrl  : this.props.loginSuccessUrl
             });
         }.bind(this), {scope: facebookConfig.SCOPE});
     },

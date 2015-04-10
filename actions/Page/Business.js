@@ -19,11 +19,11 @@ module.exports = function (context, payload, done) {
         // redirect user to URL with proper slug
         if (business.slug != routeSlug) {
             debug('Invalid slug used in current URL, redirecting');
-            context.redirect(context.router.makePath('show_business', {
+            return done({status: 301, location: context.router.makePath('show_business', {
                 locale      : payload.params.locale,
                 businessId  : business.id,
                 businessSlug: business.slug
-            }), true);
+            })});
         }
 
         context.executeActions([

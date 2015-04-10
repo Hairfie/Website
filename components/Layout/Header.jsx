@@ -42,7 +42,7 @@ module.exports = React.createClass({
     render: function () {
         var custom;
         if (this.props.withLogin) {
-            custom = (<UserStatus context={this.props.context} />);
+            custom = (<UserStatus context={this.props.context} loginSuccessUrl={this.props.loginSuccessUrl} />);
         } else {
             custom = (<li><NavLink context={this.props.context} routeName="pro_home" className="">Vous êtes coiffeur ?</NavLink></li>);
         }

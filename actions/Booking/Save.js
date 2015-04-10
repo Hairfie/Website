@@ -13,9 +13,9 @@ module.exports = function (context, payload, done) {
             context.dispatch(BookingEvents.SAVE_SUCCESS, {
                 booking: booking
             });
-            context.redirect(context.router.makePath('booking_confirmation', {
-                bookingId: booking.id
-            }), done);
+            context.executeAction(Navigate, {
+                url: context.router.makePath('booking_confirmation', {bookingId: booking.id})
+            }, done);
         })
         .fail(function (error) {
             debug('Failed to save booking', error);

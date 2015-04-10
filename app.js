@@ -5,9 +5,15 @@ var FluxibleApp = require('fluxible');
 var Router = require('routr');
 var _ = require('lodash');
 var QueryString = require('query-string');
+var provideContext = require('fluxible/addons/provideContext');
+
+var Application = provideContext(require('./components/Application.jsx'), {
+    makePath: React.PropTypes.func.isRequired,
+    makeUrl: React.PropTypes.func.isRequired
+});
 
 var app = new FluxibleApp({
-    component: React.createFactory(require('./components/Application.jsx'))
+    component: Application
 });
 
 var routes = _.mapValues(require('./configs/routes'), function (route) {
@@ -62,11 +68,8 @@ app.plug({
                     return actionContext.getStore(require('./stores/AuthStore')).getToken();
                 };
 
-                actionContext.redirect = function (url, permanent) {
-                    actionContext.dispatch('REDIRECT', {
-                        url      : url,
-                        permanent: permanent
-                    });
+                actionContext.getAuthUser = function () {
+                    return actionContext.getStore(require('./stores/AuthStore')).getUser();
                 };
 
                 // executes actions in //. It doesn't take care of errors yet :(
@@ -74,16 +77,6 @@ app.plug({
                     var done = _.after(actions.length, done || _.noop());
                     _.forEach(actions, function (action, i) {
                         actionContext.executeAction(action[0], action[1], done);
-                    });
-                };
-            },
-            plugComponentContext: function (componentContext) {
-                componentContext.redirect = function (url, permanent) {
-                    componentContext.executeAction(function (actionContext) {
-                        actionContext.dispatch('REDIRECT', {
-                            url      : url,
-                            permanent: permanent
-                        });
                     });
                 };
             },
@@ -101,7 +94,6 @@ app.plug(require('./context/hairfie-api-plugin')({
 }));
 
 app.registerStore(require('./stores/RouteStore'));
-app.registerStore(require('./stores/RedirectStore'));
 app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));

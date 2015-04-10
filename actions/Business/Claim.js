@@ -1,6 +1,7 @@
 'use strict';
 
 var BusinessEvents = require('../../constants/BusinessConstants').Events;
+var Navigate = require('flux-router-component/actions/navigate');
 
 module.exports = function (context, payload, done) {
     context.dispatch(BusinessEvents.CLAIM);
@@ -15,8 +16,9 @@ module.exports = function (context, payload, done) {
             context.dispatch(BusinessEvents.CLAIM_SUCCESS, {
                 business: business
             });
-            context.redirect(context.router.makePath('pro_business', {businessId: business.id}));
-            done();
+            context.executeAction(Navigate, {
+                url: context.router.makePath('pro_business', {businessId: business.id})
+            }, done);
         })
         .fail(function (error) {
             context.dispatch(BusinessEvents.CLAIM_FAILURE);
