@@ -9,10 +9,17 @@ var cloudinary = require('cloudinary/lib/utils');
 module.exports = React.createClass({
     getDefaultProps: function () {
         return {
-            options: {}
+            options: {},
+        }
+    },
+    getInitialState: function() {
+        return {
+            maxWidth: null
         }
     },
     componentDidMount: function () {
+        this.setState({maxWidth: window.screen.width});
+
         if (!this.placeholder)
 
         var $image = jQuery(this.refs.image.getDOMNode());
