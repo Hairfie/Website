@@ -86,7 +86,7 @@ var BusinessResult = React.createClass({
                     <BusinessLink business={this.props.business}>
                         <Picture
                             picture={_.first(this.props.business.pictures)}
-                            options={{width: 400, height: 400}}
+                            options={{width: 400, height: 400, crop: 'thumb'}}
                             placeholder="/images/placeholder-640.png"
                             />
                      </BusinessLink>
