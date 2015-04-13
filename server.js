@@ -17,7 +17,6 @@ var server          = express();
 var expressState    = require('express-state');
 var compress        = require('compression');
 var robots          = require('robots.txt')
-var swig            = require('swig');
 
 var React            = require('react');
 var app              = require('./app');
@@ -29,14 +28,6 @@ var HtmlComponent    = require('./components/Html.jsx');
 var ErrorPage        = require('./components/ErrorPage.jsx');
 
 expressState.extend(server);
-
-// Configure templating (for error pages)
-// TODO: use a React component
-swig.setDefaults({ cache: false });
-server.engine('.html.swig', swig.renderFile);
-server.set('view engine', '.html.swig');
-server.set('views', path.join(__dirname, 'views'));
-server.set('view cache', !config.DEBUG);
 
 // Gzip compression
 server.use(compress());
