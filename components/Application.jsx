@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var _ = require('lodash');
@@ -19,15 +19,14 @@ var Application = React.createClass({
     },
     render: function () {
         var route     = this.props.route,
-            component = route && route.config && route.config.pageComponent;
+            component = route && route.config && route.config.component;
 
         ga('send', 'pageview', {
             'page': route.url
         });
 
-        return React.createElement(route.config.pageComponent, {
-            context : this.props.context,
-            route   : route
+        return React.createElement(component, {
+            route: this.props.route
         });
     }
 });

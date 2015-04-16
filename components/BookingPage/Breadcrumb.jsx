@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var _ = require('lodash');
 var SearchUtils = require('../../lib/search-utils');
@@ -19,7 +21,7 @@ module.exports = React.createClass({
             {
                 last: false,
                 label: 'Coiffeurs ' + business.address.city,
-                routeName: 'business_search_results',
+                routeName: 'business_search_result',
                 navParams: {
                     address: SearchUtils.addressToUrlParameter(place)
                 }
