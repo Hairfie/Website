@@ -7,9 +7,12 @@ var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
+    contextTypes: {
+        makeUrl: React.PropTypes.func.isRequired
+    },
     mixins: [NavToLinkMixin],
     render: function () {
-        var moreHref = this.context.makeUrl('hairfie_search_result', {address: "Paris--France"}, {categories: cat.name});
+        var moreHref = this.context.makeUrl('hairfie_search_result', {address: "Paris--France"});
 
         return (
             <section className="home-section">
