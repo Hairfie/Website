@@ -42,9 +42,7 @@ module.exports = createStore({
         this.loading = false;
         this.limit = payload.limit;
         this.hairfies = payload.hairfies;
-        try {
         this.emitChange();
-        } catch (e) {console.log(e); };
     },
     handleReceiveTopFailure: function (payload) {
         this.loading = false;

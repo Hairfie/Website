@@ -9,7 +9,8 @@ var provideContext = require('fluxible/addons/provideContext');
 
 var Application = provideContext(require('./components/Application.jsx'), {
     makePath: React.PropTypes.func.isRequired,
-    makeUrl: React.PropTypes.func.isRequired
+    makeUrl: React.PropTypes.func.isRequired,
+    navigateTo: React.PropTypes.func.isRequired
 });
 
 var app = new FluxibleApp({
@@ -47,6 +48,9 @@ app.plug({
             plugComponentContext: function (componentContext) {
                 componentContext.makePath = router.makePath.bind(router);
                 componentContext.makeUrl  = router.makeUrl.bind(router);
+                componentContext.navigateTo = function (url) {
+                    return context.executeAction(require('flux-router-component/actions/navigate'), {url: url});
+                };
             },
             plugStoreContext: function (storeContext) {
                 storeContext.makePath = router.makePath.bind(router);
@@ -97,6 +101,7 @@ app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
+app.registerStore(require('./stores/HairfieSearchStore'));
 app.registerStore(require('./stores/HairfiesStore'));
 app.registerStore(require('./stores/TopHairfiesStore'));
 app.registerStore(require('./stores/TopDealsStore'));

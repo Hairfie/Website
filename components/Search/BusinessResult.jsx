@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 'use strict';
 
 var React = require('react');
@@ -72,7 +70,7 @@ Hairfies = connectToStores(Hairfies, [
     };
 });
 
-var BusinessResult = React.createClass({
+var Business = React.createClass({
     propTypes: {
         business: React.PropTypes.object.isRequired
     },
@@ -172,6 +170,38 @@ var BusinessResult = React.createClass({
             businessId: this.props.business.id,
             businessSlug: this.props.business.slug
         }, query);
+    }
+});
+
+var BusinessResult = React.createClass({
+    render: function () {
+        if (!this.props.result) return <div className="loading" />;
+
+        var result = this.props.result;
+        var date   = this.props.search && this.props.search.date;
+
+        if (result.hits.length == 0) return this.renderNoResult();
+
+        return (
+            <div className="tab-pane active">
+                <div className="row">
+                    {_.map(result.hits, function (business) {
+                        return <Business key={business.id} business={business} date={date} />
+                    }, this)}
+                </div>
+            </div>
+        );
+    },
+    renderNoResult: function () {
+        return (
+            <p className="text-center">
+                <br />
+                <br />
+                Aucun résultat correspondant à votre recherche n'a pu être trouvé.
+                <br />
+                <br />
+            </p>
+        );
     }
 });
 

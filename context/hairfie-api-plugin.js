@@ -16,6 +16,9 @@ module.exports = function (options) {
             return {
                 plugActionContext: function (actionContext) {
                     actionContext.getHairfieApi = function () { return client; };
+                },
+                plugStoreContext: function (storeContext) {
+                    storeContext.getHairfieApi = function () { return client; };
                 }
             };
         }

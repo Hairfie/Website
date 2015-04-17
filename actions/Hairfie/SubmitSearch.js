@@ -15,6 +15,6 @@ module.exports = function SubmitBusinessSearch(context, payload, done) {
     var params = SearchUtils.searchToRouteParams(search);
 
     context.executeAction(Navigate, {
-        url: context.router.makeUrl('business_search_result', params.path, params.query)
+        url: context.router.makeUrl('hairfie_search_result', params.path, params.query)
     }, done);
 };
