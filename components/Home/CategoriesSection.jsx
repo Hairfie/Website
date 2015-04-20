@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 'use strict';
 
 var React = require('react');
@@ -41,7 +39,7 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
-        var href = this.context.makeUrl('business_search_results', {address: "Paris--France"}, {categories: cat.name});
+        var href = this.context.makeUrl('business_search_result', {address: "Paris--France"}, {categories: cat.name});
 
         return (
             <div className="col-sm-4 col-xs-12" key={cat.id} >

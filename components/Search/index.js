@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
+    Layout: require('./Layout.jsx'),
+    Filters: require('./Filters.jsx'),
     BusinessResult: require('./BusinessResult.jsx'),
-    PriceFilter: require('./PriceFilter.jsx'),
-    RadiusFilter: require('./RadiusFilter.jsx')
+    HairfieResult: require('./HairfieResult.jsx')
 };

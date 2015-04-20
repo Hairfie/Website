@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 'use strict';
 
 var React = require('react');
@@ -31,7 +29,7 @@ module.exports = React.createClass({
     },
     renderLink: function(link, i) {
         var queryParams = link.category ? {categories: link.category} : {};
-        var href = this.context.makeUrl('business_search_results', {address: link.address}, queryParams);
+        var href = this.context.makeUrl('business_search_result', {address: link.address}, queryParams);
 
         return (
             <p>

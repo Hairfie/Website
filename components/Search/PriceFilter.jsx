@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 'use strict'
 
 var React = require('react');
@@ -32,8 +30,8 @@ module.exports = React.createClass({
             max     : this.props.max,
             range   : true,
             values  : [
-                this.props.defaultValue.min || this.props.min,
-                this.props.defaultValue.max || this.props.max
+                this.props.defaultMin || this.props.min,
+                this.props.defaultMax || this.props.max
             ],
             slide   : this.handleSlide,
             change  : this.handleChange,
@@ -44,6 +42,12 @@ module.exports = React.createClass({
     },
     componentWillReceiveProps: function (nextProps) {
         if (!this.slider) return;
+        if (nextProps.defaultMin != this.props.defaultMin) {
+            this.slider.slider('values', 0, nextProps.defaultMin);
+        }
+        if (nextProps.defaultMax != this.props.defaultMax) {
+            this.slider.slider('values', 1, nextProps.defaultMax);
+        }
         this.slider.slider('option', 'min', nextProps.min);
         this.slider.slider('option', 'max', nextProps.max);
     },

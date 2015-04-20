@@ -35,6 +35,9 @@ function load() {
         window.fbAsyncInit = onFacebookLoad;
 
         (function(d, s, id){
+            var fbRoot = document.createElement('div');
+            fbRoot.setAttribute('id', 'fb-root');
+            document.body.appendChild(fbRoot);
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
             js = d.createElement(s); js.id = id;
@@ -49,8 +52,7 @@ function load() {
 function onFacebookLoad() {
     window.FB.init({
         appId   : config.APP_ID,
-        xfbml   : true,
-        version : 'v2.1'
+        version : 'v2.3'
     });
 
     debug('finished loading facebook SDK, resolving promises');

@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 /**
  * TODO: only the controller component (*Page) should be a store listener
  */

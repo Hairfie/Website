@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 'use strict';
 
 var React = require('react');
@@ -9,8 +7,13 @@ var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
+    contextTypes: {
+        makeUrl: React.PropTypes.func.isRequired
+    },
     mixins: [NavToLinkMixin],
     render: function () {
+        var moreHref = this.context.makeUrl('hairfie_search_result', {address: "Paris--France"});
+
         return (
             <section className="home-section">
                 <h2>Nos Hairfies préférés</h2>
@@ -23,6 +26,9 @@ module.exports = React.createClass({
 
                     {this.renderHairfie(_.first(this.props.hairfies), 'col-md-6 col-xs-12 big', 'col-xs-12')}
                 </div>
+                <NavLink href={moreHref} className="btn btn-red home-cta col-md-3 col-xs-10">
+                    Pluse de hairfies
+                </NavLink>
             </section>
         );
     },

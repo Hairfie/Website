@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
         return (
             <div className="calendar hidden-xs">
-                <Calendar ref="calendar" timetable={business.timetable} />
+                <Calendar ref="calendar" timetable={business.timetable} onDayChange={this.book} />
             </div>
         );
     },
@@ -38,7 +38,7 @@ module.exports = React.createClass({
                     className="btn btn-red hidden-xs"
                     routeName="book_business"
                     navParams={{businessId: business.id, businessSlug: business.slug}}
-                    onClick={this.book}>
+                    >
                     Réserver maintenant
                 </NavLink>
             </div>
@@ -61,9 +61,7 @@ module.exports = React.createClass({
 
         return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
-    book: function (e) {
-        e.preventDefault();
-
+    book: function () {
         var business = this.props.business || {};
         var pathParams = {businessId: business.id, businessSlug: business.slug};
         var queryParams = {date: this.refs.calendar.getDate()};

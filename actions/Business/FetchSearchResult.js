@@ -11,14 +11,15 @@ module.exports = function (context, payload, done) {
     });
 
     var apiQuery = {facetFilters: {}, price: {}};
+    apiQuery.pageSize = 10;
     if (payload.search.bounds) apiQuery.bounds = payload.search.bounds;
     if (payload.search.location) apiQuery.location = payload.search.location;
     if (payload.search.radius) apiQuery.radius = payload.search.radius;
-    if (payload.search.query) apiQuery.query = payload.search.query;
+    if (payload.search.q) apiQuery.query = payload.search.q;
     if (payload.search.categories) apiQuery.facetFilters.categories = payload.search.categories;
     if (payload.search.page) apiQuery.page = payload.search.page;
-    if ((payload.search.price || {}).min) apiQuery.price.min = payload.search.price.min;
-    if ((payload.search.price || {}).max) apiQuery.price.max = payload.search.price.max;
+    if (payload.search.priceMin) apiQuery.price.min = payload.search.priceMin;
+    if (payload.search.priceMax) apiQuery.price.max = payload.search.priceMax;
 
     context
         .getHairfieApi()

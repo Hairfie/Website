@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var facebookConfig = require('../configs/facebook');
 var React = require('react');
@@ -29,7 +29,7 @@ var Carousel = React.createClass({
                 <div className="carousel-inner" role="listbox">
                     {_.map(pictures, function (picture, i) {
                         return (
-                            <div className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
+                            <div key={i+'-'+picture.url} className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
                                 <div className="outer-img">
                                     <Picture picture={picture} />
                                 </div>
