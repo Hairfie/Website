@@ -70,7 +70,11 @@ var Filters = React.createClass({
                 <h2>Qui ?</h2>
                 <div className="input-group">
                     <div className="input-group-addon"></div>
-                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q} onChange={this.handleQueryChange} />
+                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
+                        onChange={this.handleQueryChange}
+                        onKeyDown={this.handleKey}
+                        onKeyUp={this.handleKey}
+                        onKeyPress={this.handleKey}/>
                     <div className="input-group-addon"><a href="#"></a></div>
                 </div>
             </div>
@@ -108,6 +112,13 @@ var Filters = React.createClass({
     handleQueryChange: _.debounce(function () {
         this.props.onChange({q: this.refs.query.getDOMNode().value});
     }, 500),
+    handleKey: function (e) {
+        if(event.keyCode == 13){
+            e.preventDefault();
+            this.props.onChange({q: this.refs.query.getDOMNode().value});
+         }
+
+    },
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
     },
