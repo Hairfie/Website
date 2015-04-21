@@ -70,7 +70,7 @@ module.exports = React.createClass({
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
-            query   : this.refs.query.getDOMNode().value,
+            q       : this.refs.query.getDOMNode().value,
             date    : this.refs.date.getDOMNode().value
         };
 
