@@ -12,6 +12,7 @@ var Col = require('react-bootstrap/Col');
 var BusinessReviewActions = require('../actions/BusinessReview');
 var _ = require('lodash');
 var connectToStores = require('fluxible/addons/connectToStores');
+var moment = require('moment');
 
 var RequiredAsterisk = React.createClass({
     render: function () {
@@ -94,10 +95,16 @@ var ReviewForm = React.createClass({
                 {errorsNode}
                 <Row>
                     <Col sm={6}>
-                        <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
+                        <Input ref="firstName" type="text"
+                            defaultValue={this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName}
+                            label={<div>Votre prénom <RequiredAsterisk /></div>}
+                        />
                     </Col>
                     <Col sm={6}>
-                        <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>} />
+                        <Input ref="lastName" type="text"
+                            defaultValue={this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName}
+                            label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
+                        />
                     </Col>
                 </Row>
                 <hr />
@@ -127,8 +134,8 @@ var ReviewForm = React.createClass({
                     </Col>
                 </Row>
                 <hr />
-                <Input ref="comment" type="textarea" label="Votre commentaire" />
-                <Button onClick={this.submit}>Déposer l'avis</Button>
+                <Input ref="comment" type="textarea" label="Un commentaire ?" />
+                <Button onClick={this.submit} className="btn btn-red full">Déposer l'avis</Button>
                 <hr />
                 <p><RequiredAsterisk /> Indique les champs requis.</p>
             </div>
@@ -183,10 +190,19 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         );
         if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.{/*'*/}</p>;
 
+        var title = 'Votre avis sur ' + brr.business.name;
+        var bookingNode;
+
+        if(brr.booking) {
+            bookingNode = <p>Vous avez réservé le <strong>{moment(brr.booking.timeslot).format("dddd D MMMM YYYY")}</strong> chez <strong>{brr.business.name}</strong>.</p>
+        } else {
+            bookingNode = <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
+        }
+
         return (
             <div className="container write-review" id="content">
-                <h1>Donnez votre avis</h1>
-                <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
+                <h1>{title}</h1>
+                {bookingNode}
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
                 <ReviewForm businessReviewRequest={brr} onSubmit={this.submitReview} />
