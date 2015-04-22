@@ -10,15 +10,9 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function () {
-        console.log("componentDidMount");
         Google
             .loadMaps()
             .then(function (google) {
-                console.log("google loaded");
-                console.log("this.refs.map.getDOMNode()", this.refs.map.getDOMNode());
-                console.log("zoom", this.props.defaultZoom);
-                console.log("props", this.props);
-                console.log("center", this._getLatLng());
 
                 this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
                     zoom: this.props.defaultZoom,
@@ -41,7 +35,7 @@ module.exports = React.createClass({
                 } else {
                     this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
                         zoom: nextProps.defaultZoom,
-                        center: this._getLatLng(nextProps)
+                        center: this._getLatLng()
                     });
                     this.marker = new google.maps.Marker({
                         map: this.map,
@@ -58,7 +52,6 @@ module.exports = React.createClass({
     _getLatLng: function (props) {
         var props = props || this.props;
         var loc = new google.maps.LatLng(props.location.lat, props.location.lng)
-        console.log("_getLatLng", loc);
 
         return loc;
     }

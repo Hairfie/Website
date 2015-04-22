@@ -30,14 +30,16 @@ module.exports = React.createClass({
         );
     },
     renderBusiness: function (business) {
+        console.log("business.pictures", business.pictures);
         return (
             <section key={business.id} className="rival">
                 <div className="row">
                     <BusinessLink className="col-xs-4" business={business}>
-                        <Picture
-                            picture={business.pictures[0]}
-                            resolution={{width: 90, height: 90}}
-                            alt="" />
+                        <Picture picture={business.pictures[0]}
+                                 resolution={{width: 90, height: 90}}
+                                 placeholder="/images/placeholder-55.png"
+                                 alt={business.name}
+                        />
                     </BusinessLink>
                     <BusinessLink className="col-xs-8" business={business}>
                         <span>{business.name}</span>
