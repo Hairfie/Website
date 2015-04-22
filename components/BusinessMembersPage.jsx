@@ -33,8 +33,8 @@ var BusinessMemberModal = React.createClass({
         return (
             <Modal {...this.props}>
                 <div className="modal-body">
-                    <UserPicker ref="user" defaultUser={this.state.selectedUser} context={this.props.context} onUserChange={this.handleUserChange} label="Utilisateur" />
-                    <PictureInput context={this.props.context} container="business-pictures" ref="picture" label="Photo" defaultPicture={businessMember.picture} />
+                    <UserPicker ref="user" defaultUser={this.state.selectedUser} onUserChange={this.handleUserChange} label="Utilisateur" />
+                    {/* <PictureInput context={this.props.context} container="business-pictures" ref="picture" label="Photo" defaultPicture={businessMember.picture} /> */}
                     <Row>
                         <Col xs={4}>
                             <Input ref="gender" label="Genre" type="select" defaultValue={businessMember.gender} value={user.gender} readOnly={hasUser}>

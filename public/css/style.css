@@ -15466,6 +15466,9 @@ div#app {
 #content.search .main-content .tab-pane section .rating .note {
   margin-top: -4px; }
 
+.salon#content section.salon-content section .map {
+  background: #E9E5DC; }
+
 .label-red {
   background-color: #fe5b5f; }
 
