@@ -54,7 +54,7 @@ module.exports = React.createClass({
                 </header>
                 <div className="mobile-menu">
                     <div className="container">
-                        <h2>Réservez votre coiffeur</h2>
+                        <h2>Recherche</h2>
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
                             <GeoInput ref="address" className='col-xs-12' placeholder="Où ?" />
