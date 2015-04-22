@@ -30,7 +30,7 @@ module.exports = React.createClass({
             <div>
                 <div className="legend conf">
                     <p className="green">{"Finalisez votre réservation chez  " + this.props.business.name}</p>
-                    <p dangerouslySetInnerHTML={{__html:this.props.timeslotSelected.format("[pour le <u>] D/MM/YYYY [</u> à <u>] HH:mm [</u>]")}} />
+                    <p dangerouslySetInnerHTML={{__html:this.props.timeslotSelected.format("[pour le <u>] dddd D MMMM YYYY [</u> à <u>] HH:mm [</u>]")}} />
                     {promoNode}
                 </div>
                 <a href="#" className="pull-right" onClick={this.modifyTimeslot} >Modifier ma réservation</a>

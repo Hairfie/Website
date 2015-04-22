@@ -66,7 +66,7 @@ module.exports = React.createClass({
                                         <h3>Votre demande</h3>
                                         <dl className="dl-horizontal">
                                             <dt>Date :</dt>
-                                            <dd>{weekDayLabelFromInt(moment(booking.timeslot).day())} {moment(booking.timeslot).format("D/MM/YYYY")}</dd>
+                                            <dd>{moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</dd>
                                             <dt>Horaire :</dt>
                                             <dd>{moment(booking.timeslot).format("HH:mm")}</dd>
                                             {this.renderDiscount(booking)}

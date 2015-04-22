@@ -20,11 +20,18 @@ module.exports = React.createClass({
                 <div className="salon-bloc">
                     <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                         <Picture picture={business.pictures[0]}
-                           resolution={{width: 220, height: 220}} />
+                           resolution={{width: 220, height: 220}}
+                           placeholder="/images/placeholder-55.png" />
                     </NavLink>
                     <div className="address-bloc">
-                        <h2><a href="#">{business.name}</a></h2>
-                        <a href="#" className="address">{displayAddress}</a>
+                        <h2>
+                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                                {business.name}
+                            </NavLink>
+                        </h2>
+                        <NavLink routeName="show_business" className="address" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                            {displayAddress}
+                        </NavLink>
                     </div>
                 </div>
                 {this.renderDiscountsNode()}
