@@ -33,7 +33,8 @@ module.exports = {
     write_verified_business_review: {
         path: '/write-business-review/:businessReviewRequestId',
         method: 'get',
-        component: require('../components/WriteVerifiedBusinessReviewPage.jsx')
+        component: require('../components/WriteVerifiedBusinessReviewPage.jsx'),
+        action: require('../actions/Page/BusinessReviewRequest')
     },
     pro_home: {
         path: '/pro/',

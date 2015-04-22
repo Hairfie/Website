@@ -4,6 +4,7 @@ var BusinessReviewEvents = require('../../constants/BusinessReviewConstants').Ev
 
 module.exports = function (context, payload, done) {
     var done = done || function () {};
+
     context
         .getHairfieApi()
         .getBusinessReviewRequest(payload.id)

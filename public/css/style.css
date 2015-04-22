@@ -12354,7 +12354,7 @@ ul {
   width: 24px;
   background: url(../images/star.png) no-repeat center center;
   background-size: 100%;
-  margin: 6px;
+  /* margin: 0px; */
   cursor: pointer;
   display: block;
   position: relative;

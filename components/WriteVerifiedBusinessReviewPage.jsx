@@ -11,6 +11,7 @@ var Row = require('react-bootstrap/Row');
 var Col = require('react-bootstrap/Col');
 var BusinessReviewActions = require('../actions/BusinessReview');
 var _ = require('lodash');
+var connectToStores = require('fluxible/addons/connectToStores');
 
 var RequiredAsterisk = React.createClass({
     render: function () {
@@ -28,7 +29,7 @@ var RatingInput = React.createClass({
     render: function () {
         return (
             <Input {...this.props}>
-                <div className="star-rating">
+                <div className="stars">
                     {[1, 2, 3, 4, 5].map(function (n) { return this.renderStar(n); }.bind(this))}
                 </div>
             </Input>
@@ -40,11 +41,12 @@ var RatingInput = React.createClass({
 
         var className = React.addons.classSet({
             star: true,
+            full: on,
             on  : on,
             off : !on
         });
 
-        return <a href="#" className={className} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
+        return <a href="#" className={className} style={{margin: 0}} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
     },
     getValue: function () {
         return this.state.value;
@@ -91,10 +93,10 @@ var ReviewForm = React.createClass({
             <div>
                 {errorsNode}
                 <Row>
-                    <Col md={6}>
+                    <Col sm={6}>
                         <Input ref="firstName" type="text" label={<div>Votre prénom <RequiredAsterisk /></div>} />
                     </Col>
-                    <Col md={6}>
+                    <Col sm={6}>
                         <Input ref="lastName" type="text" label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>} />
                     </Col>
                 </Row>
@@ -102,19 +104,25 @@ var ReviewForm = React.createClass({
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
                 <br />
                 <Row>
-                    <Col md={3}>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="welcome" label="Accueil" />
+                    </Col>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="discussion" label="Discussions" />
                     </Col>
-                    <Col md={3}>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="decoration" label="Décoration" />
+                    </Col>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="hygiene" label="Hygiène" />
                     </Col>
-                    <Col md={3}>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="treatment" label="Soins" />
+                    </Col>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="resultQuality" label="Qualité du résultat" />
                     </Col>
-                    <Col md={3}>
+                    <Col xs={6} md={4}>
                         <RatingInput ref="availability" label="Disponibilité" />
                     </Col>
                 </Row>
@@ -156,35 +164,28 @@ var ReviewForm = React.createClass({
     }
 });
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BusinessReviewRequestStore]
-    },
-    getStateFromStores: function () {
-        var businessReviewRequestId = this.props.route.params.businessReviewRequestId,
-            businessReviewRequest   = this.getStore(BusinessReviewRequestStore).getById(businessReviewRequestId);
-
-        return {
-            businessReviewRequest: businessReviewRequest
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
+var WriteVerifiedBusinessReviewPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
     renderBody: function () {
-        var brr = this.state.businessReviewRequest;
+        var brr = this.props.businessReviewRequest;
 
-        if (_.isUndefined(brr)) return <p>Chargement des informations...</p>;
         if (!brr) return <p>La page que vous avez demandée est introuvable.</p>;
-        if (brr.used) return <p>Votre avis a bien été envoyé.</p>;
-        if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.</p>;
+        if (brr.used) return (
+            <div className="container write-review" id="content" style={{minHeight: '100%'}}>
+                <h1>Merci !</h1>
+                <p>Votre avis a bien été envoyé.</p>
+            </div>
+        );
+        if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.{/*'*/}</p>;
 
         return (
-            <div className="write-review">
+            <div className="container write-review" id="content">
+                <h1>Donnez votre avis</h1>
                 <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
@@ -192,14 +193,20 @@ module.exports = React.createClass({
             </div>
         );
     },
-
-    onChange: function () {
-        this.setState(this.getStateFromStores());
-    },
     submitReview: function (review) {
-        this.executeAction(BusinessReviewActions.SaveVerified, {
-            businessReviewRequest: this.state.businessReviewRequest,
+        this.context.executeAction(BusinessReviewActions.SaveVerified, {
+            businessReviewRequest: this.props.businessReviewRequest,
             businessReview       : review
         });
     }
 });
+
+WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
+    require('../stores/BusinessReviewRequestStore')
+], function (stores, props) {
+    return {
+        businessReviewRequest: stores.BusinessReviewRequestStore.getById(props.route.params.businessReviewRequestId)
+    };
+});
+
+module.exports = WriteVerifiedBusinessReviewPage;

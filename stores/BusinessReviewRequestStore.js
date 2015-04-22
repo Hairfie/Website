@@ -14,6 +14,14 @@ module.exports = createStore({
     initialize: function () {
         this.requests = {};
     },
+    dehydrate: function () {
+        return {
+            requests: this.requests,
+        };
+    },
+    rehydrate: function (state) {
+        this.requests = state.requests;
+    },
     handleReceiveSuccess: function (payload) {
         this.requests[payload.id] = payload.businessReviewRequest;
         this.emitChange();
