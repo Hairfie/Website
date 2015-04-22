@@ -17,6 +17,7 @@ var Filters = React.createClass({
                     {this.renderQ()}
                     {this.renderCategories()}
                     {this.renderPrice()}
+                    {this.renderDiscount()}
                     </form>
                 </section>
             </div>
@@ -103,11 +104,34 @@ var Filters = React.createClass({
             </div>
         );
     },
+    renderDiscount: function () {
+        if (!this.props.withQ) return;
+
+        var withDiscount = (this.props.search && this.props.search.withDiscount) || false;
+        var onChange = withDiscount ? this.removeWithDiscount : this.addWithDiscount;
+
+        return (
+            <div>
+                <h2>Promotions</h2>
+                <label className="checkbox-inline">
+                    <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
+                    <span />
+                    Avec une promotion
+                </label>
+            </div>
+        );
+    },
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
     },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});
+    },
+    addWithDiscount: function () {
+        this.props.onChange({withDiscount: true});
+    },
+    removeWithDiscount: function () {
+        this.props.onChange({withDiscount: false});
     },
     handleQueryChange: _.debounce(function () {
         this.props.onChange({q: this.refs.query.getDOMNode().value});
@@ -117,7 +141,6 @@ var Filters = React.createClass({
             e.preventDefault();
             this.props.onChange({q: this.refs.query.getDOMNode().value});
          }
-
     },
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});

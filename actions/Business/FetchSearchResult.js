@@ -20,6 +20,7 @@ module.exports = function (context, payload, done) {
     if (payload.search.page) apiQuery.page = payload.search.page;
     if (payload.search.priceMin) apiQuery.price.min = payload.search.priceMin;
     if (payload.search.priceMax) apiQuery.price.max = payload.search.priceMax;
+    if (payload.search.withDiscount) apiQuery.withDiscount = payload.search.withDiscount;
 
     context
         .getHairfieApi()
