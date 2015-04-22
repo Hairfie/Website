@@ -70,7 +70,7 @@ module.exports = React.createClass({
     },
     render: function () {
         if (!this.state.hairfies && this.state.loading) {
-            return this.renderTextOnly('Chargment en cours, veuillez patienter...');
+            return this.renderTextOnly('Chargement en cours, veuillez patienter...');
         }
 
         if (!this.state.hairfies.length && !this.state.loading) {
@@ -122,7 +122,7 @@ module.exports = React.createClass({
         if (this.state.endOfList) return;
 
         if (this.state.loading) {
-            return <a className="btn btn-red">Chargment...</a>;
+            return <a className="btn btn-red">Chargement...</a>;
         }
 
         return <a href="#" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
