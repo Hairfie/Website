@@ -25,12 +25,15 @@ module.exports = React.createClass({
         var business = this.props.business || {};
         var address  = business.address || {};
 
+        var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
+        var linkToMap = _.isEmpty(address) ? null : <a href="#location" className="linkToMap">(Voir&nbsp;la&nbsp;carte)</a>;
+
         return (
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
                   <h1>{business.name}</h1>
-                  <h2>{address.street}, {address.zipCode}, {address.city}.</h2>
+                  <h2>{displayAddress} {linkToMap}</h2>
                 </div>
                 <Rating rating={business.rating} numReviews={business.numReviews} />
               </div>

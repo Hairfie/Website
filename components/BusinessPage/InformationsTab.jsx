@@ -129,7 +129,7 @@ module.exports = React.createClass({
     },
     renderLocation: function () {
         return (
-            <section>
+            <section id="location">
                 <h3>Comment s'y rendre ?</h3>
                 {this.renderStations()}
                 {this.renderMap()}
