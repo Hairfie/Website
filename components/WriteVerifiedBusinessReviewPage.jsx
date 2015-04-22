@@ -194,7 +194,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         var bookingNode;
 
         if(brr.booking) {
-            bookingNode = <p>Vous avez réservé le <strong>{moment(brr.booking.timeslot).format("dddd D MMMM YYYY")}</strong> chez <strong>{brr.business.name}</strong>.</p>
+            bookingNode = <p>Vous êtes allé le <strong>{moment(brr.booking.timeslot).format("dddd D MMMM YYYY")}</strong> chez <strong>{brr.business.name}</strong>.</p>
         } else {
             bookingNode = <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
         }
