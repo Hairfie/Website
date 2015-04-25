@@ -12,4 +12,4 @@ newrelic_agent.log
 
 .DS_Store
 
-.env
+*.env
