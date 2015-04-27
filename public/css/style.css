@@ -15469,6 +15469,10 @@ div#app {
 .salon#content section.salon-content section .map {
   background: #E9E5DC; }
 
+#content.search .main-content .tab-pane section img {
+  max-width: 100%;
+  min-height: none; }
+
 .label-red {
   background-color: #fe5b5f; }
 
