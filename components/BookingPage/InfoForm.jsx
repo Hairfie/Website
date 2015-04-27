@@ -63,7 +63,7 @@ module.exports = React.createClass({
                     <label className='col-xs-12' for="cgu">
                         <input type="checkbox" name='cgu'/>
                         <span></span>
-                        Je reconnais avoir prix connaissance des <a href="#">conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                     <a href="#" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>
