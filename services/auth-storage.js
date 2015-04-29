@@ -15,7 +15,11 @@ function clearToken(token) {
 function getToken(req) {
     var cookieValue = req.cookies[CookieNames.AUTH_TOKEN];
 
-    return cookieValue ? JSON.parse(cookieValue) : undefined;
+    try {
+        return cookieValue ? JSON.parse(cookieValue) : undefined;
+    } catch (e) {
+        return null;
+    }
 }
 
 module.exports = {
