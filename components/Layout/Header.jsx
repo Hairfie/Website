@@ -1,18 +1,10 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 var NavLink = require('flux-router-component').NavLink;
-var UserStatus = require('../UserStatus.jsx');
 
 module.exports = React.createClass({
     render: function () {
-        var custom;
-        if (this.props.withLogin) {
-            custom = (<UserStatus loginSuccessUrl={this.props.loginSuccessUrl} />);
-        } else {
-            custom = (<li><a href="http://pro.hairfie.com" className="">Vous êtes coiffeur ?</a></li>);
-        }
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
         headerClassName += ' hidden-xs';
 
@@ -23,7 +15,7 @@ module.exports = React.createClass({
                         <NavLink className="logo col-md-4" routeName="home" />
                         <nav className='col-md-8 pull-right'>
                             <ul>
-                                {custom}
+                                <li><a href="http://pro.hairfie.com" className="">Vous êtes coiffeur ?</a></li>
                             </ul>
                         </nav>
                     </div>

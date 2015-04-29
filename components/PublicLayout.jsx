@@ -2,7 +2,6 @@
 
 var React = require('react');
 
-var UserStatus = require('./UserStatus.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');

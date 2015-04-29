@@ -3,7 +3,6 @@
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
-var UserStatus = require('./UserStatus.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var FlashMessages = require('./FlashMessages.jsx');
