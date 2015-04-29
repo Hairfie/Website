@@ -8,7 +8,7 @@ var BusinessActions = require('../actions/Business');
 
 var Navigate = require('flux-router-component/actions/navigate');
 
-module.exports = createStore({
+module.exports = createStore({ // TODO: should be handled by an action
     storeName: 'SlugStore',
     handlers: makeHandlers({
         handleOpenWithBadSlug: BusinessEvents.OPEN_WITH_BAD_SLUG,

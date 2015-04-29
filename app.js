@@ -6,6 +6,7 @@ var Router = require('routr');
 var _ = require('lodash');
 var QueryString = require('query-string');
 var provideContext = require('fluxible/addons/provideContext');
+var Promise = require('q');
 
 var Application = provideContext(require('./components/Application.jsx'), {
     makePath: React.PropTypes.func.isRequired,
@@ -21,7 +22,7 @@ var routes = _.mapValues(require('./configs/routes'), function (route) {
     return _.assign(route, {path: '/:locale'+route.path});
 });
 
-app.plug({
+app.plug({ // TODO: use the new fluxible-router with a custom RouteStore
     name: 'Router',
     plugContext: function (options, context) {
         var router = new Router(routes);
@@ -67,21 +68,16 @@ app.plug({
     plugContext: function (options, context) {
         return {
             plugActionContext: function (actionContext) {
-                // shortcut to access auth token from actions
-                actionContext.getAuthToken = function () {
-                    return actionContext.getStore(require('./stores/AuthStore')).getToken();
-                };
-
-                actionContext.getAuthUser = function () {
-                    return actionContext.getStore(require('./stores/AuthStore')).getUser();
-                };
-
-                // executes actions in //. It doesn't take care of errors yet :(
+                // TODO: use action utils from fluxible
                 actionContext.executeActions = function (actions, done) {
-                    var done = _.after(actions.length, done || _.noop());
-                    _.forEach(actions, function (action, i) {
-                        actionContext.executeAction(action[0], action[1], done);
-                    });
+                    return Promise
+                        .all(_.map(actions, function (action) {
+                            return actionContext.executeAction(action[0], action[1]);
+                        }))
+                        .then(function () {
+                            console.Log('toto');
+                            if (done) done();
+                        });
                 };
             },
             plugStoreContext: function (storeContext) {
@@ -92,37 +88,32 @@ app.plug({
     }
 });
 
-app.plug(require('./context/hairfie-api-plugin')({
+app.plug(require('./context/hairfie-api-plugin')({ // TODO: use fluxible-plugin-hairfie-api
     Client: require('./lib/hairfie/client'),
+    apiUrl: require('./configs/hairfie-api').URL
+}));
+
+app.plug(require('fluxible-plugin-hairfie-api')({
     apiUrl: require('./configs/hairfie-api').URL
 }));
 
 app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/LocaleStore'));
-app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfieSearchStore'));
-app.registerStore(require('./stores/HairfiesStore'));
 app.registerStore(require('./stores/TopHairfiesStore'));
 app.registerStore(require('./stores/TopDealsStore'));
 app.registerStore(require('./stores/BusinessStore'));
-app.registerStore(require('./stores/BusinessMemberStore'));
-app.registerStore(require('./stores/BusinessCustomersStore'));
-app.registerStore(require('./stores/BusinessServiceStore'));
-app.registerStore(require('./stores/BusinessFacebookPageStore'));
+app.registerStore(require('./stores/BusinessServiceStore.js'));
 app.registerStore(require('./stores/BusinessReviewStore'));
 app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/SimilarBusinessStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/FlashStore'));
 app.registerStore(require('./stores/SlugStore'));
-app.registerStore(require('./stores/UserSuggestionStore'));
-app.registerStore(require('./stores/UserManagedBusinessStore'));
-app.registerStore(require('./stores/FacebookStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
-app.registerStore(require('./stores/PictureUploadStore'));
 app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));

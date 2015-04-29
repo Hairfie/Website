@@ -65,7 +65,10 @@ server.get('/write-business-review/:businessReviewRequestId', redirectToLocalize
 
 // serve application
 server.use(function (req, res, next) {
-    var context = app.createContext();
+    var context = app.createContext({
+        req: req,
+        res: res
+    });
     var payload = {request: req};
 
     context.executeAction(ServerActions.Initialize, payload, function (error) {

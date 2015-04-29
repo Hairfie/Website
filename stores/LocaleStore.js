@@ -3,7 +3,7 @@
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 
-module.exports = createStore({
+module.exports = createStore({ // TODO: remove as soon as new RouteStore is in place
     storeName: 'LocaleStore',
     handlers: makeHandlers({
         handleChangeRoute: 'CHANGE_ROUTE_START'

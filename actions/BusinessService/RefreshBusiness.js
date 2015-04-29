@@ -1,30 +1,18 @@
 'use strict';
 
-var BusinessServiceEvents = require('../../constants/BusinessServiceConstants').Events;
+var Actions = require('../../constants/Actions');
 var _ = require('lodash');
 
-module.exports = function (context, payload, done) {
+module.exports = function (context, payload) {
     var done = done || _.noop;
 
-    context.dispatch(BusinessServiceEvents.RECEIVE_BUSINESS, {
-        businessId: payload.businessId
-    });
-
-    context
+    return context
         .getHairfieApi()
         .getBusinessServicesByBusiness(payload.businessId)
         .then(function (businessServices) {
-            context.dispatch(BusinessServiceEvents.RECEIVE_BUSINESS_SUCCESS, {
+            context.dispatch(Actions.RECEIVE_BUSINESS_SERVICES, {
                 businessId      : payload.businessId,
                 businessServices: businessServices
             });
-            done();
-        })
-        .fail(function (error) {
-            console.log(error);
-            context.dispatch(BusinessServiceEvents.RECEIVE_BUSINESS_FAILURE, {
-                businessId: payload.businessId
-            });
-            done(error);
         });
 };

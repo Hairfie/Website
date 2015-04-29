@@ -4,8 +4,6 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var BusinessEvents = require('../constants/BusinessConstants').Events;
 var BusinessActions = require('../actions/Business');
-var HairdresserEvents = require('../constants/HairdresserConstants').Events;
-var Notify = require('../actions/Flash/Notify');
 var _ = require('lodash');
 
 module.exports = createStore({

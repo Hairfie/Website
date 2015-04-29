@@ -12,10 +12,6 @@ module.exports = {
         'RECEIVE_TOP_SUCCESS',
         'RECEIVE_TOP_FAILURE',
 
-        'DELETE',
-        'DELETE_SUCCESS',
-        'DELETE_FAILURE',
-
         'LIST',
         'LIST_SUCCESS',
         'LIST_FAILURE',

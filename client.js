@@ -4,8 +4,6 @@ var React = require('react');
 var app = require('./app');
 var appState = window.App;
 var debug = require('debug');
-var Facebook = require('./services/facebook');
-var FacebookEvents = require('./constants/FacebookConstants').Events;
 var serverConfig   = require('./configs/server');
 
 if(!serverConfig.DEBUG) {
@@ -19,14 +17,4 @@ app.rehydrate(appState, function (error, context) {
         React.createFactory(app.getComponent())({context: context.getComponentContext()}),
         document.getElementById('app')
     );
-
-    Facebook
-        .load()
-        .then(function (fb) {
-            fb.Event.subscribe('auth.statusChange', function (loginStatus) {
-                context.dispatch(FacebookEvents.RECEIVE_LOGIN_STATUS, {
-                    loginStatus: loginStatus
-                });
-            });
-        });
 });
