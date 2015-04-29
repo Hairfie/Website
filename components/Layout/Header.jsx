@@ -11,7 +11,7 @@ module.exports = React.createClass({
         if (this.props.withLogin) {
             custom = (<UserStatus loginSuccessUrl={this.props.loginSuccessUrl} />);
         } else {
-            custom = (<li><NavLink routeName="pro_home" className="">Vous êtes coiffeur ?</NavLink></li>);
+            custom = (<li><a href="http://pro.hairfie.com" className="">Vous êtes coiffeur ?</a></li>);
         }
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
         headerClassName += ' hidden-xs';
