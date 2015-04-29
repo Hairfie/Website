@@ -9,8 +9,7 @@ module.exports = function (options) {
         plugContext: function (options, context, app) {
             var client = new Client({
                 apiUrl  : apiUrl,
-                locale  : function () { return store(context, 'LocaleStore').getLocale(); },
-                token   : function () { return store(context, 'AuthStore').getToken(); }
+                locale  : function () { return store(context, 'LocaleStore').getLocale(); }
             });
 
             return {

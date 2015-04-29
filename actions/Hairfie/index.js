@@ -4,7 +4,6 @@ module.exports = {
     Fetch       : require('./Fetch'),
     FetchQuery  : require('./FetchQuery'),
     FetchTop    : require('./FetchTop'),
-    Delete      : require('./Delete'),
-    List        : require('./List'),
+    List        : require('./List'), // TODO: check if used
     SubmitSearch: require('./SubmitSearch')
 };

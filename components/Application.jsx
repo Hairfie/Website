@@ -32,7 +32,7 @@ var Application = React.createClass({
 });
 
 Application = connectToStores(Application, [
-    require('../stores/RouteStore')
+    'RouteStore'
 ], function (stores, props) {
     return {
         route: stores.RouteStore.getCurrentRoute()

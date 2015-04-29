@@ -41,7 +41,7 @@ module.exports = {
     book_business: {
         path: '/businesses/:businessId/:businessSlug/booking',
         method: 'get',
-        action: require('../actions/Business/RouteOpen'),
+        action: require('../actions/Page/Business'),
         component: require('../components/BusinessBookingPage.jsx')
     },
     booking_confirmation: {
