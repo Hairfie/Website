@@ -3,8 +3,8 @@
 var _ = require('lodash');
 
 var executeCritical = require('fluxible-action-utils/async/executeCritical');
-var DealActions = require('../Deal');
-var HairfieActions = require('../Hairfie');
+var DealActions = require('../DealActions');
+var HairfieActions = require('../HairfieActions');
 var CategoryActions = require('../CategoryActions');
 
 
@@ -14,11 +14,11 @@ module.exports = function (context, payload, done) {
             action: CategoryActions.loadAll
         },
         topDeals: {
-            action: DealActions.FetchTop,
+            action: DealActions.loadTopDeals,
             params: { limit: payload.config.numTopDeals }
         },
         topHairfies: {
-            action: HairfieActions.FetchTop,
+            action: HairfieActions.loadTopHairfies,
             params: {limit: payload.config.numTopHairfies}
         }
     }, function (err) {

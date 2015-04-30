@@ -9,5 +9,9 @@ module.exports = define([
 
     'RECEIVE_BUSINESS_SERVICES',
 
-    'RECEIVE_CATEGORIES'
+    'RECEIVE_CATEGORIES',
+
+    'RECEIVE_TOP_DEALS',
+
+    'RECEIVE_TOP_HAIRFIES',
 ]);
