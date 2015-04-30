@@ -33,17 +33,16 @@ module.exports = {
                 ga('send', 'event', 'Business Reviews', 'Submit');
 
                 return context.executeAction(
-                    Notifications.notifySuccess,
+                    NotificationActions.notifySuccess,
                     'Votre avis a bien été pris en compte, merci !'
-                );
-            })
-            .then(function () {
-                return context.executeAction(NavigationActions.navigate, {
-                    route: 'business',
-                    params: {
-                        businessId: businessReview.business.id,
-                        businessSlug: businessReview.business.slug
-                    }
+                ).then(function () {
+                    return context.executeAction(NavigationActions.navigate, {
+                        route: 'business',
+                        params: {
+                            businessId: businessReview.business.id,
+                            businessSlug: businessReview.business.slug
+                        }
+                    });
                 });
             });
     }
