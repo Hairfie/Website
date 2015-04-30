@@ -13,13 +13,14 @@ module.exports = createStore({
         this.top = [];
     },
     dehydrate: function () {
-        return { top: top };
+        return { top: this.top };
     },
     rehydrate: function (state) {
         this.top = state.top;
     },
     onReceiveTopDeals: function (deals) {
         this.top = deals;
+        this.emitChange();
     },
     getTop: function () {
         return this.top;

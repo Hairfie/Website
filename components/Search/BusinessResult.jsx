@@ -13,7 +13,7 @@ var BusinessLink = React.createClass({
             businessSlug: this.props.business.slug
         };
 
-        return <NavLink {...this.props} routeName="show_business" navParams={navParams} />;
+        return <NavLink {...this.props} routeName="business" navParams={navParams} />;
     }
 });
 
@@ -34,7 +34,7 @@ var Hairfies = React.createClass({
 
         return (
             <li key={hairfie.id} className={className}>
-                <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
                     <Picture picture={_.last(hairfie.pictures)}
                              options={{width: 55, height: 55}}
                           placeholder="/images/placeholder-55.png"
@@ -166,7 +166,7 @@ var Business = React.createClass({
         var query = {};
         if (this.props.date) query.date = this.props.date;
 
-        return this.context.makeUrl('book_business', {
+        return this.context.makeUrl('business_booking', {
             businessId: this.props.business.id,
             businessSlug: this.props.business.slug
         }, query);

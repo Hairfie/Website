@@ -40,7 +40,7 @@ var Hairfie = React.createClass({
         this.context.navigateTo(this.getHairfieUrl());
     },
     getHairfieUrl: function () {
-        return this.context.makeUrl('show_hairfie', {hairfieId: this.props.hairfie.id});
+        return this.context.makeUrl('hairfie', {hairfieId: this.props.hairfie.id});
     }
 });
 

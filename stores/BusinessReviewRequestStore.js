@@ -2,14 +2,12 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-
-var BusinessReviewActions = require('../actions/BusinessReview');
-var BusinessReviewEvents = require('../constants/BusinessReviewConstants').Events;
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'BusinessReviewRequestStore',
     handlers: makeHandlers({
-        handleReceiveSuccess: BusinessReviewEvents.RECEIVE_REQUEST_SUCCESS
+        onReceiveBusinessReviewRequest: Actions.RECEIVE_BUSINESS_REVIEW_REQUEST
     }),
     initialize: function () {
         this.requests = {};
@@ -22,22 +20,11 @@ module.exports = createStore({
     rehydrate: function (state) {
         this.requests = state.requests;
     },
-    handleReceiveSuccess: function (payload) {
-        this.requests[payload.id] = payload.businessReviewRequest;
+    onReceiveBusinessReviewRequest: function (request) {
+        this.requests[request.id] = request;
         this.emitChange();
     },
     getById: function (id) {
-        var token = this.requests[id];
-
-        if (undefined === token) {
-            this._fetchById(id);
-        }
-
-        return token;
-    },
-    _fetchById: function (id) {
-        this.dispatcher.getContext().executeAction(BusinessReviewActions.FetchRequest, {
-            id: id
-        });
+        return this.requests[id];
     }
 });

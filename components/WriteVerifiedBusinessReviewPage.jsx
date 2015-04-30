@@ -1,17 +1,15 @@
 'use strict';
 
 var React = require('react/addons');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var BusinessReviewRequestStore = require('../stores/BusinessReviewRequestStore');
+var connectToStores = require('fluxible/addons/connectToStores');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var Alert = require('react-bootstrap/Alert');
 var Row = require('react-bootstrap/Row');
 var Col = require('react-bootstrap/Col');
-var BusinessReviewActions = require('../actions/BusinessReview');
+var BusinessReviewActions = require('../actions/BusinessReviewActions');
 var _ = require('lodash');
-var connectToStores = require('fluxible/addons/connectToStores');
 var moment = require('moment');
 
 var RequiredAsterisk = React.createClass({
@@ -210,7 +208,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         );
     },
     submitReview: function (review) {
-        this.context.executeAction(BusinessReviewActions.SaveVerified, {
+        this.context.executeAction(BusinessReviewActions.submitVerified, {
             businessReviewRequest: this.props.businessReviewRequest,
             businessReview       : review
         });
@@ -218,7 +216,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
 });
 
 WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
-    require('../stores/BusinessReviewRequestStore')
+    'BusinessReviewRequestStore'
 ], function (stores, props) {
     return {
         businessReviewRequest: stores.BusinessReviewRequestStore.getById(props.route.params.businessReviewRequestId)

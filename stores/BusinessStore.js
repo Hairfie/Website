@@ -2,51 +2,36 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BusinessEvents = require('../constants/BusinessConstants').Events;
-var BusinessActions = require('../actions/Business');
+var Actions = require('../constants/Actions');
 var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: makeHandlers({
-        handleReceive: BusinessEvents.RECEIVE,
-        handleReceiveSuccess: BusinessEvents.RECEIVE_SUCCESS,
-        handleReceiveFailure: BusinessEvents.RECEIVE_FAILURE
+        onReceiveBusiness: Actions.RECEIVE_BUSINESS,
+        onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES
     }),
     initialize: function () {
         this.businesses = {};
+        this.similarIds = {};
     },
     dehydrate: function () {
         return {
-            businesses: this.businesses
+            businesses: this.businesses,
+            similarIds: this.similarIds
         };
     },
     rehydrate: function (state) {
         this.businesses = state.businesses;
+        this.similarIds = state.similarIds;
     },
-    handleReceive: function (payload) {
-        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
-            loading: true
-        });
+    onReceiveBusiness: function (business) {
+        this.businesses[business.id] = business;
         this.emitChange();
     },
-    handleReceiveSuccess: function (payload) {
-        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
-            entity  : payload.business,
-            loading : false
-        });
-
-        if (this.business && payload.business.id == this.business.id) {
-            this.business = payload.business;
-            this.uploadInProgress = false;
-        }
-
-        this.emitChange();
-    },
-    handleReceiveFailure: function (payload) {
-        this.businesses[payload.id] = _.assign({}, this.businesses[payload.id], {
-            loading: false
-        });
+    onReceiveSimilarBusinesses: function (payload) {
+        this.similarIds[payload.businessId] = _.pluck(payload.businesses, 'id');
+        this.businesses = _.merge({}, this.businesses, _.indexBy(payload.businesses, 'id'));
         this.emitChange();
     },
     // TODO: move discount code into a discount store
@@ -80,17 +65,9 @@ module.exports = createStore({
         return discountObj;
     },
     getById: function (businessId) {
-        var business = this.businesses[businessId];
-
-        if (typeof business == 'undefined') {
-            this._loadById(businessId);
-        }
-
-        return business && business.entity;
+        return this.businesses[businessId];
     },
-    _loadById: function (businessId) {
-        this.dispatcher.getContext().executeAction(BusinessActions.Fetch, {
-            id: businessId
-        });
+    getSimilar: function (businessId, limit) {
+        return _.map(this.similarIds[businessId], this.getById, this);
     }
 });

@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Layout = require('./PublicLayout.jsx');
-var Business = require('./BusinessPage');
+var Business = require('./BusinessPage/');
 var connectToStores = require('fluxible/addons/connectToStores');
 
 var BusinessPage = React.createClass({
@@ -76,11 +76,10 @@ var BusinessPage = React.createClass({
 });
 
 BusinessPage = connectToStores(BusinessPage, [
-    require('../stores/BusinessStore'),
-    require('../stores/BusinessServiceStore'),
-    require('../stores/BusinessReviewStore'),
-    require('../stores/StationStore'),
-    require('../stores/SimilarBusinessStore')
+    'BusinessStore',
+    'BusinessServiceStore',
+    'BusinessReviewStore',
+    'StationStore',
 ], function (stores, props) {
     var business = stores.BusinessStore.getById(props.route.params.businessId);
 
@@ -88,9 +87,9 @@ BusinessPage = connectToStores(BusinessPage, [
         business: business,
         services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),
         discounts: stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
-        stations: business && stores.StationStore.getByLocation(business.gps),
-        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId, 50),
-        similarBusinesses: business && business.crossSell && stores.SimilarBusinessStore.list(business.id, 3)
+        stations: business && stores.StationStore.getNearby(business.gps),
+        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId),
+        similarBusinesses: business && business.crossSell && stores.BusinessStore.getSimilar(business.id)
     };
 });
 

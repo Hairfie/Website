@@ -4,7 +4,7 @@ var React = require('react');
 
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
-var FlashMessages = require('./FlashMessages.jsx');
+var Notifications = require('./Notifications.jsx');
 var SearchBar = require('./Layout/SearchBar.jsx');
 var PageProgress = require('./PageProgress.jsx');
 
@@ -24,7 +24,7 @@ module.exports = React.createClass({
                     {this.renderSearchBar()}
                     <SearchBar context={this.props.context} mobile={true} />
                 </div>
-                <FlashMessages context={this.props.context} />
+                <Notifications />
                 {this.props.children}
                 <div className="row" />
                 <Footer context={this.props.context} />

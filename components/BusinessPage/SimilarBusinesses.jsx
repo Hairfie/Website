@@ -13,7 +13,7 @@ var BusinessLink = React.createClass({
         };
 
         return (
-            <NavLink {...this.props} routeName="show_business" navParams={params}>
+            <NavLink {...this.props} routeName="business" navParams={params}>
                 {this.props.children}
             </NavLink>
         );
@@ -30,7 +30,6 @@ module.exports = React.createClass({
         );
     },
     renderBusiness: function (business) {
-        console.log("business.pictures", business.pictures);
         return (
             <section key={business.id} className="rival">
                 <div className="row">

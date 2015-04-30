@@ -29,12 +29,12 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-4 col-xs-12" key={deal.business.id}>
                 <figure>
-                    <Picture picture={deal.business.pictures[0]} resolution={{width: 640, height: 400}} placeholder="/images/placeholder-640.png" alt={deal.business.name} onClick={this.navToLink.bind(this, "show_business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
+                    <Picture picture={deal.business.pictures[0]} resolution={{width: 640, height: 400}} placeholder="/images/placeholder-640.png" alt={deal.business.name} onClick={this.navToLink.bind(this, "business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
                     <figcaption>
-                        <NavLink routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
+                        <NavLink routeName="business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
                             {deal.business.name}
                         </NavLink>
-                        <NavLink className="address" routeName="show_business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
+                        <NavLink className="address" routeName="business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
                             {displayAddress}
                         </NavLink>
                         <span className="icon-promo">{deal.discount}%</span>

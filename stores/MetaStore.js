@@ -15,13 +15,12 @@ module.exports = createStore({
     },
     handleChangeRouteSuccess: function (payload) {
         switch (payload.name) {
-            case 'show_business':
-            case 'show_business_without_slug':
-            case 'book_business':
+            case 'business':
+            case 'business_booking':
                 this._setupBusinessMetas(payload.params.businessId);
                 break;
 
-            case 'show_hairfie':
+            case 'hairfie':
                 this._setupHairfieMetas(payload.params.hairfieId);
                 break;
 
