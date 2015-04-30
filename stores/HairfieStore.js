@@ -4,6 +4,7 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var HairfieEvents = require('../constants/HairfieConstants').Events;
 var HairfieActions = require('../actions/Hairfie');
+var Actions = require('../constants/Actions');
 var _ = require('lodash');
 
 module.exports = createStore({
@@ -12,48 +13,50 @@ module.exports = createStore({
         handleReceiveSuccess: HairfieEvents.RECEIVE_SUCCESS,
         handleReceiveFailure: HairfieEvents.RECEIVE_FAILURE,
         handleFetchQuerySuccess: HairfieEvents.FETCH_QUERY_SUCCESS,
-        handleFetchQueryFailure: HairfieEvents.FETCH_QUERY_FAILURE
+        handleFetchQueryFailure: HairfieEvents.FETCH_QUERY_FAILURE,
+        onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES
     }),
     initialize: function () {
         this.hairfies = {};
         this.queries = {};
+        this.topIds = [];
+        this.loadingIds = [];
     },
     dehydrate: function () {
         return {
             hairfies: this.hairfies,
-            queries: this.queries
+            queries: this.queries,
+            topIds: this.topIds
         };
     },
     rehydrate: function (state) {
         this.hairfies = state.hairfies;
         this.queries = state.queries;
+        this.topIds = state.topIds;
     },
     handleReceiveSuccess: function (payload) {
         var hairfie = payload.hairfie;
         if (hairfie) hairfie.descriptions = this._generateDescriptions(hairfie);
-
-        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
-            entity  : hairfie,
-            loading : false
-        });
-
+        this.loadingIds = _.without(this.loadingIds, hairfie.id);
+        this.hairfies[hairfie.id] = hairfie;
         this.emitChange();
     },
     handleReceiveFailure: function (payload) {
-        this.hairfies[payload.id] = _.assign({}, this.hairfies[payload.id], {
-            loading: false
-        });
-
+        this.loadingIds = _.without(this.loadingIds, payload.id);
         this.emitChange();
+    },
+    getTop: function () {
+        console.log(this.topIds);
+        return _.map(this.topIds, this.getById, this);
     },
     getById: function (hairfieId) {
         var hairfie = this.hairfies[hairfieId];
 
-        if (_.isUndefined(hairfie)) {
+        if (!hairfie && !_.includes(this.loadingIds, hairfieId)) {
             this._fetchById(hairfieId);
         }
 
-        return hairfie && hairfie.entity;
+        return hairfie;
     },
     query: function (filter) {
         var key = this._queryKey(filter);
@@ -63,6 +66,14 @@ module.exports = createStore({
         }
 
         return query && query.results;
+    },
+    onReceiveTopHairfies: function (hairfies) {
+        this.topIds = _.pluck(hairfies, 'id');
+        this.hairfies = _.merge({}, this.hairfies, _.map(_.indexBy(hairfies, 'id'), function (hairfie) {
+            return { entity: hairfie };
+        }));
+        console.log(this.hairfies);
+        this.emitChange();
     },
     handleFetchQuerySuccess: function (payload) {
         var key = this._queryKey(payload.filter);
@@ -80,7 +91,7 @@ module.exports = createStore({
         this.emitChange();
     },
     _fetchById: function (hairfieId) {
-        this.hairfies[hairfieId] = _.assign({}, this.hairfies[hairfieId], {loading: true });
+        this.loadingIds.push(hairfieId);
         this.dispatcher.getContext().executeAction(HairfieActions.Fetch, {
             id: hairfieId
         });

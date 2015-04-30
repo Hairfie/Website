@@ -54,15 +54,15 @@ var HomePage = React.createClass({
 });
 
 HomePage = connectToStores(HomePage, [
-    require('../stores/CategoryStore'),
-    require('../stores/TopDealsStore'),
-    require('../stores/TopHairfiesStore'),
-    require('../stores/HomeLinkStore')
+    'CategoryStore',
+    'HairfieStore',
+    'DealStore',
+    'HomeLinkStore'
 ], function (stores, props) {
     return {
         categories  : stores.CategoryStore.all(),
-        deals       : stores.TopDealsStore.get(props.route.config.numTopDeals),
-        hairfies    : stores.TopHairfiesStore.get(props.route.config.numTopHairfies),
+        deals       : stores.DealStore.getTop(),
+        hairfies    : stores.HairfieStore.getTop(),
         links       : stores.HomeLinkStore.all()
     };
 });
