@@ -2,29 +2,30 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BusinessServiceActions = require('../actions/BusinessService');
 var Actions = require('../constants/Actions');
 var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'BusinessServiceStore',
-    initialize: function () {
-        this.businessServices = {};
-    },
     handlers: makeHandlers({
-        handleReceiveBusinessSuccess: Actions.RECEIVE_BUSINESS_SERVICES
+        onReceiveBusinessServices: Actions.RECEIVE_BUSINESS_SERVICES
     }),
-    handleReceiveBusinessSuccess: function (payload) {
-        this.businessServices[payload.businessId] = payload.businessServices;
+    initialize: function () {
+        this.services = {};
+    },
+    dehydrate: function () {
+        return { services: this.services };
+    },
+    rehydrate: function (state) {
+        this.services = state.services;
+    },
+    onReceiveBusinessServices: function (services) {
+        this.services = _.merge({}, this.services, _.indexBy(services, 'id'));
         this.emitChange();
     },
     getByBusiness: function (businessId) {
-        if (!this.businessServices[businessId]) {
-            this.dispatcher.getContext().executeAction(BusinessServiceActions.RefreshBusiness, {
-                businessId: businessId
-            });
-        }
-
-        return this.businessServices[businessId];
+        return _.filter(this.services, function (service) {
+            return service.business && service.business.id == businessId
+        });
     }
 });

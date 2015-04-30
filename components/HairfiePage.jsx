@@ -84,7 +84,7 @@ var HairfieSingle = React.createClass({
 
         return (
             <div className="cta">
-                <NavLink className="btn btn-red full" routeName="book_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                <NavLink className="btn btn-red full" routeName="business_booking" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                     Réserver dans ce salon
                 </NavLink>
             </div>
@@ -100,7 +100,7 @@ var RightColumn = React.createClass({
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
                 <p>Réalisé par :
-                    <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                    <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                         {this.props.hairfie.hairdresser.firstName}
                     </NavLink>
                 </p>
@@ -112,13 +112,13 @@ var RightColumn = React.createClass({
                 <div className="salon-infos">
                     <div className="row">
                         <div className="col-xs-3">
-                            <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                            <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                                 <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
                             </NavLink>
                         </div>
                         <div className="col-xs-9 address-bloc">
                             <h2>
-                                <NavLink routeName="show_business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                                <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
                                     {this.props.hairfie.business.name}
                                 </NavLink>
                             </h2>
@@ -195,7 +195,7 @@ var HairfiePage = React.createClass({
 });
 
 HairfiePage = connectToStores(HairfiePage, [
-    require('../stores/HairfieStore')
+    'HairfieStore'
 ], function (stores, props) {
     return {
         hairfie: stores.HairfieStore.getById(props.route.params.hairfieId)

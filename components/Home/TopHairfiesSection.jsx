@@ -43,14 +43,14 @@ module.exports = React.createClass({
         var displayBusinessAddress = hairfie.business ? hairfie.business.address.street + ' ' + hairfie.business.address.city : null;
 
         return (
-            <div className={hairfieClass} onClick={this.navToLink.bind(this, "show_hairfie", {hairfieId: hairfie.id}, null)} key={hairfie.id}>
+            <div className={hairfieClass} onClick={this.navToLink.bind(this, "hairfie", {hairfieId: hairfie.id}, null)} key={hairfie.id}>
                 <figure className={figureClass}>
                     <Picture picture={picture} />
                     <figcaption>
-                        <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                        <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
                             {displayBusinessName}
                         </NavLink>
-                        <NavLink className="address" routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                        <NavLink className="address" routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
                             {displayBusinessAddress}
                         </NavLink>
                         {priceNode}

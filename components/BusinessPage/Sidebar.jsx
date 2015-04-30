@@ -36,7 +36,7 @@ module.exports = React.createClass({
                 {this.renderBestDiscount()}
                 <NavLink
                     className="btn btn-red hidden-xs"
-                    routeName="book_business"
+                    routeName="business_booking"
                     navParams={{businessId: business.id, businessSlug: business.slug}}
                     >
                     Réserver maintenant
@@ -66,6 +66,6 @@ module.exports = React.createClass({
         var pathParams = {businessId: business.id, businessSlug: business.slug};
         var queryParams = {date: this.refs.calendar.getDate()};
 
-        this.navToLink('book_business', pathParams, queryParams);
+        this.navToLink('business_booking', pathParams, queryParams);
     }
 });

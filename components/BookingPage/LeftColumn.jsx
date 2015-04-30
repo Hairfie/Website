@@ -18,18 +18,18 @@ module.exports = React.createClass({
         return (
             <div className="sidebar col-md-3 col-sm-12 pull-left">
                 <div className="salon-bloc">
-                    <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                    <NavLink routeName="business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                         <Picture picture={business.pictures[0]}
                            resolution={{width: 220, height: 220}}
                            placeholder="/images/placeholder-55.png" />
                     </NavLink>
                     <div className="address-bloc">
                         <h2>
-                            <NavLink routeName="show_business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                            <NavLink routeName="business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                                 {business.name}
                             </NavLink>
                         </h2>
-                        <NavLink routeName="show_business" className="address" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                        <NavLink routeName="business" className="address" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
                             {displayAddress}
                         </NavLink>
                     </div>

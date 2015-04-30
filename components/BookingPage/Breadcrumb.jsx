@@ -29,7 +29,7 @@ module.exports = React.createClass({
             {
                 last: false,
                 label: business.name,
-                routeName: 'show_business',
+                routeName: 'business',
                 navParams: {
                     businessId: business.id,
                     businessSlug: business.slug
@@ -38,7 +38,7 @@ module.exports = React.createClass({
             {
                 last: true,
                 label: 'Réservation',
-                routeName: 'book_business',
+                routeName: 'business_booking',
                 navParams: {
                     businessId: business.id,
                     businessSlug: business.slug

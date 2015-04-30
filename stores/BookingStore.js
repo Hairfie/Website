@@ -2,16 +2,13 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BookingEvents = require('../constants/BookingConstants').Events;
-var BookingActions = require('../actions/Booking');
 var _ = require('lodash');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'BookingStore',
     handlers: makeHandlers({
-        handleReceive       : BookingEvents.RECEIVE,
-        handleReceiveSuccess: BookingEvents.RECEIVE_SUCCESS,
-        handleReceiveFailure: BookingEvents.RECEIVE_FAILURE
+        onReceiveBooking: Actions.RECEIVE_BOOKING
     }),
     initialize: function () {
         this.bookings = {};
@@ -22,39 +19,13 @@ module.exports = createStore({
         };
     },
     rehydrate: function (state) {
-        this.bookings = state.bookings || {};
+        this.bookings = state.bookings;
     },
-    handleReceive: function (payload) {
-        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
-            loading: true
-        });
-        this.emitChange();
-    },
-    handleReceiveSuccess: function (payload) {
-        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
-            loading : false,
-            entity  : payload.booking
-        });
-        this.emitChange();
-    },
-    handleReceiveFailure: function (payload) {
-        this.bookings[payload.id] = _.assign({}, this.bookings[payload.id], {
-            loading: false
-        });
+    onReceiveBooking: function (booking) {
+        this.bookings[booking.id] = booking;
         this.emitChange();
     },
     getById: function (bookingId) {
-        var booking = this.bookings[bookingId];
-
-        if (_.isUndefined(booking)) {
-            this._loadById(bookingId);
-        }
-
-        return booking && booking.entity;
-    },
-    _loadById: function (bookingId) {
-        this.dispatcher.getContext().executeAction(BookingActions.Fetch, {
-            id: bookingId
-        });
+        return this.bookings[bookingId];
     }
 });

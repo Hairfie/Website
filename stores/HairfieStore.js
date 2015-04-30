@@ -14,7 +14,8 @@ module.exports = createStore({
         handleReceiveFailure: HairfieEvents.RECEIVE_FAILURE,
         handleFetchQuerySuccess: HairfieEvents.FETCH_QUERY_SUCCESS,
         handleFetchQueryFailure: HairfieEvents.FETCH_QUERY_FAILURE,
-        onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES
+        onReceiveHairfie: Actions.RECEIVE_HAIRFIE,
+        onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES,
     }),
     initialize: function () {
         this.hairfies = {};
@@ -46,7 +47,6 @@ module.exports = createStore({
         this.emitChange();
     },
     getTop: function () {
-        console.log(this.topIds);
         return _.map(this.topIds, this.getById, this);
     },
     getById: function (hairfieId) {
@@ -67,12 +67,13 @@ module.exports = createStore({
 
         return query && query.results;
     },
+    onReceiveHairfie: function (hairfie) {
+        this.hairfies[hairfie.id] = hairfie;
+        this.emitChange();
+    },
     onReceiveTopHairfies: function (hairfies) {
         this.topIds = _.pluck(hairfies, 'id');
-        this.hairfies = _.merge({}, this.hairfies, _.map(_.indexBy(hairfies, 'id'), function (hairfie) {
-            return { entity: hairfie };
-        }));
-        console.log(this.hairfies);
+        this.hairfies = _.merge({}, this.hairfies, _.indexBy(hairfies, 'id'));
         this.emitChange();
     },
     handleFetchQuerySuccess: function (payload) {

@@ -36,9 +36,9 @@ var HairfieSearchResultPage = React.createClass({
 });
 
 HairfieSearchResultPage = connectToStores(HairfieSearchResultPage, [
-    require('../stores/RouteStore'),
-    require('../stores/PlaceStore'),
-    require('../stores/HairfieSearchStore')
+    'RouteStore',
+    'PlaceStore',
+    'HairfieSearchStore'
 ], function (stores, props) {
     var route = stores.RouteStore.getCurrentRoute();
     var address = SearchUtils.addressFromUrlParameter(route.params.address);

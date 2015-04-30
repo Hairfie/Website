@@ -2,14 +2,12 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var StationEvents = require('../constants/StationConstants').Events;
-var StationActions = require('../actions/Station');
-var _ = require('lodash');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'StationStore',
     handlers: makeHandlers({
-        handleFetchSuccess: StationEvents.FETCH_BY_LOCATION_SUCCESS
+        onReceiveStationsNearby: Actions.RECEIVE_STATIONS_NEARBY
     }),
     initialize: function () {
         this.stations = {};
@@ -22,31 +20,16 @@ module.exports = createStore({
     rehydrate: function (state) {
         this.stations = state.stations || {};
     },
-    handleFetchSuccess: function (payload) {
-        var key = this._locationKey(payload.location);
-        this.stations[key] = _.assign({}, this.stations[key], {
-            stations: payload.stations
-        });
+    onReceiveStationsNearby: function (payload) {
+        this.stations[locationKey(payload.location)] = payload.stations;
         this.emitChange();
     },
-    getByLocation: function (location) {
-        var key = this._locationKey(location);
-        var cache = this.stations[key];
-
-        if (_.isUndefined(cache)) {
-            this._load(location);
-        }
-
-        return cache && cache.stations;
-    },
-    _load: function (location) {
-        var key = this._locationKey(location);
-        this.stations[key] = _.assign({}, this.stations[key]);
-        this.dispatcher.getContext().executeAction(StationActions.FetchByLocation, {
-            location: location
-        });
-    },
-    _locationKey: function (location) {
-        return location.lat+','+location.lng;
+    getNearby: function (location) {
+        return this.stations[locationKey(location)];
     }
 });
+
+function locationKey(location) {
+    var location = location || {};
+    return location.lat+','+location.lng;
+}

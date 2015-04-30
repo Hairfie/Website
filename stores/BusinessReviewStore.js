@@ -2,58 +2,32 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BusinessReviewEvents = require('../constants/BusinessReviewConstants').Events;
-var BusinessReviewActions = require('../actions/BusinessReview');
 var _ = require('lodash');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'BusinessReviewStore',
     handlers: makeHandlers({
-        handleFetchQuerySuccess: BusinessReviewEvents.FETCH_QUERY_SUCCESS
+        onReceiveBusinessReviews: Actions.RECEIVE_BUSINESS_REVIEWS
     }),
     initialize: function () {
-        this.queries = {};
+        this.reviews = {};
     },
     dehydrate: function () {
-        return {
-            queries: this.queries
-        };
+        return { reviews: this.reviews };
     },
-    rehydrate: function (data) {
-        this.queries = data.queries;
+    rehydrate: function (state) {
+        this.reviews = state.reviews;
     },
-    handleFetchQuerySuccess: function (payload) {
-        var key = this._queryKey(payload.query);
-        this.queries[key] = _.assign({}, this.queries[key], {
-            reviews: payload.reviews
-        });
+    onReceiveBusinessReviews: function (reviews) {
+        this.reviews = _.merge({}, this.reviews, _.indexBy(reviews, 'id'));
         this.emitChange();
     },
-    getLatestByBusiness: function (businessId, limit) {
-        return this._query({
-            where: {
-                businessId: businessId
-            },
-            sort: 'createdAt DESC',
-            limit: limit
-        })
-    },
-    _query: function (query) {
-        var key = this._queryKey(query);
-        var cache = this.queries[key];
-
-        if (_.isUndefined(cache)) {
-            this._fetchQuery(query);
-        }
-
-        return cache && cache.reviews;
-    },
-    _fetchQuery: function (query) {
-        var key = this._queryKey(query);
-        this.queries[key] = _.assign({}, this.queries[key]);
-        this.dispatcher.getContext().executeAction(BusinessReviewActions.FetchQuery, {
-            query: query
+    getLatestByBusiness: function (businessId) {
+        var matches = _.filter(this.reviews, function (review) {
+            return review.business && review.business.id == businessId;
         });
-    },
-    _queryKey: JSON.stringify
+
+        return _.sortByOrder(matches, ['createdAt'], [false]);
+    }
 });

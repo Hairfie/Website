@@ -1,11 +1,13 @@
 'use strict';
 
+var PageActions = require('../actions/PageActions');
+
 module.exports = {
     home: {
         path: '/',
         method: 'get',
         component: require('../components/HomePage.jsx'),
-        action: require('../actions/Page/Home'),
+        action: PageActions.home,
         numTopDeals: 3,
         numTopHairfies: 5
     },
@@ -18,37 +20,36 @@ module.exports = {
         path: '/write-business-review/:businessReviewRequestId',
         method: 'get',
         component: require('../components/WriteVerifiedBusinessReviewPage.jsx'),
-        action: require('../actions/Page/BusinessReviewRequest')
+        action: PageActions.writeVerifiedBusinessReview
     },
-    show_hairfie: {
+    hairfie: {
         path: '/hairfie/:hairfieId',
         method: 'get',
-        action: require('../actions/Page/Hairfie'),
-        component: require('../components/ShowHairfiePage.jsx')
+        action: PageActions.hairfie,
+        component: require('../components/HairfiePage.jsx')
     },
-    show_business: {
+    business: {
         path: '/coiffeur/:businessId/:businessSlug',
         method: 'get',
-        action: require('../actions/Page/Business'),
-        component: require('../components/ShowBusinessPage.jsx')
+        action: PageActions.business,
+        component: require('../components/BusinessPage.jsx')
     },
-    show_business_without_slug: {
-        path: '/businesses/:businessId',
+    business_by_id: { // redirects to canonical business's page
+        path: '/coiffeur/:businessId',
         method: 'get',
-        action: require('../actions/Page/Business'),
-        component: require('../components/ShowBusinessPage.jsx')
+        action: PageActions.business
     },
-    book_business: {
-        path: '/businesses/:businessId/:businessSlug/booking',
+    business_booking: {
+        path: '/coiffeur/:businessId/:businessSlug/reserver',
         method: 'get',
-        action: require('../actions/Page/Business'),
+        action: PageActions.businessBooking,
         component: require('../components/BusinessBookingPage.jsx')
     },
     booking_confirmation: {
-        path: '/bookings/:bookingId',
+        path: '/reservation/:bookingId',
         method: 'get',
-        action: require('../actions/Booking/RouteOpen'),
-        component: require('../components/BusinessBookingConfirmationPage.jsx')
+        action: PageActions.bookingConfirmation,
+        component: require('../components/BookingConfirmationPage.jsx')
     },
     business_search_result: {
         path: '/coiffeurs/:address',

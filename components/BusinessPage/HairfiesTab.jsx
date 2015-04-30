@@ -96,7 +96,7 @@ module.exports = React.createClass({
                             return (
                                 <div key={hairfie.id} className="col-md-3 single-hairfie">
                                     <figure>
-                                        <NavLink routeName="show_hairfie" navParams={{hairfieId: hairfie.id}}>
+                                        <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
                                             <Picture picture={_.last(hairfie.pictures)}
                                                   resolution={{width: 640, height: 640}}
                                                  placeholder="/images/placeholder-640.png"

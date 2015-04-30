@@ -1,49 +1,22 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 var moment = require('moment');
 var _ = require('lodash');
-
-var BookingStore  = require('../stores/BookingStore');
 var PublicLayout  = require('./PublicLayout.jsx');
-
-var NavLink = require('flux-router-component').NavLink;
-
-var UserConstants = require('../constants/UserConstants');
-var BookingActions = require('../actions/Booking');
-
-var Jumbotron = require('react-bootstrap/Jumbotron');
-var Button = require('react-bootstrap/Button');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
+var connectToStores = require('fluxible/addons/connectToStores');
 
-var DateTimeConstants = require('../constants/DateTimeConstants');
-var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
-var weekDaysNumber = DateTimeConstants.weekDaysNumber;
-
-
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [BookingStore]
-    },
-    getStateFromStores: function () {
-        return {
-            booking: this.getStore(BookingStore).getById(this.props.route.params.bookingId)
-        }
-    },
-    getInitialState: function () {
-        return this.getStateFromStores()
-    },
+var BookingConfirmationPage = React.createClass({
     render: function () {
-        if(_.isUndefined(this.state.booking)) {
+        if(_.isUndefined(this.props.booking)) {
             return (
-                <PublicLayout context={this.props.context} customClass="booking confirmation">
+                <PublicLayout customClass="booking confirmation">
                     <div className="loading" />
                 </PublicLayout>
             )
         } else {
-            var booking  = this.state.booking;
+            var booking  = this.props.booking;
             var business = booking.business;
             var address  = business.address;
             return (
@@ -93,16 +66,13 @@ module.exports = React.createClass({
                                     </div>
                                 </div>
                             </div>
-                            <LeftColumn context={this.props.context} business={this.state.booking.business} />
+                            <LeftColumn context={this.props.context} business={business} />
                         </div>
                     </div>
                     <div className="row" />
                 </PublicLayout>
             );
         }
-    },
-    onChange: function () {
-        this.setState(this.getStateFromStores());
     },
     renderDiscount: function(booking) {
         if (!booking.discount) return;
@@ -115,3 +85,13 @@ module.exports = React.createClass({
         );
     }
 });
+
+BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
+    'BookingStore'
+], function (stores, props) {
+    return {
+        booking: stores.BookingStore.getById(props.route.params.bookingId)
+    };
+});
+
+module.exports = BookingConfirmationPage;
