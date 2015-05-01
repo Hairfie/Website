@@ -16,7 +16,7 @@ var Breadcrumb = React.createClass({
                 id: place.id,
                 last: crumbs.length == 0,
                 label: (place.name || '').split(',')[0],
-                routeName: 'business_search_result',
+                routeName: 'business_search',
                 navParams: {
                     address: SearchUtils.addressToUrlParameter(place.name)
                 }
@@ -140,7 +140,7 @@ module.exports = React.createClass({
         return (
             <ul className="nav nav-tabs">
                 <li className={'col-xs-6'+(this.props.tab == 'business' ? ' active' : '')}>
-                    <NavLink routeName="business_search_result" navParams={{address: address}}>
+                    <NavLink routeName="business_search" navParams={{address: address}}>
                         <span className="icon-nav" />
                         Coiffeurs
                     </NavLink>

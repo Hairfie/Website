@@ -2,7 +2,7 @@
 
 var React = require('react');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
-var SubmitSearch = require('../../actions/Business').SubmitSearch;
+var BusinessActions = require('../../actions/BusinessActions');
 var config = require('../../configs/search');
 
 var NavLink = require('flux-router-component').NavLink;
@@ -80,7 +80,7 @@ module.exports = React.createClass({
             date    : this.refs.date.getDOMNode().value
         };
 
-        this.context.executeAction(SubmitSearch, {search: search});
+        this.context.executeAction(BusinessActions.submitSearch, search);
     },
     componentDidMount: function() {
         $('body').on("click",'.mobile-nav .menu-trigger',function(){

@@ -2,52 +2,43 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var _ = require('lodash');
-var PlaceActions = require('../actions/Place');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'PlaceStore',
-    handlers: {
-        'PLACE.FETCH_BY_ADDRESS_SUCCESS': 'handleFetchByAddressSuccess'
-    },
+    handlers: makeHandlers({
+        onReceiveAddressPlace: Actions.RECEIVE_ADDRESS_PLACE
+    }),
     initialize: function () {
         this.places = {};
-        this.addressToPlaceIdMap = {};
+        this.addresses = {};
     },
     dehydrate: function () {
         return {
             places: this.places,
-            addressToPlaceIdMap: this.addressToPlaceIdMap
+            addresses: this.addresses
         };
     },
     rehydrate: function (state) {
         this.places = state.places;
-        this.addressToPlaceIdMap = state.addressToPlaceIdMap;
+        this.addresses = state.addresses;
     },
-    getByAddress: function (address) {
-        var id = this.addressToPlaceIdMap[address];
-
-        if (_.isUndefined(id)) {
-            this._loadByAddress(address);
-        }
-
-        return id && this.places[id];
-    },
-    handleFetchByAddressSuccess: function (payload) {
-        var place   = payload.place,
-            placeId = place ? place.id : null;
-
-        this.addressToPlaceIdMap[payload.address] = placeId;
+    onReceiveAddressPlace: function (payload) {
+        var address = payload.address;
+        var place = payload.place;
 
         if (place) {
-            this.places[placeId] = place;
+            this.places[place.id] = place;
+            this.addresses[address] = place.id;
+        } else {
+            this.addresses[address] = null;
         }
 
         this.emitChange();
     },
-    _loadByAddress: function (address) {
-        this.dispatcher.getContext().executeAction(PlaceActions.FetchByAddress, {
-            address: address
-        });
+    getByAddress: function (address) {
+        var id = this.addresses[address];
+
+        return id && this.places[id];
     }
 });

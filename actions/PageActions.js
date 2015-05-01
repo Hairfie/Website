@@ -10,6 +10,8 @@ var HairfieActions = require('./HairfieActions');
 var BusinessActions = require('./BusinessActions');
 var BusinessReviewActions = require('./BusinessReviewActions');
 var BusinessServiceActions = require('./BusinessServiceActions');
+var PlaceActions = require('./PlaceActions');
+var SearchUtils = require('../lib/search-utils');
 
 module.exports = {
     home: function (context, route, done) {
@@ -66,6 +68,17 @@ module.exports = {
                     context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 }),
                     context.executeAction(BusinessReviewActions.loadBusinessReviews, { businessId: business.id })
                 ]);
+            });
+    },
+    businessSearch: function (context, route) {
+        var address = SearchUtils.addressFromUrlParameter(route.params.address);
+
+        return context.executeAction(PlaceActions.loadAddressPlace, address)
+            .then(function () {
+                var place  = context.getStore('PlaceStore').getByAddress(address);
+                var search = SearchUtils.searchFromRouteAndPlace(route, place);
+
+                return context.executeAction(BusinessActions.loadSearchResult, search);
             });
     },
     businessBooking: function (context, route) { // TODO: make it DRY

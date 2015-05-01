@@ -2,63 +2,31 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
-var BusinessEvents = require('../constants/BusinessConstants').Events;
-var BusinessActions = require('../actions/Business');
-var _ = require('lodash-contrib');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'BusinessSearchStore',
     handlers: makeHandlers({
-        handleFetch         : BusinessEvents.FETCH_SEARCH_RESULT,
-        handleFetchSuccess  : BusinessEvents.FETCH_SEARCH_RESULT_SUCCESS,
-        handleFetchFailure  : BusinessEvents.FETCH_SEARCH_RESULT_FAILURE
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
     }),
     initialize: function () {
-        this.exchanges = {};
+        this.results = {};
     },
     dehydrate: function () {
         return {
-            exchanges: this.exchanges,
+            results: this.results,
         };
     },
     rehydrate: function (state) {
-        this.exchanges = state.exchanges || {};
+        this.results = state.results;
     },
-    handleFetch: function (payload) {
-        var key = this._searchKey(payload.search);
-        this.exchanges[key] = _.assign({}, this.exchanges[key], {
-            loading: true
-        });
-    },
-    handleFetchSuccess: function (payload) {
-        var key = this._searchKey(payload.search);
-        this.exchanges[key] = _.assign({}, this.exchanges[key], {
-            loading: false,
-            result: payload.result
-        });
-        this.emitChange();
-    },
-    handleFetchFailure: function (payload) {
-        var key = this._searchKey(payload.search);
-        this.exchanges[key] = _.assign({}, this.exchanges[key], {
-            loading: false
-        });
+    onReceiveBusinessSearchResult: function (payload) {
+        this.results[searchKey(payload.search)] = payload.result;
         this.emitChange();
     },
     getResult: function (search) {
-        var key      = this._searchKey(search);
-        var exchange = this.exchanges[key];
-
-        if (_.isUndefined(exchange)) {
-            this._loadResult(search);
-        }
-
-        return exchange && exchange.result;
-    },
-    _loadResult: function (search) {
-        this.dispatcher.getContext().executeAction(BusinessActions.FetchSearchResult, {
-            search: search
-        });
-    },
-    _searchKey: JSON.stringify // TODO: order keys
+        return this.results[searchKey(search)];
+    }
 });
+
+function searchKey(search) { return JSON.stringify(search) }

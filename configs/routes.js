@@ -51,11 +51,11 @@ module.exports = {
         action: PageActions.bookingConfirmation,
         component: require('../components/BookingConfirmationPage.jsx')
     },
-    business_search_result: {
+    business_search: {
         path: '/coiffeurs/:address',
         method: 'get',
-        action: require('../actions/Page/BusinessSearchResult'),
-        component: require('../components/BusinessSearchResultPage.jsx')
+        action: PageActions.businessSearch,
+        component: require('../components/BusinessSearchPage.jsx')
     },
     hairfie_search_result: {
         path: '/hairfies/:address',

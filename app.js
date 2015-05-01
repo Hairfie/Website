@@ -108,7 +108,6 @@ app.registerStore(require('./stores/BusinessReviewStore'));
 app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/NotificationStore'));
-app.registerStore(require('./stores/SlugStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
 app.registerStore(require('./stores/PasswordRecoveryStore'));
 app.registerStore(require('./stores/BookingStore'));
