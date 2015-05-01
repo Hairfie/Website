@@ -21,7 +21,7 @@ module.exports = React.createClass({
             {
                 last: false,
                 label: 'Coiffeurs ' + business.address.city,
-                routeName: 'business_search_result',
+                routeName: 'business_search',
                 navParams: {
                     address: SearchUtils.addressToUrlParameter(place)
                 }

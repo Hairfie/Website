@@ -23,11 +23,11 @@ module.exports = createStore({
     rehydrate: function (data) {
         this.categories = data.categories;
     },
-    all: function () {
-        return this.categories;
-    },
     onReceiveCategories: function (categories) {
         this.categories = categories;
         this.emitChange();
+    },
+    getAllSorted: function () {
+        return _.sortBy(this.categories, 'position');
     }
 });
