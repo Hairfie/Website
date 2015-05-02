@@ -5,9 +5,9 @@ var _ = require('lodash');
 var Search = require('./Search');
 var SearchUtils = require('../lib/search-utils');
 var connectToStores = require('fluxible/addons/connectToStores');
-var SubmitSearch = require('../actions/Hairfie').SubmitSearch;
+var HairfieActions = require('../actions/HairfieActions');
 
-var HairfieSearchResultPage = React.createClass({
+var HairfieSearchPage = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
@@ -31,24 +31,24 @@ var HairfieSearchResultPage = React.createClass({
         return <Search.HairfieResult search={this.props.search} result={this.props.result} />;
     },
     handleSearchChange: function (nextSearch) {
-        this.context.executeAction(SubmitSearch, {search: _.assign(this.props.search, nextSearch, {page: 1})});
+        var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
+        this.context.executeAction(HairfieActions.submitSearch, search);
     }
 });
 
-HairfieSearchResultPage = connectToStores(HairfieSearchResultPage, [
+HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'RouteStore',
     'PlaceStore',
-    'HairfieSearchStore'
+    'HairfieStore'
 ], function (stores, props) {
-    var route = stores.RouteStore.getCurrentRoute();
-    var address = SearchUtils.addressFromUrlParameter(route.params.address);
+    var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = stores.PlaceStore.getByAddress(address);
     var search = {};
     var result;
 
     if (place) {
-        search = SearchUtils.searchFromRouteAndPlace(route, place);
-        result = stores.HairfieSearchStore.getResult(search);
+        search = SearchUtils.searchFromRouteAndPlace(props.route, place);
+        result = stores.HairfieStore.getSearchResult(search);
     }
 
     return {
@@ -59,4 +59,4 @@ HairfieSearchResultPage = connectToStores(HairfieSearchResultPage, [
     };
 });
 
-module.exports = HairfieSearchResultPage;
+module.exports = HairfieSearchPage;

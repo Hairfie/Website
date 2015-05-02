@@ -3,8 +3,8 @@
 var navigateAction = require('flux-router-component/actions/navigate');
 
 module.exports = {
-    navigate: function navigate(context, payload) {
-        var url = payload.url || context.router.makeUrl(payload.route, payload.params, payload.query);
+    navigate: function navigate(context, params) {
+        var url = params.url || context.router.makeUrl(params.route, params.params, params.query);
 
         return context.executeAction(navigateAction, { url: url });
     }

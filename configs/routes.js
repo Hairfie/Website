@@ -58,9 +58,10 @@ module.exports = {
         action: PageActions.businessSearch,
         component: require('../components/BusinessSearchPage.jsx')
     },
-    hairfie_search_result: {
+    hairfie_search: {
         path: '/fr/hairfies/:address',
         method: 'get',
-        component: require('../components/HairfieSearchResultPage.jsx')
+        action: PageActions.hairfieSearch,
+        component: require('../components/HairfieSearchPage.jsx')
     }
 };

@@ -4,7 +4,7 @@ var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
-var connectToStores = require('fluxible/addons/connectToStores');
+var HairfieActions = require('../../actions/HairfieActions');
 
 var BusinessLink = React.createClass({
     render: function () {
@@ -18,11 +18,19 @@ var BusinessLink = React.createClass({
 });
 
 var Hairfies = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
+    componentDidMount: function () {
+        if (!this.props.business.topHairfies && typeof window != 'undefined') {
+            this.context.executeAction(HairfieActions.loadBusinessTopHairfies, this.props.business.id);
+        }
+    },
     render: function () {
         return (
             <div className="salon-hairfies">
                 <ul>
-                    {_.map(this.props.hairfies, this.renderHairfie)}
+                    {_.map(_.take(this.props.business.topHairfies, 6), this.renderHairfie)}
                     {this.renderMore()}
                 </ul>
             </div>
@@ -54,20 +62,6 @@ var Hairfies = React.createClass({
             </li>
         );
     }
-});
-
-Hairfies = connectToStores(Hairfies, [
-    require('../../stores/HairfieStore')
-], function (stores, props) {
-    return {
-        hairfies: stores.HairfieStore.query({
-            where   : {
-                businessId: props.business.id
-            },
-            order   : 'createdAt DESC',
-            limit   : 6
-        })
-    };
 });
 
 var Business = React.createClass({

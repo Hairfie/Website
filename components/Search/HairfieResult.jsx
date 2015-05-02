@@ -72,7 +72,7 @@ var HairfieResult = React.createClass({
         return <Pagination
             numPages={numPages}
             currentPage={this.props.search.page}
-            routeName="hairfie_search_result"
+            routeName="hairfie_search"
             pathParams={params.path}
             queryParams={params.query}
             />

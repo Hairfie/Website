@@ -20,7 +20,7 @@ module.exports = createStore({
         this.reviews = state.reviews;
     },
     onReceiveBusinessReviews: function (reviews) {
-        this.reviews = _.merge({}, this.reviews, _.indexBy(reviews, 'id'));
+        this.reviews = _.assign({}, this.reviews, _.indexBy(reviews, 'id'));
         this.emitChange();
     },
     getLatestByBusiness: function (businessId) {

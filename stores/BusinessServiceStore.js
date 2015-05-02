@@ -20,7 +20,7 @@ module.exports = createStore({
         this.services = state.services;
     },
     onReceiveBusinessServices: function (services) {
-        this.services = _.merge({}, this.services, _.indexBy(services, 'id'));
+        this.services = _.assign({}, this.services, _.indexBy(services, 'id'));
         this.emitChange();
     },
     getByBusiness: function (businessId) {

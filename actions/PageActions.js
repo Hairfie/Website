@@ -37,12 +37,17 @@ module.exports = {
         });
     },
     hairfie: function (context, route) {
-        var hairfieId = route.params.hairfieId;
+        return context.executeAction(HairfieActions.loadHairfie, route.params.hairfieId);
+    },
+    hairfieSearch: function (context, route) {
+        var address = SearchUtils.addressFromUrlParameter(route.params.address);
 
-        return context.hairfieApi
-            .get('/hairfies/'+hairfieId)
-            .then(function (hairfie) {
-                context.dispatch(Actions.RECEIVE_HAIRFIE, hairfie);
+        return context.executeAction(PlaceActions.loadAddressPlace, address)
+            .then(function () {
+                var place  = context.getStore('PlaceStore').getByAddress(address);
+                var search = SearchUtils.searchFromRouteAndPlace(route, place);
+
+                return context.executeAction(HairfieActions.loadSearchResult, search);
             });
     },
     business: function (context, route) {

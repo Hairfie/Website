@@ -25,7 +25,7 @@ module.exports = createStore({
 
         if (state.currentRoute) {
             var routeConfig = this.getContext().getRoutes()[state.currentRoute.name];
-            this.currentRoute = _.assign(state.currentRoute, {config: routeConfig});
+            this.currentRoute = _.assign({}, state.currentRoute, {config: routeConfig});
         }
     },
     handleChangeRoute: function (route) {

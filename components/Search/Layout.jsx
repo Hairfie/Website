@@ -147,7 +147,7 @@ module.exports = React.createClass({
                 </li>
                 <li className={'col-xs-6'+(this.props.tab == 'hairfie' ? ' active' : '')}>
                     <span className="icon-nav" />
-                    <NavLink routeName="hairfie_search_result" navParams={{address: address}}>
+                    <NavLink routeName="hairfie_search" navParams={{address: address}}>
                         Hairfies
                     </NavLink>
                 </li>

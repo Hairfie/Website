@@ -12,7 +12,7 @@ module.exports = React.createClass({
     },
     mixins: [NavToLinkMixin],
     render: function () {
-        var moreHref = this.context.makeUrl('hairfie_search_result', {address: "Paris--France"});
+        var moreHref = this.context.makeUrl('hairfie_search', {address: "Paris--France"});
 
         return (
             <section className="home-section">

@@ -3,12 +3,9 @@
 var React = require('react');
 var app = require('./app');
 var appState = window.App;
-var debug = require('debug');
 var serverConfig   = require('./configs/server');
 
-if(!serverConfig.DEBUG) {
-    debug.disable('*');
-}
+window.debug = require('debug');
 
 app.rehydrate(appState, function (error, context) {
     if (error) throw error;
