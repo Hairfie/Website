@@ -12,8 +12,9 @@ module.exports = {
         numTopHairfies: 5
     },
     reset_password: {
-        path: '/reset-password/:userId/:token',
+        path: '/reset-password/:userId/:tokenId',
         method: 'get',
+        action: PageActions.resetPassword,
         component: require('../components/ResetPasswordPage.jsx')
     },
     write_verified_business_review: {

@@ -11,6 +11,8 @@ var BusinessActions = require('./BusinessActions');
 var BusinessReviewActions = require('./BusinessReviewActions');
 var BusinessServiceActions = require('./BusinessServiceActions');
 var PlaceActions = require('./PlaceActions');
+var NotificationActions = require('./NotificationActions');
+var NavigationActions = require('./NavigationActions');
 var SearchUtils = require('../lib/search-utils');
 
 module.exports = {
@@ -112,5 +114,26 @@ module.exports = {
     },
     writeVerifiedBusinessReview: function (context, route) {
         return context.executeAction(BusinessReviewActions.loadRequest, route.params.businessReviewRequestId);
+    },
+    resetPassword: function (context, route) {
+        return context.hairfieApi
+            .get('/accessTokens/'+route.params.tokenId)
+            .catch(function (e) { if (e.status !== 404) throw e; })
+            .then(function (token) {
+                if (!token || token.userId != route.params.userId) { // invalid URL or token has expired
+                    var body = [
+                        'Le jeton de réinitialisation est expiré.',
+                        'Si vous êtes toujours à la recherche de votre mot de passe,',
+                        'veuillez recommencer le processus de réinitialisation de mot de passe.'
+                    ].join(' ');
+
+                    return context.executeAction(NotificationActions.notifyFailure, body)
+                        .then(function () {
+                            return context.executeAction(NavigationActions.navigate, { route: 'home' });
+                        });
+                }
+
+                context.dispatch(Actions.RECEIVE_TOKEN, token);
+            });
     }
 };
