@@ -19,7 +19,7 @@ module.exports = {
     submitSearch: function (context, search) {
         var search = search;
         if (search.address) {
-            search = _.merge(search, { address: 'Paris, France' });
+            search = _.assign({}, search, { address: 'Paris, France' });
         }
 
         var params = SearchUtils.searchToRouteParams(search);
@@ -61,6 +61,8 @@ module.exports = {
                     search: search,
                     result: result
                 });
+
+                return result;
             });
     }
 };

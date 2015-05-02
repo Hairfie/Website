@@ -31,7 +31,7 @@ module.exports = createStore({
     },
     onReceiveSimilarBusinesses: function (payload) {
         this.similarIds[payload.businessId] = _.pluck(payload.businesses, 'id');
-        this.businesses = _.merge({}, this.businesses, _.indexBy(payload.businesses, 'id'));
+        this.businesses = _.assign({}, this.businesses, _.indexBy(payload.businesses, 'id'));
         this.emitChange();
     },
     // TODO: move discount code into a discount store

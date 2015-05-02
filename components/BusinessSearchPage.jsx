@@ -35,7 +35,7 @@ var BusinessSearchPage = React.createClass({
         return <Search.BusinessResult search={this.props.search} result={this.props.result} />;
     },
     handleSearchChange: function (nextSearch) {
-        var search = _.assign(this.props.search, nextSearch, { page: 1 });
+        var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
         this.context.executeAction(BusinessActions.submitSearch, search);
     }
 });
@@ -43,6 +43,7 @@ var BusinessSearchPage = React.createClass({
 BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'RouteStore', // TODO: make connectToStore react to willReceiveProps
     'PlaceStore',
+    'HairfieStore',
     'BusinessSearchStore'
 ], function (stores, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
@@ -53,6 +54,12 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
         result = stores.BusinessSearchStore.getResult(search);
+    }
+
+    if (result) { // add top hairfies to each business
+        result = _.assign({}, result, { hits: _.map(result.hits, function (hit) {
+            return _.assign({}, hit, { topHairfies: stores.HairfieStore.getBusinessTop(hit.id) });
+        })});
     }
 
     return {

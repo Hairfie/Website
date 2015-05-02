@@ -79,6 +79,7 @@ BusinessPage = connectToStores(BusinessPage, [
     'BusinessStore',
     'BusinessServiceStore',
     'BusinessReviewStore',
+    'HairfieStore',
     'StationStore',
 ], function (stores, props) {
     var business = stores.BusinessStore.getById(props.route.params.businessId);

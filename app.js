@@ -88,7 +88,6 @@ app.plug(require('fluxible-plugin-hairfie-api')({
 
 app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/HairfieStore'));
-app.registerStore(require('./stores/HairfieSearchStore'));
 app.registerStore(require('./stores/DealStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/BusinessServiceStore.js'));

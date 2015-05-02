@@ -23,7 +23,7 @@ module.exports = {
     },
     loadRequest: loadRequest,
     submitVerified: function (context, payload) {
-        var review = _.merge(payload.businessReview, {
+        var review = _.assign({}, payload.businessReview, {
             requestId: payload.businessReviewRequest.id
         });
 
