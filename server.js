@@ -20,7 +20,7 @@ var robots          = require('robots.txt')
 
 var React            = require('react');
 var app              = require('./app');
-var ServerActions    = require('./actions/Server');
+var ServerActions    = require('./actions/ServerActions');
 var RouteStore       = require('./stores/RouteStore');
 var MetaStore        = require('./stores/MetaStore');
 var BusinessStore    = require('./stores/BusinessStore');
@@ -47,41 +47,22 @@ server.use(express.static(path.join(__dirname, 'public')));
 
 server.set('state namespace', 'App');
 
-function bestLocale(req) {
-    return req.acceptsLanguages(i18nConfig.SUPPORTED_LOCALES) || i18nConfig.DEFAULT_LOCALE;
-}
-
-function redirectToLocalized(req, res, next) {
-    res.redirect(302, '/'+bestLocale(req)+req.url);
-}
-
-server.get('/', redirectToLocalized);
-server.get('/hairfies/:hairfieId', redirectToLocalized);
-server.get('/businesses/:businessId', redirectToLocalized);
-server.get('/businesses/:businessId/:slug', redirectToLocalized);
-server.get('/reset-password/:userId/:token', redirectToLocalized);
-server.get('/write-business-review/:businessReviewRequestId', redirectToLocalized);
-
-
 // serve application
 server.use(function (req, res, next) {
     var context = app.createContext({
         req: req,
         res: res
     });
-    var payload = {request: req};
 
-    context.executeAction(ServerActions.Initialize, payload, function (error) {
-        if (error && -1 === ([301, 302]).indexOf(error.status)) return next(error);
-
-        try {
-            if (error) {
-                res.redirect(error.location, error.status);
-                return;
+    context.executeAction(ServerActions.initialize, req.url)
+        .then(function () {
+            if (!context.getActionContext().getStore(RouteStore).getCurrentRoute()) {
+                var error = new Error('Not found');
+                error.status = 404;
+                throw error;
             }
-
-            var currentRoute = context.getActionContext().getStore(RouteStore).getCurrentRoute();
-
+        })
+        .then(function () {
             var metas = context.getActionContext().getStore(MetaStore).getMetas();
             var title = context.getActionContext().getStore(MetaStore).getTitle();
 
@@ -101,18 +82,29 @@ server.use(function (req, res, next) {
                 markup  : markup
             }));
 
-            if (!currentRoute) res.status(404);
-
             res.write(html);
             res.end();
-        } catch (e) {
-            next(e);
-        }
-    });
+        })
+        .catch(function (err) {
+            next(err);
+        });
 });
 
-// error handlers
-server.use(function (err, req, res, next) {
+server.use(function (err, req, res, next) { // try localized page
+    if ('/fr/' !== req.url.substr(0, 4)) {
+        res.redirect(302, '/fr'+req.url);
+    }
+});
+
+server.use(function (err, req, res, next) { // handle redirects
+    if (err.location && -1 !== [301, 302].indexOf(err.status)) {
+        res.redirect(err.status, err.location);
+    } else {
+        next(err);
+    }
+});
+
+server.use(function (err, req, res, next) { // error page
     var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(ErrorPage)({
         error: err,
         debug: !!config.DEBUG

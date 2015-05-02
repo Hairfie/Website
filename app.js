@@ -18,23 +18,12 @@ var app = new FluxibleApp({
     component: Application
 });
 
-var routes = _.mapValues(require('./configs/routes'), function (route) {
-    return _.assign(route, {path: '/:locale'+route.path});
-});
+var routes = require('./configs/routes');
 
 app.plug({ // TODO: use the new fluxible-router with a custom RouteStore
     name: 'Router',
     plugContext: function (options, context) {
         var router = new Router(routes);
-
-        var makePath = router.makePath.bind(router);
-        router.makePath = function (routeName, params) {
-            var params = _.assign({
-                locale: context.getActionContext().getStore('RouteStore').getPathParam('locale')
-            }, params);
-            return makePath(routeName, params);
-        };
-
         router.makeUrl = function (routeName, pathParams, queryParams) {
             var path = this.makePath(routeName, pathParams);
             var query = QueryString.stringify(queryParams);
@@ -98,7 +87,6 @@ app.plug(require('fluxible-plugin-hairfie-api')({
 }));
 
 app.registerStore(require('./stores/RouteStore'));
-app.registerStore(require('./stores/LocaleStore'));
 app.registerStore(require('./stores/HairfieStore'));
 app.registerStore(require('./stores/HairfieSearchStore'));
 app.registerStore(require('./stores/DealStore'));
