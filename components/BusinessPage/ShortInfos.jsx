@@ -2,6 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var Link = require('../Link.jsx');
 
 var Rating = React.createClass({
     render: function () {
@@ -26,7 +27,7 @@ module.exports = React.createClass({
         var address  = business.address || {};
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
-        var linkToMap = _.isEmpty(address) ? null : <a href="#location" className="linkToMap">(Voir&nbsp;la&nbsp;carte)</a>;
+        var linkToMap = _.isEmpty(address) ? null : <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap">(Voir&nbsp;la&nbsp;carte)</Link>;
 
         return (
             <section className="salon-info">

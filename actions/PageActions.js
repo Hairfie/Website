@@ -51,31 +51,26 @@ module.exports = {
             });
     },
     business: function (context, route) {
-        var businessId   = route.params.businessId;
-        var businessSlug = route.params.businessSlug;
-
-        return context.hairfieApi
-            .get('/businesses/'+businessId)
-            .then(function (business) {
-                if (business.slug != businessSlug) { // redirect to canonical URL
-                    var error = new Error('Invalid slug');
-                    error.status = 301;
-                    error.location = context.router.makePath('business', {
-                        businessId  : business.id,
-                        businessSlug: business.slug
-                    });
-                    throw error;
-                }
-
-                context.dispatch(Actions.RECEIVE_BUSINESS, business);
-
-                return Promise.all([
-                    context.executeAction(StationActions.loadStationsNearby, { location: business.gps }),
-                    context.executeAction(BusinessServiceActions.loadBusinessServices, { businessId: business.id }),
-                    context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 }),
-                    context.executeAction(BusinessReviewActions.loadBusinessReviews, { businessId: business.id })
-                ]);
+        return businessWithSlug(context, route).then(function (business) {
+            return Promise.all([
+                context.executeAction(StationActions.loadStationsNearby, { location: business.gps }),
+                context.executeAction(BusinessServiceActions.loadBusinessServices, { businessId: business.id }),
+                context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 }),
+            ]);
+        });
+    },
+    businessReviews: function (context, route) {
+        return businessWithSlug(context, route).then(function (business) {
+            return context.executeAction(BusinessReviewActions.loadBusinessReviews, { businessId: business.id });
+        });
+    },
+    businessHairfies: function (context, route) {
+        return businessWithSlug(context, route).then(function (business) {
+            return context.executeAction(HairfieActions.loadBusinessHairfies, {
+                businessId: business.id,
+                page: route.query.page
             });
+        });
     },
     businessSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.params.address);
@@ -142,3 +137,23 @@ module.exports = {
             });
     }
 };
+
+function businessWithSlug(context, route) {
+    return context.hairfieApi
+        .get('/businesses/'+route.params.businessId)
+        .then(function (business) {
+            if (business.slug != route.params.businessSlug) { // redirect to canonical URL
+                var error = new Error('Invalid slug');
+                error.status = 301;
+                error.location = context.router.makePath('business', {
+                    businessId  : business.id,
+                    businessSlug: business.slug
+                });
+                throw error;
+            }
+
+            context.dispatch(Actions.RECEIVE_BUSINESS, business);
+
+            return business;
+        });
+}

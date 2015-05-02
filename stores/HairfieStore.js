@@ -11,7 +11,8 @@ module.exports = createStore({
         onReceiveHairfie: Actions.RECEIVE_HAIRFIE,
         onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES,
         onReceiveBusinessTopHairfies: Actions.RECEIVE_BUSINESS_TOP_HAIRFIES,
-        onReceiveHairfieSearchResult: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT
+        onReceiveHairfieSearchResult: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT,
+        onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES
     }),
     initialize: function () {
         this.hairfies = {};
@@ -54,6 +55,10 @@ module.exports = createStore({
         this.searchResults[searchKey(search)] = _.assign({}, result, { hits: _.pluck(result.hits, 'id') });
         this.emitChange();
     },
+    onReceiveBusinessHairfies: function (payload) {
+        this.hairfies = _.assign({}, this.hairfies, _.indexBy(payload.hairfies, 'id'));
+        this.emitChange();
+    },
     getById: function (id) {
         return this.hairfies[id];
     },
@@ -69,6 +74,11 @@ module.exports = createStore({
         if (result) {
             return _.assign({}, result, { hits: _.map(result.hits, this.getById, this) });
         }
+    },
+    getByBusiness: function (businessId) {
+        var hairfies = _.filter(this.hairfies, function (h) { return h.business && h.business.id === businessId; });
+
+        return _.sortByOrder(hairfies, ['createdAt'], [false]);
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';

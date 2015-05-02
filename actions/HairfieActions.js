@@ -37,7 +37,7 @@ module.exports = {
             });
     },
     loadBusinessHairfies: function (context, params) {
-        var params = _.merge({}, { page: 1, pageSize: 6 }, params);
+        var params = _.merge({}, { page: 1, pageSize: 12 }, params);
 
         var query = {
             'filter[where][businessId]': params.businessId,
@@ -46,17 +46,12 @@ module.exports = {
             'filter[limit]': params.pageSize
         };
 
-        if (params.since) {
-            query['filter[createdAt][lte]'] = params.since;
-        }
-
-        context.dispatch(Actions.RECEIVE_BUSINESS_HAIRFIES_START, { businessId: params.businessId });
-
         return  context.hairfieApi
             .get('/hairfies', { query: query })
             .then(function (hairfies) {
-                context.dispatch(Actions.RECEIVE_BUSINESS_HAIRFIES_SUCCESS, {
-                    businessId: params.businessId
+                context.dispatch(Actions.RECEIVE_BUSINESS_HAIRFIES, {
+                    businessId: params.businessId,
+                    hairfies: hairfies
                 });
             });
     },

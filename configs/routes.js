@@ -40,6 +40,18 @@ module.exports = {
         method: 'get',
         action: PageActions.business
     },
+    business_reviews: {
+        path: '/fr/coiffeur/:businessId/:businessSlug/reviews',
+        method: 'get',
+        action: PageActions.businessReviews,
+        component: require('../components/BusinessReviewsPage.jsx')
+    },
+    business_hairfies: {
+        path: '/fr/coiffeur/:businessId/:businessSlug/hairfies',
+        method: 'get',
+        action: PageActions.businessHairfies,
+        component: require('../components/BusinessHairfiesPage.jsx')
+    },
     business_booking: {
         path: '/fr/coiffeur/:businessId/:businessSlug/reserver',
         method: 'get',
