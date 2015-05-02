@@ -109,7 +109,7 @@ app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/NotificationStore'));
 app.registerStore(require('./stores/BusinessSearchStore'));
-app.registerStore(require('./stores/PasswordRecoveryStore'));
+app.registerStore(require('./stores/TokenStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
