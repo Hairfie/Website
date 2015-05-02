@@ -56,13 +56,6 @@ server.use(function (req, res, next) {
 
     context.executeAction(ServerActions.initialize, req.url)
         .then(function () {
-            if (!context.getActionContext().getStore(RouteStore).getCurrentRoute()) {
-                var error = new Error('Not found');
-                error.status = 404;
-                throw error;
-            }
-        })
-        .then(function () {
             var metas = context.getActionContext().getStore(MetaStore).getMetas();
             var title = context.getActionContext().getStore(MetaStore).getTitle();
 
@@ -93,6 +86,8 @@ server.use(function (req, res, next) {
 server.use(function (err, req, res, next) { // try localized page
     if ('/fr/' !== req.url.substr(0, 4)) {
         res.redirect(302, '/fr'+req.url);
+    } else {
+        next(err);
     }
 });
 
@@ -105,6 +100,10 @@ server.use(function (err, req, res, next) { // handle redirects
 });
 
 server.use(function (err, req, res, next) { // error page
+    if (404 !== err.status) {
+        console.log(err.stack || err);
+    }
+
     var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(ErrorPage)({
         error: err,
         debug: !!config.DEBUG

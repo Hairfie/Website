@@ -1,10 +1,12 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
 var _ = require('lodash');
+var NavLink = require('flux-router-component').NavLink;
+var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var HairfieActions = require('../../actions/HairfieActions');
+var SearchUtils = require('../../lib/search-utils');
 
 var BusinessLink = React.createClass({
     render: function () {
@@ -183,8 +185,20 @@ var BusinessResult = React.createClass({
                         return <Business key={business.id} business={business} date={date} />
                     }, this)}
                 </div>
+                {this.renderPagination()}
             </div>
         );
+    },
+    renderPagination: function () {
+        var params = SearchUtils.searchToRouteParams(this.props.search);
+
+        return <Pagination
+            numPages={this.props.result.nbPages}
+            currentPage={this.props.search.page}
+            routeName="business_search"
+            pathParams={params.path}
+            queryParams={params.query}
+            />
     },
     renderNoResult: function () {
         return (
