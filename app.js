@@ -78,16 +78,9 @@ app.plug({
     }
 });
 
-app.plug(require('./context/hairfie-api-plugin')({ // TODO: use fluxible-plugin-hairfie-api
-    Client: require('./lib/hairfie/client'),
-    apiUrl: require('./configs/hairfie-api').URL
-}));
-
 app.plug(require('fluxible-plugin-hairfie-api')({
     apiUrl: require('./configs/hairfie-api').URL
 }));
-
-app.plug(require('fluxible-plugin-google-maps')());
 
 app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/HairfieStore'));
