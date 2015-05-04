@@ -3,7 +3,6 @@
 var React = require('react');
 var app = require('./app');
 var appState = window.App;
-var serverConfig   = require('./configs/server');
 
 window.debug = require('debug');
 

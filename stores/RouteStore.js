@@ -4,14 +4,14 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var debug = require('debug')('App:RouteStore');
 var _ = require('lodash');
+var Actions = require('../constants/Actions');
 
 module.exports = createStore({
     storeName: 'RouteStore',
-    handlers: {
-        CHANGE_ROUTE_START  : 'handleChangeRoute',
-        CHANGE_ROUTE_SUCCESS: 'handleChangeRouteEnd',
-        CHANGE_ROUTE_FAILURE: 'handleChangeRouteEnd',
-    },
+    handlers: makeHandlers({
+        'onChangeRouteStart': [Actions.CHANGE_ROUTE_START],
+        'onChangeRouteEnd': [Actions.CHANGE_ROUTE_SUCCESS, Actions.CHANGE_ROUTE_FAILURE]
+    }),
     initialize: function () {
         this.currentRoute = null;
     },
@@ -28,7 +28,7 @@ module.exports = createStore({
             this.currentRoute = _.assign({}, state.currentRoute, {config: routeConfig});
         }
     },
-    handleChangeRoute: function (route) {
+    onChangeRouteStart: function (route) {
         if (this.currentRoute && (this.currentRoute.url === route.url)) {
             return;
         }
@@ -38,7 +38,7 @@ module.exports = createStore({
 
         this.emitChange();
     },
-    handleChangeRouteEnd: function (route) {
+    onChangeRouteEnd: function (route) {
         this.loading = false;
         this.emitChange();
     },

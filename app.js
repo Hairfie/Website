@@ -7,19 +7,14 @@ var _ = require('lodash');
 var QueryString = require('query-string');
 var provideContext = require('fluxible/addons/provideContext');
 var Promise = require('q');
+var routes = require('./routes');
+var config = require('./config')
 
-var Application = provideContext(require('./components/Application.jsx'), {
-    makePath: React.PropTypes.func.isRequired,
-    makeUrl: React.PropTypes.func.isRequired,
-    navigateTo: React.PropTypes.func.isRequired,
-    getGoogleMapsScript: React.PropTypes.func.isRequired
-});
+var Application = provideContext(require('./components/Application.jsx'), require('./context'));
 
 var app = new FluxibleApp({
     component: Application
 });
-
-var routes = require('./configs/routes');
 
 app.plug({ // TODO: use the new fluxible-router with a custom RouteStore
     name: 'Router',
@@ -45,6 +40,7 @@ app.plug({ // TODO: use the new fluxible-router with a custom RouteStore
             },
             plugStoreContext: function (storeContext) {
                 storeContext.makePath = router.makePath.bind(router);
+                storeContext.makeUrl = router.makeUrl.bind(router);
                 storeContext.getRoutes = function () {
                     return routes;
                 }
@@ -79,7 +75,14 @@ app.plug({
 });
 
 app.plug(require('fluxible-plugin-hairfie-api')({
-    apiUrl: require('./configs/hairfie-api').URL
+    apiUrl: config.hairfieApiUrl
+}));
+
+app.plug(require('fluxible-plugin-config')(config));
+
+app.plug(require('./plugins/assets')({
+    cdnUrl  : config.cdnUrl || config.url,
+    version : config.version
 }));
 
 app.registerStore(require('./stores/RouteStore'));

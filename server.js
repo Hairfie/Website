@@ -10,24 +10,21 @@ var favicon         = require('serve-favicon');
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var url             = require('url');
-var config          = require('./configs/server');
-var i18nConfig      = require('./configs/i18n');
 var debug           = require('debug')('Server');
 var server          = express();
-var expressState    = require('express-state');
 var compress        = require('compression');
 var robots          = require('robots.txt')
 
-var React            = require('react');
-var app              = require('./app');
-var ServerActions    = require('./actions/ServerActions');
-var RouteStore       = require('./stores/RouteStore');
-var MetaStore        = require('./stores/MetaStore');
-var BusinessStore    = require('./stores/BusinessStore');
-var HtmlComponent    = require('./components/Html.jsx');
-var ErrorPage        = require('./components/ErrorPage.jsx');
+var React           = require('react');
+var app             = require('./app');
+var ServerActions   = require('./actions/ServerActions');
+var RouteStore      = require('./stores/RouteStore');
+var MetaStore       = require('./stores/MetaStore');
+var BusinessStore   = require('./stores/BusinessStore');
+var provideContext  = require('fluxible/addons/provideContext');
 
-expressState.extend(server);
+var Html = provideContext(require('./components/Html.jsx'), require('./context'));
+var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('./context'));
 
 // Gzip compression
 server.use(compress());
@@ -35,7 +32,9 @@ server.use(compress());
 server.use(favicon(__dirname + '/public/favicon.ico'));
 server.use(logger('dev'));
 server.use(cookieParser());
-server.use(robots(__dirname + '/public/robots/' + config.ROBOTS));
+
+var robotFile = process.env.NODE_ENV === 'production' ? 'robots-production.txt' : 'robots-staging.txt';
+server.use(robots(__dirname + '/public/robots/' + robotFile));
 
 server.all('*', function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
@@ -44,8 +43,6 @@ server.all('*', function(req, res, next) {
 });
 
 server.use(express.static(path.join(__dirname, 'public')));
-
-server.set('state namespace', 'App');
 
 // serve application
 server.use(function (req, res, next) {
@@ -56,22 +53,14 @@ server.use(function (req, res, next) {
 
     context.executeAction(ServerActions.initialize, req.url)
         .then(function () {
-            var metas = context.getActionContext().getStore(MetaStore).getMetas();
-            var title = context.getActionContext().getStore(MetaStore).getTitle();
-
-            var appState = app.dehydrate(context);
             var AppComponent = app.getComponent();
-
-            res.expose(appState, 'App');
-
             var markup = React.renderToString(React.createFactory(AppComponent)({
                 context: context.getComponentContext()
             }));
 
-            var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(HtmlComponent)({
-                state   : res.locals.state,
-                title   : title,
-                metas   : metas,
+            var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(Html)({
+                context : context.getComponentContext(),
+                state   : app.dehydrate(context),
                 markup  : markup
             }));
 
@@ -104,20 +93,33 @@ server.use(function (err, req, res, next) { // error page
         console.log(err.stack || err);
     }
 
-    var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(ErrorPage)({
-        error: err,
-        debug: !!config.DEBUG
+    var context = app.createContext({
+        req: req,
+        res: res
+    });
+
+    var state = app.dehydrate(context);
+
+    var markup = React.renderToStaticMarkup(React.createFactory(ErrorPage)({
+        context: context.getComponentContext(),
+        error  : err
+    }));
+
+    var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(Html)({
+        context : context.getComponentContext(),
+        state   : state,
+        markup  : markup
     }));
 
     res.status(err.status || 500);
-    res.write(html);
+    res.write('<!doctype html>'+html);
     res.end();
 });
 
 module.exports = server;
 
 if (require.main === module) {
-    server.set('port', config.PORT);
+    server.set('port', process.env.PORT || 3001);
     server.listen(server.get('port'), function () {
         debug('listening on port ' + server.get('port'));
     });

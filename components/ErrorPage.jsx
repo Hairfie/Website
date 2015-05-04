@@ -3,6 +3,9 @@
 var React = require('react');
 
 module.exports = React.createClass({
+    contextTypes: {
+        config: React.PropTypes.object
+    },
     render: function () {
         return (
             <html>
@@ -29,7 +32,7 @@ module.exports = React.createClass({
         );
     },
     renderDebugInfos: function () {
-        if (!this.props.debug) return;
+        if (!this.context.config.debug) return;
 
         return (
             <div>
