@@ -1,9 +1,11 @@
 'use strict';
 
 var React = require('react');
-var Google = require('../../services/google');
 
 module.exports = React.createClass({
+    contextTypes: {
+        getGoogleMapsScript: React.PropTypes.func
+    },
     propTypes: {
         types: React.PropTypes.array,
         onPlaceChanged: React.PropTypes.func
@@ -15,8 +17,7 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function () {
-        Google
-            .loadMaps()
+        this.context.getGoogleMapsScript()
             .then(function (google) {
                 var input = this.refs.input.getDOMNode();
 

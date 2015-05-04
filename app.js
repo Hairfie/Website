@@ -11,7 +11,8 @@ var Promise = require('q');
 var Application = provideContext(require('./components/Application.jsx'), {
     makePath: React.PropTypes.func.isRequired,
     makeUrl: React.PropTypes.func.isRequired,
-    navigateTo: React.PropTypes.func.isRequired
+    navigateTo: React.PropTypes.func.isRequired,
+    getGoogleMapsScript: React.PropTypes.func.isRequired
 });
 
 var app = new FluxibleApp({
@@ -85,6 +86,8 @@ app.plug(require('./context/hairfie-api-plugin')({ // TODO: use fluxible-plugin-
 app.plug(require('fluxible-plugin-hairfie-api')({
     apiUrl: require('./configs/hairfie-api').URL
 }));
+
+app.plug(require('fluxible-plugin-google-maps')());
 
 app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/HairfieStore'));

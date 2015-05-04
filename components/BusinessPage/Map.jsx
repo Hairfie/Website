@@ -1,46 +1,29 @@
 'use strict';
 
 var React = require('react');
-var Google = require('../../services/google');
 
 module.exports = React.createClass({
+    contextTypes: {
+        getGoogleMapsScript: React.PropTypes.func
+    },
     getDefaultProps: function () {
         return {
             defaultZoom: 16
         };
     },
     componentDidMount: function () {
-        Google
-            .loadMaps()
+        this.context.getGoogleMapsScript()
             .then(function (google) {
-
-                this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
-                    zoom: this.props.defaultZoom,
-                    center: this._getLatLng()
-                });
-                this.marker = new google.maps.Marker({
-                    map: this.map,
-                    position: this.map.getCenter()
-                });
+                this._setupMap(google, this.props);
             }.bind(this));
     },
     componentWillReceiveProps: function (nextProps) {
-        Google
-            .loadMaps()
+        this.context.getGoogleMapsScript()
             .then(function (google) {
                 if(this.map) {
-                    this.map.setCenter(this._getLatLng(nextProps));
-                    this.map.setZoom(nextProps.defaultZoom);
-                    this.marker.setPosition(this._getLatLng(nextProps));
+                    this._updateMap(google, nextProps);
                 } else {
-                    this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
-                        zoom: nextProps.defaultZoom,
-                        center: this._getLatLng()
-                    });
-                    this.marker = new google.maps.Marker({
-                        map: this.map,
-                        position: this._getLatLng(nextProps)
-                    });
+                    this._setupMap(google, nextProps);
                 }
             }.bind(this));
     },
@@ -49,10 +32,22 @@ module.exports = React.createClass({
             <div ref="map" {...this.props} />
         );
     },
-    _getLatLng: function (props) {
-        var props = props || this.props;
-        var loc = new google.maps.LatLng(props.location.lat, props.location.lng)
-
-        return loc;
+    _setupMap: function (google, props) {
+        this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
+            zoom: props.defaultZoom,
+            center: this._getLatLng(google, props)
+        });
+        this.marker = new google.maps.Marker({
+            map: this.map,
+            position: this.map.getCenter()
+        });
+    },
+    _updateMap: function (google, props) {
+        this.map.setCenter(this._getLatLng(google, props));
+        this.map.setZoom(props.defaultZoom);
+        this.marker.setPosition(this._getLatLng(google, props));
+    },
+    _getLatLng: function (google, props) {
+        return new google.maps.LatLng(props.location.lat, props.location.lng)
     }
 });
