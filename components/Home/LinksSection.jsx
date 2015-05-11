@@ -2,12 +2,9 @@
 
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired
-    },
     render: function () {
         var colSize = Math.ceil(this.props.links / 3);
 
@@ -28,14 +25,13 @@ module.exports = React.createClass({
         );
     },
     renderLink: function(link, i) {
-        var queryParams = link.category ? {categories: link.category} : {};
-        var href = this.context.makeUrl('business_search', {address: link.address}, queryParams);
+        var query = link.category ? {categories: link.category} : {};
 
         return (
-            <p>
-                <NavLink href={href}>
+            <p key={link.address}>
+                <Link route="business_search" params={{ address: link.address }} query={query}>
                     <span>{link.displayName}</span>
-                </NavLink>
+                </Link>
             </p>
         );
     }

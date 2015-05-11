@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var BusinessActions = require('../actions/BusinessActions');
 var SearchUtils = require('../lib/search-utils');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var Search = require('./Search');
 
@@ -41,7 +41,6 @@ var BusinessSearchPage = React.createClass({
 });
 
 BusinessSearchPage = connectToStores(BusinessSearchPage, [
-    'RouteStore', // TODO: make connectToStore react to willReceiveProps
     'PlaceStore',
     'HairfieStore',
     'BusinessSearchStore'

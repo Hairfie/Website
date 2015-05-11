@@ -3,26 +3,24 @@
 var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Pagination = require('./Pagination.jsx');
 var SearchUtils = require('../../lib/search-utils');
+var NavToLink = require('../mixins/NavToLink.jsx');
 
 var Hairfie = React.createClass({
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired,
-        navigateTo: React.PropTypes.func.isRequired
-    },
+    mixins: [NavToLink],
     render: function () {
         return (
             <div className="col-xs-6 col-md-3 single-hairfie">
                 <figure>
-                    <NavLink href={this.getHairfieUrl()}>
+                    <Link route="hairfie" params={{ hairfieId: this.props.hairfie.id }}>
                         <Picture picture={_.last(this.props.hairfie.pictures)} options={{
                             width: 350,
                             height: 350,
                             crop: 'thumb'
                         }} />
-                    </NavLink>
+                    </Link>
                     <figcaption onClick={this.openHairfie}>
                         {this.renderPrice()}
                     </figcaption>
@@ -37,10 +35,7 @@ var Hairfie = React.createClass({
     },
     openHairfie: function (e) {
         e.preventDefault();
-        this.context.navigateTo(this.getHairfieUrl());
-    },
-    getHairfieUrl: function () {
-        return this.context.makeUrl('hairfie', {hairfieId: this.props.hairfie.id});
+        this.navToLink('hairfie', { hairfieId: this.props.hairfie.id });
     }
 });
 
@@ -72,9 +67,9 @@ var HairfieResult = React.createClass({
         return <Pagination
             numPages={numPages}
             currentPage={this.props.search.page}
-            routeName="hairfie_search"
-            pathParams={params.path}
-            queryParams={params.query}
+            route="hairfie_search"
+            params={params.path}
+            query={params.query}
             />
     },
     renderNoResult: function () {

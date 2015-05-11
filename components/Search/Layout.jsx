@@ -1,64 +1,12 @@
 'use strict';
 
 var React = require('react');
-var _ = require('lodash');
 var PublicLayout = require('../PublicLayout.jsx');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var SearchUtils = require('../../lib/search-utils');
+var Breadcrumb = require('./Breadcrumb.jsx');
 
-var Breadcrumb = React.createClass({
-    render: function () {
-        var crumbs = [];
-        var place  = this.props.place;
-
-        while (place) {
-            crumbs.unshift({
-                id: place.id,
-                last: crumbs.length == 0,
-                label: (place.name || '').split(',')[0],
-                routeName: 'business_search',
-                navParams: {
-                    address: SearchUtils.addressToUrlParameter(place.name)
-                }
-            });
-            place = place.parent;
-        }
-
-        crumbs.unshift({
-            id: 'home',
-            last: false,
-            label: 'Accueil',
-            routeName: 'home',
-            navParams: {}
-        });
-
-        return (
-            <div className="col-xs-12 hidden-xs hidden-sm">
-                <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb) {
-                        if (crumb.last) {
-                            return (
-                                <li key={crumb.id} className="active">
-                                    {crumb.label}
-                                </li>
-                            );
-                        } else {
-                            return (
-                                <li key={crumb.id}>
-                                    <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
-                                        {crumb.label}
-                                    </NavLink>
-                                </li>
-                            );
-                        }
-                    }, this)}
-                </ol>
-            </div>
-        );
-    }
-});
-
-module.exports = React.createClass({
+var Layout = React.createClass({
     componentDidMount: function () {
         $('body').on("click",'.trigger-filters',function(){
             if( jQuery('.mobile-filtres').css('top') != '85px' ) {
@@ -97,7 +45,7 @@ module.exports = React.createClass({
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
-                               {this.renderHeader()}
+                                {this.renderHeader()}
                                 <div className="row">
                                     <div role="tabpanel" className="col-xs-12">
                                         <div className="row">
@@ -140,18 +88,20 @@ module.exports = React.createClass({
         return (
             <ul className="nav nav-tabs">
                 <li className={'col-xs-6'+(this.props.tab == 'business' ? ' active' : '')}>
-                    <NavLink routeName="business_search" navParams={{address: address}}>
+                    <Link route="business_search" params={{ address: address }}>
                         <span className="icon-nav" />
                         Coiffeurs
-                    </NavLink>
+                    </Link>
                 </li>
                 <li className={'col-xs-6'+(this.props.tab == 'hairfie' ? ' active' : '')}>
-                    <span className="icon-nav" />
-                    <NavLink routeName="hairfie_search" navParams={{address: address}}>
+                    <Link route="hairfie_search" params={{ address: address }}>
+                        <span className="icon-nav" />
                         Hairfies
-                    </NavLink>
+                    </Link>
                 </li>
             </ul>
         );
     }
 });
+
+module.exports = Layout;

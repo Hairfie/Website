@@ -3,14 +3,11 @@
 var React = require('react');
 var _ = require('lodash');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
     mixins: [NavToLinkMixin],
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired
-    },
     getInitialState: function () {
         return {
             showAll: false
@@ -39,16 +36,14 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
-        var href = this.context.makeUrl('business_search', {address: "Paris--France"}, {categories: cat.name});
-
         return (
             <div className="col-sm-4 col-xs-12" key={cat.id} >
                 <figure>
                     <Picture picture={cat.picture} alt={cat.name} />
                     <figcaption>
-                        <NavLink href={href}>
+                        <Link route="business_search" params={{ address: 'Paris--France' }} query={{ categories: cat.name }}>
                             <span className="oneline">{cat.name}</span>
-                        </NavLink>
+                        </Link>
                         <a href="#"><span>{cat.name}</span></a>
                     </figcaption>
                 </figure>

@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-module.exports = React.createClass({
+var Map = React.createClass({
     contextTypes: {
         getGoogleMapsScript: React.PropTypes.func
     },
@@ -12,10 +12,9 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function () {
-        this.context.getGoogleMapsScript()
-            .then(function (google) {
-                this._setupMap(google, this.props);
-            }.bind(this));
+        this.context.getGoogleMapsScript().then(function (google) {
+            this._setupMap(google, this.props);
+        }.bind(this));
     },
     componentWillReceiveProps: function (nextProps) {
         this.context.getGoogleMapsScript()
@@ -34,11 +33,11 @@ module.exports = React.createClass({
     },
     _setupMap: function (google, props) {
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
-            zoom: props.defaultZoom,
-            center: this._getLatLng(google, props)
+            zoom    : props.defaultZoom,
+            center  : this._getLatLng(google, props)
         });
         this.marker = new google.maps.Marker({
-            map: this.map,
+            map     : this.map,
             position: this.map.getCenter()
         });
     },
@@ -51,3 +50,5 @@ module.exports = React.createClass({
         return new google.maps.LatLng(props.location.lat, props.location.lng)
     }
 });
+
+module.exports = Map;

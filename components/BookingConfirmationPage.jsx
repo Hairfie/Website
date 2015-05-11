@@ -5,7 +5,7 @@ var moment = require('moment');
 var _ = require('lodash');
 var PublicLayout  = require('./PublicLayout.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var BookingConfirmationPage = React.createClass({
     render: function () {

@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
@@ -31,12 +31,12 @@ module.exports = React.createClass({
                 <figure>
                     <Picture picture={deal.business.pictures[0]} resolution={{width: 640, height: 400}} placeholder="/images/placeholder-640.png" alt={deal.business.name} onClick={this.navToLink.bind(this, "business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
                     <figcaption>
-                        <NavLink routeName="business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
+                        <Link route="business" params={{ businessId: deal.business.id, businessSlug: deal.business.slug }}>
                             {deal.business.name}
-                        </NavLink>
-                        <NavLink className="address" routeName="business" navParams={{businessId: deal.business.id, businessSlug: deal.business.slug}}>
+                        </Link>
+                        <Link className="address" route="business" params={{ businessId: deal.business.id, businessSlug: deal.business.slug }}>
                             {displayAddress}
-                        </NavLink>
+                        </Link>
                         <span className="icon-promo">{deal.discount}%</span>
                     </figcaption>
                 </figure>

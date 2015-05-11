@@ -1,28 +1,11 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
-var RouteStore = require('../stores/RouteStore');
+var connectToStores = require('../lib/connectToStores');
 
-module.exports = React.createClass({
-    mixins: [FluxibleMixin],
-    statics: {
-        storeListeners: [RouteStore]
-    },
-    getStateFromStores: function () {
-        return {
-            loading: this.getStore(RouteStore).isLoading()
-        };
-    },
-    getInitialState: function () {
-        return this.getStateFromStores();
-    },
-    onChange: function () {
-        if (!this.isMounted()) return;
-        this.setState(this.getStateFromStores());
-    },
+var PageProgress = React.createClass({
     render: function () {
-        if (!this.state.loading) return <div />;
+        if (!this.props.loading) return <div />;
 
         var style = {
             display: 'inline-block',
@@ -43,3 +26,11 @@ module.exports = React.createClass({
         return <div style={style} />;
     }
 });
+
+PageProgress = connectToStores(PageProgress, ['RouteStore'], function (stores) {
+    return {
+        loading: !stores.RouteStore.isNavigateComplete()
+    };
+});
+
+module.exports = PageProgress;

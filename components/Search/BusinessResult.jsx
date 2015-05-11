@@ -2,22 +2,11 @@
 
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var HairfieActions = require('../../actions/HairfieActions');
 var SearchUtils = require('../../lib/search-utils');
-
-var BusinessLink = React.createClass({
-    render: function () {
-        var navParams = {
-            businessId  : this.props.business.id,
-            businessSlug: this.props.business.slug
-        };
-
-        return <NavLink {...this.props} routeName="business" navParams={navParams} />;
-    }
-});
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -58,9 +47,9 @@ var Hairfies = React.createClass({
 
         return (
             <li className="more">
-                <BusinessLink business={this.props.business}>
+                <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
                     <img src="/images/placeholder-hairfie-thumb-more.png" alt="" />
-                </BusinessLink>
+                </Link>
             </li>
         );
     }
@@ -70,37 +59,34 @@ var Business = React.createClass({
     propTypes: {
         business: React.PropTypes.object.isRequired
     },
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired
-    },
     render: function () {
         return (
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
-                    <BusinessLink business={this.props.business}>
+                    <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
                         <Picture
                             picture={_.first(this.props.business.pictures)}
-                            options={{width: 400, height: 400, crop: 'thumb'}}
+                            options={{ width: 400, height: 400, crop: 'thumb' }}
                             placeholder="/images/placeholder-640.png"
                             />
-                     </BusinessLink>
+                     </Link>
                 </div>
                 <div className="col-xs-12 col-sm-8 info-bloc">
                     <div className="address-bloc">
                         <h3>
-                            <BusinessLink business={this.props.business}>
+                            <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
                                 {this.props.business.name}
-                            </BusinessLink>
+                            </Link>
                         </h3>
-                        <BusinessLink business={this.props.business} className="address">
+                        <Link className="address" route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
                             {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
-                        </BusinessLink>
+                        </Link>
                     </div>
                     {this.renderPricing()}
                     <Hairfies business={this.props.business} />
-                    <NavLink href={this.makeBookingHref()} className="btn btn-red">
+                    <Link className="btn btn-red" route="business_booking" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
                         Réserver
-                    </NavLink>
+                    </Link>
                     {this.renderRating()}
                 </div>
             </section>
@@ -115,15 +101,16 @@ var Business = React.createClass({
         if (!this.props.business.numReviews) return;
 
         var rating = (this.props.business.rating / 10).toPrecision(2);
+        var query  = this.props.date ? { date: this.props.date } : {};
 
         return (
             <div className="rating">
                 <div className="note">
                     <span>{rating}</span>/10
                 </div>
-                <BusinessLink business={this.props.business} className="small">
+                <Link className="small" route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                     {this.props.business.numReviews} avis
-                </BusinessLink>
+                </Link>
             </div>
         );
     },
@@ -157,15 +144,6 @@ var Business = React.createClass({
         } else if (women) {
             return <span className="black">&nbsp;&nbsp;prix moyen femme {women}€</span>;
         }
-    },
-    makeBookingHref: function () {
-        var query = {};
-        if (this.props.date) query.date = this.props.date;
-
-        return this.context.makeUrl('business_booking', {
-            businessId: this.props.business.id,
-            businessSlug: this.props.business.slug
-        }, query);
     }
 });
 

@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
 
 module.exports = React.createClass({
     render: function() {

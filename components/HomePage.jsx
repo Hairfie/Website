@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
@@ -11,7 +10,7 @@ var PageProgress = require('./PageProgress.jsx');
 var Home = require('./Home');
 
 var SearchBar = require('./Layout/SearchBar.jsx');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var _ = require('lodash');
 

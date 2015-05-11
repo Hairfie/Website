@@ -5,7 +5,7 @@ var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var AuthActions = require('../actions/AuthActions');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var ResetPasswordPage =  React.createClass({
     contextTypes: {

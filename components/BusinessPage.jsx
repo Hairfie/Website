@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');

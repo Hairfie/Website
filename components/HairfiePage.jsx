@@ -1,14 +1,13 @@
 'use strict';
 
-var facebookConfig = require('../configs/facebook');
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('./Link.jsx');
 var PublicLayout = require('./PublicLayout.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var Carousel = React.createClass({
     getInitialState: function () {
@@ -24,8 +23,6 @@ var Carousel = React.createClass({
 
         return (
             <div id="carousel-hairfie" className="carousel slide" data-ride="carousel">
-                {this.renderPrice()}
-                {this.renderAuthor()}
                 <div className="carousel-inner" role="listbox">
                     {_.map(pictures, function (picture, i) {
                         return (
@@ -52,12 +49,6 @@ var Carousel = React.createClass({
             </a>
         );
     },
-    renderPrice: function () {
-
-    },
-    renderAuthor: function () {
-
-    },
     show: function (i) {
         this.setState({displayIndex: i});
     }
@@ -69,11 +60,6 @@ var HairfieSingle = React.createClass({
             <div className="col-xs-12 col-sm-6">
                 <Carousel hairfie={this.props.hairfie} />
                 <div className="like-group">
-                    {/*<div className="like-btn">
-                        <a href="#">
-                            <span className="glyphicon glyphicon-heart"></span>
-                        </a>
-                    </div> */}
                     {this.renderBookingButton()}
                 </div>
             </div>
@@ -84,9 +70,9 @@ var HairfieSingle = React.createClass({
 
         return (
             <div className="cta">
-                <NavLink className="btn btn-red full" routeName="business_booking" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                <Link className="btn btn-red full" route="business_booking" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                     Réserver dans ce salon
-                </NavLink>
+                </Link>
             </div>
         );
     }
@@ -100,9 +86,9 @@ var RightColumn = React.createClass({
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
                 <p>Réalisé par :
-                    <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                    <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         {this.props.hairfie.hairdresser.firstName}
-                    </NavLink>
+                    </Link>
                 </p>
             );
         }
@@ -112,15 +98,15 @@ var RightColumn = React.createClass({
                 <div className="salon-infos">
                     <div className="row">
                         <div className="col-xs-3">
-                            <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                            <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                 <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
-                            </NavLink>
+                            </Link>
                         </div>
                         <div className="col-xs-9 address-bloc">
                             <h2>
-                                <NavLink routeName="business" navParams={{businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug}}>
+                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                     {this.props.hairfie.business.name}
-                                </NavLink>
+                                </Link>
                             </h2>
                             {hairdresserNode}
                         </div>
@@ -148,13 +134,16 @@ var RightColumn = React.createClass({
 });
 
 var HairfiePage = React.createClass({
+    contextTypes: {
+        config: React.PropTypes.object
+    },
     componentDidMount: function () {
         new Share(".share-button", {
             image: "{{ this.state.hairfie.picture.url }}",
             title: "{{ this.state.hairfie.descriptions.facebook }}",
             networks: {
                 facebook: {
-                  app_id: "{{ facebookConfig.FB_APP_ID }}",
+                  app_id: "{{ this.context.config.facebookAppId }}",
                   load_sdk: false
                 },
                 twitter: {

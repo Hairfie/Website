@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Calendar = require('../Form/BookingCalendarComponent.jsx');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
 
@@ -34,13 +34,9 @@ module.exports = React.createClass({
         return (
             <div className="promo-sidebar">
                 {this.renderBestDiscount()}
-                <NavLink
-                    className="btn btn-red hidden-xs"
-                    routeName="business_booking"
-                    navParams={{businessId: business.id, businessSlug: business.slug}}
-                    >
+                <Link className="btn btn-red hidden-xs" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Réserver maintenant
-                </NavLink>
+                </Link>
             </div>
         );
     },
@@ -66,6 +62,6 @@ module.exports = React.createClass({
         var pathParams = {businessId: business.id, businessSlug: business.slug};
         var queryParams = {date: this.refs.calendar.getDate()};
 
-        this.navToLink('business_booking', pathParams, queryParams);
+        this.navToLink('business_booking', { businessId: business.id, businessSlug: business.slug }, { date: this.refs.calendar.getDate() });
     }
 });

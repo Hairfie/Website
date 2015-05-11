@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 var DateTimeConstants = require('../../constants/DateTimeConstants');
@@ -18,20 +18,20 @@ module.exports = React.createClass({
         return (
             <div className="sidebar col-md-3 col-sm-12 pull-left">
                 <div className="salon-bloc">
-                    <NavLink routeName="business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
                            resolution={{width: 220, height: 220}}
                            placeholder="/images/placeholder-55.png" />
-                    </NavLink>
+                    </Link>
                     <div className="address-bloc">
                         <h2>
-                            <NavLink routeName="business" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                            <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                                 {business.name}
-                            </NavLink>
+                            </Link>
                         </h2>
-                        <NavLink routeName="business" className="address" navParams={{businessId: business.id, businessSlug: business.slug}} context={this.props.context}>
+                        <Link className="address" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                             {displayAddress}
-                        </NavLink>
+                        </Link>
                     </div>
                 </div>
                 {this.renderDiscountsNode()}

@@ -81,15 +81,15 @@ server.use(function (err, req, res, next) { // try localized page
 });
 
 server.use(function (err, req, res, next) { // handle redirects
-    if (err.location && -1 !== [301, 302].indexOf(err.status)) {
-        res.redirect(err.status, err.location);
+    if (err.location && -1 !== [301, 302].indexOf(err.status || err.statusCode)) {
+        res.redirect(err.status || err.statusCode, err.location);
     } else {
         next(err);
     }
 });
 
 server.use(function (err, req, res, next) { // error page
-    if (404 !== err.status) {
+    if (404 !== (err.status || err.statusCode)) {
         console.log(err.stack || err);
     }
 
@@ -111,7 +111,7 @@ server.use(function (err, req, res, next) { // error page
         markup  : markup
     }));
 
-    res.status(err.status || 500);
+    res.status(err.status || err.statusCode || 500);
     res.write('<!doctype html>'+html);
     res.end();
 });

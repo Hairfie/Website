@@ -10,7 +10,7 @@ module.exports = React.createClass({
         return (
             <html>
                 <head>
-                    <title>Erreur {this.props.error.status || 500} - Hairfie</title>
+                    <title>Erreur {this.getStatusCode()} - Hairfie</title>
                     {this.renderBody()}
                 </head>
             </html>
@@ -18,13 +18,13 @@ module.exports = React.createClass({
     },
     renderBody: function () {
         var message;
-        if (404 == this.props.error.status) {
+        if (404 == this.getStatusCode()) {
             message = <p>La page que vous avez demandée n'existe pas ou a été supprimée.</p>;
         }
 
         return (
             <body>
-                <h1>Erreur {this.props.error.status || 500}</h1>
+                <h1>Erreur {this.getStatusCode()}</h1>
                 {message}
                 <p><a href="/">Retourner à l'accueil</a></p>
                 {this.renderDebugInfos()}
@@ -40,5 +40,8 @@ module.exports = React.createClass({
                 <pre>{this.props.error.stack}</pre>
             </div>
         );
+    },
+    getStatusCode: function () {
+        return this.props.error.status || this.props.error.statusCode || 500;
     }
 });

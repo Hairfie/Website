@@ -1,52 +1,17 @@
 'use strict';
 
 var React = require('react');
-var FluxibleApp = require('fluxible');
-var Router = require('routr');
+var Fluxible = require('fluxible');
 var _ = require('lodash');
 var QueryString = require('query-string');
 var provideContext = require('fluxible/addons/provideContext');
 var Promise = require('q');
-var routes = require('./routes');
-var config = require('./config')
+var config = require('./config');
 
 var Application = provideContext(require('./components/Application.jsx'), require('./context'));
 
-var app = new FluxibleApp({
+var app = new Fluxible({
     component: Application
-});
-
-app.plug({ // TODO: use the new fluxible-router with a custom RouteStore
-    name: 'Router',
-    plugContext: function (options, context) {
-        var router = new Router(routes);
-        router.makeUrl = function (routeName, pathParams, queryParams) {
-            var path = this.makePath(routeName, pathParams);
-            var query = QueryString.stringify(queryParams);
-
-            return query ? path+'?'+query : path;
-        };
-
-        return {
-            plugActionContext: function (actionContext) {
-                actionContext.router = router;
-            },
-            plugComponentContext: function (componentContext) {
-                componentContext.makePath = router.makePath.bind(router);
-                componentContext.makeUrl  = router.makeUrl.bind(router);
-                componentContext.navigateTo = function (url) {
-                    return context.executeAction(require('flux-router-component/actions/navigate'), {url: url});
-                };
-            },
-            plugStoreContext: function (storeContext) {
-                storeContext.makePath = router.makePath.bind(router);
-                storeContext.makeUrl = router.makeUrl.bind(router);
-                storeContext.getRoutes = function () {
-                    return routes;
-                }
-            }
-        };
-    }
 });
 
 app.plug({
@@ -79,6 +44,8 @@ app.plug(require('fluxible-plugin-hairfie-api')({
 }));
 
 app.plug(require('fluxible-plugin-config')(config));
+
+app.plug(require('fluxible-plugin-google-maps')());
 
 app.plug(require('./plugins/assets')({
     cdnUrl  : config.cdnUrl || config.url,

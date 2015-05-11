@@ -2,18 +2,13 @@
 
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 module.exports = React.createClass({
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired
-    },
     mixins: [NavToLinkMixin],
     render: function () {
-        var moreHref = this.context.makeUrl('hairfie_search', {address: "Paris--France"});
-
         return (
             <section className="home-section">
                 <h2>Nos Hairfies préférés</h2>
@@ -26,9 +21,9 @@ module.exports = React.createClass({
 
                     {this.renderHairfie(_.first(this.props.hairfies), 'col-md-6 col-xs-12 big', 'col-xs-12')}
                 </div>
-                <NavLink href={moreHref} className="btn btn-red home-cta col-md-3 col-xs-10">
+                <Link route="hairfie_search" params={{ address: 'Paris--France' }} className="btn btn-red home-cta col-md-3 col-xs-10">
                     Plus de hairfies
-                </NavLink>
+                </Link>
             </section>
         );
     },
@@ -47,12 +42,12 @@ module.exports = React.createClass({
                 <figure className={figureClass}>
                     <Picture picture={picture} />
                     <figcaption>
-                        <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
+                        <Link route="hairfie" params={{hairfieId: hairfie.id}}>
                             {displayBusinessName}
-                        </NavLink>
-                        <NavLink className="address" routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
+                        </Link>
+                        <Link className="address" route="hairfie" params={{hairfieId: hairfie.id}}>
                             {displayBusinessAddress}
-                        </NavLink>
+                        </Link>
                         {priceNode}
                     </figcaption>
                     <div className="clearfix" />

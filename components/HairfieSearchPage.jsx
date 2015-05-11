@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Search = require('./Search');
 var SearchUtils = require('../lib/search-utils');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 var HairfieActions = require('../actions/HairfieActions');
 
 var HairfieSearchPage = React.createClass({
@@ -37,7 +37,6 @@ var HairfieSearchPage = React.createClass({
 });
 
 HairfieSearchPage = connectToStores(HairfieSearchPage, [
-    'RouteStore',
     'PlaceStore',
     'HairfieStore'
 ], function (stores, props) {

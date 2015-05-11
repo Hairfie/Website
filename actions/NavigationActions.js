@@ -1,10 +1,10 @@
 'use strict';
 
-var navigateAction = require('flux-router-component/actions/navigate');
+var navigateAction = require('fluxible-router').navigateAction;
 
 module.exports = {
     navigate: function navigate(context, params) {
-        var url = params.url || context.router.makeUrl(params.route, params.params, params.query);
+        var url = params.url || context.getStore('RouteStore').makeUrl(params.route, params.params, params.query);
 
         return context.executeAction(navigateAction, { url: url });
     }

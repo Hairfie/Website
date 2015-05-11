@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
     render: function () {
@@ -12,7 +12,7 @@ module.exports = React.createClass({
             <header className={headerClassName}>
                 <div className="row">
                     <div className="col-md-12">
-                        <NavLink className="logo col-md-4" routeName="home" />
+                        <Link className="logo col-md-4" route="home" />
                         <nav className='col-md-8 pull-right'>
                             <ul>
                                 <li><a href="http://pro.hairfie.com" className="">Vous êtes coiffeur ?</a></li>

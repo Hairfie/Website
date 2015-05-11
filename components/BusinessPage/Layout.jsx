@@ -28,19 +28,19 @@ var Layout = React.createClass({
                                     <div className="row">
                                         <ul className="nav nav-tabs" role="tablist">
                                             <li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
-                                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                     <span className="icon-nav"></span>
                                                     Informations
                                                 </Link>
                                             </li>
                                             <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
-                                                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                     <span className="icon-nav"></span>
                                                     Avis
                                                 </Link>
                                             </li>
                                             <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
-                                                <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                                <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                     <span className="icon-nav"></span>
                                                     Hairfies
                                                 </Link>

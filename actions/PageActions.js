@@ -16,31 +16,18 @@ var NavigationActions = require('./NavigationActions');
 var SearchUtils = require('../lib/search-utils');
 
 module.exports = {
-    home: function (context, route, done) {
-        return executeCritical(context, {
-            categories: {
-                action: CategoryActions.loadAll
-            },
-            topDeals: {
-                action: DealActions.loadTopDeals,
-                params: { limit: route.config.numTopDeals }
-            },
-            topHairfies: {
-                action: HairfieActions.loadTopHairfies,
-                params: {limit: route.config.numTopHairfies}
-            }
-        }, function (err) {
-            if (err) {
-                err = err.categories || err.topDeals || err.topHairfies;
-            }
-            done(err);
-        });
+    home: function (context) {
+        return Promise.all([
+            context.executeAction(CategoryActions.loadAll),
+            context.executeAction(DealActions.loadTopDeals),
+            context.executeAction(HairfieActions.loadTopHairfies)
+        ]);
     },
     hairfie: function (context, route) {
-        return context.executeAction(HairfieActions.loadHairfie, route.params.hairfieId);
+        return context.executeAction(HairfieActions.loadHairfie, route.get('params').get('hairfieId'));
     },
     hairfieSearch: function (context, route) {
-        var address = SearchUtils.addressFromUrlParameter(route.params.address);
+        var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
@@ -68,12 +55,12 @@ module.exports = {
         return businessWithSlug(context, route).then(function (business) {
             return context.executeAction(HairfieActions.loadBusinessHairfies, {
                 businessId: business.id,
-                page: route.query.page
+                page: route.get('query').get('page')
             });
         });
     },
     businessSearch: function (context, route) {
-        var address = SearchUtils.addressFromUrlParameter(route.params.address);
+        var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
@@ -83,28 +70,9 @@ module.exports = {
                 return context.executeAction(BusinessActions.loadSearchResult, search);
             });
     },
-    businessBooking: function (context, route) { // TODO: make it DRY
-        var businessId   = route.params.businessId;
-        var businessSlug = route.params.businessSlug;
-
-        return context.hairfieApi
-            .get('/businesses/'+businessId)
-            .then(function (business) {
-                if (business.slug != businessSlug) { // redirect to canonical URL
-                    var error = new Error('Invalid slug');
-                    error.status = 301;
-                    error.location = context.router.makePath('business', {
-                        businessId  : business.id,
-                        businessSlug: business.slug
-                    });
-                    throw error;
-                }
-
-                context.dispatch(Actions.RECEIVE_BUSINESS, business);
-            });
-    },
+    businessBooking: businessWithSlug,
     bookingConfirmation: function (context, route) {
-        var bookingId  = route.params.bookingId;
+        var bookingId  = route.get('params').get('bookingId');
 
         return context.hairfieApi
             .get('/bookings/'+bookingId)
@@ -117,7 +85,7 @@ module.exports = {
     },
     resetPassword: function (context, route) {
         return context.hairfieApi
-            .get('/accessTokens/'+route.params.tokenId)
+            .get('/accessTokens/'+route.get('params').get('tokenId'))
             .catch(function (e) { if (e.status !== 404) throw e; })
             .then(function (token) {
                 if (!token || token.userId != route.params.userId) { // invalid URL or token has expired
@@ -140,9 +108,9 @@ module.exports = {
 
 function businessWithSlug(context, route) {
     return context.hairfieApi
-        .get('/businesses/'+route.params.businessId)
+        .get('/businesses/'+route.get('params').get('businessId'))
         .then(function (business) {
-            if (business.slug != route.params.businessSlug) { // redirect to canonical URL
+            if (business.slug != route.get('params').get('businessSlug')) { // redirect to canonical URL
                 var error = new Error('Invalid slug');
                 error.status = 301;
                 error.location = context.router.makePath('business', {

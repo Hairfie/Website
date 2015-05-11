@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var SearchUtils = require('../../lib/search-utils');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
     render: function () {
@@ -15,22 +15,22 @@ module.exports = React.createClass({
             {
                 last: false,
                 label: 'Accueil',
-                routeName: 'home',
-                navParams: {}
+                route: 'home',
+                params: {}
             },
             {
                 last: false,
                 label: 'Coiffeurs ' + business.address.city,
-                routeName: 'business_search',
-                navParams: {
+                route: 'business_search',
+                params: {
                     address: SearchUtils.addressToUrlParameter(place)
                 }
             },
             {
                 last: false,
                 label: business.name,
-                routeName: 'business',
-                navParams: {
+                route: 'business',
+                params: {
                     businessId: business.id,
                     businessSlug: business.slug
                 }
@@ -38,8 +38,8 @@ module.exports = React.createClass({
             {
                 last: true,
                 label: 'Réservation',
-                routeName: 'business_booking',
-                navParams: {
+                route: 'business_booking',
+                params: {
                     businessId: business.id,
                     businessSlug: business.slug
                 }
@@ -59,13 +59,13 @@ module.exports = React.createClass({
                         } else {
                             return (
                                 <li>
-                                    <NavLink context={this.props.context} routeName={crumb.routeName} navParams={crumb.navParams}>
+                                    <Link route={crumb.route} params={crumb.params}>
                                         {crumb.label}
-                                    </NavLink>
+                                    </Link>
                                 </li>
                             );
                         }
-                    }, this)}
+                    })}
                 </ol>
             </div>
         );

@@ -17,43 +17,32 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function () {
-        this.context.getGoogleMapsScript()
-            .then(function (google) {
-                var input = this.refs.input.getDOMNode();
+        this.context.getGoogleMapsScript().then(function (google) {
+            var input = this.refs.input.getDOMNode();
 
-                var options = {};
-                options.types = this.props.types;
+            var options = {};
+            options.types = this.props.types;
 
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-                google.maps.event.addListener(autocomplete, 'place_changed', this.handlePlaceChanged);
-
-                this.setState({
-                    autocomplete: autocomplete
-                });
-            }.bind(this));
-    },
-    getInitialState: function () {
-        return {
-            autocomplete: null
-        }
+            this.autocomplete = new google.maps.places.Autocomplete(input, options);
+            google.maps.event.addListener(this.autocomplete, 'place_changed', this.handlePlaceChanged);
+        }.bind(this));
     },
     render: function () {
         return <input ref="input" {...this.props} type="search" className={this.props.className} />
     },
     handlePlaceChanged: function () {
-        var place = this.state.autocomplete.getPlace();
+        var place = this.autocomplete.getPlace();
         this.props.onPlaceChanged(place);
     },
     getValue: function () {
         return this.refs.input.getValue();
     },
     getFormattedAddress: function () {
-        var place = this.state.autocomplete.getPlace();
+        var place = this.autocomplete.getPlace();
         if(!place) return this.refs.input.getDOMNode().value;
         return place.formatted_address;
     },
     getPlace: function () {
-        return this.state.autocomplete.getPlace();
+        return this.autocomplete.getPlace();
     }
 });

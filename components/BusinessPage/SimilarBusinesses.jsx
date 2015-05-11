@@ -1,24 +1,9 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var _ = require('lodash');
-
-var BusinessLink = React.createClass({
-    render: function () {
-        var params = {
-            businessId  : this.props.business.id,
-            businessSlug: this.props.business.slug
-        };
-
-        return (
-            <NavLink {...this.props} routeName="business" navParams={params}>
-                {this.props.children}
-            </NavLink>
-        );
-    }
-});
 
 module.exports = React.createClass({
     render: function () {
@@ -33,17 +18,17 @@ module.exports = React.createClass({
         return (
             <section key={business.id} className="rival">
                 <div className="row">
-                    <BusinessLink className="col-xs-4" business={business}>
+                    <Link className="col-xs-8" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
                                  resolution={{width: 90, height: 90}}
                                  placeholder="/images/placeholder-55.png"
                                  alt={business.name}
                         />
-                    </BusinessLink>
-                    <BusinessLink className="col-xs-8" business={business}>
+                    </Link>
+                    <Link className="col-xs-8" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <span>{business.name}</span>
                         {_.values(_.pick(business.address, ['street', 'zipCode', 'city'])).join(', ')}
-                    </BusinessLink>
+                    </Link>
                 </div>
             </section>
         );

@@ -3,10 +3,10 @@
 var React = require('react');
 var _ = require('lodash');
 var Layout = require('./BusinessPage/Layout.jsx');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var HairfieActions = require('../actions/HairfieActions');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('../lib/connectToStores');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -60,7 +60,7 @@ var BusinessHairfiesPage = React.createClass({
                                 return (
                                     <div key={hairfie.id} className="col-md-3 single-hairfie">
                                         <figure>
-                                            <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
+                                            <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                                                 <Picture picture={_.last(hairfie.pictures)}
                                                       resolution={{width: 640, height: 640}}
                                                      placeholder="/images/placeholder-640.png"
@@ -71,7 +71,7 @@ var BusinessHairfiesPage = React.createClass({
                                                     <p><span>Le {moment(hairfie.createdAt).format('L')}</span></p>
                                                     {price}
                                                 </figcaption>
-                                            </NavLink>
+                                            </Link>
                                         </figure>
                                     </div>
                                 );

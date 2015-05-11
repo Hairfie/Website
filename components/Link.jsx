@@ -1,11 +1,11 @@
 'use strict';
 
 var React = require('react');
-var NavLink = require('flux-router-component').NavLink;
+var NavLink = require('fluxible-router').NavLink;
 
 var Link = React.createClass({
     contextTypes: {
-        makeUrl: React.PropTypes.func,
+        getStore: React.PropTypes.func
     },
     getInitialState: function () {
         return { href: this._getHrefFromProps(this.props) };
@@ -14,16 +14,16 @@ var Link = React.createClass({
         this.setState({ href: this._getHrefFromProps(nextProps) });
     },
     render: function () {
-        return <NavLink href={this.state.href} {...this.props} />;
+        return <NavLink href={this.state.href} {...this.props}>{this.props.children}</NavLink>;
     },
     _getHrefFromProps: function (props) {
-        var url = props.href || this.context.makeUrl(props.route, props.params, props.query);
+        var href = props.href || this.context.getStore('RouteStore').makeUrl(props.route, props.params, props.query);
 
         if (props.fragment) {
-            url = url+'#'+props.fragment;
+            href = href+'#'+props.fragment;
         }
 
-        return url;
+        return href;
     }
 });
 

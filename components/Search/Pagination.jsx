@@ -2,29 +2,33 @@
 
 var React = require('react');
 var _ = require('lodash');
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 
 var Pagination = React.createClass({
     propTypes: {
         currentPage : React.PropTypes.number.isRequired,
         numPages    : React.PropTypes.number.isRequired,
-        routeName   : React.PropTypes.string.isRequired,
-        pathParams  : React.PropTypes.object,
-        queryParams : React.PropTypes.object
-    },
-    contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired
+        route       : React.PropTypes.string.isRequired,
+        params      : React.PropTypes.object,
+        query       : React.PropTypes.object
     },
     render: function () {
         return (
             <nav>
                 <ul className="pagination">
-                    {_.map(_.range(1, this.props.numPages), function(page) {
+                    {_.map(_.map(_.range(1, this.props.numPages), String), function (page) {
                         return (
-                            <li className={this.isCurrent(page) ? 'active' : ''}>
-                                <NavLink href={this.getHref(page)}>
+                            <li key={page} className={this.isCurrent(page) ? 'active' : ''}>
+                                <Link route={this.props.route} params={this.props.params} query={this.getQuery(page)}>{page}</Link>
+                            </li>
+                        );
+
+
+                        return (
+                            <li key={page} className={this.isCurrent(page) ? 'active' : ''}>
+                                <Link route={this.props.route} params={this.props.params} query={this.getQuery(page)}>
                                     {page}
-                                </NavLink>
+                                </Link>
                             </li>
                         );
                     }, this)}
@@ -35,10 +39,8 @@ var Pagination = React.createClass({
     isCurrent: function (page) {
         return page == this.props.currentPage;
     },
-    getHref: function (page) {
-        return this.context.makeUrl(this.props.routeName, this.props.pathParams, _.assign({}, this.props.queryParams, {
-            page: page
-        }));
+    getQuery: function (page) {
+        return _.assign({}, this.props.query, { page: page });
     }
 });
 

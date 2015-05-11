@@ -5,16 +5,18 @@
  */
 
 var React = require('react');
-var Navigate = require('flux-router-component/actions/navigate');
+var NavigationActions = require('../../actions/NavigationActions');
 
 var NavToLinkMixin = {
     contextTypes: {
-        makeUrl: React.PropTypes.func.isRequired,
         executeAction: React.PropTypes.func.isRequired
     },
-    navToLink: function(routeName, pathParams, queryParams) {
-        var path = this.context.makeUrl(routeName, pathParams, queryParams);
-        this.context.executeAction(Navigate, {url: path});
+    navToLink: function(route, params, query) {
+        this.context.executeAction(NavigationActions.navigate, {
+            route: route,
+            params: params,
+            query: query
+        });
     }
 };
 

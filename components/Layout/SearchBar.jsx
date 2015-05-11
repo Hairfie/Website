@@ -3,9 +3,7 @@
 var React = require('react');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
-var config = require('../../configs/search');
-
-var NavLink = require('flux-router-component').NavLink;
+var Link = require('../Link.jsx');
 var Button = require('react-bootstrap/Button');
 
 module.exports = React.createClass({
@@ -25,7 +23,7 @@ module.exports = React.createClass({
         return (
             <div className="searchbar small-search col-sm-12">
                 <GeoInput ref="address" placeholder="Où ?" className="col-sm-3" />
-                <input ref="query" onKeyPress={this.handleKey} type="search" name="s" placeholder="Ex: Coupe, Brushing etc." className="col-sm-3" />
+                <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Ex: Coupe, Brushing etc." className="col-sm-3" />
                 <input ref="date" type="date" className="col-sm-3" />
                 <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
             </div>
@@ -49,7 +47,7 @@ module.exports = React.createClass({
         return (
             <div className="mobile-nav visible-xs">
                 <header className="container">
-                    <NavLink className="logo col-xs-4" routeName="home" />
+                    <Link className="logo col-xs-4" route="home" />
                     <a href="#" className="col-xs-4 menu-trigger pull-right"></a>
                 </header>
                 <div className="mobile-menu">
