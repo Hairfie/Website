@@ -173,9 +173,9 @@ var BusinessResult = React.createClass({
         return <Pagination
             numPages={this.props.result.nbPages}
             currentPage={this.props.search.page}
-            routeName="business_search"
-            pathParams={params.path}
-            queryParams={params.query}
+            route="business_search"
+            params={params.path}
+            query={params.query}
             />
     },
     renderNoResult: function () {

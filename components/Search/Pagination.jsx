@@ -16,7 +16,7 @@ var Pagination = React.createClass({
         return (
             <nav>
                 <ul className="pagination">
-                    {_.map(_.map(_.range(1, this.props.numPages), String), function (page) {
+                    {_.map(_.map(_.range(1, this.props.numPages + 1), String), function (page) {
                         return (
                             <li key={page} className={this.isCurrent(page) ? 'active' : ''}>
                                 <Link route={this.props.route} params={this.props.params} query={this.getQuery(page)}>{page}</Link>
