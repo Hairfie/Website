@@ -1,6 +1,8 @@
 'use strict';
 
-var pkg = require('./package.json');
+var fs = require('fs');
+var path = require('path');
+var pkg = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
 
 module.exports = {
     version                     : pkg.version,

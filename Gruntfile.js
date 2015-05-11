@@ -114,7 +114,8 @@ module.exports = function (grunt) {
       options: {
         transform: [
           require('grunt-react').browserify,
-          envify
+          envify,
+          'brfs'
         ]
       },
       client: {
