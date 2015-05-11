@@ -48,7 +48,7 @@ app.plug(require('fluxible-plugin-config')(config));
 app.plug(require('fluxible-plugin-google-maps')());
 
 app.plug(require('./plugins/assets')({
-    cdnUrl  : config.cdnUrl || config.url,
+    cdnUrl  : config.cdnUrl,
     version : config.version
 }));
 

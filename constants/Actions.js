@@ -3,9 +3,9 @@
 var define = require('../lib/constants/define');
 
 module.exports = define([
-    'CHANGE_ROUTE_START',
-    'CHANGE_ROUTE_SUCCESS',
-    'CHANGE_ROUTE_FAILURE',
+    'NAVIGATE_START',
+    'NAVIGATE_SUCCESS',
+    'NAVIGATE_FAILURE',
     'RECEIVE_HAIRFIE',
     'RECEIVE_BUSINESS',
     'RECEIVE_BUSINESS_SERVICES',

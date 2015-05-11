@@ -33,12 +33,12 @@ var Hairfies = React.createClass({
 
         return (
             <li key={hairfie.id} className={className}>
-                <NavLink routeName="hairfie" navParams={{hairfieId: hairfie.id}}>
+                <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                     <Picture picture={_.last(hairfie.pictures)}
                              options={{width: 55, height: 55}}
                           placeholder="/images/placeholder-55.png"
                                  alt="" />
-                </NavLink>
+                </Link>
             </li>
         );
     },

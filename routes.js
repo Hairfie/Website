@@ -12,12 +12,14 @@ module.exports = {
         numTopHairfies: 5
     },
     reset_password: {
+        title: 'Choisissez votre nouveau mot de passe',
         path: '/fr/reset-password/:userId/:tokenId',
         method: 'get',
         action: PageActions.resetPassword,
         handler: require('./components/ResetPasswordPage.jsx')
     },
     write_verified_business_review: {
+        title: 'Donnez votre avis',
         path: '/fr/write-business-review/:businessReviewRequestId',
         method: 'get',
         handler: require('./components/WriteVerifiedBusinessReviewPage.jsx'),
@@ -59,18 +61,21 @@ module.exports = {
         handler: require('./components/BusinessBookingPage.jsx')
     },
     booking_confirmation: {
+        title: 'Votre réservation',
         path: '/fr/reservation/:bookingId',
         method: 'get',
         action: PageActions.bookingConfirmation,
         handler: require('./components/BookingConfirmationPage.jsx')
     },
     business_search: {
+        title: 'Trouvez un coiffeur',
         path: '/fr/coiffeurs/:address',
         method: 'get',
         action: PageActions.businessSearch,
         handler: require('./components/BusinessSearchPage.jsx')
     },
     hairfie_search: {
+        title: 'Hairfies',
         path: '/fr/hairfies/:address',
         method: 'get',
         action: PageActions.hairfieSearch,

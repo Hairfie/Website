@@ -1,7 +1,6 @@
 'use strict';
 
 var createStore = require('fluxible/addons/createStore');
-var makeHandlers = require('../lib/fluxible/makeHandlers');
 var _ = require('lodash');
 var Actions = require('../constants/Actions');
 
@@ -21,9 +20,9 @@ function fullDayOfWeek(abbr) {
 
 module.exports = createStore({
     storeName: 'MetaStore',
-    handlers: makeHandlers({
-        onChangeRouteSuccess: Actions.CHANGE_ROUTE_SUCCESS
-    }),
+    handlers: {
+        'NAVIGATE_SUCCESS': 'onNavigateSuccess'
+    },
     initialize: function () {
         this.metas = [];
     },
@@ -33,23 +32,25 @@ module.exports = createStore({
     rehydrate: function (state) {
         this.metas = state.metas;
     },
-    onChangeRouteSuccess: function (route) {
-        switch (route.name) {
+    onNavigateSuccess: function (route) {
+        switch (route.get('name')) {
             case 'home':
                 this._setMetas(this._getHomeMetas());
                 break;
 
             case 'business':
+            case 'business_reviews':
+            case 'business_hairfies':
             case 'business_booking':
-                this._setMetas(this._getBusinessMetas(route.params.businessId));
+                this._setMetas(this._getBusinessMetas(route.get('params').get('businessId')));
                 break;
 
             case 'hairfie':
-                this._setMetas(this._getHairfieMetas(route.params.hairfieId));
+                this._setMetas(this._getHairfieMetas(route.get('params').get('hairfieId')));
                 break;
 
             default:
-                this._setMetas(this._getDefaultMetas());
+                this._setMetas(this._getDefaultMetas(route));
         }
     },
     getTitle: function () {
@@ -72,7 +73,7 @@ module.exports = createStore({
             { property: 'og:url', content: this._getUrl('home') }
         ]);
     },
-    _getHaifieMetas: function (hairfieId) {
+    _getHairfieMetas: function (hairfieId) {
         var hairfie = this.dispatcher.getStore('HairfieStore').getById(hairfieId);
 
         var title, description;
@@ -85,10 +86,6 @@ module.exports = createStore({
         } else {
             title = 'Hairfie posté par ' + hairfie.author.firstName;
             description = 'Réservez gratuitement votre séance en ligne sur Hairfie'
-        }
-
-        if(hairfie.tags) {
-            caption += _.map(hairfie.tags, function(tag) { return '#'+tag.name.replace(/ /g,''); }).join(' ');
         }
 
         var metas = _.union(this._getBaseMetas(), [
@@ -148,9 +145,11 @@ module.exports = createStore({
 
         return metas;
     },
-    _getDefaultMetas: function () {
+    _getDefaultMetas: function (route) {
+        var title = route.get('title') || 'Hairfie, trouvez et réservez votre coiffeur';
+
         return _.union(this._getBaseMetas(), [
-            { property: 'og:title', content: this.currentRoute && this.currentRoute.options.title || 'Hairfie, trouvez et réservez votre coiffeur' }
+            { property: 'og:title', content: title }
         ]);
     },
     _getBaseMetas: function () {
@@ -170,7 +169,7 @@ module.exports = createStore({
         }
     },
     _getUrl: function (route, params, query) {
-        var path = this.getContext().makeUrl(route, params, query);
+        var path = this.dispatcher.getStore('RouteStore').makeUrl(route, params, query);
         return (this.getContext().config.url || '')+path;
     },
     _getAssetUrl: function (asset) {
