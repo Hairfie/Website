@@ -112,7 +112,7 @@ server.use(function (err, req, res, next) { // error page
     }));
 
     res.status(err.status || err.statusCode || 500);
-    res.write('<!doctype html>'+html);
+    res.write(html);
     res.end();
 });
 
