@@ -6,16 +6,19 @@ var Link = require('../Link.jsx');
 
 var Rating = React.createClass({
     render: function () {
-        if (!this.props.numReviews) return <span />;
+        var business = this.props.business || {};
+        if (!business.numReviews) return <span />;
 
-        var rating = Math.round(this.props.rating / 100 * 5);
+        var rating = Math.round(business.rating / 100 * 5);
 
         return (
             <div className="col-sm-4 stars">
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <span className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
-                <a href="#reviews" className="avis">{this.props.numReviews} avis</a>
+                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis">
+                    {business.numReviews+' avis'}
+                </Link>
             </div>
         );
     }
@@ -36,7 +39,7 @@ module.exports = React.createClass({
                   <h1>{business.name}</h1>
                   <h2>{displayAddress} {linkToMap}</h2>
                 </div>
-                <Rating rating={business.rating} numReviews={business.numReviews} />
+                <Rating business={business} />
               </div>
               <div className="row">
                 <div className="prix col-xs-12 col-sm-12">
