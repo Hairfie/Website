@@ -9,21 +9,25 @@ module.exports = createStore({
     storeName: 'BusinessStore',
     handlers: makeHandlers({
         onReceiveBusiness: Actions.RECEIVE_BUSINESS,
-        onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES
+        onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES,
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
     }),
     initialize: function () {
         this.businesses = {};
         this.similarIds = {};
+        this.searchResults = {};
     },
     dehydrate: function () {
         return {
             businesses: this.businesses,
-            similarIds: this.similarIds
+            similarIds: this.similarIds,
+            searchResults: this.searchResults
         };
     },
     rehydrate: function (state) {
         this.businesses = state.businesses;
         this.similarIds = state.similarIds;
+        this.searchResults = state.searchResults;
     },
     onReceiveBusiness: function (business) {
         this.businesses[business.id] = business;
@@ -32,6 +36,13 @@ module.exports = createStore({
     onReceiveSimilarBusinesses: function (payload) {
         this.similarIds[payload.businessId] = _.pluck(payload.businesses, 'id');
         this.businesses = _.assign({}, this.businesses, _.indexBy(payload.businesses, 'id'));
+        this.emitChange();
+    },
+    onReceiveBusinessSearchResult: function (payload) {
+        this.businesses = _.assign({}, this.businesses, _.indexBy(payload.result.hits, 'id'));
+        this.searchResults[searchKey(payload.search)] = _.assign({}, payload.result, {
+            hits: _.pluck(payload.result.hits, 'id')
+        });
         this.emitChange();
     },
     // TODO: move discount code into a discount store
@@ -69,5 +80,16 @@ module.exports = createStore({
     },
     getSimilar: function (businessId, limit) {
         return _.map(this.similarIds[businessId], this.getById, this);
+    },
+    getSearchResult: function (search) {
+        var result = this.searchResults[searchKey(search)];
+
+        if (!result) {
+            return;
+        }
+
+        return _.assign({}, result, { hits: _.map(result.hits, this.getById, this) });
     }
 });
+
+function searchKey(search) { return JSON.stringify(search); }

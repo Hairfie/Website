@@ -43,7 +43,7 @@ var BusinessSearchPage = React.createClass({
 BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'PlaceStore',
     'HairfieStore',
-    'BusinessSearchStore'
+    'BusinessStore'
 ], function (stores, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = stores.PlaceStore.getByAddress(address);
@@ -52,7 +52,7 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
 
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
-        result = stores.BusinessSearchStore.getResult(search);
+        result = stores.BusinessStore.getSearchResult(search);
     }
 
     if (result) { // add top hairfies to each business
