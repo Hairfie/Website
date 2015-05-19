@@ -54,7 +54,6 @@ app.plug(require('./plugins/assets')({
 
 app.registerStore(require('./stores/RouteStore'));
 app.registerStore(require('./stores/HairfieStore'));
-app.registerStore(require('./stores/DealStore'));
 app.registerStore(require('./stores/BusinessStore'));
 app.registerStore(require('./stores/BusinessServiceStore.js'));
 app.registerStore(require('./stores/BusinessReviewStore'));
@@ -63,6 +62,7 @@ app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/NotificationStore'));
 app.registerStore(require('./stores/TokenStore'));
 app.registerStore(require('./stores/BookingStore'));
+app.registerStore(require('./stores/DealStore'));
 app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));

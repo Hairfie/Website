@@ -78,7 +78,7 @@ var BusinessPage = React.createClass({
 
         return (
             <section>
-                <h3>Nos Prix</h3>
+                <h3>Extrait des tarifs</h3>
                 <div className="row table-price">
                     {_.map(services, function (service) {
                         return (
@@ -88,6 +88,8 @@ var BusinessPage = React.createClass({
                         );
                     })}
                 </div>
+                <br />
+                <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
             </section>
         );
     },
