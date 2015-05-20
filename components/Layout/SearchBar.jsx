@@ -77,7 +77,6 @@ module.exports = React.createClass({
             q       : this.refs.query.getDOMNode().value,
             date    : this.refs.date.getDOMNode().value
         };
-
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
     componentDidMount: function() {

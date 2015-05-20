@@ -18,7 +18,7 @@ module.exports = {
     },
     submitSearch: function (context, search) {
         var search = search;
-        if (search.address) {
+        if (!search.address) {
             search = _.assign({}, search, { address: 'Paris, France' });
         }
 

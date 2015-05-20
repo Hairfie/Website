@@ -23,7 +23,7 @@ var HomePage = React.createClass({
                 <section className="landing">
                     <div className="container">
                         <Header withLogin={this.props.withLogin} headerClassName='normal' />
-                        <SearchBar mobile={true} />
+                        <SearchBar mobile={true} {...this.props}/>
                         <Notifications />
                         <div className="row">
                             <div className="headline col-md-12">
@@ -32,7 +32,7 @@ var HomePage = React.createClass({
                             </div>
                         </div>
                         <div className="row">
-                            <SearchBar homepage={true} />
+                            <SearchBar homepage={true} {...this.props} />
                         </div>
                     </div>
                 </section>
