@@ -79,7 +79,7 @@ module.exports = createStore({
         var title, description;
         if(hairfie.hairdresser) {
             title = 'Hairfie réalisé par ' + hairfie.hairdresser.firstName;
-            description = 'Réservez gratuitement en ligne la même prestation réalisée par ' + hairfie.hairdresser.firstName + ' au salon ' + business.name + ' sur Hairfie';
+            description = 'Réservez gratuitement en ligne la même prestation réalisée par ' + hairfie.hairdresser.firstName + ' au salon ' + hairfie.business.name + ' sur Hairfie';
         } else if (hairfie.business) {
             title = 'Hairfie réalisé chez ' + hairfie.business.name;
             description = 'Réservez gratuitement en ligne la même prestation réalisée au salon ' + hairfie.business.name + ' sur Hairfie';
