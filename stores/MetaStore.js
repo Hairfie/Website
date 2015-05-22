@@ -67,8 +67,8 @@ module.exports = createStore({
     },
     _getHomeMetas: function () {
         return _.union(this._getBaseMetas(), [
-            { property: 'og:title', content: 'Hairfie pour les coiffeurs' },
-            { property: 'og:description', content: 'Ajoutez gratuitement votre salon en 3 clics et commencez à diffuser votre talent' },
+            { property: 'og:title', content: 'Hairfie' },
+            { property: 'og:description', content: 'Trouvez et réservez le coiffeur qui vous correspond grâce à nos #hairfies' },
             { property: 'og:image', content: this.getContext().getAssetUrl('/img/background-pro-trans.jpg') },
             { property: 'og:url', content: this._getUrl('home') }
         ]);

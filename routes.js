@@ -4,6 +4,7 @@ var PageActions = require('./actions/PageActions');
 
 module.exports = {
     home: {
+        title: 'Hairfie',
         path: '/fr/',
         method: 'get',
         handler: require('./components/HomePage.jsx'),
