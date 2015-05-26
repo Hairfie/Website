@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
     render: function() {
@@ -20,7 +21,7 @@ module.exports = React.createClass({
                         <li className="col-sm-2"><a href="#">Presse</a></li>
                         <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
                         <li className="col-sm-4"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions Générales</a></li>
-                        <li className="col-sm-2"><a href="http://pro.hairfie.com" className="btn btn-red">Gérez votre salon</a></li>
+                        <li className="col-sm-2"><Link route="home_pro" className="btn btn-red">Gérez votre salon</Link></li>
 
                         </ul>
                     </div>
@@ -47,7 +48,7 @@ module.exports = React.createClass({
             <footer className="visible-xs visible-sm mobile">
                 <div className="row">
                     <div className="col-xs-6 pull-left">
-                        <a href="http://pro.hairfie.com" className="btn btn-red">Déclarez votre salon</a>
+                        <Link route="home_pro" className="btn btn-red">Déclarez votre salon</Link>
                     </div>
                     <div className="col-xs-6 pull-right">
                         <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="app-dl" target="_blank"></a>

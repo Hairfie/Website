@@ -84,7 +84,7 @@ module.exports = React.createClass({
                             </form>
                             <div className="contact">
                                 <h6>Une question ? Une suggestion ?</h6>
-                                <h4>Contactez-nous au <a href="tel:+33185089169">+33 1 85 08 91 69</strong> ou <a href="mailto:hello@hairfie.com">hello@hairfie.com</a></h4>
+                                <h4>Contactez-nous au <a href="tel:+33185089169">+33 1 85 08 91 69</a> ou <a href="mailto:hello@hairfie.com">hello@hairfie.com</a></h4>
                             </div>
                         </div>
                     </div>
