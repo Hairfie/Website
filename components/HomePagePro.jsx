@@ -7,7 +7,6 @@ var BusinessKinds = require('../constants/BusinessConstants').Kinds;
 
 var BusinessLeadActions = require('../actions/BusinessLeadActions');
 
-var NavLink = require('flux-router-component').NavLink;
 var PublicLayout = require('./PublicLayout.jsx');
 
 var Row = require('react-bootstrap/Row');
