@@ -2,10 +2,12 @@
     margin-top: -120px;
     //bottom: 0;
     width: 100%;
+    min-height: 100%;
     background: url(../img/background-pro-trans.jpg);
     background-position: no-repeat center center fixed;
     padding-top: 100px;
     background-size: cover;
+    font-size: 14px;
 
     @media screen and (min-width: $screen-sm-min) {
         height: 100%;
@@ -22,36 +24,16 @@
     .row.first {
         margin-top: 40px;
 
-
-        .left {
-            padding: 40px;
-
-            p.list {
-                margin-top: 20px;
-            }
-
-            li {
-                font-size: 16px;
-            }
-
-            ul {
-                //margin-left: -20px;
-            }
-
-            p.btn-app-store {
-                text-align: center;
-            }
-        }
-
         .claim {
             background-color: rgba(255,255,255,0.8);
             padding: 30px;
+            margin-bottom: 100px;
             //margin-top: 30px;
 
-            @media screen and (max-width: $screen-sm-min) {
+            @media screen and (max-width: 768px) {
                 //margin: 30px;
-                margin: auto;
-                max-width: 80%;
+                //margin: auto;
+                margin-top: 150px;
             }
 
             h3 {
@@ -66,6 +48,15 @@
             .btn-red {
                 font-weight: 200;
             }
+
+            .contact {
+                margin-top: 40px;
+
+                a {
+                    color: black;
+                    font-weight: bold;
+                }
+            }
         }
 
         @media screen and (max-width: $screen-sm-min) {
@@ -79,22 +70,5 @@
             }
         }
 
-    }
-    .btn-app-store {
-        margin-top: 40px;
-
-        .btn img {
-            padding: 0;
-            width:202px;
-            height:64px;
-        }
-    }
-
-    .btn-app-store .btn img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 180px;
-        height: auto;
     }
 }

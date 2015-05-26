@@ -49,25 +49,26 @@ body {
 //     // @import "front/page-hairfie";
 // }
 
-@import "backoffice/colors";
-@import "backoffice/homePro";
-@import "backoffice/starRating";
+@import "various/colors";
+@import "various/homePro";
+@import "various/starRating";
 
-.backoffice {
-    @import "backoffice/colors";
-    @import "backoffice/icons";
-    @import "backoffice/main";
-    @import "backoffice/header";
-    @import "backoffice/business";
-    @import "backoffice/hairfie";
-    @import "backoffice/home";
-    @import "backoffice/homePro";
-    @import "backoffice/dashboard";
-    @import "backoffice/proLayout";
-    @import "backoffice/hairfiesList";
-    @import "backoffice/typeahead";
-    @import "backoffice/search";
-    @import "backoffice/booking";
-    @import "backoffice/starRating";
-    @import "backoffice/form";
-}
+
+// .backoffice {
+//     @import "backoffice/colors";
+//     @import "backoffice/icons";
+//     @import "backoffice/main";
+//     @import "backoffice/header";
+//     @import "backoffice/business";
+//     @import "backoffice/hairfie";
+//     @import "backoffice/home";
+//     @import "backoffice/homePro";
+//     @import "backoffice/dashboard";
+//     @import "backoffice/proLayout";
+//     @import "backoffice/hairfiesList";
+//     @import "backoffice/typeahead";
+//     @import "backoffice/search";
+//     @import "backoffice/booking";
+//     @import "backoffice/starRating";
+//     @import "backoffice/form";
+// }

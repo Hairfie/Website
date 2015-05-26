@@ -2,11 +2,18 @@
 
 var React = require('react');
 var Link = require('../Link.jsx');
+var _ = require('lodash');
 
 module.exports = React.createClass({
     render: function () {
         var headerClassName = this.props.headerClassName ? this.props.headerClassName : 'white';
         headerClassName += ' hidden-xs';
+        var proLinkNode;
+        var withProLink = _.isBoolean(this.props.withProLink) ? this.props.withProLink : true;
+
+        if(withProLink) {
+            proLinkNode = (<li><Link route="home_pro">Vous êtes coiffeur ?</Link></li>);
+        }
 
         return (
             <header className={headerClassName}>
@@ -15,7 +22,7 @@ module.exports = React.createClass({
                         <Link className="logo col-md-4" route="home" />
                         <nav className='col-md-8 pull-right'>
                             <ul>
-                                <li><a href="http://pro.hairfie.com" className="">Vous êtes coiffeur ?</a></li>
+                                {proLinkNode}
                             </ul>
                         </nav>
                     </div>

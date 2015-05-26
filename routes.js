@@ -12,6 +12,12 @@ module.exports = {
         numTopDeals: 3,
         numTopHairfies: 5
     },
+    home_pro: {
+        title: 'Hairfie pour les coiffeurs',
+        path: '/fr/pro',
+        method: 'get',
+        handler: require('./components/HomePagePro.jsx')
+    },
     reset_password: {
         title: 'Choisissez votre nouveau mot de passe',
         path: '/fr/reset-password/:userId/:tokenId',

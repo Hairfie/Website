@@ -6,6 +6,7 @@ var _ = require('lodash');
 var PublicLayout  = require('./PublicLayout.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var connectToStores = require('../lib/connectToStores');
+var ga = require('../services/analytics');
 
 var BookingConfirmationPage = React.createClass({
     render: function () {

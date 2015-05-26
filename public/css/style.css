@@ -180,7 +180,7 @@ td, th {
     background: #fff !important; }
   .navbar {
     display: none; }
-  .btn > .caret, .btn-red > .caret, .backoffice div.row#business-header div.infos .btn-booking > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret, .backoffice div.row#business-header div.infos .dropup > .btn-booking > .caret {
+  .btn > .caret, .btn-red > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -2104,9 +2104,9 @@ input[type="search"] {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
     line-height: 34px; }
-    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="date"].btn-booking, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="time"].btn-booking, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > input[type="month"].btn-booking, .input-group-sm input[type="month"] {
+    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm > .input-group-btn > input[type="date"].btn-red, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm > .input-group-btn > input[type="time"].btn-red, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm > .input-group-btn > input[type="month"].btn-red, .input-group-sm input[type="month"] {
       line-height: 30px; }
-    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg > .input-group-btn > input[type="date"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="date"].btn-booking, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg > .input-group-btn > input[type="time"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="time"].btn-booking, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-booking, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg > .input-group-btn > input[type="month"].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > input[type="month"].btn-booking, .input-group-lg input[type="month"] {
+    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg > .input-group-btn > input[type="date"].btn-red, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg > .input-group-btn > input[type="time"].btn-red, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg > .input-group-btn > input[type="month"].btn-red, .input-group-lg input[type="month"] {
       line-height: 46px; } }
 
 .form-group {
@@ -2159,22 +2159,22 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 34px; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .input-group-lg > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .form-control-static.btn-booking, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .form-control-static.btn-booking {
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .input-group-lg > .input-group-btn > .form-control-static.btn-red, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn-red {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking {
+.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select.btn-booking {
+select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > textarea.btn-booking, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select[multiple].btn-booking {
+textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn-red {
   height: auto; }
 
 .form-group-sm .form-control {
@@ -2195,18 +2195,18 @@ textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > te
   line-height: 1.5;
   min-height: 32px; }
 
-.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking {
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select.btn-booking {
+select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > textarea.btn-booking, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select[multiple].btn-booking {
+textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn-red {
   height: auto; }
 
 .form-group-lg .form-control {
@@ -2244,12 +2244,12 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking + .form-control-feedback {
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking + .form-control-feedback {
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px; }
@@ -2378,7 +2378,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px; } }
 
-.btn, .btn-red, .backoffice div.row#business-header div.infos .btn-booking, .backoffice .btn-red {
+.btn, .btn-red {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2397,19 +2397,19 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking, .btn:active:focus, .btn-red:active:focus, .backoffice div.row#business-header div.infos .btn-booking:active:focus, .btn:active.focus, .btn-red:active.focus, .backoffice div.row#business-header div.infos .btn-booking:active.focus, .btn.active:focus, .active.btn-red:focus, .backoffice div.row#business-header div.infos .active.btn-booking:focus, .btn.active.focus, .active.focus.btn-red, .backoffice div.row#business-header div.infos .active.focus.btn-booking {
+  .btn:focus, .btn-red:focus, .btn.focus, .focus.btn-red, .btn:active:focus, .btn-red:active:focus, .btn:active.focus, .btn-red:active.focus, .btn.active:focus, .active.btn-red:focus, .btn.active.focus, .active.focus.btn-red {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover, .btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus, .btn.focus, .focus.btn-red, .backoffice div.row#business-header div.infos .focus.btn-booking {
+  .btn:hover, .btn-red:hover, .btn:focus, .btn-red:focus, .btn.focus, .focus.btn-red {
     color: #333;
     text-decoration: none; }
-  .btn:active, .btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active, .btn.active, .active.btn-red, .backoffice div.row#business-header div.infos .active.btn-booking {
+  .btn:active, .btn-red:active, .btn.active, .active.btn-red {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .disabled.btn-red, .backoffice div.row#business-header div.infos .disabled.btn-booking, .btn[disabled], [disabled].btn-red, .backoffice div.row#business-header div.infos [disabled].btn-booking, fieldset[disabled] .btn, fieldset[disabled] .btn-red, fieldset[disabled] .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos fieldset[disabled] .btn-booking {
+  .btn.disabled, .disabled.btn-red, .btn[disabled], [disabled].btn-red, fieldset[disabled] .btn, fieldset[disabled] .btn-red {
     cursor: false;
     pointer-events: none;
     opacity: 0.65;
@@ -2537,32 +2537,32 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-booking {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-block, .backoffice div.row#business-header div.infos .btn-booking {
+.btn-block {
   display: block;
   width: 100%; }
 
-.btn-block + .btn-block, .backoffice div.row#business-header div.infos .btn-booking + .btn-block, .backoffice div.row#business-header div.infos .btn-block + .btn-booking, .backoffice div.row#business-header div.infos .btn-booking + .btn-booking {
+.btn-block + .btn-block {
   margin-top: 5px; }
 
-input[type="submit"].btn-block, .backoffice div.row#business-header div.infos input[type="submit"].btn-booking, input[type="reset"].btn-block, .backoffice div.row#business-header div.infos input[type="reset"].btn-booking, input[type="button"].btn-block, .backoffice div.row#business-header div.infos input[type="button"].btn-booking {
+input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
   width: 100%; }
 
 .fade {
@@ -2611,7 +2611,7 @@ tbody.collapse.in {
 .dropdown-toggle:focus {
   outline: 0; }
 
-.dropdown-menu, .backoffice .twitter-typeahead .tt-dropdown-menu {
+.dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -2631,15 +2631,15 @@ tbody.collapse.in {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
-  .dropdown-menu.pull-right, .backoffice .twitter-typeahead .pull-right.tt-dropdown-menu {
+  .dropdown-menu.pull-right {
     right: 0;
     left: auto; }
-  .dropdown-menu .divider, .backoffice .twitter-typeahead .tt-dropdown-menu .divider {
+  .dropdown-menu .divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
     background-color: #e5e5e5; }
-  .dropdown-menu > li > a, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a {
+  .dropdown-menu > li > a {
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -2648,27 +2648,27 @@ tbody.collapse.in {
     color: #333333;
     white-space: nowrap; }
 
-.dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5; }
 
-.dropdown-menu > .active > a, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: #fff;
   text-decoration: none;
   outline: 0;
   background-color: #337ab7; }
 
-.dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   color: #777777; }
-.dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: false; }
 
-.open > .dropdown-menu, .backoffice .twitter-typeahead .open > .tt-dropdown-menu {
+.open > .dropdown-menu {
   display: block; }
 .open > a {
   outline: 0; }
@@ -2697,7 +2697,7 @@ tbody.collapse.in {
   top: 0;
   z-index: 990; }
 
-.pull-right > .dropdown-menu, .backoffice .twitter-typeahead .pull-right > .tt-dropdown-menu {
+.pull-right > .dropdown-menu {
   right: 0;
   left: auto; }
 
@@ -2705,13 +2705,13 @@ tbody.collapse.in {
   border-top: 0;
   border-bottom: 4px solid;
   content: ""; }
-.dropup .dropdown-menu, .dropup .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .dropup .tt-dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu, .navbar-fixed-bottom .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-fixed-bottom .dropdown .tt-dropdown-menu {
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 2px; }
 
 @media (min-width: 768px) {
-  .navbar-right .dropdown-menu, .navbar-right .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-right .tt-dropdown-menu {
+  .navbar-right .dropdown-menu {
     right: 0;
     left: auto; }
   .navbar-right .dropdown-menu-left {
@@ -2722,13 +2722,13 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-booking, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking {
+  .btn-group > .btn, .btn-group > .btn-red, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group > .active.btn-booking, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:active, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .active.btn-booking {
+    .btn-group > .btn:hover, .btn-group > .btn-red:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-red + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-group, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn-group + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-group + .btn-booking, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -2740,44 +2740,44 @@ tbody.collapse.in {
     clear: both; }
   .btn-toolbar .btn-group, .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .btn-toolbar > .btn-red, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+  .btn-toolbar > .btn, .btn-toolbar > .btn-red, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .btn-group > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child {
+.btn-group > .btn:first-child, .btn-group > .btn-red:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group-lg.btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -2788,17 +2788,17 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .btn-red .caret, .backoffice div.row#business-header div.infos .btn-booking .caret {
+.btn .caret, .btn-red .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret, .dropup .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret, .backoffice div.row#business-header div.infos .dropup .btn-group-lg > .btn-booking .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
   display: block;
   float: none;
   width: 100%;
@@ -2808,31 +2808,31 @@ tbody.collapse.in {
   display: table; }
 .btn-group-vertical > .btn-group:after {
   clear: both; }
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
   float: none; }
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group + .btn-booking, .btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child) {
   border-radius: 0; }
-.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-booking:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-booking:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2841,16 +2841,16 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .btn-group-justified > .btn-red, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-booking, .btn-group-justified > .btn-group {
+  .btn-group-justified > .btn, .btn-group-justified > .btn-red, .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red, .btn-group-justified > .btn-group .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-group .btn-booking {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red {
     width: 100%; }
-  .btn-group-justified > .btn-group .dropdown-menu, .btn-group-justified > .btn-group .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .btn-group-justified > .btn-group .tt-dropdown-menu {
+  .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-group > .btn-booking input[type="checkbox"] {
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-red input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -2890,25 +2890,25 @@ tbody.collapse.in {
   background-color: #eeeeee;
   border: 1px solid #ccc;
   border-radius: 4px; }
-  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .input-group-addon.btn-booking {
+  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .input-group-addon.btn-booking {
+  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
   .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group > .btn-booking, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-booking {
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .btn-group > .btn-red, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-group > .btn-booking, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-booking {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .btn-group > .btn-red, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2919,15 +2919,15 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking {
+  .input-group-btn > .btn, .input-group-btn > .btn-red {
     position: relative; }
-    .input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-red {
+    .input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn-red:focus, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:focus, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:active {
+    .input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn-red:focus, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .btn-group {
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .btn-group {
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-group {
     margin-left: -1px; }
 
 .nav {
@@ -3009,7 +3009,7 @@ tbody.collapse.in {
     .nav-justified > li > a, .nav-tabs.nav-justified > li > a {
       text-align: center;
       margin-bottom: 5px; }
-  .nav-justified > .dropdown .dropdown-menu, .nav-justified > .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .nav-justified > .dropdown .tt-dropdown-menu {
+  .nav-justified > .dropdown .dropdown-menu {
     top: auto;
     left: auto; }
   @media (min-width: 768px) {
@@ -3038,7 +3038,7 @@ tbody.collapse.in {
 .tab-content > .active {
   display: block; }
 
-.nav-tabs .dropdown-menu, .nav-tabs .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .nav-tabs .tt-dropdown-menu {
+.nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
@@ -3180,7 +3180,7 @@ tbody.collapse.in {
     padding-bottom: 10px;
     line-height: 20px; }
   @media (max-width: 767px) {
-    .navbar-nav .open .dropdown-menu, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu {
+    .navbar-nav .open .dropdown-menu {
       position: static;
       float: none;
       width: auto;
@@ -3188,11 +3188,11 @@ tbody.collapse.in {
       background-color: transparent;
       border: 0;
       box-shadow: none; }
-      .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu .dropdown-header, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu .dropdown-header {
+      .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
         padding: 5px 15px 5px 25px; }
-      .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a {
+      .navbar-nav .open .dropdown-menu > li > a {
         line-height: 20px; }
-        .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+        .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
           background-image: none; } }
   @media (min-width: 768px) {
     .navbar-nav {
@@ -3263,12 +3263,12 @@ tbody.collapse.in {
       -webkit-box-shadow: none;
       box-shadow: none; } }
 
-.navbar-nav > li > .dropdown-menu, .backoffice .twitter-typeahead .navbar-nav > li > .tt-dropdown-menu {
+.navbar-nav > li > .dropdown-menu {
   margin-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .backoffice .twitter-typeahead .navbar-nav > li > .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-fixed-bottom .navbar-nav > li > .tt-dropdown-menu {
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -3278,10 +3278,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .navbar-btn.btn-booking {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .navbar-btn.btn-booking {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -3336,15 +3336,15 @@ tbody.collapse.in {
     background-color: #e7e7e7;
     color: #555; }
   @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
       color: #777; }
-      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #333;
         background-color: transparent; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #555;
       background-color: #e7e7e7; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
   .navbar-default .navbar-link {
@@ -3391,19 +3391,19 @@ tbody.collapse.in {
     background-color: #090909;
     color: #fff; }
   @media (max-width: 767px) {
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .dropdown-header, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .dropdown-header {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
       border-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu .divider, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu .divider {
+    .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
       color: #9d9d9d; }
-      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #fff;
         background-color: transparent; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #fff;
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #444;
       background-color: transparent; } }
   .navbar-inverse .navbar-link {
@@ -3535,7 +3535,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .btn-red .label, .backoffice div.row#business-header div.infos .btn-booking .label {
+  .btn .label, .btn-red .label {
     position: relative;
     top: -1px; }
 
@@ -3544,7 +3544,7 @@ a.label:hover, a.label:focus {
   text-decoration: none;
   cursor: pointer; }
 
-.label-default, .label-red, .label-discount, .backoffice .label-red, .backoffice .label-discount {
+.label-default, .label-red, .label-discount {
   background-color: #777777; }
   .label-default[href]:hover, [href].label-red:hover, [href].label-discount:hover, .label-default[href]:focus, [href].label-red:focus, [href].label-discount:focus {
     background-color: #5e5e5e; }
@@ -3589,10 +3589,10 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .btn-red .badge, .backoffice div.row#business-header div.infos .btn-booking .badge {
+  .btn .badge, .btn-red .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -4309,12 +4309,12 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red, .modal-footer .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-red + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-red {
+  .modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-red + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-red {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red {
     margin-left: -1px; }
-  .modal-footer .btn-block + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-block, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-block + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-block + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking {
+  .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
 
 .modal-scrollbar-measure {
@@ -4691,7 +4691,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .btn-red, .carousel-caption .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .carousel-caption .btn-booking {
+  .carousel-caption .btn, .carousel-caption .btn-red {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -4932,21 +4932,21 @@ button.close {
     font-size: 1.6em;
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2); }
-  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking, .btn-group-lg > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking, .btn-lg.btn-social-icon {
+  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-group-lg > .btn-social-icon.btn-red, .btn-group-lg > .btn-social.btn-red, .btn-lg.btn-social-icon {
     padding-left: 61px; }
-    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-group-lg > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking :first-child, .btn-group-lg > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social.btn-booking :first-child, .btn-lg.btn-social-icon :first-child {
+    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-group-lg > .btn-social-icon.btn-red :first-child, .btn-group-lg > .btn-social.btn-red :first-child, .btn-lg.btn-social-icon :first-child {
       line-height: 45px;
       width: 45px;
       font-size: 1.8em; }
-  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking, .btn-group-sm > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking, .btn-sm.btn-social-icon {
+  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-group-sm > .btn-social-icon.btn-red, .btn-group-sm > .btn-social.btn-red, .btn-sm.btn-social-icon {
     padding-left: 38px; }
-    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-group-sm > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking :first-child, .btn-group-sm > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social.btn-booking :first-child, .btn-sm.btn-social-icon :first-child {
+    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-group-sm > .btn-social-icon.btn-red :first-child, .btn-group-sm > .btn-social.btn-red :first-child, .btn-sm.btn-social-icon :first-child {
       line-height: 28px;
       width: 28px;
       font-size: 1.4em; }
-  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking, .btn-group-xs > .btn-social.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking, .btn-xs.btn-social-icon {
+  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-group-xs > .btn-social-icon.btn-red, .btn-group-xs > .btn-social.btn-red, .btn-xs.btn-social-icon {
     padding-left: 30px; }
-    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-group-xs > .btn-social-icon.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking :first-child, .btn-group-xs > .btn-social.btn-red :first-child, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social.btn-booking :first-child, .btn-xs.btn-social-icon :first-child {
+    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-group-xs > .btn-social-icon.btn-red :first-child, .btn-group-xs > .btn-social.btn-red :first-child, .btn-xs.btn-social-icon :first-child {
       line-height: 20px;
       width: 20px;
       font-size: 1.2em; }
@@ -4959,17 +4959,17 @@ button.close {
     border: none;
     text-align: center;
     width: 100% !important; }
-  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .btn-group-lg > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .btn-group-lg > .btn-social-icon.btn-red {
     height: 45px;
     width: 45px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .btn-group-sm > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .btn-group-sm > .btn-social-icon.btn-red {
     height: 30px;
     width: 30px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .btn-group-xs > .btn-social-icon.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-social-icon.btn-booking {
+  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .btn-group-xs > .btn-social-icon.btn-red {
     height: 22px;
     width: 22px;
     padding-left: 0;
@@ -7117,7 +7117,7 @@ table {
     display: none; }
   .table td, .table th {
     background-color: #fff !important; }
-  .btn > .caret, .btn-red > .caret, .backoffice div.row#business-header div.infos .btn-booking > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret, .backoffice div.row#business-header div.infos .dropup > .btn-booking > .caret {
+  .btn > .caret, .btn-red > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -8240,32 +8240,32 @@ textarea.form-control {
 input[type="radio"][disabled], input[type="checkbox"][disabled], .radio[disabled], .radio-inline[disabled], .checkbox[disabled], .checkbox-inline[disabled], fieldset[disabled] input[type="radio"], fieldset[disabled] input[type="checkbox"], fieldset[disabled] .radio, fieldset[disabled] .radio-inline, fieldset[disabled] .checkbox, fieldset[disabled] .checkbox-inline {
   cursor: not-allowed; }
 
-.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking {
+.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > select.btn-booking {
+select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > textarea.btn-booking {
+textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red {
   height: auto; }
 
-.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking {
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > select.btn-booking {
+select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > textarea.btn-booking {
+textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red {
   height: auto; }
 
 .has-warning .help-block, .has-warning .control-label, .has-warning .radio, .has-warning .checkbox, .has-warning .radio-inline, .has-warning .checkbox-inline {
@@ -8388,7 +8388,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   .form-horizontal .control-label {
     text-align: right; } }
 
-.btn, .btn-red, .backoffice div.row#business-header div.infos .btn-booking, .backoffice .btn-red {
+.btn, .btn-red {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -8408,23 +8408,23 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   -o-user-select: none;
   user-select: none; }
 
-.btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus {
+.btn:focus, .btn-red:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
-.btn:hover, .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover, .btn:focus, .btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus {
+.btn:hover, .btn-red:hover, .btn:focus, .btn-red:focus {
   color: #333333;
   text-decoration: none; }
 
-.btn:active, .btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active, .btn.active, .active.btn-red, .backoffice div.row#business-header div.infos .active.btn-booking {
+.btn:active, .btn-red:active, .btn.active, .active.btn-red {
   outline: 0;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-.btn.disabled, .disabled.btn-red, .backoffice div.row#business-header div.infos .disabled.btn-booking, .btn[disabled], [disabled].btn-red, .backoffice div.row#business-header div.infos [disabled].btn-booking, fieldset[disabled] .btn, fieldset[disabled] .btn-red, fieldset[disabled] .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos fieldset[disabled] .btn-booking {
+.btn.disabled, .disabled.btn-red, .btn[disabled], [disabled].btn-red, fieldset[disabled] .btn, fieldset[disabled] .btn-red {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.65;
@@ -8583,34 +8583,34 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   color: #999999;
   text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-booking {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-block, .backoffice div.row#business-header div.infos .btn-booking {
+.btn-block {
   display: block;
   width: 100%;
   padding-left: 0;
   padding-right: 0; }
 
-.btn-block + .btn-block, .backoffice div.row#business-header div.infos .btn-booking + .btn-block, .backoffice div.row#business-header div.infos .btn-block + .btn-booking, .backoffice div.row#business-header div.infos .btn-booking + .btn-booking {
+.btn-block + .btn-block {
   margin-top: 5px; }
 
-input[type="submit"].btn-block, .backoffice div.row#business-header div.infos input[type="submit"].btn-booking, input[type="reset"].btn-block, .backoffice div.row#business-header div.infos input[type="reset"].btn-booking, input[type="button"].btn-block, .backoffice div.row#business-header div.infos input[type="button"].btn-booking {
+input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
   width: 100%; }
 
 .fade {
@@ -9275,7 +9275,7 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
 .dropdown-toggle:focus {
   outline: 0; }
 
-.dropdown-menu, .backoffice .twitter-typeahead .tt-dropdown-menu {
+.dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -9296,17 +9296,17 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
 
-.dropdown-menu.pull-right, .backoffice .twitter-typeahead .pull-right.tt-dropdown-menu {
+.dropdown-menu.pull-right {
   right: 0;
   left: auto; }
 
-.dropdown-menu .divider, .backoffice .twitter-typeahead .tt-dropdown-menu .divider {
+.dropdown-menu .divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
   background-color: #e5e5e5; }
 
-.dropdown-menu > li > a, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a {
+.dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;
   clear: both;
@@ -9315,28 +9315,28 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   color: #333333;
   white-space: nowrap; }
 
-.dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5; }
 
-.dropdown-menu > .active > a, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
   background-color: #428bca; }
 
-.dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   color: #999999; }
 
-.dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed; }
 
-.open > .dropdown-menu, .backoffice .twitter-typeahead .open > .tt-dropdown-menu {
+.open > .dropdown-menu {
   display: block; }
 
 .open > a {
@@ -9357,7 +9357,7 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   top: 0;
   z-index: 990; }
 
-.pull-right > .dropdown-menu, .backoffice .twitter-typeahead .pull-right > .tt-dropdown-menu {
+.pull-right > .dropdown-menu {
   right: 0;
   left: auto; }
 
@@ -9366,13 +9366,13 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   border-bottom: 4px solid;
   content: ""; }
 
-.dropup .dropdown-menu, .dropup .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .dropup .tt-dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu, .navbar-fixed-bottom .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-fixed-bottom .dropdown .tt-dropdown-menu {
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 1px; }
 
 @media (min-width: 768px) {
-  .navbar-right .dropdown-menu, .navbar-right .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-right .tt-dropdown-menu {
+  .navbar-right .dropdown-menu {
     right: 0;
     left: auto; } }
 
@@ -9381,17 +9381,17 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   display: inline-block;
   vertical-align: middle; }
 
-.btn-group > .btn, .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-booking, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking {
+.btn-group > .btn, .btn-group > .btn-red, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red {
   position: relative;
   float: left; }
 
-.btn-group > .btn:hover, .btn-group > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:hover, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:focus, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group > .active.btn-booking, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .active.btn-booking {
+.btn-group > .btn:hover, .btn-group > .btn-red:hover, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red {
   z-index: 2; }
 
-.btn-group > .btn:focus, .btn-group > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:focus, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:focus {
+.btn-group > .btn:focus, .btn-group > .btn-red:focus, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus {
   outline: none; }
 
-.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-red + .btn-booking, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-group, .backoffice div.row#business-header div.infos .btn-group .btn-booking + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .backoffice div.row#business-header div.infos .btn-group + .btn-booking, .backoffice div.row#business-header div.infos .btn-group .btn-group + .btn-booking, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar:before, .btn-toolbar:after {
@@ -9411,63 +9411,63 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
 .btn-toolbar .btn-group {
   float: left; }
 
-.btn-toolbar > .btn + .btn, .btn-toolbar > .btn-red + .btn, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking + .btn, .btn-toolbar > .btn + .btn-red, .btn-toolbar > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .btn-toolbar > .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking + .btn-red, .btn-toolbar > .btn-group + .btn, .btn-toolbar > .btn-group + .btn-red, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-group + .btn-booking, .btn-toolbar > .btn + .btn-group, .btn-toolbar > .btn-red + .btn-group, .backoffice div.row#business-header div.infos .btn-toolbar > .btn-booking + .btn-group, .btn-toolbar > .btn-group + .btn-group {
+.btn-toolbar > .btn + .btn, .btn-toolbar > .btn-red + .btn, .btn-toolbar > .btn + .btn-red, .btn-toolbar > .btn-red + .btn-red, .btn-toolbar > .btn-group + .btn, .btn-toolbar > .btn-group + .btn-red, .btn-toolbar > .btn + .btn-group, .btn-toolbar > .btn-red + .btn-group, .btn-toolbar > .btn-group + .btn-group {
   margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .btn-group > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child {
+.btn-group > .btn:first-child, .btn-group > .btn-red:first-child {
   margin-left: 0; }
 
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:first-child:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group > .btn-booking:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child > .btn:last-child, .btn-group > .btn-group:first-child > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:first-child > .btn-booking:last-child, .btn-group > .btn-group:first-child > .dropdown-toggle {
+.btn-group > .btn-group:first-child > .btn:last-child, .btn-group > .btn-group:first-child > .btn-red:last-child, .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child > .btn:first-child, .btn-group > .btn-group:last-child > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group > .btn-group:last-child > .btn-booking:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child, .btn-group > .btn-group:last-child > .btn-red:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group-xs > .btn, .btn-group-xs > .btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .btn-booking {
+.btn-group-xs > .btn, .btn-group-xs > .btn-red {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-group-sm > .btn, .btn-group-sm > .btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .btn-booking {
+.btn-group-sm > .btn, .btn-group-sm > .btn-red {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-group-lg > .btn, .btn-group-lg > .btn-red, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking {
+.btn-group-lg > .btn, .btn-group-lg > .btn-red {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px; }
 
-.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle, .backoffice div.row#business-header div.infos .btn-group-lg.btn-group > .btn-booking + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -9481,17 +9481,17 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   -moz-box-shadow: none;
   box-shadow: none; }
 
-.btn .caret, .btn-red .caret, .backoffice div.row#business-header div.infos .btn-booking .caret {
+.btn .caret, .btn-red .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret, .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret, .dropup .backoffice div.row#business-header div.infos .btn-group-lg > .btn-booking .caret, .backoffice div.row#business-header div.infos .dropup .btn-group-lg > .btn-booking .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
   display: block;
   float: none;
   width: 100%;
@@ -9511,34 +9511,34 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
 .btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group > .btn-booking {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
   float: none; }
 
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group + .btn-booking, .btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child), .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-booking:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-booking {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child > .btn:last-child, .btn-group-vertical > .btn-group:first-child > .btn-red:last-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:first-child > .btn-booking:last-child, .btn-group-vertical > .btn-group:first-child > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child > .btn:last-child, .btn-group-vertical > .btn-group:first-child > .btn-red:last-child, .btn-group-vertical > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child > .btn:first-child, .btn-group-vertical > .btn-group:last-child > .btn-red:first-child, .backoffice div.row#business-header div.infos .btn-group-vertical > .btn-group:last-child > .btn-booking:first-child {
+.btn-group-vertical > .btn-group:last-child > .btn:first-child, .btn-group-vertical > .btn-group:last-child > .btn-red:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -9548,15 +9548,15 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   table-layout: fixed;
   border-collapse: separate; }
 
-.btn-group-justified > .btn, .btn-group-justified > .btn-red, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-booking, .btn-group-justified > .btn-group {
+.btn-group-justified > .btn, .btn-group-justified > .btn-red, .btn-group-justified > .btn-group {
   float: none;
   display: table-cell;
   width: 1%; }
 
-.btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red, .btn-group-justified > .btn-group .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .btn-group-justified > .btn-group .btn-booking {
+.btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red {
   width: 100%; }
 
-[data-toggle="buttons"] > .btn > input[type="radio"], [data-toggle="buttons"] > .btn-red > input[type="radio"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking > input[type="radio"], [data-toggle="buttons"] > .btn > input[type="checkbox"], [data-toggle="buttons"] > .btn-red > input[type="checkbox"], .backoffice div.row#business-header div.infos [data-toggle="buttons"] > .btn-booking > input[type="checkbox"] {
+[data-toggle="buttons"] > .btn > input[type="radio"], [data-toggle="buttons"] > .btn-red > input[type="radio"], [data-toggle="buttons"] > .btn > input[type="checkbox"], [data-toggle="buttons"] > .btn-red > input[type="checkbox"] {
   display: none; }
 
 .input-group {
@@ -9573,32 +9573,32 @@ input[type="submit"].btn-block, .backoffice div.row#business-header div.infos in
   width: 100%;
   margin-bottom: 0; }
 
-.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .btn-booking {
+.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px; }
 
-select.input-group-lg > .form-control, select.input-group-lg > .input-group-addon, select.input-group-lg > .input-group-btn > .btn, select.input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos select.input-group-lg > .input-group-btn > .btn-booking {
+select.input-group-lg > .form-control, select.input-group-lg > .input-group-addon, select.input-group-lg > .input-group-btn > .btn, select.input-group-lg > .input-group-btn > .btn-red {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-group-lg > .form-control, textarea.input-group-lg > .input-group-addon, textarea.input-group-lg > .input-group-btn > .btn, textarea.input-group-lg > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos textarea.input-group-lg > .input-group-btn > .btn-booking {
+textarea.input-group-lg > .form-control, textarea.input-group-lg > .input-group-addon, textarea.input-group-lg > .input-group-btn > .btn, textarea.input-group-lg > .input-group-btn > .btn-red {
   height: auto; }
 
-.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .btn-booking {
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-select.input-group-sm > .form-control, select.input-group-sm > .input-group-addon, select.input-group-sm > .input-group-btn > .btn, select.input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos select.input-group-sm > .input-group-btn > .btn-booking {
+select.input-group-sm > .form-control, select.input-group-sm > .input-group-addon, select.input-group-sm > .input-group-btn > .btn, select.input-group-sm > .input-group-btn > .btn-red {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-group-btn > .btn, textarea.input-group-sm > .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos textarea.input-group-sm > .input-group-btn > .btn-booking {
+textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-group-btn > .btn, textarea.input-group-sm > .input-group-btn > .btn-red {
   height: auto; }
 
 .input-group-addon, .input-group-btn, .input-group .form-control {
@@ -9623,12 +9623,12 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   border: 1px solid #cccccc;
   border-radius: 4px; }
 
-.input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-sm > .input-group-btn > .input-group-addon.btn-booking {
+.input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 3px; }
 
-.input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red, .backoffice div.row#business-header div.infos .input-group-lg > .input-group-btn > .input-group-addon.btn-booking {
+.input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px; }
@@ -9636,14 +9636,14 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
   margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking:not(:last-child):not(.dropdown-toggle) {
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking:not(:first-child) {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -9654,19 +9654,19 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   position: relative;
   white-space: nowrap; }
 
-.input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:first-child > .btn-booking {
+.input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red {
   margin-right: -1px; }
 
-.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn:last-child > .btn-booking {
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red {
   margin-left: -1px; }
 
-.input-group-btn > .btn, .input-group-btn > .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking {
+.input-group-btn > .btn, .input-group-btn > .btn-red {
   position: relative; }
 
-.input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red, .backoffice div.row#business-header div.infos .input-group-btn > .btn + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking + .btn-red {
+.input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red {
   margin-left: -4px; }
 
-.input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:hover, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active, .backoffice div.row#business-header div.infos .input-group-btn > .btn-booking:active {
+.input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active {
   z-index: 2; }
 
 .nav {
@@ -9757,7 +9757,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   text-align: center;
   margin-bottom: 5px; }
 
-.nav-tabs.nav-justified > .dropdown .dropdown-menu, .nav-tabs.nav-justified > .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .nav-tabs.nav-justified > .dropdown .tt-dropdown-menu {
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto; }
 
@@ -9812,7 +9812,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   text-align: center;
   margin-bottom: 5px; }
 
-.nav-justified > .dropdown .dropdown-menu, .nav-justified > .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .nav-justified > .dropdown .tt-dropdown-menu {
+.nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto; }
 
@@ -9846,7 +9846,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .tab-content > .active {
   display: block; }
 
-.nav-tabs .dropdown-menu, .nav-tabs .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .nav-tabs .tt-dropdown-menu {
+.nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
@@ -10018,7 +10018,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   line-height: 20px; }
 
 @media (max-width: 767px) {
-  .navbar-nav .open .dropdown-menu, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu {
+  .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
     width: auto;
@@ -10026,11 +10026,11 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     background-color: transparent;
     border: 0;
     box-shadow: none; }
-  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu .dropdown-header, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu .dropdown-header {
+  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
     padding: 5px 15px 5px 25px; }
-  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a {
+  .navbar-nav .open .dropdown-menu > li > a {
     line-height: 20px; }
-  .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+  .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
     background-image: none; } }
 
 @media (min-width: 768px) {
@@ -10099,16 +10099,16 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   .navbar-form.navbar-right:last-child {
     margin-right: -15px; } }
 
-.navbar-nav > li > .dropdown-menu, .backoffice .twitter-typeahead .navbar-nav > li > .tt-dropdown-menu {
+.navbar-nav > li > .dropdown-menu {
   margin-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .backoffice .twitter-typeahead .navbar-nav > li > .tt-dropdown-menu, .backoffice .twitter-typeahead .navbar-fixed-bottom .navbar-nav > li > .tt-dropdown-menu {
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.navbar-nav.pull-right > li > .dropdown-menu, .backoffice .twitter-typeahead .navbar-nav.pull-right > li > .tt-dropdown-menu, .navbar-nav > li > .dropdown-menu.pull-right, .backoffice .twitter-typeahead .navbar-nav > li > .pull-right.tt-dropdown-menu {
+.navbar-nav.pull-right > li > .dropdown-menu, .navbar-nav > li > .dropdown-menu.pull-right {
   left: auto;
   right: 0; }
 
@@ -10116,11 +10116,11 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   margin-top: 8px;
   margin-bottom: 8px; }
 
-.navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-sm > .navbar-btn.btn-booking {
+.navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-.navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red, .backoffice div.row#business-header div.infos .btn-group-xs > .navbar-btn.btn-booking {
+.navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red {
   margin-top: 14px;
   margin-bottom: 14px; }
 
@@ -10182,15 +10182,15 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   color: #555555; }
 
 @media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #777777; }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #333333;
     background-color: transparent; }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .active > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555555;
     background-color: #e7e7e7; }
-  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .navbar-default .navbar-nav .open .tt-dropdown-menu > .disabled > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #cccccc;
     background-color: transparent; } }
 
@@ -10246,19 +10246,19 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
   color: #ffffff; }
 
 @media (max-width: 767px) {
-  .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .dropdown-header, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .dropdown-header {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     border-color: #080808; }
-  .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu .divider, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu .divider {
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
     background-color: #080808; }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #999999; }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > li > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > li > a:focus {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
     background-color: transparent; }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .active > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .active > a:focus {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
     background-color: #080808; }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:hover, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .navbar-nav .open .backoffice .twitter-typeahead .tt-dropdown-menu > .disabled > a:focus, .backoffice .twitter-typeahead .navbar-inverse .navbar-nav .open .tt-dropdown-menu > .disabled > a:focus {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #444444;
     background-color: transparent; } }
 
@@ -10419,11 +10419,11 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .label:empty {
   display: none; }
 
-.btn .label, .btn-red .label, .backoffice div.row#business-header div.infos .btn-booking .label {
+.btn .label, .btn-red .label {
   position: relative;
   top: -1px; }
 
-.label-default, .label-red, .label-discount, .backoffice .label-red, .backoffice .label-discount {
+.label-default, .label-red, .label-discount {
   background-color: #999999; }
 
 .label-default[href]:hover, [href].label-red:hover, [href].label-discount:hover, .label-default[href]:focus, [href].label-red:focus, [href].label-discount:focus {
@@ -10476,7 +10476,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .badge:empty {
   display: none; }
 
-.btn .badge, .btn-red .badge, .backoffice div.row#business-header div.infos .btn-booking .badge {
+.btn .badge, .btn-red .badge {
   position: relative;
   top: -1px; }
 
@@ -11128,14 +11128,14 @@ button.close {
 .modal-footer:after {
   clear: both; }
 
-.modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red, .modal-footer .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-red + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-red {
+.modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red {
   margin-left: 5px;
   margin-bottom: 0; }
 
-.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-red + .btn-booking, .backoffice .modal-footer .btn-group div.row#business-header div.infos .btn-red + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-red + .btn-booking, .modal-footer .btn-group .backoffice div.row#business-header div.infos .btn-booking + .btn-red, .backoffice div.row#business-header div.infos .modal-footer .btn-group .btn-booking + .btn-red {
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red {
   margin-left: -1px; }
 
-.modal-footer .btn-block + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-block, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-block, .modal-footer .backoffice div.row#business-header div.infos .btn-block + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-block + .btn-booking, .modal-footer .backoffice div.row#business-header div.infos .btn-booking + .btn-booking, .backoffice div.row#business-header div.infos .modal-footer .btn-booking + .btn-booking {
+.modal-footer .btn-block + .btn-block {
   margin-left: 0; }
 
 @media screen and (min-width: 768px) {
@@ -11513,7 +11513,7 @@ button.close {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
 
-.carousel-caption .btn, .carousel-caption .btn-red, .carousel-caption .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .carousel-caption .btn-booking {
+.carousel-caption .btn, .carousel-caption .btn-red {
   text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -11906,7 +11906,7 @@ th.hidden-lg, td.hidden-lg {
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red, .backoffice div.row#business-header div.infos .btn-booking {
+.btn-red {
   background-color: #fc5a5f;
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
@@ -11919,7 +11919,7 @@ th.hidden-lg, td.hidden-lg {
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out; }
 
-.btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover {
+.btn-red:hover {
   background-color: #fc4147;
   color: white;
   transition: all 0.3s ease-out;
@@ -11928,13 +11928,13 @@ th.hidden-lg, td.hidden-lg {
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out; }
 
-.btn-red:active, .backoffice div.row#business-header div.infos .btn-booking:active {
+.btn-red:active {
   background-image: -webkit-linear-gradient(top, #fb3238 10%, #fc4147 100%);
   background-image: linear-gradient(to bottom, #fb3238 10%, #fc4147 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffb3238', endColorstr='#fffc4147', GradientType=0); }
 
-.btn-red:focus, .backoffice div.row#business-header div.infos .btn-booking:focus {
+.btn-red:focus {
   background-color: #fc4147;
   color: white; }
 
@@ -12497,7 +12497,7 @@ ul {
   float: left;
   padding-left: 20px; }
 
-.main-searchbar .btn-red, .main-searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .main-searchbar .btn-booking {
+.main-searchbar .btn-red {
   height: 100%;
   text-transform: uppercase;
   float: right;
@@ -12540,7 +12540,7 @@ ul {
   line-height: 40px;
   border-width: 1px; }
 
-.searchbar.small-search .btn-red, .searchbar.small-search .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .searchbar.small-search .btn-booking {
+.searchbar.small-search .btn-red {
   height: 40px;
   line-height: 25px;
   border-radius: 0;
@@ -12549,7 +12549,7 @@ ul {
   width: auto; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .searchbar.small-search .btn-red, .searchbar.small-search .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .searchbar.small-search .btn-booking {
+  .searchbar.small-search .btn-red {
     padding: 6px 10px; } }
 
 figure {
@@ -12775,7 +12775,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 .hairfies .single-hairfie figure:hover figcaption {
   opacity: 1; }
 
-.hairfies .btn-red, .hairfies .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .hairfies .btn-booking {
+.hairfies .btn-red {
   display: block;
   width: 250px;
   margin: 30px auto;
@@ -13017,33 +13017,33 @@ header.white nav ul li a {
 .dropdown {
   font-weight: 400; }
 
-.dropdown .dropdown-menu, .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead .dropdown .tt-dropdown-menu {
+.dropdown .dropdown-menu {
   border: 0;
   border-radius: 2px; }
 
-.dropdown .dropdown-menu li, .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu li, .backoffice .twitter-typeahead .dropdown .tt-dropdown-menu li {
+.dropdown .dropdown-menu li {
   padding: 0;
   font-size: 1em;
   font-size: .7em;
   width: 100%; }
 
-.dropdown .dropdown-menu li a, .dropdown .backoffice .twitter-typeahead .tt-dropdown-menu li a, .backoffice .twitter-typeahead .dropdown .tt-dropdown-menu li a {
+.dropdown .dropdown-menu li a {
   display: block;
   width: 100%; }
 
-header:not(.white) .dropdown-menu, header:not(.white) .backoffice .twitter-typeahead .tt-dropdown-menu, .backoffice .twitter-typeahead header:not(.white) .tt-dropdown-menu {
+header:not(.white) .dropdown-menu {
   background: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; }
 
-header:not(.white) .dropdown-menu li, header:not(.white) .backoffice .twitter-typeahead .tt-dropdown-menu li, .backoffice .twitter-typeahead header:not(.white) .tt-dropdown-menu li {
+header:not(.white) .dropdown-menu li {
   background: transparent; }
 
-header:not(.white) .dropdown-menu a, header:not(.white) .backoffice .twitter-typeahead .tt-dropdown-menu a, .backoffice .twitter-typeahead header:not(.white) .tt-dropdown-menu a {
+header:not(.white) .dropdown-menu a {
   color: white; }
 
-header:not(.white) .dropdown-menu a:hover, header:not(.white) .backoffice .twitter-typeahead .tt-dropdown-menu a:hover, .backoffice .twitter-typeahead header:not(.white) .tt-dropdown-menu a:hover {
+header:not(.white) .dropdown-menu a:hover {
   text-decoration: underline;
   background: transparent; }
 
@@ -13121,7 +13121,7 @@ header:not(.white) .dropdown-menu a:hover, header:not(.white) .backoffice .twitt
   height: 65px;
   margin-bottom: 20px; }
 
-.mobile-nav .mobile-menu .searchbar .btn-red, .mobile-nav .mobile-menu .searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .mobile-nav .mobile-menu .searchbar .btn-booking {
+.mobile-nav .mobile-menu .searchbar .btn-red {
   height: 65px;
   line-height: 3em;
   border-radius: 0;
@@ -13207,12 +13207,12 @@ footer .footer-links li:last-child {
   position: relative;
   height: 2.2em; }
 
-footer .footer-links li:last-child .btn-red, footer .footer-links li:last-child .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos footer .footer-links li:last-child .btn-booking {
+footer .footer-links li:last-child .btn-red {
   position: absolute;
   top: -7px; }
 
 @media screen and (max-width: 880px) {
-  footer .footer-links li:last-child .btn-red, footer .footer-links li:last-child .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos footer .footer-links li:last-child .btn-booking {
+  footer .footer-links li:last-child .btn-red {
     left: -80px; } }
 
 footer .footer-links a {
@@ -13230,7 +13230,7 @@ footer.mobile {
   padding-top: 20px;
   padding-bottom: 85px; }
 
-footer.mobile .btn-red, footer.mobile .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos footer.mobile .btn-booking {
+footer.mobile .btn-red {
   font-size: 1.42em;
   letter-spacing: 0;
   line-height: 1.62em; }
@@ -13303,7 +13303,7 @@ footer.mobile .app-dl {
 .landing .main-searchbar input:nth-child(2) {
   margin-left: -5px; }
 
-.landing .main-searchbar .btn-red, .landing .main-searchbar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .landing .main-searchbar .btn-booking {
+.landing .main-searchbar .btn-red {
   height: 58px;
   font-size: 1.4em;
   text-align: center;
@@ -13386,7 +13386,7 @@ section.home-section figure figcaption a:visited, section.home-section figure fi
   color: white;
   text-decoration: none; }
 
-section.home-section .btn.home-cta, section.home-section .home-cta.btn-red, section.home-section .backoffice div.row#business-header div.infos .home-cta.btn-booking, .backoffice div.row#business-header div.infos section.home-section .home-cta.btn-booking {
+section.home-section .btn.home-cta, section.home-section .home-cta.btn-red {
   display: block;
   margin: 40px auto 0;
   float: none !important; }
@@ -13506,7 +13506,7 @@ section.home-section .btn.home-cta, section.home-section .home-cta.btn-red, sect
 #home section:nth-child(2) figure figcaption p {
   margin-bottom: 0; }
 
-#home section:nth-child(2) figure figcaption .btn-red, #home section:nth-child(2) figure figcaption .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #home section:nth-child(2) figure figcaption .btn-booking {
+#home section:nth-child(2) figure figcaption .btn-red {
   font-size: 12px;
   padding: 3px 7px;
   letter-spacing: 1px;
@@ -13959,7 +13959,7 @@ section.home-footer .row > div p {
 #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
   font-size: 1.4em; }
 
-#content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #content.search .main-content .tab-pane section .btn-booking {
+#content.search .main-content .tab-pane section .btn-red {
   text-transform: uppercase;
   letter-spacing: .5px;
   font-weight: 600;
@@ -14031,7 +14031,7 @@ section.home-footer .row > div p {
     padding-left: 0;
     padding-right: 0;
     padding-top: 15px; }
-  #content.search .main-content .tab-pane#salons .info-bloc .btn-red, #content.search .main-content .tab-pane#salons .info-bloc .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #content.search .main-content .tab-pane#salons .info-bloc .btn-booking, #content.search .main-content .tab-pane#adom .info-bloc .btn-red, #content.search .main-content .tab-pane#adom .info-bloc .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #content.search .main-content .tab-pane#adom .info-bloc .btn-booking {
+  #content.search .main-content .tab-pane#salons .info-bloc .btn-red, #content.search .main-content .tab-pane#adom .info-bloc .btn-red {
     display: block;
     float: none;
     margin: 0 auto;
@@ -14045,7 +14045,7 @@ section.home-footer .row > div p {
   text-transform: none;
   padding-left: 5px; }
 
-#content.search .main-content .tab-pane#hairfies .btn-red, #content.search .main-content .tab-pane#hairfies .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #content.search .main-content .tab-pane#hairfies .btn-booking {
+#content.search .main-content .tab-pane#hairfies .btn-red {
   display: block;
   width: 250px;
   margin: 30px auto;
@@ -14485,7 +14485,7 @@ section.home-footer .row > div p {
 .salon#content .sidebar .calendar {
   margin-bottom: 10px; }
 
-.salon#content .sidebar .phone .btn-red, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking {
+.salon#content .sidebar .phone .btn-red {
   position: relative;
   display: block;
   width: 100%;
@@ -14501,13 +14501,13 @@ section.home-footer .row > div p {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffc5b62', endColorstr='#ffd7474d', GradientType=0); }
 
-.salon#content .sidebar .phone .btn-red:active, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking:active, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking:active {
+.salon#content .sidebar .phone .btn-red:active {
   background-image: -webkit-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
   background-image: linear-gradient(to bottom, #d7474d 0%, #fc5b62 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd7474d', endColorstr='#fffc5b62', GradientType=0); }
 
-.salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking:after, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking:after {
+.salon#content .sidebar .phone .btn-red:after {
   content: " ";
   background: url(../images/icon-phone.png) no-repeat center center;
   position: absolute;
@@ -14517,15 +14517,15 @@ section.home-footer .row > div p {
   top: 21px; }
 
 @media screen and (min-width: 991px) and (max-width: 1199px) {
-  .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking:after, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking:after {
+  .salon#content .sidebar .phone .btn-red:after {
     left: 40px; } }
 
 @media screen and (max-width: 768px) {
-  .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking:after, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking:after {
+  .salon#content .sidebar .phone .btn-red:after {
     left: 20%; } }
 
 @media screen and (max-width: 767px) {
-  .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .backoffice div.row#business-header div.infos .btn-booking:after, .backoffice div.row#business-header div.infos .salon#content .sidebar .phone .btn-booking:after {
+  .salon#content .sidebar .phone .btn-red:after {
     left: 25px; } }
 
 .salon#content .sidebar .promo-sidebar .inline-promo {
@@ -14554,7 +14554,7 @@ section.home-footer .row > div p {
   .salon#content .sidebar .promo-sidebar .inline-promo {
     text-align: center; } }
 
-.salon#content .sidebar .promo-sidebar .btn-red, .salon#content .sidebar .promo-sidebar .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .salon#content .sidebar .promo-sidebar .btn-booking {
+.salon#content .sidebar .promo-sidebar .btn-red {
   display: block;
   font-weight: 600;
   font-size: 1.9em;
@@ -15248,7 +15248,7 @@ section.home-footer .row > div p {
 #content.reservation.confirmation .confirm-bloc-form form label {
   width: 100%; }
 
-#content.reservation.confirmation .confirm-bloc-form form label .icon, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-address, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-address, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-phone, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-phone, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-website, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-website, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-timetable, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-timetable, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-description, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-description, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-right-arrow, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-right-arrow, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-discount, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-discount, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-price, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-price, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-open, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-open, #content.reservation.confirmation .confirm-bloc-form form label .backoffice .icon-closed, .backoffice #content.reservation.confirmation .confirm-bloc-form form label .icon-closed {
+#content.reservation.confirmation .confirm-bloc-form form label .icon {
   background: url(../images/icon-resa-user.png) no-repeat center left;
   width: 16px;
   height: 16px;
@@ -15278,18 +15278,18 @@ section.home-footer .row > div p {
   margin-right: 0;
   padding-left: 13px; }
 
-#content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-address, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-address, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-phone, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-phone, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-website, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-website, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-timetable, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-timetable, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-description, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-description, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-right-arrow, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-right-arrow, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-discount, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-discount, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-price, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-price, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-open, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-open, #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .backoffice .icon-closed, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon-closed {
+#content.reservation.confirmation .confirm-bloc-form form label[for='email'] .icon {
   background: url(../images/icon-resa-mail.png) no-repeat center left;
   width: 17px; }
 
-#content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-address, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-address, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-phone, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-phone, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-website, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-website, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-timetable, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-timetable, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-description, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-description, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-right-arrow, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-right-arrow, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-discount, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-discount, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-price, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-price, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-open, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-open, #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .backoffice .icon-closed, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon-closed {
+#content.reservation.confirmation .confirm-bloc-form form label[for='phone'] .icon {
   background: url(../images/icon-resa-phone.png) no-repeat center left;
   width: 17px; }
 
 #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] {
   padding-left: 0; }
 
-#content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-address, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-address, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-phone, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-phone, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-website, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-website, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-timetable, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-timetable, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-description, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-description, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-right-arrow, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-right-arrow, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-discount, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-discount, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-price, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-price, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-open, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-open, #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .backoffice .icon-closed, .backoffice #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon-closed {
+#content.reservation.confirmation .confirm-bloc-form form label[for='discount'] .icon {
   display: none; }
 
 #content.reservation.confirmation .confirm-bloc-form form label[for='discount'] p.inline {
@@ -15325,7 +15325,7 @@ section.home-footer .row > div p {
   #content.reservation.confirmation label[for='cgu'] {
     padding-left: 30px; } }
 
-#content.reservation.confirmation .btn-red, #content.reservation.confirmation .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos #content.reservation.confirmation .btn-booking {
+#content.reservation.confirmation .btn-red {
   display: block;
   margin: 50px auto;
   border-radius: 5px;
@@ -15386,7 +15386,7 @@ figcaption a.address {
   font-size: 16px; }
 
 /* Homepage Pro */
-.dropdown-menu.login, .backoffice .twitter-typeahead .login.tt-dropdown-menu {
+.dropdown-menu.login {
   right: 0;
   left: auto;
   min-width: 290px;
@@ -15479,17 +15479,17 @@ div#app {
 .label-discount {
   background-color: #ff6600; }
 
-.btn-red, .backoffice div.row#business-header div.infos .btn-booking {
+.btn-red {
   background-color: #fe5b5f;
   color: white;
   border: none; }
-  .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover {
+  .btn-red:hover {
     color: #818896; }
 
-.btn-red a, .backoffice div.row#business-header div.infos .btn-booking a, a .btn-red, a .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos a .btn-booking {
+.btn-red a, a .btn-red {
   color: white;
   text-decoration: none; }
-  .btn-red a:hover, .backoffice div.row#business-header div.infos .btn-booking a:hover, a .btn-red:hover, a .backoffice div.row#business-header div.infos .btn-booking:hover, .backoffice div.row#business-header div.infos a .btn-booking:hover {
+  .btn-red a:hover, a .btn-red:hover {
     text-decoration: none;
     color: #818896; }
 
@@ -15500,10 +15500,12 @@ div#app {
 .home-pro {
   margin-top: -120px;
   width: 100%;
+  min-height: 100%;
   background: url(../img/background-pro-trans.jpg);
   background-position: no-repeat center center fixed;
   padding-top: 100px;
-  background-size: cover; }
+  background-size: cover;
+  font-size: 14px; }
   @media screen and (min-width: 768px) {
     .home-pro {
       height: 100%;
@@ -15514,46 +15516,31 @@ div#app {
       color: black; }
   .home-pro .row.first {
     margin-top: 40px; }
-    .home-pro .row.first .left {
-      padding: 40px; }
-      .home-pro .row.first .left p.list {
-        margin-top: 20px; }
-      .home-pro .row.first .left li {
-        font-size: 16px; }
-      .home-pro .row.first .left p.btn-app-store {
-        text-align: center; }
     .home-pro .row.first .claim {
       background-color: rgba(255, 255, 255, 0.8);
-      padding: 30px; }
+      padding: 30px;
+      margin-bottom: 100px; }
       @media screen and (max-width: 768px) {
         .home-pro .row.first .claim {
-          margin: auto;
-          max-width: 80%; } }
+          margin-top: 150px; } }
       .home-pro .row.first .claim h3 {
         margin-top: 0px;
         font-size: 20px; }
       .home-pro .row.first .claim .form-group {
         margin-bottom: 5px; }
-      .home-pro .row.first .claim .btn-red, .home-pro .row.first .claim .backoffice div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .home-pro .row.first .claim .btn-booking {
+      .home-pro .row.first .claim .btn-red {
         font-weight: 200; }
+      .home-pro .row.first .claim .contact {
+        margin-top: 40px; }
+        .home-pro .row.first .claim .contact a {
+          color: black;
+          font-weight: bold; }
     @media screen and (max-width: 768px) {
       .home-pro .row.first h1 {
         font-size: 20px;
         text-align: center; }
       .home-pro .row.first li {
         font-size: 18px; } }
-  .home-pro .btn-app-store {
-    margin-top: 40px; }
-    .home-pro .btn-app-store .btn img, .home-pro .btn-app-store .btn-red img, .home-pro .btn-app-store .backoffice div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img {
-      padding: 0;
-      width: 202px;
-      height: 64px; }
-  .home-pro .btn-app-store .btn img, .home-pro .btn-app-store .btn-red img, .home-pro .btn-app-store .backoffice div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 180px;
-    height: auto; }
 
 .star-rating {
   /* clear */
@@ -15576,734 +15563,5 @@ div#app {
     display: table; }
   .star-rating:after {
     clear: both; }
-
-.backoffice .label-red {
-  background-color: #fe5b5f; }
-.backoffice .label-discount {
-  background-color: #ff6600; }
-.backoffice .btn-red, .backoffice div.row#business-header div.infos .btn-booking {
-  background-color: #fe5b5f;
-  color: white;
-  border: none; }
-  .backoffice .btn-red:hover, .backoffice div.row#business-header div.infos .btn-booking:hover {
-    color: #818896; }
-.backoffice .btn-red a, .backoffice div.row#business-header div.infos .btn-booking a, .backoffice a .btn-red, .backoffice a div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos a .btn-booking {
-  color: white;
-  text-decoration: none; }
-  .backoffice .btn-red a:hover, .backoffice div.row#business-header div.infos .btn-booking a:hover, .backoffice a .btn-red:hover, .backoffice a div.row#business-header div.infos .btn-booking:hover, .backoffice div.row#business-header div.infos a .btn-booking:hover {
-    text-decoration: none;
-    color: #818896; }
-.backoffice .formControl .media-object.thumbnail {
-  width: 58px;
-  height: 58px; }
-.backoffice .icon, .backoffice .icon-address, .backoffice .icon-phone, .backoffice .icon-website, .backoffice .icon-timetable, .backoffice .icon-description, .backoffice .icon-right-arrow, .backoffice .icon-discount, .backoffice .icon-price, .backoffice .icon-open, .backoffice .icon-closed {
-  display: inline-block;
-  width: 20px;
-  height: 20px; }
-.backoffice .icon-address {
-  background: url(/img/icons/home@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-phone {
-  background: url(/img/icons/phone@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-website {
-  background: url(/img/icons/website@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-timetable {
-  background: url(/img/icons/timetable@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-description {
-  background: url(/img/icons/description@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-right-arrow {
-  background: url(/img/icons/right-arrow@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-discount {
-  background: url(/img/icons/discount@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-price {
-  background: url(/img/icons/price@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-open {
-  background: url(/img/icons/open@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice .icon-closed {
-  background: url(/img/icons/closed@2x.png) no-repeat center;
-  background-size: 20px 20px; }
-.backoffice html {
-  position: relative;
-  min-height: 100%; }
-.backoffice body {
-  font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
-  color: #818896;
-  background-color: #F6F6F7;
-  margin-bottom: 60px;
-  overflow-x: hidden; }
-.backoffice .container-fluid {
-  padding-right: 0px;
-  padding-left: 0px; }
-  @media (min-width: 768px) {
-    .backoffice .container-fluid.public-layout {
-      padding-left: 20px;
-      padding-right: 20px; } }
-.backoffice footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #dfe1e4; }
-.backoffice .social img {
-  height: 40px;
-  margin: 10px; }
-.backoffice nav.header {
-  background-color: #F9F9FA; }
-  .backoffice nav.header #formLogin {
-    padding: 17px;
-    min-width: 250px; }
-    .backoffice nav.header #formLogin input {
-      margin-bottom: 5px; }
-.backoffice .top-nav > li {
-  display: inline-block;
-  float: left; }
-  .backoffice .top-nav > li a {
-    color: #818896; }
-@media (min-width: 768px) {
-  .backoffice nav.header {
-    height: 100px; }
-    .backoffice nav.header .container {
-      height: 100%; }
-  .backoffice .navbar-brand, .backoffice .top-nav li a {
-    line-height: 100px;
-    height: 100px;
-    padding-top: 0;
-    font-weight: 200;
-    font-size: 21px; }
-    @media (max-width: 991px) {
-      .backoffice .navbar-brand, .backoffice .top-nav li a {
-        font-size: 15px; } }
-  .backoffice #logo {
-    width: 138px;
-    height: 38px;
-    margin-top: 32px; }
-  .backoffice .dropdown-menu li a, .backoffice .twitter-typeahead .tt-dropdown-menu li a {
-    line-height: 50px;
-    height: 50px; } }
-@media (max-width: 768px) {
-  .backoffice #logo {
-    width: 70px; }
-  .backoffice .top-nav {
-    float: right; }
-  .backoffice .top-nav > li a {
-    font-weight: 200;
-    font-size: 12px;
-    padding-left: 10px;
-    padding-right: 10px; } }
-@media (max-width: 768px) {
-  .backoffice img.profile {
-    width: 20px !important;
-    height: 20px !important; } }
-@media (min-width: 768px) {
-  .backoffice img.profile {
-    width: 50px;
-    height: 50px; } }
-.backoffice .navbar-collapse.in {
-  overflow-y: visible;
-  padding: 5px; }
-.backoffice .dropdown-menu.login, .backoffice .twitter-typeahead .login.tt-dropdown-menu {
-  right: 0;
-  left: auto;
-  min-width: 290px; }
-.backoffice div.row#business-header {
-  height: 300px;
-  margin-top: 20px; }
-  .backoffice div.row#business-header div.pictures {
-    height: 100%;
-    padding: 0; }
-    .backoffice div.row#business-header div.pictures img {
-      height: 100%;
-      width: 100%; }
-  .backoffice div.row#business-header div.infos {
-    height: 100%; }
-    .backoffice div.row#business-header div.infos h1 {
-      font-weight: 400;
-      font-size: 20px;
-      margin-bottom: 20px; }
-    .backoffice div.row#business-header div.infos .info {
-      border-bottom: 1px solid #E5E5E8;
-      font-size: 16px;
-      min-height: 30px; }
-      .backoffice div.row#business-header div.infos .info.address {
-        min-height: 50px;
-        font-weight: 200; }
-      .backoffice div.row#business-header div.infos .info span {
-        display: inline-block;
-        float: left; }
-      .backoffice div.row#business-header div.infos .info .icon, .backoffice div.row#business-header div.infos .info .icon-address, .backoffice div.row#business-header div.infos .info .icon-phone, .backoffice div.row#business-header div.infos .info .icon-website, .backoffice div.row#business-header div.infos .info .icon-timetable, .backoffice div.row#business-header div.infos .info .icon-description, .backoffice div.row#business-header div.infos .info .icon-right-arrow, .backoffice div.row#business-header div.infos .info .icon-discount, .backoffice div.row#business-header div.infos .info .icon-price, .backoffice div.row#business-header div.infos .info .icon-open, .backoffice div.row#business-header div.infos .info .icon-closed {
-        float: left; }
-      .backoffice div.row#business-header div.infos .info span.content {
-        margin-left: 20px;
-        font-size: 16px; }
-      .backoffice div.row#business-header div.infos .info .label {
-        font-size: 14px;
-        font-weight: 200; }
-      .backoffice div.row#business-header div.infos .info.discounts .legend {
-        font-weight: 200;
-        font-size: 14px;
-        font-style: italic;
-        padding-left: 5px; }
-      .backoffice div.row#business-header div.infos .info.services ul {
-        font-weight: 200;
-        font-size: 12px;
-        list-style-type: none; }
-        .backoffice div.row#business-header div.infos .info.services ul li.title {
-          font-size: 14px;
-          font-weight: 400; }
-    .backoffice div.row#business-header div.infos p.booking-container {
-      position: absolute;
-      bottom: -10px;
-      right: 15px;
-      left: 15px; }
-    .backoffice div.row#business-header div.infos .btn-booking {
-      font-weight: 200;
-      height: 40px; }
-      .backoffice div.row#business-header div.infos .btn-booking:focus, .backoffice div.row#business-header div.infos .btn-booking:hover, .backoffice div.row#business-header div.infos .btn-booking:active {
-        opacity: 0.7;
-        color: white !important;
-        text-decoration: none !important; }
-  .backoffice div.row#business-header div.map {
-    height: 100%;
-    padding: 0; }
-    .backoffice div.row#business-header div.map #gmap-business {
-      width: 100%;
-      height: 100%;
-      border-radius: 5px; }
-.backoffice div#business-content {
-  margin-top: 37px; }
-  .backoffice div#business-content .reviews-price > div {
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    min-height: 50px;
-    padding: 20px; }
-  .backoffice div#business-content .reviews-price h3 {
-    color: #FE5B5F;
-    display: inline-block; }
-  .backoffice div#business-content .reviews-price .review {
-    min-height: 110px;
-    font-weight: 200; }
-    .backoffice div#business-content .reviews-price .review .review-content {
-      text-transform: uppercase;
-      font-style: 16;
-      border-top: 1px solid #E5E5E8;
-      width: 100%; }
-  .backoffice div#business-content .reviews-price .price {
-    border-top: 1px solid #E5E5E8;
-    min-height: 50px;
-    line-height: 20px;
-    padding-top: 3px;
-    padding-bottom: 3px; }
-    .backoffice div#business-content .reviews-price .price .name {
-      font-weight: 200;
-      text-transform: uppercase;
-      font-style: 16; }
-    .backoffice div#business-content .reviews-price .price .amount {
-      position: absolute;
-      right: 30px;
-      width: 30px; }
-  .backoffice div#business-content .timetable {
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px; }
-    .backoffice div#business-content .timetable div.header {
-      width: 100%;
-      display: inline-block;
-      margin-bottom: 16px;
-      border-bottom: 1px solid #E5E5E8; }
-      .backoffice div#business-content .timetable div.header .icon-timetable {
-        margin-top: 10px;
-        margin-bottom: -4px; }
-      .backoffice div#business-content .timetable div.header h3 {
-        color: #FE5B5F; }
-        .backoffice div#business-content .timetable div.header h3 .icon-timetable {
-          margin-top: 0px;
-          margin-bottom: -2px;
-          margin-right: 5px; }
-.backoffice div.day {
-  min-height: 30px;
-  width: 100%;
-  margin-bottom: 5px; }
-  .backoffice div.day span {
-    display: inline-block;
-    float: left; }
-  .backoffice div.day span.name {
-    font-weight: 600;
-    width: 50px;
-    text-transform: uppercase; }
-  .backoffice div.day span.value p.time {
-    margin-bottom: 4px; }
-.backoffice .row.business-hairfies {
-  margin-top: 50px; }
-  .backoffice .row.business-hairfies .hairfie-picture {
-    min-height: 150px;
-    min-width: 150px; }
-.backoffice .row.hairfie .hairfie-picture {
-  margin-bottom: 20px; }
-  .backoffice .row.hairfie .hairfie-picture img {
-    border-radius: 5px;
-    width: 100%; }
-  .backoffice .row.hairfie .hairfie-picture .share-button {
-    position: absolute;
-    bottom: 20px;
-    right: 24px; }
-  .backoffice .row.hairfie .hairfie-picture .circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 20px;
-    color: white;
-    line-height: 50px;
-    font-weight: 200;
-    text-align: center;
-    background: #EA5C62;
-    position: absolute;
-    top: 25px;
-    left: 40px; }
-.backoffice .row.hairfie .hairfie-legend-container {
-  padding-top: 0; }
-  .backoffice .row.hairfie .hairfie-legend-container .legend {
-    background-color: white;
-    border-radius: 5px;
-    min-height: 100px;
-    width: 100%;
-    padding: 5px 10px 5px 10px; }
-  .backoffice .row.hairfie .hairfie-legend-container .avatar {
-    float: left;
-    max-width: 45px;
-    width: 20%;
-    display: inline-block; }
-    .backoffice .row.hairfie .hairfie-legend-container .avatar img {
-      max-width: 100%;
-      max-height: 100%; }
-  .backoffice .row.hairfie .hairfie-legend-container .author {
-    margin-top: 10px;
-    margin-left: 10px;
-    display: inline-block;
-    width: 70%;
-    float: left;
-    border-bottom: 1px solid #E5E5E8; }
-    .backoffice .row.hairfie .hairfie-legend-container .author span {
-      font-weight: 400;
-      font-size: 16px; }
-    .backoffice .row.hairfie .hairfie-legend-container .author .name {
-      color: #333E49; }
-    .backoffice .row.hairfie .hairfie-legend-container .author .date {
-      color: #FE5B5F;
-      font-style: italic; }
-  .backoffice .row.hairfie .hairfie-legend-container .description, .backoffice .row.hairfie .hairfie-legend-container .business {
-    padding-left: 54px;
-    min-height: 20px; }
-  .backoffice .row.hairfie .hairfie-legend-container .label {
-    margin: 2px; }
-  .backoffice .row.hairfie .hairfie-legend-container .business a {
-    color: #333E49; }
-.backoffice .row.hairfie .hairfie-legend-container:before {
-  content: "";
-  min-width: 20px;
-  max-height: 0px; }
-.backoffice .home-bg {
-  margin-top: -120px;
-  bottom: 0;
-  width: 100%;
-  background: url(../img/background.jpg);
-  padding-top: 100px; }
-.backoffice .row.home .left {
-  margin-top: -60px;
-  padding-top: 150px;
-  text-align: center; }
-.backoffice .row.home p {
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: 200; }
-@media screen and (min-width: 992px) {
-  .backoffice .row.home .left {
-    height: 100%;
-    margin-bottom: -60px; } }
-@media screen and (max-width: 992px) {
-  .backoffice .row.home h1 {
-    font-size: 20px; }
-  .backoffice .row.home p {
-    font-size: 16px; } }
-.backoffice .row.home img#iphone {
-  width: auto; }
-  @media screen and (min-width: 768px) {
-    .backoffice .row.home img#iphone {
-      position: fixed;
-      bottom: -100px;
-      height: 100%; } }
-  @media screen and (max-width: 992px) {
-    .backoffice .row.home img#iphone {
-      margin: auto;
-      max-width: 80%;
-      max-height: 100%; } }
-.backoffice .btn-app-store {
-  margin-top: 40px; }
-  .backoffice .btn-app-store .btn img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img, .backoffice .btn-app-store .btn-red img {
-    padding: 0;
-    width: 202px;
-    height: 64px; }
-.backoffice .btn-app-store .btn img, .backoffice .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .btn-app-store .btn-booking img, .backoffice .btn-app-store .btn-red img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
-  height: auto; }
-.backoffice .home-pro {
-  margin-top: -120px;
-  width: 100%;
-  background: url(../img/background-pro-trans.jpg);
-  background-position: no-repeat center center fixed;
-  padding-top: 100px;
-  background-size: cover; }
-  @media screen and (min-width: 768px) {
-    .backoffice .home-pro {
-      height: 100%;
-      margin-bottom: 0px; } }
-  .backoffice .home-pro li {
-    color: white; }
-    .backoffice .home-pro li span, .backoffice .home-pro li strong {
-      color: black; }
-  .backoffice .home-pro .row.first {
-    margin-top: 40px; }
-    .backoffice .home-pro .row.first .left {
-      padding: 40px; }
-      .backoffice .home-pro .row.first .left p.list {
-        margin-top: 20px; }
-      .backoffice .home-pro .row.first .left li {
-        font-size: 16px; }
-      .backoffice .home-pro .row.first .left p.btn-app-store {
-        text-align: center; }
-    .backoffice .home-pro .row.first .claim {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 30px; }
-      @media screen and (max-width: 768px) {
-        .backoffice .home-pro .row.first .claim {
-          margin: auto;
-          max-width: 80%; } }
-      .backoffice .home-pro .row.first .claim h3 {
-        margin-top: 0px;
-        font-size: 20px; }
-      .backoffice .home-pro .row.first .claim .form-group {
-        margin-bottom: 5px; }
-      .backoffice .home-pro .row.first .claim .btn-red, .backoffice .home-pro .row.first .claim div.row#business-header div.infos .btn-booking, .backoffice div.row#business-header div.infos .home-pro .row.first .claim .btn-booking {
-        font-weight: 200; }
-    @media screen and (max-width: 768px) {
-      .backoffice .home-pro .row.first h1 {
-        font-size: 20px;
-        text-align: center; }
-      .backoffice .home-pro .row.first li {
-        font-size: 18px; } }
-  .backoffice .home-pro .btn-app-store {
-    margin-top: 40px; }
-    .backoffice .home-pro .btn-app-store .btn img, .backoffice .home-pro .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img, .backoffice .home-pro .btn-app-store .btn-red img {
-      padding: 0;
-      width: 202px;
-      height: 64px; }
-  .backoffice .home-pro .btn-app-store .btn img, .backoffice .home-pro .btn-app-store div.row#business-header div.infos .btn-booking img, .backoffice div.row#business-header div.infos .home-pro .btn-app-store .btn-booking img, .backoffice .home-pro .btn-app-store .btn-red img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 180px;
-    height: auto; }
-.backoffice .dashboard .main {
-  padding: 30px; }
-@media (min-width: 768px) {
-  .backoffice .dashboard .main {
-    margin-top: 100px; } }
-.backoffice .navbar-nav > li > .dropdown-menu, .backoffice .twitter-typeahead .navbar-nav > li > .tt-dropdown-menu {
-  max-height: 1000px;
-  overflow-x: scroll; }
-.backoffice .business-item .add-file {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  width: 95%;
-  height: 200px;
-  margin: 9px;
-  background: #929292 url(../img/add-picture.png) center no-repeat; }
-.backoffice .business-item .add-file input[type=file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block; }
-.backoffice .business-dashboard h3, .backoffice .business-dashboard h1 {
-  font-weight: 200; }
-.backoffice .business-dashboard h3.sub-title {
-  font-weight: 200;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
-  padding: 15px; }
-.backoffice .business-dashboard .title {
-  padding: 0 15px 0 15px; }
-  .backoffice .business-dashboard .title span {
-    display: inline-block; }
-  .backoffice .business-dashboard .title img {
-    height: 30px;
-    width: 30px;
-    margin-top: 0px;
-    margin-bottom: 15px;
-    margin-right: 15px; }
-.backoffice .business-dashboard .business-dashboard-item .thumbnail {
-  height: 150px;
-  padding: 10px; }
-  .backoffice .business-dashboard .business-dashboard-item .thumbnail a {
-    position: absolute;
-    bottom: 30px;
-    right: 25px; }
-.backoffice .business-photos .thumbnail img {
-  padding: 9px; }
-.backoffice.proLayout #wrapper {
-  margin-top: 100px; }
-.backoffice.proLayout .navbar .container-fluid {
-  padding-left: 20px;
-  padding-right: 20px; }
-@media (min-width: 768px) {
-  .backoffice #wrapper:not(.withoutSidebar) {
-    padding-left: 225px; }
-  .backoffice #page-wrapper {
-    padding: 10px; }
-  .backoffice .side-nav {
-    position: fixed;
-    top: 100px;
-    bottom: 0;
-    left: 225px;
-    margin-left: -225px;
-    margin-right: -21px;
-    /* 20px padding + 1px border */
-    width: 225px;
-    z-index: 1000;
-    display: block;
-    padding: 10px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #EA5C62; }
-  .backoffice .side-nav > li > a {
-    width: 205px; }
-  .backoffice .side-nav > li > a {
-    color: white !important; }
-    .backoffice .side-nav > li > a span.icon, .backoffice .side-nav > li > a span.icon-address, .backoffice .side-nav > li > a span.icon-phone, .backoffice .side-nav > li > a span.icon-website, .backoffice .side-nav > li > a span.icon-timetable, .backoffice .side-nav > li > a span.icon-description, .backoffice .side-nav > li > a span.icon-right-arrow, .backoffice .side-nav > li > a span.icon-discount, .backoffice .side-nav > li > a span.icon-price, .backoffice .side-nav > li > a span.icon-open, .backoffice .side-nav > li > a span.icon-closed {
-      float: right; }
-  .backoffice .side-nav > .active > a, .backoffice .side-nav > .active > a:hover, .backoffice .side-nav > .active > a:focus {
-    color: #818896;
-    background-color: #F6F6F7; }
-    .backoffice .side-nav > .active > a span.icon, .backoffice .side-nav > .active > a span.icon-address, .backoffice .side-nav > .active > a span.icon-phone, .backoffice .side-nav > .active > a span.icon-website, .backoffice .side-nav > .active > a span.icon-timetable, .backoffice .side-nav > .active > a span.icon-description, .backoffice .side-nav > .active > a span.icon-right-arrow, .backoffice .side-nav > .active > a span.icon-discount, .backoffice .side-nav > .active > a span.icon-price, .backoffice .side-nav > .active > a span.icon-open, .backoffice .side-nav > .active > a span.icon-closed, .backoffice .side-nav > .active > a:hover span.icon, .backoffice .side-nav > .active > a:hover span.icon-address, .backoffice .side-nav > .active > a:hover span.icon-phone, .backoffice .side-nav > .active > a:hover span.icon-website, .backoffice .side-nav > .active > a:hover span.icon-timetable, .backoffice .side-nav > .active > a:hover span.icon-description, .backoffice .side-nav > .active > a:hover span.icon-right-arrow, .backoffice .side-nav > .active > a:hover span.icon-discount, .backoffice .side-nav > .active > a:hover span.icon-price, .backoffice .side-nav > .active > a:hover span.icon-open, .backoffice .side-nav > .active > a:hover span.icon-closed, .backoffice .side-nav > .active > a:focus span.icon, .backoffice .side-nav > .active > a:focus span.icon-address, .backoffice .side-nav > .active > a:focus span.icon-phone, .backoffice .side-nav > .active > a:focus span.icon-website, .backoffice .side-nav > .active > a:focus span.icon-timetable, .backoffice .side-nav > .active > a:focus span.icon-description, .backoffice .side-nav > .active > a:focus span.icon-right-arrow, .backoffice .side-nav > .active > a:focus span.icon-discount, .backoffice .side-nav > .active > a:focus span.icon-price, .backoffice .side-nav > .active > a:focus span.icon-open, .backoffice .side-nav > .active > a:focus span.icon-closed {
-      display: none; } }
-@media (max-width: 768px) {
-  .backoffice .navbar-collapse.navbar-ex1-collapse.collapse {
-    max-height: 100%; }
-  .backoffice #wrapper.withoutSidebar .navbar-toggle.collapsed {
-    display: none !important; } }
-.backoffice .red-circle, .backoffice .hairfies-list .hairfie-picture .circle, .backoffice .hairfies-list .hairfie-picture .delete-button {
-  width: 25px;
-  height: 25px;
-  color: white;
-  font-weight: 200;
-  border-radius: 50%;
-  text-align: center;
-  background: #EA5C62;
-  font-size: 10px; }
-.backoffice .hairfies-list {
-  margin: auto; }
-  .backoffice .hairfies-list .hairfie-picture {
-    display: inline-block;
-    padding-bottom: 30px; }
-    .backoffice .hairfies-list .hairfie-picture .img-container {
-      position: relative; }
-      .backoffice .hairfies-list .hairfie-picture .img-container img.main-picture {
-        width: 100%;
-        border-radius: 5px; }
-      .backoffice .hairfies-list .hairfie-picture .img-container img.thumb {
-        width: 25%;
-        position: absolute;
-        top: 5;
-        right: 5;
-        border-radius: 2px;
-        border: 1px solid white; }
-    .backoffice .hairfies-list .hairfie-picture .circle {
-      line-height: 25px;
-      position: absolute;
-      top: 10px;
-      left: 10px; }
-    .backoffice .hairfies-list .hairfie-picture .delete-button {
-      line-height: 1;
-      position: absolute;
-      bottom: 10px;
-      right: 10px; }
-.backoffice .twitter-typeahead {
-  width: 100%; }
-  .backoffice .twitter-typeahead .tt-query, .backoffice .twitter-typeahead .tt-hint {
-    margin-bottom: 0; }
-  .backoffice .twitter-typeahead .tt-suggestion {
-    display: block;
-    padding: 3px 20px; }
-  .backoffice .twitter-typeahead .tt-suggestion.tt-is-under-cursor {
-    color: #fff;
-    background-color: #337ab7; }
-  .backoffice .twitter-typeahead .tt-suggestion.tt-is-under-cursor a {
-    color: #fff; }
-  .backoffice .twitter-typeahead .tt-suggestion.tt-cursor {
-    color: #fff;
-    background-color: #337ab7; }
-  .backoffice .twitter-typeahead .tt-suggestion p {
-    margin: 0; }
-.backoffice .search .search-bar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: #dfe1e4;
-  border-top: 10px solid #fe5b5f;
-  height: 130px; }
-  .backoffice .search .search-bar input {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    font-size: 20px;
-    font-weight: 200;
-    height: 50px; }
-  .backoffice .search .search-bar .form-group {
-    float: left;
-    width: 80%; }
-    .backoffice .search .search-bar .form-group input.main {
-      width: 100%;
-      text-align: center; }
-.backoffice .search .form-container {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  text-align: center; }
-  .backoffice .search .form-container form {
-    background: url(/img/search-icon.png) no-repeat left;
-    background-position-y: 10px;
-    background-size: 27px 27px; }
-.backoffice .search .search-results {
-  margin-top: 150px;
-  margin-bottom: 30px; }
-  .backoffice .search .search-results .filters {
-    background-color: #dfe1e4; }
-  .backoffice .search .search-results .media-left {
-    min-width: 100px; }
-.backoffice .booking .row {
-  margin-top: 30px; }
-.backoffice .booking h3 {
-  text-align: center;
-  font-weight: 200;
-  margin-bottom: 30px; }
-.backoffice .booking .left .business {
-  height: 150px;
-  margin: auto; }
-  .backoffice .booking .left .business h2 {
-    font-size: 25px;
-    font-weight: 400; }
-  .backoffice .booking .left .business span.address {
-    font-size: 18px;
-    font-weight: 200; }
-.backoffice .booking .left .picture {
-  height: 100%; }
-  .backoffice .booking .left .picture img {
-    height: 100%;
-    width: 100%; }
-.backoffice .booking .left .discounts-container p {
-  font-weight: 200; }
-.backoffice .booking .left .discounts-container .discount {
-  margin: 20px 0;
-  padding: 15px 30px 15px 15px;
-  border-left: 30px solid #ff6600;
-  background-color: #F9F9FA; }
-  .backoffice .booking .left .discounts-container .discount p:last-child {
-    margin-bottom: 0; }
-  .backoffice .booking .left .discounts-container .discount h4 {
-    margin-top: 0;
-    color: #ff6600; }
-.backoffice .booking a h2 {
-  color: #818896; }
-  .backoffice .booking a h2:hover {
-    text-decoration: none; }
-.backoffice .rbc-calendar td, .backoffice .rbc-calendar th {
-  text-align: center; }
-.backoffice .rbc-calendar td.today {
-  background-color: #ddd; }
-.backoffice .rbc-calendar td.bookable {
-  cursor: pointer;
-  color: white;
-  background-color: #5cb85c; }
-  .backoffice .rbc-calendar td.bookable.selected {
-    background-color: #357ebd;
-    font-weight: bold; }
-  .backoffice .rbc-calendar td.bookable.discount {
-    background-color: #ff6600; }
-    .backoffice .rbc-calendar td.bookable.discount span {
-      font-size: 14px; }
-.backoffice .btn.timeslot, .backoffice div.row#business-header div.infos .timeslot.btn-booking, .backoffice .timeslot.btn-red {
-  margin: 5px; }
-  .backoffice .btn.timeslot.discount, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking, .backoffice .timeslot.discount.btn-red {
-    background-color: #ff6600;
-    color: white; }
-    .backoffice .btn.timeslot.discount span, .backoffice div.row#business-header div.infos .timeslot.discount.btn-booking span, .backoffice .timeslot.discount.btn-red span {
-      font-size: 14px; }
-.backoffice .btn.timeslot:focus, .backoffice div.row#business-header div.infos .timeslot.btn-booking:focus, .backoffice .timeslot.btn-red:focus {
-  outline: none; }
-.backoffice .btn.timeslot.selected, .backoffice div.row#business-header div.infos .timeslot.selected.btn-booking, .backoffice .timeslot.selected.btn-red {
-  background-color: #357ebd;
-  color: #fff;
-  font-weight: bold; }
-.backoffice .panel-heading .panel-title a:after {
-  font-family: 'FontAwesome';
-  content: "\f078";
-  float: right;
-  color: grey; }
-.backoffice .panel-heading .panel-title a.collapsed:after {
-  content: "\f054"; }
-.backoffice .confirmation h2 i {
-  color: #5cb85c;
-  margin-right: 20px; }
-.backoffice .confirmation h3 {
-  text-align: left; }
-.backoffice .confirmation .btn-apple {
-  height: 31px; }
-.backoffice .star-rating {
-  /* clear */
-  zoom: 1;
-  /* for IE 6/7 */ }
-  .backoffice .star-rating .star {
-    display: block;
-    width: 22px;
-    height: 22px;
-    float: left;
-    background-image: url(../img/star-rating/22/stars.png); }
-    .backoffice .star-rating .star:hover {
-      cursor: pointer; }
-    .backoffice .star-rating .star.on {
-      background-position: top; }
-    .backoffice .star-rating .star.off {
-      background-position: bottom; }
-  .backoffice .star-rating:before, .backoffice .star-rating:after {
-    content: '';
-    display: table; }
-  .backoffice .star-rating:after {
-    clear: both; }
-.backoffice .required-asterisk {
-  color: red;
-  font-weight: large; }
 
 /*# sourceMappingURL=style.css.map */
