@@ -7,8 +7,14 @@ var PublicLayout  = require('./PublicLayout.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var connectToStores = require('../lib/connectToStores');
 var ga = require('../services/analytics');
+var Input = require('react-bootstrap/Input');
+var Button = require('react-bootstrap/Button');
+var BookingActions = require('../actions/BookingActions');
 
 var BookingConfirmationPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     render: function () {
         if(_.isUndefined(this.props.booking)) {
             return (
@@ -32,6 +38,10 @@ var BookingConfirmationPage = React.createClass({
                                         En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
                                     </p>
                                 </div>
+                                <p>Status: {booking.status}</p>
+                                <Input ref="checkCode" type="text" placeholder="Code SMS" />
+                                <br />
+                                <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
                                 <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
                                 <div className="clearfix"></div>
                                 <hr />
@@ -84,6 +94,17 @@ var BookingConfirmationPage = React.createClass({
                 <dd>-{booking.discount} % sur toute la carte</dd>
             </div>
         );
+    },
+    handleSubmitCodeClick: function (e) {
+        e.preventDefault();
+
+        var bookingId = this.props.booking.id;
+        var checkCode = this.refs.checkCode.getValue();
+
+        this.context.executeAction(BookingActions.submitBookingCheckCode, {
+            bookingId: bookingId,
+            checkCode: checkCode
+        });
     }
 });
 
