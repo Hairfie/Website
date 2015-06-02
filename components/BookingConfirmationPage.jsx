@@ -11,6 +11,8 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var BookingActions = require('../actions/BookingActions');
 
+var BookingStatus = require('../constants/BookingConstants').status;
+
 var BookingConfirmationPage = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
@@ -76,12 +78,15 @@ var BookingConfirmationPage = React.createClass({
         }
     },
     renderVerif: function(booking) {
-        if (booking.status == "REQUEST") {
+        if (booking.status == BookingStatus.OK) {
             return (
                 <div className="legend conf">
                     <h3 className="green">Réservation enregistrée !</h3> 
                     <p>
-                        Votre réservation a bien été bien prise en compte, vous allez recevoir un email dans quelques instants vous confirmant votre demande. En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
+                        Votre réservation a bien été bien prise en compte, 
+                        vous allez recevoir un email dans quelques instants vous confirmant votre demande. 
+                        En attendant, n'hésitez pas à télécharger l'application Hairfie ou 
+                        à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
                     </p>
                 </div>
             );
@@ -90,7 +95,10 @@ var BookingConfirmationPage = React.createClass({
                 <div className="legend conf">
                     <h3 className="green">Demande de vérification !</h3> 
                     <p>
-                        Votre demande a bien été prise en compte, cependant, par mesure de sécurité, nous allons vérifier vos coordonnées en vous envoyant un code par sms que vous devrez entrer dans le petit formulaire ci-dessous.
+                        Votre demande a bien été prise en compte, 
+                        cependant, par mesure de sécurité, 
+                        nous allons vérifier vos coordonnées en vous envoyant un code par sms 
+                        que vous devrez entrer dans le petit formulaire ci-dessous.
                     </p>
                     <Input ref="checkCode" type="text" placeholder="Code SMS" /> 
                     <br />

@@ -12,6 +12,8 @@ var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
 
+var BookingStatus = require('../constants/BookingConstants').status;
+
 var BusinessBookingPage = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
