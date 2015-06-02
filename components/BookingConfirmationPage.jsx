@@ -16,8 +16,6 @@ var BookingConfirmationPage = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function () {
-        var checkTitle = "Test";
-        var checkText = "Test2";
         if(_.isUndefined(this.props.booking)) {
             return (
                 <PublicLayout customClass="booking confirmation">
@@ -33,15 +31,7 @@ var BookingConfirmationPage = React.createClass({
                     <div className="container reservation" id="content" >
                         <div className="row">
                             <div className="main-content col-md-9 col-sm-12 pull-right">
-                                <div className="legend conf">
-                                    <h3 className="green"> {checkTitle} </h3>
-                                    <p>
-                                        {checkText}
-                                    </p>
-                                </div>
-                                <Input ref="checkCode" type="text" placeholder="Code SMS" />
-                                <br />
-                                <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
+                                {this.renderVerif(booking)}
                                 <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
                                 <div className="clearfix"></div>
                                 <hr />
@@ -85,19 +75,29 @@ var BookingConfirmationPage = React.createClass({
             );
         }
     },
-    renderResult: function(booking)
-    {
-        if (booking.status == "REQUEST")
-        {
-            checkTitle = "Réservation enregistrée !";
-            checkText = "Votre réservation a bien été bien prise en compte, vous allez recevoir un email dans quelques instants vous confirmant votre demande. En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.";
+    renderVerif: function(booking) {
+        if (booking.status == "REQUEST") {
+            return (
+                <div className="legend conf">
+                    <h3 className="green">Réservation enregistrée !</h3> 
+                    <p>
+                        Votre réservation a bien été bien prise en compte, vous allez recevoir un email dans quelques instants vous confirmant votre demande. En attendant, n'hésitez pas à télécharger l'application Hairfie ou à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
+                    </p>
+                </div>
+            );
+        } else {
+            return (
+                <div className="legend conf">
+                    <h3 className="green">Demande de vérification !</h3> 
+                    <p>
+                        Votre demande a bien été prise en compte, cependant, par mesure de sécurité, nous allons vérifier vos coordonnées en vous envoyant un code par sms que vous devrez entrer dans le petit formulaire ci-dessous.
+                    </p>
+                    <Input ref="checkCode" type="text" placeholder="Code SMS" /> 
+                    <br />
+                    <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
+                </div>
+            );        
         }
-        else 
-        {
-            checkTitle = "Vérification de la réservation !";
-            checkText = "Vérification de vos coordonnées en cours, nous allons vous envoyer un sms avec un code pour valider votre réservation";
-        }
-
     },
     renderDiscount: function(booking) {
         if (!booking.discount) return;
@@ -114,6 +114,7 @@ var BookingConfirmationPage = React.createClass({
 
         var bookingId = this.props.booking.id;
         var checkCode = this.refs.checkCode.getValue();
+        console.log(checkCode);
 
         this.context.executeAction(BookingActions.submitBookingCheckCode, {
             bookingId: bookingId,
