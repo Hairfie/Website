@@ -114,7 +114,6 @@ var BookingConfirmationPage = React.createClass({
 
         var bookingId = this.props.booking.id;
         var checkCode = this.refs.checkCode.getValue();
-        console.log(checkCode);
 
         this.context.executeAction(BookingActions.submitBookingCheckCode, {
             bookingId: bookingId,
