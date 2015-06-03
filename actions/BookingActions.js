@@ -25,5 +25,12 @@ module.exports = {
                     );
                 }
             );
+    },
+    submitBookingCheckCode: function (context, params) {
+        return context.hairfieApi
+            .post('/bookings/'+params.bookingId+'/userCheck', { userCheckCode: params.checkCode })
+            .then(function (booking) {
+                context.dispatch(Actions.RECEIVE_BOOKING, booking);
+            });
     }
 };
