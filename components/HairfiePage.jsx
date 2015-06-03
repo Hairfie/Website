@@ -29,6 +29,7 @@ var Carousel = React.createClass({
                             <div key={i+'-'+picture.url} className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
                                 <div className="outer-img">
                                     <Picture picture={picture} />
+                                    {this.renderPrice()}
                                 </div>
                             </div>
                         );
@@ -38,6 +39,15 @@ var Carousel = React.createClass({
                 {this.renderControl('right', 1, 'Suivant')}
             </div>
         );
+    },
+    renderPrice: function () {
+        if (!this.props.hairfie.price) return;
+        return (
+                <div className="pricetag">
+                    {this.props.hairfie.price.amount+'€'}
+                </div>
+            );
+
     },
     renderControl: function (position, index, label) {
         if (this.props.hairfie.pictures.length < 2) return;
