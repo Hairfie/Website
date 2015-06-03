@@ -121,7 +121,7 @@ function businessWithSlug(context, route) {
             if (business.slug != route.get('params').get('businessSlug')) { // redirect to canonical URL
                 var error = new Error('Invalid slug');
                 error.status = 301;
-                error.location = context.router.makePath('business', {
+                error.location = context.getStore('RouteStore').makePath('business', {
                     businessId  : business.id,
                     businessSlug: business.slug
                 });
