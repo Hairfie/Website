@@ -4,4 +4,5 @@ Disallow: /fr/search/
 Disallow: /fr/businesses/
 Disallow: /en
 Disallow: /fr/pro/
+Disallow: /pro/
 Allow: /fr/pro/$
