@@ -15,6 +15,8 @@ var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var SearchUtils = require('../lib/search-utils');
 
+var RouteStore      = require('../stores/RouteStore');
+
 module.exports = {
     home: function (context) {
         return Promise.all([
@@ -28,6 +30,7 @@ module.exports = {
     },
     hairfieSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
+        var hairfiePath = oldHairfiePath(context, route);
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
@@ -35,6 +38,11 @@ module.exports = {
                 var search = SearchUtils.searchFromRouteAndPlace(route, place);
 
                 return context.executeAction(HairfieActions.loadSearchResult, search);
+            }, function(e) {
+                var error = new Error('Invalid URL');
+                error.status = 301;
+                error.location = hairfiePath;
+                throw error;
             });
     },
     business: function (context, route) {
@@ -124,4 +132,10 @@ function businessWithSlug(context, route) {
 
             return business;
         });
+}
+
+function oldHairfiePath(context, route) {
+    return context.getStore('RouteStore').makePath('hairfie', {
+        hairfieId  : route.get('params').get('address')
+    });
 }
