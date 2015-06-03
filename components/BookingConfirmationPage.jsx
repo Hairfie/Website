@@ -11,7 +11,7 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var BookingActions = require('../actions/BookingActions');
 
-var BookingStatus = require('../constants/BookingConstants').status;
+var BookingStatus = require('../constants/BookingConstants').Status;
 
 var BookingConfirmationPage = React.createClass({
     contextTypes: {
@@ -78,7 +78,7 @@ var BookingConfirmationPage = React.createClass({
         }
     },
     renderVerif: function(booking) {
-        if (booking.status == BookingStatus.OK) {
+        if (booking.status == BookingStatus.REQUEST) {
             return (
                 <div className="legend conf">
                     <h3 className="green">Réservation enregistrée !</h3> 

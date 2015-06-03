@@ -3,8 +3,8 @@
 var define = require('../lib/constants/define');
 
 module.exports = {
-    status: define([
-        'OK' : 'REQUEST',
-        'FAIL' : 'NOT_CONFIRMED'
+    Status: define([
+        'REQUEST',
+        'NOT_CONFIRMED'
     ])
 };
