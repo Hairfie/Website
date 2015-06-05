@@ -9,27 +9,14 @@ var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
 
-var Share = React.createClass({
+var ShareButton = React.createClass({
     componentDidMount: function () {
-
-        var Button = new Share(this.refs.button.getDOMNode(), {
-            image: "{{ this.props.hairfie.picture.url }}",
-            /*title: "{{ this.props.hairfie.descriptions.facebook }}", */
-            networks: {
-                facebook: {
-                  /*app_id: "{{ this.context.config.facebookAppId }}", */
-                  load_sdk: false
-                },
-                twitter: {
-                    /* description: "{{ this.props.hairfie.descriptions.twitter }}" */
-                }
-            }
-        });
+        new window.Share('.share-button');
     },
-    render: function()
-    {
-        return (<div ref="button" className="share-button" id="share_id">
-            </div>
+    render: function () {
+        return (
+                <div className="share-button sharer-0">
+                </div>
             );
     }
 });
@@ -161,6 +148,7 @@ var RightColumn = React.createClass({
                             - */}
                             <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
                           </p>
+                        <ShareButton hairfie={this.props.hairfie} />
                         </div>
                     </div>
                 </div>
@@ -182,7 +170,6 @@ var HairfiePage = React.createClass({
                         <HairfieSingle hairfie={this.props.hairfie} />
                         <RightColumn hairfie={this.props.hairfie} />
                     </div>
-                    <Share hairfie={this.props.hairfie} />
                 </div>
             </PublicLayout>
         );
