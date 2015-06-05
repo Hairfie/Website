@@ -8,11 +8,12 @@ var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
+var ShareRequire = require('../public/js/share.min.js');
 
 var Share = React.createClass({
     componentDidMount: function () {
-        var require = require('../public/js/share.min.js');
-        var Button = new Share(".share-button", {
+
+        var Button = new Share(this.refs.button.getDOMNode(), {
             image: "{{ this.props.hairfie.picture.url }}",
             /*title: "{{ this.props.hairfie.descriptions.facebook }}", */
             networks: {
@@ -25,13 +26,10 @@ var Share = React.createClass({
                 }
             }
         });
-        return Button;
     },
     render: function()
     {
-        return (<div>
-            <p>Test</p>
-            {this.componentDidMount}
+        return (<div ref="button">
             </div>
             );
     }
