@@ -12730,7 +12730,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   width: 100%;
   overflow: hidden;
   position: relative;
-  cursor: pointer; }
+  cursor: pointer; 
+  /* max-height: 100%; */
+}
 
 .hairfies .single-hairfie figure a {
   width: 100%;
