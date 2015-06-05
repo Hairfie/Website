@@ -9,6 +9,34 @@ var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
 
+var Share = React.createClass({
+    componentDidMount: function () {
+        var require = require('../public/js/share.min.js');
+        var Button = new Share(".share-button", {
+            image: "{{ this.props.hairfie.picture.url }}",
+            /*title: "{{ this.props.hairfie.descriptions.facebook }}", */
+            networks: {
+                facebook: {
+                  /*app_id: "{{ this.context.config.facebookAppId }}", */
+                  load_sdk: false
+                },
+                twitter: {
+                    /* description: "{{ this.props.hairfie.descriptions.twitter }}" */
+                }
+            }
+        });
+        return Button;
+    },
+    render: function()
+    {
+        return (<div>
+            <p>Test</p>
+            {this.componentDidMount}
+            </div>
+            );
+    }
+});
+
 var Carousel = React.createClass({
     getInitialState: function () {
         return {
@@ -31,6 +59,7 @@ var Carousel = React.createClass({
                                     <Picture picture={picture} />
                                     {this.renderPrice()}
                                 </div>
+                                <p>Steak</p>
                             </div>
                         );
                     }, this)}
@@ -147,30 +176,8 @@ var HairfiePage = React.createClass({
     contextTypes: {
         config: React.PropTypes.object
     },
-    componentDidMount: function () {
-        new Share(".share-button", {
-            image: "{{ this.state.hairfie.picture.url }}",
-            title: "{{ this.state.hairfie.descriptions.facebook }}",
-            networks: {
-                facebook: {
-                  app_id: "{{ this.context.config.facebookAppId }}",
-                  load_sdk: false
-                },
-                twitter: {
-                    description: "{{ this.state.hairfie.descriptions.twitter }}"
-                }
-            }
-        });
-        TweenMax.to('#content .single-view', 0.5, {marginTop:40,opacity:1,ease:Power2.easeIn});
-        TweenMax.to('#content .related-hairfies', 0.5, {marginTop:0,opacity:1,ease:Power2.easeIn,delay:0.3});
-        $('.like-btn').on('click',function(){
-          $('.glyphicon-heart').toggleClass('full');
-        });
-        $('#carousel-hairfie').carousel();
-    },
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
-
         return (
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
@@ -178,6 +185,7 @@ var HairfiePage = React.createClass({
                         <HairfieSingle hairfie={this.props.hairfie} />
                         <RightColumn hairfie={this.props.hairfie} />
                     </div>
+                    <Share hairfie={this.props.hairfie} />
                 </div>
             </PublicLayout>
         );
