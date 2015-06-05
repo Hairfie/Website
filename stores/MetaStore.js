@@ -54,6 +54,10 @@ module.exports = createStore({
                 this._setMetas(this._getBusinessSearchMetas(route));
                 break;
 
+            case 'hairfie_search':
+                this._setMetas(this._getHairfieSearchMetas(route));
+                break;
+
             default:
                 this._setMetas(this._getDefaultMetas(route));
         }
@@ -112,19 +116,31 @@ module.exports = createStore({
     },
     _getBusinessMetas: function (businessId, routeName) {
         var business = this.dispatcher.getStore('BusinessStore').getById(businessId);
-        var title = business.name + ' à ' + business.address.city + ' | Hairfie';
+        var title = business.name + ' à ' + business.address.city;
+        var description;
 
         switch (routeName) {
+            case 'business':
+                if(business.description) {
+                    description = business.description.businessTitle + ' - ' + business.description.businessText + ' - ' + business.description.geoTitle;
+                } else {
+                    description = 'Découvrez les hairfies du salon ' + title + ' et réservez en ligne';
+                }
+
             case 'business_reviews':
                 title = 'Les avis sur ' + title;
+                description = 'Les avis des internautes sur ' + business.name;
                 break;
             case 'business_hairfies':
                 title = 'Les Hairfies de ' + title;
+                description = 'Retrouvez en photos les prestations réalisées au salon ' + business.name;
                 break;
             case 'business_booking':
                 title = 'Réservez chez ' + title;
                 break;
         }
+
+        title += ' | Hairfie';
 
         var metas = _.union(
             this._getBaseMetas(),
@@ -175,6 +191,31 @@ module.exports = createStore({
         displayCategories = categories.join(', ');
 
         var title = 'Coiffeurs ' + displayCategories + ' à ' + address;
+
+        if(query.page) title += ' - page ' + query.page;
+
+        var metas = _.union(
+            this._getBaseMetas(),
+            [
+                { property: 'og:title', content: title }
+            ]
+        );
+
+        return metas;
+    },
+    _getHairfieSearchMetas: function(route) {
+        var route = route.toJS(),
+            query   = route.query,
+            params  = route.params;
+
+        var address = SearchUtils.addressFromUrlParameter(params.address);
+        var categories        = query.categories,
+            displayCategories = '';
+
+        if(!_.isArray(categories)) categories = [categories];
+        displayCategories = categories.join(', ');
+
+        var title = 'Hairfies ' + displayCategories + ' à ' + address;
 
         if(query.page) title += ' - page ' + query.page;
 

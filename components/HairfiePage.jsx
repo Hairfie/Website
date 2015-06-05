@@ -8,7 +8,6 @@ var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
-var ShareRequire = require('../public/js/share.min.js');
 
 var Share = React.createClass({
     componentDidMount: function () {
@@ -29,7 +28,7 @@ var Share = React.createClass({
     },
     render: function()
     {
-        return (<div ref="button">
+        return (<div ref="button" className="share-button" id="share_id">
             </div>
             );
     }
