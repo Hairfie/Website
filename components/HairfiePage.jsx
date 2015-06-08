@@ -14,8 +14,13 @@ var ShareButton = React.createClass({
         new window.Share('.share-button');
     },
     render: function () {
+        var buttonstyle = {
+            margin: '10px',
+            marginTop: '5px'
+
+        };
         return (
-                <div className="share-button sharer-0">
+                <div className="share-button sharer-0" style={buttonstyle}>
                 </div>
             );
     }
@@ -43,7 +48,6 @@ var Carousel = React.createClass({
                                     <Picture picture={picture} />
                                     {this.renderPrice()}
                                 </div>
-                                <p>Steak</p>
                             </div>
                         );
                     }, this)}
@@ -141,6 +145,7 @@ var RightColumn = React.createClass({
                     </div>
                     <div className="row">
                         <div className="col-xs-3">
+                        <ShareButton hairfie={this.props.hairfie} />
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
@@ -148,7 +153,6 @@ var RightColumn = React.createClass({
                             - */}
                             <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
                           </p>
-                        <ShareButton hairfie={this.props.hairfie} />
                         </div>
                     </div>
                 </div>
