@@ -73,14 +73,20 @@ var BusinessPage = React.createClass({
     },
     renderServices: function () {
         var services = this.props.services || [];
-
+        var i;
         if (services.length == 0) return;
+        for (i = 0; i <= services.length; i++)
+        {
+            if (i == services.length) return;
+            if (services[i].price.amount > 0) break;
+        }
 
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
                 <div className="row table-price">
                     {_.map(services, function (service) {
+                        if (service.price.amount == 0) return;
                         return (
                             <div key={service.id}>
                                 <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
