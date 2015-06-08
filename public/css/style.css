@@ -12730,9 +12730,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   width: 100%;
   overflow: hidden;
   position: relative;
-  cursor: pointer; 
-  /* max-height: 100%; */
-}
+  cursor: pointer; }
 
 .hairfies .single-hairfie figure a {
   width: 100%;
@@ -14299,10 +14297,6 @@ section.home-footer .row > div p {
 
 .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
   font-weight: 600; }
-
-.salon#content .main-content section.salon-info .social {
-  height: auto;
-  padding: 20px 0px 40px 35px; }
 
 @media screen and (max-width: 767px) {
   .salon#content .main-content section.salon-info .social {
