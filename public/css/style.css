@@ -14298,7 +14298,7 @@ section.home-footer .row > div p {
 .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
   font-weight: 600; }
 
-.salon#content .main-content section.salon-info .social {
+.salon#content .main-content section.salon-info {
   height: auto;
   padding: 20px 0px 40px 35px; }
 
@@ -15563,5 +15563,10 @@ div#app {
     display: table; }
   .star-rating:after {
     clear: both; }
+
+  .salon-description {
+    padding-top: 20px;
+    width: 100%;
+  }
 
 /*# sourceMappingURL=style.css.map */

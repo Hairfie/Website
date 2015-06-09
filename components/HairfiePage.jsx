@@ -11,16 +11,17 @@ var connectToStores = require('../lib/connectToStores');
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
-        new window.Share('.share-button');
+        new window.Share('.share-hairfie', {
+            ui: {
+              button_text: "Partager",
+              flyout: "bottom center"
+              }});
     },
     render: function () {
-        var buttonstyle = {
-            margin: '10px',
-            marginTop: '5px'
-
-        };
         return (
-                <div className="share-button sharer-0" style={buttonstyle}>
+                <div style={{display: 'inline-block'}}>
+                    <div className="share-hairfie">
+                    </div>
                 </div>
             );
     }
@@ -145,7 +146,6 @@ var RightColumn = React.createClass({
                     </div>
                     <div className="row">
                         <div className="col-xs-3">
-                        <ShareButton hairfie={this.props.hairfie} />
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
@@ -155,6 +155,9 @@ var RightColumn = React.createClass({
                           </p>
                         </div>
                     </div>
+                </div>
+                <div className="salon-description">
+                    <ShareButton hairfie={this.props.hairfie} />
                 </div>
             </div>
         );
