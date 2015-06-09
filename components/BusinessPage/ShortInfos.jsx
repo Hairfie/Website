@@ -24,6 +24,26 @@ var Rating = React.createClass({
     }
 });
 
+var ShareButton = React.createClass({
+    componentDidMount: function () {
+        new window.Share('.share-button', {
+            networks: {
+              pinterest: {
+                enabled: false
+              }
+            }
+        });
+    },
+    render: function () {
+        return (
+              <div style={{display: 'inline-block'}}>
+                <div className="share-button" style={{margin: 'auto', padding: '0px'}}>
+                </div>
+              </div>
+            );
+    }
+});
+
 module.exports = React.createClass({
     render: function () {
         var business = this.props.business || {};
@@ -36,7 +56,7 @@ module.exports = React.createClass({
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
-                  <h1>{business.name}</h1>
+                  <h1>{business.name} <ShareButton /></h1>
                   <h2>{displayAddress} {linkToMap}</h2>
                 </div>
                 <Rating business={business} />
