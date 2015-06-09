@@ -14266,6 +14266,7 @@ section.home-footer .row > div p {
 .salon#content .main-content section.salon-info .row:first-child {
   margin-top: -105px;
   width: auto;
+  padding-bottom: 20px;
   padding-top: 30px;
   padding-left: 35px;
   border-top-left-radius: 4px;
