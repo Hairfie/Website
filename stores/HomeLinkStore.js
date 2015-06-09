@@ -107,6 +107,11 @@ module.exports = createStore({
                 category: ""
             },
             {
+                displayName: "Coiffeur Les Batignolles",
+                address: "Batignolles--75017-Paris--France",
+                category: ""
+            },
+            {
                 displayName: "Coiffeur dans le Marais",
                 address: "Le-Marais--Paris--France",
                 category: ""
