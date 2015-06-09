@@ -14298,10 +14298,6 @@ section.home-footer .row > div p {
 .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
   font-weight: 600; }
 
-.salon#content .main-content section.salon-info {
-  height: auto;
-  padding: 20px 0px 40px 35px; }
-
 @media screen and (max-width: 767px) {
   .salon#content .main-content section.salon-info .social {
     padding-left: 15px; } }

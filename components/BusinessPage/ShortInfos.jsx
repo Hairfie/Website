@@ -39,8 +39,8 @@ var ShareButton = React.createClass({
     },
     render: function () {
         return (
-              <div style={{display: 'inline-block'}}>
-                <div className="share-business" style={{margin: 'auto', padding: '0px'}}>
+              <div style={{dispay: 'inline-block'}}>
+                <div className="share-business">
                 </div>
               </div>
             );
@@ -61,9 +61,9 @@ module.exports = React.createClass({
                 <div className="col-sm-8">
                   <h1>{business.name}</h1>
                   <h2>{displayAddress} {linkToMap}</h2>
-                  <ShareButton />
                 </div>
                 <Rating business={business} />
+                <ShareButton />
               </div>
               <div className="row">
                 <div className="prix col-xs-12 col-sm-12">
