@@ -1,0 +1,21 @@
+{
+  "name":"Website",
+  "scripts":{},
+  "env":{
+    "FACEBOOK_APP_ID":{
+      "required":true
+    },
+    "FACEBOOK_APP_NAMESPACE":{
+      "required":true
+    },
+    "HAIRFIE_API_URL":{
+      "required":true
+    },
+    "NODE_ENV":{
+      "required":true
+    }
+  },
+  "addons":[
+    "newrelic"
+  ]
+}
