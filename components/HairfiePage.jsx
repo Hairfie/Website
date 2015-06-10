@@ -9,6 +9,24 @@ var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
 
+var ShareButton = React.createClass({
+    componentDidMount: function () {
+        new window.Share('.share-hairfie', {
+            ui: {
+              button_text: "Partager",
+              flyout: "bottom center"
+              }});
+    },
+    render: function () {
+        return (
+                <div style={{display: 'inline-block'}}>
+                    <div className="share-hairfie">
+                    </div>
+                </div>
+            );
+    }
+});
+
 var Carousel = React.createClass({
     getInitialState: function () {
         return {
@@ -91,7 +109,6 @@ var HairfieSingle = React.createClass({
 var RightColumn = React.createClass({
     render: function() {
         if (!this.props.hairfie.business) return <div />;
-console.log(this.props);
         var hairdresserNode;
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
@@ -138,6 +155,9 @@ console.log(this.props);
                         </div>
                     </div>
                 </div>
+                <div className="salon-description" style={{paddingTop: '20px'}}>
+                    <ShareButton hairfie={this.props.hairfie} />
+                </div>
             </div>
         );
     }
@@ -147,30 +167,8 @@ var HairfiePage = React.createClass({
     contextTypes: {
         config: React.PropTypes.object
     },
-    componentDidMount: function () {
-        new Share(".share-button", {
-            image: "{{ this.state.hairfie.picture.url }}",
-            title: "{{ this.state.hairfie.descriptions.facebook }}",
-            networks: {
-                facebook: {
-                  app_id: "{{ this.context.config.facebookAppId }}",
-                  load_sdk: false
-                },
-                twitter: {
-                    description: "{{ this.state.hairfie.descriptions.twitter }}"
-                }
-            }
-        });
-        TweenMax.to('#content .single-view', 0.5, {marginTop:40,opacity:1,ease:Power2.easeIn});
-        TweenMax.to('#content .related-hairfies', 0.5, {marginTop:0,opacity:1,ease:Power2.easeIn,delay:0.3});
-        $('.like-btn').on('click',function(){
-          $('.glyphicon-heart').toggleClass('full');
-        });
-        $('#carousel-hairfie').carousel();
-    },
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
-
         return (
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
