@@ -87,8 +87,22 @@ var HairfieSingle = React.createClass({
         return (
             <div className="col-xs-12 col-sm-6">
                 <Carousel hairfie={this.props.hairfie} />
+                <div className="like-group">
+                    {this.renderBookingButton()}
+                </div>
             </div>
        );
+    },
+    renderBookingButton: function () {
+        if (!this.props.hairfie.business) return;
+
+        return (
+                <div className="cta">
+                    <Link className="btn btn-red full" route="business_booking" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                        Réserver dans ce salon
+                    </Link>
+                </div>
+        );
     }
 });
 
@@ -144,20 +158,6 @@ var RightColumn = React.createClass({
                 </div>
                 <div className="salon-description" style={{paddingTop: '20px'}}>
                     <ShareButton hairfie={this.props.hairfie} />
-                    {this.renderBookingButton()}
-                </div>
-            </div>
-        );
-    },
-    renderBookingButton: function () {
-        if (!this.props.hairfie.business) return;
-
-        return (
-            <div className="like-group">
-                <div className="cta">
-                    <Link className="btn btn-red full" route="business_booking" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                        Réserver dans ce salon
-                    </Link>
                 </div>
             </div>
         );
