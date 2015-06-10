@@ -14266,7 +14266,6 @@ section.home-footer .row > div p {
 .salon#content .main-content section.salon-info .row:first-child {
   margin-top: -105px;
   width: auto;
-  padding-bottom: 20px;
   padding-top: 30px;
   padding-left: 35px;
   border-top-left-radius: 4px;
@@ -14298,6 +14297,10 @@ section.home-footer .row > div p {
 
 .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
   font-weight: 600; }
+
+.salon#content .main-content section.salon-info .social {
+  height: auto;
+  padding: 20px 0px 40px 35px; }
 
 @media screen and (max-width: 767px) {
   .salon#content .main-content section.salon-info .social {
@@ -15560,10 +15563,5 @@ div#app {
     display: table; }
   .star-rating:after {
     clear: both; }
-
-  .salon-description {
-    padding-top: 20px;
-    width: 100%;
-  }
 
 /*# sourceMappingURL=style.css.map */
