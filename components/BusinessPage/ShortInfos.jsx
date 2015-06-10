@@ -63,11 +63,11 @@ module.exports = React.createClass({
                   <h2>{displayAddress} {linkToMap}</h2>
                 </div>
                 <Rating business={business} />
-                <ShareButton />
               </div>
               <div className="row">
                 <div className="prix col-xs-12 col-sm-12">
                     {this.renderAveragePrice()}
+                    <ShareButton />
                 </div>
                 {/*
                 <div className="horraires col-xs-12 col-sm-6">

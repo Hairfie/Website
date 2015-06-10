@@ -14257,6 +14257,7 @@ section.home-footer .row > div p {
 
 .salon#content .main-content section.salon-info .row {
   background-color: white;
+  padding-bottom: 20px;
   padding-left: 35px; }
 
 @media screen and (max-width: 767px) {
@@ -14298,10 +14299,6 @@ section.home-footer .row > div p {
 
 .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
   font-weight: 600; }
-
-.salon#content .main-content section.salon-info .social {
-  height: auto;
-  padding: 20px 0px 40px 35px; }
 
 @media screen and (max-width: 767px) {
   .salon#content .main-content section.salon-info .social {
