@@ -142,7 +142,7 @@ var RightColumn = React.createClass({
                         </div>
                     </div>
                 </div>
-                <div className="salon-description">
+                <div className="salon-description" style={{paddingTop: '20px'}}>
                     <ShareButton hairfie={this.props.hairfie} />
                     {this.renderBookingButton()}
                 </div>

@@ -64,7 +64,7 @@ module.exports = React.createClass({
                 </div>
                 <Rating business={business} />
               </div>
-              <div className="row">
+              <div className="row" style={{paddingBottom: '20px'}}>
                 <div className="prix col-xs-12 col-sm-12">
                     {this.renderAveragePrice()}
                     <ShareButton />
