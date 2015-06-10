@@ -14266,6 +14266,7 @@ section.home-footer .row > div p {
 .salon#content .main-content section.salon-info .row:first-child {
   margin-top: -105px;
   width: auto;
+  padding-bottom: 20px;
   padding-top: 30px;
   padding-left: 35px;
   border-top-left-radius: 4px;
@@ -15564,4 +15565,13 @@ div#app {
   .star-rating:after {
     clear: both; }
 
+<<<<<<< HEAD
 /*# sourceMappingURL=style.css.map */
+=======
+  .salon-description {
+    padding-top: 20px;
+    width: 100%;
+  }
+
+/*# sourceMappingURL=style.css.map */
+>>>>>>> 9ce4a605b236203f43a9500bb21ad52265c10575
