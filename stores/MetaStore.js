@@ -191,6 +191,7 @@ module.exports = createStore({
         displayCategories = categories.join(', ');
 
         var title = 'Coiffeurs ' + displayCategories + ' à ' + address;
+        if(query.withDiscount) title = 'Promotions à ' + address;
 
         if(query.page) title += ' - page ' + query.page;
 
