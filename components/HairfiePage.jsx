@@ -91,7 +91,7 @@ var HairfieSingle = React.createClass({
 var RightColumn = React.createClass({
     render: function() {
         if (!this.props.hairfie.business) return <div />;
-
+console.log(this.props);
         var hairdresserNode;
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
@@ -122,7 +122,7 @@ var RightColumn = React.createClass({
                         </div>
                         <div className="col-xs-9 tags">
                             { _.map(this.props.hairfie.tags, function(tag) {
-                                return (<span className="tag" key={tag.id}><a href="#">{tag.name}</a></span>)
+                                return (<span className="tag" key={tag.id}><Link route="hairfie_search" params={{ address: 'Paris--France'}} query={{categories: tag.name}}>{tag.name}</Link></span>)
                             }) }
                         </div>
                     </div>
