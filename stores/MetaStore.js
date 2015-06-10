@@ -126,7 +126,7 @@ module.exports = createStore({
                 } else {
                     description = 'Découvrez les hairfies du salon ' + title + ' et réservez en ligne';
                 }
-
+                break;
             case 'business_reviews':
                 title = 'Les avis sur ' + title;
                 description = 'Les avis des internautes sur ' + business.name;

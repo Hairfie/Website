@@ -30,7 +30,7 @@ var HairdresserPicture = React.createClass({
                             alt={this.getAlt()} />;
     },
     renderDefault: function () {
-        return <img src={'http://placehold.it/120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
+        return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
     },
     getAlt: function () {
         return 'Photo de '+displayName(this.props.hairdresser);
@@ -73,8 +73,6 @@ var BusinessPage = React.createClass({
     },
     renderServices: function () {
         var services = this.props.services || [];
-
-        if (services.length == 0) return;
 
         return (
             <section>

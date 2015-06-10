@@ -8,7 +8,7 @@ var SearchUtils = require('../lib/search-utils');
 module.exports = {
     loadTopHairfies: function (context, params) {
         return context.hairfieApi
-            .get('/tops/hairfies', { query: { limit: params.limit } })
+            .get('/tops/hairfies', { query: { limit: 5 } })
             .then(function (hairfies) {
                 context.dispatch(Actions.RECEIVE_TOP_HAIRFIES, hairfies);
             });

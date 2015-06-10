@@ -53,8 +53,8 @@ module.exports = React.createClass({
                                 <Input ref="userFirstName" type="text"  placeholder="Prénom *" required />
                                 <Input ref="userLastName" type="text" placeholder="Nom *" />
                                 <Input ref="userEmail" type="email" placeholder="Email *" />
-                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de téléphone *" />
-                                <Input ref="userComment" type="text" placeholder="Une précision à ajouter ? Une demande particulière ?" />
+                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" />
+                                <Input ref="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
                             </form>
                         </div>
                     </div>
