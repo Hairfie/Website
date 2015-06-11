@@ -28,7 +28,7 @@ var Map = React.createClass({
     },
     render: function () {
         return (
-            <div ref="map" {...this.props} />
+            <div id="location" ref="map" {...this.props} />
         );
     },
     _setupMap: function (google, props) {
