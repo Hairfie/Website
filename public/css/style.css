@@ -14714,6 +14714,10 @@ section.home-footer .row > div p {
   height: 100%;
   position: relative; }
 
+@media screen and (max-width: 767px) {
+  .hairfie-singleView#content {
+    margin-top: 100px; } }
+
 .hairfie-singleView#content > a span.arrow {
   position: absolute;
   top: 283px; }
@@ -14890,7 +14894,7 @@ section.home-footer .row > div p {
 @media screen and (max-width: 767px) {
   .hairfie-singleView#content .single-view .like-group {
     z-index: 100000;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0; } }
 
