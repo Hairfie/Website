@@ -8994,9 +8994,10 @@ section.home-footer .row > div p {
 }
 .hairfie-singleView#content .single-view #carousel-hairfie .item {
   height: 570px;
+  background-color: #848484;
 }
 .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
-  height: 570px;
+  height: 100%;
 }
 .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
   font-size: 1.6em;
@@ -9142,6 +9143,16 @@ section.home-footer .row > div p {
   bottom: 0;
   left: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .hairfie-singleView#content .single-view .like-group {
+  z-index: 100000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  }
+}
+
 .hairfie-singleView#content .single-view .like-group .like-btn {
   border-top: 1px solid #f9f9f9;
   float: left;
@@ -9229,6 +9240,7 @@ section.home-footer .row > div p {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   line-height: 50px;
 }
+
 .hairfie-singleView#content .related-hairfies {
   margin-bottom: 60px;
 }
