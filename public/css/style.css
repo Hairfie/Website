@@ -11975,10 +11975,6 @@ span.arrow-right {
   /* Medium devices (desktops, 992px and up) */
   /* Large devices (large desktops, 1200px and up) */ }
 
-@media (min-width: 768px) {
-  .cal {
-    width: 248px; } }
-
 @media (min-width: 992px) {
   .cal {
     width: 324px; } }
@@ -12058,7 +12054,7 @@ span.arrow-right {
 .cal th:first-child, .cal td:first-child {
   border-left: 0; }
 
-@media (min-width: 768px) {
+@media (max-width: 991px) {
   .cal th, .cal td {
     width: 248px;
     height: 36px; } }
@@ -14458,6 +14454,10 @@ section.home-footer .row > div p {
   margin-top: -90px;
   position: relative; }
 
+@media screen and (max-width: 991px) {
+  .salon#content .sidebar {
+    width: 100%; } }
+
 .salon#content .sidebar:before {
   content: " ";
   width: 200vw;
@@ -14562,6 +14562,14 @@ section.home-footer .row > div p {
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
+
+@media screen and (max-width: 991px) {
+  .salon#content .sidebar .promo-sidebar .btn-red {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10000; } }
 
 .salon#content .sidebar .related-content {
   background: white;
