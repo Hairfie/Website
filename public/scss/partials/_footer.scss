@@ -20,12 +20,29 @@ footer {
 	.hr {
 		@include hr(#6b6b6b,2px,20px);
 	}
+	a.app-dl {
+		position: absolute;
+		width: 204px;height: 64px;
+		background: url(../images/btn-app-dl.png) no-repeat center center;
+		background-size: 100%;
+		top: 50%;
+		right: 5%;
+	}
 	.footer-links {
 		list-style-type: none;
 		margin: 0 auto;padding: 0;
-		@extend .nofloat;
+		@include nofloat;
 		li {
-			padding-left: 0;
+			padding-left: 10px;
+			display: inline-block;
+			width: auto;
+			text-wrap: no-wrap;
+			font-family: $font-second;
+			font-size: 1em;
+			letter-spacing: .5px;
+			&:first-child {
+				padding-left: 30px;
+			}
 		}
 		li:last-child {
 			position: relative;
@@ -48,5 +65,20 @@ footer {
 
 	p {
 		padding: 20px 0 30px;
+	}
+}
+footer.mobile {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 20px;
+	padding-bottom: 85px;
+	.btn-red {
+		font-size: 1.42em;
+		letter-spacing: 0;
+		line-height: 1.62em;
+	}
+	.app-dl {
+		width: 124px;height: 38px;
+		top: 0;right: 15px;
 	}
 }

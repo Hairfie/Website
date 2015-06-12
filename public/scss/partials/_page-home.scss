@@ -1,12 +1,12 @@
 /*////////////////////////////////
-	   P A G E  S T Y L E
+	   P A G E  H O M E
 ////////////////////////////////*/
 
 .landing {
 	height: 610px; width: 100vw;
+	max-width: 100%; // fix-mobile horizontal scroll
 	background: url(../images/bg-landing.jpg) no-repeat top center;
 	background-size: cover;
-	overflow: hidden;
 	text-align: center;
 	position: relative;
 	h1, p {
@@ -25,7 +25,12 @@
 	.headline {
 	    margin: 140px auto 0;
 	    height: 132px;
-		@extend .nofloat;
+	    @include nofloat;
+	    h1 {
+	    	@media screen and (max-width: $screen-xs-max) {
+	    		margin-top: 200px;
+	    	}
+	    }
 	    p {
 	    	letter-spacing: 1.34px;
 	    	padding: 0 10%;
@@ -36,18 +41,29 @@
 		margin: 90px 15px 60px 15px;
 		height: 100px;
 		border-radius:3px;
+		> div {
+			padding-left: 0;
+			&:nth-child(2) {
+				padding-right: 0;
+			}
+		}
 		input {
 			height: 60px;line-height: 60px;
-			margin-right: 20px;
-			&[type="search"] {
-				width: 48% !important;
+			margin-right: 0px; margin-left: -5px;
+			&:first-child {
+				margin-right: 10px;
 			}
-			&[type="date"] {
-				width: 19.4%;
+			&:nth-child(2) {
+				margin-left: -5px;
 			}
 		}
 		.btn-red {
-			height: 60px;
+			height: 58px;
+			font-size: 1.4em;
+			text-align: center;
+			padding: 0; margin-top: 1px;
+			margin-left: -5px;
+			line-height: 60px;
 		}
 	}
 }
@@ -80,13 +96,7 @@ section.home-section {
   			min-width: 100%; height: auto;
 			@include transition(all 0.25s ease-out);
   		}
-  		&:hover {
-			@include transition(all 0.25s ease-out);
 
-			img {
-				@include scale(1.1);
-			}
-		}
   		figcaption {
   			top: 0;left: 0;
   			background: rgba(0,0,0,0.07);
@@ -102,7 +112,7 @@ section.home-section {
   			a {
   				color: white;
   				font-family: $font-main;
-  				font-size: $regular;
+  				font-weight: $regular;
 
   				&:hover {
   					text-decoration: underline;
@@ -118,12 +128,21 @@ section.home-section {
 	.btn.home-cta {
 		display: block;
 		margin: 40px auto 0;
-		@extend .nofloat;
+		@include nofloat;
 	}
 }
 // Overrides:
 
 #home section:first-child {
+	figure {
+  		&:hover {
+			@include transition(all 0.25s ease-out);
+
+			img {
+				@include scale(1.1);
+			}
+		}
+	}
 	figcaption{
 
 		font-size: 2.1em;
@@ -133,6 +152,23 @@ section.home-section {
 			height: 100%;
 			display: block;
 			line-height: 140px;
+			position: relative;
+			span {
+				display: block;
+				line-height: 1.4;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-weight: $semiBold;
+
+				width: 40%;height: 2.8em;
+				top: 50%;left: 50%;
+				position: absolute;
+				margin-top: -1.4em;
+				margin-left: -20%;
+				&.oneline {
+					margin-top: -0.8em;
+				}
+			}
 		}
 	}
 	.row + .row {
@@ -142,17 +178,15 @@ section.home-section {
 		}
 	}
 	.row {
-		padding: 0 15px;
 		@media screen and (max-width: $screen-sm-min) {
 			> div {
-				margin: 10px;
+				margin: 10px 0px;
 			}
 		}
 		.col-sm-4 {
 			padding: 0;
 			padding-right: 15px;
 			&:nth-child(3) {
-				padding-right: 0px;
 				@media screen and (max-width: $screen-sm-min) {
 					padding-right: 15px !important;
 				}
@@ -163,26 +197,54 @@ section.home-section {
 }
 #home section:nth-child(2) {
 	.row > div {
-		@media screen and (max-width: $screen-sm-min) {
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			padding-right: 0;
+		}
+		@media screen and (max-width: $screen-sm-max) {
+			// margin-top: 20px !important;
+			&:nth-child(2) {
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+		}
+		@media screen and (max-width: $screen-xs-max) {
 			margin-top: 20px !important;
+			&:nth-child(2) {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+		}
+		@media screen and (max-width: $screen-xs-max) {
+			padding: 0;
 		}
 	}
 	figure {
 		border-radius: 0;
 		cursor: pointer;
-		&:hover {
-			img {
-				@include scale(1.05);
-			}
-		}
 		img {
 			height: 275px;
+			@media screen and (max-width: $screen-sm-max) {
+				height:auto;
+				min-height: 200px;
+			}
 		}
 		figcaption {
-			height: 45%;
+			height: 40%;
 			bottom:0; top: auto;
 			background-color: rgba(0,0,0,0.35);
 			padding: 12px;
+
+			@media screen and (max-width: $screen-sm-max) {
+				height:100% ;
+				padding-top: 25%;
+			}
+			@media screen and (max-width: $screen-xs-max) {
+				height:100% ;
+				padding-top: 35%;
+			}
 
 			p {
 				margin-bottom: 0;
@@ -201,6 +263,8 @@ section.home-section {
 			}
 			a:first-child {
 				text-transform: uppercase;
+			    margin-top: 10px;
+
 				&:hover {
 					text-decoration: none;
 				}
@@ -208,13 +272,27 @@ section.home-section {
 			a:nth-child(2) {
 				font-weight: $regular;
 				font-size: .9em;
+				margin-bottom: 5px;
 			}
 			.icon-promo {
 				position: absolute;
-				top: 35px; right: 35px;
-				width: 45px;height: 45px;
-				background-size: 100%;
-				line-height: 45px;
+				top: -130%; right: 20px;
+				width: 60px; height: 60px;
+				background-size: 100%; line-height: 60px;
+
+				@media screen and (max-width: $screen-sm-max) {
+					width: 35px !important;
+					height: 35px !important;
+					line-height: 35px !important;
+					font-size: .9em !important;
+				}
+				@media screen and (max-width: $screen-sm-max) {
+					top: 15px;
+					right: 15px;
+					width: 60px; height: 60px;
+					line-height: 60px;
+					font-size: 1em;
+				}
 			}
 			.stars {
 				height: auto;
@@ -241,13 +319,94 @@ section.home-section {
 	}
 }
 #home section:nth-child(3) {
-	.row + .row {
-		margin:0px;
-		padding: 0;
+	// .row + .row {
+	// 	margin:0px;
+	// 	padding: 0;
+	// }
+	// .col-sm-3 {
+	// 	padding: 0;
+	// }
+
+	.small-hairfies {
+
+		> div { // .row
+			margin-left: -15px;
+			margin-right: -15px;
+
+			> div { // .col-xs-6
+				// max-width: 265px;max-height: 265px;
+				padding: 0;
+				// @media screen and (max-width: $screen-xs-max) {
+				// 	margin-right: 0;
+				// 	width: 100%;
+				// 	min-width: 100%;
+				// 	max-height: 325px;
+				// }
+				figure {
+					margin: 0 10px 10px 0;
+				}
+				figcaption{
+					a:first-child {
+						margin-top: 80%;
+						@media screen and (max-width: $screen-sm-max) {
+							margin-top: 50%;
+						}
+					}
+				}
+			}
+		}
 	}
-	.col-sm-3 {
-		padding: 0;
+	.big {
+	    padding-left: 0;
+	    // height: 540px;
+
+		@media screen and (max-width: $screen-xs-max) {
+			// height: 325px;
+			padding-right: 0;
+		}
+
+		figure {
+		    height: 100%;
+		    // max-height: 540px;
+		    height: 100%;
+			width: 100%;
+			padding: 0;
+
+			// @media screen and (max-width: $screen-xs-max) {
+			// 	height: 325px;
+			// }
+
+		    figcaption{
+		    	font-size: 2.1em;
+				p{
+					margin-left: 20px;
+					font-weight: $regular;
+					a {
+						display: inline-block;
+					    margin-top: 0 !important;
+					    margin-left: 0 !important;
+					    text-transform: none;
+					    text-decoration: underline;
+					}
+				}
+				a:first-child {
+					margin-top: 80%;
+					@media screen and (max-width: $screen-sm-max) {
+						margin-top: 50%;
+					}
+
+				}
+				a {margin-left: 20px;}
+
+		    	.pricetag {
+				  width: 85px;
+				  height: 85px;
+				  line-height: 55px;
+		    	}
+		    }
+		}
 	}
+
 	figure {
 		cursor: pointer;
 
@@ -285,6 +444,18 @@ section.home-section {
 #home section:nth-child(even) {
 	background-color: $bg2;
 	@include fullWidthBg($bg2);
+}
+
+#home section:nth-child(5) {
+	a {
+		font-size: 1.6em;
+		font-family: $font-second;
+		font-weight: $latoLight;
+		color: $font-color;
+		letter-spacing: 1px;
+		&:hover {color: $font-color;}
+	}
+
 }
 section.home-footer {
 	.row > div {
