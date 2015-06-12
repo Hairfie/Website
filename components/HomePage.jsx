@@ -27,7 +27,7 @@ var HomePage = React.createClass({
                         <Notifications />
                         <div className="row">
                             <div className="headline col-md-12">
-                                <h1>Trouvez votre coupe. <br />Réservez votre coiffeur.</h1>
+                                <h1>Coucou !<br />Réservez votre coiffeur.</h1>
                                 <p>Des photos valent mieux qu'un long discours. <br />Prenez gratuitement RDV avec le coiffeur qui vous correspond.</p>
                             </div>
                         </div>
