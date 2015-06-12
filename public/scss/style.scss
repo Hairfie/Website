@@ -23,52 +23,30 @@ body {
     }
 }
 
-@import "main";
+@import "mainLucas";
 @import "temp";
-
-
-// //@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
-// //@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-// // // Import variales and helpers:
-// // @import "front/variables";
-// // @import "front/helpers";
-// // @import "front/buttons";
-// // @import "front/calendar";
-
-// // // Import general styles:
-// // @import "front/general";
-
-// .front {
-//     // Import page specific style:
-//     // @import "front/header";
-//     // @import "front/footer";
-//     // @import "front/page-home";
-//     // @import "front/page-search";
-//     // @import "front/page-salon";
-//     // @import "front/page-hairfie";
-// }
 
 @import "various/colors";
 @import "various/homePro";
 @import "various/starRating";
 
+// LUCAS LESS IN SASS BELOW
 
-// .backoffice {
-//     @import "backoffice/colors";
-//     @import "backoffice/icons";
-//     @import "backoffice/main";
-//     @import "backoffice/header";
-//     @import "backoffice/business";
-//     @import "backoffice/hairfie";
-//     @import "backoffice/home";
-//     @import "backoffice/homePro";
-//     @import "backoffice/dashboard";
-//     @import "backoffice/proLayout";
-//     @import "backoffice/hairfiesList";
-//     @import "backoffice/typeahead";
-//     @import "backoffice/search";
-//     @import "backoffice/booking";
-//     @import "backoffice/starRating";
-//     @import "backoffice/form";
-// }
+@import "partials/variables";
+@import "partials/helpers";
+@import "partials/buttons";
+@import "partials/calendar";
+//@import "partials/datepicker-override";
+
+// Import general styles:
+@import "partials/general";
+
+// Import page specific style:
+@import "partials/header";
+@import "partials/footer";
+@import "partials/page-home";
+@import "partials/page-search";
+@import "partials/page-salon";
+@import "partials/page-hairfie";
+@import "partials/page-resa";
+
