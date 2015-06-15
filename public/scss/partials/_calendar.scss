@@ -76,6 +76,9 @@
       font-weight: $latoBold;
       color: #353535;
       text-transform: none;
+      @media (max-width: $screen-md-min) {
+      width: 50px;
+      }
     }
   }
   tbody {
