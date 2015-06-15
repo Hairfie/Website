@@ -17,10 +17,6 @@ var Map = React.createClass({
         }.bind(this));
         scrollToMap()
     },
-    scrollToMap: function () {
-
-
-    },
     componentWillReceiveProps: function (nextProps) {
         this.context.getGoogleMapsScript()
             .then(function (google) {
