@@ -9571,6 +9571,9 @@ section.home-footer .row > div {
   min-height: calc(100vh - 60px);
   height: 100%;
   position: relative; }
+  @media screen and (max-width: 767px) {
+    .hairfie-singleView#content {
+      margin-top: 100px; } }
   .hairfie-singleView#content > a span.arrow {
     position: absolute;
     top: 283px; }
@@ -9703,6 +9706,12 @@ section.home-footer .row > div {
       position: absolute;
       bottom: 0;
       left: 100%; }
+      @media  {
+        .hairfie-singleView#content .single-view .like-group {
+          width: 100%;
+          position: fixed;
+          left: 0;
+          bottom: 0; } }
       .hairfie-singleView#content .single-view .like-group .like-btn {
         border-top: 1px solid #e5e5e5;
         float: left;
@@ -9755,8 +9764,9 @@ section.home-footer .row > div {
       .hairfie-singleView#content .single-view .like-group .cta {
         float: none;
         display: inline-block;
-        width: calc(100% - 65px);
-        height: 65px; }
+        width: 100%;
+        height: 65px;
+        z-index: 10000; }
         .hairfie-singleView#content .single-view .like-group .cta a {
           text-transform: uppercase;
           float: right;
