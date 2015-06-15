@@ -1,14 +1,45 @@
 /*////////////////////////////////
-	   P A G E  S E A R C H
+	   P A G E  S E A R C H  
 ////////////////////////////////*/
 #content.search {
+	@media screen and (max-width: $screen-sm-max) {
+		margin-top: 85px;
+		padding-bottom: 85px;
+	}
+	.breadcrumb {
+		margin-top: 15px;
+		margin-bottom: 0;
+		padding-left: 0;
+		font-size: 1.2em;
+		letter-spacing: 1px;
+		color: $font-color;
+		.active {
+			color: darken($font-color, 25%);
+			position: relative;
+			&:after {
+				content: " ";
+				width: calc(100% - 20px);
+				position: absolute;
+				height: 1px;
+				bottom: -1px;
+				right: 0;
+				background: darken($font-color, 20%);
+			}
+		}
+		a {
+			color: $font-color;
+
+		}
+	}
+
 	.main-content {
 		padding-top: 20px;
 
 		.search-content {
 			@include fullWidthBg($bg3);
+			
 		}
-
+		
 		.header-part {
 			.cover {
 				border-radius: 3px;
@@ -18,7 +49,6 @@
 				margin: 20px 0;
 				letter-spacing: 2px;
 				font-weight: $semiBold;
-                font-size: 24px;
 			}
 			p {
 				font-weight: $light;
@@ -29,9 +59,6 @@
 		}
 		.nav {
 			li {
-				a {
-					font-size: 1.2em;
-				}
 				&:first-child {
 					.icon-nav {
 						background: url(../images/icon-search-nav1.png) no-repeat center center;
@@ -60,7 +87,7 @@
 				font-size: 1.2em;
 				letter-spacing: 1px;
 				// height: 40px;
-				line-height: 40px;
+				line-height: 40px;	
 				margin: 0;
 				position: relative;
 
@@ -69,7 +96,12 @@
 					line-height: 1.2em;
 					display: inline-block;
 					background-color: $bgfooter;
-					color: white;
+					color: white;	
+
+					@media screen and (max-width: $screen-xs-max) {
+						width: auto;
+						text-align: center;
+					}
 				}
 				input, select {
 					-webkit-appearance: none;
@@ -85,9 +117,16 @@
 					&:focus {
 						outline: none;
 					}
+					@media screen and (max-width: $screen-xs-max) {
+						width: 58%;
+					}
 				}
 				input {
 					padding-left: 15px;
+					@media screen and (max-width: $screen-xs-max) {
+						width: 68.5%;
+					}
+					
 				}
 				select {
 					padding: 15px 40px 15px 15px;
@@ -100,15 +139,27 @@
 					background: url(../images/icon-chevron-down.png) no-repeat center center;
 
 					position: absolute;
-					top: 18px; right: 12px;
+					top: 18px; right: 25px;
 					padding: 0;margin: 0;
+					@media screen and (max-width: $screen-xs-max) {
+						right: 30px;
+					}
 				}
+			}
+			label[for="category"] {
+				> div {
+					float: right;
+					@media screen and (max-width: $screen-xs-max) {
+						float:none !important;
+					}
+				}
+				
 			}
 		}
 		.tab-pane section {
 			padding-bottom: 20px;
 			margin-bottom: 20px;
-
+			
 			&:after {
 				content:" ";
 				width: 96%;
@@ -123,15 +174,13 @@
 				margin: 0 auto;
 				min-height: 197px;
 				max-height: 197px;
+				@media screen and (max-width: $screen-sm-max) {
+					min-height: 0;
+					max-height: none;
+					width: 100%;
+				}
 			}
 
-			> div.col-xs-4 {
-				// padding-left: 0;
-				// img {
-				// 	// height: 100%;
-				// 	border-radius: 100%;
-				// }
-			}
 			.rating {
 				position: absolute;
 				top: 0;right: 0;
@@ -153,6 +202,15 @@
 					letter-spacing: 1px;
 					float:right;
 				}
+				@media screen and (max-width: $screen-xs-max) {
+					top: -120%;
+  					right: 3%;
+  					a {
+  						color: white;
+  						font-weight: $semiBold;
+						font-size: 1.2em;
+  					}
+				}
 			}
 			.inline-promo {
 				text-align: left;
@@ -162,30 +220,16 @@
 					margin-right: 10px;
 				}
 			}
-			h3 {
-				font-weight: $semiBold;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				font-size: 2.1em;
-				margin: 0 0 3px;
-				a {
-					color: $darkgrey;
-					&:hover,&:visited,&:active {
-						color: $darkgrey;
-						text-decoration: none;
-					}
+			div.address-bloc {
+				h3 {
+					font-size: 2.1em;
+					margin: 0 0 3px;
+				}
+				a:nth-child(2) {
+					font-size: 1.4em;
 				}
 			}
-			.address {
-				color: $darkgrey;
-				font-size: 1.6em;
-				font-weight: $light;
-				letter-spacing: 1px;
-				&:hover {
-					color: $darkgrey;
-					text-decoration: underline;
-				}
-			}
+			
 			.btn-red {
 				text-transform: uppercase;
 				letter-spacing: .5px;
@@ -222,9 +266,22 @@
 		.tab-pane#adom {
 			margin-top: 20px;
 			section {
-				> div.col-xs-4 {
+				.image-bloc {
+					
 					img {
 						border-radius: 100%;
+						@media screen and (max-width: $screen-sm-max) {
+		  					width: 50%;margin: 20px auto;
+		  				}
+
+					}
+				}
+				.rating {
+					@media screen and (max-width: $screen-xs-max) {
+						top: -85%;	
+						a {
+							color: $darkgrey;
+						}
 					}
 				}
 			}
@@ -233,14 +290,39 @@
 			section {
 				max-height: 220px;
   				overflow: hidden;
-				> div.col-xs-4 {
+  				@media screen and (max-width: $screen-sm-max) {
+  					max-height: 100%;
+  				}
+				.image-bloc {
 					padding-left: 0;
+					@media screen and (max-width: $screen-sm-max) {
+	  					padding-right: 0;
+	  				}
 					img {
 						display: inline;
 					}
   				}
+  				
 			}
 		}
+		.tab-pane#salons, .tab-pane#adom {
+			.image-bloc {
+				overflow: hidden;
+			}
+			.info-bloc {
+				@media screen and (max-width: $screen-xs-max) {
+  					padding-left: 0;
+  					padding-right: 0;
+  					padding-top: 15px;
+  					.btn-red {
+  						display: block;
+  						float:none;
+  						margin:0 auto;
+  						padding-right: 0;
+  					}
+  				}
+			}
+		} 
 		.tab-pane#hairfies {
 			section {
 				&:after {
@@ -267,16 +349,16 @@
 		padding-top: 20px;
 		padding-bottom: 60px;
 		background: $bg3;
-		@include fullWidthBg($bg3);
+		// @include fullWidthBg($bg3);
 
 		.filter-recap {
 			h2{line-height: 50px; }
 		}
-
+		
 		.checkbox-inline + .checkbox-inline {
 			margin-left: 0;
 		}
-
+		
 		h1 {
 			color: $font-color;
 			font-weight: $semiBold;
@@ -298,14 +380,14 @@
 			background-color: white;
 			border-bottom: 1px solid #e2e3e6;
 			font-size: 1.6em;
-			font-weight: $regular;
+			font-weight: $regular;	
 			letter-spacing: 1px;
 			line-height: 2.2;
 
 			display: block;
 			width: 100%;
   			padding-left: 30px;
-
+			
 		}
 		div.input-group {
 			padding: 24px 12px;
@@ -325,7 +407,7 @@
 					outline: none !important;
 				}
 			}
-
+			
 			.input-group-addon {
 			    border: none;
 			    border-radius: 0;
@@ -353,7 +435,7 @@
 		.price {
 			.selectRange {
 				padding: 30px 12px;
-				background: white;
+				background: white;	
 			}
 			p {
 				font-size: 1.5em;
@@ -365,14 +447,14 @@
 					text-align: right;
 				}
 			}
-			#rangeslider {
-				height: 11px;
+			.rangeslider {
+				height: 11px; 
 				background: #e2e3e6;
 				border:0;
 				margin-bottom: 15px;
 
 				.ui-slider-range {
-					height: 11px;
+					height: 11px; 
 					background: $red;
 				}
 				.ui-slider-handle {
@@ -381,10 +463,27 @@
 					width: 22px;height: 22px;
 					border: 4px solid white;
 					border-radius:100%;
-					background:$red;
+					background:$red; 
 					@include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
 				}
 			}
+		}
+	}
+	.mobile-search {
+		position: relative;
+		width: 100vw;
+		.btn-red.trigger-filters {
+			
+		}	
+		.mobile-filtres {
+			position: fixed;
+  			left: 0; z-index: 998;
+  			background-color: $bg3;
+			height: #{"calc(100vh - 130px)"};
+			max-width: 100%;
+			overflow-x: hidden;
+			width: 100%;
+			top: 100%;
 		}
 	}
 }
