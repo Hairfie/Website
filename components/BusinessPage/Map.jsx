@@ -15,7 +15,6 @@ var Map = React.createClass({
         this.context.getGoogleMapsScript().then(function (google) {
             this._setupMap(google, this.props);
         }.bind(this));
-        scrollToMap()
     },
     componentWillReceiveProps: function (nextProps) {
         this.context.getGoogleMapsScript()
