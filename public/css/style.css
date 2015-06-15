@@ -9706,12 +9706,13 @@ section.home-footer .row > div {
       position: absolute;
       bottom: 0;
       left: 100%; }
-      @media  {
+      @media (max-width: 767px) {
         .hairfie-singleView#content .single-view .like-group {
           width: 100%;
           position: fixed;
           left: 0;
-          bottom: 0; } }
+          bottom: 0;
+          z-index: 100000; } }
       .hairfie-singleView#content .single-view .like-group .like-btn {
         border-top: 1px solid #e5e5e5;
         float: left;
@@ -9765,8 +9766,7 @@ section.home-footer .row > div {
         float: none;
         display: inline-block;
         width: 100%;
-        height: 65px;
-        z-index: 10000; }
+        height: 65px; }
         .hairfie-singleView#content .single-view .like-group .cta a {
           text-transform: uppercase;
           float: right;
