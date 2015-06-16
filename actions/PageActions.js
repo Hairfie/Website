@@ -89,7 +89,9 @@ module.exports = {
             });
     },
     writeVerifiedBusinessReview: function (context, route) {
-        return context.executeAction(BusinessReviewActions.loadRequest, route.params.businessReviewRequestId);
+        var businessReviewRequestId  = route.get('params').get('businessReviewRequestId');
+
+        return context.executeAction(BusinessReviewActions.loadRequest, businessReviewRequestId);
     },
     resetPassword: function (context, route) {
         return context.hairfieApi
