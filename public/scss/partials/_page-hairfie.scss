@@ -2,7 +2,7 @@
       P A G E  H A I R F I E
 ////////////////////////////////*/
 .hairfie-singleView#content {
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: $screen-xs-max) {
 	   margin-top: 100px;
  	}
 	min-height: #{"calc(100vh - 60px)"};
@@ -162,7 +162,7 @@
 			}
 		}
 		.like-group {
-			@media (max-width: 767px){
+			@media (max-width: $screen-xs-max){
 			width:100%;
 			position: fixed;
 			left: 0;

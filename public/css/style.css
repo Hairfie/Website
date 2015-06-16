@@ -9771,7 +9771,8 @@ section.home-footer .row > div {
     padding: 20px; }
     @media screen and (max-width: 991px) {
       #content.reservation .sidebar {
-        margin-bottom: 40px; } }
+        margin-bottom: 40px;
+        margin-left: 12.5%; } }
     #content.reservation .sidebar .salon-bloc a:first-child {
       display: block;
       width: 100%;
@@ -9818,9 +9819,10 @@ section.home-footer .row > div {
           padding-left: 15px; }
   #content.reservation .main-content {
     padding-left: 30px; }
-    @media screen and (max-width: 1199px) {
+    @media screen and (max-width: 991px) {
       #content.reservation .main-content {
-        padding-left: 15px; } }
+        padding-left: 15px;
+        float: none !important; } }
     #content.reservation .main-content .legend {
       color: #595959;
       font-weight: 400;
@@ -9850,7 +9852,7 @@ section.home-footer .row > div {
     #content.reservation .main-content .row > div:nth-child(2) {
       padding-left: 62px;
       padding-right: 0; }
-      @media screen and (max-width: 1199px) {
+      @media screen and (max-width: 991px) {
         #content.reservation .main-content .row > div:nth-child(2) {
           padding-left: 0px; } }
       @media screen and (max-width: 991px) {
@@ -9885,7 +9887,7 @@ section.home-footer .row > div {
           #content.reservation .main-content .row > div:nth-child(2) .time-table table td a {
             position: relative;
             line-height: 1.2; }
-            @media screen and (max-width: 1199px) {
+            @media screen and (max-width: 991px) {
               #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span {
                 bottom: 2px; } }
             @media screen and (max-width: 991px) {
@@ -9922,6 +9924,9 @@ section.home-footer .row > div {
     margin-top: -2em; }
     #content.reservation.confirmation .legend.conf + a:hover, #content.reservation.confirmation .legend.conf + a:active {
       color: #595959; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .legend.conf + a {
+        float: none !important; } }
   #content.reservation.confirmation .confirm-bloc-form {
     float: none;
     margin: 0 auto; }
@@ -9974,7 +9979,7 @@ section.home-footer .row > div {
         padding-left: 13px; }
         #content.reservation.confirmation .confirm-bloc-form form label[for="infos"] select {
           margin-right: 28px; }
-          @media screen and (max-width: 1199px) {
+          @media screen and (max-width: 991px) {
             #content.reservation.confirmation .confirm-bloc-form form label[for="infos"] select {
               margin-right: 20px; } }
           @media screen and (max-width: 767px) {
@@ -10046,7 +10051,8 @@ section.home-footer .row > div {
         left: 1px; }
   #content.reservation.confirmation .btn-red {
     display: block;
-    margin: 50px auto;
+    margin: auto;
+    margin-bottom: 15px;
     border-radius: 5px;
     text-align: center;
     text-transform: uppercase;

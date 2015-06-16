@@ -16,7 +16,7 @@ module.exports = React.createClass({
         var displayAddress = business.address ? business.address.street + ' ' + business.address.city : null;
 
         return (
-            <div className="sidebar col-md-3 col-sm-12 pull-left">
+            <div className="sidebar col-md-3 col-sm-9 col-xs-9 pull-left">
                 <div className="salon-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}

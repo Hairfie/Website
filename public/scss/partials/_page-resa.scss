@@ -12,6 +12,7 @@
 		padding: 20px;
 		@media screen and (max-width: $screen-sm-max) {
 			margin-bottom: 40px;
+			margin-left: 12.5%;
 		}
 		.salon-bloc {
 			a:first-child {
@@ -69,8 +70,9 @@
 	}
 	.main-content {
 		padding-left: 30px;
-		@media screen and (max-width: $screen-md-max) {
+		@media screen and (max-width: $screen-sm-max) {
 			padding-left: 15px;
+			float: none !important;
 		}
 		.legend {
 			color: $font-color;
@@ -110,7 +112,7 @@
 			> div:nth-child(2) {
 				padding-left: 62px;
 				padding-right: 0;
-				@media screen and (max-width: $screen-md-max) {
+				@media screen and (max-width: $screen-sm-max) {
 					padding-left: 0px;
 				}
 				@media screen and (max-width: $screen-sm-max) {
@@ -148,7 +150,7 @@
 							position: relative;
 							line-height: 1.2;
 							span {
-      							@media screen and (max-width: $screen-md-max) {
+      							@media screen and (max-width: $screen-sm-max) {
       								bottom: 2px;
 								}
 								@media screen and (max-width: $screen-sm-max) {
@@ -199,6 +201,9 @@
 		text-decoration: underline;
 		margin-top: -2em;
 		&:hover, &:active {color: $font-color}
+		@media screen and (max-width: $screen-xs-max) {
+			float: none !important;
+		}
 	}
 	.confirm-bloc-form {
 		float: none;
@@ -248,7 +253,7 @@
 				&[for="infos"] {
 					select {
 						margin-right: 28px;
-						@media screen and (max-width: $screen-md-max){
+						@media screen and (max-width: $screen-sm-max){
 							margin-right: 20px;
 						}
 						@media screen and (max-width: $screen-xs-max){
@@ -337,7 +342,8 @@
 	}
 	.btn-red {
 		display: block;
-		margin: 50px auto;
+		margin: auto;
+		margin-bottom: 15px;
 		border-radius: 5px;
 		text-align: center;
 		text-transform: uppercase;
