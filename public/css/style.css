@@ -9228,60 +9228,6 @@ section.home-footer .row > div {
         width: 1.4em; }
     .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
       font-weight: 600; }
-    .salon#content .main-content section.salon-info .social {
-      height: auto;
-      padding: 20px 0px 40px 35px; }
-      @media screen and (max-width: 767px) {
-        .salon#content .main-content section.salon-info .social {
-          padding-left: 15px; } }
-      .salon#content .main-content section.salon-info .social div.twitter {
-        padding-right: 0; }
-      .salon#content .main-content section.salon-info .social a {
-        background: #f4f4f4;
-        border: 1px solid #d2d5d6;
-        color: #595959;
-        font-size: 1.4em;
-        border-radius: 2px;
-        padding: 4px 20px 6px;
-        width: 100%;
-        -webkit-transition: all 0.25s ease-out;
-        -moz-transition: all 0.25s ease-out;
-        -ms-transition: all 0.25s ease-out;
-        -o-transition: all 0.25s ease-out; }
-        .salon#content .main-content section.salon-info .social a:hover {
-          -webkit-transition: all 0.25s ease-out;
-          -moz-transition: all 0.25s ease-out;
-          -ms-transition: all 0.25s ease-out;
-          -o-transition: all 0.25s ease-out;
-          text-decoration: none; }
-        .salon#content .main-content section.salon-info .social a .socicon {
-          position: absolute;
-          left: 38px; }
-        @media screen and (max-width: 767px) {
-          .salon#content .main-content section.salon-info .social a {
-            padding: 20px;
-            width: auto; }
-            .salon#content .main-content section.salon-info .social a .socicon {
-              top: 10px;
-              left: 29px; } }
-      @media screen and (max-width: 767px) {
-        .salon#content .main-content section.salon-info .social a.facebook {
-          background-color: #6788ce;
-          border-color: #6788ce;
-          color: white; } }
-      .salon#content .main-content section.salon-info .social a.facebook:hover {
-        background-color: #6788ce;
-        border-color: #6788ce;
-        color: white; }
-      @media screen and (max-width: 767px) {
-        .salon#content .main-content section.salon-info .social a.twitter {
-          background-color: #29c5f6;
-          border-color: #29c5f6;
-          color: white; } }
-      .salon#content .main-content section.salon-info .social a.twitter:hover {
-        background-color: #29c5f6;
-        border-color: #29c5f6;
-        color: white; }
 .salon#content section.salon-content {
   margin-top: 20px;
   margin-bottom: 70px; }
@@ -9584,6 +9530,9 @@ section.home-footer .row > div {
   min-height: calc(100vh - 60px);
   height: 100%;
   position: relative; }
+  @media screen and (max-width: 767px) {
+    .hairfie-singleView#content {
+      margin-top: 100px; } }
   .hairfie-singleView#content > a span.arrow {
     position: absolute;
     top: 283px; }
@@ -9716,6 +9665,13 @@ section.home-footer .row > div {
       position: absolute;
       bottom: 0;
       left: 100%; }
+      @media (max-width: 767px) {
+        .hairfie-singleView#content .single-view .like-group {
+          width: 100%;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          z-index: 100000; } }
       .hairfie-singleView#content .single-view .like-group .like-btn {
         border-top: 1px solid #e5e5e5;
         float: left;
@@ -9768,7 +9724,7 @@ section.home-footer .row > div {
       .hairfie-singleView#content .single-view .like-group .cta {
         float: none;
         display: inline-block;
-        width: calc(100% - 65px);
+        width: 100%;
         height: 65px; }
         .hairfie-singleView#content .single-view .like-group .cta a {
           text-transform: uppercase;

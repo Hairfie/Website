@@ -84,67 +84,6 @@
 					font-weight: $semiBold;
 				}
 			}
-			.social {
-				height: auto;
-				padding: 20px 0px 40px 35px;
-				@media screen and (max-width: $screen-xs-max) {
-					padding-left: 15px;
-				}
-				div.twitter {
-					padding-right: 0;
-				}
-				a {
-					background: #f4f4f4;
-					border:1px solid #d2d5d6;
-					color: $font-color;
-
-					font-size: 1.4em;
-					border-radius: 2px;
-					padding: 4px 20px 6px;
-					width: 100%;
-					&:hover {
-						@include transition(all 0.25s ease-out);
-						text-decoration: none;
-					}
-					.socicon {
-						position: absolute;
-						left: 38px;
-					}
-					@include transition(all 0.25s ease-out);
-					@media screen and (max-width: $screen-xs-max) {
-						padding: 20px;
-						width: auto;
-						.socicon {
-							top: 10px;
-							left: 29px;
-						}
-					}
-				}
-				a.facebook {
-					@media screen and (max-width: $screen-xs-max) {
-						background-color: #6788ce;
-						border-color: #6788ce;
-						color: white;
-					}
-					&:hover {
-						background-color: #6788ce;
-						border-color: #6788ce;
-						color: white;
-					}
-				}
-				a.twitter {
-					@media screen and (max-width: $screen-xs-max) {
-						background-color: #29c5f6;
-						border-color: #29c5f6;
-						color: white;
-					}
-					&:hover {
-						background-color: #29c5f6;
-						border-color: #29c5f6;
-						color: white;
-					}
-				}
-			}
 		}
 	}
 	section.salon-content {
