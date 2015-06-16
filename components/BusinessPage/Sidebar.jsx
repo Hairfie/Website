@@ -21,7 +21,7 @@ module.exports = React.createClass({
         var business = this.props.business || {};
 
         return (
-            <div className="calendar hidden-xs">
+            <div className="calendar">
                 <Calendar ref="calendar" timetable={business.timetable} onDayChange={this.book} />
             </div>
         );
@@ -34,7 +34,7 @@ module.exports = React.createClass({
         return (
             <div className="promo-sidebar">
                 {this.renderBestDiscount()}
-                <Link className="btn btn-red hidden-xs" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Réserver maintenant
                 </Link>
             </div>
