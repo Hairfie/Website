@@ -12,7 +12,6 @@
 		padding: 20px;
 		@media screen and (max-width: $screen-sm-max) {
 			margin-bottom: 40px;
-			margin-left: 12.5%;
 		}
 		.salon-bloc {
 			a:first-child {
@@ -109,6 +108,12 @@
 					width: 50px;
 				}
 			}
+			> div:nth-child(1) {
+				@media screen and (max-width: 545px) {
+					float: none !important;
+					width: 100%;
+				}
+			}
 			> div:nth-child(2) {
 				padding-left: 62px;
 				padding-right: 0;
@@ -121,6 +126,10 @@
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
 				}
+				@media screen and (max-width: 545px) {
+					float: none !important;
+					width: 100%;
+				}
 				.time-table table {
 					width: 100%;
 					@media screen and (max-width: $screen-sm-max) {
@@ -130,6 +139,7 @@
 						display: block;
   						margin-right: -10px;
   						border: none;
+  						width: 100%;
   						@media screen and (max-width: $screen-sm-max) {
 							margin-right: -50px;
 						}

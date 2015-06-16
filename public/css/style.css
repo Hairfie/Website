@@ -9771,8 +9771,7 @@ section.home-footer .row > div {
     padding: 20px; }
     @media screen and (max-width: 991px) {
       #content.reservation .sidebar {
-        margin-bottom: 40px;
-        margin-left: 12.5%; } }
+        margin-bottom: 40px; } }
     #content.reservation .sidebar .salon-bloc a:first-child {
       display: block;
       width: 100%;
@@ -9849,6 +9848,10 @@ section.home-footer .row > div {
       text-decoration: underline; }
     #content.reservation .main-content .row > div td {
       width: 50px; }
+    @media screen and (max-width: 545px) {
+      #content.reservation .main-content .row > div:nth-child(1) {
+        float: none !important;
+        width: 100%; } }
     #content.reservation .main-content .row > div:nth-child(2) {
       padding-left: 62px;
       padding-right: 0; }
@@ -9861,6 +9864,10 @@ section.home-footer .row > div {
       @media screen and (max-width: 767px) {
         #content.reservation .main-content .row > div:nth-child(2) {
           padding-left: 15px; } }
+      @media screen and (max-width: 545px) {
+        #content.reservation .main-content .row > div:nth-child(2) {
+          float: none !important;
+          width: 100%; } }
       #content.reservation .main-content .row > div:nth-child(2) .time-table table {
         width: 100%; }
         @media screen and (max-width: 991px) {
@@ -9869,7 +9876,8 @@ section.home-footer .row > div {
         #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody {
           display: block;
           margin-right: -10px;
-          border: none; }
+          border: none;
+          width: 100%; }
           @media screen and (max-width: 991px) {
             #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody {
               margin-right: -50px; } }

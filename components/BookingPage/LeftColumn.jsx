@@ -16,7 +16,7 @@ module.exports = React.createClass({
         var displayAddress = business.address ? business.address.street + ' ' + business.address.city : null;
 
         return (
-            <div className="sidebar col-md-3 col-sm-9 col-xs-9 pull-left">
+            <div className="sidebar col-md-3 col-sm-12 col-xs-12 pull-left">
                 <div className="salon-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
@@ -38,7 +38,7 @@ module.exports = React.createClass({
                 <div>
                     {this.renderDiscountsConditions()}
                     <div>
-                        <h3>Réserver en ligne na que des avantages </h3>
+                        <h3>Réserver en ligne n'a que des avantages </h3>
                         <ul>
                             <li>- Rapide</li>
                             <li>- Gratuit</li>
@@ -74,7 +74,7 @@ module.exports = React.createClass({
     },
     renderDiscountsConditions: function() {
         if(this.props.discountObj && this.props.discountObj.discountsAvailable.length > 0) {
-            return (<p>* Cette offre nest valable que pour les réservations en ligne. Lachat de produits du salon avec cette offre est exclusivement liée à une prestation.</p>);
+            return (<p>* Cette offre n'est valable que pour les réservations en ligne. L'achat de produits du salon avec cette offre est exclusivement liée à une prestation.</p>);
         }
     }
 });
