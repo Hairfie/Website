@@ -45,7 +45,7 @@ module.exports = React.createClass({
                                       <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
                                       Homme
                                     </label>
-                                    <label className="radio-inline">
+                                    <label className="radio-inline" style={{marginLeft: '0px'}}>
                                       <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
                                       Femme
                                     </label>
@@ -60,7 +60,7 @@ module.exports = React.createClass({
                     </div>
                     <div className="clearfix"></div>
                     <hr />
-                    <label className='col-xs-12' for="cgu">
+                    <label for="cgu" style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu'/>
                         <span></span>
                         Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
