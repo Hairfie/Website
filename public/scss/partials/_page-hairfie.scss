@@ -1,7 +1,24 @@
+/*////////////////////////////////
+      P A G E  H A I R F I E
+////////////////////////////////*/
 .hairfie-singleView#content {
-	
+	@media screen and (max-width: $screen-xs-max) {
+	   margin-top: 100px;
+ 	}
 	min-height: #{"calc(100vh - 60px)"};
 	height: 100%;
+	position: relative;
+
+	> a span.arrow {
+		position: absolute;
+		top: 283px;
+	}
+	> a span.arrow-right {
+		right: -50px !important;
+	}
+	> a span.arrow-left {
+		left: -50px !important;
+	}
 
 	.single-view {
 		margin: 40px auto;
@@ -9,35 +26,62 @@
 		> .col-sm-6:first-child {
 			padding-right: 0;
 		}
-		figure {
+		#carousel-hairfie {
 			height: 100%;
 			position: relative;
 			margin-left: -15px;
-
-			img {
-				position: relative;
-				display: block; 
-				height: 100%; width: 100%;
-				margin: 0 auto;
-			}
-			figcaption {
-				position: absolute;
-				top: 0; left: 0;
-				.pricetag {
-					font-size: 1.6em;
-					top: 20px;left: 20px;
-					color: white;
-					font-weight: $semiBold;
+			.item {
+				height: 570px;
+				.outer-img {
+					height: 570px;
 				}
-				.user {
+			}
+			.pricetag {
+				font-size: 1.6em;
+				top: 20px;left: 20px;
+				color: white;
+				font-weight: $semiBold;
+				z-index: 99999;
+			}
+			.user {
+				position: absolute;
+				width: 50px; height: 50px;
+				right: 20px;top: 20px;
+				overflow: hidden;
+				z-index: 99999;
+				img {
 					position: absolute;
-					width: 50px; height: 50px;
-					right: 20px;top: 20px;
-					overflow: hidden;
-					img {
-						width: 100%; height: 100%;
+					width: 100%; height: 100%;
+				}
+			}
+			.carousel-control {
+				bottom: 0;
+				height: 40px;
+				width: 40px;
+				top: auto;
+				&.left {
+					left: 50%;
+					margin-left: -40px;
+				}
+				&.right {
+					right: 50%;
+					margin-right: -40px;
+				}
+				span.arrow {
+					background-image: none;
+					width: 20px; height: 20px;
+					background-color: rgba(255,255,255,0.65);
+					border-radius: 100%;
+					&.arrow-right {
+						position: static;
+						margin: 10px auto;
+					}
+					&.arrow-left {
+						position: static;
+						margin: 10px auto;
 					}
 				}
+				
 			}
 		}
 		> div:nth-child(2) {
@@ -52,7 +96,7 @@
 				}
 				> div:first-child {
 					padding-left: 0;
-					.col-xs-3 {
+					> div:first-child {
 						max-height: 95px;
 						a {
 							display: inline-block;
@@ -67,17 +111,10 @@
 					}
 					
 				}
-				a {
-					color: $font-color;
-				}
 				h2 {
-					text-transform: uppercase;
-					font-weight: $semiBold;
-					letter-spacing: 2px;
 					font-size: 1.5em;
-					margin-bottom: 0;
 				}
-				p {letter-spacing: 1px; margin-top: 0; font-size: 1.5em;}
+				p {letter-spacing: 1px; margin-top: 4px;font-size: 1.3em;}
 				p a {text-decoration: underline;&:hover {color: #343434;}}
 				.tags {
 					margin-left: -3px;
@@ -96,7 +133,11 @@
 					a {
 						float: none;
 						text-decoration: none;
-						font-size: 0.786em;
+						font-size: 0.9em;
+						color: $font-color;
+						&:hover {
+							color: black;
+						}
 						&:after {
 							content: " ";
 							width: 72%;
@@ -121,6 +162,13 @@
 			}
 		}
 		.like-group {
+			@media (max-width: $screen-xs-max){
+			width:100%;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			z-index: 100000;
+			}
 			width: 100%;
 			height: 65px;
 			position: absolute;
@@ -145,16 +193,32 @@
 						height: 1.2em;
 						line-height: 1.2em;
 						@include transition(all 0.1s ease);
-						&.full {
+
+						&:after {
+							content:"\e005";
+							font-family: glyphicon;
+							font-family: Glyphicons Halflings;
 							color: $red;
+							position: absolute;
+							top: 0; left: 0; z-index: 99;
+							opacity: 0;
+							@include scale(0.1);
+							@include transition(all 0.25s ease);
+						}
+						&.full {
+							&:after {
+								opacity: 1;
+								@include scale(1);
+							}
 						}
 					}
 				}
 			}
 			.cta {
-				float: none; display: inline-block;
-				width: #{"calc(100% - 65px)"}; height: 65px;
-
+				float: none;
+				display: inline-block;
+				width: 100%;
+				height: 65px;
 				a {
 					text-transform: uppercase;
 					float: right; 
@@ -179,7 +243,7 @@
 			text-align: center;
 			margin: 0 auto 40px;
 		}
-		div {
+		.single-hairfie {
 			padding: 3px;
 			padding-top: 0;
 			padding-left: 0;

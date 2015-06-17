@@ -2,9 +2,32 @@
 	   P A G E  S A L O N
 ////////////////////////////////*/
 .carousel-inner .item {
-	min-height: 470px;
+	height: 470px;
 	background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
 	background-size: cover;
+
+	@media screen and (max-width: $screen-xs-max) {
+		height: 320px;
+	}
+
+	.outer-img {
+		position: relative;
+		width: 100%;height: 470px;
+		@media screen and (max-width: $screen-xs-max) {
+			height: 320px;
+		}
+		img {
+			position: absolute;
+			top: 0;left: 0;bottom: 0;right: 0;
+			margin: auto;
+			width: 100%;
+			height: auto;
+			@media screen and (max-width: $screen-xs-max) {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
 }
 .salon#content {
 	.main-content {
@@ -21,6 +44,9 @@
 			.row {
 				background-color: white;
 				padding-left: 35px;
+				@media screen and (max-width: $screen-xs-max) {
+					padding-left: 15px;
+				}
 			}
 			.row:first-child {
 				margin-top: -105px; // for -90 offset
@@ -29,6 +55,11 @@
 				padding-left: 35px;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
+				@media screen and (max-width: $screen-sm-max) {
+					margin-top: 0;
+					padding-left: 15px;
+					border-radius: 0px;
+				}
 				h1 {margin-top: 0;}
 			}
 
@@ -53,48 +84,15 @@
 					font-weight: $semiBold;
 				}
 			}
-			.social {
-				height: auto;
-				padding: 20px 0px 40px 35px;
-				a {
-					background: #f4f4f4;
-					border:1px solid #d2d5d6;
-					color: $font-color;
-
-					font-size: 1.4em;
-					border-radius: 2px;
-					padding: 4px 20px 6px;
-					width: 100%;
-					&:hover {
-						@include transition(all 0.25s ease-out);
-						text-decoration: none;
-					}
-					.socicon {
-						position: absolute;
-						left: 38px;
-					}
-					@include transition(all 0.25s ease-out);
-				}
-				a.facebook {
-					&:hover {
-						background-color: #6788ce;
-						border-color: #6788ce;
-						color: white;
-					}
-				}
-				a.twitter {
-					&:hover {
-						background-color: #29c5f6;
-						border-color: #29c5f6;
-						color: white;
-					}
-				}
-			}
 		}
 	}
 	section.salon-content {
 		margin-top: 20px;
 		margin-bottom: 70px;
+
+		h5 {
+			font-family: $font-main;
+		}
 
 		> .row {
 			background-color: white;
@@ -122,6 +120,10 @@
 		section {
 			padding-left: 50px;
 			padding-right: 50px;
+			@media screen and (max-width: $screen-xs-max) {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
 			padding-bottom: 35px;
 			border-bottom: 2px solid $border-color;
 			h4 {
@@ -183,20 +185,7 @@
 					}
 				}
 			}
-			.promo {
-				padding-top: 0;padding-bottom: 0;
-				border-left: 15px solid $promo-color;
-				padding-left: 15px;
-				h4 {
-					font-size: 1.6em;
-					color: $promo-color;
-					font-weight: $regular;
-				}
-				p {
-					font-size: 1.4em;
-					color: $font-color;
-				}
-			}
+
 			.map {
 				height: 247px;
 				width: auto;
@@ -204,20 +193,24 @@
 				margin: 30px -50px 0;
 				background-size:cover;
 			}
-			.salon-hairfies {
-				padding-left: 15px;
-  				padding-right: 15px;
-  				.single-hairfie {
-					padding: 0;
-				}
-			}
 
+		}
+		#avis .row {
+			padding-left: 15px;
+			padding-right: 15px;
+			border: 0;
+			padding-bottom: 0;
 		}
 	}
 	.sidebar {
 		margin-top: -90px;
 		@include fullWidthBg($bg3);
-
+		@media screen and (max-width: $screen-sm-max) {
+			width: 100%;
+		}
+		.calendar {
+			margin-bottom: 10px;
+		}
 		.phone {
 			.btn-red {
 				position: relative;
@@ -230,7 +223,6 @@
 				@include box-shadow(0 1px 3px rgba(0,0,0,0.1));
 				//#gradient@include vertical(#fc5b62;#d7474d;);
 				@include gradient-vertical(#fc5b62, #d7474d);
-
 				&:active {
 					//#gradient@include vertical(#d7474d; #fc5b62;);
 					@include gradient-vertical(#d7474d, #fc5b62);
@@ -243,6 +235,16 @@
 					height: 25px;
 					left: 70px;
 					top: 21px;
+
+					@media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
+						left: 40px;
+					}
+					@media screen and (max-width: $screen-sm-min) {
+						left: 20%;
+					}
+					@media screen and (max-width: $screen-xs-max) {
+						left: 25px;
+					}
 				}
 			}
 		}
@@ -262,6 +264,12 @@
 				.icon-promo {
 					float:none;margin-right: 10px;
 				}
+				@media screen and (max-width: $screen-xs-max) {
+  					font-size: 1.6em !important;
+				}
+				@media screen and (max-width: $screen-sm-max) {
+  					text-align: center;
+				}
 			}
 			.btn-red {
 				display: block;
@@ -272,6 +280,13 @@
 				letter-spacing: 2px;
 				padding-top: 20px;padding-bottom: 20px;
 				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+				@media screen and (max-width: $screen-sm-max) {
+    				bottom: 0;
+    				left: 0;
+    				position: fixed;
+    				width:100%;
+    				z-index: 10000;
+				}
 			}
 		}
 		.related-content {
@@ -282,6 +297,13 @@
 			padding: 5px 20px 0px 20px;
 			margin-top: 15px;
 			margin-bottom: 20px;
+
+			@media screen and (max-width: $screen-sm-max) {
+				margin-top: 0;
+			}
+			@media screen and (max-width: $screen-xs-max) {
+				padding-left: 30px;
+			}
 
 			h5 {
 				color: $darkgrey;
@@ -295,6 +317,12 @@
 				border-bottom: 1px solid $border-color;
 				&:last-child {
 					border:none;
+				}
+				a:first-child {
+					overflow: hidden;
+					@media screen and (max-width: $screen-xs-max) {
+						padding-left: 0;
+					}
 				}
 				a:nth-child(2) {
 					font-size: 1.4em;
@@ -334,6 +362,10 @@
 		}
 		.networks {
 			margin-bottom: 60px;
+			@media screen and (max-width: $screen-xs-max) {
+				padding-left: 0;
+				padding-right: 0;
+			}
 			p {
 				text-align: center;
 				color:$font-color;
@@ -344,14 +376,40 @@
 				margin-top: 0;
 			}
 
-			ul {
+			.social-links {
 				padding: 20px;
 				margin: 10px auto;
-				width: 89%;
+				width: 280px;
+				margin-left: 8%;
+  				margin-left: #{"calc(50% - 140px)"};
 				li {
+					margin-right: 10px;
+					&:last-child {margin-right: 0;}
 					a {
+						width: 38px;
+						box-sizing: border-box;
 						color: $font-color;
 						border-color: $font-color;
+						position: relative;
+						@include transition(all 0.25s ease);
+						&:after {
+							content: " ";
+							position: absolute;
+							width: #{"calc(100% + 4px)";height: ~"calc(100% + 4px)"};
+							border-radius: 100%;
+							border: 2px solid $font-color;
+							left: -2px;top: -2px;
+							opacity: 0;
+							@include transition(all 0.25s ease);
+						}
+						&:hover {
+							@include transition(all 0.25s ease);
+							color: $font-color !important;
+							background-color: transparent !important;
+							&:after {
+								opacity: 1;
+							}
+						}
 					}
 				}
 			}

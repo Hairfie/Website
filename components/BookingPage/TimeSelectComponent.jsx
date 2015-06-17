@@ -54,7 +54,9 @@ module.exports = React.createClass({
         return (
             <div className="time-table">
                 <table className="cal">
-                    { _.map(rowHours, this.renderRow, this) }
+                    <tr>
+                        { _.map(rowHours, this.renderRow, this) }
+                    </tr>
                 </table>
             </div>
         );
@@ -62,7 +64,7 @@ module.exports = React.createClass({
     },
     renderRow: function(rowHours) {
         return (
-            <tr>{ _.map(rowHours, this.renderTimeButton, this) }</tr>
+            <div>{ _.map(rowHours, this.renderTimeButton, this) }</div>
         );
     },
     renderTimeButton: function(timeBtnObj) {

@@ -53,7 +53,7 @@ module.exports = React.createClass({
         var address  = business.address || {};
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
-        var linkToMap = _.isEmpty(address) ? null : <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap">(Voir&nbsp;la&nbsp;carte)</Link>;
+        var linkToMap = _.isEmpty(address) ? null : <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link>;
 
         return (
             <section className="salon-info">

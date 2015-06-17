@@ -22,16 +22,22 @@
   a { text-decoration: none; }
 
   caption {
-    display: block;
     line-height: 3.2em;
     font-family: $font-second;
     font-weight: $latoBold;
     font-size: 2.1em;
     color: white;
     text-align: center;
+    letter-spacing: 2px;
+
+    display: block;
     background: #343434;
     position: relative;
     
+    @media screen and (max-width: $screen-xs-max) {
+      max-width: 350px;
+    }
+
     a {
       display: block;
       line-height: 4.2em;
@@ -70,6 +76,9 @@
       font-weight: $latoBold;
       color: #353535;
       text-transform: none;
+      @media (max-width: $screen-md-min) {
+      width: 50px;
+      }
     }
   }
   tbody {
@@ -111,35 +120,75 @@
   td {
     font-size: 1.6em;
     font-weight: $latoBold;
+    height: 50px;
     border-top: 2px solid $border-color;
     border-left: 2px solid $border-color;
-    @include transition(all 0.2s ease-in-out);
-
+    @include transition(all 0.1s ease-in-out);
+    @media screen and (max-width: $screen-sm-max) {
+      line-height: 40px;
+      height: 40px;
+    }
     a {
       clear: both;
       display: block;
       position: relative;
-      width: 20px;
-      line-height: 28px;
+      width:100%; height: 100%;
+      line-height: 50px;
       color: #666;
       margin: 0 auto;
+      .promo-day {
+        width: 100%;
+        position: absolute;
+        bottom: 2px; left: 0;
+        font-size: .938em;
+        height: .938em;
+        line-height: .938em;
+        color: $promo-color;
+        @media screen and (max-width: $screen-md-max) {
+          bottom: -2px;
+        }
+        @media screen and (max-width: $screen-sm-max) {
+          bottom: -11px;
+        }
+
+      }
+      @media screen and (max-width: $screen-md-max) {
+        line-height: 40px;
+      }
+      @media screen and (max-width: $screen-sm-max) {
+        line-height: 20px ;
+        height: 20px;
+      }
     }
 
     &.off { background: #f3f3f3; }
 
     &.off a { color: #dbdddf; }
-
-    &.active {
+    
+    &.active, &:active {
       background-color: $red !important;
       line-height: 2.2em;
       a {
         color: white;
-        border-bottom: 2px solid white;
+        // border-bottom: 2px solid white;
+        position: relative;
+        // &:after {
+        //   content: " ";
+        //   height: 2px; width: 70%;
+        //   background-color: white;
+          
+        //   position: absolute;
+        //   bottom: 5px; left: 15%;
+        // }
+        .promo-day {
+          color: white;
+          opacity: .6;
+        }
       }
     }
     &:hover {
       background-color: $border-color;
-      @include transition(all 0.2s ease-in-out);
+      @include transition(all 0.1s ease-in-out);
     }
     &.active:first-child a, &:first-child a:active { border-left: 0; margin-left: 0; }
     &.active:last-child a, &:last-child a:active { border-right: 0; margin-right: 0; }
