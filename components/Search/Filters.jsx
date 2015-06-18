@@ -16,6 +16,7 @@ var Filters = React.createClass({
                     {this.renderRadius()}
                     {this.renderQ()}
                     {this.renderCategories()}
+                    {this.renderTags()}
                     {this.renderPrice()}
                     {this.renderDiscount()}
                     </form>
@@ -82,13 +83,13 @@ var Filters = React.createClass({
         );
     },
     renderCategories: function () {
+        if (!this.props.categories) return;
+
         var categories = this.props.categories || [];
-
         if (categories.length == 0) return;
-
         return (
             <div>
-                <h2>Catégories</h2>
+                <h2>Catégorie</h2>
                 {_.map(categories, function (category, i) {
                     var active   = this.props.search && (this.props.search.categories || []).indexOf(category) > -1;
                     var onChange = active ? this.removeCategory.bind(this, category) : this.addCategory.bind(this, category);
@@ -121,11 +122,43 @@ var Filters = React.createClass({
             </div>
         );
     },
+    renderTags: function ()
+    {
+        if (!this.props.tags) return;
+
+        var tags = this.props.tags || [];
+
+        if (tags.length == 0) return;
+        return (
+            <div>
+                <h2>Tags</h2>
+                {_.map(tags, function (tags, i) {
+                    var active   = this.props.search && (this.props.search.tags || []).indexOf(tags) > -1;
+                    var onChange = active ? this.removeTag.bind(this, tags) : this.addTag.bind(this, tags);
+
+                    return (
+                        <label key={tags} className="checkbox-inline">
+                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                            <span />
+                            {tags}
+                        </label>
+                    );
+                }, this)}
+            </div>
+        );
+
+    },
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
     },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});
+    },
+    addTag: function (tag) {
+        this.props.onChange({tags: _.union(this.props.search.tags || [], [tag])});
+    },
+    removeTag: function (tag) {
+        this.props.onChange({tags: _.without(this.props.search.tags, tag)});
     },
     addWithDiscount: function () {
         this.props.onChange({withDiscount: true});

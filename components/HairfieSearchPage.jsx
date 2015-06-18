@@ -21,10 +21,11 @@ var HairfieSearchPage = React.createClass({
     },
     renderFilters: function () {
         var categories = _.keys((this.props.result || {}).categories);
+        var tags = _.keys((this.props.result || {}).tags);
 
         return <Search.Filters
             search={this.props.search}
-            categories={categories}
+            tags={tags}
             onChange={this.handleSearchChange} />;
     },
     renderResults: function () {

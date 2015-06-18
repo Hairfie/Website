@@ -83,6 +83,7 @@ module.exports = {
                 search.bounds.northEast.lng
             ].join(',');
         }
+
         _.forEach(search.categories, function (category, i) {
             query['categories['+i+']'] = category;
         });
