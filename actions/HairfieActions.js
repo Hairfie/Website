@@ -84,8 +84,8 @@ module.exports = {
             ].join(',');
         }
 
-        _.forEach(search.categories, function (category, i) {
-            query['categories['+i+']'] = category;
+        _.forEach(search.tags, function (tag, i) {
+            query['tags['+i+']'] = tag;
         });
         if (search.priceMin) query.priceMin = search.priceMin;
         if (search.priceMax) query.priceMin = search.priceMax;
