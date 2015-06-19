@@ -89,7 +89,7 @@ var Filters = React.createClass({
         if (categories.length == 0) return;
         return (
             <div>
-                <h2>Catégorie</h2>
+                <h2>Catégories</h2>
                 {_.map(categories, function (category, i) {
                     var active   = this.props.search && (this.props.search.categories || []).indexOf(category) > -1;
                     var onChange = active ? this.removeCategory.bind(this, category) : this.addCategory.bind(this, category);

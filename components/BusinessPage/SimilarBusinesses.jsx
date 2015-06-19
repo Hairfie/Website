@@ -18,7 +18,7 @@ module.exports = React.createClass({
         return (
             <section key={business.id} className="rival">
                 <div className="row">
-                    <Link className="col-xs-8" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
                                  resolution={{width: 90, height: 90}}
                                  placeholder="/images/placeholder-55.png"

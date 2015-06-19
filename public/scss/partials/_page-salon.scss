@@ -210,6 +210,9 @@
 		}
 		.calendar {
 			margin-bottom: 10px;
+		@media screen and (max-width: $screen-sm-max) {
+			display: none;
+			}
 		}
 		.phone {
 			.btn-red {
@@ -319,6 +322,10 @@
 					border:none;
 				}
 				a:first-child {
+					padding-left: 15px;
+					padding-right: 15px;
+					width: initial;
+					float: left;
 					overflow: hidden;
 					@media screen and (max-width: $screen-xs-max) {
 						padding-left: 0;
@@ -330,7 +337,7 @@
 					font-weight: $light;
 					padding-left: 0;
 
-					span {
+					span:first-child {
 						display: block;
 						font-weight: $semiBold;
 						letter-spacing: .5px;

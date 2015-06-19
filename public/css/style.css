@@ -9326,6 +9326,9 @@ section.home-footer .row > div {
       width: 100%; } }
   .salon#content .sidebar .calendar {
     margin-bottom: 10px; }
+    @media screen and (max-width: 991px) {
+      .salon#content .sidebar .calendar {
+        display: none; } }
   .salon#content .sidebar .phone .btn-red {
     position: relative;
     display: block;
@@ -9434,6 +9437,10 @@ section.home-footer .row > div {
       .salon#content .sidebar .related-content .rival:last-child {
         border: none; }
       .salon#content .sidebar .related-content .rival a:first-child {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: initial;
+        float: left;
         overflow: hidden; }
         @media screen and (max-width: 767px) {
           .salon#content .sidebar .related-content .rival a:first-child {
@@ -9443,7 +9450,7 @@ section.home-footer .row > div {
         color: #595959;
         font-weight: 200;
         padding-left: 0; }
-        .salon#content .sidebar .related-content .rival a:nth-child(2) span {
+        .salon#content .sidebar .related-content .rival a:nth-child(2) span:first-child {
           display: block;
           font-weight: 600;
           letter-spacing: .5px;
