@@ -210,6 +210,9 @@
 		}
 		.calendar {
 			margin-bottom: 10px;
+		@media screen and (max-width: $screen-sm-max) {
+			display: none;
+			}
 		}
 		.phone {
 			.btn-red {
