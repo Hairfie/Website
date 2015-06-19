@@ -9437,6 +9437,7 @@ section.home-footer .row > div {
       .salon#content .sidebar .related-content .rival:last-child {
         border: none; }
       .salon#content .sidebar .related-content .rival a:first-child {
+        padding-left: 15px;
         padding-right: 15px;
         width: initial;
         float: left;
