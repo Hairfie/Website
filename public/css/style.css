@@ -7241,6 +7241,7 @@ span.arrow-right {
       margin-top: 20px; } }
 
 .cal {
+  max-width: 100% !important;
   display: block;
   width: 100%;
   /* Small devices (tablets, 768px and up) */
