@@ -11,7 +11,7 @@ var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
-var PNF = require('google-libphonenumber');
+var LibPhoneNumber = require('google-libphonenumber');
 
 var BusinessBookingPage = React.createClass({
     contextTypes: {
@@ -49,7 +49,7 @@ var BusinessBookingPage = React.createClass({
         return (
             <div className="main-content col-md-9 col-sm-12 pull-right">
                 <h3>Demande de réservation</h3>
-                {this.renderisBookable}
+                {this.renderIsBookable}
                 <div className="row">
                     <div className="col-xs-6">
                         <h2>Choisissez votre date</h2>
@@ -63,11 +63,11 @@ var BusinessBookingPage = React.createClass({
             </div>
         );
     },
-    renderisBookable: function() {
+    renderIsBookable: function() {
         if (!this.props.business.isBookable)
         {
-            var phoneNumber = PNF.phoneUtil.parse(business.phoneNumber, 'FR');
-            var phone = PNF.phoneUtil.format(phoneNumber, PNF.PhoneNumberFormat.INTERNATIONAL); 
+            var phoneNumber = LibPhoneNumber.phoneUtil.parse(business.phoneNumber, 'FR');
+            var phone = LibPhoneNumber.phoneUtil.format(phoneNumber, LibPhoneNumber.PhoneNumberFormat.INTERNATIONAL); 
             return (<h2>
                         Malheureusement, ce salon ne prend pas de réservation. Pour contacter ce salon, appelez le <a href={"tel:"+phone.replace(/ /g,"")}>{phone}</a> ou envoyez nous un email à <a href="mailto:hello@hairfie.com">hello@hairfie.com</a>
                     </h2>
