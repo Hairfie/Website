@@ -31,7 +31,7 @@ module.exports = React.createClass({
     },
     renderBookNow: function () {
         var business = this.props.business;
-        if (!business) return;
+        if (!business || !business.isBookable) return;
         return (
                 <div className="promo-sidebar">
                     {this.renderBestDiscount()}
