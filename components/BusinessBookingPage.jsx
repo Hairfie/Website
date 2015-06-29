@@ -11,6 +11,7 @@ var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
+var PNF = require('google-libphonenumber');
 
 var BusinessBookingPage = React.createClass({
     contextTypes: {
@@ -44,22 +45,11 @@ var BusinessBookingPage = React.createClass({
     },
     renderDateAndTimeForm: function() {
         var timetable = this.props.business.timetable;
-        var isBookable = null;
-        if (!this.props.business.isBookable)
-        {
-            var PNF = require('google-libphonenumber').PhoneNumberFormat;
-            var phoneUtil = require('google-libphonenumber').phoneUtil;
-            var phoneNumber = phoneUtil.parse(this.props.business.phoneNumber, 'FR');
-            var phone = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL);
-            isBookable = (<h2>
-                            Malheureusement, ce salon ne prend pas de réservation. Pour contacter ce salon, appelez le <a href={"tel:"+phone.replace(/ /g,"")}>{phone}</a> ou envoyez nous un email à <a href="mailto:hello@hairfie.com">hello@hairfie.com</a>
-                            </h2>
-                            );
-        }
+
         return (
             <div className="main-content col-md-9 col-sm-12 pull-right">
                 <h3>Demande de réservation</h3>
-                {isBookable}
+                {this.renderisBookable}
                 <div className="row">
                     <div className="col-xs-6">
                         <h2>Choisissez votre date</h2>
@@ -72,6 +62,18 @@ var BusinessBookingPage = React.createClass({
                 </div>
             </div>
         );
+    },
+    renderisBookable: function() {
+        if (!this.props.business.isBookable)
+        {
+            var phoneNumber = PNF.phoneUtil.parse(business.phoneNumber, 'FR');
+            var phone = PNF.phoneUtil.format(phoneNumber, PNF.PhoneNumberFormat.INTERNATIONAL); 
+            return (<h2>
+                        Malheureusement, ce salon ne prend pas de réservation. Pour contacter ce salon, appelez le <a href={"tel:"+phone.replace(/ /g,"")}>{phone}</a> ou envoyez nous un email à <a href="mailto:hello@hairfie.com">hello@hairfie.com</a>
+                    </h2>
+                    );
+        }
+        return;
     },
     renderInfoForm: function() {
         return (
