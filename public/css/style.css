@@ -9330,6 +9330,13 @@ section.home-footer .row > div {
     @media screen and (max-width: 991px) {
       .salon#content .sidebar .calendar {
         display: none; } }
+  @media screen and (max-width: 991px) {
+    .salon#content .sidebar .phone {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      width: 100%;
+      z-index: 9000; } }
   .salon#content .sidebar .phone .btn-red {
     position: relative;
     display: block;
@@ -9346,6 +9353,9 @@ section.home-footer .row > div {
     background-image: linear-gradient(to bottom, #fc5b62 0%, #d7474d 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFC5B62', endColorstr='#FFD7474D', GradientType=0); }
+    @media screen and (max-width: 991px) {
+      .salon#content .sidebar .phone .btn-red {
+        margin-bottom: 0px; } }
     .salon#content .sidebar .phone .btn-red:active {
       background-image: -webkit-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
       background-image: -o-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
@@ -9396,6 +9406,7 @@ section.home-footer .row > div {
     font-weight: 600;
     font-size: 1.9em;
     width: 100%;
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding-top: 20px;
@@ -9409,7 +9420,8 @@ section.home-footer .row > div {
         left: 0;
         position: fixed;
         width: 100%;
-        z-index: 10000; } }
+        z-index: 10000;
+        margin-bottom: 0px; } }
   .salon#content .sidebar .related-content {
     background: white;
     border-radius: 3px;

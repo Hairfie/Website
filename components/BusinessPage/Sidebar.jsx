@@ -30,25 +30,35 @@ module.exports = React.createClass({
     renderBookNow: function () {
         var business = this.props.business;
         if (!business) return;
-
         if (!business.isBookable)
         {
             if (!business.phoneNumber) {return;}
             return (
                 <div className="phone">
-                    <div className="btn btn-red">
+                    <a href={"tel:" + business.phoneNumber} className="btn btn-red">
                         {business.phoneNumber}
-                    </div>
+                    </a>
                 </div>
             );
         }
-
+        var phoneButton = null;
+        if (business.displayPhoneNumber)
+            phoneButton = (
+                <div className="phone">
+                    <a href={"tel:" + business.phoneNumber} className="btn btn-red">
+                        {business.phoneNumber}
+                    </a>
+                </div>
+            );
         return (
-            <div className="promo-sidebar">
-                {this.renderBestDiscount()}
-                <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
-                    Réserver maintenant
-                </Link>
+            <div>
+                <div className="promo-sidebar">
+                    {this.renderBestDiscount()}
+                    <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                        Réserver maintenant
+                    </Link>
+                </div>
+                {phoneButton}
             </div>
         );
     },
