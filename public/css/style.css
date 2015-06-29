@@ -9368,11 +9368,11 @@ section.home-footer .row > div {
       position: absolute;
       width: 25px;
       height: 25px;
-      left: 70px;
+      left: 20px;
       top: 21px; }
       @media screen and (min-width: 991px) and (max-width: 1199px) {
         .salon#content .sidebar .phone .btn-red:after {
-          left: 40px; } }
+          left: 20px; } }
       @media screen and (max-width: 768px) {
         .salon#content .sidebar .phone .btn-red:after {
           left: 20%; } }

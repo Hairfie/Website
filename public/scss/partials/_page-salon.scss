@@ -246,11 +246,11 @@
 					position: absolute;
 					width: 25px;
 					height: 25px;
-					left: 70px;
+					left: 20px;
 					top: 21px;
 
 					@media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
-						left: 40px;
+						left: 20px;
 					}
 					@media screen and (max-width: $screen-sm-min) {
 						left: 20%;

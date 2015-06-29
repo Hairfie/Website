@@ -33,23 +33,33 @@ module.exports = React.createClass({
         if (!business.isBookable)
         {
             if (!business.phoneNumber) {return;}
+            var PNF = require('google-libphonenumber').PhoneNumberFormat;
+            var phoneUtil = require('google-libphonenumber').phoneUtil;
+            var phoneNumber = phoneUtil.parse(business.phoneNumber, 'FR');
+            var phone = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL); 
             return (
                 <div className="phone">
-                    <a href={"tel:" + business.phoneNumber} className="btn btn-red">
-                        {business.phoneNumber}
+                    <a href={"tel:" + phone.replace(/ /g,"")} className="btn btn-red">
+                        {phone}
                     </a>
                 </div>
             );
         }
         var phoneButton = null;
         if (business.displayPhoneNumber)
+        {
+            var PNF = require('google-libphonenumber').PhoneNumberFormat;
+            var phoneUtil = require('google-libphonenumber').phoneUtil;
+            var phoneNumber = phoneUtil.parse(business.phoneNumber, 'FR');
+            var phone = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL); 
             phoneButton = (
                 <div className="phone">
-                    <a href={"tel:" + business.phoneNumber} className="btn btn-red">
-                        {business.phoneNumber}
+                    <a href={"tel:" + phone.replace(/ /g,"")} className="btn btn-red">
+                        {phone}
                     </a>
                 </div>
             );
+        }
         return (
             <div>
                 <div className="promo-sidebar">
