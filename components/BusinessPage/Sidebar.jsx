@@ -19,6 +19,7 @@ module.exports = React.createClass({
     },
     renderCalendar: function () {
         var business = this.props.business || {};
+        if (!business.isBookable) return;
 
         return (
             <div className="calendar">
@@ -28,8 +29,19 @@ module.exports = React.createClass({
     },
     renderBookNow: function () {
         var business = this.props.business;
-
         if (!business) return;
+
+        if (!business.isBookable)
+        {
+            if (!business.phoneNumber) {return;}
+            return (
+                <div className="phone">
+                    <div className="btn btn-red">
+                        {business.phoneNumber}
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <div className="promo-sidebar">

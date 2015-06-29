@@ -60,6 +60,13 @@ var Business = React.createClass({
         business: React.PropTypes.object.isRequired
     },
     render: function () {
+        var booking_button = null;
+        if (this.props.business.isBookable)
+            booking_button = (
+                            <Link className="btn btn-red" route="business_booking" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                                Réserver
+                            </Link>
+                            );
         return (
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
@@ -84,9 +91,7 @@ var Business = React.createClass({
                     </div>
                     {this.renderPricing()}
                     <Hairfies business={this.props.business} />
-                    <Link className="btn btn-red" route="business_booking" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                        Réserver
-                    </Link>
+                    {booking_button}
                     {this.renderRating()}
                 </div>
             </section>
