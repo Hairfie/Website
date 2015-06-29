@@ -32,15 +32,6 @@ module.exports = React.createClass({
     renderBookNow: function () {
         var business = this.props.business;
         if (!business) return;
-
-        var phoneButton = null;
-        if (business.displayPhoneNumber)
-        {
-            
-            phoneButton = (
-
-            );
-        }
         return (
                 <div className="promo-sidebar">
                     {this.renderBestDiscount()}
