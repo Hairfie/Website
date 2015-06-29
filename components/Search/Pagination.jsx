@@ -4,6 +4,11 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
 
+/*
+By default 5 pages display:
+ First --- Previous - Current - Next --- Last
+  if you want more page change the arroundCurrentPage value.
+*/
 var arroundCurrentPage = 2;
 
 var Pagination = React.createClass({
@@ -40,40 +45,56 @@ var Pagination = React.createClass({
         return _.assign({}, this.props.query, { page: page });
     },
     displayPage: function() {
+        function Pages()
+        {
+            this.values = [1, this.props.currentPage, this.props.numPages];
+            this.hasNextPage = function(num) {
+            if (page + num <= this.props.numPages)
+                return true;
+            return false;
+            }
+            this.hasPreviousPage = function(num) {
+            if (page - num >= 1)
+                return true;
+            return false;
+            }
+        }
+        var pageArray = new Pages();
+/*
         var i, j = 1, k = 1;
-        var pageArray = [1, this.props.currentPage, this.props.numPages];
+
         for (i = 1; i <= arroundCurrentPage; i++) {
-            if (this.props.currentPage - j > 1) {
-                pageArray.push(this.props.currentPage - j);
+            if (pageArray.hasPreviousPage(j)) {
+                pageArray.values.push(this.props.currentPage - j);
                 j++;
             }
-            else if (this.props.currentPage + k < this.props.numPages) {
-                pageArray.push(this.props.currentPage + k);
+            else if (pageArray.hasNextPage(k)) {
+                pageArray.values.push(this.props.currentPage + k);
                 k++;
             }
-            if (this.props.currentPage + k < this.props.numPages) {
-                pageArray.push(this.props.currentPage + k);
+            if (pageArray.hasNextPage(k)) {
+                pageArray.values.push(this.props.currentPage + k);
                 k++;
             }
-            else if (this.props.currentPage - j > 1) {
-                pageArray.push(this.props.currentPage - j);
+            else if (pageArray.hasPreviousPage(j)) {
+                pageArray.values.push(this.props.currentPage - j);
                 j++;
             }
         }
-        pageArray.sort(function(a, b){return a-b});
+        pageArray.values.sort(function(a, b){return a-b});
 
-        for (i = 0; i < pageArray.length - 1; i++)
+        for (i = 0; i < pageArray.values.length - 1; i++)
         {
-            if (pageArray[i] == pageArray[i + 1])
-                pageArray.splice(i, 1);
-            if (pageArray[i] != pageArray[(i + 1)] - 1) {
-                pageArray.splice((i + 1), 0, "space")
+            if (pageArray.values[i] == pageArray.values[i + 1])
+                pageArray.values.splice(i, 1);
+            if (pageArray.values[i] != pageArray.values[(i + 1)] - 1) {
+                pageArray.values.splice((i + 1), 0, "space")
                 i++;
             }
         }
-        if (pageArray[(pageArray.length - 1)] == "space")
-            pageArray.pop();
-        return pageArray;
+        if (pageArray.values[(pageArray.values.length - 1)] == "space")
+            pageArray.values.pop();
+        return pageArray.values;*/
     }
 });
 
