@@ -98,7 +98,7 @@ var HairfieSingle = React.createClass({
 
         return (
                 <div className="cta">
-                    <Link className="btn btn-red full" route="business_booking" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                    <Link className="btn btn-red full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         Réserver dans ce salon
                     </Link>
                 </div>

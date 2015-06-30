@@ -48,6 +48,7 @@ var BusinessBookingPage = React.createClass({
         return (
             <div className="main-content col-md-9 col-sm-12 pull-right">
                 <h3>Demande de réservation</h3>
+                {this.renderIsBookable()}
                 <div className="row">
                     <div className="col-xs-6">
                         <h2>Choisissez votre date</h2>
@@ -60,6 +61,16 @@ var BusinessBookingPage = React.createClass({
                 </div>
             </div>
         );
+    },
+    renderIsBookable: function() {
+        if (!this.props.business.isBookable)
+        {
+            return (<h2>
+                        Malheureusement, ce salon ne prend pas de réservation. Pour contacter ce salon, appelez le <a href={"tel:"+this.props.business.phoneNumber.replace(/ /g,"")}>{this.props.business.phoneNumber}</a> ou envoyez nous un email à <a href="mailto:hello@hairfie.com">hello@hairfie.com</a>
+                    </h2>
+                    );
+        }
+        return;
     },
     renderInfoForm: function() {
         return (
