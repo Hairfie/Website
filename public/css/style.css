@@ -7241,7 +7241,7 @@ span.arrow-right {
       margin-top: 20px; } }
 
 .cal {
-  max-width: 100% !important;
+  max-width: 100%;
   display: block;
   width: 100%;
   /* Small devices (tablets, 768px and up) */
@@ -8065,6 +8065,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
 div.pagination {
   font-size: 1.4em;
+  margin-bottom: 50px;
   position: relative;
   width: 100%; }
   div.pagination ul {
