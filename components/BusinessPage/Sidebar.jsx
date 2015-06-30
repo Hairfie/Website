@@ -13,12 +13,14 @@ module.exports = React.createClass({
             <div className="sidebar col-sm-4">
                 {this.renderCalendar()}
                 {this.renderBookNow()}
+                {this.renderPhoneNumber()}
                 {this.renderSimilarBusinesses()}
             </div>
         );
     },
     renderCalendar: function () {
         var business = this.props.business || {};
+        if (!business.isBookable) return;
 
         return (
             <div className="calendar">
@@ -28,16 +30,14 @@ module.exports = React.createClass({
     },
     renderBookNow: function () {
         var business = this.props.business;
-
-        if (!business) return;
-
+        if (!business || !business.isBookable) return;
         return (
-            <div className="promo-sidebar">
-                {this.renderBestDiscount()}
-                <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
-                    Réserver maintenant
-                </Link>
-            </div>
+                <div className="promo-sidebar">
+                    {this.renderBestDiscount()}
+                    <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                        Réserver maintenant
+                    </Link>
+                </div>
         );
     },
     renderBestDiscount: function () {
@@ -51,6 +51,18 @@ module.exports = React.createClass({
                 &nbsp;{discount}% dans tout le salon*
             </p>
         );
+    },
+    renderPhoneNumber: function() {
+    var business = this.props.business;
+    if (business.isBookable && !business.displayPhoneNumber)
+        return;
+        return (
+                <div className="phone">
+                    <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-red">
+                        {business.phoneNumber}
+                    </a>
+                </div>
+            );
     },
     renderSimilarBusinesses: function () {
         if (!this.props.similarBusinesses) return;
