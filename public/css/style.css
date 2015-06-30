@@ -8065,6 +8065,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
 div.pagination {
   font-size: 1.4em;
+  margin-bottom: 50px;
   position: relative;
   width: 100%; }
   div.pagination ul {
