@@ -5,7 +5,6 @@ var Calendar = require('../Form/BookingCalendarComponent.jsx');
 var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
-var LibPhoneNumber = require('google-libphonenumber');
 
 module.exports = React.createClass({
     mixins: [NavToLinkMixin],
@@ -57,12 +56,10 @@ module.exports = React.createClass({
     var business = this.props.business;
     if (business.isBookable && !business.displayPhoneNumber)
         return;
-    var phoneNumber = LibPhoneNumber.phoneUtil.parse(business.phoneNumber, 'FR');
-    var phone = LibPhoneNumber.phoneUtil.format(phoneNumber, LibPhoneNumber.PhoneNumberFormat.INTERNATIONAL); 
         return (
                 <div className="phone">
-                    <a href={"tel:" + phone.replace(/ /g,"")} className="btn btn-red">
-                        {phone}
+                    <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-red">
+                        {business.phoneNumber}
                     </a>
                 </div>
             );

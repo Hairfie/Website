@@ -28,7 +28,6 @@
     "fluxible-plugin-google-maps": "^0.1.1",
     "fluxible-plugin-hairfie-api": "^0.1.0",
     "fluxible-router": "^0.1.3",
-    "google-libphonenumber": "git@github.com:seegno/google-libphonenumber#enhancement/browserify-support",
     "grunt": "~0.4.5",
     "grunt-browserify": "^3.2.0",
     "grunt-bump": "^0.3.0",
