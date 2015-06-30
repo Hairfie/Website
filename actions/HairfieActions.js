@@ -88,7 +88,7 @@ module.exports = {
             query['tags['+i+']'] = tag;
         });
         if (search.priceMin) query.priceMin = search.priceMin;
-        if (search.priceMax) query.priceMin = search.priceMax;
+        if (search.priceMax) query.priceMax = search.priceMax;
 
         return context.hairfieApi
             .get('/hairfies/search', { query: query })
