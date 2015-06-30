@@ -40,7 +40,7 @@ var Pagination = React.createClass({
         var i;
         var addExtremumPage = 0;
         var pageArray = {
-            values: [1, this.props.numPages],
+            values: [1, this.props.currentPage, this.props.numPages],
             numberOfPrevPage: (this.props.currentPage - 1),
             numberOfNextPage: (this.props.numPages - this.props.currentPage),
             addNextPage: function(n, currentPage) {
@@ -53,21 +53,18 @@ var Pagination = React.createClass({
             },
             formatArray: function() {
                 this.values.sort(function(a, b){return a-b});
+                this.values = _.uniq(this.values, true);
                 for (i = 0; i < this.values.length - 1; i++)
                 {
-                    if (this.values[i] == this.values[i + 1])
-                        this.values.splice(i, 1);
                     if (this.values[i] != this.values[(i + 1)] - 1) {
                         this.values.splice((i + 1), 0, "space")
                         i++;
                     }
                 }
-        if (this[(this.values.length - 1)] == "space")
-            this.values.pop();
+                if (this[(this.values.length - 1)] == "space")
+                    this.values.pop();
             }
         };
-        if (this.props.currentPage > 1 && this.props.currentPage < this.props.numPages)
-            pageArray.values.push(this.props.currentPage);
         if (pageArray.numberOfPrevPage < arroundCurrentPage || pageArray.numberOfNextPage < arroundCurrentPage)
         {
             if (pageArray.numberOfPrevPage < pageArray.numberOfNextPage)
