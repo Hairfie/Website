@@ -10091,4 +10091,74 @@ section.home-footer .row > div {
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
 
+.connect-form {
+  padding-top: 1px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 40%;
+  min-width: 200px;
+  background-color: #FFFFFF; }
+  .connect-form h2 {
+    text-align: center;
+    font-size: 2.5em; }
+  .connect-form h4 {
+    text-align: center;
+    color: #D8D8D8; }
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    .connect-form {
+      width: 60%; } }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .connect-form {
+      width: 80%; } }
+  @media screen and (max-width: 767px) {
+    .connect-form {
+      width: 100%;
+      margin-top: 100px; } }
+  .connect-form span.separator {
+    width: 100%;
+    height: 1px;
+    border-color: #D8D8D8;
+    border-width: 1px;
+    border-style: solid;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .connect-form div.connect-button .facebook {
+    height: 60px;
+    margin: 10px;
+    background-color: #4E69A2; }
+    .connect-form div.connect-button .facebook:after {
+      content: " ";
+      background: url(../../images/fb-connect.png) no-repeat center center;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      left: 20px;
+      top: 21px; }
+  .connect-form div.connect-button .twitter {
+    height: 60px;
+    margin: 10px;
+    background-color: #4099FF; }
+  .connect-form a.full {
+    display: block;
+    width: 100%;
+    height: 65px;
+    text-transform: uppercase;
+    border-radius: 0;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+    -webkit-box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    box-shadow: 0 0 0 transparent;
+    line-height: 50px; }
+  .connect-form form.form div.form-group {
+    margin: 10px; }
+    .connect-form form.form div.form-group input.form-control {
+      background-color: #E6E6E6;
+      height: 60px;
+      padding-left: 30px;
+      padding-right: 30px; }
+
 /*# sourceMappingURL=style.css.map */

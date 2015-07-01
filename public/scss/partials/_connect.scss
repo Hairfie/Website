@@ -1,0 +1,77 @@
+.connect-form {
+	h2 {
+		text-align: center;
+		font-size: 2.5em;
+	}
+	h4 {
+		text-align: center;
+		color: #D8D8D8;
+	}
+	padding-top: 1px;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 40%;
+	@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    	width:60%;
+	}
+	@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    	width:80%;
+	}
+	@media screen and (max-width: $screen-xs-max) {
+    	width:100%;
+    	margin-top: 100px;
+	}
+	min-width: 200px;
+	background-color: #FFFFFF;
+	span.separator {
+		width: 100%;
+		height: 1px;
+		border-color: #D8D8D8;
+		border-width: 1px;
+		border-style: solid;
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	div.connect-button {
+		.facebook {
+			height: 60px;
+			margin: 10px;
+			background-color: #4E69A2;
+			&:after {
+				content: " ";
+				background: url(../../images/fb-connect.png) no-repeat center center;
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				left: 20px;
+				top: 21px;
+			}
+		}
+		.twitter {
+			height: 60px;
+			margin: 10px;
+			background-color: #4099FF;
+		}
+	}
+	a.full {
+		display: block;width: 100%;height: 65px;
+		text-transform: uppercase;
+		border-radius: 0; margin: 0;
+		font-weight: $semiBold;letter-spacing: 2px;
+		@include box-shadow(0 0 0 rgba(0,0,0,0.0));
+		line-height: 50px;
+	}
+	form.form {
+		div.form-group {
+			margin: 10px;
+			input.form-control {
+				  	background-color: #E6E6E6;
+  					height: 60px;
+  					padding-left: 30px;
+  					padding-right: 30px;
+			}
+		}
+	}
+}
