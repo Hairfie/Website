@@ -3,7 +3,7 @@ public/components/*
 
 .sass-cache
 .sass-cache/*
-
+npm-debug.log
 public/build/*
 
 .rebooted
