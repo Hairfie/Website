@@ -10,7 +10,8 @@
     "postinstall": "npm run bower && npm run build",
     "bower": "bower install",
     "build": "grunt build",
-    "dev": "grunt"
+    "dev": "grunt",
+    "bump": "grunt bump"
   },
   "dependencies": {
     "bower": "^1.3.12",
