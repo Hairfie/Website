@@ -22,10 +22,6 @@
 			margin: auto;
 			width: 100%;
 			height: auto;
-			@media screen and (max-width: $screen-xs-max) {
-				width: auto;
-				height: 100%;
-			}
 		}
 	}
 }

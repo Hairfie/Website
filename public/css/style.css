@@ -9161,10 +9161,6 @@ section.home-footer .row > div {
       margin: auto;
       width: 100%;
       height: auto; }
-      @media screen and (max-width: 767px) {
-        .carousel-inner .item .outer-img img {
-          width: auto;
-          height: 100%; } }
 
 .salon#content .main-content {
   position: relative;
@@ -9573,9 +9569,9 @@ section.home-footer .row > div {
             height: 100%; } }
         .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
           height: 570px; }
-          @media screen and (max-width: 767px) {
+          @media screen and (min-width: 570px) and (max-width: 767px) {
             .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
-              height: 300px; } }
+              height: 767px; } }
       .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
         font-size: 1.6em;
         top: 20px;
