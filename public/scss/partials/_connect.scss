@@ -11,12 +11,12 @@
 	margin: auto;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	width: 40%;
+	width: 35%;
 	@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-    	width:60%;
+    	width:55%;
 	}
 	@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    	width:80%;
+    	width:75%;
 	}
 	@media screen and (max-width: $screen-xs-max) {
     	width:100%;
@@ -35,24 +35,48 @@
 		margin-bottom: 10px;
 	}
 	div.connect-button {
+		div span {
+			display: block;
+			text-align: center;
+			color: white;
+			font-size: 1.8em;
+			padding-top: 14px;
+		}
 		.facebook {
+			cursor: pointer;
+			border-radius: 5px;
+			overflow: hidden;
 			height: 60px;
 			margin: 10px;
-			background-color: #4E69A2;
-			&:after {
+			margin-left: 25px;
+			margin-right: 25px;
+			background-color: $facebook-bg;
+			&:before {
 				content: " ";
-				background: url(../../images/fb-connect.png) no-repeat center center;
+				background: url(../../img/facebook@2x.png) no-repeat center center;
 				position: absolute;
-				width: 25px;
-				height: 25px;
-				left: 20px;
-				top: 21px;
+				width: 60px;
+				height: 60px;
+				margin-left: 5px;
 			}
 		}
 		.twitter {
+			cursor: pointer;
+			border-radius: 5px;
+			overflow: hidden;
 			height: 60px;
 			margin: 10px;
-			background-color: #4099FF;
+			margin-left: 25px;
+			margin-right: 25px;
+			background-color: $twitter-bg;
+			&:before {
+				content: " ";
+				background: url(../../img/twitter@2x.png) no-repeat center center;
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				margin-left: 5px;
+			}
 		}
 	}
 	a.full {
@@ -66,6 +90,8 @@
 	form.form {
 		div.form-group {
 			margin: 10px;
+			margin-left: 25px;
+			margin-right: 25px;
 			input.form-control {
 				  	background-color: #E6E6E6;
   					height: 60px;

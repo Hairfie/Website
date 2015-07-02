@@ -23,5 +23,16 @@ module.exports = {
                     )
                 ]);
             });
+    },
+    emailConnect: function(context, payload) {
+        var email = payload.email;
+        var password = payload.password;
+        console.log(payload);
+
+        return context.hairfieApi
+            .post('/users/login', payload)
+            .then(function () {
+                alert('Connection Effectué')
+            });
     }
 };

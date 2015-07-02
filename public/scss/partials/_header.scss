@@ -48,13 +48,13 @@ header {
 					// 	line-height: 1.6;
 					// }
 				}
+				font-family: $font-main;
+				font-weight: $semiBold;
+				color: white; text-decoration: none;
+				font-size: 1.6em;
+				letter-spacing: 1px;
 				a {
-					font-family: $font-main;
-					font-weight: $semiBold;
-					color: white; text-decoration: none;
-					font-size: 1.6em;
-					letter-spacing: 1px;
-
+					color: white;
 					&:visited,&:active,&:focus {
 						text-decoration: none;
 						color: white;
@@ -89,7 +89,10 @@ header {
 		}
 		nav ul li {
 			a {
-				color: $darkgrey;
+				color: $grey;
+			}
+			span {
+				color: $grey;
 			}
 			// &:last-child {
 			// 	position: relative;

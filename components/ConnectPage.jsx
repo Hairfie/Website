@@ -2,30 +2,49 @@
 
 var React = require('react');
 var _ = require('lodash');
+var connectToStores = require('../lib/connectToStores');
+var AuthActions = require('../actions/AuthActions');
 var PublicLayout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 
 var ConnectPage = React.createClass({
+	contextTypes: {
+        executeAction: React.PropTypes.func
+    },
 	render: function() {
+		console.log(this.props);
 		return (
 			<PublicLayout>
 				<div className="connect-form">
 					<h2>Connexion</h2>
 					<div className="connect-button">
-						<div className="facebook" />
-						<div className="twitter" />
+						<div className="facebook"><span>Se connecter avec Facebook</span></div>
+						<div className="twitter" style={{display: "none"}}><span>Se connecter avec Twitter</span></div>
 					</div>
 					<h4>ou par adresse email</h4>
 					<span className="separator"/>
 					<form className="form">
-						<Input type="email" placeholder="Adresse Email *"/>
-						<Input type="password" placeholder="Mot de Passe *" />
+						<Input type="email" ref="email" placeholder="Adresse Email *"/>
+						<Input type="password" ref="password" placeholder="Mot de Passe *" />
 						<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
 					</form>
 				</div>
 			</PublicLayout>
 			);
+	},
+	submit: function() {
+		var email = this.refs.email.getValue();
+		var password = this.refs.password.getValue();
+		this.context.executeAction(AuthActions.emailConnect, { email: email, password: password });
 	}
+});
+
+ConnectPage = connectToStores(ConnectPage, [
+    'TokenStore'
+], function (stores, props) {
+    return {
+        token: stores.TokenStore.getById(props.route.params.hairfieId)
+    };
 });
 
 module.exports = ConnectPage;
