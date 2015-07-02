@@ -32,8 +32,14 @@
 			margin-left: -15px;
 			.item {
 				height: 570px;
+				@media screen and (max-width: $screen-sm-max) {
+					height: 100%;
+				}
 				.outer-img {
 					height: 570px;
+					@media screen and (max-width: $screen-xs-max) {
+					height: 300px;
+					}
 				}
 			}
 			.pricetag {

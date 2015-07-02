@@ -9568,8 +9568,14 @@ section.home-footer .row > div {
       margin-left: -15px; }
       .hairfie-singleView#content .single-view #carousel-hairfie .item {
         height: 570px; }
+        @media screen and (max-width: 991px) {
+          .hairfie-singleView#content .single-view #carousel-hairfie .item {
+            height: 100%; } }
         .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
           height: 570px; }
+          @media screen and (max-width: 767px) {
+            .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
+              height: 300px; } }
       .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
         font-size: 1.6em;
         top: 20px;
