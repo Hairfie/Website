@@ -1,0 +1,90 @@
+'use strict';
+
+var React = require('react');
+var _ = require('lodash');
+var connectToStores = require('../lib/connectToStores');
+var AuthActions = require('../actions/AuthActions');
+var PublicLayout = require('./PublicLayout.jsx');
+var Input = require('react-bootstrap/Input');
+var UserConstants = require('../constants/UserConstants');
+
+var RegistrationPage = React.createClass({
+	contextTypes: {
+        executeAction: React.PropTypes.func
+    },
+    getInitialState: function() {
+        return {};
+    },
+	render: function() {
+		console.log(this.props);
+		if (this.props.token.id)
+			return this.renderAlreadyConnected();
+		return (
+			<PublicLayout>
+				<div className="connect-form">
+					<h2>Inscription</h2>
+					<div className="connect-button">
+						<div className="facebook"><span>S'inscrire avec Facebook</span></div>
+						<div className="twitter" style={{display: "none"}}><span>S'inscrire avec Twitter</span></div>
+					</div>
+					<h4>ou remplisser ce formulaire</h4>
+					<span className="separator"/>
+					<form className="form">
+						<Input type="text" ref="firstName" placeholder="Prénom *"/>
+						<Input type="text" ref="lastName" placeholder="Nom *"/>
+						<Input type="email" ref="email" placeholder="Adresse Email *"/>
+						<Input type="password" ref="password" placeholder="Mot de Passe *" />
+                        <Input className="radio">
+                            <label className="radio-inline">
+                                <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
+                	                Homme
+                            </label>
+                            <label className="radio-inline" style={{marginLeft: '0px'}}>
+              	                <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
+                                    Femme
+							</label>
+                        </Input>
+						<Input type="checkbox" ref="newsletter">Je souhaite recevoir les Newsletters</Input>
+						<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+					</form>
+				</div>
+			</PublicLayout>
+			);
+	},
+    handleGenderChanged: function (e) {
+        this.setState({
+            userGender: e.currentTarget.value
+        });
+    },
+	renderAlreadyConnected: function() {
+		return (
+			<PublicLayout>
+				<h2>Il semble que vous soyez déjà connecté</h2>
+			</PublicLayout>
+			);
+	},
+	submit: function() {
+		var userInfo = {
+			email: this.refs.email.getValue(),
+			firstName: this.refs.firstName.getValue(),
+			lastName: this.refs.lastName.getValue(),
+			password: this.refs.password.getValue(),
+			gender: this.state.userGender,
+			newsletter: false
+		};
+		console.log(userInfo);
+
+		debugger;
+		this.context.executeAction(AuthActions.registration, userInfo);
+	}
+});
+
+RegistrationPage = connectToStores(RegistrationPage, [
+    'TokenStore'
+], function (stores, props) {
+    return {
+        token: stores.TokenStore.getToken()
+    };
+});
+
+module.exports = RegistrationPage;

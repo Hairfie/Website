@@ -22,7 +22,7 @@
 		"../../partials/_page-salon.scss",
 		"../../partials/_page-hairfie.scss",
 		"../../partials/_page-resa.scss",
-		"../../partials/_connect.scss",
+		"../../partials/_auth-form.scss",
 		"../../../components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss",
 		"../../../components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss",
 		"../../../components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss",

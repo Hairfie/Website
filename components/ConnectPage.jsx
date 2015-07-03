@@ -12,7 +12,8 @@ var ConnectPage = React.createClass({
         executeAction: React.PropTypes.func
     },
 	render: function() {
-		console.log(this.props);
+		if (this.props.token.id)
+			return this.renderAlreadyConnected();
 		return (
 			<PublicLayout>
 				<div className="connect-form">
@@ -32,6 +33,13 @@ var ConnectPage = React.createClass({
 			</PublicLayout>
 			);
 	},
+	renderAlreadyConnected: function() {
+		return (
+			<PublicLayout>
+				<h2>Il semble que vous soyez déjà connecté</h2>
+			</PublicLayout>
+			);
+	},
 	submit: function() {
 		var email = this.refs.email.getValue();
 		var password = this.refs.password.getValue();
@@ -43,7 +51,7 @@ ConnectPage = connectToStores(ConnectPage, [
     'TokenStore'
 ], function (stores, props) {
     return {
-        token: stores.TokenStore.getById(props.route.params.hairfieId)
+        token: stores.TokenStore.getToken()
     };
 });
 

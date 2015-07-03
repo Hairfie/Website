@@ -1,8 +1,10 @@
 'use strict';
 
+var Actions = require('../constants/Actions');
 var Promise = require('q');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
+var authStorage = require('../services/auth-storage');
 
 module.exports = {
     resetPassword: function (context, payload) {
@@ -31,8 +33,18 @@ module.exports = {
 
         return context.hairfieApi
             .post('/users/login', payload)
-            .then(function () {
-                alert('Connection Effectué')
-            });
+            .then(function (token) {
+                authStorage.setToken(token);
+
+                alert('Connection Effectué');
+                context.dispatch(Actions.RECEIVE_TOKEN, token);
+                context.executeAction(
+                    NavigationActions.navigate,
+                    { route: 'home' });
+                done();
+            })
+    },
+    disconnect: function(context) {
+        context.dispatch(Actions.RECEIVE_TOKEN, {});
     }
 };

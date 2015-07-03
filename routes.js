@@ -93,5 +93,11 @@ module.exports = {
         path: '/fr/connect',
         method: 'get',
         handler: require('./components/ConnectPage.jsx')
+    },
+    registration_page: {
+        title: 'Inscription',
+        path: '/fr/register',
+        method: 'get',
+        handler: require('./components/RegistrationPage.jsx')
     }
 };

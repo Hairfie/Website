@@ -20,10 +20,10 @@ module.exports = createStore({
         this.tokens = state.tokens;
     },
     onReceiveToken: function (token) {
-        this.tokens[token.id] = token;
+        this.tokens = token;
         this.emitChange();
     },
-    getById: function (id) {
-        return this.tokens[id];
+    getToken: function () {
+        return this.tokens;
     }
 });
