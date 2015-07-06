@@ -57,10 +57,10 @@ var Header = React.createClass({
 });
 
 Header = connectToStores(Header, [
-    'TokenStore'
+    'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.TokenStore.getToken()
+        token: stores.AuthStore.getToken()
     };
 });
 

@@ -27,10 +27,6 @@ module.exports = {
             });
     },
     emailConnect: function(context, payload) {
-        var email = payload.email;
-        var password = payload.password;
-        console.log(payload);
-
         return context.hairfieApi
             .post('/users/login', payload)
             .then(function (token) {
@@ -42,9 +38,34 @@ module.exports = {
                     NavigationActions.navigate,
                     { route: 'home' });
                 done();
+            }, 
+            function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu, veuillez vérifier que l'e-mail et le mot de passe soient correct"
+                );
             })
     },
     disconnect: function(context) {
-        context.dispatch(Actions.RECEIVE_TOKEN, {});
-    }
+        context.dispatch(Actions.DELETE_TOKEN);
+    },
+    register: function(context, payload) {
+        return context.hairfieApi
+            .post('/users/login', payload)
+            .then(function (token) {
+                authStorage.setToken(token);
+
+                alert('Connection Effectué');
+                context.dispatch(Actions.RECEIVE_TOKEN, token);
+                context.executeAction(
+                    NavigationActions.navigate,
+                    { route: 'home' });
+                done();
+            }, 
+            function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu, avez-vous bien rempli les champs obligatoires ?"
+                );
+            })
 };

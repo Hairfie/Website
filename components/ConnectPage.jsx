@@ -48,10 +48,10 @@ var ConnectPage = React.createClass({
 });
 
 ConnectPage = connectToStores(ConnectPage, [
-    'TokenStore'
+    'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.TokenStore.getToken()
+        token: stores.AuthStore.getToken()
     };
 });
 

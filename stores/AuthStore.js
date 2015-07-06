@@ -6,9 +6,10 @@ var _ = require('lodash');
 var Actions = require('../constants/Actions');
 
 module.exports = createStore({
-    storeName: 'TokenStore',
+    storeName: 'AuthStore',
     handlers: makeHandlers({
-        onReceiveToken: Actions.RECEIVE_TOKEN
+        onReceiveToken: Actions.RECEIVE_TOKEN,
+        onDeleteToken: Actions.DELETE_TOKEN
     }),
     initialize: function () {
         this.tokens = {};
@@ -21,6 +22,10 @@ module.exports = createStore({
     },
     onReceiveToken: function (token) {
         this.tokens = token;
+        this.emitChange();
+    },
+    onDeleteToken: function() {
+        this.token = {};
         this.emitChange();
     },
     getToken: function () {

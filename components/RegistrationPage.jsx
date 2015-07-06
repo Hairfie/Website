@@ -80,10 +80,10 @@ var RegistrationPage = React.createClass({
 });
 
 RegistrationPage = connectToStores(RegistrationPage, [
-    'TokenStore'
+    'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.TokenStore.getToken()
+        token: stores.AuthStore.getToken()
     };
 });
 

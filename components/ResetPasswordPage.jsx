@@ -29,10 +29,10 @@ var ResetPasswordPage =  React.createClass({
 });
 
 ResetPasswordPage = connectToStores(ResetPasswordPage, [
-    'TokenStore'
+    'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.TokenStore.getById(props.route.params.tokenId)
+        token: stores.AuthStore.getById(props.route.params.tokenId)
     };
 });
 
