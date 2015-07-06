@@ -10188,5 +10188,23 @@ section.home-footer .row > div {
       height: 60px;
       padding-left: 30px;
       padding-right: 30px; }
+    .connect-form form.form div.form-group label.radio-inline {
+      width: 100%;
+      line-height: 30px;
+      height: 30px;
+      font-size: 1.4em;
+      color: #595959; }
+      .connect-form form.form div.form-group label.radio-inline input {
+        height: 30px;
+        background-color: white;
+        border: 1px solid #eeeeee;
+        line-height: 30px;
+        margin-bottom: 10px; }
+  .connect-form form.form .register-checkbox {
+    padding-left: 40px;
+    padding-bottom: 15px; }
+    .connect-form form.form .register-checkbox a, .connect-form form.form .register-checkbox label {
+      font-size: 1.4em;
+      color: #595959; }
 
 /*# sourceMappingURL=style.css.map */

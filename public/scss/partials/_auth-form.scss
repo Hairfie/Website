@@ -93,11 +93,30 @@
 			margin-left: 25px;
 			margin-right: 25px;
 			input.form-control {
-				  	background-color: #E6E6E6;
-  					height: 60px;
-  					padding-left: 30px;
-  					padding-right: 30px;
+				background-color: #E6E6E6;
+  				height: 60px;
+  				padding-left: 30px;
+  				padding-right: 30px;
 			}
+			label.radio-inline {
+				width: 100%;
+  				line-height: 30px;
+  				height: 30px;
+  				font-size: 1.4em;
+  				color: #595959;
+				input	{
+					height: 30px;
+  					background-color: white;
+  					border: 1px solid #eeeeee;
+  					line-height: 30px;
+  					margin-bottom: 10px
+				}
+			}
+		}
+		.register-checkbox {
+			padding-left: 40px;
+			padding-bottom: 15px;
+			a, label {font-size: 1.4em;color: $font-color;}
 		}
 	}
 }

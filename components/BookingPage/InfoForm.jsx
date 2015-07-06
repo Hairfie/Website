@@ -20,7 +20,7 @@ module.exports = React.createClass({
         };
     },
     getInitialState: function() {
-        return {};
+        return {cgu: false};
     },
     render: function() {
         var promoNode;
@@ -61,7 +61,7 @@ module.exports = React.createClass({
                     <div className="clearfix"></div>
                     <hr />
                     <label for="cgu" style={{paddingLeft: '15px'}}>
-                        <input type="checkbox" name='cgu'/>
+                        <input type="checkbox" name='cgu' onChange={this.handleCGUChanged}/>
                         <span></span>
                         Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
@@ -73,6 +73,11 @@ module.exports = React.createClass({
     handleGenderChanged: function (e) {
         this.setState({
             userGender: e.currentTarget.value
+        });
+    },
+    handleCGUChanged: function (e) {
+        this.setState({
+            cgu: e.currentTarget.checked
         });
     },
     modifyTimeslot: function (e) {
@@ -91,6 +96,9 @@ module.exports = React.createClass({
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount
         };
+    },
+    getCGUStatus: function() {
+        return this.state.cgu;
     },
     submit: function (e) {
         e.preventDefault();

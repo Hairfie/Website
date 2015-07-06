@@ -7,16 +7,16 @@ var AuthActions = require('../actions/AuthActions');
 var PublicLayout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap/Input');
 var UserConstants = require('../constants/UserConstants');
+var NotificationActions = require('../actions/NotificationActions');
 
 var RegistrationPage = React.createClass({
 	contextTypes: {
         executeAction: React.PropTypes.func
     },
     getInitialState: function() {
-        return {};
+        return {cgu: false, newsletter: false};
     },
 	render: function() {
-		console.log(this.props);
 		if (this.props.token.id)
 			return this.renderAlreadyConnected();
 		return (
@@ -44,7 +44,16 @@ var RegistrationPage = React.createClass({
                                     Femme
 							</label>
                         </Input>
-						<Input type="checkbox" ref="newsletter">Je souhaite recevoir les Newsletters</Input>
+						<label for="cgu" className="register-checkbox">
+                        	<input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
+                        	<span></span>
+                        	Je souhaite recevoir les Newsletters.
+                    	</label>
+						<label for="cgu" className="register-checkbox">
+                        	<input type="checkbox" name='cgu' onChange={this.handleCGUChanged} />
+                        	<span></span>
+                        	Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                    	</label>
 						<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
 					</form>
 				</div>
@@ -56,6 +65,16 @@ var RegistrationPage = React.createClass({
             userGender: e.currentTarget.value
         });
     },
+    handleCGUChanged: function (e) {
+    	this.setState({
+    		cgu: e.currentTarget.checked
+    	});
+    },
+    handleNewsletterChanged: function (e) {
+    	this.setState({
+    		newsletter: e.currentTarget.checked
+    	});
+    },
 	renderAlreadyConnected: function() {
 		return (
 			<PublicLayout>
@@ -64,18 +83,20 @@ var RegistrationPage = React.createClass({
 			);
 	},
 	submit: function() {
+		if (!this.state.cgu)
+            return this.context.executeAction(
+                NotificationActions.notifyFailure,
+                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
+            );
 		var userInfo = {
 			email: this.refs.email.getValue(),
 			firstName: this.refs.firstName.getValue(),
 			lastName: this.refs.lastName.getValue(),
 			password: this.refs.password.getValue(),
 			gender: this.state.userGender,
-			newsletter: false
+			newsletter: this.state.newsletter,
 		};
-		console.log(userInfo);
-
-		debugger;
-		this.context.executeAction(AuthActions.registration, userInfo);
+		this.context.executeAction(AuthActions.register, userInfo);
 	}
 });
 

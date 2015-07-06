@@ -30,7 +30,7 @@ module.exports = {
         return context.hairfieApi
             .post('/users/login', payload)
             .then(function (token) {
-                authStorage.setToken(token);
+                // authStorage.setToken(token);
 
                 alert('Connection Effectué');
                 context.dispatch(Actions.RECEIVE_TOKEN, token);
@@ -50,13 +50,21 @@ module.exports = {
         context.dispatch(Actions.DELETE_TOKEN);
     },
     register: function(context, payload) {
+        if (!cgu)
+        {
+            alert('test');
+            return context.executeAction(
+                NotificationActions.notifyFailure,
+                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
+            );
+        }
         return context.hairfieApi
-            .post('/users/login', payload)
-            .then(function (token) {
-                authStorage.setToken(token);
+            .post('/users', payload)
+            .then(function (data) {
+                // authStorage.setToken(token);
 
-                alert('Connection Effectué');
-                context.dispatch(Actions.RECEIVE_TOKEN, token);
+                alert('Inscription Effectué');
+                context.dispatch(Actions.RECEIVE_TOKEN, data.accessToken);
                 context.executeAction(
                     NavigationActions.navigate,
                     { route: 'home' });
@@ -68,4 +76,5 @@ module.exports = {
                     "Un problème est survenu, avez-vous bien rempli les champs obligatoires ?"
                 );
             })
+        }
 };
