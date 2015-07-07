@@ -67,6 +67,7 @@ app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));
 app.registerStore(require('./stores/HomeLinkStore'));
+app.registerStore(require('./stores/UserStore'));
 
 // Front end require
 //var Share = require('public/js/share.min.js');

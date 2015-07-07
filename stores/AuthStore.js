@@ -4,6 +4,7 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var _ = require('lodash');
 var Actions = require('../constants/Actions');
+var authStorage = require('../services/auth-storage');
 
 module.exports = createStore({
     storeName: 'AuthStore',

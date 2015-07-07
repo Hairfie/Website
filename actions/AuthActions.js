@@ -5,6 +5,7 @@ var Promise = require('q');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var authStorage = require('../services/auth-storage');
+var UserActions = require('./UserActions');
 
 module.exports = {
     resetPassword: function (context, payload) {
@@ -30,14 +31,14 @@ module.exports = {
         return context.hairfieApi
             .post('/users/login', payload)
             .then(function (token) {
-                // authStorage.setToken(token);
-
+                authStorage.setToken(token);
+                // fonction differente : loginWithToken
+                context.executeAction(UserActions.getUserById, token);
                 alert('Connection Effectué');
                 context.dispatch(Actions.RECEIVE_TOKEN, token);
                 context.executeAction(
                     NavigationActions.navigate,
                     { route: 'home' });
-                done();
             }, 
             function () {
                 return context.executeAction(
@@ -46,29 +47,27 @@ module.exports = {
                 );
             })
     },
+    loginWithCookie: function(context) {
+        // GET COOKIE
+        // on aura tokenId + userId
+        // getUserById
+        // prendre en compte le fail normal
+    },
     disconnect: function(context) {
         context.dispatch(Actions.DELETE_TOKEN);
     },
     register: function(context, payload) {
-        if (!cgu)
-        {
-            alert('test');
-            return context.executeAction(
-                NotificationActions.notifyFailure,
-                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
-            );
-        }
         return context.hairfieApi
             .post('/users', payload)
             .then(function (data) {
-                // authStorage.setToken(token);
+                authStorage.setToken(token);
 
+                UserActions.getUserById();
                 alert('Inscription Effectué');
                 context.dispatch(Actions.RECEIVE_TOKEN, data.accessToken);
                 context.executeAction(
                     NavigationActions.navigate,
                     { route: 'home' });
-                done();
             }, 
             function () {
                 return context.executeAction(
