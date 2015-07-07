@@ -51,18 +51,13 @@
 					}
 				}
 			}
-			// .item {
-			// 	height: 570px;
-			// 	@media screen and (max-width: $screen-sm-max) {
-			// 		height: 100%;
-			// 	}
-			// 	.outer-img {
-			// 		//height: 570px;
-			// 		@media screen and (min-width: 570px) and (max-width: $screen-xs-max) {
-			// 			height: $screen-xs-max;
-			// 		}
-			// 	}
-			// }
+			.item .outer-img img {
+				background-repeat: no-repeat;
+			    background-size: cover;
+			    background-position: 50% 50%;
+			    background-color: #838B95;
+			    width: 100%;
+			}
 			.pricetag {
 				font-size: 1.6em;
 				top: 20px;left: 20px;

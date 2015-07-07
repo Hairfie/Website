@@ -7042,24 +7042,6 @@ div#app {
   line-height: 30px;
   height: 30px; }
 
-.carousel-inner > .item > img, .carousel-inner > .item > a > img {
-  margin: auto; }
-
-.carousel-inner .item {
-  background: none; }
-
-.carousel-inner .item.placeholder {
-  height: 470px;
-  background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
-  background-size: cover; }
-
-.carousel-inner .item img {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-color: #838B95;
-  width: 100%; }
-
 #content.search .main-content .tab-pane section .rating .note {
   margin-top: -4px; }
 
@@ -9141,26 +9123,24 @@ section.home-footer .row > div {
 #carousel-salon .carousel-inner .item {
   height: 470px;
   background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
-  background-size: cover; }
+  background-size: cover;
+  background: none; }
   @media screen and (max-width: 767px) {
     #carousel-salon .carousel-inner .item {
       height: 320px; } }
-  #carousel-salon .carousel-inner .item .outer-img {
-    position: relative;
+  #carousel-salon .carousel-inner .item img, #carousel-salon .carousel-inner .item a > img {
+    margin: auto; }
+  #carousel-salon .carousel-inner .item.placeholder {
+    height: 470px;
+    background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+    background-size: cover; }
+  #carousel-salon .carousel-inner .item img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #838B95;
     width: 100%;
-    height: 470px; }
-    @media screen and (max-width: 767px) {
-      #carousel-salon .carousel-inner .item .outer-img {
-        height: 320px; } }
-    #carousel-salon .carousel-inner .item .outer-img img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      width: 100%;
-      height: auto; }
+    height: 100%; }
 
 .salon#content .main-content {
   position: relative;
@@ -9575,6 +9555,12 @@ section.home-footer .row > div {
           height: 570px; }
           .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
             height: 767px; } }
+      .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-color: #838B95;
+        width: 100%; }
       .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
         font-size: 1.6em;
         top: 20px;

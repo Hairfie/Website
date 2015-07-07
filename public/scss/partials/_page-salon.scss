@@ -5,25 +5,31 @@
 	height: 470px;
 	background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
 	background-size: cover;
+	background: none;
 
 	@media screen and (max-width: $screen-xs-max) {
 		height: 320px;
 	}
 
-	.outer-img {
-		position: relative;
-		width: 100%;height: 470px;
-		@media screen and (max-width: $screen-xs-max) {
-			height: 320px;
-		}
-		img {
-			position: absolute;
-			top: 0;left: 0;bottom: 0;right: 0;
-			margin: auto;
-			width: 100%;
-			height: auto;
-		}
+	img, a > img {
+  		margin: auto;
 	}
+
+	&.placeholder {
+		height: 470px;
+		background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+		background-size: cover;
+	}
+
+	img {
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    background-position: 50% 50%;
+	    background-color: #838B95;
+	    width: 100%;
+	    height: 100%;
+	}
+
 }
 .salon#content {
 	.main-content {
