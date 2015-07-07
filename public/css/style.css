@@ -7058,8 +7058,7 @@ div#app {
   background-size: cover;
   background-position: 50% 50%;
   background-color: #838B95;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 #content.search .main-content .tab-pane section .rating .note {
   margin-top: -4px; }
@@ -9139,21 +9138,21 @@ section.home-footer .row > div {
 /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/
-.carousel-inner .item {
+#carousel-salon .carousel-inner .item {
   height: 470px;
   background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
   background-size: cover; }
   @media screen and (max-width: 767px) {
-    .carousel-inner .item {
+    #carousel-salon .carousel-inner .item {
       height: 320px; } }
-  .carousel-inner .item .outer-img {
+  #carousel-salon .carousel-inner .item .outer-img {
     position: relative;
     width: 100%;
     height: 470px; }
     @media screen and (max-width: 767px) {
-      .carousel-inner .item .outer-img {
+      #carousel-salon .carousel-inner .item .outer-img {
         height: 320px; } }
-    .carousel-inner .item .outer-img img {
+    #carousel-salon .carousel-inner .item .outer-img img {
       position: absolute;
       top: 0;
       left: 0;
@@ -9162,10 +9161,6 @@ section.home-footer .row > div {
       margin: auto;
       width: 100%;
       height: auto; }
-      @media screen and (max-width: 767px) {
-        .carousel-inner .item .outer-img img {
-          width: auto;
-          height: 100%; } }
 
 .salon#content .main-content {
   position: relative;
@@ -9567,10 +9562,19 @@ section.home-footer .row > div {
       height: 100%;
       position: relative;
       margin-left: -15px; }
-      .hairfie-singleView#content .single-view #carousel-hairfie .item {
-        height: 570px; }
-        .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
+      @media screen and (max-width: 991px) {
+        .hairfie-singleView#content .single-view #carousel-hairfie .outer-img {
+          display: inline-block;
+          position: relative;
+          width: 100%; }
+          .hairfie-singleView#content .single-view #carousel-hairfie .outer-img:after {
+            content: '';
+            display: block; } }
+      @media screen and (min-width: 570px) and (max-width: 767px) {
+        .hairfie-singleView#content .single-view #carousel-hairfie .item {
           height: 570px; }
+          .hairfie-singleView#content .single-view #carousel-hairfie .item .outer-img {
+            height: 767px; } }
       .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
         font-size: 1.6em;
         top: 20px;

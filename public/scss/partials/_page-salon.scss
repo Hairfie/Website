@@ -1,7 +1,7 @@
 /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/
-.carousel-inner .item {
+#carousel-salon .carousel-inner .item {
 	height: 470px;
 	background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
 	background-size: cover;
@@ -22,10 +22,6 @@
 			margin: auto;
 			width: 100%;
 			height: auto;
-			@media screen and (max-width: $screen-xs-max) {
-				width: auto;
-				height: 100%;
-			}
 		}
 	}
 }
