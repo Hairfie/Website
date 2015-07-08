@@ -5,6 +5,7 @@ var Link = require('../Link.jsx');
 var connectToStores = require('../../lib/connectToStores');
 var AuthActions = require('../../actions/AuthActions');
 var _ = require('lodash');
+var Picture = require('../Partial/Picture.jsx');
 
 var Header = React.createClass({
     contextTypes: {
@@ -36,7 +37,7 @@ var Header = React.createClass({
         );
     },
     loginLogout: function() {
-        if (!this.props.token.id)
+        if (!this.props.token.id || !this.props.user.firstName)
             return (
                 <li>
                     <Link route="registration_page">Inscription</Link>
@@ -45,8 +46,18 @@ var Header = React.createClass({
                 </li>
                 );
         return (
-            <li>
-                <Link href="#" onClick={this.disconnect}>Déconnexion</Link>
+            <li className="user">
+                <div className="dropdown">
+                    <Picture picture={this.props.user.picture} />
+                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">{this.props.user.firstName}
+                        <span className="caret" />
+                    </a>
+                    <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li>
+                        <a href="#" onClick={this.disconnect}>Déconnection</a>
+                      </li>
+                    </ul>
+                </div>
             </li>
                 );
 
@@ -57,10 +68,12 @@ var Header = React.createClass({
 });
 
 Header = connectToStores(Header, [
-    'AuthStore'
+    'AuthStore',
+    'UserStore'
 ], function (stores, props) {
     return {
-        token: stores.AuthStore.getToken()
+        token: stores.AuthStore.getToken(),
+        user: stores.UserStore.getUserInfo()
     };
 });
 

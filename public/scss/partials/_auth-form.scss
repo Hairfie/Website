@@ -8,21 +8,8 @@
 		color: #D8D8D8;
 	}
 	padding-top: 1px;
-	margin: auto;
 	margin-top: 15px;
-	margin-bottom: 15px;
-	width: 35%;
-	@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-    	width:55%;
-	}
-	@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    	width:75%;
-	}
-	@media screen and (max-width: $screen-xs-max) {
-    	width:100%;
-    	margin-top: 100px;
-	}
-	min-width: 200px;
+	margin-bottom: 75px;
 	background-color: #FFFFFF;
 	span.separator {
 		width: 100%;
@@ -48,8 +35,6 @@
 			overflow: hidden;
 			height: 60px;
 			margin: 10px;
-			margin-left: 25px;
-			margin-right: 25px;
 			background-color: $facebook-bg;
 			&:before {
 				content: " ";
@@ -66,8 +51,6 @@
 			overflow: hidden;
 			height: 60px;
 			margin: 10px;
-			margin-left: 25px;
-			margin-right: 25px;
 			background-color: $twitter-bg;
 			&:before {
 				content: " ";
@@ -80,12 +63,16 @@
 		}
 	}
 	a.full {
-		display: block;width: 100%;height: 65px;
+		display: block;
+		width: 100%;
+		height: 65px;
 		text-transform: uppercase;
-		border-radius: 0; margin: 0;
+		border-radius: 0; 
+		margin: 0;
 		font-weight: $semiBold;letter-spacing: 2px;
-		@include box-shadow(0 0 0 rgba(0,0,0,0.0));
 		line-height: 50px;
+		left: 0px;
+		position: absolute;
 	}
 	form.form {
 		div.form-group {

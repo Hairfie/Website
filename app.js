@@ -43,6 +43,9 @@ app.plug(require('fluxible-plugin-hairfie-api')({
     apiUrl: config.hairfieApiUrl
 }));
 
+app.plug(require('fluxible-plugin-cookie')());
+
+
 app.plug(require('fluxible-plugin-config')(config));
 
 app.plug(require('fluxible-plugin-google-maps')());

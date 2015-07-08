@@ -17,11 +17,9 @@ var RegistrationPage = React.createClass({
         return {cgu: false, newsletter: false};
     },
 	render: function() {
-		if (this.props.token.id)
-			return this.renderAlreadyConnected();
 		return (
 			<PublicLayout>
-				<div className="connect-form">
+				<div className="connect-form col-sm-4 col-sm-offset-4 col-xs-12">
 					<h2>Inscription</h2>
 					<div className="connect-button">
 						<div className="facebook"><span>S'inscrire avec Facebook</span></div>

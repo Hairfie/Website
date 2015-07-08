@@ -8186,6 +8186,12 @@ header {
       font-size: .7em;
       width: 100%; }
       .dropdown .dropdown-menu li a {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        font-size: 1.6em;
+        letter-spacing: 1px;
         display: block;
         width: 100%; }
 
@@ -10097,11 +10103,8 @@ section.home-footer .row > div {
 
 .connect-form {
   padding-top: 1px;
-  margin: auto;
   margin-top: 15px;
-  margin-bottom: 15px;
-  width: 35%;
-  min-width: 200px;
+  margin-bottom: 75px;
   background-color: #FFFFFF; }
   .connect-form h2 {
     text-align: center;
@@ -10109,16 +10112,6 @@ section.home-footer .row > div {
   .connect-form h4 {
     text-align: center;
     color: #D8D8D8; }
-  @media screen and (min-width: 992px) and (max-width: 1199px) {
-    .connect-form {
-      width: 55%; } }
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    .connect-form {
-      width: 75%; } }
-  @media screen and (max-width: 767px) {
-    .connect-form {
-      width: 100%;
-      margin-top: 100px; } }
   .connect-form span.separator {
     width: 100%;
     height: 1px;
@@ -10140,8 +10133,6 @@ section.home-footer .row > div {
     overflow: hidden;
     height: 60px;
     margin: 10px;
-    margin-left: 25px;
-    margin-right: 25px;
     background-color: #6686D0; }
     .connect-form div.connect-button .facebook:before {
       content: " ";
@@ -10156,8 +10147,6 @@ section.home-footer .row > div {
     overflow: hidden;
     height: 60px;
     margin: 10px;
-    margin-left: 25px;
-    margin-right: 25px;
     background-color: #14C4F8; }
     .connect-form div.connect-button .twitter:before {
       content: " ";
@@ -10175,10 +10164,9 @@ section.home-footer .row > div {
     margin: 0;
     font-weight: 600;
     letter-spacing: 2px;
-    -webkit-box-shadow: 0 0 0 transparent;
-    -moz-box-shadow: 0 0 0 transparent;
-    box-shadow: 0 0 0 transparent;
-    line-height: 50px; }
+    line-height: 50px;
+    left: 0px;
+    position: absolute; }
   .connect-form form.form div.form-group {
     margin: 10px;
     margin-left: 25px;

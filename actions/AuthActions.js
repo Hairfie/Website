@@ -31,49 +31,51 @@ module.exports = {
         return context.hairfieApi
             .post('/users/login', payload)
             .then(function (token) {
-                authStorage.setToken(token);
-                // fonction differente : loginWithToken
-                context.executeAction(UserActions.getUserById, token);
-                alert('Connection Effectué');
-                context.dispatch(Actions.RECEIVE_TOKEN, token);
-                context.executeAction(
-                    NavigationActions.navigate,
-                    { route: 'home' });
-            }, 
-            function () {
+                return Promise.all([
+                    context.executeAction(UserActions.getUserById, token),
+                    context.executeAction(
+                        NavigationActions.navigate,
+                        { route: 'home' }
+                    )
+                ]);
+            }, function () {
                 return context.executeAction(
                     NotificationActions.notifyFailure,
                     "Un problème est survenu, veuillez vérifier que l'e-mail et le mot de passe soient correct"
                 );
             })
     },
-    loginWithCookie: function(context) {
-        // GET COOKIE
-        // on aura tokenId + userId
-        // getUserById
-        // prendre en compte le fail normal
-    },
     disconnect: function(context) {
-        context.dispatch(Actions.DELETE_TOKEN);
+        return Promise.all([
+            authStorage.clearToken(context),
+            context.dispatch(Actions.DELETE_TOKEN),
+            context.dispatch(Actions.DELETE_USER_INFO)
+        ]);
     },
     register: function(context, payload) {
         return context.hairfieApi
             .post('/users', payload)
             .then(function (data) {
-                authStorage.setToken(token);
-
-                UserActions.getUserById();
-                alert('Inscription Effectué');
-                context.dispatch(Actions.RECEIVE_TOKEN, data.accessToken);
-                context.executeAction(
-                    NavigationActions.navigate,
-                    { route: 'home' });
-            }, 
-            function () {
+                return Promise.all([
+                    context.executeAction(UserActions.getUserById, data.access_token),
+                    context.executeAction(
+                        NavigationActions.navigate,
+                        { route: 'home' }
+                    )
+                ]);
+            }, function () {
                 return context.executeAction(
                     NotificationActions.notifyFailure,
                     "Un problème est survenu, avez-vous bien rempli les champs obligatoires ?"
                 );
             })
-        }
+        },
+    loginWithCookie: function(context) {
+        var token;
+
+        return Promise.all([
+            token = authStorage.getToken(context),
+            context.executeAction(UserActions.getUserById, token)
+        ]);
+    }
 };
