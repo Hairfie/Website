@@ -95,6 +95,7 @@ var RegistrationPage = React.createClass({
 			newsletter: this.state.newsletter,
 		};
 		this.context.executeAction(AuthActions.register, userInfo);
+		javascript:history.back();
 	}
 });
 

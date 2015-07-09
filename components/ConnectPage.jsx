@@ -42,6 +42,7 @@ var ConnectPage = React.createClass({
 		var email = this.refs.email.getValue();
 		var password = this.refs.password.getValue();
 		this.context.executeAction(AuthActions.emailConnect, { email: email, password: password });
+		javascript:history.back();
 	}
 });
 
