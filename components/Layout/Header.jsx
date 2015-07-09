@@ -37,7 +37,7 @@ var Header = React.createClass({
         );
     },
     loginLogout: function() {
-        if (!this.props.token.id || !this.props.user.firstName)
+        if (!this.props.currentUser)
             return (
                 <li>
                     <Link route="registration_page">Inscription</Link>
@@ -48,8 +48,8 @@ var Header = React.createClass({
         return (
             <li className="user">
                 <div className="dropdown">
-                    <Picture picture={this.props.user.picture} />
-                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">{this.props.user.firstName}
+                    <Picture picture={this.props.currentUser.picture} />
+                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">{this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -71,9 +71,9 @@ Header = connectToStores(Header, [
     'AuthStore',
     'UserStore'
 ], function (stores, props) {
+    var token = stores.AuthStore.getToken();
     return {
-        token: stores.AuthStore.getToken(),
-        user: stores.UserStore.getUserInfo()
+        currentUser: stores.UserStore.getUserInfo(token.userId)
     };
 });
 

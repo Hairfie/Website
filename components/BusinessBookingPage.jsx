@@ -84,6 +84,7 @@ var BusinessBookingPage = React.createClass({
                     timeslotSelected={this.state.timeslotSelected}
                     discount={this.state.discount}
                     business={this.props.business}
+                    currentUser={this.props.currentUser}
                 />
             </div>
         );
@@ -107,12 +108,16 @@ var BusinessBookingPage = React.createClass({
 });
 
 BusinessBookingPage = connectToStores(BusinessBookingPage, [
-    'BusinessStore'
+    'BusinessStore',
+    'AuthStore',
+    'UserStore'
 ], function (stores, props) {
+    var token = stores.AuthStore.getToken();
     return {
         business    : stores.BusinessStore.getById(props.route.params.businessId),
         discountObj : stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
-        daySelected : props.route.query.date ? moment(props.route.query.date) : null
+        daySelected : props.route.query.date ? moment(props.route.query.date) : null,
+        currentUser: stores.UserStore.getUserInfo(token.userId)
     }
 });
 

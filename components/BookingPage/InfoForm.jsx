@@ -20,12 +20,15 @@ module.exports = React.createClass({
         };
     },
     getInitialState: function() {
-        return {cgu: false};
+        return {
+            cgu: false,
+            userGender: this.props.currentUser.gender ? this.props.currentUser.gender : ""
+            };
     },
     render: function() {
         var promoNode;
-        if(this.props.discount) promoNode = <p className="promo">{this.props.discount + ' % sur toutes les prestations'}</p>
-
+        if(this.props.discount)
+            promoNode = <p className="promo">{this.props.discount + ' % sur toutes les prestations'}</p>;
         return (
             <div>
                 <div className="legend conf">
@@ -50,11 +53,11 @@ module.exports = React.createClass({
                                       Femme
                                     </label>
                                 </Input>
-                                <Input ref="userFirstName" type="text"  placeholder="Prénom *" required />
-                                <Input ref="userLastName" type="text" placeholder="Nom *" />
-                                <Input ref="userEmail" type="email" placeholder="Email *" />
-                                <Input ref="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" />
-                                <Input ref="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
+                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" required />
+                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" />
+                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" />
+                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" />
+                                <Input ref="userComment" name="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
                             </form>
                         </div>
                     </div>
@@ -69,6 +72,12 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    componentDidMount: function() {
+        document.getElementsByName("userFirstName")[0].value = this.props.currentUser.firstName ? this.props.currentUser.firstName : "";
+        document.getElementsByName("userLastName")[0].value = this.props.currentUser.lastName ? this.props.currentUser.lastName : "";
+        document.getElementsByName("userEmail")[0].value = this.props.currentUser.email ? this.props.currentUser.email : "";
+        document.getElementsByName("userPhoneNumber")[0].value = this.props.currentUser.phoneNumber ? this.props.currentUser.phoneNumber : "";
     },
     handleGenderChanged: function (e) {
         this.setState({

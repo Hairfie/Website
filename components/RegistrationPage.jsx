@@ -17,6 +17,8 @@ var RegistrationPage = React.createClass({
         return {cgu: false, newsletter: false};
     },
 	render: function() {
+		if (this.props.token.id)
+			return this.renderAlreadyConnected();
 		return (
 			<PublicLayout>
 				<div className="connect-form col-sm-4 col-sm-offset-4 col-xs-12">
@@ -32,6 +34,7 @@ var RegistrationPage = React.createClass({
 						<Input type="text" ref="lastName" placeholder="Nom *"/>
 						<Input type="email" ref="email" placeholder="Adresse Email *"/>
 						<Input type="password" ref="password" placeholder="Mot de Passe *" />
+						<Input type="text" ref="numberPhone" placeholder="Numéro de portable (Facultatif)" />
                         <Input className="radio">
                             <label className="radio-inline">
                                 <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
@@ -93,6 +96,7 @@ var RegistrationPage = React.createClass({
 			password: this.refs.password.getValue(),
 			gender: this.state.userGender,
 			newsletter: this.state.newsletter,
+			phoneNumber: this.refs.phoneNumber.getValue()
 		};
 		this.context.executeAction(AuthActions.register, userInfo);
 		javascript:history.back();

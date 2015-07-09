@@ -19,16 +19,15 @@ module.exports = createStore({
     rehydrate: function (state) {
         this.userInfo = state.userInfo;
     },
-    onReceiveUserInfo: function (userInfo) {
-        this.userInfo = userInfo;
+    onReceiveUserInfo: function (user) {
+        this.userInfo[user.id] = user;
         this.emitChange();
     },
     onDeleteUserInfo: function() {
         this.userInfo = {};
         this.emitChange();
     },
-    getUserInfo: function()
-    {
-        return this.userInfo;
+    getUserInfo: function(userId) {
+        return this.userInfo[userId];
     }
 });

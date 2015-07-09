@@ -26,7 +26,7 @@ module.exports = createStore({
         this.emitChange();
     },
     onDeleteToken: function() {
-        this.token = {};
+        this.tokens = {};
         this.emitChange();
     },
     getToken: function () {

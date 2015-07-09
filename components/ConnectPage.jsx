@@ -12,6 +12,8 @@ var ConnectPage = React.createClass({
         executeAction: React.PropTypes.func
     },
 	render: function() {
+		if (this.props.token.id)
+			return this.renderAlreadyConnected();
 		return (
 			<PublicLayout>
 				<div className="connect-form col-sm-4 col-sm-offset-4 col-xs-12">
