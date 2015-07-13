@@ -8,6 +8,9 @@ var UserConstants = require('../../constants/UserConstants');
 var Button = require('react-bootstrap/Button');
 var Input = require('react-bootstrap/Input');
 
+var FacebookButton = require('../Auth/FacebookButton.jsx');
+var FormConnect = require('../Auth/FormConnect.jsx');
+
 module.exports = React.createClass({
     propTypes: {
         modifyTimeslot: React.PropTypes.func,
@@ -19,11 +22,33 @@ module.exports = React.createClass({
             onSubmit: _.noop
         };
     },
+    componentWillReceiveProps: function(nextProps) {
+        if (!nextProps.currentUser)
+            return;
+        this.setState({
+            firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
+            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "", 
+            email: nextProps.currentUser.email ? nextProps.currentUser.email : "", 
+            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : "",
+            userGender: nextProps.currentUser.gender ? nextProps.currentUser.gender : ""
+        });
+    },
     getInitialState: function() {
+        if (!this.props.currentUser) {
+            return {
+                formConnect: false,
+                cgu: false
+                };
+        }
         return {
+            formConnect: false,
             cgu: false,
+            firstName: this.props.currentUser.firstName ? this.props.currentUser.firstName : "",
+            lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "", 
+            email: this.props.currentUser.email ? this.props.currentUser.email : "", 
+            phoneNumber: this.props.currentUser.phoneNumber ? this.props.currentUser.phoneNumber : "",
             userGender: this.props.currentUser.gender ? this.props.currentUser.gender : ""
-            };
+        };
     },
     render: function() {
         var promoNode;
@@ -39,6 +64,7 @@ module.exports = React.createClass({
                 <a href="#" className="pull-right" onClick={this.modifyTimeslot} >Modifier ma réservation</a>
                 <div className="clearfix"></div>
                 <hr />
+                {this.renderIfNotConnected()}
                 <div >
                     <div className="col-sm-8 confirm-bloc-form">
                         <div className="form-group">
@@ -53,10 +79,10 @@ module.exports = React.createClass({
                                       Femme
                                     </label>
                                 </Input>
-                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" required />
-                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" />
-                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" />
-                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" />
+                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" value={this.state.firstName} onChange={this.handleFirstNameChanged} />
+                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} />
+                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} />
+                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged}/>
                                 <Input ref="userComment" name="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
                             </form>
                         </div>
@@ -73,11 +99,47 @@ module.exports = React.createClass({
             </div>
         );
     },
-    componentDidMount: function() {
-        document.getElementsByName("userFirstName")[0].value = this.props.currentUser.firstName ? this.props.currentUser.firstName : "";
-        document.getElementsByName("userLastName")[0].value = this.props.currentUser.lastName ? this.props.currentUser.lastName : "";
-        document.getElementsByName("userEmail")[0].value = this.props.currentUser.email ? this.props.currentUser.email : "";
-        document.getElementsByName("userPhoneNumber")[0].value = this.props.currentUser.phoneNumber ? this.props.currentUser.phoneNumber : "";
+    renderIfNotConnected: function() {
+        if (!this.props.currentUser)
+            return (
+                <div>
+                    <a className="green" onClick={this.handleFormConnectChanged}>
+                        Vous avez déjà un compte ? Cliquez ici
+                    </a>
+                    {this.renderConnectForm()}
+                    <hr />
+                </div>
+            );
+    },
+    renderConnectForm: function() {
+        if (!this.state.formConnect)
+            return;
+        return (
+            <div>
+                <FacebookButton withNavigate={false}/>
+                <FormConnect withNavigate={false}/>
+            </div>
+        );
+    },
+    handleFirstNameChanged: function (e) {
+        this.setState({
+            firstName: e.currentTarget.value
+        });
+    },
+    handleLastNameChanged: function (e) {
+        this.setState({
+            lastName: e.currentTarget.value
+        });
+    },
+    handleEmailChanged: function (e) {
+        this.setState({
+            email: e.currentTarget.value
+        });
+    },
+    handlePhoneNumberChanged: function (e) {
+        this.setState({
+            phoneNumber: e.currentTarget.value
+        });
     },
     handleGenderChanged: function (e) {
         this.setState({
@@ -88,6 +150,16 @@ module.exports = React.createClass({
         this.setState({
             cgu: e.currentTarget.checked
         });
+    },
+    handleFormConnectChanged: function () {
+        if (this.state.formConnect == true)
+            this.setState({
+               formConnect: false
+            });
+        else
+            this.setState({
+                formConnect: true
+            });
     },
     modifyTimeslot: function (e) {
         e.preventDefault();

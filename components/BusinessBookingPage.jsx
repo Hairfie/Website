@@ -26,9 +26,14 @@ var BusinessBookingPage = React.createClass({
         var loading = _.isUndefined(this.props.business);
         return (
             <PublicLayout loading={loading} customClass="booking">
+                {this.renderSignUp()}
                 {this.renderBookingForm()}
             </PublicLayout>
         );
+    },
+    renderSignUp: function() {
+        if (this.props.currentUser)
+            return;
     },
     renderBookingForm: function() {
         var formNode = this.state.timeslotSelected ? this.renderInfoForm() : this.renderDateAndTimeForm();

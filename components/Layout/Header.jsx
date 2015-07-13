@@ -54,7 +54,7 @@ var Header = React.createClass({
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <li>
-                        <a href="#" onClick={this.disconnect}>Déconnection</a>
+                        <a href="#" onClick={this.disconnect}>Déconnexion</a>
                       </li>
                     </ul>
                 </div>
@@ -63,7 +63,7 @@ var Header = React.createClass({
 
     },
     disconnect: function() {
-        this.context.executeAction(AuthActions.disconnect);
+        this.context.executeAction(AuthActions.disconnect, this.props.token);
     }
 });
 
@@ -73,6 +73,7 @@ Header = connectToStores(Header, [
 ], function (stores, props) {
     var token = stores.AuthStore.getToken();
     return {
+        token: token,
         currentUser: stores.UserStore.getUserInfo(token.userId)
     };
 });

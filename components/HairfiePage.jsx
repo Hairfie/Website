@@ -8,6 +8,9 @@ var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
+var UserActions = require('../actions/UserActions');
+var NotificationActions = require('../actions/NotificationActions');
+var NavigationActions = require('../actions/NavigationActions');
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -87,9 +90,7 @@ var HairfieSingle = React.createClass({
         return (
             <div className="col-xs-12 col-sm-6">
                 <Carousel hairfie={this.props.hairfie} />
-                <div className="like-group">
-                    {this.renderBookingButton()}
-                </div>
+                {this.renderBookingButton()}
             </div>
        );
     },
@@ -97,11 +98,18 @@ var HairfieSingle = React.createClass({
         if (!this.props.hairfie.business) return;
 
         return (
+            <div className="like-group">
+                <div className="like-btn" onClick={this.props.likeHairfie}>
+                    <a>
+                        <span className="glyphicon glyphicon-heart"></span>
+                    </a>
+                </div>
                 <div className="cta">
                     <Link className="btn btn-red full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         Réserver dans ce salon
                     </Link>
                 </div>
+            </div>
         );
     }
 });
@@ -148,9 +156,9 @@ var RightColumn = React.createClass({
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
-                            {/*<a href="#" className="col-xs-3 like">J'aime</a>
-                            - */}
-                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
+                            <a className="col-xs-3" onClick={this.props.likeHairfie}>J'aime</a>
+                            -
+                            <a className="col-xs-3" onClick={this.props.likeHairfie}>{this.props.hairfie.numLikes} j'aime</a>
                           </p>
                         </div>
                     </div>
@@ -165,7 +173,8 @@ var RightColumn = React.createClass({
 
 var HairfiePage = React.createClass({
     contextTypes: {
-        config: React.PropTypes.object
+        config: React.PropTypes.object,
+        executeAction: React.PropTypes.func
     },
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
@@ -173,8 +182,8 @@ var HairfiePage = React.createClass({
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="single-view row">
-                        <HairfieSingle hairfie={this.props.hairfie} />
-                        <RightColumn hairfie={this.props.hairfie} />
+                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={this.userLikeHairfie}/>
+                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={this.userLikeHairfie}/>
                     </div>
                 </div>
             </PublicLayout>
@@ -188,14 +197,36 @@ var HairfiePage = React.createClass({
                 </div>
             </PublicLayout>
         );
+    },
+    userLikeHairfie: function() {
+        if (!this.props.currentUser)
+        {
+            this.context.executeAction(
+                NotificationActions.notifyFailure,
+                "Vous devez vous connecter pour éxécuter cette action"
+            );
+            this.context.executeAction(
+                NavigationActions.navigate,
+                { route: 'connect_page' }
+            );
+        }
+        var payload = {
+            hairfie_id: this.props.hairfie.id,
+            user_id: this.props.currentUser.id
+        };
+        this.context.executeAction(UserActions.haifieLike, payload);
     }
 });
 
 HairfiePage = connectToStores(HairfiePage, [
-    'HairfieStore'
+    'HairfieStore',
+    'AuthStore',
+    'UserStore'
 ], function (stores, props) {
+    var token = stores.AuthStore.getToken();
     return {
-        hairfie: stores.HairfieStore.getById(props.route.params.hairfieId)
+        hairfie: stores.HairfieStore.getById(props.route.params.hairfieId),
+        currentUser: stores.UserStore.getUserInfo(token.userId)
     };
 });
 

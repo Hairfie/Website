@@ -27,6 +27,7 @@
     "fluxible-action-utils": "^0.2.1",
     "fluxible-plugin-config": "^0.1.0",
     "fluxible-plugin-cookie": "^0.2.1",
+    "fluxible-plugin-facebook": "^0.1.2",
     "fluxible-plugin-google-maps": "^0.1.1",
     "fluxible-plugin-hairfie-api": "^0.1.0",
     "fluxible-router": "^0.1.3",

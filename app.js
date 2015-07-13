@@ -45,6 +45,9 @@ app.plug(require('fluxible-plugin-hairfie-api')({
 
 app.plug(require('fluxible-plugin-cookie')());
 
+app.plug(require('fluxible-plugin-facebook')({
+    appId: '1567052370184577'
+}));
 
 app.plug(require('fluxible-plugin-config')(config));
 
