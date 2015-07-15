@@ -35,5 +35,30 @@ module.exports = {
                     "Un problème est survenu"
                 );
             })
+    },
+    haifieUnlike: function(context, payload) {
+        return context.hairfieApi
+            .delete('/users/' + payload.user_id + '/liked-hairfies/' + payload.hairfie_id, payload)
+            .then (function () {
+                return context.executeAction(HairfieActions.loadHairfie, payload.hairfie_id);
+            }, function() {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            })
+    },
+    haifieIsLiked: function(context, payload) {
+        console.log(context.hairfieApi);
+        return context.hairfieApi
+            .head('/users/' + payload.user_id + '/liked-hairfies/' + payload.hairfie_id, payload)
+            .then (function (response) {
+                return response;
+            }, function() {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            })
     }
 };

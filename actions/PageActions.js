@@ -129,7 +129,6 @@ function businessWithSlug(context, route) {
                 });
                 throw error;
             }
-
             context.dispatch(Actions.RECEIVE_BUSINESS, business);
 
             return business;

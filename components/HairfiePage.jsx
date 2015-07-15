@@ -181,8 +181,8 @@ var HairfiePage = React.createClass({
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="single-view row">
-                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={this.userLikeHairfie}/>
-                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={this.userLikeHairfie}/>
+                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={this.likeHairfie}/>
+                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={this.likeHairfie}/>
                     </div>
                 </div>
             </PublicLayout>
@@ -197,7 +197,7 @@ var HairfiePage = React.createClass({
             </PublicLayout>
         );
     },
-    userLikeHairfie: function() {
+    likeHairfie: function() {
         if (!this.props.currentUser)
         {
             this.context.executeAction(
@@ -213,7 +213,7 @@ var HairfiePage = React.createClass({
             hairfie_id: this.props.hairfie.id,
             user_id: this.props.currentUser.id
         };
-        this.context.executeAction(UserActions.haifieLike, payload);
+        console.log(this.context.executeAction(UserActions.haifieIsLiked, payload));
     }
 });
 
