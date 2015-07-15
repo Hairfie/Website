@@ -34,6 +34,7 @@ module.exports = {
             });
     },
     emailConnect: function(context, payload) {
+        var withNavigate = payload.withNavigate;
         delete payload.withNavigate;
 
         return context.hairfieApi
