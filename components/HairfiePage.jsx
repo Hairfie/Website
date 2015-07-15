@@ -4,7 +4,6 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('./Link.jsx');
 var PublicLayout = require('./PublicLayout.jsx');
-var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');

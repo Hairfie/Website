@@ -17,32 +17,32 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<form className="form">
-				<Input type="text" ref="firstName" placeholder="Prénom *"/>
-				<Input type="text" ref="lastName" placeholder="Nom *"/>
-				<Input type="email" ref="email" placeholder="Adresse Email *"/>
-				<Input type="password" ref="password" placeholder="Mot de Passe *" />
-				<Input type="text" ref="numberPhone" placeholder="Numéro de portable (Facultatif)" />
-                <Input className="radio">
-                    <label className="radio-inline">
-    	                <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
-        	                Homme
-                    </label>
-                    <label className="radio-inline" style={{marginLeft: '0px'}}>
-              	        <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
-                            Femme
-					</label>
-                    </Input>
-					<label for="cgu" className="register-checkbox">
-                       	<input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
-                       	<span></span>
-                       	Je souhaite recevoir les Newsletters.
-                   	</label>
-					<label for="cgu" className="register-checkbox">
-                       	<input type="checkbox" name='cgu' onChange={this.handleCGUChanged} />
-                       	<span></span>
-                       	Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
-                   	</label>
-					<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+        <Input className="radio">
+          <label className="radio-inline">
+            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
+            Homme
+          </label>
+          <label className="radio-inline" style={{marginLeft: '0px'}}>
+            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
+            Femme
+            </label>
+          </Input>
+  				<Input type="text" ref="firstName" placeholder="Prénom *"/>
+  				<Input type="text" ref="lastName" placeholder="Nom *"/>
+  				<Input type="email" ref="email" placeholder="Adresse Email *"/>
+  				<Input type="password" ref="password" placeholder="Mot de Passe *" />
+  				<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" />
+  					<label for="cgu" className="register-checkbox">
+                         	<input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
+                         	<span></span>
+                         	Je souhaite recevoir les Newsletters.
+                     	</label>
+  					<label for="cgu" className="register-checkbox">
+                         	<input type="checkbox" name='cgu' onChange={this.handleCGUChanged} />
+                         	<span></span>
+                         	Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                     	</label>
+  					<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
 				</form>
 		);		
 	},

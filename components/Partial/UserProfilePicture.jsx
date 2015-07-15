@@ -9,12 +9,12 @@ var SRC_DEFAULT_WOMAN = '/img/profile-picture/default-woman.png';
 
 module.exports = React.createClass({
     render: function () {
-        var user    = this.props.user || {},
-            picture = user.picture;
+        var gender    = this.props.gender || {},
+            picture = this.props.picture;
 
         if (!picture) {
-            switch (user.gender) {
-                case UserGenders.MALE:
+            switch (gender) {
+                case 'MALE':
                     picture = {url: SRC_DEFAULT_MAN};
                     break;
 

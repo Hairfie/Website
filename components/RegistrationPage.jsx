@@ -10,25 +10,16 @@ var Link = require('./Link.jsx');
 
 var RegistrationPage = React.createClass({
 	render: function() {
-		if (this.props.token.id)
-			return this.renderAlreadyConnected();
 		return (
 			<PublicLayout>
 				<div className="connect-form col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
 					<h2>Inscription</h2>
 					<Link route="connect_page" className="green">Déjà inscrit ? Connectez-vous</Link>
 					<FacebookButton withNavigate={true}/>
-					<h4>ou remplisser ce formulaire</h4>
+					<h4>ou remplissez ce formulaire</h4>
 					<span className="separator"/>
 					<FormRegistration withNavigate={true}/>
 				</div>
-			</PublicLayout>
-			);
-	},
-	renderAlreadyConnected: function() {
-		return (
-			<PublicLayout>
-				<h2>Il semble que vous soyez déjà connecté</h2>
 			</PublicLayout>
 			);
 	}

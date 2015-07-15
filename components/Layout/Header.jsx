@@ -5,7 +5,7 @@ var Link = require('../Link.jsx');
 var connectToStores = require('../../lib/connectToStores');
 var AuthActions = require('../../actions/AuthActions');
 var _ = require('lodash');
-var Picture = require('../Partial/Picture.jsx');
+var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 
 var Header = React.createClass({
     contextTypes: {
@@ -49,7 +49,7 @@ var Header = React.createClass({
             <li className="user">
                 <div className="dropdown">
                     <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <Picture picture={this.props.currentUser.picture} />
+                        <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
                         {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>

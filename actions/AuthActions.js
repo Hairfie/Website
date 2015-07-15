@@ -96,7 +96,7 @@ module.exports = {
             })
     },
     register: function(context, payload) {
-        var url = payload.withNavigate;
+        var withNavigate = payload.withNavigate;
         delete payload.withNavigate;
 
         return context.hairfieApi

@@ -10152,6 +10152,9 @@ section.home-footer .row > div {
     width: 100%;
     display: block;
     font-size: 1.5em; }
+  @media screen and (max-width: 767px) {
+    .connect-form {
+      margin-top: 115px; } }
   .connect-form span.separator {
     width: 100%;
     height: 1px;
@@ -10233,7 +10236,6 @@ section.home-footer .row > div {
     padding-left: 40px;
     padding-bottom: 15px; }
     .connect-form form.form .register-checkbox a, .connect-form form.form .register-checkbox label {
-      font-size: 1.4em;
-      color: #595959; }
+      color: #D8D8D8; }
 
 /*# sourceMappingURL=style.css.map */

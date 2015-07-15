@@ -6,7 +6,7 @@ var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap/Button');
 var connectToStores = require('../../lib/connectToStores');
-var Picture = require('../Partial/Picture.jsx');
+var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 
 var mobileHeader = React.createClass({
     contextTypes: {
@@ -81,11 +81,18 @@ var mobileHeader = React.createClass({
                     <Link route="connect_page">Connexion</Link>
                 </li>
                 );
+        var picture;
+        if (this.props.currentUser.picture)
+            picture = this.props.currentUser.picture;
+        else if (this.props.currentUser.gender == "WOMAN")
+            picture = "../../public/img/profile-picture/defaut-woman.png";
+        else
+            picture = "../../public/img/profile-picture/defaut-man.png";
         return (
             <li className="user">
                 <div className="dropdown">
                     <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <Picture picture={this.props.currentUser.picture} />
+                        <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
                         {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>
