@@ -12,7 +12,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="connect-button" {...this.props}>
-	            <div className="facebook" onClick={this.facebookConnect}><span>Se connecter avec Facebook</span></div>
+	            <div className="facebook" role="button" onClick={this.facebookConnect}><span>Se connecter avec Facebook</span></div>
 	        </div>
 	    );
 	},

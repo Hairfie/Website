@@ -48,8 +48,9 @@ var Header = React.createClass({
         return (
             <li className="user">
                 <div className="dropdown">
-                    <Picture picture={this.props.currentUser.picture} />
-                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">{this.props.currentUser.firstName}
+                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        <Picture picture={this.props.currentUser.picture} />
+                        {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -60,7 +61,6 @@ var Header = React.createClass({
                 </div>
             </li>
                 );
-
     },
     disconnect: function() {
         this.context.executeAction(AuthActions.disconnect, this.props.token);

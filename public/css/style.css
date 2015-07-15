@@ -8107,20 +8107,27 @@ header {
         display: inline-block;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 600;
-        color: white;
-        text-decoration: none;
         font-size: 1.6em;
         letter-spacing: 1px; }
         header nav ul li:first-child {
           padding-left: 0; }
-        header nav ul li a {
-          color: white; }
-          header nav ul li a:visited, header nav ul li a:active, header nav ul li a:focus {
-            text-decoration: none;
-            color: white; }
-          header nav ul li a:hover {
-            text-decoration: underline;
-            color: white; }
+        @media screen and (min-width: 768px) {
+          header nav ul li {
+            color: white;
+            text-decoration: none; } }
+        @media screen and (min-width: 768px) {
+          header nav ul li a {
+            color: white; } }
+        header nav ul li a:visited, header nav ul li a:active, header nav ul li a:focus {
+          text-decoration: none; }
+          @media screen and (min-width: 768px) {
+            header nav ul li a:visited, header nav ul li a:active, header nav ul li a:focus {
+              color: white; } }
+        header nav ul li a:hover {
+          text-decoration: underline; }
+          @media screen and (min-width: 768px) {
+            header nav ul li a:hover {
+              color: white; } }
   header.white {
     background-color: white; }
     header.white .user {
@@ -8169,7 +8176,6 @@ header {
       .dropdown .dropdown-menu li a {
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 600;
-        color: white;
         text-decoration: none;
         font-size: 1.6em;
         letter-spacing: 1px;

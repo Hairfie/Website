@@ -103,7 +103,7 @@ module.exports = React.createClass({
         if (!this.props.currentUser)
             return (
                 <div>
-                    <a className="green" onClick={this.handleFormConnectChanged}>
+                    <a className="green" onClick={this.handleFormConnectChanged} role="button">
                         Vous avez déjà un compte ? Cliquez ici
                     </a>
                     {this.renderConnectForm()}

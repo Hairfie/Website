@@ -50,18 +50,26 @@ header {
 				}
 				font-family: $font-main;
 				font-weight: $semiBold;
-				color: white; text-decoration: none;
+				@media screen and (min-width: $screen-sm-min) {
+					color: white; text-decoration: none;
+				}
 				font-size: 1.6em;
 				letter-spacing: 1px;
 				a {
-					color: white;
+					@media screen and (min-width: $screen-sm-min) {
+						color: white;
+					}
 					&:visited,&:active,&:focus {
 						text-decoration: none;
-						color: white;
+						@media screen and (min-width: $screen-sm-min) {
+							color: white;
+						}
 					}
 					&:hover {
 						text-decoration: underline;
-						color: white;
+						@media screen and (min-width: $screen-sm-min) {
+							color: white;
+						}
 					}
 				}
 			}
@@ -119,7 +127,6 @@ header {
 			a {
 				font-family: 'Source Sans Pro', sans-serif;
 				font-weight: 600;
-				color: white;
 				text-decoration: none;
 				font-size: 1.6em;
 				letter-spacing: 1px;
