@@ -10233,7 +10233,7 @@ section.home-footer .row > div {
         line-height: 30px;
         margin-bottom: 10px; }
   .connect-form form.form .register-checkbox {
-    font-weight: inherit;
+    font-weight: 400;
     padding-left: 40px;
     padding-bottom: 15px;
     font-size: 1.4em; }
