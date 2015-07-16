@@ -11,6 +11,8 @@ var oldBrowserHtml = '<!--[if lt IE 9]> \
         </p> \
     <![endif]-->';
 
+var mailChimpHtml = '<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
+
 var Html = React.createClass({
     render: function() {
         var title = this.props.context.getStore('MetaStore').getTitle();
@@ -49,6 +51,8 @@ var Html = React.createClass({
                 <script src={this.getAssetSrc("/js/main.js")}></script>
                 <script src={this.getAssetSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
                 <script src={this.getAssetSrc(this.getAppAsset())}></script>
+
+                <div className="mailchimp" dangerouslySetInnerHTML={{__html: mailChimpHtml}} />
             </body>
             </html>
 

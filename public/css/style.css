@@ -9646,6 +9646,8 @@ section.home-footer .row > div {
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes {
           padding: 0;
           padding-top: 5px; }
+          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes span {
+            padding-left: 0; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a {
             float: none;
             text-decoration: none;
