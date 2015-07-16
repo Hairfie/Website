@@ -7,7 +7,7 @@ var NavigationActions = require('./NavigationActions');
 var authStorage = require('../services/auth-storage');
 var HairfieActions = require('./HairfieActions');
 
-var _mustBeConnected = function() {
+var _mustBeConnected = function(context) {
     return Promise.all([
         context.executeAction(
             NotificationActions.notifyFailure,
@@ -40,7 +40,7 @@ module.exports = {
     hairfieLike: function(context, payload) {
         var token = context.getStore('AuthStore').getToken();
         if (!token || !token.userId)
-            _mustBeConnected();
+            _mustBeConnected(context);
 
         return context.hairfieApi
             .put('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
@@ -59,7 +59,7 @@ module.exports = {
     hairfieUnlike: function(context, payload) {
         var token = context.getStore('AuthStore').getToken();
         if (!token || !token.userId)
-            _mustBeConnected();
+            _mustBeConnected(context);
         return context.hairfieApi
             .delete('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
             .then (function () {
