@@ -11,7 +11,7 @@ var _mustBeConnected = function(context) {
     return Promise.all([
         context.executeAction(
             NotificationActions.notifyFailure,
-            "Vous devez vous connecter pour éxécuter cette action"    
+            "Vous devez vous connecter pour exécuter cette action"    
         ),
         context.executeAction(
             NavigationActions.navigate,
