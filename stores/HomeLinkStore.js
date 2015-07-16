@@ -28,7 +28,7 @@ module.exports = createStore({
             },
             {
                 displayName: "Coiffeur 5ème Arrondissement",
-                address: "4e-Arrondissement--Paris--France",
+                address: "5e-Arrondissement--Paris--France",
                 category: ""
             },
             {
