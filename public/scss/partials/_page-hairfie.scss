@@ -157,13 +157,12 @@
 						text-decoration: none;
 						font-size: 0.9em;
 						color: $font-color;
-						cursor: pointer;
 						&:hover {
 							color: black;
 						}
 						&:after {
 							content: " ";
-							width: 72%;
+							width: calc(100% - 15px);
 							height: 1px;
 							background-color: $font-color;
 							position: absolute; bottom: -1px;
@@ -178,7 +177,7 @@
 					}
 					a:nth-child(2) {
 						&:after {
-							width: 66%;
+							width: calc(100% - 30px);
 						}
 					}
 				}

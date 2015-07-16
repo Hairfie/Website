@@ -156,9 +156,9 @@ var RightColumn = React.createClass({
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
-                            <a className="col-xs-3" onClick={this.props.likeHairfie.func}>J'aime</a>
+                            <a className="col-xs-3" role="button" onClick={this.props.likeHairfie.func}>{this.props.likeHairfie.state ? "Je n'aime plus" : "J'aime"}</a>
                             -
-                            <a className="col-xs-3" onClick={this.props.likeHairfie.func}>{this.props.hairfie.numLikes} j'aime</a>
+                            <a className="col-xs-3">{this.props.hairfie.numLikes} j'aime</a>
                           </p>
                         </div>
                     </div>

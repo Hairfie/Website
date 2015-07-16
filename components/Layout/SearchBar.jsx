@@ -50,7 +50,7 @@ var mobileHeader = React.createClass({
             <div className="mobile-nav visible-xs">
                 <header className="container white">
                     <Link className="logo col-xs-4" route="home" />
-                    <nav className='col-md-8 pull-right'>
+                    <nav className='center'>
                         <ul>
                            {this.loginLogout()}
                         </ul>
@@ -93,7 +93,6 @@ var mobileHeader = React.createClass({
                 <div className="dropdown">
                     <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                         <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
-                        {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
