@@ -10,6 +10,7 @@ var connectToStores = require('../lib/connectToStores');
 var UserActions = require('../actions/UserActions');
 var NotificationActions = require('../actions/NotificationActions');
 var NavigationActions = require('../actions/NavigationActions');
+var Promise = require('q');
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -98,9 +99,9 @@ var HairfieSingle = React.createClass({
 
         return (
             <div className="like-group">
-                <div className="like-btn" onClick={this.props.likeHairfie}>
+                <div className="like-btn" onClick={this.props.likeHairfie.func}>
                     <a>
-                        <span className="glyphicon glyphicon-heart"></span>
+                        <span className={"glyphicon glyphicon-heart" + (this.props.likeHairfie.state ? " red" : "")}></span>
                     </a>
                 </div>
                 <div className="cta">
@@ -155,9 +156,9 @@ var RightColumn = React.createClass({
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
-                            <a className="col-xs-3" onClick={this.props.likeHairfie}>J'aime</a>
+                            <a className="col-xs-3" onClick={this.props.likeHairfie.func}>J'aime</a>
                             -
-                            <a className="col-xs-3" onClick={this.props.likeHairfie}>{this.props.hairfie.numLikes} j'aime</a>
+                            <a className="col-xs-3" onClick={this.props.likeHairfie.func}>{this.props.hairfie.numLikes} j'aime</a>
                           </p>
                         </div>
                     </div>
@@ -175,14 +176,18 @@ var HairfiePage = React.createClass({
         config: React.PropTypes.object,
         executeAction: React.PropTypes.func
     },
+    getInitialState: function() {
+        this.context.executeAction(UserActions.isLikedHairfie, {hairfieId: this.props.hairfie.id});
+        return {};
+    },
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="single-view row">
-                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={this.likeHairfie}/>
-                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={this.likeHairfie}/>
+                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </div>
                 </div>
             </PublicLayout>
@@ -198,34 +203,22 @@ var HairfiePage = React.createClass({
         );
     },
     likeHairfie: function() {
-        if (!this.props.currentUser)
-        {
-            this.context.executeAction(
-                NotificationActions.notifyFailure,
-                "Vous devez vous connecter pour éxécuter cette action"
-            );
-            this.context.executeAction(
-                NavigationActions.navigate,
-                { route: 'connect_page' }
-            );
-        }
-        var payload = {
-            hairfie_id: this.props.hairfie.id,
-            user_id: this.props.currentUser.id
-        };
-        console.log(this.context.executeAction(UserActions.haifieIsLiked, payload));
+        if (!this.props.hairfieLiked)
+            this.context.executeAction(UserActions.hairfieLike, {hairfieId: this.props.hairfie.id});
+        else
+            this.context.executeAction(UserActions.hairfieUnlike, {hairfieId: this.props.hairfie.id});
     }
 });
 
 HairfiePage = connectToStores(HairfiePage, [
     'HairfieStore',
-    'AuthStore',
     'UserStore'
 ], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+    var hairfie = stores.HairfieStore.getById(props.route.params.hairfieId);
+
     return {
-        hairfie: stores.HairfieStore.getById(props.route.params.hairfieId),
-        currentUser: stores.UserStore.getUserInfo(token.userId)
+        hairfie: hairfie,
+        hairfieLiked: stores.UserStore.getHairfieLikedById(hairfie.id)
     };
 });
 

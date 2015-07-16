@@ -10233,9 +10233,13 @@ section.home-footer .row > div {
         line-height: 30px;
         margin-bottom: 10px; }
   .connect-form form.form .register-checkbox {
+    font-weight: inherit;
     padding-left: 40px;
-    padding-bottom: 15px; }
-    .connect-form form.form .register-checkbox a, .connect-form form.form .register-checkbox label {
-      color: #D8D8D8; }
+    padding-bottom: 15px;
+    font-size: 1.4em; }
+    .connect-form form.form .register-checkbox label {
+      color: #595959; }
+    .connect-form form.form .register-checkbox a {
+      color: darkblue; }
 
 /*# sourceMappingURL=style.css.map */

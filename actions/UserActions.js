@@ -7,6 +7,19 @@ var NavigationActions = require('./NavigationActions');
 var authStorage = require('../services/auth-storage');
 var HairfieActions = require('./HairfieActions');
 
+var _mustBeConnected = function() {
+    return Promise.all([
+        context.executeAction(
+            NotificationActions.notifyFailure,
+            "Vous devez vous connecter pour éxécuter cette action"    
+        ),
+        context.executeAction(
+            NavigationActions.navigate,
+            { route: 'connect_page' }
+        )
+    ]);
+};
+
 module.exports = {
     getUserById: function(context, token) {
         return context.hairfieApi
@@ -24,11 +37,18 @@ module.exports = {
                 );
             })
     },
-    haifieLike: function(context, payload) {
+    hairfieLike: function(context, payload) {
+        var token = context.getStore('AuthStore').getToken();
+        if (!token || !token.userId)
+            _mustBeConnected();
+
         return context.hairfieApi
-            .put('/users/' + payload.user_id + '/liked-hairfies/' + payload.hairfie_id, payload)
+            .put('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
             .then (function () {
-                return context.executeAction(HairfieActions.loadHairfie, payload.hairfie_id);
+                return Promise.all([
+                        context.executeAction(HairfieActions.loadHairfie, payload.hairfieId),
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: true})
+                        ]);
             }, function() {
                 return context.executeAction(
                     NotificationActions.notifyFailure,
@@ -36,11 +56,17 @@ module.exports = {
                 );
             })
     },
-    haifieUnlike: function(context, payload) {
+    hairfieUnlike: function(context, payload) {
+        var token = context.getStore('AuthStore').getToken();
+        if (!token || !token.userId)
+            _mustBeConnected();
         return context.hairfieApi
-            .delete('/users/' + payload.user_id + '/liked-hairfies/' + payload.hairfie_id, payload)
+            .delete('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
             .then (function () {
-                return context.executeAction(HairfieActions.loadHairfie, payload.hairfie_id);
+                return Promise.all([
+                        context.executeAction(HairfieActions.loadHairfie, payload.hairfieId),
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: false})
+                        ]);
             }, function() {
                 return context.executeAction(
                     NotificationActions.notifyFailure,
@@ -48,17 +74,22 @@ module.exports = {
                 );
             })
     },
-    haifieIsLiked: function(context, payload) {
-        console.log(context.hairfieApi);
+    isLikedHairfie: function(context, payload) {
+        var token = context.getStore('AuthStore').getToken();
+        if (!token || !token.userId)
+            return;
         return context.hairfieApi
-            .head('/users/' + payload.user_id + '/liked-hairfies/' + payload.hairfie_id, payload)
-            .then (function (response) {
-                return response;
-            }, function() {
-                return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
-                );
+            .head('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
+            .then(function () {
+                return true;
+            })
+            .catch(function (e) { 
+                if (e.status == 404) {
+                    return false;
+                }
+            })
+            .then(function(isLiked) {
+                return context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: isLiked});
             })
     }
 };

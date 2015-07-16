@@ -100,7 +100,7 @@
   				line-height: 30px;
   				height: 30px;
   				font-size: 1.4em;
-  				color: #595959;
+  				color: $font-color;
 				input	{
 					height: 30px;
   					background-color: white;
@@ -111,9 +111,12 @@
 			}
 		}
 		.register-checkbox {
+			font-weight: inherit;
 			padding-left: 40px;
 			padding-bottom: 15px;
-			a, label {color: #D8D8D8;}
+			font-size: 1.4em;
+			label {color: $font-color;}
+			a {color: darkblue;}
 		}
 	}
 }

@@ -8,10 +8,12 @@ module.exports = createStore({
     storeName: 'UserStore',
     handlers: makeHandlers({
         onReceiveUserInfo: Actions.RECEIVE_USER_INFO,
-        onDeleteUserInfo: Actions.DELETE_USER_INFO
+        onDeleteUserInfo: Actions.DELETE_USER_INFO,
+        onReceiveUserLikeHairfie: Actions.RECEIVE_USER_LIKE_HAIRFIE
     }),
     initialize: function () {
         this.userInfo = {};
+        this.userInfo.likeHairfie = {};
     },
     dehydrate: function () {
         return { userInfo: this.userInfo };
@@ -26,6 +28,13 @@ module.exports = createStore({
     onDeleteUserInfo: function() {
         this.userInfo = {};
         this.emitChange();
+    },
+    onReceiveUserLikeHairfie: function(payload) {
+        this.userInfo.likeHairfie[payload.hairfieId] = payload.isLiked;
+        this.emitChange();
+    },
+    getHairfieLikedById: function(hairfieId) {
+        return this.userInfo.likeHairfie[hairfieId] || false;
     },
     getUserInfo: function(userId) {
         return this.userInfo[userId];
