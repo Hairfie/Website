@@ -39,9 +39,10 @@ module.exports = {
     },
     hairfieLike: function(context, payload) {
         var token = context.getStore('AuthStore').getToken();
-        if (!token || !token.userId)
+        if (!token || !token.userId) {
             _mustBeConnected(context);
-
+            return;
+        }
         return context.hairfieApi
             .put('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
             .then (function () {
@@ -58,8 +59,10 @@ module.exports = {
     },
     hairfieUnlike: function(context, payload) {
         var token = context.getStore('AuthStore').getToken();
-        if (!token || !token.userId)
+        if (!token || !token.userId) {
             _mustBeConnected(context);
+            return;
+        }
         return context.hairfieApi
             .delete('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
             .then (function () {
