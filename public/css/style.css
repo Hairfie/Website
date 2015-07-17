@@ -10248,5 +10248,8 @@ section.home-footer .row > div {
       color: #595959; }
     .connect-form form.form .register-checkbox a {
       color: darkblue; }
+  .connect-form form.form .uploadFile {
+    display: block;
+    font-size: 1.4em; }
 
 /*# sourceMappingURL=style.css.map */
