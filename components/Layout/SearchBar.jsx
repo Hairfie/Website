@@ -6,6 +6,7 @@ var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap/Button');
 var connectToStores = require('../../lib/connectToStores');
+var AuthActions = require('../../actions/AuthActions');
 var Picture = require('../Partial/Picture.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 
@@ -109,6 +110,9 @@ var mobileHeader = React.createClass({
             </li>
         );
 
+    },
+    disconnect: function() {
+        this.context.executeAction(AuthActions.disconnect, this.props.token);
     },
     handleKey: function(e) {
         if(event.keyCode == 13){

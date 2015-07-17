@@ -55,8 +55,8 @@ var Header = React.createClass({
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <li>
-                        <a role="button" onClick={this.disconnect}>Déconnexion</a>
-                      </li>
+                            <a role="button" onClick={this.disconnect}>Déconnexion</a>
+                        </li>
                     </ul>
                 </div>
             </li>
