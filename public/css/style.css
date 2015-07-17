@@ -8109,6 +8109,9 @@ header {
         font-weight: 600;
         font-size: 1.6em;
         letter-spacing: 1px; }
+        @media screen and (max-width: 767px) {
+          header nav ul li {
+            padding-top: 25px; } }
         header nav ul li:first-child {
           padding-left: 0; }
         @media screen and (min-width: 768px) {

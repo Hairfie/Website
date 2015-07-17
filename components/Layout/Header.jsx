@@ -48,14 +48,14 @@ var Header = React.createClass({
         return (
             <li className="user">
                 <div className="dropdown">
-                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                         <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
                         {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <li>
-                        <a href="#" onClick={this.disconnect}>Déconnexion</a>
+                        <a role="button" onClick={this.disconnect}>Déconnexion</a>
                       </li>
                     </ul>
                 </div>

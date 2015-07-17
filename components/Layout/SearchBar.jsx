@@ -6,6 +6,7 @@ var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap/Button');
 var connectToStores = require('../../lib/connectToStores');
+var Picture = require('../Partial/Picture.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 
 var mobileHeader = React.createClass({
@@ -75,34 +76,38 @@ var mobileHeader = React.createClass({
     loginLogout: function() {
         if (!this.props.currentUser)
             return (
-                <li>
-                    <Link route="registration_page">Inscription</Link>
-                    <span> / </span>
-                    <Link route="connect_page">Connexion</Link>
+                <li className="user">
+                    <div className="dropdown">
+                        <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                            <Picture picture={{url: "/img/loader_128.png"}} />
+                            <span className="caret" />
+                        </a>
+                        <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li>
+                                <Link route="registration_page">Inscription</Link>
+                            </li>
+                            <li>
+                                <Link route="connect_page">Connexion</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                );
-        var picture;
-        if (this.props.currentUser.picture)
-            picture = this.props.currentUser.picture;
-        else if (this.props.currentUser.gender == "WOMAN")
-            picture = "../../public/img/profile-picture/defaut-woman.png";
-        else
-            picture = "../../public/img/profile-picture/defaut-man.png";
+            );
         return (
             <li className="user">
                 <div className="dropdown">
-                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                         <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <li>
-                        <a href="#" onClick={this.disconnect}>Déconnexion</a>
+                        <a role="button" onClick={this.disconnect}>Déconnexion</a>
                       </li>
                     </ul>
                 </div>
             </li>
-                );
+        );
 
     },
     handleKey: function(e) {

@@ -34,6 +34,9 @@ header {
 			padding: 0;margin: 0;
 			float: right; height: inherit;
 			li {
+				@media screen and (max-width: $screen-xs-max) {
+					padding-top: 25px;
+				}
 				padding-top: 17px;padding-left: 20px;
 				display: inline-block;
 				&:first-child {
