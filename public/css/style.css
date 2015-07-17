@@ -8168,6 +8168,9 @@ header {
   .dropdown .dropdown-menu {
     border: 0;
     border-radius: 2px; }
+    @media screen and (max-width: 767px) {
+      .dropdown .dropdown-menu {
+        left: -80px; } }
     .dropdown .dropdown-menu li {
       padding: 0;
       font-size: 1em;
@@ -9670,7 +9673,6 @@ section.home-footer .row > div {
               color: black; }
             .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:after {
               content: " ";
-              width: calc(100% - 15px);
               height: 1px;
               background-color: #595959;
               position: absolute;
@@ -9679,8 +9681,9 @@ section.home-footer .row > div {
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:first-child {
             padding-left: 0; }
             .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:first-child:after {
+              width: calc(100% - 15px);
               left: 0; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:nth-child(2):after {
+          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
             width: calc(100% - 30px); }
     .hairfie-singleView#content .single-view .like-group {
       width: 100%;

@@ -118,6 +118,9 @@ header {
 	.dropdown-menu {
 		border: 0;
 		border-radius: 2px;
+		@media screen and (max-width: $screen-xs-max) {
+			left: -80px;
+		}
 		li {
 			padding: 0;
 			font-size: 1em;
