@@ -87,5 +87,17 @@ module.exports = {
         method: 'get',
         action: PageActions.hairfieSearch,
         handler: require('./components/HairfieSearchPage.jsx')
+    },
+    connect_page: {
+        title: 'Connexion',
+        path: '/fr/connect',
+        method: 'get',
+        handler: require('./components/ConnectPage.jsx')
+    },
+    registration_page: {
+        title: 'Inscription',
+        path: '/fr/register',
+        method: 'get',
+        handler: require('./components/RegistrationPage.jsx')
     }
 };

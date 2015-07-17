@@ -43,6 +43,12 @@ app.plug(require('fluxible-plugin-hairfie-api')({
     apiUrl: config.hairfieApiUrl
 }));
 
+app.plug(require('fluxible-plugin-cookie')());
+
+app.plug(require('fluxible-plugin-facebook')({
+    appId: '1567052370184577'
+}));
+
 app.plug(require('fluxible-plugin-config')(config));
 
 app.plug(require('fluxible-plugin-google-maps')());
@@ -60,13 +66,14 @@ app.registerStore(require('./stores/BusinessReviewStore'));
 app.registerStore(require('./stores/BusinessReviewRequestStore'));
 app.registerStore(require('./stores/MetaStore'));
 app.registerStore(require('./stores/NotificationStore'));
-app.registerStore(require('./stores/TokenStore'));
+app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/DealStore'));
 app.registerStore(require('./stores/CategoryStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));
 app.registerStore(require('./stores/HomeLinkStore'));
+app.registerStore(require('./stores/UserStore'));
 
 // Front end require
 //var Share = require('public/js/share.min.js');

@@ -11,6 +11,7 @@ var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
+var NotificationActions = require('../actions/NotificationActions');
 
 var BusinessBookingPage = React.createClass({
     contextTypes: {
@@ -25,9 +26,14 @@ var BusinessBookingPage = React.createClass({
         var loading = _.isUndefined(this.props.business);
         return (
             <PublicLayout loading={loading} customClass="booking">
+                {this.renderSignUp()}
                 {this.renderBookingForm()}
             </PublicLayout>
         );
+    },
+    renderSignUp: function() {
+        if (this.props.currentUser)
+            return;
     },
     renderBookingForm: function() {
         var formNode = this.state.timeslotSelected ? this.renderInfoForm() : this.renderDateAndTimeForm();
@@ -83,6 +89,7 @@ var BusinessBookingPage = React.createClass({
                     timeslotSelected={this.state.timeslotSelected}
                     discount={this.state.discount}
                     business={this.props.business}
+                    currentUser={this.props.currentUser}
                 />
             </div>
         );
@@ -94,18 +101,28 @@ var BusinessBookingPage = React.createClass({
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
     },
     handleSubmit: function() {
+        var cgu = this.refs.booking.getCGUStatus();
+        if (!cgu)
+            return this.context.executeAction(
+                NotificationActions.notifyFailure,
+                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
+            );
         var booking = this.refs.booking.getBookingInfo();
         this.context.executeAction(BookingActions.submitBooking, booking);
     }
 });
 
 BusinessBookingPage = connectToStores(BusinessBookingPage, [
-    'BusinessStore'
+    'BusinessStore',
+    'AuthStore',
+    'UserStore'
 ], function (stores, props) {
+    var token = stores.AuthStore.getToken();
     return {
         business    : stores.BusinessStore.getById(props.route.params.businessId),
         discountObj : stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
-        daySelected : props.route.query.date ? moment(props.route.query.date) : null
+        daySelected : props.route.query.date ? moment(props.route.query.date) : null,
+        currentUser: stores.UserStore.getUserInfo(token.userId)
     }
 });
 

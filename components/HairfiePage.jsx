@@ -4,10 +4,13 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('./Link.jsx');
 var PublicLayout = require('./PublicLayout.jsx');
-var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
 var connectToStores = require('../lib/connectToStores');
+var UserActions = require('../actions/UserActions');
+var NotificationActions = require('../actions/NotificationActions');
+var NavigationActions = require('../actions/NavigationActions');
+var Promise = require('q');
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -87,9 +90,7 @@ var HairfieSingle = React.createClass({
         return (
             <div className="col-xs-12 col-sm-6">
                 <Carousel hairfie={this.props.hairfie} />
-                <div className="like-group">
-                    {this.renderBookingButton()}
-                </div>
+                {this.renderBookingButton()}
             </div>
        );
     },
@@ -97,11 +98,18 @@ var HairfieSingle = React.createClass({
         if (!this.props.hairfie.business) return;
 
         return (
+            <div className="like-group">
+                <div className="like-btn" onClick={this.props.likeHairfie.func}>
+                    <a>
+                        <span className={"glyphicon glyphicon-heart" + (this.props.likeHairfie.state ? " red" : "")}></span>
+                    </a>
+                </div>
                 <div className="cta">
                     <Link className="btn btn-red full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         Réserver dans ce salon
                     </Link>
                 </div>
+            </div>
         );
     }
 });
@@ -148,9 +156,9 @@ var RightColumn = React.createClass({
                         </div>
                         <div className="col-xs-9 likes">
                           <p>
-                            {/*<a href="#" className="col-xs-3 like">J'aime</a>
-                            - */}
-                            <span className="col-xs-3">{this.props.hairfie.numLikes}&nbsp;&nbsp;j'aime</span>
+                            <a className="col-xs-3" role="button" onClick={this.props.likeHairfie.func}>{this.props.likeHairfie.state ? "Je n'aime plus" : "J'aime"}</a>
+                            -
+                            <a className="col-xs-3">{this.props.hairfie.numLikes} j'aime</a>
                           </p>
                         </div>
                     </div>
@@ -165,7 +173,12 @@ var RightColumn = React.createClass({
 
 var HairfiePage = React.createClass({
     contextTypes: {
-        config: React.PropTypes.object
+        config: React.PropTypes.object,
+        executeAction: React.PropTypes.func
+    },
+    getInitialState: function() {
+        this.context.executeAction(UserActions.isLikedHairfie, {hairfieId: this.props.hairfie.id});
+        return {};
     },
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
@@ -173,8 +186,8 @@ var HairfiePage = React.createClass({
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content" >
                     <div className="single-view row">
-                        <HairfieSingle hairfie={this.props.hairfie} />
-                        <RightColumn hairfie={this.props.hairfie} />
+                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </div>
                 </div>
             </PublicLayout>
@@ -188,14 +201,24 @@ var HairfiePage = React.createClass({
                 </div>
             </PublicLayout>
         );
+    },
+    likeHairfie: function() {
+        if (!this.props.hairfieLiked)
+            this.context.executeAction(UserActions.hairfieLike, {hairfieId: this.props.hairfie.id});
+        else
+            this.context.executeAction(UserActions.hairfieUnlike, {hairfieId: this.props.hairfie.id});
     }
 });
 
 HairfiePage = connectToStores(HairfiePage, [
-    'HairfieStore'
+    'HairfieStore',
+    'UserStore'
 ], function (stores, props) {
+    var hairfie = stores.HairfieStore.getById(props.route.params.hairfieId);
+
     return {
-        hairfie: stores.HairfieStore.getById(props.route.params.hairfieId)
+        hairfie: hairfie,
+        hairfieLiked: stores.UserStore.getHairfieLikedById(hairfie.id)
     };
 });
 

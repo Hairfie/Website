@@ -6,24 +6,26 @@ var _ = require('lodash');
 var Actions = require('../constants/Actions');
 
 module.exports = createStore({
-    storeName: 'TokenStore',
+    storeName: 'NavigationStore',
     handlers: makeHandlers({
-        onReceiveToken: Actions.RECEIVE_TOKEN
+        onReceiveBooking: Actions.NAVIGATE_SUCCESS
     }),
     initialize: function () {
-        this.tokens = {};
+        this.bookings = {};
     },
     dehydrate: function () {
-        return { tokens: this.tokens };
+        return {
+            bookings: this.bookings
+        };
     },
     rehydrate: function (state) {
-        this.tokens = state.tokens;
+        this.bookings = state.bookings;
     },
-    onReceiveToken: function (token) {
-        this.tokens[token.id] = token;
+    onReceiveBooking: function (booking) {
+        this.bookings[booking.id] = booking;
         this.emitChange();
     },
-    getById: function (id) {
-        return this.tokens[id];
+    getById: function (bookingId) {
+        return this.bookings[bookingId];
     }
 });

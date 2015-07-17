@@ -5,8 +5,12 @@ var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap/Button');
+var connectToStores = require('../../lib/connectToStores');
+var AuthActions = require('../../actions/AuthActions');
+var Picture = require('../Partial/Picture.jsx');
+var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 
-module.exports = React.createClass({
+var mobileHeader = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
@@ -46,9 +50,14 @@ module.exports = React.createClass({
     renderMobile: function() {
         return (
             <div className="mobile-nav visible-xs">
-                <header className="container">
+                <header className="container white">
                     <Link className="logo col-xs-4" route="home" />
-                    <a href="#" className="col-xs-4 menu-trigger pull-right"></a>
+                    <nav className='col-md-8 pull-right'>
+                        <ul>
+                           {this.loginLogout()}
+                        </ul>
+                    </nav>
+                    *<a className="col-xs-4 menu-trigger pull-right" role="button"></a>*
                 </header>
                 <div className="mobile-menu">
                     <div className="container">
@@ -64,6 +73,46 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    loginLogout: function() {
+        if (!this.props.currentUser)
+            return (
+                <li className="user">
+                    <div className="dropdown">
+                        <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                            <Picture picture={{url: '/img/profile-picture/icon-user.png'}} />
+                            <span className="caret" />
+                        </a>
+                        <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li>
+                                <Link route="registration_page">Inscription</Link>
+                            </li>
+                            <li>
+                                <Link route="connect_page">Connexion</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            );
+        return (
+            <li className="user">
+                <div className="dropdown">
+                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
+                        <span className="caret" />
+                    </a>
+                    <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li>
+                        <a role="button" onClick={this.disconnect}>Déconnexion</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+        );
+
+    },
+    disconnect: function() {
+        this.context.executeAction(AuthActions.disconnect, this.props.token);
     },
     handleKey: function(e) {
         if(event.keyCode == 13){
@@ -93,3 +142,16 @@ module.exports = React.createClass({
         });
     }
 });
+
+mobileHeader = connectToStores(mobileHeader, [
+    'AuthStore',
+    'UserStore'
+], function (stores, props) {
+    var token = stores.AuthStore.getToken();
+    return {
+        token: token,
+        currentUser: stores.UserStore.getUserInfo(token.userId)
+    };
+});
+
+module.exports = mobileHeader;

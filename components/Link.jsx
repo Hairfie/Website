@@ -2,10 +2,12 @@
 
 var React = require('react');
 var NavLink = require('fluxible-router').NavLink;
+var Actions = require('../constants/Actions');
 
 var Link = React.createClass({
     contextTypes: {
-        getStore: React.PropTypes.func
+        getStore: React.PropTypes.func,
+        executeAction: React.PropTypes.func
     },
     getInitialState: function () {
         return { href: this._getHrefFromProps(this.props) };
