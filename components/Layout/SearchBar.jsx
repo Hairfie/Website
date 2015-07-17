@@ -80,7 +80,7 @@ var mobileHeader = React.createClass({
                 <li className="user">
                     <div className="dropdown">
                         <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                            <UserProfilePicture gender='MALE' />
+                            <Picture picture={{url: '/img/profile-picture/icon-user.png'}} />
                             <span className="caret" />
                         </a>
                         <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
