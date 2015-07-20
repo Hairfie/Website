@@ -84,7 +84,6 @@ module.exports = React.createClass({
 			withNavigate: this.props.withNavigate,
       picture: this.refs.picture.getImage()
 		};
-    console.log(userInfo);
 		this.context.executeAction(AuthActions.register, userInfo);
 	}
 });

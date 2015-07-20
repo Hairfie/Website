@@ -128,7 +128,6 @@ var ImageField = React.createClass ({
         this.setState({ uploadId: uploadId });
     },
     onUploadEnd: function (upload) {
-        console.log("onUploadEnd", upload);
         this.setState({ uploadId: null });
         this.setState({image: upload.image});
     }
