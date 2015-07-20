@@ -4,6 +4,15 @@ var _ = require('lodash');
 var Actions = require('../constants/Actions');
 var authStorage = require('../services/auth-storage');
 
+EMPTY_UPLOAD = {
+    finished: false,
+    success: false,
+    failure: false,
+    percent: 0,
+    error: null,
+    image: null
+};
+
 module.exports = createStore({
     storeName: 'UploadStore',
     handlers: makeHandlers({
@@ -25,25 +34,25 @@ module.exports = createStore({
         this.uploads[uploadId] = EMPTY_UPLOAD;
         this.emitChange();
     },
-    onUploadProgress: function (uploadId, percent) {
-        this.uploads[uploadId] = _.assign(this.uploads[uploadId] || EMPTY_UPLOAD, { percent });
+    onUploadProgress: function (payload) {
+        this.uploads[payload.uploadId] = _.assign(this.uploads[payload.uploadId] || EMPTY_UPLOAD, payload.percent);
         this.emitChange();
     },
-    onUploadSuccess: function (uploadId, image) {
-        this.uploads[uploadId] = _.assign(this.uploads[uploadId] || EMPTY_UPLOAD, {
+    onUploadSuccess: function (payload) {
+        this.uploads[payload.uploadId] = _.assign(this.uploads[payload.uploadId] || EMPTY_UPLOAD, {
             percent: 100,
             finished: true,
-            success: true,
-            image
+            success: true
         });
+        this.uploads[payload.uploadId].image = payload.image;
         this.emitChange();
     },
-    onUploadFailure: function(uploadId, error) {
-        this.uploads[uploadId] = _.assign(this.uploads[uploadId] || EMPTY_UPLOAD, {
+    onUploadFailure: function(payload) {
+        this.uploads[payload.uploadId] = _.assign(this.uploads[payload.uploadId] || EMPTY_UPLOAD, {
             finished: true,
-            failure: true,
-            error
+            failure: true
         });
+        this.uploads[payload.uploadId].image = payload.error;
         this.emitChange();
     },
     getById: function(id) {

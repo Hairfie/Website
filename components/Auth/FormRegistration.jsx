@@ -6,6 +6,7 @@ var Input = require('react-bootstrap/Input');
 var UserConstants = require('../../constants/UserConstants');
 var NotificationActions = require('../../actions/NotificationActions');
 var AuthActions = require('../../actions/AuthActions');
+var ImageField = require('../Partial/ImageField.jsx')
 
 module.exports = React.createClass({
 	contextTypes: {
@@ -32,9 +33,8 @@ module.exports = React.createClass({
   			<Input type="email" ref="email" placeholder="Adresse Email *"/>
 				<Input type="password" ref="password" placeholder="Mot de Passe *" />
   			<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" />
-        <input ref="photo" type="file" style={{display: 'none'}} />
         <div className="form-group">
-          <a role="button" onClick={this.chooseFile} className="uploadFile">Ajouter une photo</a>
+          <ImageField ref="picture" container="users" />
         </div>
   			<label for="cgu" className="register-checkbox">
           <input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
@@ -46,7 +46,7 @@ module.exports = React.createClass({
             <span></span>
             Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
         </label>
-  			<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+  			<a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
 		</form>
 		);		
 	},
@@ -65,10 +65,9 @@ module.exports = React.createClass({
   		newsletter: e.currentTarget.checked
   	});
   },
-  chooseFile: function () {
-    React.findDOMNode(this.refs.photo).click();
-  },
-	submit: function() {
+	submit: function(e) {
+    e.preventDefault();
+
 		if (!this.state.cgu)
             return this.context.executeAction(
                 NotificationActions.notifyFailure,
@@ -82,8 +81,10 @@ module.exports = React.createClass({
 			gender: this.state.userGender,
 			newsletter: this.state.newsletter,
 			phoneNumber: this.refs.phoneNumber.getValue(),
-			withNavigate: this.props.withNavigate
+			withNavigate: this.props.withNavigate,
+      picture: this.refs.picture.getImage()
 		};
+    console.log(userInfo);
 		this.context.executeAction(AuthActions.register, userInfo);
 	}
 });

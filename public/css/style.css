@@ -10227,6 +10227,9 @@ section.home-footer .row > div {
       height: 60px;
       padding-left: 30px;
       padding-right: 30px; }
+    .connect-form form.form div.form-group div.infos a {
+      font-size: 1.2em;
+      font-weight: 400; }
     .connect-form form.form div.form-group label.radio-inline {
       width: 100%;
       line-height: 30px;

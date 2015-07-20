@@ -75,6 +75,12 @@ var mobileHeader = React.createClass({
         );
     },
     loginLogout: function() {
+        var options={
+            width: 340,
+            height: 340,
+            crop: 'thumb',
+            gravity: 'faces'
+        };
         if (!this.props.currentUser)
             return (
                 <li className="user">
@@ -98,7 +104,7 @@ var mobileHeader = React.createClass({
             <li className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
+                        <UserProfilePicture picture={this.props.currentUser.picture} options={options} gender={this.props.currentUser.gender}/>
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
