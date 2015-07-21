@@ -12,7 +12,8 @@ module.exports = React.createClass({
         executeAction: React.PropTypes.func
     },
   getInitialState: function() {
-    return {cgu: false, newsletter: false, userGender: ""};
+    console.log(this.props);
+    return {cgu: false, newsletter: false, userGender: this.props.gender || ""};
   },
 	render: function() {
 		return (
@@ -27,11 +28,11 @@ module.exports = React.createClass({
             Femme
             </label>
           </Input>
-  				<Input type="text" ref="firstName" placeholder="Prénom *"/>
-  				<Input type="text" ref="lastName" placeholder="Nom *"/>
-  				<Input type="email" ref="email" placeholder="Adresse Email *"/>
+  				<Input type="text" ref="firstName" placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
+  				<Input type="text" ref="lastName" placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
+  				<Input type="email" ref="email" placeholder="Adresse Email *" defaultValue={this.props.email || ""}/>
   				<Input type="password" ref="password" placeholder="Mot de Passe *" />
-  				<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" />
+  				<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
   					<label for="cgu" className="register-checkbox">
                          	<input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
                          	<span></span>

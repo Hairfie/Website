@@ -18,7 +18,13 @@ var RegistrationPage = React.createClass({
 					<FacebookButton withNavigate={true}/>
 					<h4>ou remplissez ce formulaire</h4>
 					<span className="separator"/>
-					<FormRegistration withNavigate={true}/>
+					<FormRegistration 
+						withNavigate={true} 
+						firstName={this.props.booking.firstName || ""} 
+						lastName={this.props.booking.lastName || ""} 
+						phoneNumber={this.props.booking.phoneNumber || ""} 
+						email={this.props.booking.email || ""} 
+						gender={this.props.booking.gender || ""} />
 				</div>
 			</PublicLayout>
 			);
@@ -26,10 +32,12 @@ var RegistrationPage = React.createClass({
 });
 
 RegistrationPage = connectToStores(RegistrationPage, [
-    'AuthStore'
+    'AuthStore',
+    'BookingStore'
 ], function (stores, props) {
     return {
-        token: stores.AuthStore.getToken()
+        token: stores.AuthStore.getToken(),
+        booking: props.route.query.bookingId ? stores.BookingStore.getById(props.route.query.bookingId) : {}
     };
 });
 

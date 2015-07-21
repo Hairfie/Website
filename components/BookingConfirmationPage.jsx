@@ -10,6 +10,7 @@ var ga = require('../services/analytics');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var BookingActions = require('../actions/BookingActions');
+var Link = require('./Link.jsx');
 
 var BookingStatus = require('../constants/BookingConstants').Status;
 
@@ -88,6 +89,12 @@ var BookingConfirmationPage = React.createClass({
                         En attendant, n'hésitez pas à télécharger l'application Hairfie ou 
                         à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
                     </p>
+                    {this.renderLinkToRegistration()}
+                    <div>
+                        <Link route="home">
+                            Retour à la page d'accueil
+                        </Link>
+                    </div>
                 </div>
             );
         } else {
@@ -106,6 +113,17 @@ var BookingConfirmationPage = React.createClass({
                 </div>
             );        
         }
+    },
+    renderLinkToRegistration: function() {
+        if (!this.props.currentUser)
+            return (
+                <div>
+                <Link route="registration_page" query={{bookingId: this.props.booking.id}}>
+                    Nous vous invitons également à vous inscrire
+                </Link>
+                </div>
+            );
+
     },
     renderDiscount: function(booking) {
         if (!booking.discount) return;
@@ -131,10 +149,14 @@ var BookingConfirmationPage = React.createClass({
 });
 
 BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
-    'BookingStore'
+    'BookingStore',
+    'AuthStore',
+    'UserStore'
 ], function (stores, props) {
+    var token = stores.AuthStore.getToken();
     return {
-        booking: stores.BookingStore.getById(props.route.params.bookingId)
+        booking: stores.BookingStore.getById(props.route.params.bookingId),
+        currentUser: stores.UserStore.getUserInfo(token.userId)
     };
 });
 
