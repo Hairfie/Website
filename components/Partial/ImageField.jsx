@@ -54,7 +54,7 @@ var UploadProgress = React.createClass({
             return <p>On tient le bon bout, encore quelques instants...</p>;
         }
 
-        return  <p>{'Envoi en cours ('+percent+'%)...'}</p>;
+        return  <p>{'Envoi en cours ('+parseInt(percent)+'%)...'}</p>;
     }
 });
 
