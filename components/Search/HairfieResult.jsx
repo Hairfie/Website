@@ -63,7 +63,7 @@ var HairfieResult = React.createClass({
     renderPagination: function () {
         var numPages = Math.ceil(this.props.result.numHits / 12);
         var params = SearchUtils.searchToRouteParams(this.props.search);
-        
+
         return <Pagination
             numPages={numPages}
             currentPage={this.props.search.page}
