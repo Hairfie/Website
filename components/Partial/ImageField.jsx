@@ -110,7 +110,7 @@ var ImageField = React.createClass ({
         else if (this.state.image)
             return <a role="button" onClick={this.chooseFile}>Remplacer la photo</a>;
         else
-            return <a role="button" onClick={this.chooseFile}>Sélectionner une photo</a>;
+            return <a role="button" onClick={this.chooseFile}>Sélectionner une photo {this.props.text}</a>;
     },
     getImage: function() {
         return this.state.image;

@@ -32,9 +32,9 @@ module.exports = React.createClass({
   			<Input type="text" ref="lastName" placeholder="Nom *"/>
   			<Input type="email" ref="email" placeholder="Adresse Email *"/>
 				<Input type="password" ref="password" placeholder="Mot de Passe *" />
-  			<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" />
+  			<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (facultatif)" />
         <div className="form-group">
-          <ImageField ref="picture" container="users" />
+          <ImageField ref="picture" container="users" text="(facultatif)"/>
         </div>
   			<label for="cgu" className="register-checkbox">
           <input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
