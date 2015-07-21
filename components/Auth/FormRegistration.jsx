@@ -10,9 +10,8 @@ var AuthActions = require('../../actions/AuthActions');
 module.exports = React.createClass({
 	contextTypes: {
         executeAction: React.PropTypes.func
-    },
+  },
   getInitialState: function() {
-    console.log(this.props);
     return {cgu: false, newsletter: false, userGender: this.props.gender || ""};
   },
 	render: function() {
