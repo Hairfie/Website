@@ -43,7 +43,7 @@ module.exports = {
                     ),
                     context.executeAction(
                         NavigationActions.navigate,
-                        { route: 'home' }
+                        { route: 'connect_page' }
                     )
                 ]);
             }, function () {

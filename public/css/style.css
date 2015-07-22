@@ -10154,7 +10154,7 @@ section.home-footer .row > div {
   .connect-form h4 {
     text-align: center;
     color: #D8D8D8; }
-  .connect-form a.green {
+  .connect-form a.green, .connect-form p.red {
     text-align: center;
     width: 100%;
     display: block;

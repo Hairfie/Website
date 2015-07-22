@@ -25,7 +25,7 @@ module.exports = React.createClass({
 	},
     renderResetPassword: function() {
         if (!this.state.reset_pwd) return;
-            return (<p>Veuillez indiquer votre email dans le champ email et recliquer sur mot de passe oublié</p>);
+            return (<p className="red">Veuillez indiquer votre email dans le champ email et recliquer sur "Mot de passe oublié ?"</p>);
     },
 	submit: function() {
         var email = this.refs.email.getValue();
