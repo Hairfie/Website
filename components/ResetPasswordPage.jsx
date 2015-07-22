@@ -32,7 +32,7 @@ ResetPasswordPage = connectToStores(ResetPasswordPage, [
     'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.AuthStore.getById(props.route.params.tokenId)
+        token: stores.AuthStore.getToken()
     };
 });
 

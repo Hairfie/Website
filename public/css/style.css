@@ -10158,7 +10158,8 @@ section.home-footer .row > div {
     text-align: center;
     width: 100%;
     display: block;
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    margin-bottom: 10px; }
   @media screen and (max-width: 767px) {
     .connect-form {
       margin-top: 115px; } }
