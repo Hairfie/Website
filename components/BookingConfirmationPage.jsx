@@ -11,6 +11,7 @@ var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var BookingActions = require('../actions/BookingActions');
 var Link = require('./Link.jsx');
+var Picture = require('./Partial/Picture.jsx');
 
 var BookingStatus = require('../constants/BookingConstants').Status;
 
@@ -35,6 +36,9 @@ var BookingConfirmationPage = React.createClass({
                         <div className="row">
                             <div className="main-content col-md-9 col-sm-12 pull-right">
                                 {this.renderVerif(booking)}
+                                {this.renderBookingInfo(booking)}
+                                {this.renderBusinessInfo(business, address)}
+                                {this.renderButtons()}
                                 <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
                                 <div className="clearfix"></div>
                                 <hr />
@@ -82,48 +86,85 @@ var BookingConfirmationPage = React.createClass({
         if (booking.status == BookingStatus.REQUEST) {
             return (
                 <div className="legend conf">
-                    <h3 className="green">Réservation enregistrée !</h3> 
+                    <h3 className="green">Réservation enregistrée !</h3>
                     <p>
-                        Votre réservation a bien été bien prise en compte, 
-                        vous allez recevoir un email dans quelques instants vous confirmant votre demande. 
-                        En attendant, n'hésitez pas à télécharger l'application Hairfie ou 
+                        Votre réservation a bien été bien prise en compte,
+                        vous allez recevoir un email dans quelques instants vous confirmant votre demande.
+                        En attendant, n'hésitez pas à télécharger l'application Hairfie ou
                         à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
                     </p>
-                    {this.renderLinkToRegistration()}
-                    <div>
-                        <Link route="home">
-                            Retour à la page d'accueil
-                        </Link>
-                    </div>
                 </div>
             );
         } else {
             return (
                 <div className="legend conf">
-                    <h3 className="green">Demande de vérification !</h3> 
+                    <h3 className="green">Demande de vérification !</h3>
                     <p>
-                        Votre demande a bien été prise en compte, 
-                        cependant, par mesure de sécurité, 
-                        nous allons vérifier vos coordonnées en vous envoyant un code par sms 
+                        Votre demande a bien été prise en compte,
+                        cependant, par mesure de sécurité,
+                        nous allons vérifier vos coordonnées en vous envoyant un code par sms
                         que vous devrez entrer dans le petit formulaire ci-dessous.
                     </p>
-                    <Input ref="checkCode" type="text" placeholder="Code SMS" /> 
+                    <Input ref="checkCode" type="text" placeholder="Code SMS" />
                     <br />
                     <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
                 </div>
-            );        
+            );
         }
     },
-    renderLinkToRegistration: function() {
+    renderBookingInfo: function(booking) {
+        var discount;
+        var status = <p className="green">Réservation Confirmée</p>;
+        if (booking.status == BookingStatus.NOT_CONFIRMED)
+            status = <p className="orange">Vérification sms</p>
+        if (booking.status == BookingStatus.CANCELLED)
+            status = <p className="red">Réservation confirmée</p>
+        if (booking.discount)
+            discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
+        return (
+            <div>
+                {status}
+                <ul>
+                    <li>Le {moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</li>
+                    <li>{booking.comment}</li>
+                    {discount}
+                </ul>
+            </div>
+        );
+    },
+    renderBusinessInfo: function(business, address) {
+        return (
+            <div>
+                <p>Le coiffeur</p>
+                {address.street} {address.zipCode} {address.city}
+                <Picture picture={business.pictures[0]}
+                           resolution={{width: 50, height: 50}}
+                           placeholder="/images/placeholder-55.png" />
+                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
+                <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
+            </div>
+        );
+    },
+    renderButtons: function() {
         if (!this.props.currentUser)
             return (
                 <div>
-                <Link route="registration_page" query={{bookingId: this.props.booking.id}}>
-                    Nous vous invitons également à vous inscrire
-                </Link>
+                    <Link route="registration_page" query={{bookingId: this.props.booking.id}}>
+                        Nous vous invitons également à vous inscrire
+                    </Link>
+                    <Link route="home">
+                        Retour à l'accueil
+                    </Link>
+                    <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
                 </div>
             );
-
+        return(
+            <div>
+                <Link route="home">
+                    Retour à l'accueil
+                </Link>
+            </div>
+        );
     },
     renderDiscount: function(booking) {
         if (!booking.discount) return;
