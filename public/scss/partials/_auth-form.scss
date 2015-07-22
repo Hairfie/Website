@@ -95,6 +95,12 @@
   				padding-left: 30px;
   				padding-right: 30px;
 			}
+			div.infos {
+				a {
+					font-size: 1.2em;
+	 				font-weight: 400;	
+				}
+			}
 			label.radio-inline {
 				width: 100%;
   				line-height: 30px;
@@ -117,6 +123,10 @@
 			font-size: 1.4em;
 			label {color: $font-color;}
 			a {color: darkblue;}
+		}
+		.uploadFile {
+			display: block;
+			font-size: 1.4em;
 		}
 	}
 }

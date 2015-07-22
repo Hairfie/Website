@@ -37,6 +37,12 @@ var Header = React.createClass({
         );
     },
     loginLogout: function() {
+        var options={
+            width: 340,
+            height: 340,
+            crop: 'thumb',
+            gravity: 'faces'
+        };
         if (!this.props.currentUser)
             return (
                 <li>
@@ -49,7 +55,7 @@ var Header = React.createClass({
             <li className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <UserProfilePicture picture={this.props.currentUser.picture} gender={this.props.currentUser.gender}/>
+                        <UserProfilePicture picture={this.props.currentUser.picture} options={options} gender={this.props.currentUser.gender}/>
                         {this.props.currentUser.firstName}
                         <span className="caret" />
                     </a>

@@ -10227,6 +10227,9 @@ section.home-footer .row > div {
       height: 60px;
       padding-left: 30px;
       padding-right: 30px; }
+    .connect-form form.form div.form-group div.infos a {
+      font-size: 1.2em;
+      font-weight: 400; }
     .connect-form form.form div.form-group label.radio-inline {
       width: 100%;
       line-height: 30px;
@@ -10248,5 +10251,8 @@ section.home-footer .row > div {
       color: #595959; }
     .connect-form form.form .register-checkbox a {
       color: darkblue; }
+  .connect-form form.form .uploadFile {
+    display: block;
+    font-size: 1.4em; }
 
 /*# sourceMappingURL=style.css.map */
