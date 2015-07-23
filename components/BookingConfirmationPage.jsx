@@ -164,7 +164,9 @@ var BookingConfirmationPage = React.createClass({
                 <a role="button" className="btn-frame-red" onClick={this.cancelled}>Annuler</a>
                 <a role="button" className="btn-frame-blue">Ajouter à mon calendrier</a>
                 {register}
-                <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="btn-frame-darkgrey" target="_blank" >Télécharger l'application</a>
+                <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" target="_blank" >
+                    <Picture picture={{url: '/images/btn-app-dl.png'}} height='50px' />
+                </a>
                 <Link route="home" className="btn-frame-green">
                     Retour à l'accueil
                 </Link>
