@@ -178,7 +178,7 @@ td, th {
     background: #fff !important; }
   .navbar {
     display: none; }
-  .btn > .caret, .btn-red > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret {
+  .btn > .caret, .btn-red > .caret, .btn-frame > .caret, .btn-frame-blue > .caret, .btn-frame-red > .caret, .btn-frame-yellow > .caret, .btn-frame-green > .caret, .btn-frame-orange > .caret, .btn-frame-darkgrey > .caret, .dropup > .btn > .caret, .dropup > .btn-red > .caret, .dropup > .btn-frame > .caret, .dropup > .btn-frame-blue > .caret, .dropup > .btn-frame-red > .caret, .dropup > .btn-frame-yellow > .caret, .dropup > .btn-frame-green > .caret, .dropup > .btn-frame-orange > .caret, .dropup > .btn-frame-darkgrey > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -2102,9 +2102,9 @@ input[type="search"] {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
     line-height: 34px; }
-    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm > .input-group-btn > input[type="date"].btn-red, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm > .input-group-btn > input[type="time"].btn-red, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm > .input-group-btn > input[type="month"].btn-red, .input-group-sm input[type="month"] {
+    input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm > .input-group-btn > input[type="date"].btn-red, .input-group-sm > .input-group-btn > input[type="date"].btn-frame, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-blue, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-red, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-yellow, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-green, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-orange, .input-group-sm > .input-group-btn > input[type="date"].btn-frame-darkgrey, .input-group-sm input[type="date"], input[type="time"].input-sm, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm > .input-group-btn > input[type="time"].btn-red, .input-group-sm > .input-group-btn > input[type="time"].btn-frame, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-blue, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-red, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-yellow, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-green, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-orange, .input-group-sm > .input-group-btn > input[type="time"].btn-frame-darkgrey, .input-group-sm input[type="time"], input[type="datetime-local"].input-sm, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-blue, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-red, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-yellow, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-green, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-orange, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-frame-darkgrey, .input-group-sm input[type="datetime-local"], input[type="month"].input-sm, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm > .input-group-btn > input[type="month"].btn-red, .input-group-sm > .input-group-btn > input[type="month"].btn-frame, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-blue, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-red, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-yellow, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-green, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-orange, .input-group-sm > .input-group-btn > input[type="month"].btn-frame-darkgrey, .input-group-sm input[type="month"] {
       line-height: 30px; }
-    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg > .input-group-btn > input[type="date"].btn-red, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg > .input-group-btn > input[type="time"].btn-red, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg > .input-group-btn > input[type="month"].btn-red, .input-group-lg input[type="month"] {
+    input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg > .input-group-btn > input[type="date"].btn-red, .input-group-lg > .input-group-btn > input[type="date"].btn-frame, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-blue, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-red, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-yellow, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-green, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-orange, .input-group-lg > .input-group-btn > input[type="date"].btn-frame-darkgrey, .input-group-lg input[type="date"], input[type="time"].input-lg, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg > .input-group-btn > input[type="time"].btn-red, .input-group-lg > .input-group-btn > input[type="time"].btn-frame, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-blue, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-red, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-yellow, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-green, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-orange, .input-group-lg > .input-group-btn > input[type="time"].btn-frame-darkgrey, .input-group-lg input[type="time"], input[type="datetime-local"].input-lg, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-red, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-blue, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-red, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-yellow, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-green, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-orange, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-frame-darkgrey, .input-group-lg input[type="datetime-local"], input[type="month"].input-lg, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg > .input-group-btn > input[type="month"].btn-red, .input-group-lg > .input-group-btn > input[type="month"].btn-frame, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-blue, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-red, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-yellow, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-green, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-orange, .input-group-lg > .input-group-btn > input[type="month"].btn-frame-darkgrey, .input-group-lg input[type="month"] {
       line-height: 46px; } }
 
 .form-group {
@@ -2157,22 +2157,22 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 34px; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .input-group-lg > .input-group-btn > .form-control-static.btn-red, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn-red {
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .input-group-lg > .input-group-btn > .form-control-static.btn-red, .input-group-lg > .input-group-btn > .form-control-static.btn-frame, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-blue, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-red, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-yellow, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-green, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-orange, .input-group-lg > .input-group-btn > .form-control-static.btn-frame-darkgrey, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn-red, .input-group-sm > .input-group-btn > .form-control-static.btn-frame, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-blue, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-red, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-yellow, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-green, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-orange, .input-group-sm > .input-group-btn > .form-control-static.btn-frame-darkgrey {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red {
+.input-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn-red, .input-group-sm > .input-group-btn > .btn-frame, .input-group-sm > .input-group-btn > .btn-frame-blue, .input-group-sm > .input-group-btn > .btn-frame-red, .input-group-sm > .input-group-btn > .btn-frame-yellow, .input-group-sm > .input-group-btn > .btn-frame-green, .input-group-sm > .input-group-btn > .btn-frame-orange, .input-group-sm > .input-group-btn > .btn-frame-darkgrey {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red {
+select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn-red, .input-group-sm > .input-group-btn > select.btn-frame, .input-group-sm > .input-group-btn > select.btn-frame-blue, .input-group-sm > .input-group-btn > select.btn-frame-red, .input-group-sm > .input-group-btn > select.btn-frame-yellow, .input-group-sm > .input-group-btn > select.btn-frame-green, .input-group-sm > .input-group-btn > select.btn-frame-orange, .input-group-sm > .input-group-btn > select.btn-frame-darkgrey {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn-red {
+textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .input-group-sm > .input-group-btn > textarea.btn-red, .input-group-sm > .input-group-btn > textarea.btn-frame, .input-group-sm > .input-group-btn > textarea.btn-frame-blue, .input-group-sm > .input-group-btn > textarea.btn-frame-red, .input-group-sm > .input-group-btn > textarea.btn-frame-yellow, .input-group-sm > .input-group-btn > textarea.btn-frame-green, .input-group-sm > .input-group-btn > textarea.btn-frame-orange, .input-group-sm > .input-group-btn > textarea.btn-frame-darkgrey, select[multiple].input-sm, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn-red, .input-group-sm > .input-group-btn > select[multiple].btn-frame, .input-group-sm > .input-group-btn > select[multiple].btn-frame-blue, .input-group-sm > .input-group-btn > select[multiple].btn-frame-red, .input-group-sm > .input-group-btn > select[multiple].btn-frame-yellow, .input-group-sm > .input-group-btn > select[multiple].btn-frame-green, .input-group-sm > .input-group-btn > select[multiple].btn-frame-orange, .input-group-sm > .input-group-btn > select[multiple].btn-frame-darkgrey {
   height: auto; }
 
 .form-group-sm .form-control {
@@ -2193,18 +2193,18 @@ textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > te
   line-height: 1.5;
   min-height: 32px; }
 
-.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red {
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn-red, .input-group-lg > .input-group-btn > .btn-frame, .input-group-lg > .input-group-btn > .btn-frame-blue, .input-group-lg > .input-group-btn > .btn-frame-red, .input-group-lg > .input-group-btn > .btn-frame-yellow, .input-group-lg > .input-group-btn > .btn-frame-green, .input-group-lg > .input-group-btn > .btn-frame-orange, .input-group-lg > .input-group-btn > .btn-frame-darkgrey {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red {
+select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn-red, .input-group-lg > .input-group-btn > select.btn-frame, .input-group-lg > .input-group-btn > select.btn-frame-blue, .input-group-lg > .input-group-btn > select.btn-frame-red, .input-group-lg > .input-group-btn > select.btn-frame-yellow, .input-group-lg > .input-group-btn > select.btn-frame-green, .input-group-lg > .input-group-btn > select.btn-frame-orange, .input-group-lg > .input-group-btn > select.btn-frame-darkgrey {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn-red {
+textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .input-group-lg > .input-group-btn > textarea.btn-red, .input-group-lg > .input-group-btn > textarea.btn-frame, .input-group-lg > .input-group-btn > textarea.btn-frame-blue, .input-group-lg > .input-group-btn > textarea.btn-frame-red, .input-group-lg > .input-group-btn > textarea.btn-frame-yellow, .input-group-lg > .input-group-btn > textarea.btn-frame-green, .input-group-lg > .input-group-btn > textarea.btn-frame-orange, .input-group-lg > .input-group-btn > textarea.btn-frame-darkgrey, select[multiple].input-lg, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn-red, .input-group-lg > .input-group-btn > select[multiple].btn-frame, .input-group-lg > .input-group-btn > select[multiple].btn-frame-blue, .input-group-lg > .input-group-btn > select[multiple].btn-frame-red, .input-group-lg > .input-group-btn > select[multiple].btn-frame-yellow, .input-group-lg > .input-group-btn > select[multiple].btn-frame-green, .input-group-lg > .input-group-btn > select[multiple].btn-frame-orange, .input-group-lg > .input-group-btn > select[multiple].btn-frame-darkgrey {
   height: auto; }
 
 .form-group-lg .form-control {
@@ -2242,12 +2242,12 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback {
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-red + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-blue + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-red + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-yellow + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-green + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-orange + .form-control-feedback, .input-group-lg > .input-group-btn > .btn-frame-darkgrey + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback {
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-red + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-blue + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-red + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-yellow + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-green + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-orange + .form-control-feedback, .input-group-sm > .input-group-btn > .btn-frame-darkgrey + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px; }
@@ -2376,7 +2376,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px; } }
 
-.btn, .btn-red {
+.btn, .btn-red, .btn-frame, .btn-frame-blue, .btn-frame-red, .btn-frame-yellow, .btn-frame-green, .btn-frame-orange, .btn-frame-darkgrey {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2395,19 +2395,19 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .btn-red:focus, .btn.focus, .focus.btn-red, .btn:active:focus, .btn-red:active:focus, .btn:active.focus, .btn-red:active.focus, .btn.active:focus, .active.btn-red:focus, .btn.active.focus, .active.focus.btn-red {
+  .btn:focus, .btn-red:focus, .btn-frame:focus, .btn-frame-blue:focus, .btn-frame-red:focus, .btn-frame-yellow:focus, .btn-frame-green:focus, .btn-frame-orange:focus, .btn-frame-darkgrey:focus, .btn.focus, .focus.btn-red, .focus.btn-frame, .focus.btn-frame-blue, .focus.btn-frame-red, .focus.btn-frame-yellow, .focus.btn-frame-green, .focus.btn-frame-orange, .focus.btn-frame-darkgrey, .btn:active:focus, .btn-red:active:focus, .btn-frame:active:focus, .btn-frame-blue:active:focus, .btn-frame-red:active:focus, .btn-frame-yellow:active:focus, .btn-frame-green:active:focus, .btn-frame-orange:active:focus, .btn-frame-darkgrey:active:focus, .btn:active.focus, .btn-red:active.focus, .btn-frame:active.focus, .btn-frame-blue:active.focus, .btn-frame-red:active.focus, .btn-frame-yellow:active.focus, .btn-frame-green:active.focus, .btn-frame-orange:active.focus, .btn-frame-darkgrey:active.focus, .btn.active:focus, .active.btn-red:focus, .active.btn-frame:focus, .active.btn-frame-blue:focus, .active.btn-frame-red:focus, .active.btn-frame-yellow:focus, .active.btn-frame-green:focus, .active.btn-frame-orange:focus, .active.btn-frame-darkgrey:focus, .btn.active.focus, .active.focus.btn-red, .active.focus.btn-frame, .active.focus.btn-frame-blue, .active.focus.btn-frame-red, .active.focus.btn-frame-yellow, .active.focus.btn-frame-green, .active.focus.btn-frame-orange, .active.focus.btn-frame-darkgrey {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .btn-red:hover, .btn:focus, .btn-red:focus, .btn.focus, .focus.btn-red {
+  .btn:hover, .btn-red:hover, .btn-frame:hover, .btn-frame-blue:hover, .btn-frame-red:hover, .btn-frame-yellow:hover, .btn-frame-green:hover, .btn-frame-orange:hover, .btn-frame-darkgrey:hover, .btn:focus, .btn-red:focus, .btn-frame:focus, .btn-frame-blue:focus, .btn-frame-red:focus, .btn-frame-yellow:focus, .btn-frame-green:focus, .btn-frame-orange:focus, .btn-frame-darkgrey:focus, .btn.focus, .focus.btn-red, .focus.btn-frame, .focus.btn-frame-blue, .focus.btn-frame-red, .focus.btn-frame-yellow, .focus.btn-frame-green, .focus.btn-frame-orange, .focus.btn-frame-darkgrey {
     color: #333;
     text-decoration: none; }
-  .btn:active, .btn-red:active, .btn.active, .active.btn-red {
+  .btn:active, .btn-red:active, .btn-frame:active, .btn-frame-blue:active, .btn-frame-red:active, .btn-frame-yellow:active, .btn-frame-green:active, .btn-frame-orange:active, .btn-frame-darkgrey:active, .btn.active, .active.btn-red, .active.btn-frame, .active.btn-frame-blue, .active.btn-frame-red, .active.btn-frame-yellow, .active.btn-frame-green, .active.btn-frame-orange, .active.btn-frame-darkgrey {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .disabled.btn-red, .btn[disabled], [disabled].btn-red, fieldset[disabled] .btn, fieldset[disabled] .btn-red {
+  .btn.disabled, .disabled.btn-red, .disabled.btn-frame, .disabled.btn-frame-blue, .disabled.btn-frame-red, .disabled.btn-frame-yellow, .disabled.btn-frame-green, .disabled.btn-frame-orange, .disabled.btn-frame-darkgrey, .btn[disabled], [disabled].btn-red, [disabled].btn-frame, [disabled].btn-frame-blue, [disabled].btn-frame-red, [disabled].btn-frame-yellow, [disabled].btn-frame-green, [disabled].btn-frame-orange, [disabled].btn-frame-darkgrey, fieldset[disabled] .btn, fieldset[disabled] .btn-red, fieldset[disabled] .btn-frame, fieldset[disabled] .btn-frame-blue, fieldset[disabled] .btn-frame-red, fieldset[disabled] .btn-frame-yellow, fieldset[disabled] .btn-frame-green, fieldset[disabled] .btn-frame-orange, fieldset[disabled] .btn-frame-darkgrey {
     cursor: false;
     pointer-events: none;
     opacity: 0.65;
@@ -2535,19 +2535,19 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-red, .btn-group-lg > .btn-frame, .btn-group-lg > .btn-frame-blue, .btn-group-lg > .btn-frame-red, .btn-group-lg > .btn-frame-yellow, .btn-group-lg > .btn-frame-green, .btn-group-lg > .btn-frame-orange, .btn-group-lg > .btn-frame-darkgrey {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn-red, .btn-group-sm > .btn-frame, .btn-group-sm > .btn-frame-blue, .btn-group-sm > .btn-frame-red, .btn-group-sm > .btn-frame-yellow, .btn-group-sm > .btn-frame-green, .btn-group-sm > .btn-frame-orange, .btn-group-sm > .btn-frame-darkgrey {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn-red, .btn-group-xs > .btn-frame, .btn-group-xs > .btn-frame-blue, .btn-group-xs > .btn-frame-red, .btn-group-xs > .btn-frame-yellow, .btn-group-xs > .btn-frame-green, .btn-group-xs > .btn-frame-orange, .btn-group-xs > .btn-frame-darkgrey {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -2720,13 +2720,13 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .btn-red, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red {
+  .btn-group > .btn, .btn-group > .btn-red, .btn-group > .btn-frame, .btn-group > .btn-frame-blue, .btn-group > .btn-frame-red, .btn-group > .btn-frame-yellow, .btn-group > .btn-frame-green, .btn-group > .btn-frame-orange, .btn-group > .btn-frame-darkgrey, .btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .btn-group-vertical > .btn-frame, .btn-group-vertical > .btn-frame-blue, .btn-group-vertical > .btn-frame-red, .btn-group-vertical > .btn-frame-yellow, .btn-group-vertical > .btn-frame-green, .btn-group-vertical > .btn-frame-orange, .btn-group-vertical > .btn-frame-darkgrey {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .btn-red:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red {
+    .btn-group > .btn:hover, .btn-group > .btn-red:hover, .btn-group > .btn-frame:hover, .btn-group > .btn-frame-blue:hover, .btn-group > .btn-frame-red:hover, .btn-group > .btn-frame-yellow:hover, .btn-group > .btn-frame-green:hover, .btn-group > .btn-frame-orange:hover, .btn-group > .btn-frame-darkgrey:hover, .btn-group > .btn:focus, .btn-group > .btn-red:focus, .btn-group > .btn-frame:focus, .btn-group > .btn-frame-blue:focus, .btn-group > .btn-frame-red:focus, .btn-group > .btn-frame-yellow:focus, .btn-group > .btn-frame-green:focus, .btn-group > .btn-frame-orange:focus, .btn-group > .btn-frame-darkgrey:focus, .btn-group > .btn:active, .btn-group > .btn-red:active, .btn-group > .btn-frame:active, .btn-group > .btn-frame-blue:active, .btn-group > .btn-frame-red:active, .btn-group > .btn-frame-yellow:active, .btn-group > .btn-frame-green:active, .btn-group > .btn-frame-orange:active, .btn-group > .btn-frame-darkgrey:active, .btn-group > .btn.active, .btn-group > .active.btn-red, .btn-group > .active.btn-frame, .btn-group > .active.btn-frame-blue, .btn-group > .active.btn-frame-red, .btn-group > .active.btn-frame-yellow, .btn-group > .active.btn-frame-green, .btn-group > .active.btn-frame-orange, .btn-group > .active.btn-frame-darkgrey, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn-red:hover, .btn-group-vertical > .btn-frame:hover, .btn-group-vertical > .btn-frame-blue:hover, .btn-group-vertical > .btn-frame-red:hover, .btn-group-vertical > .btn-frame-yellow:hover, .btn-group-vertical > .btn-frame-green:hover, .btn-group-vertical > .btn-frame-orange:hover, .btn-group-vertical > .btn-frame-darkgrey:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn-red:focus, .btn-group-vertical > .btn-frame:focus, .btn-group-vertical > .btn-frame-blue:focus, .btn-group-vertical > .btn-frame-red:focus, .btn-group-vertical > .btn-frame-yellow:focus, .btn-group-vertical > .btn-frame-green:focus, .btn-group-vertical > .btn-frame-orange:focus, .btn-group-vertical > .btn-frame-darkgrey:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn-red:active, .btn-group-vertical > .btn-frame:active, .btn-group-vertical > .btn-frame-blue:active, .btn-group-vertical > .btn-frame-red:active, .btn-group-vertical > .btn-frame-yellow:active, .btn-group-vertical > .btn-frame-green:active, .btn-group-vertical > .btn-frame-orange:active, .btn-group-vertical > .btn-frame-darkgrey:active, .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn-red, .btn-group-vertical > .active.btn-frame, .btn-group-vertical > .active.btn-frame-blue, .btn-group-vertical > .active.btn-frame-red, .btn-group-vertical > .active.btn-frame-yellow, .btn-group-vertical > .active.btn-frame-green, .btn-group-vertical > .active.btn-frame-orange, .btn-group-vertical > .active.btn-frame-darkgrey {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, .btn-group .btn-red + .btn, .btn-group .btn-frame + .btn, .btn-group .btn-frame-blue + .btn, .btn-group .btn-frame-red + .btn, .btn-group .btn-frame-yellow + .btn, .btn-group .btn-frame-green + .btn, .btn-group .btn-frame-orange + .btn, .btn-group .btn-frame-darkgrey + .btn, .btn-group .btn + .btn-red, .btn-group .btn-red + .btn-red, .btn-group .btn-frame + .btn-red, .btn-group .btn-frame-blue + .btn-red, .btn-group .btn-frame-red + .btn-red, .btn-group .btn-frame-yellow + .btn-red, .btn-group .btn-frame-green + .btn-red, .btn-group .btn-frame-orange + .btn-red, .btn-group .btn-frame-darkgrey + .btn-red, .btn-group .btn + .btn-frame, .btn-group .btn-red + .btn-frame, .btn-group .btn-frame + .btn-frame, .btn-group .btn-frame-blue + .btn-frame, .btn-group .btn-frame-red + .btn-frame, .btn-group .btn-frame-yellow + .btn-frame, .btn-group .btn-frame-green + .btn-frame, .btn-group .btn-frame-orange + .btn-frame, .btn-group .btn-frame-darkgrey + .btn-frame, .btn-group .btn + .btn-frame-blue, .btn-group .btn-red + .btn-frame-blue, .btn-group .btn-frame + .btn-frame-blue, .btn-group .btn-frame-blue + .btn-frame-blue, .btn-group .btn-frame-red + .btn-frame-blue, .btn-group .btn-frame-yellow + .btn-frame-blue, .btn-group .btn-frame-green + .btn-frame-blue, .btn-group .btn-frame-orange + .btn-frame-blue, .btn-group .btn-frame-darkgrey + .btn-frame-blue, .btn-group .btn + .btn-frame-red, .btn-group .btn-red + .btn-frame-red, .btn-group .btn-frame + .btn-frame-red, .btn-group .btn-frame-blue + .btn-frame-red, .btn-group .btn-frame-red + .btn-frame-red, .btn-group .btn-frame-yellow + .btn-frame-red, .btn-group .btn-frame-green + .btn-frame-red, .btn-group .btn-frame-orange + .btn-frame-red, .btn-group .btn-frame-darkgrey + .btn-frame-red, .btn-group .btn + .btn-frame-yellow, .btn-group .btn-red + .btn-frame-yellow, .btn-group .btn-frame + .btn-frame-yellow, .btn-group .btn-frame-blue + .btn-frame-yellow, .btn-group .btn-frame-red + .btn-frame-yellow, .btn-group .btn-frame-yellow + .btn-frame-yellow, .btn-group .btn-frame-green + .btn-frame-yellow, .btn-group .btn-frame-orange + .btn-frame-yellow, .btn-group .btn-frame-darkgrey + .btn-frame-yellow, .btn-group .btn + .btn-frame-green, .btn-group .btn-red + .btn-frame-green, .btn-group .btn-frame + .btn-frame-green, .btn-group .btn-frame-blue + .btn-frame-green, .btn-group .btn-frame-red + .btn-frame-green, .btn-group .btn-frame-yellow + .btn-frame-green, .btn-group .btn-frame-green + .btn-frame-green, .btn-group .btn-frame-orange + .btn-frame-green, .btn-group .btn-frame-darkgrey + .btn-frame-green, .btn-group .btn + .btn-frame-orange, .btn-group .btn-red + .btn-frame-orange, .btn-group .btn-frame + .btn-frame-orange, .btn-group .btn-frame-blue + .btn-frame-orange, .btn-group .btn-frame-red + .btn-frame-orange, .btn-group .btn-frame-yellow + .btn-frame-orange, .btn-group .btn-frame-green + .btn-frame-orange, .btn-group .btn-frame-orange + .btn-frame-orange, .btn-group .btn-frame-darkgrey + .btn-frame-orange, .btn-group .btn + .btn-frame-darkgrey, .btn-group .btn-red + .btn-frame-darkgrey, .btn-group .btn-frame + .btn-frame-darkgrey, .btn-group .btn-frame-blue + .btn-frame-darkgrey, .btn-group .btn-frame-red + .btn-frame-darkgrey, .btn-group .btn-frame-yellow + .btn-frame-darkgrey, .btn-group .btn-frame-green + .btn-frame-darkgrey, .btn-group .btn-frame-orange + .btn-frame-darkgrey, .btn-group .btn-frame-darkgrey + .btn-frame-darkgrey, .btn-group .btn + .btn-group, .btn-group .btn-red + .btn-group, .btn-group .btn-frame + .btn-group, .btn-group .btn-frame-blue + .btn-group, .btn-group .btn-frame-red + .btn-group, .btn-group .btn-frame-yellow + .btn-group, .btn-group .btn-frame-green + .btn-group, .btn-group .btn-frame-orange + .btn-group, .btn-group .btn-frame-darkgrey + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-red, .btn-group .btn-group + .btn-frame, .btn-group .btn-group + .btn-frame-blue, .btn-group .btn-group + .btn-frame-red, .btn-group .btn-group + .btn-frame-yellow, .btn-group .btn-group + .btn-frame-green, .btn-group .btn-group + .btn-frame-orange, .btn-group .btn-group + .btn-frame-darkgrey, .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -2738,44 +2738,44 @@ tbody.collapse.in {
     clear: both; }
   .btn-toolbar .btn-group, .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .btn-toolbar > .btn-red, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+  .btn-toolbar > .btn, .btn-toolbar > .btn-red, .btn-toolbar > .btn-frame, .btn-toolbar > .btn-frame-blue, .btn-toolbar > .btn-frame-red, .btn-toolbar > .btn-frame-yellow, .btn-toolbar > .btn-frame-green, .btn-toolbar > .btn-frame-orange, .btn-toolbar > .btn-frame-darkgrey, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-blue:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-red:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-yellow:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-green:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-orange:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-darkgrey:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .btn-group > .btn-red:first-child {
+.btn-group > .btn:first-child, .btn-group > .btn-red:first-child, .btn-group > .btn-frame:first-child, .btn-group > .btn-frame-blue:first-child, .btn-group > .btn-frame-red:first-child, .btn-group > .btn-frame-yellow:first-child, .btn-group > .btn-frame-green:first-child, .btn-group > .btn-frame-orange:first-child, .btn-group > .btn-frame-darkgrey:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-red:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-blue:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-red:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-yellow:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-green:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-orange:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-frame-darkgrey:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .btn-red:last-child:not(:first-child), .btn-group > .btn-frame:last-child:not(:first-child), .btn-group > .btn-frame-blue:last-child:not(:first-child), .btn-group > .btn-frame-red:last-child:not(:first-child), .btn-group > .btn-frame-yellow:last-child:not(:first-child), .btn-group > .btn-frame-green:last-child:not(:first-child), .btn-group > .btn-frame-orange:last-child:not(:first-child), .btn-group > .btn-frame-darkgrey:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-red, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-blue, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-red, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-yellow, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-green, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-orange, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-frame-darkgrey {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-blue:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-red:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-yellow:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-green:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-orange:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .btn-frame-darkgrey:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-blue:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-red:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-yellow:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-green:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-orange:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn-frame-darkgrey:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .btn-red + .dropdown-toggle, .btn-group > .btn-frame + .dropdown-toggle, .btn-group > .btn-frame-blue + .dropdown-toggle, .btn-group > .btn-frame-red + .dropdown-toggle, .btn-group > .btn-frame-yellow + .dropdown-toggle, .btn-group > .btn-frame-green + .dropdown-toggle, .btn-group > .btn-frame-orange + .dropdown-toggle, .btn-group > .btn-frame-darkgrey + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn-red + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-blue + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-red + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-yellow + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-green + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-orange + .dropdown-toggle, .btn-group-lg.btn-group > .btn-frame-darkgrey + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -2786,17 +2786,17 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .btn-red .caret {
+.btn .caret, .btn-red .caret, .btn-frame .caret, .btn-frame-blue .caret, .btn-frame-red .caret, .btn-frame-yellow .caret, .btn-frame-green .caret, .btn-frame-orange .caret, .btn-frame-darkgrey .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn-red .caret, .btn-group-lg > .btn-frame .caret, .btn-group-lg > .btn-frame-blue .caret, .btn-group-lg > .btn-frame-red .caret, .btn-group-lg > .btn-frame-yellow .caret, .btn-group-lg > .btn-frame-green .caret, .btn-group-lg > .btn-frame-orange .caret, .btn-group-lg > .btn-frame-darkgrey .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn-red .caret, .dropup .btn-group-lg > .btn-frame .caret, .dropup .btn-group-lg > .btn-frame-blue .caret, .dropup .btn-group-lg > .btn-frame-red .caret, .dropup .btn-group-lg > .btn-frame-yellow .caret, .dropup .btn-group-lg > .btn-frame-green .caret, .dropup .btn-group-lg > .btn-frame-orange .caret, .dropup .btn-group-lg > .btn-frame-darkgrey .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-red, .btn-group-vertical > .btn-frame, .btn-group-vertical > .btn-frame-blue, .btn-group-vertical > .btn-frame-red, .btn-group-vertical > .btn-frame-yellow, .btn-group-vertical > .btn-frame-green, .btn-group-vertical > .btn-frame-orange, .btn-group-vertical > .btn-frame-darkgrey, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .btn-group-vertical > .btn-group > .btn-frame, .btn-group-vertical > .btn-group > .btn-frame-blue, .btn-group-vertical > .btn-group > .btn-frame-red, .btn-group-vertical > .btn-group > .btn-frame-yellow, .btn-group-vertical > .btn-group > .btn-frame-green, .btn-group-vertical > .btn-group > .btn-frame-orange, .btn-group-vertical > .btn-group > .btn-frame-darkgrey {
   display: block;
   float: none;
   width: 100%;
@@ -2806,31 +2806,31 @@ tbody.collapse.in {
   display: table; }
 .btn-group-vertical > .btn-group:after {
   clear: both; }
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn-red, .btn-group-vertical > .btn-group > .btn-frame, .btn-group-vertical > .btn-group > .btn-frame-blue, .btn-group-vertical > .btn-group > .btn-frame-red, .btn-group-vertical > .btn-group > .btn-frame-yellow, .btn-group-vertical > .btn-group > .btn-frame-green, .btn-group-vertical > .btn-group > .btn-frame-orange, .btn-group-vertical > .btn-group > .btn-frame-darkgrey {
   float: none; }
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn-red + .btn, .btn-group-vertical > .btn-frame + .btn, .btn-group-vertical > .btn-frame-blue + .btn, .btn-group-vertical > .btn-frame-red + .btn, .btn-group-vertical > .btn-frame-yellow + .btn, .btn-group-vertical > .btn-frame-green + .btn, .btn-group-vertical > .btn-frame-orange + .btn, .btn-group-vertical > .btn-frame-darkgrey + .btn, .btn-group-vertical > .btn + .btn-red, .btn-group-vertical > .btn-red + .btn-red, .btn-group-vertical > .btn-frame + .btn-red, .btn-group-vertical > .btn-frame-blue + .btn-red, .btn-group-vertical > .btn-frame-red + .btn-red, .btn-group-vertical > .btn-frame-yellow + .btn-red, .btn-group-vertical > .btn-frame-green + .btn-red, .btn-group-vertical > .btn-frame-orange + .btn-red, .btn-group-vertical > .btn-frame-darkgrey + .btn-red, .btn-group-vertical > .btn + .btn-frame, .btn-group-vertical > .btn-red + .btn-frame, .btn-group-vertical > .btn-frame + .btn-frame, .btn-group-vertical > .btn-frame-blue + .btn-frame, .btn-group-vertical > .btn-frame-red + .btn-frame, .btn-group-vertical > .btn-frame-yellow + .btn-frame, .btn-group-vertical > .btn-frame-green + .btn-frame, .btn-group-vertical > .btn-frame-orange + .btn-frame, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame, .btn-group-vertical > .btn + .btn-frame-blue, .btn-group-vertical > .btn-red + .btn-frame-blue, .btn-group-vertical > .btn-frame + .btn-frame-blue, .btn-group-vertical > .btn-frame-blue + .btn-frame-blue, .btn-group-vertical > .btn-frame-red + .btn-frame-blue, .btn-group-vertical > .btn-frame-yellow + .btn-frame-blue, .btn-group-vertical > .btn-frame-green + .btn-frame-blue, .btn-group-vertical > .btn-frame-orange + .btn-frame-blue, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-blue, .btn-group-vertical > .btn + .btn-frame-red, .btn-group-vertical > .btn-red + .btn-frame-red, .btn-group-vertical > .btn-frame + .btn-frame-red, .btn-group-vertical > .btn-frame-blue + .btn-frame-red, .btn-group-vertical > .btn-frame-red + .btn-frame-red, .btn-group-vertical > .btn-frame-yellow + .btn-frame-red, .btn-group-vertical > .btn-frame-green + .btn-frame-red, .btn-group-vertical > .btn-frame-orange + .btn-frame-red, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-red, .btn-group-vertical > .btn + .btn-frame-yellow, .btn-group-vertical > .btn-red + .btn-frame-yellow, .btn-group-vertical > .btn-frame + .btn-frame-yellow, .btn-group-vertical > .btn-frame-blue + .btn-frame-yellow, .btn-group-vertical > .btn-frame-red + .btn-frame-yellow, .btn-group-vertical > .btn-frame-yellow + .btn-frame-yellow, .btn-group-vertical > .btn-frame-green + .btn-frame-yellow, .btn-group-vertical > .btn-frame-orange + .btn-frame-yellow, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-yellow, .btn-group-vertical > .btn + .btn-frame-green, .btn-group-vertical > .btn-red + .btn-frame-green, .btn-group-vertical > .btn-frame + .btn-frame-green, .btn-group-vertical > .btn-frame-blue + .btn-frame-green, .btn-group-vertical > .btn-frame-red + .btn-frame-green, .btn-group-vertical > .btn-frame-yellow + .btn-frame-green, .btn-group-vertical > .btn-frame-green + .btn-frame-green, .btn-group-vertical > .btn-frame-orange + .btn-frame-green, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-green, .btn-group-vertical > .btn + .btn-frame-orange, .btn-group-vertical > .btn-red + .btn-frame-orange, .btn-group-vertical > .btn-frame + .btn-frame-orange, .btn-group-vertical > .btn-frame-blue + .btn-frame-orange, .btn-group-vertical > .btn-frame-red + .btn-frame-orange, .btn-group-vertical > .btn-frame-yellow + .btn-frame-orange, .btn-group-vertical > .btn-frame-green + .btn-frame-orange, .btn-group-vertical > .btn-frame-orange + .btn-frame-orange, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-orange, .btn-group-vertical > .btn + .btn-frame-darkgrey, .btn-group-vertical > .btn-red + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-blue + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-red + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-yellow + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-green + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-orange + .btn-frame-darkgrey, .btn-group-vertical > .btn-frame-darkgrey + .btn-frame-darkgrey, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-red + .btn-group, .btn-group-vertical > .btn-frame + .btn-group, .btn-group-vertical > .btn-frame-blue + .btn-group, .btn-group-vertical > .btn-frame-red + .btn-group, .btn-group-vertical > .btn-frame-yellow + .btn-group, .btn-group-vertical > .btn-frame-green + .btn-group, .btn-group-vertical > .btn-frame-orange + .btn-group, .btn-group-vertical > .btn-frame-darkgrey + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-red, .btn-group-vertical > .btn-group + .btn-frame, .btn-group-vertical > .btn-group + .btn-frame-blue, .btn-group-vertical > .btn-group + .btn-frame-red, .btn-group-vertical > .btn-group + .btn-frame-yellow, .btn-group-vertical > .btn-group + .btn-frame-green, .btn-group-vertical > .btn-group + .btn-frame-orange, .btn-group-vertical > .btn-group + .btn-frame-darkgrey, .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn-red:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-blue:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-red:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-yellow:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-green:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-orange:not(:first-child):not(:last-child), .btn-group-vertical > .btn-frame-darkgrey:not(:first-child):not(:last-child) {
   border-radius: 0; }
-.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn-red:first-child:not(:last-child), .btn-group-vertical > .btn-frame:first-child:not(:last-child), .btn-group-vertical > .btn-frame-blue:first-child:not(:last-child), .btn-group-vertical > .btn-frame-red:first-child:not(:last-child), .btn-group-vertical > .btn-frame-yellow:first-child:not(:last-child), .btn-group-vertical > .btn-frame-green:first-child:not(:last-child), .btn-group-vertical > .btn-frame-orange:first-child:not(:last-child), .btn-group-vertical > .btn-frame-darkgrey:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn-red:last-child:not(:first-child), .btn-group-vertical > .btn-frame:last-child:not(:first-child), .btn-group-vertical > .btn-frame-blue:last-child:not(:first-child), .btn-group-vertical > .btn-frame-red:last-child:not(:first-child), .btn-group-vertical > .btn-frame-yellow:last-child:not(:first-child), .btn-group-vertical > .btn-frame-green:last-child:not(:first-child), .btn-group-vertical > .btn-frame-orange:last-child:not(:first-child), .btn-group-vertical > .btn-frame-darkgrey:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-red, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-blue, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-red, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-yellow, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-green, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-orange, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-frame-darkgrey {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-red:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-blue:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-red:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-yellow:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-green:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-orange:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-frame-darkgrey:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-red:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-blue:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-red:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-yellow:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-green:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-orange:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-frame-darkgrey:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2839,16 +2839,16 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .btn-group-justified > .btn-red, .btn-group-justified > .btn-group {
+  .btn-group-justified > .btn, .btn-group-justified > .btn-red, .btn-group-justified > .btn-frame, .btn-group-justified > .btn-frame-blue, .btn-group-justified > .btn-frame-red, .btn-group-justified > .btn-frame-yellow, .btn-group-justified > .btn-frame-green, .btn-group-justified > .btn-frame-orange, .btn-group-justified > .btn-frame-darkgrey, .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn-red, .btn-group-justified > .btn-group .btn-frame, .btn-group-justified > .btn-group .btn-frame-blue, .btn-group-justified > .btn-group .btn-frame-red, .btn-group-justified > .btn-group .btn-frame-yellow, .btn-group-justified > .btn-group .btn-frame-green, .btn-group-justified > .btn-group .btn-frame-orange, .btn-group-justified > .btn-group .btn-frame-darkgrey {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-red input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"] {
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn-frame input[type="radio"], [data-toggle="buttons"] > .btn-frame-blue input[type="radio"], [data-toggle="buttons"] > .btn-frame-red input[type="radio"], [data-toggle="buttons"] > .btn-frame-yellow input[type="radio"], [data-toggle="buttons"] > .btn-frame-green input[type="radio"], [data-toggle="buttons"] > .btn-frame-orange input[type="radio"], [data-toggle="buttons"] > .btn-frame-darkgrey input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-red input[type="checkbox"], [data-toggle="buttons"] > .btn-frame input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-blue input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-red input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-yellow input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-green input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-orange input[type="checkbox"], [data-toggle="buttons"] > .btn-frame-darkgrey input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-blue input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-red input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-yellow input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-green input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-orange input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn-frame-darkgrey input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-red input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-blue input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-red input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-yellow input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-green input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-orange input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn-frame-darkgrey input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -2888,25 +2888,25 @@ tbody.collapse.in {
   background-color: #eeeeee;
   border: 1px solid #ccc;
   border-radius: 4px; }
-  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red {
+  .input-group-addon.input-sm, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn-red, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-blue, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-red, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-yellow, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-green, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-orange, .input-group-sm > .input-group-btn > .input-group-addon.btn-frame-darkgrey {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red {
+  .input-group-addon.input-lg, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn-red, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-blue, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-red, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-yellow, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-green, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-orange, .input-group-lg > .input-group-btn > .input-group-addon.btn-frame-darkgrey {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
   .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .btn-group > .btn-red, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red {
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-frame, .input-group-btn:first-child > .btn-frame-blue, .input-group-btn:first-child > .btn-frame-red, .input-group-btn:first-child > .btn-frame-yellow, .input-group-btn:first-child > .btn-frame-green, .input-group-btn:first-child > .btn-frame-orange, .input-group-btn:first-child > .btn-frame-darkgrey, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .btn-group > .btn-red, .input-group-btn:first-child > .btn-group > .btn-frame, .input-group-btn:first-child > .btn-group > .btn-frame-blue, .input-group-btn:first-child > .btn-group > .btn-frame-red, .input-group-btn:first-child > .btn-group > .btn-frame-yellow, .input-group-btn:first-child > .btn-group > .btn-frame-green, .input-group-btn:first-child > .btn-group > .btn-frame-orange, .input-group-btn:first-child > .btn-group > .btn-frame-darkgrey, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-red:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-blue:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-red:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-yellow:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-green:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-orange:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-frame-darkgrey:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-red, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-blue, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-red, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-yellow, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-green, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-orange, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-frame-darkgrey {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .btn-group > .btn-red, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-frame, .input-group-btn:last-child > .btn-frame-blue, .input-group-btn:last-child > .btn-frame-red, .input-group-btn:last-child > .btn-frame-yellow, .input-group-btn:last-child > .btn-frame-green, .input-group-btn:last-child > .btn-frame-orange, .input-group-btn:last-child > .btn-frame-darkgrey, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .btn-group > .btn-red, .input-group-btn:last-child > .btn-group > .btn-frame, .input-group-btn:last-child > .btn-group > .btn-frame-blue, .input-group-btn:last-child > .btn-group > .btn-frame-red, .input-group-btn:last-child > .btn-group > .btn-frame-yellow, .input-group-btn:last-child > .btn-group > .btn-frame-green, .input-group-btn:last-child > .btn-group > .btn-frame-orange, .input-group-btn:last-child > .btn-group > .btn-frame-darkgrey, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-red:not(:first-child), .input-group-btn:first-child > .btn-frame:not(:first-child), .input-group-btn:first-child > .btn-frame-blue:not(:first-child), .input-group-btn:first-child > .btn-frame-red:not(:first-child), .input-group-btn:first-child > .btn-frame-yellow:not(:first-child), .input-group-btn:first-child > .btn-frame-green:not(:first-child), .input-group-btn:first-child > .btn-frame-orange:not(:first-child), .input-group-btn:first-child > .btn-frame-darkgrey:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-red, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-blue, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-red, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-yellow, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-green, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-orange, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-frame-darkgrey {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2917,15 +2917,15 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .input-group-btn > .btn-red {
+  .input-group-btn > .btn, .input-group-btn > .btn-red, .input-group-btn > .btn-frame, .input-group-btn > .btn-frame-blue, .input-group-btn > .btn-frame-red, .input-group-btn > .btn-frame-yellow, .input-group-btn > .btn-frame-green, .input-group-btn > .btn-frame-orange, .input-group-btn > .btn-frame-darkgrey {
     position: relative; }
-    .input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red {
+    .input-group-btn > .btn + .btn, .input-group-btn > .btn-red + .btn, .input-group-btn > .btn-frame + .btn, .input-group-btn > .btn-frame-blue + .btn, .input-group-btn > .btn-frame-red + .btn, .input-group-btn > .btn-frame-yellow + .btn, .input-group-btn > .btn-frame-green + .btn, .input-group-btn > .btn-frame-orange + .btn, .input-group-btn > .btn-frame-darkgrey + .btn, .input-group-btn > .btn + .btn-red, .input-group-btn > .btn-red + .btn-red, .input-group-btn > .btn-frame + .btn-red, .input-group-btn > .btn-frame-blue + .btn-red, .input-group-btn > .btn-frame-red + .btn-red, .input-group-btn > .btn-frame-yellow + .btn-red, .input-group-btn > .btn-frame-green + .btn-red, .input-group-btn > .btn-frame-orange + .btn-red, .input-group-btn > .btn-frame-darkgrey + .btn-red, .input-group-btn > .btn + .btn-frame, .input-group-btn > .btn-red + .btn-frame, .input-group-btn > .btn-frame + .btn-frame, .input-group-btn > .btn-frame-blue + .btn-frame, .input-group-btn > .btn-frame-red + .btn-frame, .input-group-btn > .btn-frame-yellow + .btn-frame, .input-group-btn > .btn-frame-green + .btn-frame, .input-group-btn > .btn-frame-orange + .btn-frame, .input-group-btn > .btn-frame-darkgrey + .btn-frame, .input-group-btn > .btn + .btn-frame-blue, .input-group-btn > .btn-red + .btn-frame-blue, .input-group-btn > .btn-frame + .btn-frame-blue, .input-group-btn > .btn-frame-blue + .btn-frame-blue, .input-group-btn > .btn-frame-red + .btn-frame-blue, .input-group-btn > .btn-frame-yellow + .btn-frame-blue, .input-group-btn > .btn-frame-green + .btn-frame-blue, .input-group-btn > .btn-frame-orange + .btn-frame-blue, .input-group-btn > .btn-frame-darkgrey + .btn-frame-blue, .input-group-btn > .btn + .btn-frame-red, .input-group-btn > .btn-red + .btn-frame-red, .input-group-btn > .btn-frame + .btn-frame-red, .input-group-btn > .btn-frame-blue + .btn-frame-red, .input-group-btn > .btn-frame-red + .btn-frame-red, .input-group-btn > .btn-frame-yellow + .btn-frame-red, .input-group-btn > .btn-frame-green + .btn-frame-red, .input-group-btn > .btn-frame-orange + .btn-frame-red, .input-group-btn > .btn-frame-darkgrey + .btn-frame-red, .input-group-btn > .btn + .btn-frame-yellow, .input-group-btn > .btn-red + .btn-frame-yellow, .input-group-btn > .btn-frame + .btn-frame-yellow, .input-group-btn > .btn-frame-blue + .btn-frame-yellow, .input-group-btn > .btn-frame-red + .btn-frame-yellow, .input-group-btn > .btn-frame-yellow + .btn-frame-yellow, .input-group-btn > .btn-frame-green + .btn-frame-yellow, .input-group-btn > .btn-frame-orange + .btn-frame-yellow, .input-group-btn > .btn-frame-darkgrey + .btn-frame-yellow, .input-group-btn > .btn + .btn-frame-green, .input-group-btn > .btn-red + .btn-frame-green, .input-group-btn > .btn-frame + .btn-frame-green, .input-group-btn > .btn-frame-blue + .btn-frame-green, .input-group-btn > .btn-frame-red + .btn-frame-green, .input-group-btn > .btn-frame-yellow + .btn-frame-green, .input-group-btn > .btn-frame-green + .btn-frame-green, .input-group-btn > .btn-frame-orange + .btn-frame-green, .input-group-btn > .btn-frame-darkgrey + .btn-frame-green, .input-group-btn > .btn + .btn-frame-orange, .input-group-btn > .btn-red + .btn-frame-orange, .input-group-btn > .btn-frame + .btn-frame-orange, .input-group-btn > .btn-frame-blue + .btn-frame-orange, .input-group-btn > .btn-frame-red + .btn-frame-orange, .input-group-btn > .btn-frame-yellow + .btn-frame-orange, .input-group-btn > .btn-frame-green + .btn-frame-orange, .input-group-btn > .btn-frame-orange + .btn-frame-orange, .input-group-btn > .btn-frame-darkgrey + .btn-frame-orange, .input-group-btn > .btn + .btn-frame-darkgrey, .input-group-btn > .btn-red + .btn-frame-darkgrey, .input-group-btn > .btn-frame + .btn-frame-darkgrey, .input-group-btn > .btn-frame-blue + .btn-frame-darkgrey, .input-group-btn > .btn-frame-red + .btn-frame-darkgrey, .input-group-btn > .btn-frame-yellow + .btn-frame-darkgrey, .input-group-btn > .btn-frame-green + .btn-frame-darkgrey, .input-group-btn > .btn-frame-orange + .btn-frame-darkgrey, .input-group-btn > .btn-frame-darkgrey + .btn-frame-darkgrey {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn-red:focus, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active {
+    .input-group-btn > .btn:hover, .input-group-btn > .btn-red:hover, .input-group-btn > .btn-frame:hover, .input-group-btn > .btn-frame-blue:hover, .input-group-btn > .btn-frame-red:hover, .input-group-btn > .btn-frame-yellow:hover, .input-group-btn > .btn-frame-green:hover, .input-group-btn > .btn-frame-orange:hover, .input-group-btn > .btn-frame-darkgrey:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn-red:focus, .input-group-btn > .btn-frame:focus, .input-group-btn > .btn-frame-blue:focus, .input-group-btn > .btn-frame-red:focus, .input-group-btn > .btn-frame-yellow:focus, .input-group-btn > .btn-frame-green:focus, .input-group-btn > .btn-frame-orange:focus, .input-group-btn > .btn-frame-darkgrey:focus, .input-group-btn > .btn:active, .input-group-btn > .btn-red:active, .input-group-btn > .btn-frame:active, .input-group-btn > .btn-frame-blue:active, .input-group-btn > .btn-frame-red:active, .input-group-btn > .btn-frame-yellow:active, .input-group-btn > .btn-frame-green:active, .input-group-btn > .btn-frame-orange:active, .input-group-btn > .btn-frame-darkgrey:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-group {
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-red, .input-group-btn:first-child > .btn-frame, .input-group-btn:first-child > .btn-frame-blue, .input-group-btn:first-child > .btn-frame-red, .input-group-btn:first-child > .btn-frame-yellow, .input-group-btn:first-child > .btn-frame-green, .input-group-btn:first-child > .btn-frame-orange, .input-group-btn:first-child > .btn-frame-darkgrey, .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-group {
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-red, .input-group-btn:last-child > .btn-frame, .input-group-btn:last-child > .btn-frame-blue, .input-group-btn:last-child > .btn-frame-red, .input-group-btn:last-child > .btn-frame-yellow, .input-group-btn:last-child > .btn-frame-green, .input-group-btn:last-child > .btn-frame-orange, .input-group-btn:last-child > .btn-frame-darkgrey, .input-group-btn:last-child > .btn-group {
     margin-left: -1px; }
 
 .nav {
@@ -3276,10 +3276,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn-red, .btn-group-sm > .navbar-btn.btn-frame, .btn-group-sm > .navbar-btn.btn-frame-blue, .btn-group-sm > .navbar-btn.btn-frame-red, .btn-group-sm > .navbar-btn.btn-frame-yellow, .btn-group-sm > .navbar-btn.btn-frame-green, .btn-group-sm > .navbar-btn.btn-frame-orange, .btn-group-sm > .navbar-btn.btn-frame-darkgrey {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn-red, .btn-group-xs > .navbar-btn.btn-frame, .btn-group-xs > .navbar-btn.btn-frame-blue, .btn-group-xs > .navbar-btn.btn-frame-red, .btn-group-xs > .navbar-btn.btn-frame-yellow, .btn-group-xs > .navbar-btn.btn-frame-green, .btn-group-xs > .navbar-btn.btn-frame-orange, .btn-group-xs > .navbar-btn.btn-frame-darkgrey {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -3533,7 +3533,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .btn-red .label {
+  .btn .label, .btn-red .label, .btn-frame .label, .btn-frame-blue .label, .btn-frame-red .label, .btn-frame-yellow .label, .btn-frame-green .label, .btn-frame-orange .label, .btn-frame-darkgrey .label {
     position: relative;
     top: -1px; }
 
@@ -3587,10 +3587,10 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .btn-red .badge {
+  .btn .badge, .btn-red .badge, .btn-frame .badge, .btn-frame-blue .badge, .btn-frame-red .badge, .btn-frame-yellow .badge, .btn-frame-green .badge, .btn-frame-orange .badge, .btn-frame-darkgrey .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .btn-group-xs > .btn-frame .badge, .btn-group-xs > .btn-frame-blue .badge, .btn-group-xs > .btn-frame-red .badge, .btn-group-xs > .btn-frame-yellow .badge, .btn-group-xs > .btn-frame-green .badge, .btn-group-xs > .btn-frame-orange .badge, .btn-group-xs > .btn-frame-darkgrey .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn-red .badge, .btn-group-xs > .btn-frame .badge, .btn-group-xs > .btn-frame-blue .badge, .btn-group-xs > .btn-frame-red .badge, .btn-group-xs > .btn-frame-yellow .badge, .btn-group-xs > .btn-frame-green .badge, .btn-group-xs > .btn-frame-orange .badge, .btn-group-xs > .btn-frame-darkgrey .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -4307,10 +4307,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red {
+  .modal-footer .btn + .btn, .modal-footer .btn-red + .btn, .modal-footer .btn-frame + .btn, .modal-footer .btn-frame-blue + .btn, .modal-footer .btn-frame-red + .btn, .modal-footer .btn-frame-yellow + .btn, .modal-footer .btn-frame-green + .btn, .modal-footer .btn-frame-orange + .btn, .modal-footer .btn-frame-darkgrey + .btn, .modal-footer .btn + .btn-red, .modal-footer .btn-red + .btn-red, .modal-footer .btn-frame + .btn-red, .modal-footer .btn-frame-blue + .btn-red, .modal-footer .btn-frame-red + .btn-red, .modal-footer .btn-frame-yellow + .btn-red, .modal-footer .btn-frame-green + .btn-red, .modal-footer .btn-frame-orange + .btn-red, .modal-footer .btn-frame-darkgrey + .btn-red, .modal-footer .btn + .btn-frame, .modal-footer .btn-red + .btn-frame, .modal-footer .btn-frame + .btn-frame, .modal-footer .btn-frame-blue + .btn-frame, .modal-footer .btn-frame-red + .btn-frame, .modal-footer .btn-frame-yellow + .btn-frame, .modal-footer .btn-frame-green + .btn-frame, .modal-footer .btn-frame-orange + .btn-frame, .modal-footer .btn-frame-darkgrey + .btn-frame, .modal-footer .btn + .btn-frame-blue, .modal-footer .btn-red + .btn-frame-blue, .modal-footer .btn-frame + .btn-frame-blue, .modal-footer .btn-frame-blue + .btn-frame-blue, .modal-footer .btn-frame-red + .btn-frame-blue, .modal-footer .btn-frame-yellow + .btn-frame-blue, .modal-footer .btn-frame-green + .btn-frame-blue, .modal-footer .btn-frame-orange + .btn-frame-blue, .modal-footer .btn-frame-darkgrey + .btn-frame-blue, .modal-footer .btn + .btn-frame-red, .modal-footer .btn-red + .btn-frame-red, .modal-footer .btn-frame + .btn-frame-red, .modal-footer .btn-frame-blue + .btn-frame-red, .modal-footer .btn-frame-red + .btn-frame-red, .modal-footer .btn-frame-yellow + .btn-frame-red, .modal-footer .btn-frame-green + .btn-frame-red, .modal-footer .btn-frame-orange + .btn-frame-red, .modal-footer .btn-frame-darkgrey + .btn-frame-red, .modal-footer .btn + .btn-frame-yellow, .modal-footer .btn-red + .btn-frame-yellow, .modal-footer .btn-frame + .btn-frame-yellow, .modal-footer .btn-frame-blue + .btn-frame-yellow, .modal-footer .btn-frame-red + .btn-frame-yellow, .modal-footer .btn-frame-yellow + .btn-frame-yellow, .modal-footer .btn-frame-green + .btn-frame-yellow, .modal-footer .btn-frame-orange + .btn-frame-yellow, .modal-footer .btn-frame-darkgrey + .btn-frame-yellow, .modal-footer .btn + .btn-frame-green, .modal-footer .btn-red + .btn-frame-green, .modal-footer .btn-frame + .btn-frame-green, .modal-footer .btn-frame-blue + .btn-frame-green, .modal-footer .btn-frame-red + .btn-frame-green, .modal-footer .btn-frame-yellow + .btn-frame-green, .modal-footer .btn-frame-green + .btn-frame-green, .modal-footer .btn-frame-orange + .btn-frame-green, .modal-footer .btn-frame-darkgrey + .btn-frame-green, .modal-footer .btn + .btn-frame-orange, .modal-footer .btn-red + .btn-frame-orange, .modal-footer .btn-frame + .btn-frame-orange, .modal-footer .btn-frame-blue + .btn-frame-orange, .modal-footer .btn-frame-red + .btn-frame-orange, .modal-footer .btn-frame-yellow + .btn-frame-orange, .modal-footer .btn-frame-green + .btn-frame-orange, .modal-footer .btn-frame-orange + .btn-frame-orange, .modal-footer .btn-frame-darkgrey + .btn-frame-orange, .modal-footer .btn + .btn-frame-darkgrey, .modal-footer .btn-red + .btn-frame-darkgrey, .modal-footer .btn-frame + .btn-frame-darkgrey, .modal-footer .btn-frame-blue + .btn-frame-darkgrey, .modal-footer .btn-frame-red + .btn-frame-darkgrey, .modal-footer .btn-frame-yellow + .btn-frame-darkgrey, .modal-footer .btn-frame-green + .btn-frame-darkgrey, .modal-footer .btn-frame-orange + .btn-frame-darkgrey, .modal-footer .btn-frame-darkgrey + .btn-frame-darkgrey {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-red + .btn, .modal-footer .btn-group .btn-frame + .btn, .modal-footer .btn-group .btn-frame-blue + .btn, .modal-footer .btn-group .btn-frame-red + .btn, .modal-footer .btn-group .btn-frame-yellow + .btn, .modal-footer .btn-group .btn-frame-green + .btn, .modal-footer .btn-group .btn-frame-orange + .btn, .modal-footer .btn-group .btn-frame-darkgrey + .btn, .modal-footer .btn-group .btn + .btn-red, .modal-footer .btn-group .btn-red + .btn-red, .modal-footer .btn-group .btn-frame + .btn-red, .modal-footer .btn-group .btn-frame-blue + .btn-red, .modal-footer .btn-group .btn-frame-red + .btn-red, .modal-footer .btn-group .btn-frame-yellow + .btn-red, .modal-footer .btn-group .btn-frame-green + .btn-red, .modal-footer .btn-group .btn-frame-orange + .btn-red, .modal-footer .btn-group .btn-frame-darkgrey + .btn-red, .modal-footer .btn-group .btn + .btn-frame, .modal-footer .btn-group .btn-red + .btn-frame, .modal-footer .btn-group .btn-frame + .btn-frame, .modal-footer .btn-group .btn-frame-blue + .btn-frame, .modal-footer .btn-group .btn-frame-red + .btn-frame, .modal-footer .btn-group .btn-frame-yellow + .btn-frame, .modal-footer .btn-group .btn-frame-green + .btn-frame, .modal-footer .btn-group .btn-frame-orange + .btn-frame, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame, .modal-footer .btn-group .btn + .btn-frame-blue, .modal-footer .btn-group .btn-red + .btn-frame-blue, .modal-footer .btn-group .btn-frame + .btn-frame-blue, .modal-footer .btn-group .btn-frame-blue + .btn-frame-blue, .modal-footer .btn-group .btn-frame-red + .btn-frame-blue, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-blue, .modal-footer .btn-group .btn-frame-green + .btn-frame-blue, .modal-footer .btn-group .btn-frame-orange + .btn-frame-blue, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-blue, .modal-footer .btn-group .btn + .btn-frame-red, .modal-footer .btn-group .btn-red + .btn-frame-red, .modal-footer .btn-group .btn-frame + .btn-frame-red, .modal-footer .btn-group .btn-frame-blue + .btn-frame-red, .modal-footer .btn-group .btn-frame-red + .btn-frame-red, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-red, .modal-footer .btn-group .btn-frame-green + .btn-frame-red, .modal-footer .btn-group .btn-frame-orange + .btn-frame-red, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-red, .modal-footer .btn-group .btn + .btn-frame-yellow, .modal-footer .btn-group .btn-red + .btn-frame-yellow, .modal-footer .btn-group .btn-frame + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-blue + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-red + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-green + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-orange + .btn-frame-yellow, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-yellow, .modal-footer .btn-group .btn + .btn-frame-green, .modal-footer .btn-group .btn-red + .btn-frame-green, .modal-footer .btn-group .btn-frame + .btn-frame-green, .modal-footer .btn-group .btn-frame-blue + .btn-frame-green, .modal-footer .btn-group .btn-frame-red + .btn-frame-green, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-green, .modal-footer .btn-group .btn-frame-green + .btn-frame-green, .modal-footer .btn-group .btn-frame-orange + .btn-frame-green, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-green, .modal-footer .btn-group .btn + .btn-frame-orange, .modal-footer .btn-group .btn-red + .btn-frame-orange, .modal-footer .btn-group .btn-frame + .btn-frame-orange, .modal-footer .btn-group .btn-frame-blue + .btn-frame-orange, .modal-footer .btn-group .btn-frame-red + .btn-frame-orange, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-orange, .modal-footer .btn-group .btn-frame-green + .btn-frame-orange, .modal-footer .btn-group .btn-frame-orange + .btn-frame-orange, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-orange, .modal-footer .btn-group .btn + .btn-frame-darkgrey, .modal-footer .btn-group .btn-red + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-blue + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-red + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-yellow + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-green + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-orange + .btn-frame-darkgrey, .modal-footer .btn-group .btn-frame-darkgrey + .btn-frame-darkgrey {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -4689,7 +4689,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .btn-red {
+  .carousel-caption .btn, .carousel-caption .btn-red, .carousel-caption .btn-frame, .carousel-caption .btn-frame-blue, .carousel-caption .btn-frame-red, .carousel-caption .btn-frame-yellow, .carousel-caption .btn-frame-green, .carousel-caption .btn-frame-orange, .carousel-caption .btn-frame-darkgrey {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -4930,21 +4930,21 @@ button.close {
     font-size: 1.6em;
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2); }
-  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-group-lg > .btn-social-icon.btn-red, .btn-group-lg > .btn-social.btn-red, .btn-lg.btn-social-icon {
+  .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-group-lg > .btn-social-icon.btn-red, .btn-group-lg > .btn-social-icon.btn-frame, .btn-group-lg > .btn-social-icon.btn-frame-blue, .btn-group-lg > .btn-social-icon.btn-frame-red, .btn-group-lg > .btn-social-icon.btn-frame-yellow, .btn-group-lg > .btn-social-icon.btn-frame-green, .btn-group-lg > .btn-social-icon.btn-frame-orange, .btn-group-lg > .btn-social-icon.btn-frame-darkgrey, .btn-group-lg > .btn-social.btn-red, .btn-group-lg > .btn-social.btn-frame, .btn-group-lg > .btn-social.btn-frame-blue, .btn-group-lg > .btn-social.btn-frame-red, .btn-group-lg > .btn-social.btn-frame-yellow, .btn-group-lg > .btn-social.btn-frame-green, .btn-group-lg > .btn-social.btn-frame-orange, .btn-group-lg > .btn-social.btn-frame-darkgrey, .btn-lg.btn-social-icon {
     padding-left: 61px; }
-    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-group-lg > .btn-social-icon.btn-red :first-child, .btn-group-lg > .btn-social.btn-red :first-child, .btn-lg.btn-social-icon :first-child {
+    .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-group-lg > .btn-social-icon.btn-red :first-child, .btn-group-lg > .btn-social-icon.btn-frame :first-child, .btn-group-lg > .btn-social-icon.btn-frame-blue :first-child, .btn-group-lg > .btn-social-icon.btn-frame-red :first-child, .btn-group-lg > .btn-social-icon.btn-frame-yellow :first-child, .btn-group-lg > .btn-social-icon.btn-frame-green :first-child, .btn-group-lg > .btn-social-icon.btn-frame-orange :first-child, .btn-group-lg > .btn-social-icon.btn-frame-darkgrey :first-child, .btn-group-lg > .btn-social.btn-red :first-child, .btn-group-lg > .btn-social.btn-frame :first-child, .btn-group-lg > .btn-social.btn-frame-blue :first-child, .btn-group-lg > .btn-social.btn-frame-red :first-child, .btn-group-lg > .btn-social.btn-frame-yellow :first-child, .btn-group-lg > .btn-social.btn-frame-green :first-child, .btn-group-lg > .btn-social.btn-frame-orange :first-child, .btn-group-lg > .btn-social.btn-frame-darkgrey :first-child, .btn-lg.btn-social-icon :first-child {
       line-height: 45px;
       width: 45px;
       font-size: 1.8em; }
-  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-group-sm > .btn-social-icon.btn-red, .btn-group-sm > .btn-social.btn-red, .btn-sm.btn-social-icon {
+  .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-group-sm > .btn-social-icon.btn-red, .btn-group-sm > .btn-social-icon.btn-frame, .btn-group-sm > .btn-social-icon.btn-frame-blue, .btn-group-sm > .btn-social-icon.btn-frame-red, .btn-group-sm > .btn-social-icon.btn-frame-yellow, .btn-group-sm > .btn-social-icon.btn-frame-green, .btn-group-sm > .btn-social-icon.btn-frame-orange, .btn-group-sm > .btn-social-icon.btn-frame-darkgrey, .btn-group-sm > .btn-social.btn-red, .btn-group-sm > .btn-social.btn-frame, .btn-group-sm > .btn-social.btn-frame-blue, .btn-group-sm > .btn-social.btn-frame-red, .btn-group-sm > .btn-social.btn-frame-yellow, .btn-group-sm > .btn-social.btn-frame-green, .btn-group-sm > .btn-social.btn-frame-orange, .btn-group-sm > .btn-social.btn-frame-darkgrey, .btn-sm.btn-social-icon {
     padding-left: 38px; }
-    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-group-sm > .btn-social-icon.btn-red :first-child, .btn-group-sm > .btn-social.btn-red :first-child, .btn-sm.btn-social-icon :first-child {
+    .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-group-sm > .btn-social-icon.btn-red :first-child, .btn-group-sm > .btn-social-icon.btn-frame :first-child, .btn-group-sm > .btn-social-icon.btn-frame-blue :first-child, .btn-group-sm > .btn-social-icon.btn-frame-red :first-child, .btn-group-sm > .btn-social-icon.btn-frame-yellow :first-child, .btn-group-sm > .btn-social-icon.btn-frame-green :first-child, .btn-group-sm > .btn-social-icon.btn-frame-orange :first-child, .btn-group-sm > .btn-social-icon.btn-frame-darkgrey :first-child, .btn-group-sm > .btn-social.btn-red :first-child, .btn-group-sm > .btn-social.btn-frame :first-child, .btn-group-sm > .btn-social.btn-frame-blue :first-child, .btn-group-sm > .btn-social.btn-frame-red :first-child, .btn-group-sm > .btn-social.btn-frame-yellow :first-child, .btn-group-sm > .btn-social.btn-frame-green :first-child, .btn-group-sm > .btn-social.btn-frame-orange :first-child, .btn-group-sm > .btn-social.btn-frame-darkgrey :first-child, .btn-sm.btn-social-icon :first-child {
       line-height: 28px;
       width: 28px;
       font-size: 1.4em; }
-  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-group-xs > .btn-social-icon.btn-red, .btn-group-xs > .btn-social.btn-red, .btn-xs.btn-social-icon {
+  .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-group-xs > .btn-social-icon.btn-red, .btn-group-xs > .btn-social-icon.btn-frame, .btn-group-xs > .btn-social-icon.btn-frame-blue, .btn-group-xs > .btn-social-icon.btn-frame-red, .btn-group-xs > .btn-social-icon.btn-frame-yellow, .btn-group-xs > .btn-social-icon.btn-frame-green, .btn-group-xs > .btn-social-icon.btn-frame-orange, .btn-group-xs > .btn-social-icon.btn-frame-darkgrey, .btn-group-xs > .btn-social.btn-red, .btn-group-xs > .btn-social.btn-frame, .btn-group-xs > .btn-social.btn-frame-blue, .btn-group-xs > .btn-social.btn-frame-red, .btn-group-xs > .btn-social.btn-frame-yellow, .btn-group-xs > .btn-social.btn-frame-green, .btn-group-xs > .btn-social.btn-frame-orange, .btn-group-xs > .btn-social.btn-frame-darkgrey, .btn-xs.btn-social-icon {
     padding-left: 30px; }
-    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-group-xs > .btn-social-icon.btn-red :first-child, .btn-group-xs > .btn-social.btn-red :first-child, .btn-xs.btn-social-icon :first-child {
+    .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-group-xs > .btn-social-icon.btn-red :first-child, .btn-group-xs > .btn-social-icon.btn-frame :first-child, .btn-group-xs > .btn-social-icon.btn-frame-blue :first-child, .btn-group-xs > .btn-social-icon.btn-frame-red :first-child, .btn-group-xs > .btn-social-icon.btn-frame-yellow :first-child, .btn-group-xs > .btn-social-icon.btn-frame-green :first-child, .btn-group-xs > .btn-social-icon.btn-frame-orange :first-child, .btn-group-xs > .btn-social-icon.btn-frame-darkgrey :first-child, .btn-group-xs > .btn-social.btn-red :first-child, .btn-group-xs > .btn-social.btn-frame :first-child, .btn-group-xs > .btn-social.btn-frame-blue :first-child, .btn-group-xs > .btn-social.btn-frame-red :first-child, .btn-group-xs > .btn-social.btn-frame-yellow :first-child, .btn-group-xs > .btn-social.btn-frame-green :first-child, .btn-group-xs > .btn-social.btn-frame-orange :first-child, .btn-group-xs > .btn-social.btn-frame-darkgrey :first-child, .btn-xs.btn-social-icon :first-child {
       line-height: 20px;
       width: 20px;
       font-size: 1.2em; }
@@ -4957,17 +4957,17 @@ button.close {
     border: none;
     text-align: center;
     width: 100% !important; }
-  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .btn-group-lg > .btn-social-icon.btn-red {
+  .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn, .btn-group-lg > .btn-social-icon.btn-red, .btn-group-lg > .btn-social-icon.btn-frame, .btn-group-lg > .btn-social-icon.btn-frame-blue, .btn-group-lg > .btn-social-icon.btn-frame-red, .btn-group-lg > .btn-social-icon.btn-frame-yellow, .btn-group-lg > .btn-social-icon.btn-frame-green, .btn-group-lg > .btn-social-icon.btn-frame-orange, .btn-group-lg > .btn-social-icon.btn-frame-darkgrey {
     height: 45px;
     width: 45px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .btn-group-sm > .btn-social-icon.btn-red {
+  .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn, .btn-group-sm > .btn-social-icon.btn-red, .btn-group-sm > .btn-social-icon.btn-frame, .btn-group-sm > .btn-social-icon.btn-frame-blue, .btn-group-sm > .btn-social-icon.btn-frame-red, .btn-group-sm > .btn-social-icon.btn-frame-yellow, .btn-group-sm > .btn-social-icon.btn-frame-green, .btn-group-sm > .btn-social-icon.btn-frame-orange, .btn-group-sm > .btn-social-icon.btn-frame-darkgrey {
     height: 30px;
     width: 30px;
     padding-left: 0;
     padding-right: 0; }
-  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .btn-group-xs > .btn-social-icon.btn-red {
+  .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn, .btn-group-xs > .btn-social-icon.btn-red, .btn-group-xs > .btn-social-icon.btn-frame, .btn-group-xs > .btn-social-icon.btn-frame-blue, .btn-group-xs > .btn-social-icon.btn-frame-red, .btn-group-xs > .btn-social-icon.btn-frame-yellow, .btn-group-xs > .btn-social-icon.btn-frame-green, .btn-group-xs > .btn-social-icon.btn-frame-orange, .btn-group-xs > .btn-social-icon.btn-frame-darkgrey {
     height: 22px;
     width: 22px;
     padding-left: 0;
@@ -6939,6 +6939,97 @@ body {
 .no-js .landing header.hidden-xs, .no-js .headline, .no-js .searchbar.hidden-xs {
   opacity: 1; }
 
+.label-red {
+  background-color: #fe5b5f; }
+
+.label-discount {
+  background-color: #ff6600; }
+
+.btn-red {
+  background-color: #fe5b5f;
+  color: white;
+  border: none; }
+  .btn-red:hover {
+    color: #818896; }
+
+.btn-red a, a .btn-red {
+  color: white;
+  text-decoration: none; }
+  .btn-red a:hover, a .btn-red:hover {
+    text-decoration: none;
+    color: #818896; }
+
+.formControl .media-object.thumbnail {
+  width: 58px;
+  height: 58px; }
+
+.home-pro {
+  margin-top: -120px;
+  width: 100%;
+  min-height: 100%;
+  background: url(../img/background-pro-trans.jpg);
+  background-position: no-repeat center center fixed;
+  padding-top: 100px;
+  background-size: cover;
+  font-size: 14px; }
+  @media screen and (min-width: 768px) {
+    .home-pro {
+      height: 100%;
+      margin-bottom: 0px; } }
+  .home-pro li {
+    color: white; }
+    .home-pro li span, .home-pro li strong {
+      color: black; }
+  .home-pro .row.first {
+    margin-top: 40px; }
+    .home-pro .row.first .claim {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      margin-bottom: 100px; }
+      @media screen and (max-width: 768px) {
+        .home-pro .row.first .claim {
+          margin-top: 150px; } }
+      .home-pro .row.first .claim h3 {
+        margin-top: 0px;
+        font-size: 20px; }
+      .home-pro .row.first .claim .form-group {
+        margin-bottom: 5px; }
+      .home-pro .row.first .claim .btn-red {
+        font-weight: 200; }
+      .home-pro .row.first .claim .contact {
+        margin-top: 40px; }
+        .home-pro .row.first .claim .contact a {
+          color: black;
+          font-weight: bold; }
+    @media screen and (max-width: 768px) {
+      .home-pro .row.first h1 {
+        font-size: 20px;
+        text-align: center; }
+      .home-pro .row.first li {
+        font-size: 18px; } }
+
+.star-rating {
+  /* clear */
+  zoom: 1;
+  /* for IE 6/7 */ }
+  .star-rating .star {
+    display: block;
+    width: 22px;
+    height: 22px;
+    float: left;
+    background-image: url(../img/star-rating/22/stars.png); }
+    .star-rating .star:hover {
+      cursor: pointer; }
+    .star-rating .star.on {
+      background-position: top; }
+    .star-rating .star.off {
+      background-position: bottom; }
+  .star-rating:before, .star-rating:after {
+    content: '';
+    display: table; }
+  .star-rating:after {
+    clear: both; }
+
 #content {
   height: inherit; }
 
@@ -7052,99 +7143,8 @@ div#app {
   max-width: 100%;
   min-height: none; }
 
-.label-red {
-  background-color: #fe5b5f; }
-
-.label-discount {
-  background-color: #ff6600; }
-
-.btn-red {
-  background-color: #fe5b5f;
-  color: white;
-  border: none; }
-  .btn-red:hover {
-    color: #818896; }
-
-.btn-red a, a .btn-red {
-  color: white;
-  text-decoration: none; }
-  .btn-red a:hover, a .btn-red:hover {
-    text-decoration: none;
-    color: #818896; }
-
-.formControl .media-object.thumbnail {
-  width: 58px;
-  height: 58px; }
-
-.home-pro {
-  margin-top: -120px;
-  width: 100%;
-  min-height: 100%;
-  background: url(../img/background-pro-trans.jpg);
-  background-position: no-repeat center center fixed;
-  padding-top: 100px;
-  background-size: cover;
-  font-size: 14px; }
-  @media screen and (min-width: 768px) {
-    .home-pro {
-      height: 100%;
-      margin-bottom: 0px; } }
-  .home-pro li {
-    color: white; }
-    .home-pro li span, .home-pro li strong {
-      color: black; }
-  .home-pro .row.first {
-    margin-top: 40px; }
-    .home-pro .row.first .claim {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 30px;
-      margin-bottom: 100px; }
-      @media screen and (max-width: 768px) {
-        .home-pro .row.first .claim {
-          margin-top: 150px; } }
-      .home-pro .row.first .claim h3 {
-        margin-top: 0px;
-        font-size: 20px; }
-      .home-pro .row.first .claim .form-group {
-        margin-bottom: 5px; }
-      .home-pro .row.first .claim .btn-red {
-        font-weight: 200; }
-      .home-pro .row.first .claim .contact {
-        margin-top: 40px; }
-        .home-pro .row.first .claim .contact a {
-          color: black;
-          font-weight: bold; }
-    @media screen and (max-width: 768px) {
-      .home-pro .row.first h1 {
-        font-size: 20px;
-        text-align: center; }
-      .home-pro .row.first li {
-        font-size: 18px; } }
-
-.star-rating {
-  /* clear */
-  zoom: 1;
-  /* for IE 6/7 */ }
-  .star-rating .star {
-    display: block;
-    width: 22px;
-    height: 22px;
-    float: left;
-    background-image: url(../img/star-rating/22/stars.png); }
-    .star-rating .star:hover {
-      cursor: pointer; }
-    .star-rating .star.on {
-      background-position: top; }
-    .star-rating .star.off {
-      background-position: bottom; }
-  .star-rating:before, .star-rating:after {
-    content: '';
-    display: table; }
-  .star-rating:after {
-    clear: both; }
-
 /*////////////////////////////////
-	    V A R I A B L E S 
+	    V A R I A B L E S
 ////////////////////////////////*/
 /*////////////////////////////////
 	      H E L P E R S
@@ -7224,6 +7224,64 @@ span.arrow-right {
   @media screen and (max-width: 991px) {
     span.arrow-right {
       margin-top: 20px; } }
+
+div.connect-button div span {
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 1.8em;
+  padding-top: 14px;
+  padding-left: 60px; }
+div.connect-button .facebook {
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 60px;
+  margin: 10px;
+  background-color: #6686D0; }
+  div.connect-button .facebook:before {
+    content: " ";
+    background: url(../../img/facebook@2x.png) no-repeat center center;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px; }
+div.connect-button .twitter {
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 60px;
+  margin: 10px;
+  background-color: #14C4F8; }
+  div.connect-button .twitter:before {
+    content: " ";
+    background: url(../../img/twitter@2x.png) no-repeat center center;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px; }
+
+.btn-frame, .btn-frame-blue, .btn-frame-red, .btn-frame-yellow, .btn-frame-green, .btn-frame-orange, .btn-frame-darkgrey {
+  border-color: #c4c4c4;
+  border-width: 2px;
+  border-top-width: 4px;
+  border-radius: 0px;
+  min-height: 50px;
+  padding-top: 10px; }
+  .btn-frame.btn-frame, .btn-frame-blue.btn-frame, .btn-frame-red.btn-frame, .btn-frame-yellow.btn-frame, .btn-frame-green.btn-frame, .btn-frame-orange.btn-frame, .btn-frame-darkgrey.btn-frame {
+    border-top-width: 2px; }
+  .btn-frame.btn-frame-blue, .btn-frame-blue.btn-frame-blue, .btn-frame-red.btn-frame-blue, .btn-frame-yellow.btn-frame-blue, .btn-frame-green.btn-frame-blue, .btn-frame-orange.btn-frame-blue, .btn-frame-darkgrey.btn-frame-blue {
+    border-top-color: blue; }
+  .btn-frame.btn-frame-red, .btn-frame-blue.btn-frame-red, .btn-frame-red.btn-frame-red, .btn-frame-yellow.btn-frame-red, .btn-frame-green.btn-frame-red, .btn-frame-orange.btn-frame-red, .btn-frame-darkgrey.btn-frame-red {
+    border-top-color: red; }
+  .btn-frame.btn-frame-orange, .btn-frame-blue.btn-frame-orange, .btn-frame-red.btn-frame-orange, .btn-frame-yellow.btn-frame-orange, .btn-frame-green.btn-frame-orange, .btn-frame-orange.btn-frame-orange, .btn-frame-darkgrey.btn-frame-orange {
+    border-top-color: orange; }
+  .btn-frame.btn-frame-yellow, .btn-frame-blue.btn-frame-yellow, .btn-frame-red.btn-frame-yellow, .btn-frame-yellow.btn-frame-yellow, .btn-frame-green.btn-frame-yellow, .btn-frame-orange.btn-frame-yellow, .btn-frame-darkgrey.btn-frame-yellow {
+    border-top-color: yellow; }
+  .btn-frame.btn-frame-green, .btn-frame-blue.btn-frame-green, .btn-frame-red.btn-frame-green, .btn-frame-yellow.btn-frame-green, .btn-frame-green.btn-frame-green, .btn-frame-orange.btn-frame-green, .btn-frame-darkgrey.btn-frame-green {
+    border-top-color: green; }
+  .btn-frame.btn-frame-darkgrey, .btn-frame-blue.btn-frame-darkgrey, .btn-frame-red.btn-frame-darkgrey, .btn-frame-yellow.btn-frame-darkgrey, .btn-frame-green.btn-frame-darkgrey, .btn-frame-orange.btn-frame-darkgrey, .btn-frame-darkgrey.btn-frame-darkgrey {
+    border-top-color: #595959; }
 
 .cal {
   max-width: 100%;
@@ -8490,7 +8548,7 @@ section.home-section {
         section.home-section figure figcaption a:visited, section.home-section figure figcaption a:active, section.home-section figure figcaption a:focus {
           color: white;
           text-decoration: none; }
-  section.home-section .btn.home-cta, section.home-section .home-cta.btn-red {
+  section.home-section .btn.home-cta, section.home-section .home-cta.btn-red, section.home-section .home-cta.btn-frame, section.home-section .home-cta.btn-frame-blue, section.home-section .home-cta.btn-frame-red, section.home-section .home-cta.btn-frame-yellow, section.home-section .home-cta.btn-frame-green, section.home-section .home-cta.btn-frame-orange, section.home-section .home-cta.btn-frame-darkgrey {
     display: block;
     margin: 40px auto 0;
     float: none !important; }
@@ -9948,41 +10006,6 @@ section.home-footer .row > div {
             border-color: #efeff0;
             cursor: not-allowed;
             opacity: .7; }
-    #content.reservation .main-content div.connect-button div span {
-      display: block;
-      text-align: center;
-      color: white;
-      font-size: 1.8em;
-      padding-top: 14px;
-      padding-left: 60px; }
-    #content.reservation .main-content div.connect-button .facebook {
-      cursor: pointer;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 60px;
-      margin: 10px;
-      background-color: #6686D0; }
-      #content.reservation .main-content div.connect-button .facebook:before {
-        content: " ";
-        background: url(../../img/facebook@2x.png) no-repeat center center;
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        margin-left: 5px; }
-    #content.reservation .main-content div.connect-button .twitter {
-      cursor: pointer;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 60px;
-      margin: 10px;
-      background-color: #14C4F8; }
-      #content.reservation .main-content div.connect-button .twitter:before {
-        content: " ";
-        background: url(../../img/twitter@2x.png) no-repeat center center;
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        margin-left: 5px; }
 
 #content.reservation.bookingForm {
   color: #595959; }
@@ -10146,6 +10169,43 @@ section.home-footer .row > div {
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
 
+#content.reservation.confirmation .row .infoFrame {
+  margin-top: 25px;
+  border-color: #c4c4c4;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  overflow: auto; }
+  #content.reservation.confirmation .row .infoFrame div.separate:first-child {
+    border-right: solid;
+    border-width: 1px;
+    border-color: #c4c4c4; }
+  #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) {
+    border-left: solid;
+    border-width: 1px;
+    border-color: #c4c4c4;
+    left: -1px; }
+#content.reservation.confirmation .row .buttonPanel a {
+  margin-top: 5px;
+  text-align: center; }
+  #content.reservation.confirmation .row .buttonPanel a:first-child {
+    margin-right: 4%; }
+  #content.reservation.confirmation .row .buttonPanel a:first-child, #content.reservation.confirmation .row .buttonPanel a:nth-child(2) {
+    width: 48%;
+    float: left; }
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(3) {
+    margin-left: 16%;
+    margin-right: 8%; }
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), #content.reservation.confirmation .row .buttonPanel a:nth-child(4) {
+    width: 30%;
+    margin-bottom: 5px;
+    float: left; }
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(5) {
+    width: 30%;
+    display: block;
+    clear: both;
+    margin-left: 35%; }
+
 .connect-form {
   padding-top: 1px;
   margin-top: 15px;
@@ -10174,41 +10234,6 @@ section.home-footer .row > div {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px; }
-  .connect-form div.connect-button div span {
-    display: block;
-    text-align: center;
-    color: white;
-    font-size: 1.8em;
-    padding-top: 14px;
-    padding-left: 60px; }
-  .connect-form div.connect-button .facebook {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 60px;
-    margin: 10px;
-    background-color: #6686D0; }
-    .connect-form div.connect-button .facebook:before {
-      content: " ";
-      background: url(../../img/facebook@2x.png) no-repeat center center;
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      margin-left: 5px; }
-  .connect-form div.connect-button .twitter {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 60px;
-    margin: 10px;
-    background-color: #14C4F8; }
-    .connect-form div.connect-button .twitter:before {
-      content: " ";
-      background: url(../../img/twitter@2x.png) no-repeat center center;
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      margin-left: 5px; }
   .connect-form a.full {
     display: block;
     width: 100%;

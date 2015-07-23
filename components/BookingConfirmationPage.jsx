@@ -32,14 +32,16 @@ var BookingConfirmationPage = React.createClass({
             var address  = business.address;
             return (
                 <PublicLayout context={this.props.context} customClass="booking confirmation">
-                    <div className="container reservation" id="content" >
+                    <div className="container reservation confirmation" id="content" >
                         <div className="row">
                             <div className="main-content col-md-9 col-sm-12 pull-right">
                                 {this.renderVerif(booking)}
-                                {this.renderBookingInfo(booking)}
-                                {this.renderBusinessInfo(business, address)}
+                                <div className="infoFrame">
+                                    {this.renderBookingInfo(booking)}
+                                    {this.renderBusinessInfo(business, address)}
+                                </div>
                                 {this.renderButtons()}
-                                <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
+                                {/*<a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
                                 <div className="clearfix"></div>
                                 <hr />
                                 <div className="row">
@@ -72,7 +74,7 @@ var BookingConfirmationPage = React.createClass({
                                             <dd>{booking.phoneNumber}</dd>
                                         </dl>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                             <LeftColumn context={this.props.context} business={business} />
                         </div>
@@ -118,11 +120,11 @@ var BookingConfirmationPage = React.createClass({
         if (booking.status == BookingStatus.NOT_CONFIRMED)
             status = <p className="orange">Vérification sms</p>
         if (booking.status == BookingStatus.CANCELLED)
-            status = <p className="red">Réservation confirmée</p>
+            status = <p className="red">Réservation annulée</p>
         if (booking.discount)
             discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
         return (
-            <div>
+            <div className="col-xs-8 separate">
                 {status}
                 <ul>
                     <li>Le {moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</li>
@@ -134,9 +136,13 @@ var BookingConfirmationPage = React.createClass({
     },
     renderBusinessInfo: function(business, address) {
         return (
-            <div>
-                <p>Le coiffeur</p>
-                {address.street} {address.zipCode} {address.city}
+            <div className="col-xs-4 separate">
+                <div>
+                    <p>{business.name}</p>
+                    {address.street} {address.zipCode} {address.city}
+                    <br />
+                    <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
+                </div>
                 <Picture picture={business.pictures[0]}
                            resolution={{width: 50, height: 50}}
                            placeholder="/images/placeholder-55.png" />
@@ -146,21 +152,20 @@ var BookingConfirmationPage = React.createClass({
         );
     },
     renderButtons: function() {
+        var register = {};
         if (!this.props.currentUser)
-            return (
-                <div>
-                    <Link route="registration_page" query={{bookingId: this.props.booking.id}}>
-                        Nous vous invitons également à vous inscrire
-                    </Link>
-                    <Link route="home">
-                        Retour à l'accueil
-                    </Link>
-                    <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
-                </div>
-            );
-        return(
-            <div>
-                <Link route="home">
+            register = (
+                <Link route="registration_page" className="btn-frame-orange" query={{bookingId: this.props.booking.id}}>
+                    S'inscrire
+                </Link>
+                );
+        return (
+            <div className="buttonPanel">
+                <a role="button" className="btn-frame-red" onClick={this.cancelled}>Annuler</a>
+                <a role="button" className="btn-frame-blue">Ajouter à mon calendrier</a>
+                {register}
+                <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="btn-frame-darkgrey" target="_blank" >Télécharger l'application</a>
+                <Link route="home" className="btn-frame-green">
                     Retour à l'accueil
                 </Link>
             </div>
@@ -176,15 +181,19 @@ var BookingConfirmationPage = React.createClass({
             </div>
         );
     },
+    cancelled: function (e) {
+        e.preventDefault();
+
+        this.context.executeAction(BookingActions.cancelBooking, {
+            bookingId: this.props.booking.id
+        });
+    },
     handleSubmitCodeClick: function (e) {
         e.preventDefault();
 
-        var bookingId = this.props.booking.id;
-        var checkCode = this.refs.checkCode.getValue();
-
         this.context.executeAction(BookingActions.submitBookingCheckCode, {
-            bookingId: bookingId,
-            checkCode: checkCode
+            bookingId: this.props.booking.id,
+            checkCode: this.refs.checkCode.getValue()
         });
     }
 });

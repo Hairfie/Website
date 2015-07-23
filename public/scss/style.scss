@@ -23,15 +23,18 @@ body {
     }
 }
 
-@import "temp";
 
+
+// LUCAS  BELOW
 @import "various/colors";
 @import "various/homePro";
 @import "various/starRating";
 
-// LUCAS  BELOW
+@import "temp";
 
+//variables
 @import "partials/variables";
+
 @import "partials/helpers";
 @import "partials/buttons";
 @import "partials/calendar";

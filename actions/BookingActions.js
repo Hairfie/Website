@@ -26,6 +26,20 @@ module.exports = {
                 }
             );
     },
+    cancelBooking: function(context, booking) {
+        return context.hairfieApi
+            .delete('/bookings/' + booking.bookingId)
+            .then(
+                function (booking) {
+                    context.dispatch(Actions.RECEIVE_BOOKING, booking);
+                }, function () {
+                    return context.executeAction(
+                        NotificationActions.notifyFailure,
+                        'Un problème est survenu'
+                    );
+                }
+            );
+    },
     submitBookingCheckCode: function (context, params) {
         return context.hairfieApi
             .post('/bookings/'+params.bookingId+'/userCheck', { userCheckCode: params.checkCode })
