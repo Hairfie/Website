@@ -10,9 +10,9 @@ var ga = require('../services/analytics');
 var Input = require('react-bootstrap/Input');
 var Button = require('react-bootstrap/Button');
 var BookingActions = require('../actions/BookingActions');
+var AuthActions = require('../actions/AuthActions');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
-
 var BookingStatus = require('../constants/BookingConstants').Status;
 
 var BookingConfirmationPage = React.createClass({
@@ -36,6 +36,7 @@ var BookingConfirmationPage = React.createClass({
                         <div className="row">
                             <div className="main-content col-md-9 col-sm-12 pull-right">
                                 {this.renderVerif(booking)}
+                                {this.renderRegistration(booking)}
                                 <div className="infoFrame">
                                     {this.renderBookingInfo(booking)}
                                     {this.renderBusinessInfo(business, address)}
@@ -143,31 +144,20 @@ var BookingConfirmationPage = React.createClass({
                     <br />
                     <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                 </div>
-                <Picture picture={business.pictures[0]}
-                           resolution={{width: 50, height: 50}}
-                           placeholder="/images/placeholder-55.png" />
-                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
-                <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
+                <Link route="business" className="btn btn-red" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
+                <Link route="business_hairfies" className="btn btn-red" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
             </div>
         );
     },
     renderButtons: function() {
-        var register = {};
-        if (!this.props.currentUser)
-            register = (
-                <Link route="registration_page" className="btn-frame-orange" query={{bookingId: this.props.booking.id}}>
-                    S'inscrire
-                </Link>
-                );
         return (
             <div className="buttonPanel">
-                <a role="button" className="btn-frame-red" onClick={this.cancelled}>Annuler</a>
-                <a role="button" className="btn-frame-blue">Ajouter à mon calendrier</a>
-                {register}
+                <a role="button" className="btn-white red" onClick={this.cancelled}>Annuler</a>
+                <a role="button" className="btn-blue">Ajouter à mon calendrier</a>
                 <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" target="_blank" >
                     <Picture picture={{url: '/images/btn-app-dl.png'}} height='50px' />
                 </a>
-                <Link route="home" className="btn-frame-green">
+                <Link route="home" className="btn-green">
                     Retour à l'accueil
                 </Link>
             </div>
@@ -183,12 +173,37 @@ var BookingConfirmationPage = React.createClass({
             </div>
         );
     },
+    renderRegistration: function() {
+        if (!this.props.currentUser)
+            return (
+                <div>
+                    <h3 className="orange">Complétez votre inscription</h3>
+                    <Input type="password" ref="password" placeholder="Choisissez un mot de passe"/>
+                    <Button onClick={this.handleRegisterClick} className="btn-orange">S'inscrire</Button>
+                </div>
+            );
+    },
     cancelled: function (e) {
         e.preventDefault();
 
         this.context.executeAction(BookingActions.cancelBooking, {
             bookingId: this.props.booking.id
         });
+    },
+    handleRegisterClick: function(e) {
+        e.preventDefault();
+
+        var userInfo = {
+            email: this.props.booking.email,
+            firstName: this.props.booking.firstName,
+            lastName: this.props.booking.lastName,
+            password: this.refs.password.getValue(),
+            gender: this.props.booking.gender,
+            newsletter: false,
+            phoneNumber: this.props.booking.phoneNumber,
+            withNavigate: false
+        };
+        this.context.executeAction(AuthActions.register, userInfo);
     },
     handleSubmitCodeClick: function (e) {
         e.preventDefault();

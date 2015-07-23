@@ -1,8 +1,24 @@
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red {
-    background-color: $red;
+.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white {
+    @extend .btn;
+    &.btn-red {
+        background-color: $hairfie;
+    }
+    &.btn-blue {
+        background-color: blue;
+    }
+    &.btn-green {
+        background-color: green;
+    }
+    &.btn-orange {
+        background-color: orange;
+    }
+    &.btn-white {
+        background-color: white;
+    }
+    border: none;
     color: white;
     font-family: $font-main;
     font-weight: $regular;
@@ -11,20 +27,35 @@
 
     @include transition(all 0.3s ease-out);
 
-    &:hover {
-        background-color: darken($red, 5%);
+    &:hover, &:focus {
+        &.btn-red {
+        background-color: darken($hairfie, 5%);
         color: white;
+        }
+        &.btn-blue {
+        background-color: darken(blue, 5%);
+        color: white;
+        }
+        &.btn-orange {
+        background-color: darken(orange, 5%);
+        color: white;
+        }
+        &.btn-green {
+        background-color: darken(green, 5%);
+        color: white;
+        }
+        &.btn-white {
+        background-color: darken(white, 5%);
+        color: white;
+        }
+
+    }
+    &:hover {
         @include transition(all 0.3s ease-out);
     }
-
     &:active {
         // OLD LESS :  #gradient@include vertical(darken($red, 8%); darken($red, 5%); 10%;100%;);
         // FIXME @include gradient-vertical(darken($red, 8%) darken($red, 5%) 10% 100%);
-    }
-
-    &:focus {
-        background-color: darken($red, 5%);
-        color: white;
     }
 }
 .carousel-control {
