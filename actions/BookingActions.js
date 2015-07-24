@@ -1,22 +1,30 @@
 'use strict';
 
+var _ = require('lodash');
 var Actions = require('../constants/Actions');
 var NavigationActions = require('./NavigationActions');
 var NotificationActions = require('./NotificationActions');
 var ga = require('../services/analytics');
+var Promise = require('q');
 
 module.exports = {
     submitBooking: function (context, booking) {
+        var newsletter = booking.newsletter || false;
+        console.log(newsletter);
+
         return context.hairfieApi
             .post('/bookings', booking)
             .then(
                 function (booking) {
                     ga('send', 'event', 'Booking', 'Confirm');
 
-                    return context.executeAction(NavigationActions.navigate, {
+                    return Promise.all([
+                        context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter})),
+                        context.executeAction(NavigationActions.navigate, {
                         route: 'booking_confirmation',
                         params: { bookingId: booking.id }
-                    });
+                        })
+                    ]);
                 },
                 function () {
                     return context.executeAction(
@@ -27,11 +35,12 @@ module.exports = {
             );
     },
     cancelBooking: function(context, booking) {
+        var newsletter = booking.newsletter || false;
         return context.hairfieApi
             .delete('/bookings/' + booking.bookingId)
             .then(
                 function (booking) {
-                    context.dispatch(Actions.RECEIVE_BOOKING, booking);
+                    context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter}));
                 }, function () {
                     return context.executeAction(
                         NotificationActions.notifyFailure,
@@ -41,10 +50,11 @@ module.exports = {
             );
     },
     submitBookingCheckCode: function (context, params) {
+        var newsletter = params.newsletter || false;
         return context.hairfieApi
             .post('/bookings/'+params.bookingId+'/userCheck', { userCheckCode: params.checkCode })
             .then(function (booking) {
-                context.dispatch(Actions.RECEIVE_BOOKING, booking);
+                context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter}))
             });
     }
 };

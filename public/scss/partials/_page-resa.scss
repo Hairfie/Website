@@ -369,6 +369,16 @@
 #content.reservation.confirmation {
 	.row {
 		.infoFrame {
+			p {
+				font-size: 1.2em;
+			}
+			ul {
+				list-style: initial;
+  				list-style-position: inside;
+				li {
+					font-size: 1.2em;
+				}
+			}
 			margin-top: 25px;
 			border-color: $grey;
 			border-width: 1px;
@@ -386,6 +396,10 @@
 					border-width: 1px;
 					border-color: $grey;
 					left: -1px;
+					padding-right: 0;
+					a {
+						font-size: 1.4em;
+					}
 				}
 			}
 		}

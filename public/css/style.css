@@ -10189,6 +10189,13 @@ section.home-footer .row > div {
   border-style: solid;
   padding: 10px;
   overflow: auto; }
+  #content.reservation.confirmation .row .infoFrame p {
+    font-size: 1.2em; }
+  #content.reservation.confirmation .row .infoFrame ul {
+    list-style: initial;
+    list-style-position: inside; }
+    #content.reservation.confirmation .row .infoFrame ul li {
+      font-size: 1.2em; }
   #content.reservation.confirmation .row .infoFrame div.separate:first-child {
     border-right: solid;
     border-width: 1px;
@@ -10197,7 +10204,10 @@ section.home-footer .row > div {
     border-left: solid;
     border-width: 1px;
     border-color: #c4c4c4;
-    left: -1px; }
+    left: -1px;
+    padding-right: 0; }
+    #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) a {
+      font-size: 1.4em; }
 #content.reservation.confirmation .row .buttonPanel a {
   margin-top: 5px;
   text-align: center; }

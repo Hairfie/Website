@@ -20,6 +20,7 @@ var BookingConfirmationPage = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function () {
+        console.log(this.props.booking);
         if(_.isUndefined(this.props.booking)) {
             return (
                 <PublicLayout customClass="booking confirmation">
@@ -117,11 +118,9 @@ var BookingConfirmationPage = React.createClass({
     },
     renderBookingInfo: function(booking) {
         var discount;
-        var status = <p className="green">Réservation Confirmée</p>;
-        if (booking.status == BookingStatus.NOT_CONFIRMED)
-            status = <p className="orange">Vérification sms</p>
+        var status = <h4 className="green">Réservation Confirmée</h4>;
         if (booking.status == BookingStatus.CANCELLED)
-            status = <p className="red">Réservation annulée</p>
+            status = <h4 className="red">Réservation Annulée</h4>
         if (booking.discount)
             discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
         return (
@@ -139,13 +138,12 @@ var BookingConfirmationPage = React.createClass({
         return (
             <div className="col-xs-4 separate">
                 <div>
-                    <p>{business.name}</p>
-                    {address.street} {address.zipCode} {address.city}
-                    <br />
+                    <h5>{business.name}</h5>
+                    <p>{address.street} {address.zipCode} {address.city}</p>
                     <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                 </div>
                 <Link route="business" className="btn btn-red" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
-                <Link route="business_hairfies" className="btn btn-red" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
+                <Link route="business_hairfies" className="btn btn-red pull-right" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
             </div>
         );
     },
@@ -187,7 +185,8 @@ var BookingConfirmationPage = React.createClass({
         e.preventDefault();
 
         this.context.executeAction(BookingActions.cancelBooking, {
-            bookingId: this.props.booking.id
+            bookingId: this.props.booking.id,
+            newsletter: this.props.booking.newsletter
         });
     },
     handleRegisterClick: function(e) {
@@ -199,7 +198,7 @@ var BookingConfirmationPage = React.createClass({
             lastName: this.props.booking.lastName,
             password: this.refs.password.getValue(),
             gender: this.props.booking.gender,
-            newsletter: false,
+            newsletter: this.props.booking.newsletter,
             phoneNumber: this.props.booking.phoneNumber,
             withNavigate: false
         };
@@ -210,7 +209,8 @@ var BookingConfirmationPage = React.createClass({
 
         this.context.executeAction(BookingActions.submitBookingCheckCode, {
             bookingId: this.props.booking.id,
-            checkCode: this.refs.checkCode.getValue()
+            checkCode: this.refs.checkCode.getValue(),
+            newsletter: this.props.booking.newsletter
         });
     }
 });
