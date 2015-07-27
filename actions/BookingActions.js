@@ -10,7 +10,6 @@ var Promise = require('q');
 module.exports = {
     submitBooking: function (context, booking) {
         var newsletter = booking.newsletter || false;
-        console.log(newsletter);
 
         return context.hairfieApi
             .post('/bookings', booking)
