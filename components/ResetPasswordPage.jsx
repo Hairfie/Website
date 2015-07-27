@@ -14,9 +14,12 @@ var ResetPasswordPage =  React.createClass({
     render: function () {
         return (
             <Layout context={this.props.context}>
-                <h2>Réinitialisation de votre mot de passe</h2>
-                <Input type="password" ref="password" label="Saisissez un nouveau mot de passe" />
-                <Button onClick={this.submit}>Valider</Button>
+                <div className="connect-form col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+                    <h2>Réinitialisation de votre mot de passe</h2>
+                    <p style={{fontSize: '1.4em'}}>Saisissez un nouveau mot de passe:</p>
+                    <Input type="password" ref="password" />
+                    <a role="button" onClick={this.submit} className="btn btn-red full">Valider</a>
+                </div>
             </Layout>
         );
     },
@@ -32,7 +35,7 @@ ResetPasswordPage = connectToStores(ResetPasswordPage, [
     'AuthStore'
 ], function (stores, props) {
     return {
-        token: stores.AuthStore.getById(props.route.params.tokenId)
+        token: stores.AuthStore.getToken()
     };
 });
 

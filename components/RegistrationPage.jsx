@@ -2,7 +2,6 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
 var PublicLayout = require('./PublicLayout.jsx');
 var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormRegistration = require('./Auth/FormRegistration.jsx');
@@ -31,6 +30,7 @@ var RegistrationPage = React.createClass({
 	}
 });
 
+<<<<<<< HEAD
 RegistrationPage = connectToStores(RegistrationPage, [
     'AuthStore',
     'BookingStore'
@@ -41,4 +41,6 @@ RegistrationPage = connectToStores(RegistrationPage, [
     };
 });
 
+=======
+>>>>>>> d56d01a50f30fb0168aaf3581cf7fcccd415c367
 module.exports = RegistrationPage;

@@ -2,7 +2,6 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
 var PublicLayout = require('./PublicLayout.jsx');
 var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormConnect = require('./Auth/FormConnect.jsx');
@@ -27,14 +26,6 @@ var ConnectPage = React.createClass({
             </PublicLayout>
             );
     }
-});
-
-ConnectPage = connectToStores(ConnectPage, [
-    'AuthStore'
-], function (stores, props) {
-    return {
-        token: stores.AuthStore.getToken()
-    };
 });
 
 module.exports = ConnectPage;

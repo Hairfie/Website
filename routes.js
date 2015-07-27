@@ -25,6 +25,12 @@ module.exports = {
         action: PageActions.resetPassword,
         handler: require('./components/ResetPasswordPage.jsx')
     },
+    ask_reset_password: {
+        title: 'Mot de passe oublié',
+        path: '/fr/ask-reset-password',
+        method: 'get',
+        handler: require('./components/AskResetPasswordPage.jsx')
+    },
     write_verified_business_review: {
         title: 'Donnez votre avis',
         path: '/fr/write-business-review/:businessReviewRequestId',

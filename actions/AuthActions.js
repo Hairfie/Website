@@ -14,6 +14,21 @@ var _storeTokenAndGetUser = function(context, token) {
 };
 
 module.exports = {
+    askResetPassword: function (context, payload) {
+        return context.hairfieApi
+            .post('/users/reset', {email: payload.email})
+            .then(function () {
+                context.executeAction(
+                    NotificationActions.notifySuccess,
+                    'Vous allez recevoir, un mail pour vous permettre de changer votre mot de passe'
+                );
+            }, function () {
+                context.executeAction(
+                    NotificationActions.notifyFailure,
+                    'Votre requête pour obtenir un nouveau mot de passe a échoué, vérifiez bien que vous avez rentré un adresse e-mail valide'
+                );
+            })
+    },
     resetPassword: function (context, payload) {
         var token    = payload.token;
         var password = payload.password;
@@ -28,10 +43,22 @@ module.exports = {
                     ),
                     context.executeAction(
                         NavigationActions.navigate,
-                        { route: 'home' }
+                        { route: 'connect_page' }
                     )
                 ]);
-            });
+            }, function () {
+                return Promise.all([
+                    context.executeAction(
+                        NotificationActions.notifyFailure,
+                        "Votre mot de passe n'a pas pu être changé, veuillez réessayer"
+                    ),
+                    context.executeAction(
+                        NavigationActions.navigate,
+                        { route: 'connect_page' }
+                    )
+                ]);
+            }
+        );
     },
     emailConnect: function(context, payload) {
         var withNavigate = payload.withNavigate;

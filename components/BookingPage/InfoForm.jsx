@@ -66,7 +66,7 @@ module.exports = React.createClass({
                 <div className="clearfix"></div>
                 <hr />
                 {this.renderIfNotConnected()}
-                <div >
+                <div>
                     <div className="col-sm-8 confirm-bloc-form">
                         <div className="form-group">
                             <form role="form" className="form">
