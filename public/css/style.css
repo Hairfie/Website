@@ -1413,13 +1413,13 @@ pre {
   .row:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left; }
 
 .col-xs-1 {
@@ -1428,7 +1428,7 @@ pre {
 .col-xs-2 {
   width: 16.6666666667%; }
 
-.col-xs-3 {
+.col-xs-3, #content.reservation.confirmation .row div.calendarPanel a {
   width: 25%; }
 
 .col-xs-4 {
@@ -7155,7 +7155,7 @@ div#app {
   color: orange !important; }
 
 .black {
-  color: black; }
+  color: black !important; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -7183,7 +7183,7 @@ div#app {
   .btn-red.btn-red, .btn-blue.btn-red, .btn-orange.btn-red, .btn-green.btn-red, .btn-white.btn-red {
     background-color: #fe5b5f; }
   .btn-red.btn-blue, .btn-blue.btn-blue, .btn-orange.btn-blue, .btn-green.btn-blue, .btn-white.btn-blue {
-    background-color: blue; }
+    background-color: #84F0F3; }
   .btn-red.btn-green, .btn-blue.btn-green, .btn-orange.btn-green, .btn-green.btn-green, .btn-white.btn-green {
     background-color: green; }
   .btn-red.btn-orange, .btn-blue.btn-orange, .btn-orange.btn-orange, .btn-green.btn-orange, .btn-white.btn-orange {
@@ -7194,7 +7194,7 @@ div#app {
     background-color: #fe4246;
     color: white; }
   .btn-red:hover.btn-blue, .btn-red:focus.btn-blue, .btn-blue:hover.btn-blue, .btn-blue:focus.btn-blue, .btn-orange:hover.btn-blue, .btn-orange:focus.btn-blue, .btn-green:hover.btn-blue, .btn-green:focus.btn-blue, .btn-white:hover.btn-blue, .btn-white:focus.btn-blue {
-    background-color: #0000e6;
+    background-color: #6dedf1;
     color: white; }
   .btn-red:hover.btn-orange, .btn-red:focus.btn-orange, .btn-blue:hover.btn-orange, .btn-blue:focus.btn-orange, .btn-orange:hover.btn-orange, .btn-orange:focus.btn-orange, .btn-green:hover.btn-orange, .btn-green:focus.btn-orange, .btn-white:hover.btn-orange, .btn-white:focus.btn-orange {
     background-color: #e69500;
@@ -10182,13 +10182,51 @@ section.home-footer .row > div {
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
 
+#content.reservation.confirmation .row input.registration {
+  width: 60%;
+  float: left; }
+#content.reservation.confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue {
+  margin-top: 10px;
+  width: 48%;
+  margin-bottom: 10px; }
+  @media screen and (max-width: 767px) {
+    #content.reservation.confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue {
+      width: 100%; } }
+#content.reservation.confirmation .row div.calendarPanel {
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 10px; }
+  #content.reservation.confirmation .row div.calendarPanel a {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: bold;
+    left: 10px; }
+    #content.reservation.confirmation .row div.calendarPanel a:before {
+      content: " ";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      display: block;
+      left: -10px; }
+  #content.reservation.confirmation .row div.calendarPanel a:first-child:before {
+    background: url(../../img/icons/googleCalendar.png) no-repeat center center;
+    background-size: contain; }
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before {
+    background: url(../../img/icons/yahooCalendar.png) no-repeat center center;
+    background-size: contain; }
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before {
+    background: url(../../img/icons/outlook.png) no-repeat center center;
+    background-size: contain; }
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before {
+    background: url(../../img/icons/icals.png) no-repeat center center;
+    background-size: contain; }
 #content.reservation.confirmation .row .infoFrame {
   margin-top: 25px;
   border-color: #c4c4c4;
   border-width: 1px;
   border-style: solid;
-  padding: 10px;
-  overflow: auto; }
+  padding: 10px; }
   #content.reservation.confirmation .row .infoFrame p {
     font-size: 1.2em; }
   #content.reservation.confirmation .row .infoFrame ul {
@@ -10196,6 +10234,12 @@ section.home-footer .row > div {
     list-style-position: inside; }
     #content.reservation.confirmation .row .infoFrame ul li {
       font-size: 1.2em; }
+  #content.reservation.confirmation .row .infoFrame a {
+    margin-top: 5px;
+    width: 48%; }
+  @media screen and (max-width: 767px) {
+    #content.reservation.confirmation .row .infoFrame a.businessButton {
+      width: 100%; } }
   #content.reservation.confirmation .row .infoFrame div.separate:first-child {
     border-right: solid;
     border-width: 1px;

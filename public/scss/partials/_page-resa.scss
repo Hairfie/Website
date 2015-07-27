@@ -368,6 +368,63 @@
 
 #content.reservation.confirmation {
 	.row {
+		input.registration {
+			width: 60%;
+			float: left;
+		}
+		a.btn-white, a.btn-blue {
+			margin-top: 10px;
+			width: 48%;
+			margin-bottom: 10px;
+			@media screen and (max-width: $screen-xs-max) {
+				width: 100%;
+			}
+		}
+		div.calendarPanel {
+			overflow: auto;
+			width: 100%;
+			margin-bottom: 10px;
+			a {
+				@extend .col-xs-3;
+				text-align: center;
+				display: inline-block;
+				font-size: 1.3em;
+				font-weight: bold;
+				left: 10px;
+				&:before {
+					content: " ";
+					position: absolute;
+            		width: 20px;
+            		height: 20px;
+            		display: block;
+            		left: -10px;
+				}
+			}
+			a:first-child {
+				&:before {
+            		background: url(../../img/icons/googleCalendar.png) no-repeat center center;
+            		background-size: contain;
+        		}
+			}
+			a:nth-child(2) {
+				&:before {
+        			background: url(../../img/icons/yahooCalendar.png) no-repeat center center;
+            		background-size: contain;
+        		}
+			}
+			a:nth-child(3) {
+				&:before {
+        			background: url(../../img/icons/outlook.png) no-repeat center center;
+            		background-size: contain;
+        		}
+			}
+			a:nth-child(4) {
+				&:before {
+            		background: url(../../img/icons/icals.png) no-repeat center center;
+            		background-size: contain;
+        		}
+			}
+		}
 		.infoFrame {
 			p {
 				font-size: 1.2em;
@@ -379,12 +436,20 @@
 					font-size: 1.2em;
 				}
 			}
+			a {
+				margin-top: 5px;
+				width: 48%;
+			}
+			@media screen and (max-width: $screen-xs-max) {
+				a.businessButton {
+					width: 100%;
+				}
+			}
 			margin-top: 25px;
 			border-color: $grey;
 			border-width: 1px;
 			border-style: solid;
 			padding: 10px;
-			overflow: auto;
 			div.separate {
 				&:first-child {
 					border-right: solid;

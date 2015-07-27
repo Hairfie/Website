@@ -14,7 +14,7 @@
 	color: orange !important;
 }
 .black {
-	color: black;
+	color: black !important;
 }
 @mixin transition($transition)
 {

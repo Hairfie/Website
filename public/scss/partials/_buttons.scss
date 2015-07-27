@@ -7,7 +7,7 @@
         background-color: $hairfie;
     }
     &.btn-blue {
-        background-color: blue;
+        background-color: $lightblue;
     }
     &.btn-green {
         background-color: green;
@@ -33,7 +33,7 @@
         color: white;
         }
         &.btn-blue {
-        background-color: darken(blue, 5%);
+        background-color: darken($lightblue, 5%);
         color: white;
         }
         &.btn-orange {

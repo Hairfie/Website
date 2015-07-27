@@ -14,77 +14,31 @@ var AuthActions = require('../actions/AuthActions');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var BookingStatus = require('../constants/BookingConstants').Status;
+var AddToCalendarButton = require('./Partial/AddToCalendarButton.jsx');
+
 
 var BookingConfirmationPage = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
     },
     render: function () {
-        console.log(this.props.booking);
-        if(_.isUndefined(this.props.booking)) {
-            return (
-                <PublicLayout customClass="booking confirmation">
-                    <div className="loading" />
-                </PublicLayout>
-            )
-        } else {
-            var booking  = this.props.booking;
-            var business = booking.business;
-            var address  = business.address;
-            return (
-                <PublicLayout context={this.props.context} customClass="booking confirmation">
-                    <div className="container reservation confirmation" id="content" >
-                        <div className="row">
-                            <div className="main-content col-md-9 col-sm-12 pull-right">
-                                {this.renderVerif(booking)}
-                                {this.renderRegistration(booking)}
-                                <div className="infoFrame">
-                                    {this.renderBookingInfo(booking)}
-                                    {this.renderBusinessInfo(business, address)}
-                                </div>
-                                {this.renderButtons()}
-                                {/*<a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="pull-right" target="_blank" >Télécharger l'application</a>
-                                <div className="clearfix"></div>
-                                <hr />
-                                <div className="row">
-                                    <div className="col-sm-6">
-                                        <h3>Votre demande</h3>
-                                        <dl className="dl-horizontal">
-                                            <dt>Date :</dt>
-                                            <dd>{moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</dd>
-                                            <dt>Horaire :</dt>
-                                            <dd>{moment(booking.timeslot).format("HH:mm")}</dd>
-                                            {this.renderDiscount(booking)}
-                                            <dt>Note :</dt>
-                                            <dd>{booking.comment}</dd>
-                                            <dt>Nom du salon :</dt>
-                                            <dd>{business.name}</dd>
-                                            <dt>Adresse :</dt>
-                                            <dd>{address.street} {address.zipCode} {address.city}</dd>
-                                            <dt>Téléphone :</dt>
-                                            <dd>{business.phoneNumber}</dd>
-                                        </dl>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <h3>Vos coordonnées</h3>
-                                        <dl className="dl-horizontal">
-                                            <dt>Votre Nom :</dt>
-                                            <dd>{booking.firstName} {booking.lastName}</dd>
-                                            <dt>Votre Email :</dt>
-                                            <dd>{booking.email}</dd>
-                                            <dt>Numéro de téléphone :</dt>
-                                            <dd>{booking.phoneNumber}</dd>
-                                        </dl>
-                                    </div>
-                                </div>*/}
-                            </div>
-                            <LeftColumn context={this.props.context} business={business} />
+        var booking  = this.props.booking;
+        var business = booking.business;
+        var address  = business.address;
+        return (
+            <PublicLayout context={this.props.context} customClass="booking confirmation">
+                <div className="container reservation confirmation" id="content" >
+                    <div className="row">
+                        <div className="main-content col-md-9 col-sm-12 pull-right">
+                            {this.renderVerif(booking)}
+                            {this.renderInfoFrame(booking, business, address)}
                         </div>
+                        <LeftColumn context={this.props.context} business={business} />
                     </div>
-                    <div className="row" />
-                </PublicLayout>
-            );
-        }
+                </div>
+                <div className="row" />
+            </PublicLayout>
+        );
     },
     renderVerif: function(booking) {
         if (booking.status == BookingStatus.REQUEST) {
@@ -99,10 +53,10 @@ var BookingConfirmationPage = React.createClass({
                     </p>
                 </div>
             );
-        } else {
+        } else if (booking.status == BookingStatus.NOT_CONFIRMED) {
             return (
                 <div className="legend conf">
-                    <h3 className="green">Demande de vérification !</h3>
+                    <h3 className="orange">Demande de vérification !</h3>
                     <p>
                         Votre demande a bien été prise en compte,
                         cependant, par mesure de sécurité,
@@ -114,7 +68,34 @@ var BookingConfirmationPage = React.createClass({
                     <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
                 </div>
             );
-        }
+        } else if (booking.status == BookingStatus.CANCELLED)
+            return (
+                <div className="legend conf">
+                    <h3 className="green">Réservation annulé</h3>
+                </div>
+            );
+    },
+    renderInfoFrame: function(booking, business, address) {
+        if (booking.status == BookingStatus.NOT_CONFIRMED) return;
+        return (
+            <div>
+                {this.renderRegistration(booking)}
+                <div className="infoFrame col-xs-12">
+                    {this.renderBookingInfo(booking)}
+                    {this.renderBusinessInfo(business, address)}
+                </div>
+                <a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Annuler</a>
+                <AddToCalendarButton
+                    className="btn-blue black col-xs-5 pull-right"
+                    eventTitle="Hairfie: Réservation"
+                    description={"Réservation au " + address.street + ' ' + address.zipCode + ' ' + address.city + " le " + moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}
+                    date={booking.timeslot}
+                    duration={60}
+                    address={address.street + ' ' + address.zipCode + ' ' + address.city}>
+                    + Ajouter à mon calendrier
+                </AddToCalendarButton>
+            </div>
+        );
     },
     renderBookingInfo: function(booking) {
         var discount;
@@ -142,22 +123,8 @@ var BookingConfirmationPage = React.createClass({
                     <p>{address.street} {address.zipCode} {address.city}</p>
                     <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                 </div>
-                <Link route="business" className="btn btn-red" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
-                <Link route="business_hairfies" className="btn btn-red pull-right" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
-            </div>
-        );
-    },
-    renderButtons: function() {
-        return (
-            <div className="buttonPanel">
-                <a role="button" className="btn-white red" onClick={this.cancelled}>Annuler</a>
-                <a role="button" className="btn-blue">Ajouter à mon calendrier</a>
-                <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" target="_blank" >
-                    <Picture picture={{url: '/images/btn-app-dl.png'}} height='50px' />
-                </a>
-                <Link route="home" className="btn-green">
-                    Retour à l'accueil
-                </Link>
+                <Link route="business" className="btn btn-red businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
+                <Link route="business_hairfies" className="btn btn-red pull-right businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
             </div>
         );
     },
@@ -176,8 +143,8 @@ var BookingConfirmationPage = React.createClass({
             return (
                 <div>
                     <h3 className="orange">Complétez votre inscription</h3>
-                    <Input type="password" ref="password" placeholder="Choisissez un mot de passe"/>
-                    <Button onClick={this.handleRegisterClick} className="btn-orange">S'inscrire</Button>
+                    <Input type="password" ref="password" placeholder="Choisissez un mot de passe" className="registration"/>
+                    <Button onClick={this.handleRegisterClick} className="btn-red pull-right col-xs-4">S'inscrire</Button>
                 </div>
             );
     },
