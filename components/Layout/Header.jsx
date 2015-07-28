@@ -16,7 +16,7 @@ var Header = React.createClass({
         headerClassName += ' hidden-xs';
         var proLinkNode;
         var withProLink = _.isBoolean(this.props.withProLink) ? this.props.withProLink : true;
-        
+
         if(withProLink) {
             proLinkNode = (<li><Link route="home_pro">Vous êtes coiffeur ?</Link></li>);
         }
