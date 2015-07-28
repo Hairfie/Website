@@ -6,36 +6,13 @@ var connectToStores = require('../lib/connectToStores');
 var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
+var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
 var dayPositions = {MON: 0, TUE: 1, WED: 2, THU: 3, FRI: 4, SAT: 5, SUN: 6};
 
 function sortDays(days) { return _.sortBy(days, function (day) { return dayPositions[day] }); }
 function frenchDay(day) { return dayFrenchNames[day]; }
-function displayName(n) { return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.' }
-function initials(n) { return (n.firstName || '').substr(0, 1)+''+(n.lastName || '').substr(0, 1) }
-
-var HairdresserPicture = React.createClass({
-    render: function () {
-        if (!this.props.hairdresser.picture) return this.renderDefault();
-
-        return <Picture picture={this.props.hairdresser.picture}
-                     options={{
-                        width: 340,
-                        height: 340,
-                        crop: 'thumb',
-                        gravity: 'faces'
-                     }}
-                    placeholder="/images/placeholder-640.png"
-                            alt={this.getAlt()} />;
-    },
-    renderDefault: function () {
-        return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
-    },
-    getAlt: function () {
-        return 'Photo de '+displayName(this.props.hairdresser);
-    }
-});
 
 var BusinessPage = React.createClass({
     render: function () {
@@ -59,14 +36,15 @@ var BusinessPage = React.createClass({
             <section>
                 <h3>Nos Coiffeurs</h3>
                 <div className="row">
-                    {_.map(hairdressers, function (hairdresser) {
+                    <Hairdressers hairdressers={hairdressers} />
+                    {/*{_.map(hairdressers, function (hairdresser) {
                         return (
                             <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
                                 <HairdresserPicture hairdresser={hairdresser} />
                                 <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
                             </div>
                         );
-                    })}
+                    })}*/}
                 </div>
             </section>
         );
