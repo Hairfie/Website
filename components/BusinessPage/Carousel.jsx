@@ -29,7 +29,7 @@ module.exports = React.createClass({
                 </div>
                 {this.renderControlLeft()}
                 {this.renderControlRight()}
-                <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
+                {/*<Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />*/}
             </div>
         );
     },

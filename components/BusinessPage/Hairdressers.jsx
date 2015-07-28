@@ -20,7 +20,7 @@ var HairdresserPicture = React.createClass({
                         gravity: 'faces'
                      }}
                     placeholder="/images/placeholder-640.png"
-                            alt={this.getAlt()} {...this.props} />;
+                            alt={this.getAlt()} onClick={this.props.openGallery} />;
     },
     renderDefault: function () {
         return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
@@ -37,22 +37,24 @@ module.exports = React.createClass({
         }
     },
     render: function () {
+        var pictures = [];
         var items = _.map(this.props.hairdressers, function (hairdresser, i) {
+            pictures.push(hairdresser.picture);
             return (
                 <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
-                    <HairdresserPicture hairdresser={hairdresser} onClick={this.openGallery} />
+                    <HairdresserPicture hairdresser={hairdresser} openGallery={this.openGallery} />
                     <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
                 </div>
             );
         }, this);
-        console.log(this);
+        console.log(this, pictures);
 
         return (
             <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">
-                <div id="hairdressers">
+                <div id="hairdressers" role="listbox">
                     {items}
                 </div>
-                {/*<Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />*/}
+                <Gallery pictures={pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
             </div>
         );
     },

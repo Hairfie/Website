@@ -144,7 +144,7 @@ BusinessPage = connectToStores(BusinessPage, [
     'StationStore',
 ], function (stores, props) {
     var business = stores.BusinessStore.getById(props.route.params.businessId);
-
+    debugger;
     return {
         business: business,
         services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),
