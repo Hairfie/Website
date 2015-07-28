@@ -27,8 +27,8 @@ module.exports = React.createClass({
             return;
         this.setState({
             firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
-            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "", 
-            email: nextProps.currentUser.email ? nextProps.currentUser.email : "", 
+            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "",
+            email: nextProps.currentUser.email ? nextProps.currentUser.email : "",
             phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : "",
             userGender: nextProps.currentUser.gender ? nextProps.currentUser.gender : ""
         });
@@ -44,8 +44,8 @@ module.exports = React.createClass({
             formConnect: false,
             cgu: false,
             firstName: this.props.currentUser.firstName ? this.props.currentUser.firstName : "",
-            lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "", 
-            email: this.props.currentUser.email ? this.props.currentUser.email : "", 
+            lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "",
+            email: this.props.currentUser.email ? this.props.currentUser.email : "",
             phoneNumber: this.props.currentUser.phoneNumber ? this.props.currentUser.phoneNumber : "",
             userGender: this.props.currentUser.gender ? this.props.currentUser.gender : ""
         };
@@ -65,7 +65,7 @@ module.exports = React.createClass({
                 <div className="clearfix"></div>
                 <hr />
                 {this.renderIfNotConnected()}
-                <div >
+                <div>
                     <div className="col-sm-8 confirm-bloc-form">
                         <div className="form-group">
                             <form role="form" className="form">

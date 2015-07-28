@@ -98,7 +98,7 @@ module.exports = {
             .get('/accessTokens/'+route.get('params').get('tokenId'))
             .catch(function (e) { if (e.status !== 404) throw e; })
             .then(function (token) {
-                if (!token || token.userId != route.params.userId) { // invalid URL or token has expired
+                if (!token || token.userId != route.get('params').get('userId')) { // invalid URL or token has expired
                     var body = [
                         'Le jeton de réinitialisation est expiré.',
                         'Si vous êtes toujours à la recherche de votre mot de passe,',
