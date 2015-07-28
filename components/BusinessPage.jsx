@@ -6,7 +6,7 @@ var connectToStores = require('../lib/connectToStores');
 var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
-{/*var Hairdressers = require('./BusinessPage/Hairdressers.jsx');*/}
+var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
 var dayPositions = {MON: 0, TUE: 1, WED: 2, THU: 3, FRI: 4, SAT: 5, SUN: 6};
@@ -36,7 +36,7 @@ var BusinessPage = React.createClass({
             <section>
                 <h3>Nos Coiffeurs</h3>
                 <div className="row">
-                    {/*<Hairdressers hairdressers={hairdressers} />*/}
+                    <Hairdressers hairdressers={hairdressers} />
                 </div>
             </section>
         );
@@ -136,7 +136,6 @@ BusinessPage = connectToStores(BusinessPage, [
     'StationStore',
 ], function (stores, props) {
     var business = stores.BusinessStore.getById(props.route.params.businessId);
-    debugger;
     return {
         business: business,
         services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),

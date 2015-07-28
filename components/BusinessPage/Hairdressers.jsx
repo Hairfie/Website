@@ -20,7 +20,7 @@ var HairdresserPicture = React.createClass({
                         gravity: 'faces'
                      }}
                     placeholder="/images/placeholder-640.png"
-                            alt={this.getAlt()}/>;
+                            alt={this.getAlt()} {...this.props} />;
     },
     renderDefault: function () {
         return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
@@ -33,35 +33,42 @@ var HairdresserPicture = React.createClass({
 module.exports = React.createClass({
     getInitialState: function () {
         return {
-            openGallery: false
+            openGallery: false,
+            index: 0
         }
     },
     render: function () {
-        var pictures = [];
-        var items = _.map(this.props.hairdressers, function (hairdresser, i) {
-            pictures.push(hairdresser.picture);
+        var pictures = _.map(this.props.hairdressers, function(hairdresser) {
+            return hairdresser.picture;
+        });
+        var titles = _.map(this.props.hairdressers, function(hairdresser) {
+            return displayName(hairdresser);
+        });
+        var items = _.map(this.props.hairdressers, function (hairdresser, index) {
             return (
                 <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
-                    <HairdresserPicture hairdresser={hairdresser} />
+                    <HairdresserPicture hairdresser={hairdresser} onClick={this.openGallery.bind(null, index)} />
                     <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
                 </div>
             );
         }, this);
-        console.log(this, pictures);
 
         return (
             <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">
-                <div id="hairdressers" role="listbox">
+                <div id="carousel-inner" role="listbox">
                     {items}
                 </div>
-                <Gallery pictures={pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
+                <Gallery pictures={pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} titles={titles} index={this.state.index} />
             </div>
         );
     },
-    openGallery: function(e) {
+    openGallery: function(index, e) {
         e.preventDefault();
-        if(this.props.pictures) {
-            this.setState({openGallery: true});
+        if(this.props.hairdressers) {
+            this.setState({
+                openGallery: true,
+                index: index
+            });
         }
     },
     handleCloseGallery: function () {
