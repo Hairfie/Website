@@ -6,7 +6,7 @@ var connectToStores = require('../lib/connectToStores');
 var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
-var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
+{/*var Hairdressers = require('./BusinessPage/Hairdressers.jsx');*/}
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
 var dayPositions = {MON: 0, TUE: 1, WED: 2, THU: 3, FRI: 4, SAT: 5, SUN: 6};
@@ -36,15 +36,7 @@ var BusinessPage = React.createClass({
             <section>
                 <h3>Nos Coiffeurs</h3>
                 <div className="row">
-                    <Hairdressers hairdressers={hairdressers} />
-                    {/*{_.map(hairdressers, function (hairdresser) {
-                        return (
-                            <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
-                                <HairdresserPicture hairdresser={hairdresser} />
-                                <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
-                            </div>
-                        );
-                    })}*/}
+                    {/*<Hairdressers hairdressers={hairdressers} />*/}
                 </div>
             </section>
         );

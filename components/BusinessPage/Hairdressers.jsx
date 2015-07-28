@@ -20,7 +20,7 @@ var HairdresserPicture = React.createClass({
                         gravity: 'faces'
                      }}
                     placeholder="/images/placeholder-640.png"
-                            alt={this.getAlt()} onClick={this.props.openGallery} />;
+                            alt={this.getAlt()}/>;
     },
     renderDefault: function () {
         return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
@@ -42,7 +42,7 @@ module.exports = React.createClass({
             pictures.push(hairdresser.picture);
             return (
                 <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
-                    <HairdresserPicture hairdresser={hairdresser} openGallery={this.openGallery} />
+                    <HairdresserPicture hairdresser={hairdresser} />
                     <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
                 </div>
             );
@@ -58,24 +58,6 @@ module.exports = React.createClass({
             </div>
         );
     },
-/*    renderControlLeft: function() {
-        if(!this.props.pictures) return;
-        return (
-            <a onClick={this.openGallery} className="left carousel-control" href="#carousel-salon" role="button">
-                <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span className="sr-only">Précédent</span>
-            </a>
-        );
-    },
-    renderControlRight: function() {
-        if(!this.props.pictures) return;
-        return (
-            <a onClick={this.openGallery} className="right carousel-control" href="#carousel-salon" role="button">
-                <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span className="sr-only">Suivant</span>
-            </a>
-        );
-    },*/
     openGallery: function(e) {
         e.preventDefault();
         if(this.props.pictures) {
