@@ -5,6 +5,7 @@ var _ = require('lodash');
 var PublicLayout = require('./PublicLayout.jsx');
 var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormRegistration = require('./Auth/FormRegistration.jsx');
+var connectToStores = require('../lib/connectToStores');
 var Link = require('./Link.jsx');
 
 var RegistrationPage = React.createClass({
@@ -17,12 +18,12 @@ var RegistrationPage = React.createClass({
 					<FacebookButton withNavigate={true}/>
 					<h4>ou remplissez ce formulaire</h4>
 					<span className="separator"/>
-					<FormRegistration 
-						withNavigate={true} 
-						firstName={this.props.booking.firstName || ""} 
-						lastName={this.props.booking.lastName || ""} 
-						phoneNumber={this.props.booking.phoneNumber || ""} 
-						email={this.props.booking.email || ""} 
+					<FormRegistration
+						withNavigate={true}
+						firstName={this.props.booking.firstName || ""}
+						lastName={this.props.booking.lastName || ""}
+						phoneNumber={this.props.booking.phoneNumber || ""}
+						email={this.props.booking.email || ""}
 						gender={this.props.booking.gender || ""} />
 				</div>
 			</PublicLayout>
@@ -30,17 +31,12 @@ var RegistrationPage = React.createClass({
 	}
 });
 
-<<<<<<< HEAD
 RegistrationPage = connectToStores(RegistrationPage, [
-    'AuthStore',
     'BookingStore'
 ], function (stores, props) {
     return {
-        token: stores.AuthStore.getToken(),
         booking: props.route.query.bookingId ? stores.BookingStore.getById(props.route.query.bookingId) : {}
     };
 });
 
-=======
->>>>>>> d56d01a50f30fb0168aaf3581cf7fcccd415c367
 module.exports = RegistrationPage;
