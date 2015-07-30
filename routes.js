@@ -105,5 +105,11 @@ module.exports = {
         path: '/fr/register',
         method: 'get',
         handler: require('./components/RegistrationPage.jsx')
+    },
+    user_page: {
+        title: 'Page utilisateur',
+        path: '/fr/utilisateur/:userId',
+        method: 'get',
+        handler: require('./components/UserPage.jsx')
     }
 };

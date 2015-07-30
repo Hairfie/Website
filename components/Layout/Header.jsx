@@ -80,7 +80,7 @@ Header = connectToStores(Header, [
     var token = stores.AuthStore.getToken();
     return {
         token: token,
-        currentUser: stores.UserStore.getUserInfo(token.userId)
+        currentUser: stores.UserStore.getById(token.userId)
     };
 });
 

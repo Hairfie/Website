@@ -36,7 +36,7 @@ module.exports = createStore({
     getHairfieLikedById: function(hairfieId) {
         return this.userInfo.likeHairfie[hairfieId] || false;
     },
-    getUserInfo: function(userId) {
+    getById: function(userId) {
         return this.userInfo[userId];
     }
 });
