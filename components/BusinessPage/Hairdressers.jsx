@@ -12,7 +12,7 @@ var HairdresserPicture = React.createClass({
     render: function () {
         if (!this.props.hairdresser.picture) return this.renderDefault();
 
-        return <Picture picture={this.props.hairdresser.picture}
+        return <Picture role="button" picture={this.props.hairdresser.picture}
                      options={{
                         width: 340,
                         height: 340,
@@ -42,9 +42,13 @@ module.exports = React.createClass({
             return hairdresser.picture;
         });
         var titles = _.map(this.props.hairdressers, function(hairdresser) {
+            if (!hairdresser.picture) return;
             return displayName(hairdresser);
         });
-        var items = _.map(this.props.hairdressers, function (hairdresser, index) {
+        var index = -1;
+        var items = _.map(this.props.hairdressers, function (hairdresser) {
+            if (hairdresser.picture)
+                index++;
             return (
                 <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
                     <HairdresserPicture hairdresser={hairdresser} onClick={this.openGallery.bind(null, index)} />
@@ -52,7 +56,8 @@ module.exports = React.createClass({
                 </div>
             );
         }, this);
-
+        pictures = _.compact(pictures);
+        titles = _.compact(titles);
         return (
             <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">
                 <div id="carousel-inner" role="listbox">
