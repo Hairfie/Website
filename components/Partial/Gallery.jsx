@@ -14,12 +14,21 @@ module.exports = React.createClass({
         if(!this.props.isOpen && nextProps.isOpen) this.startGallery(nextProps.index);
     },
     startGallery: function(index) {
-        var links = _.map(this.props.pictures, function(picture) {
-            return {
-                href: picture.url,
-                title: picture.title,
-            };
-        });
+        if (!this.props.pictures) return;
+        if (_.isArray(this.props.pictures)) {
+            var links = _.map(this.props.pictures, function(picture) {
+                return {
+                    href: picture.url,
+                    title: picture.title,
+                };
+            });
+        }
+        else if (_.isObject(this.props.pictures)) {
+            var links = [{
+            href: this.props.pictures.url,
+            title: this.props.pictures.title
+            }];
+        }
         var options = {
             index: index || 0,
             onclosed: this.onClose,

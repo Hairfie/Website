@@ -10143,6 +10143,25 @@ section.home-footer .row > div {
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
 
+.container.user#content .short-info {
+  margin-top: 10px;
+  overflow: auto; }
+  @media screen and (max-width: 767px) {
+    .container.user#content .short-info {
+      margin-top: 100px; } }
+  .container.user#content .short-info img.ProfilePicture {
+    display: block;
+    width: 14em;
+    border-radius: 100%;
+    margin: 0 auto 20px;
+    border: 10px solid #f0f0f1; }
+.container.user#content .nav li:first-child .icon-nav {
+  background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+.container.user#content .nav li:nth-child(2) .icon-nav {
+  background: url(../images/icon-salon-nav2.jpg) no-repeat center center; }
+.container.user#content .nav li:last-child .icon-nav {
+  background: url(../images/icon-coeur.png) no-repeat center center; }
+
 .connect-form {
   padding-top: 1px;
   margin-top: 15px;

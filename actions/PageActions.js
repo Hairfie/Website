@@ -13,9 +13,11 @@ var BusinessServiceActions = require('./BusinessServiceActions');
 var PlaceActions = require('./PlaceActions');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
+var UserActions = require('./UserActions');
+var UserPageActions = require('./UserPageActions');
 var SearchUtils = require('../lib/search-utils');
 
-var RouteStore      = require('../stores/RouteStore');
+var RouteStore = require('../stores/RouteStore');
 
 module.exports = {
     home: function (context) {
@@ -113,6 +115,18 @@ module.exports = {
 
                 context.dispatch(Actions.RECEIVE_TOKEN, token);
             });
+    },
+    userHairfiePage: function (context, route) {
+        return Promise.all([
+            context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
+            context.executeAction(UserPageActions.getUserHairfie, route.get('params').get('userId'))
+        ]);
+    },
+    userReviewsPage: function (context, route) {
+        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
+    },
+    userLikesPage: function (context, route) {
+        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
     }
 };
 

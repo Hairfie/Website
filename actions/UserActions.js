@@ -11,7 +11,7 @@ var _mustBeConnected = function(context) {
     return Promise.all([
         context.executeAction(
             NotificationActions.notifyFailure,
-            "Vous devez vous connecter pour exécuter cette action"    
+            "Vous devez vous connecter pour exécuter cette action"
         ),
         context.executeAction(
             NavigationActions.navigate,
@@ -21,13 +21,27 @@ var _mustBeConnected = function(context) {
 };
 
 module.exports = {
-    getUserById: function(context, token) {
+    userConnect: function(context, token) {
         return context.hairfieApi
             .get('/users/' + token.userId, { query: { access_token: token.id }})
             .then(function (userInfo) {
                 return Promise.all ([
                     authStorage.setToken(context, token),
                     context.dispatch(Actions.RECEIVE_TOKEN, token),
+                    context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu, veuillez vous reconnecter"
+                );
+            })
+    },
+    getUserById: function(context, id) {
+        return context.hairfieApi
+            .get('/users/' + id)
+            .then(function (userInfo) {
+                return Promise.all ([
                     context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
                 ]);
             }, function () {
@@ -44,11 +58,11 @@ module.exports = {
             return;
         }
         return context.hairfieApi
-            .put('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
+            .put('/users/' + token.userId + '/liked-hairfies/' + payload.id, {hairfieId: payload.id})
             .then (function () {
                 return Promise.all([
-                        context.executeAction(HairfieActions.loadHairfie, payload.hairfieId),
-                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: true})
+                        context.executeAction(HairfieActions.loadHairfie, payload.id),
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: true})
                         ]);
             }, function() {
                 return context.executeAction(
@@ -64,11 +78,11 @@ module.exports = {
             return;
         }
         return context.hairfieApi
-            .delete('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
+            .delete('/users/' + token.userId + '/liked-hairfies/' + payload.id, {hairfieId: payload.id})
             .then (function () {
                 return Promise.all([
-                        context.executeAction(HairfieActions.loadHairfie, payload.hairfieId),
-                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: false})
+                        context.executeAction(HairfieActions.loadHairfie, payload.id),
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: false})
                         ]);
             }, function() {
                 return context.executeAction(
@@ -82,17 +96,17 @@ module.exports = {
         if (!token || !token.userId)
             return;
         return context.hairfieApi
-            .head('/users/' + token.userId + '/liked-hairfies/' + payload.hairfieId, payload)
+            .head('/users/' + token.userId + '/liked-hairfies/' + payload.id, {haifieId: payload.id })
             .then(function () {
                 return true;
             })
-            .catch(function (e) { 
+            .catch(function (e) {
                 if (e.status == 404) {
                     return false;
                 }
             })
             .then(function(isLiked) {
-                return context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {hairfieId: payload.hairfieId, isLiked: isLiked});
+                return context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: isLiked});
             })
     }
 };
