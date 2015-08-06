@@ -37,6 +37,13 @@ module.exports = {
                 );
             })
     },
+    editUser: function(context, payload) {
+        return context.hairfieApi
+            .put('/users/', payload)
+            .then(function (data) {
+                console.log(data);
+            })
+    },
     getUserById: function(context, id) {
         return context.hairfieApi
             .get('/users/' + id)

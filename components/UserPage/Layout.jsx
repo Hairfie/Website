@@ -33,6 +33,7 @@ var UserLayout = React.createClass({
                             </div>
                             <div className="col-xs-8">
                                 <h1>{this.props.user.firstName}</h1>
+                                {this.renderEdit()}
                             </div>
                         </div>
                         <ul className="nav nav-tabs" role="tablist">
@@ -61,6 +62,11 @@ var UserLayout = React.createClass({
             </PublicLayout>
         );
     },
+    renderEdit: function() {
+        if (this.props.user.id == this.props.currentUser.id)
+            return (<Link route="user_edit">(Modifier mon profil)</Link>);
+        return {};
+    },
     openGallery: function(e) {
         e.preventDefault();
         if (this.props.user.picture)
@@ -69,6 +75,16 @@ var UserLayout = React.createClass({
     handleCloseGallery: function () {
         this.setState({openGallery: false});
     }
+});
+
+UserLayout = connectToStores(UserLayout, [
+    'AuthStore',
+    'UserStore'
+], function (stores, props) {
+    var token = stores.AuthStore.getToken();
+    return {
+        currentUser: stores.UserStore.getById(token.userId)
+    };
 });
 
 module.exports = UserLayout;
