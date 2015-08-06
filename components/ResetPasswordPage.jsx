@@ -2,8 +2,8 @@
 
 var React = require('react');
 var Layout = require('./PublicLayout.jsx');
-var Input = require('react-bootstrap/Input');
-var Button = require('react-bootstrap/Button');
+var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
 var AuthActions = require('../actions/AuthActions');
 var connectToStores = require('../lib/connectToStores');
 
