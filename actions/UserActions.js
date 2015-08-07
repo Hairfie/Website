@@ -6,6 +6,7 @@ var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var authStorage = require('../services/auth-storage');
 var HairfieActions = require('./HairfieActions');
+var _ = require('lodash');
 
 var _mustBeConnected = function(context) {
     return Promise.all([
@@ -57,6 +58,61 @@ module.exports = {
                     "Un problème est survenu, veuillez vous reconnecter"
                 );
             })
+    },
+    getUserHairfies: function (context, id) {
+        var query = {
+        'filter[where][authorId]': id,
+        'filter[order]': 'createdAt DESC',
+        'filter[limit]': 12
+        };
+        return context.hairfieApi
+            .get('/hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: id, hairfies: hairfies})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    getUserLikes: function (context, id) {
+        var query = {
+        'limit': 12,
+        'userId': id
+        };
+        return context.hairfieApi
+            .get('/users/' + id + '/liked-hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_LIKES, {userId: id, hairfies: hairfies})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    getUserReviews: function (context, id) {
+        var query = {
+        /*'filter[where][authorId]': id,*/
+        'filter[order]': 'createdAt DESC'
+        };
+        return context.hairfieApi
+            .get('/businessReviews', { query: query })
+            .then(function (reviews) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_REVIEWS, {userId: id, reviews: reviews})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
     },
     hairfieLike: function(context, payload) {
         var token = context.getStore('AuthStore').getToken();

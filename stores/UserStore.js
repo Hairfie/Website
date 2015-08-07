@@ -9,9 +9,7 @@ module.exports = createStore({
     storeName: 'UserStore',
     handlers: makeHandlers({
         onReceiveUserInfo: Actions.RECEIVE_USER_INFO,
-        onDeleteUserInfo: Actions.DELETE_USER_INFO,
-        onReceiveUserLikeHairfie: Actions.RECEIVE_USER_LIKE_HAIRFIE,
-        onReceivePostedHairfie: Actions.RECEIVE_USER_POST_HAIRFIE
+        onDeleteUserInfo: Actions.DELETE_USER_INFO
     }),
     initialize: function () {
         this.userInfo = {};
@@ -24,25 +22,10 @@ module.exports = createStore({
     },
     onReceiveUserInfo: function (user) {
         this.userInfo[user.id] = user;
-        this.userInfo[user.id].likeHairfie = [];
-        this.userInfo[user.id].postHairfie = [];
-        this.userInfo[user.id].reviews = [];
         this.emitChange();
     },
     onDeleteUserInfo: function() {
         this.userInfo = {};
-        this.emitChange();
-    },
-    onReceiveUserLikeHairfie: function(payload) {
-        if (!(_.isArray(this.userInfo[payload.userId].likeHairfie)))
-            this.userInfo[payload.userId].likeHairfie = [];
-        this.userInfo[payload.userId].likeHairfie[payload.hairfie.id] = _.assign({hairfie: payload.hairfie}, {isLiked: payload.isLiked});
-        this.emitChange();
-    },
-    onReceivePostedHairfie: function (payload) {
-        if (!(_.isArray(this.userInfo[payload.userId].postHairfie)))
-            this.userInfo[payload.userId].postHairfie = [];
-        this.userInfo[payload.userId].postHairfie[payload.hairfie.id] = payload.hairfie
         this.emitChange();
     },
     onReceiveUserReview: function(payload) {
@@ -50,9 +33,6 @@ module.exports = createStore({
             this.userInfo[payload.userId].reviews = [];
         this.userInfo[payload.userId].reviews[payload.review.id] = payload.review
         this.emitChange();
-    },
-    getHairfieLikedById: function(hairfieId) {
-        return this.userInfo.likeHairfie[hairfieId] || false;
     },
     getById: function(userId) {
         return this.userInfo[userId];

@@ -25,7 +25,7 @@ var UserLayout = React.createClass({
         return (
             <PublicLayout>
                 <div className="container user" id="content">
-                    <div className="row">
+                    <div className="main-content">
                         <div className="short-info">
                             <div className="col-xs-4">
                                 <Gallery pictures={this.props.user.picture} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
@@ -36,28 +36,34 @@ var UserLayout = React.createClass({
                                 {this.renderEdit()}
                             </div>
                         </div>
-                        <ul className="nav nav-tabs" role="tablist">
-                            <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
-                                <Link route="user_hairfies" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
-                                    <span className="icon-nav"></span>
-                                    Mes Hairfies
-                                </Link>
-                            </li>
-                            <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
-                                <Link route="user_reviews" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
-                                    <span className="icon-nav"></span>
-                                    Mes Avis
-                                </Link>
-                            </li>
-                            <li className={'col-xs-4'+('likes' === this.props.tab ? ' active' : '')}>
-                                <Link route="user_likes" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
-                                    <span className="icon-nav"></span>
-                                    Mes Likes
-                                </Link>
-                            </li>
-                        </ul>
+                        <section className="user-content">
+                            <div className="row">
+                                <ul className="nav nav-tabs" role="tablist">
+                                    <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
+                                        <Link route="user_hairfies" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
+                                            <span className="icon-nav"></span>
+                                            Mes Hairfies
+                                        </Link>
+                                    </li>
+                                    <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
+                                        <Link route="user_reviews" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
+                                            <span className="icon-nav"></span>
+                                            Mes Avis
+                                        </Link>
+                                    </li>
+                                    <li className={'col-xs-4'+('likes' === this.props.tab ? ' active' : '')}>
+                                        <Link route="user_likes" params={{userId: this.props.user.id}} preserveScrollPosition={true}>
+                                            <span className="icon-nav"></span>
+                                            Mes Likes
+                                        </Link>
+                                    </li>
+                                </ul>
+                            <section>
+                            {this.props.children}
+                            </section>
+                            </div>
+                        </section>
                     </div>
-                    {this.props.children}
                 </div>
             </PublicLayout>
         );

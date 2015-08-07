@@ -110,18 +110,21 @@ module.exports = {
         title: 'Page utilisateur',
         path: '/fr/utilisateur/:userId/hairfies',
         method: 'get',
-        handler: require('./components/UserHairfiesPage.jsx')
+        handler: require('./components/UserHairfiesPage.jsx'),
+        action: PageActions.userHairfies
     },
     user_reviews: {
         title: 'Page utilisateur',
         path: '/fr/utilisateur/:userId/avis',
         method: 'get',
-        handler: require('./components/UserReviewsPage.jsx')
+        handler: require('./components/UserReviewsPage.jsx'),
+        action: PageActions.userReviews
     },
     user_likes: {
         title: 'Page utilisateur',
         path: '/fr/utilisateur/:userId/likes',
         method: 'get',
+        action: PageActions.userLikes,
         handler: require('./components/UserLikesPage.jsx')
     },
     user_edit: {

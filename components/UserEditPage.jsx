@@ -33,13 +33,13 @@ var UserEditPage = React.createClass({
                             Femme
                             </label>
                         </Input>
-                            <Input type="text" ref="firstName" placeholder="Prénom *" defaultValue={this.props.user.firstName || ""} />
-                            <Input type="text" ref="lastName" placeholder="Nom *" defaultValue={this.props.user.lastName || ""}/>
-                            <Input type="email" ref="email" placeholder="Adresse Email *" defaultValue={this.props.user.email || ""}/>
-                                <Input type="password" ref="password" placeholder="Mot de Passe *" />
-                            <Input type="text" ref="phoneNumber" placeholder="Numéro de portable (facultatif)" defaultValue={this.props.user.phoneNumber || ""} />
+                            <Input type="text" ref="firstName" placeholder="Prénom" defaultValue={this.props.user.firstName || ""} />
+                            <Input type="text" ref="lastName" placeholder="Nom" defaultValue={this.props.user.lastName || ""}/>
+                            <Input type="email" ref="email" placeholder="Adresse Email" defaultValue={this.props.user.email || ""}/>
+                                <Input type="password" ref="password" placeholder="Mot de Passe" />
+                            <Input type="text" ref="phoneNumber" placeholder="Numéro de portable" defaultValue={this.props.user.phoneNumber || ""} />
                         <div className="form-group">
-                          <ImageField ref="picture" defaultPicture={this.props.user.picture} container="users" text="(facultatif)"/>
+                          <ImageField ref="picture" defaultPicture={this.props.user.picture} container="users"/>
                         </div>
                         <a role="button" onClick={this.submit} className="btn btn-red full">Valider</a>
                     </form>

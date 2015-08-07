@@ -5,14 +5,24 @@ var _ = require('lodash');
 var connectToStores = require('../lib/connectToStores');
 var UserLayout = require('./UserPage/Layout.jsx');
 var Link = require('./Link.jsx');
+var Picture = require('./Partial/Picture.jsx');
+
+var moment = require('moment');
+require('moment/locale/fr');
+moment.locale('fr');
+
+function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
 
 var UserLikesPage = React.createClass({
     render: function () {
         return(
             <UserLayout user={this.props.user} tab="likes">
-                {/*<div className="row">
+                <h3>{this.props.user.firstName} a aimé ces Hairfies</h3>
+                <div className="hairfies">
+                    <div className="row">
                     {_.map(this.props.hairfies, function (hairfie) {
-                        var hairdresser = <p>&nbsp;</p>;
+                        hairfie = hairfie.hairfie;
+                        var hairdresser = <p></p>;
                         if (hairfie.hairdresser) {
                             hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;
                         }
@@ -21,9 +31,8 @@ var UserLikesPage = React.createClass({
                         if (hairfie.price) {
                             price = <div className="pricetag">{hairfie.price.amount}€</div>;
                         }
-
                         return (
-                            <div key={hairfie.id} className="col-md-3 single-hairfie">
+                            <div key={hairfie.id} className="col-xs-6 col-sm-4 col-md-3 single-hairfie">
                                 <figure>
                                     <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                                         <Picture picture={_.last(hairfie.pictures)}
@@ -40,17 +49,20 @@ var UserLikesPage = React.createClass({
                                     </div>
                                 );
                             }, this)}
-                        </div>*/}
+                    </div>
+                </div>
             </UserLayout>
         );
     }
 });
 
 UserLikesPage = connectToStores(UserLikesPage, [
-    'UserStore'
+    'UserStore',
+    'HairfieStore'
 ], function (stores, props) {
     return {
-        user: stores.UserStore.getById(props.route.params.userId)
+        user: stores.UserStore.getById(props.route.params.userId),
+        hairfies: stores.HairfieStore.getLikesByUser(props.route.params.userId)
     };
 });
 

@@ -14,7 +14,6 @@ var PlaceActions = require('./PlaceActions');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var UserActions = require('./UserActions');
-var UserPageActions = require('./UserPageActions');
 var SearchUtils = require('../lib/search-utils');
 
 var RouteStore = require('../stores/RouteStore');
@@ -116,17 +115,23 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_TOKEN, token);
             });
     },
-    userHairfiePage: function (context, route) {
+    userHairfies: function (context, route) {
         return Promise.all([
             context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
-            context.executeAction(UserPageActions.getUserHairfie, route.get('params').get('userId'))
+            context.executeAction(UserActions.getUserHairfies, route.get('params').get('userId'))
         ]);
     },
-    userReviewsPage: function (context, route) {
-        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
+    userReviews: function (context, route) {
+        return Promise.all([
+            context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
+            context.executeAction(UserActions.getUserReviews, route.get('params').get('userId'))
+        ]);
     },
-    userLikesPage: function (context, route) {
-        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
+    userLikes: function (context, route) {
+        return Promise.all([
+            context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
+            context.executeAction(UserActions.getUserLikes, route.get('params').get('userId'))
+        ]);
     }
 };
 
