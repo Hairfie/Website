@@ -50,15 +50,37 @@
                         width: 20%;
                     }
                 }
-                div.comments .ProfilePicture {
+                div.comments {
+                    .ProfilePicture {
                     margin-right: 25px;
                     float: left;
                     width: 60px;
                     border: none;
+                    }
+                    .separate {
+                        p {
+                            font-size: 1.2em;
+                        }
+                        a {
+                            font-size: 1.4em;
+                            margin-top: 5px;
+                            width: 48%;
+                        }
+                        @media screen and (max-width: $screen-sm-max) {
+                            a.businessButton {
+                                width: 100%;
+                            }
+                        }
+                        border-left: solid;
+                        border-width: 2px;
+                        border-color: $grey;
+                        left: -1px;
+                        padding-right: 0;
+                    }
                 }
                 padding-left: 50px;
                 padding-right: 50px;
-                @media screen and (max-width: $screen-xs-max) {
+                @media screen and (max-width: $screen-md-max) {
                     padding-left: 15px;
                     padding-right: 15px;
                 }

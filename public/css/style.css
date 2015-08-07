@@ -10181,7 +10181,22 @@ section.home-footer .row > div {
       float: left;
       width: 60px;
       border: none; }
-    @media screen and (max-width: 767px) {
+    .container.user#content .main-content section.user-content section div.comments .separate {
+      border-left: solid;
+      border-width: 2px;
+      border-color: #c4c4c4;
+      left: -1px;
+      padding-right: 0; }
+      .container.user#content .main-content section.user-content section div.comments .separate p {
+        font-size: 1.2em; }
+      .container.user#content .main-content section.user-content section div.comments .separate a {
+        font-size: 1.4em;
+        margin-top: 5px;
+        width: 48%; }
+      @media screen and (max-width: 991px) {
+        .container.user#content .main-content section.user-content section div.comments .separate a.businessButton {
+          width: 100%; } }
+    @media screen and (max-width: 1199px) {
       .container.user#content .main-content section.user-content section {
         padding-left: 15px;
         padding-right: 15px; } }

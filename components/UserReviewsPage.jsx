@@ -17,11 +17,14 @@ function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+
 
 var UserReviewsPage = React.createClass({
     render: function () {
-        console.log(this.props);
         return(
             <UserLayout user={this.props.user} tab="reviews">
                 <div className="comments">
                     {_.map(this.props.reviews, function (review) {
+                        var business = review.business;
+                        if (!business)
+                            return;
+                        var address = business.address;
                         var options = {
                         width: 340,
                         height: 340,
@@ -30,7 +33,7 @@ var UserReviewsPage = React.createClass({
                         };
                         return (
                             <div key={review.id} className="single-comment col-xs-12">
-                                <div className="col-xs-8">
+                                <div className="col-xs-8 col-md-9">
                                     <UserProfilePicture className="ProfilePicture" picture={this.props.user.picture} options={options} gender={this.props.user.gender}/>
                                     <p><strong>Note : {Math.round(review.rating / 100 * 5)}/5</strong></p>
                                     <p>{review.comment}</p>
@@ -38,7 +41,14 @@ var UserReviewsPage = React.createClass({
                                         {displayName(review)} - {moment(review.createdAt).format('LL')}
                                     </div>
                                 </div>
-                                <div className="col-xs-4">
+                                <div className="col-xs-4 col-md-3 separate">
+                                    <div>
+                                        <h5>{business.name}</h5>
+                                        <p>{address.street} {address.zipCode} {address.city}</p>
+                                        <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
+                                    </div>
+                                    <Link route="business" className="btn btn-red businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
+                                    <Link route="business_hairfies" className="btn btn-red pull-right businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
                                 </div>
                             </div>
                         );
