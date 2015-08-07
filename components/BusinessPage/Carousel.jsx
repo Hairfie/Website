@@ -20,7 +20,6 @@ module.exports = React.createClass({
                 </div>
             );
         }, this);
-
         if (items.length == 0) items.push(<div className="item active placeholder" />);
         return (
             <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">

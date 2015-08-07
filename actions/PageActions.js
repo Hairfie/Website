@@ -50,7 +50,7 @@ module.exports = {
             return Promise.all([
                 context.executeAction(StationActions.loadStationsNearby, { location: business.gps }),
                 context.executeAction(BusinessServiceActions.loadBusinessServices, { businessId: business.id }),
-                context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 }),
+                context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 })
             ]);
         });
     },

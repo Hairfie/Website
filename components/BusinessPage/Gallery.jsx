@@ -8,16 +8,27 @@ module.exports = React.createClass({
         onClose: _.noop
     },
     componentDidMount: function() {
-        if(this.props.isOpen) this.startGallery();
+        if(this.props.isOpen) this.startGallery(this.props.index);
     },
     componentWillReceiveProps: function(nextProps) {
-        if(!this.props.isOpen && nextProps.isOpen) this.startGallery();
+        if(!this.props.isOpen && nextProps.isOpen) this.startGallery(nextProps.index);
     },
-    startGallery: function() {
-        var links = _.map(this.props.pictures, 'url');
+    startGallery: function(index) {
+        var links = _.map(this.props.pictures, function(picture) {
+            return {
+                href: picture.url,
+                title: picture.title,
+            };
+        });
         var options = {
-            onclosed: this.onClose
-        };
+            index: index || 0,
+            onclosed: this.onClose,
+            onslide: function (index, slide) {
+                if (!this.props.titles) return;
+                var title = document.getElementById('blueimp-gallery').getElementsByClassName('title')[0];
+                title.appendChild(document.createTextNode(this.props.titles[index]));
+                }.bind(this)
+            };
         blueimp.Gallery(links, options);
     },
     render: function () {
@@ -25,6 +36,7 @@ module.exports = React.createClass({
             <div id="blueimp-gallery" className="blueimp-gallery blueimp-gallery-controls">
                 <div className="slides"></div>
                 <h3 className="title"></h3>
+                <p className="description"></p>
                 <a className="prev">‹</a>
                 <a className="next">›</a>
                 <a className="close">×</a>
