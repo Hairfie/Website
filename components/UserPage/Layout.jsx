@@ -70,7 +70,7 @@ var UserLayout = React.createClass({
     },
     renderEdit: function() {
         if (this.props.user.id == this.props.currentUser.id)
-            return (<Link route="user_edit">(Modifier mon profil)</Link>);
+            return (<Link style={{marginBottom: '5px'}} className="green" route="user_edit">(Modifier mon profil)</Link>);
         return {};
     },
     openGallery: function(e) {

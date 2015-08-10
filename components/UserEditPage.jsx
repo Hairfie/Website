@@ -56,16 +56,15 @@ var UserEditPage = React.createClass({
         e.preventDefault();
 
         var userInfo = {
-            email: this.refs.email.getValue(),
-            firstName: this.refs.firstName.getValue(),
-            lastName: this.refs.lastName.getValue(),
-            password: this.refs.password.getValue(),
-            gender: this.state.userGender,
-            phoneNumber: this.refs.phoneNumber.getValue(),
-            picture: this.refs.picture.getImage()
+            email: this.refs.email.getValue() || undefined,
+            firstName: this.refs.firstName.getValue() || undefined,
+            lastName: this.refs.lastName.getValue() || undefined,
+            password: this.refs.password.getValue() || undefined,
+            gender: this.state.userGender || undefined,
+            phoneNumber: this.refs.phoneNumber.getValue() || undefined,
+            picture: this.refs.picture.getImage() || undefined
         };
-        if (!userInfo.password)
-            delete userInfo.password;
+
         this.context.executeAction(UserActions.editUser, userInfo);
     }
 });
