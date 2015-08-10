@@ -63,7 +63,7 @@
     "react-bootstrap": "^0.24.3",
     "react-google-analytics": "^0.2.0",
     "react-intl": "^1.0.1",
-    "reactify": "^0.17.1",
+    "reactify": "^1.1.1",
     "request": "~2.60.0",
     "robots.txt": "^1.1.0",
     "serve-favicon": "~2.3.0",
