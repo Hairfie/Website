@@ -6,7 +6,7 @@ var Link = require('./Link.jsx');
 var PublicLayout = require('./PublicLayout.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../actions/UserActions');
 var NotificationActions = require('../actions/NotificationActions');
 var NavigationActions = require('../actions/NavigationActions');
@@ -213,12 +213,12 @@ var HairfiePage = React.createClass({
 HairfiePage = connectToStores(HairfiePage, [
     'HairfieStore',
     'UserStore'
-], function (stores, props) {
-    var hairfie = stores.HairfieStore.getById(props.route.params.hairfieId);
+], function (context, props) {
+    var hairfie = context.getStore('HairfieStore').getById(props.route.params.hairfieId);
 
     return {
         hairfie: hairfie,
-        hairfieLiked: stores.UserStore.getHairfieLikedById(hairfie.id)
+        hairfieLiked: context.getStore('UserStore').getHairfieLikedById(hairfie.id)
     };
 });
 

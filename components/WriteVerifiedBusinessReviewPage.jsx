@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react/addons');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
@@ -217,9 +217,9 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
 
 WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
     'BusinessReviewRequestStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        businessReviewRequest: stores.BusinessReviewRequestStore.getById(props.route.params.businessReviewRequestId)
+        businessReviewRequest: context.getStore('BusinessReviewRequestStore').getById(props.route.params.businessReviewRequestId)
     };
 });
 

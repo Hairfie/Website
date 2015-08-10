@@ -5,7 +5,7 @@ var moment = require('moment');
 var _ = require('lodash');
 var PublicLayout  = require('./PublicLayout.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var ga = require('../services/analytics');
 var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
@@ -132,9 +132,9 @@ var BookingConfirmationPage = React.createClass({
 
 BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     'BookingStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        booking: stores.BookingStore.getById(props.route.params.bookingId)
+        booking: context.getStore('BookingStore').getById(props.route.params.bookingId)
     };
 });
 

@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
@@ -134,13 +134,13 @@ BusinessPage = connectToStores(BusinessPage, [
     'BusinessStore',
     'BusinessServiceStore',
     'StationStore',
-], function (stores, props) {
-    var business = stores.BusinessStore.getById(props.route.params.businessId);
+], function (context, props) {
+    var business = context.getStore('BusinessStore').getById(props.route.params.businessId);
     return {
         business: business,
-        services: stores.BusinessServiceStore.getByBusiness(props.route.params.businessId),
-        discounts: stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
-        stations: business && stores.StationStore.getNearby(business.gps)
+        services: context.getStore('BusinessServiceStore').getByBusiness(props.route.params.businessId),
+        discounts: context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
+        stations: business && context.getStore('StationStore').getNearby(business.gps)
     };
 });
 

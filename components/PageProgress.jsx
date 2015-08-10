@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var PageProgress = React.createClass({
     render: function () {
@@ -27,9 +27,9 @@ var PageProgress = React.createClass({
     }
 });
 
-PageProgress = connectToStores(PageProgress, ['RouteStore'], function (stores) {
+PageProgress = connectToStores(PageProgress, ['RouteStore'], function (context) {
     return {
-        loading: !stores.RouteStore.isNavigateComplete()
+        loading: !context.getStore('RouteStore').isNavigateComplete()
     };
 });
 

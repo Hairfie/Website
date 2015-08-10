@@ -5,7 +5,7 @@ var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap').Button;
-var connectToStores = require('../../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var AuthActions = require('../../actions/AuthActions');
 var Picture = require('../Partial/Picture.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
@@ -152,11 +152,11 @@ var mobileHeader = React.createClass({
 mobileHeader = connectToStores(mobileHeader, [
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
         token: token,
-        currentUser: stores.UserStore.getUserInfo(token.userId)
+        currentUser: context.getStore('UserStore').getUserInfo(token.userId)
     };
 });
 
