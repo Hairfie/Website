@@ -24,16 +24,6 @@ $open-color: #5cb85c;
     background-color: $discount-color;
 }
 
-.btn-red {
-    @extend .btn;
-    background-color: $hairfie;
-    color: white;
-    border: none;
-    &:hover {
-        color: $grey;
-    }
-}
-
 .btn-red a, a .btn-red {
     color: white;
     text-decoration: none;

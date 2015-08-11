@@ -31,48 +31,6 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-	div.connect-button {
-		div span {
-			display: block;
-			text-align: center;
-			color: white;
-			font-size: 1.8em;
-			padding-top: 14px;
-			padding-left: 60px;
-		}
-		.facebook {
-			cursor: pointer;
-			border-radius: 5px;
-			overflow: hidden;
-			height: 60px;
-			margin: 10px;
-			background-color: $facebook-bg;
-			&:before {
-				content: " ";
-				background: url(../../img/facebook@2x.png) no-repeat center center;
-				position: absolute;
-				width: 60px;
-				height: 60px;
-				margin-left: 5px;
-			}
-		}
-		.twitter {
-			cursor: pointer;
-			border-radius: 5px;
-			overflow: hidden;
-			height: 60px;
-			margin: 10px;
-			background-color: $twitter-bg;
-			&:before {
-				content: " ";
-				background: url(../../img/twitter@2x.png) no-repeat center center;
-				position: absolute;
-				width: 60px;
-				height: 60px;
-				margin-left: 5px;
-			}
-		}
-	}
 	a.full {
 		display: block;
 		width: 100%;

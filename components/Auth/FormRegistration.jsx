@@ -11,9 +11,9 @@ var ImageField = require('../Partial/ImageField.jsx')
 module.exports = React.createClass({
 	contextTypes: {
         executeAction: React.PropTypes.func
-    },
+  },
   getInitialState: function() {
-    return {cgu: false, newsletter: false, userGender: ""};
+    return {cgu: false, newsletter: true, userGender: this.props.gender || ""};
   },
 	render: function() {
 		return (
@@ -27,22 +27,22 @@ module.exports = React.createClass({
             <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
             Femme
             </label>
-        </Input>
-  			<Input type="text" ref="firstName" placeholder="Prénom *"/>
-  			<Input type="text" ref="lastName" placeholder="Nom *"/>
-  			<Input type="email" ref="email" placeholder="Adresse Email *"/>
-				<Input type="password" ref="password" placeholder="Mot de Passe *" />
-  			<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (facultatif)" />
-        <div className="form-group">
-          <ImageField ref="picture" container="users" text="(facultatif)"/>
-        </div>
-  			<label for="cgu" className="register-checkbox">
-          <input type="checkbox" name='newsletter' onChange={this.handleNewsletterChanged} />
+          </Input>
+  				<Input type="text" ref="firstName" placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
+  				<Input type="text" ref="lastName" placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
+  				<Input type="email" ref="email" placeholder="Adresse Email *" defaultValue={this.props.email || ""}/>
+  				<Input type="password" ref="password" placeholder="Mot de Passe *" />
+  				<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
+          <div className="form-group">
+            <ImageField ref="picture" container="users" text="(facultatif)"/>
+          </div>
+  				<label for="cgu" className="register-checkbox">
+            <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged} />
             <span></span>
             Je souhaite recevoir les Newsletters.
-        </label>
-  			<label for="cgu" className="register-checkbox">
-          <input type="checkbox" name='cgu' onChange={this.handleCGUChanged} />
+          </label>
+  				<label for="cgu" className="register-checkbox">
+            <input type="checkbox" name='cgu' checked={this.state.cgu === true} onChange={this.handleCGUChanged} />
             <span></span>
             Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
         </label>
