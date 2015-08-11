@@ -5,10 +5,10 @@ var moment = require('moment');
 var _ = require('lodash');
 var PublicLayout  = require('./PublicLayout.jsx');
 var LeftColumn = require('./BookingPage/LeftColumn.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var ga = require('../services/analytics');
-var Input = require('react-bootstrap/Input');
-var Button = require('react-bootstrap/Button');
+var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
 var BookingActions = require('../actions/BookingActions');
 var AuthActions = require('../actions/AuthActions');
 var Link = require('./Link.jsx');
@@ -186,11 +186,11 @@ BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     'BookingStore',
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
-        booking: stores.BookingStore.getById(props.route.params.bookingId),
-        currentUser: stores.UserStore.getUserInfo(token.userId)
+        booking: context.getStore('BookingStore').getById(props.route.params.bookingId),
+        currentUser: context.getStore('UserStore').getUserInfo(token.userId)
     };
 });
 

@@ -6,7 +6,7 @@ var Link = require('../Link.jsx');
 var Carousel = require('./Carousel.jsx');
 var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var Layout = React.createClass({
     render: function () {
@@ -68,9 +68,9 @@ var Layout = React.createClass({
 
 Layout = connectToStores(Layout, [
     'BusinessStore',
-], function (stores, props) {
+], function (context, props) {
     return {
-        similarBusinesses: props.business && props.business.crossSell && stores.BusinessStore.getSimilar(props.business.id)
+        similarBusinesses: props.business && props.business.crossSell && context.getStore('BusinessStore').getSimilar(props.business.id)
     };
 });
 

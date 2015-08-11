@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var UserConstants = require('../../constants/UserConstants');
 var NotificationActions = require('../../actions/NotificationActions');
 var AuthActions = require('../../actions/AuthActions');
@@ -45,9 +45,9 @@ module.exports = React.createClass({
             <input type="checkbox" name='cgu' checked={this.state.cgu === true} onChange={this.handleCGUChanged} />
             <span></span>
             Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
-         	</label>
-  				<a href="#" onClick={this.submit} className="btn btn-red full">Se connecter</a>
-				</form>
+        </label>
+  			<a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+		</form>
 		);
 	},
 	handleGenderChanged: function (e) {

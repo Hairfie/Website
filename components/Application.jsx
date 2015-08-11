@@ -2,9 +2,9 @@
 
 var React = require('react');
 var _ = require('lodash');
-var ga = require('../services/analytics')
+var ga = require('../services/analytics');
 var handleHistory = require('fluxible-router').handleHistory;
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var setTitle = typeof document == 'undefined' ? _.noop : function (title) {
     document.title = title;
@@ -29,9 +29,9 @@ var Application = React.createClass({
     }
 });
 
-Application = connectToStores(Application, ['MetaStore'], function (stores) {
+Application = connectToStores(Application, ['MetaStore'], function (context) {
     return {
-        title: stores.MetaStore.getTitle()
+        title: context.getStore('MetaStore').getTitle()
     };
 });
 Application = handleHistory(Application);

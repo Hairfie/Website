@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var AuthActions = require('../../actions/AuthActions');
 var NavigationActions = require('../../actions/NavigationActions');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
