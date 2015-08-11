@@ -10640,6 +10640,9 @@ div.pagination {
     div.pagination a:hover {
       text-decoration: none; }
 
+.breadcrumb > li + li:before {
+  content: " / "; }
+
 header {
   width: 100%;
   height: 60px;
