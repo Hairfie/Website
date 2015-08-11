@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
+var FluxibleMixin = require('fluxible-addons-react/FluxibleMixin');
 var StationStore = require('../../stores/StationStore');
 var lodash = require('lodash');
 

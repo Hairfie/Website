@@ -3,7 +3,7 @@
 var React = require('react');
 var moment = require('moment');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout  = require('./PublicLayout.jsx');
 var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 var TimeSelect = require('./BookingPage/TimeSelectComponent.jsx');
@@ -116,13 +116,13 @@ BusinessBookingPage = connectToStores(BusinessBookingPage, [
     'BusinessStore',
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
-        business    : stores.BusinessStore.getById(props.route.params.businessId),
-        discountObj : stores.BusinessStore.getDiscountForBusiness(props.route.params.businessId),
+        business    : context.getStore('BusinessStore').getById(props.route.params.businessId),
+        discountObj : context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
         daySelected : props.route.query.date ? moment(props.route.query.date) : null,
-        currentUser: stores.UserStore.getById(token.userId)
+        currentUser: context.getStore('UserStore').getById(token.userId)
     }
 });
 

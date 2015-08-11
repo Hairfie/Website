@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Search = require('./Search');
 var SearchUtils = require('../lib/search-utils');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var HairfieActions = require('../actions/HairfieActions');
 
 var HairfieSearchPage = React.createClass({
@@ -40,15 +40,15 @@ var HairfieSearchPage = React.createClass({
 HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'PlaceStore',
     'HairfieStore'
-], function (stores, props) {
+], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
-    var place = stores.PlaceStore.getByAddress(address);
+    var place = context.getStore('PlaceStore').getByAddress(address);
     var search = {};
     var result;
 
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
-        result = stores.HairfieStore.getSearchResult(search);
+        result = context.getStore('HairfieStore').getSearchResult(search);
     }
 
     return {

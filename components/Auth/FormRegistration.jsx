@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var UserConstants = require('../../constants/UserConstants');
 var NotificationActions = require('../../actions/NotificationActions');
 var AuthActions = require('../../actions/AuthActions');

@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var AuthActions = require('../../actions/AuthActions');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var NotificationActions = require('../../actions/NotificationActions');
 
 module.exports = React.createClass({

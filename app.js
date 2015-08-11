@@ -4,7 +4,7 @@ var React = require('react');
 var Fluxible = require('fluxible');
 var _ = require('lodash');
 var QueryString = require('query-string');
-var provideContext = require('fluxible/addons/provideContext');
+var provideContext = require('fluxible-addons-react/provideContext');
 var Promise = require('q');
 var config = require('./config');
 

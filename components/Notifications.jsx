@@ -1,9 +1,9 @@
 'use strict';
 
 var React = require('react');
-var connectToStores = require('fluxible/addons/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var NotificationActions = require('../actions/NotificationActions');
-var Alert = require('react-bootstrap/Alert');
+var Alert = require('react-bootstrap').Alert;
 
 var Notifications = React.createClass({
     contextTypes: {
@@ -43,9 +43,9 @@ var Notifications = React.createClass({
 
 Notifications = connectToStores(Notifications, [
     'NotificationStore'
-], function (stores) {
+], function (context) {
     return {
-        notifications: stores.NotificationStore.getAll()
+        notifications: context.getStore('NotificationStore').getAll()
     };
 });
 

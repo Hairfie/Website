@@ -3,7 +3,6 @@
 var React = require ('react');
 var _ = require ('lodash');
 var UploadActions = require ('../../actions/UploadActions');
-var connectToStores = require('../../lib/connectToStores');
 var Uuid = require ('uuid');
 var Picture = require ('./Picture.jsx');
 

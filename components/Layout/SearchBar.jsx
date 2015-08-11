@@ -4,7 +4,7 @@ var React = require('react');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
-var Button = require('react-bootstrap/Button');
+var Button = require('react-bootstrap').Button;
 var User = require('./User.jsx');
 
 var mobileHeader = React.createClass({
@@ -99,5 +99,6 @@ var mobileHeader = React.createClass({
         });
     }
 });
+
 
 module.exports = mobileHeader;

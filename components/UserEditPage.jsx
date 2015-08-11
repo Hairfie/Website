@@ -6,7 +6,7 @@ var connectToStores = require('../lib/connectToStores');
 var PublicLayout = require('./PublicLayout.jsx');
 var Link = require('./Link.jsx');
 var ImageField = require('./Partial/ImageField.jsx');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var UserConstants = require('../constants/UserConstants');
 var UserActions = require('../actions/UserActions');
 

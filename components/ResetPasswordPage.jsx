@@ -2,10 +2,10 @@
 
 var React = require('react');
 var Layout = require('./PublicLayout.jsx');
-var Input = require('react-bootstrap/Input');
-var Button = require('react-bootstrap/Button');
+var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
 var AuthActions = require('../actions/AuthActions');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var ResetPasswordPage =  React.createClass({
     contextTypes: {
@@ -33,9 +33,9 @@ var ResetPasswordPage =  React.createClass({
 
 ResetPasswordPage = connectToStores(ResetPasswordPage, [
     'AuthStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        token: stores.AuthStore.getToken()
+        token: context.getStore('AuthStore').getToken()
     };
 });
 

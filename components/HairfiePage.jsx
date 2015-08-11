@@ -6,7 +6,7 @@ var Link = require('./Link.jsx');
 var PublicLayout = require('./PublicLayout.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var Loader = require('./Partial/Loader.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../actions/UserActions');
 var NotificationActions = require('../actions/NotificationActions');
 var NavigationActions = require('../actions/NavigationActions');
@@ -214,10 +214,10 @@ HairfiePage = connectToStores(HairfiePage, [
     'HairfieStore',
     'UserStore',
     'AuthStore'
-], function (stores, props) {
-    var hairfie = stores.HairfieStore.getById(props.route.params.hairfieId);
-    var token = stores.AuthStore.getToken();
-    var user = stores.UserStore.getById(token.userId);
+], function (context, props) {
+    var hairfie = context.getStore('HairfieStore').getById(props.route.params.hairfieId);
+    var token = context.getStore('AuthStore').getToken();
+    var user = context.getStore('UserStore').getById(token.userId);
     if (user.likeHairfie && user.likeHairfie[hairfie.id] && user.likeHairfie[hairfie.id].isLiked)
         user = user.likeHairfie[hairfie.id].isLiked;
     else

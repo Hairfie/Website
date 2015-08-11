@@ -9,7 +9,7 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 var weekDaysNumber = DateTimeConstants.weekDaysNumber;
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 
-var Button = require('react-bootstrap/Button');
+var Button = require('react-bootstrap').Button;
 
 module.exports = React.createClass({
     propTypes: {

@@ -1,13 +1,13 @@
 'use strict';
 
 var React = require('react/addons');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./PublicLayout.jsx');
-var Input = require('react-bootstrap/Input');
-var Button = require('react-bootstrap/Button');
-var Alert = require('react-bootstrap/Alert');
-var Row = require('react-bootstrap/Row');
-var Col = require('react-bootstrap/Col');
+var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
+var Alert = require('react-bootstrap').Alert;
+var Row = require('react-bootstrap').Row;
+var Col = require('react-bootstrap').Col;
 var BusinessReviewActions = require('../actions/BusinessReviewActions');
 var _ = require('lodash');
 var moment = require('moment');
@@ -217,9 +217,9 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
 
 WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
     'BusinessReviewRequestStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        businessReviewRequest: stores.BusinessReviewRequestStore.getById(props.route.params.businessReviewRequestId)
+        businessReviewRequest: context.getStore('BusinessReviewRequestStore').getById(props.route.params.businessReviewRequestId)
     };
 });
 

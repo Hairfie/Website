@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./BusinessPage/Layout.jsx');
 
 var moment = require('moment');
@@ -54,10 +54,10 @@ var BusinessReviewPage = React.createClass({
 BusinessReviewPage = connectToStores(BusinessReviewPage, [
     'BusinessStore',
     'BusinessReviewStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        business: stores.BusinessStore.getById(props.route.params.businessId),
-        reviews: stores.BusinessReviewStore.getLatestByBusiness(props.route.params.businessId)
+        business: context.getStore('BusinessStore').getById(props.route.params.businessId),
+        reviews: context.getStore('BusinessReviewStore').getLatestByBusiness(props.route.params.businessId)
     };
 });
 
