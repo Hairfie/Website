@@ -17,7 +17,7 @@ var UserHairfiesPage = React.createClass({
     render: function () {
         return(
             <UserLayout user={this.props.user} tab="hairfies">
-                <h3>Les Hairfies de {this.props.user.firstName}</h3>
+                {this.renderTitle()}
                 <div className="hairfies">
                     <div className="row">
                     {_.map(this.props.hairfies, function (hairfie) {
@@ -52,6 +52,11 @@ var UserHairfiesPage = React.createClass({
                 </div>
             </UserLayout>
         );
+    },
+    renderTitle: function () {
+        if (_.isEmpty(this.props.hairfies))
+            return <h3>{this.props.user.firstName} n'a pas encore posté d'Hairfie.</h3>
+        return <h3>Les Hairfies de {this.props.user.firstName}</h3>;
     }
 });
 

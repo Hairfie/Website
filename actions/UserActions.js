@@ -39,8 +39,10 @@ module.exports = {
             })
     },
     editUser: function(context, payload) {
+        var token = payload.token;
+        delete payload.token;
         return context.hairfieApi
-            .put('/users/', payload)
+            .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
             .then(function (data) {
                 console.log(data);
             })
@@ -98,7 +100,7 @@ module.exports = {
     },
     getUserReviews: function (context, id) {
         var query = {
-        /*'filter[where][authorId]': id,*/
+        'filter[where][authorId]': id,
         'filter[order]': 'createdAt DESC'
         };
         return context.hairfieApi

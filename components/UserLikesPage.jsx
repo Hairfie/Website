@@ -17,7 +17,7 @@ var UserLikesPage = React.createClass({
     render: function () {
         return(
             <UserLayout user={this.props.user} tab="likes">
-                <h3>{this.props.user.firstName} a aimé ces Hairfies</h3>
+                {this.renderTitle()}
                 <div className="hairfies">
                     <div className="row">
                     {_.map(this.props.hairfies, function (hairfie) {
@@ -53,6 +53,11 @@ var UserLikesPage = React.createClass({
                 </div>
             </UserLayout>
         );
+    },
+    renderTitle: function () {
+        if (_.isEmpty(this.props.hairfies))
+            return <h3>{this.props.user.firstName} n'a pas encore aimé d'Hairfie.</h3>
+        return <h3>{this.props.user.firstName} a aimé ces Hairfies</h3>;
     }
 });
 

@@ -19,6 +19,7 @@ var UserReviewsPage = React.createClass({
     render: function () {
         return(
             <UserLayout user={this.props.user} tab="reviews">
+            {this.renderTitle()}
                 <div className="comments">
                     {_.map(this.props.reviews, function (review) {
                         var business = review.business;
@@ -56,6 +57,11 @@ var UserReviewsPage = React.createClass({
                 </div>
             </UserLayout>
         );
+    },
+    renderTitle: function () {
+        if (_.isEmpty(this.props.reviews))
+            return <h3>{this.props.user.firstName} n'a pas encore laissé d'avis.</h3>
+        return <h3>{this.props.user.firstName} a laissé des Avis</h3>;
     }
 });
 

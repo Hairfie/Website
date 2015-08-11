@@ -56,6 +56,7 @@ var UserEditPage = React.createClass({
         e.preventDefault();
 
         var userInfo = {
+            token: this.props.token,
             email: this.refs.email.getValue() || undefined,
             firstName: this.refs.firstName.getValue() || undefined,
             lastName: this.refs.lastName.getValue() || undefined,
@@ -75,6 +76,7 @@ UserEditPage = connectToStores(UserEditPage, [
 ], function (stores, props) {
     var token = stores.AuthStore.getToken();
     return {
+        token: token,
         user: stores.UserStore.getById(token.userId)
     };
 });
