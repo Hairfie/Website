@@ -34,18 +34,20 @@ var UserReviewsPage = React.createClass({
                         };
                         return (
                             <div key={review.id} className="single-comment col-xs-12">
-                                <div className="col-xs-8 col-md-9">
-                                    <UserProfilePicture className="ProfilePicture" picture={this.props.user.picture} options={options} gender={this.props.user.gender}/>
+                                <div className="col-sm-8 col-md-9 col-xs-12">
+                                    <UserProfilePicture className="ProfilePicture" picture={review.author.picture} options={options} gender={review.author.gender}/>
+                                    <Link route="business" className="hidden-lg hidden-sm hidden-md" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                        <p><strong className="icon-home">{business.name}</strong></p>
+                                    </Link>
                                     <p><strong>Note : {Math.round(review.rating / 100 * 5)}/5</strong></p>
                                     <p>{review.comment}</p>
                                     <div className="by-when">
                                         {displayName(review)} - {moment(review.createdAt).format('LL')}
                                     </div>
                                 </div>
-                                <div className="col-xs-4 col-md-3 separate">
+                                <div className="col-sm-4 col-md-3 hidden-xs separate">
                                     <div>
                                         <h5>{business.name}</h5>
-                                        <p>{address.street} {address.zipCode} {address.city}</p>
                                         <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                                     </div>
                                     <Link route="business" className="btn btn-red businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>

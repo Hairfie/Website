@@ -12834,6 +12834,16 @@ section.home-footer .row > div {
       float: left;
       width: 60px;
       border: none; }
+    .container.user#content .main-content section.user-content section div.comments .icon-home {
+      margin-left: 25px; }
+      .container.user#content .main-content section.user-content section div.comments .icon-home:before {
+        content: " ";
+        background: url(../../img/icons/home.png) no-repeat center center;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        margin-left: -25px;
+        top: -5px; }
     .container.user#content .main-content section.user-content section div.comments .separate {
       border-left: solid;
       border-width: 2px;

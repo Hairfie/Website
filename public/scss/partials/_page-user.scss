@@ -57,6 +57,18 @@
                     width: 60px;
                     border: none;
                     }
+                    .icon-home {
+                        margin-left: 25px;
+                        &:before {
+                            content: " ";
+                            background: url(../../img/icons/home.png) no-repeat center center;
+                            width: 20px;
+                            height: 20px;
+                            position: absolute;
+                            margin-left: -25px;
+                            top: -5px;
+                        }
+                    }
                     .separate {
                         p {
                             font-size: 1.2em;
