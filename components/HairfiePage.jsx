@@ -218,7 +218,7 @@ HairfiePage = connectToStores(HairfiePage, [
     var hairfie = context.getStore('HairfieStore').getById(props.route.params.hairfieId);
     var token = context.getStore('AuthStore').getToken();
     var user = context.getStore('UserStore').getById(token.userId);
-    if (user.likeHairfie && user.likeHairfie[hairfie.id] && user.likeHairfie[hairfie.id].isLiked)
+    if (user && user.likeHairfie && user.likeHairfie[hairfie.id] && user.likeHairfie[hairfie.id].isLiked)
         user = user.likeHairfie[hairfie.id].isLiked;
     else
         user = false;
