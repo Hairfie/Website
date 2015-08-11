@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var _ = require('lodash');
 var NavLink = require('fluxible-router').NavLink;
 var Actions = require('../constants/Actions');
 
@@ -20,6 +21,11 @@ var Link = React.createClass({
     },
     _getHrefFromProps: function (props) {
         var href = props.href || this.context.getStore('RouteStore').makeUrl(props.route, props.params, props.query);
+
+        if (props.href && props.query) {
+            _.map(props.query)
+        }
+
 
         if (props.fragment) {
             href = href+'#'+props.fragment;

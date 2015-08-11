@@ -37,7 +37,8 @@ module.exports = React.createClass({
         if (!this.props.currentUser) {
             return {
                 formConnect: false,
-                cgu: false
+                cgu: false,
+                newsletter: true
                 };
         }
         return {
@@ -89,12 +90,13 @@ module.exports = React.createClass({
                     </div>
                     <div className="clearfix"></div>
                     <hr />
+                    {this.renderNewsletter()}
                     <label for="cgu" style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu' onChange={this.handleCGUChanged}/>
                         <span></span>
                         Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
-                    <a href="#" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
+                    <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>
             </div>
         );
@@ -110,6 +112,16 @@ module.exports = React.createClass({
                     <hr />
                 </div>
             );
+    },
+    renderNewsletter: function () {
+        if (!this.props.currentUser)
+            return (
+                    <label for="newsletter" style={{paddingLeft: '15px'}}>
+                        <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged}/>
+                        <span></span>
+                        J'accepte de recevoir les newsletters.
+                    </label>
+                );
     },
     renderConnectForm: function() {
         if (!this.state.formConnect)
@@ -151,6 +163,11 @@ module.exports = React.createClass({
             cgu: e.currentTarget.checked
         });
     },
+    handleNewsletterChanged: function (e) {
+        this.setState({
+            newsletter: e.currentTarget.checked
+        });
+    },
     handleFormConnectChanged: function () {
         if (this.state.formConnect == true)
             this.setState({
@@ -175,7 +192,8 @@ module.exports = React.createClass({
             phoneNumber : this.refs.userPhoneNumber.getValue(),
             comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
-            discount    : this.props.discount
+            discount    : this.props.discount,
+            newsletter  : this.state.newsletter
         };
     },
     getCGUStatus: function() {

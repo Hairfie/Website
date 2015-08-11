@@ -1,8 +1,24 @@
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red {
-    background-color: $red;
+.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white {
+    @extend .btn;
+    &.btn-red {
+        background-color: $hairfie;
+    }
+    &.btn-blue {
+        background-color: $lightblue;
+    }
+    &.btn-green {
+        background-color: green;
+    }
+    &.btn-orange {
+        background-color: orange;
+    }
+    &.btn-white {
+        background-color: white;
+    }
+    border: none;
     color: white;
     font-family: $font-main;
     font-weight: $regular;
@@ -11,20 +27,35 @@
 
     @include transition(all 0.3s ease-out);
 
-    &:hover {
-        background-color: darken($red, 5%);
+    &:hover, &:focus {
+        &.btn-red {
+        background-color: darken($hairfie, 5%);
         color: white;
+        }
+        &.btn-blue {
+        background-color: darken($lightblue, 5%);
+        color: white;
+        }
+        &.btn-orange {
+        background-color: darken(orange, 5%);
+        color: white;
+        }
+        &.btn-green {
+        background-color: darken(green, 5%);
+        color: white;
+        }
+        &.btn-white {
+        background-color: darken(white, 5%);
+        color: white;
+        }
+
+    }
+    &:hover {
         @include transition(all 0.3s ease-out);
     }
-
     &:active {
         // OLD LESS :  #gradient@include vertical(darken($red, 8%); darken($red, 5%); 10%;100%;);
         // FIXME @include gradient-vertical(darken($red, 8%) darken($red, 5%) 10% 100%);
-    }
-
-    &:focus {
-        background-color: darken($red, 5%);
-        color: white;
     }
 }
 .carousel-control {
@@ -52,5 +83,77 @@ span.arrow-right {
     right: 60px;
     @media screen and (max-width: $screen-sm-max) {
         margin-top: 20px;
+    }
+}
+div.connect-button {
+    div span {
+        display: block;
+        text-align: center;
+        color: white;
+        font-size: 1.8em;
+        padding-top: 14px;
+        padding-left: 60px;
+    }
+    .facebook {
+        cursor: pointer;
+        border-radius: 5px;
+        overflow: hidden;
+        height: 60px;
+        margin: 10px;
+        background-color: $facebook-bg;
+        &:before {
+            content: " ";
+            background: url(../../img/facebook@2x.png) no-repeat center center;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            margin-left: 5px;
+        }
+    }
+    .twitter {
+        cursor: pointer;
+        border-radius: 5px;
+        overflow: hidden;
+        height: 60px;
+        margin: 10px;
+        background-color: $twitter-bg;
+        &:before {
+            content: " ";
+            background: url(../../img/twitter@2x.png) no-repeat center center;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            margin-left: 5px;
+        }
+    }
+}
+.btn-frame, .btn-frame-blue, .btn-frame-red, .btn-frame-yellow, .btn-frame-green, .btn-frame-orange, .btn-frame-darkgrey {
+    @extend .btn;
+    border-color: $grey;
+    border-width: 2px;
+    border-top-width: 4px;
+    border-radius: 0px;
+    min-height: 50px;
+    padding-top: 10px;
+    &.btn-frame {
+        border-top-width: 2px;
+    }
+    &.btn-frame-blue {
+        border-top-color: blue;
+    }
+    &.btn-frame-red {
+        border-top-color: red;
+    }
+    &.btn-frame-orange {
+        border-top-color: orange;
+    }
+    &.btn-frame-yellow {
+        border-top-color: yellow;
+    }
+    &.btn-frame-green {
+        border-top-color: green;
+    }
+    &.btn-frame-darkgrey {
+        border-top-color: $darkgrey;
     }
 }
