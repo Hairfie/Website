@@ -5,8 +5,8 @@ var _ = require('lodash');
 
 var UserConstants = require('../../constants/UserConstants');
 
-var Button = require('react-bootstrap/Button');
-var Input = require('react-bootstrap/Input');
+var Button = require('react-bootstrap').Button;
+var Input = require('react-bootstrap').Input;
 
 var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');

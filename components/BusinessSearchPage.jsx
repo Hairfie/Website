@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var BusinessActions = require('../actions/BusinessActions');
 var SearchUtils = require('../lib/search-utils');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var Search = require('./Search');
 
@@ -44,20 +44,20 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'PlaceStore',
     'HairfieStore',
     'BusinessStore'
-], function (stores, props) {
+], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
-    var place = stores.PlaceStore.getByAddress(address);
+    var place = context.getStore('PlaceStore').getByAddress(address);
     var search = {};
     var result;
 
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
-        result = stores.BusinessStore.getSearchResult(search);
+        result = context.getStore('BusinessStore').getSearchResult(search);
     }
 
     if (result) { // add top hairfies to each business
         result = _.assign({}, result, { hits: _.map(result.hits, function (hit) {
-            return _.assign({}, hit, { topHairfies: stores.HairfieStore.getBusinessTop(hit.id) });
+            return _.assign({}, hit, { topHairfies: context.getStore('HairfieStore').getBusinessTop(hit.id) });
         })});
     }
 

@@ -10,7 +10,7 @@ var PageProgress = require('./PageProgress.jsx');
 var Home = require('./Home');
 
 var SearchBar = require('./Layout/SearchBar.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var _ = require('lodash');
 
@@ -57,12 +57,12 @@ HomePage = connectToStores(HomePage, [
     'HairfieStore',
     'DealStore',
     'HomeLinkStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        categories  : stores.CategoryStore.getAllSorted(),
-        deals       : stores.DealStore.getTop(),
-        hairfies    : stores.HairfieStore.getTop(),
-        links       : stores.HomeLinkStore.all()
+        categories  : context.getStore('CategoryStore').getAllSorted(),
+        deals       : context.getStore('DealStore').getTop(),
+        hairfies    : context.getStore('HairfieStore').getTop(),
+        links       : context.getStore('HomeLinkStore').all()
     };
 });
 

@@ -6,7 +6,7 @@ var Layout = require('./BusinessPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var HairfieActions = require('../actions/HairfieActions');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -103,10 +103,10 @@ var BusinessHairfiesPage = React.createClass({
 BusinessHairfiesPage = connectToStores(BusinessHairfiesPage, [
     'BusinessStore',
     'HairfieStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        business: stores.BusinessStore.getById(props.route.params.businessId),
-        hairfies: stores.HairfieStore.getByBusiness(props.route.params.businessId),
+        business: context.getStore('BusinessStore').getById(props.route.params.businessId),
+        hairfies: context.getStore('HairfieStore').getByBusiness(props.route.params.businessId),
     };
 });
 

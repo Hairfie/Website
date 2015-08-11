@@ -9,10 +9,10 @@ var BusinessLeadActions = require('../actions/BusinessLeadActions');
 
 var PublicLayout = require('./PublicLayout.jsx');
 
-var Row = require('react-bootstrap/Row');
-var Col = require('react-bootstrap/Col');
-var Input = require('react-bootstrap/Input');
-var Button = require('react-bootstrap/Button');
+var Row = require('react-bootstrap').Row;
+var Col = require('react-bootstrap').Col;
+var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
 
 var UUID = require('uuid');
 

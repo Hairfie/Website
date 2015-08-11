@@ -21,7 +21,7 @@ var ServerActions   = require('./actions/ServerActions');
 var RouteStore      = require('./stores/RouteStore');
 var MetaStore       = require('./stores/MetaStore');
 var BusinessStore   = require('./stores/BusinessStore');
-var provideContext  = require('fluxible/addons/provideContext');
+var provideContext  = require('fluxible-addons-react/provideContext');
 
 var Html = provideContext(require('./components/Html.jsx'), require('./context'));
 var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('./context'));

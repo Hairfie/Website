@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Link = require('../Link.jsx');
-var connectToStores = require('../../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var AuthActions = require('../../actions/AuthActions');
 var _ = require('lodash');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
@@ -76,11 +76,11 @@ var Header = React.createClass({
 Header = connectToStores(Header, [
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
         token: token,
-        currentUser: stores.UserStore.getUserInfo(token.userId)
+        currentUser: context.getStore('UserStore').getUserInfo(token.userId)
     };
 });
 
