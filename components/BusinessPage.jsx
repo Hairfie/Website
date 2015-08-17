@@ -97,11 +97,23 @@ var BusinessPage = React.createClass({
         var stations = _.groupBy(this.props.stations || [], 'type')
 
         if (!stations.rer && !stations.metro) return;
-
         return (
             <div>
                 <h4>RER / Métro</h4>
-                <p>{_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), 'name')).join(', ')}</p>
+                {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station) {
+                    return (<p>{station.name}
+                        {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginLeft: 7}}/> : ""}
+                        {_.map(station.lines, function(line) {
+                            var name = "";
+                            if (line.type == "metro")
+                                name = "M_";
+                            else if (line.type == "rer")
+                                name = "RER_";
+                            name += line.number.toUpperCase();
+                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginLeft: 7}}/>);
+                        })}
+                        </p>);
+                }))}
             </div>
         );
     },
