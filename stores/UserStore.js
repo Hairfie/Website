@@ -3,17 +3,16 @@
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var Actions = require('../constants/Actions');
+var _ = require('lodash');
 
 module.exports = createStore({
     storeName: 'UserStore',
     handlers: makeHandlers({
         onReceiveUserInfo: Actions.RECEIVE_USER_INFO,
-        onDeleteUserInfo: Actions.DELETE_USER_INFO,
-        onReceiveUserLikeHairfie: Actions.RECEIVE_USER_LIKE_HAIRFIE
+        onDeleteUserInfo: Actions.DELETE_USER_INFO
     }),
     initialize: function () {
         this.userInfo = {};
-        this.userInfo.likeHairfie = {};
     },
     dehydrate: function () {
         return { userInfo: this.userInfo };
@@ -29,14 +28,13 @@ module.exports = createStore({
         this.userInfo = {};
         this.emitChange();
     },
-    onReceiveUserLikeHairfie: function(payload) {
-        this.userInfo.likeHairfie[payload.hairfieId] = payload.isLiked;
+    onReceiveUserReview: function(payload) {
+        if (!(_.isArray(this.userInfo[payload.userId].reviews)))
+            this.userInfo[payload.userId].reviews = [];
+        this.userInfo[payload.userId].reviews[payload.review.id] = payload.review
         this.emitChange();
     },
-    getHairfieLikedById: function(hairfieId) {
-        return this.userInfo.likeHairfie[hairfieId] || false;
-    },
-    getUserInfo: function(userId) {
+    getById: function(userId) {
         return this.userInfo[userId];
     }
 });

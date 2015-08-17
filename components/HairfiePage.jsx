@@ -177,7 +177,7 @@ var HairfiePage = React.createClass({
         executeAction: React.PropTypes.func
     },
     getInitialState: function() {
-        this.context.executeAction(UserActions.isLikedHairfie, {hairfieId: this.props.hairfie.id});
+        this.context.executeAction(UserActions.isLikedHairfie, this.props.hairfie);
         return {};
     },
     render: function () {
@@ -204,21 +204,28 @@ var HairfiePage = React.createClass({
     },
     likeHairfie: function() {
         if (!this.props.hairfieLiked)
-            this.context.executeAction(UserActions.hairfieLike, {hairfieId: this.props.hairfie.id});
+            this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
         else
-            this.context.executeAction(UserActions.hairfieUnlike, {hairfieId: this.props.hairfie.id});
+            this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
     }
 });
 
 HairfiePage = connectToStores(HairfiePage, [
     'HairfieStore',
-    'UserStore'
+    'UserStore',
+    'AuthStore'
 ], function (context, props) {
     var hairfie = context.getStore('HairfieStore').getById(props.route.params.hairfieId);
+    var token = context.getStore('AuthStore').getToken();
+    var user = context.getStore('UserStore').getById(token.userId);
+    if (user && user.likeHairfie && user.likeHairfie[hairfie.id] && user.likeHairfie[hairfie.id].isLiked)
+        user = user.likeHairfie[hairfie.id].isLiked;
+    else
+        user = false;
 
     return {
         hairfie: hairfie,
-        hairfieLiked: context.getStore('UserStore').getHairfieLikedById(hairfie.id)
+        hairfieLiked: user
     };
 });
 

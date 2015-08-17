@@ -1,0 +1,105 @@
+.container.user#content {
+    .main-content {
+        margin-top: 20px;
+        margin-bottom: 70px;
+
+        img.ProfilePicture {
+                display: block;
+                width: 14em;
+                border-radius: 100%;
+                margin: 0 auto 20px;
+                border: 10px solid $bg2;
+        }
+        .short-info {
+            margin-top: 10px;
+            @media screen and (max-width: $screen-xs-max) {
+                margin-top: 100px;
+            }
+            overflow: auto;
+        }
+        section.user-content {
+            h5 {
+                font-family: $font-main;
+            }
+            > .row {
+                background-color: white;
+            }
+            ul.nav {
+                margin: 0;
+                li {
+                    &:first-child {
+                        .icon-nav {
+                        background: url(../images/icon-salon-nav3.jpg) no-repeat center center;
+                        }
+                    }
+                    &:nth-child(2) {
+                        .icon-nav {
+                            background: url(../images/icon-salon-nav2.jpg) no-repeat center center;
+                        }
+                    }
+                    &:last-child {
+                        .icon-nav {
+                            background: url(../images/icon-coeur.png) no-repeat center center;
+                        }
+                    }
+                }
+            }
+            section {
+                div.hairfies div.row div.single-hairfie {
+                    @media screen and (min-width: $screen-lg-min) {
+                        width: 20%;
+                    }
+                }
+                div.comments {
+                    .ProfilePicture {
+                    margin-right: 25px;
+                    float: left;
+                    width: 60px;
+                    border: none;
+                    }
+                    .icon-home {
+                        margin-left: 25px;
+                        &:before {
+                            content: " ";
+                            background: url(../../img/icons/home.png) no-repeat center center;
+                            width: 20px;
+                            height: 20px;
+                            position: absolute;
+                            margin-left: -25px;
+                            top: -5px;
+                        }
+                    }
+                    .separate {
+                        p {
+                            font-size: 1.2em;
+                        }
+                        a {
+                            font-size: 1.4em;
+                            margin-top: 5px;
+                            width: 48%;
+                        }
+                        @media screen and (max-width: $screen-sm-max) {
+                            a.businessButton {
+                                width: 100%;
+                            }
+                        }
+                        border-left: solid;
+                        border-width: 2px;
+                        border-color: $grey;
+                        left: -1px;
+                        padding-right: 0;
+                    }
+                }
+                padding-left: 50px;
+                padding-right: 50px;
+                @media screen and (max-width: $screen-md-max) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                h4 {
+                    color: #343434;
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
-var Gallery = require('./Gallery.jsx');
+var Gallery = require('../Partial/Gallery.jsx');
 
 function displayName(n) { return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.' }
 function initials(n) { return (n.firstName || '').substr(0, 1)+''+(n.lastName || '').substr(0, 1) }
