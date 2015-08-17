@@ -190,7 +190,7 @@ BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     var token = context.getStore('AuthStore').getToken();
     return {
         booking: context.getStore('BookingStore').getById(props.route.params.bookingId),
-        currentUser: context.getStore('UserStore').getUserInfo(token.userId)
+        currentUser: context.getStore('UserStore').getById(token.userId)
     };
 });
 
