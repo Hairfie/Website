@@ -101,8 +101,8 @@ var BusinessPage = React.createClass({
             <div>
                 <h4>RER / Métro</h4>
                 {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station) {
-                    return (<p>{station.name}
-                        {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginLeft: 7}}/> : ""}
+                    return (<p>
+                        {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginRight: 7}}/> : ""}
                         {_.map(station.lines, function(line) {
                             var name = "";
                             if (line.type == "metro")
@@ -110,8 +110,9 @@ var BusinessPage = React.createClass({
                             else if (line.type == "rer")
                                 name = "RER_";
                             name += line.number.toUpperCase();
-                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginLeft: 7}}/>);
+                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}}/>);
                         })}
+                            {station.name}
                         </p>);
                 }))}
             </div>
