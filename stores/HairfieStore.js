@@ -12,10 +12,14 @@ module.exports = createStore({
         onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES,
         onReceiveBusinessTopHairfies: Actions.RECEIVE_BUSINESS_TOP_HAIRFIES,
         onReceiveHairfieSearchResult: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT,
-        onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES
+        onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES,
+        onReceiveUserHairfies: Actions.RECEIVE_USER_HAIRFIES,
+        onReceiveUserLikes: Actions.RECEIVE_USER_LIKES,
     }),
     initialize: function () {
         this.hairfies = {};
+        this.userHairfies = {};
+        this.userLikes = {};
         this.topIds = [];
         this.businessTopIds = {};
         this.searchResults = {};
@@ -23,6 +27,8 @@ module.exports = createStore({
     dehydrate: function () {
         return {
             hairfies: this.hairfies,
+            userHairfies: this.userHairfies,
+            userLikes: this.userLikes,
             topIds: this.topIds,
             businessTopIds: this.businessTopIds,
             searchResults: this.searchResults
@@ -30,6 +36,8 @@ module.exports = createStore({
     },
     rehydrate: function (state) {
         this.hairfies = state.hairfies;
+        this.userHairfies = state.userHairfies;
+        this.userLikes = state.userLikes;
         this.topIds = state.topIds;
         this.businessTopIds = state.businessTopIds;
         this.searchResults = state.searchResults;
@@ -59,8 +67,22 @@ module.exports = createStore({
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(payload.hairfies, 'id'));
         this.emitChange();
     },
+    onReceiveUserHairfies: function (payload) {
+        this.userHairfies[payload.userId] = payload.hairfies;
+        this.emitChange();
+    },
+    onReceiveUserLikes: function (payload) {
+        this.userLikes[payload.userId] = payload.hairfies;
+        this.emitChange();
+    },
     getById: function (id) {
         return this.hairfies[id];
+    },
+    getHairfiesByUser: function (id) {
+        return this.userHairfies[id];
+    },
+    getLikesByUser: function (id) {
+        return this.userLikes[id];
     },
     getTop: function () {
         return _.map(this.topIds, this.getById, this);

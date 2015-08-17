@@ -9,7 +9,7 @@ var UserActions = require('./UserActions');
 
 var _storeTokenAndGetUser = function(context, token) {
     return Promise.all([
-        context.executeAction(UserActions.getUserById, token)
+        context.executeAction(UserActions.userConnect, token)
     ]);
 };
 
@@ -150,7 +150,7 @@ module.exports = {
 
         return Promise.all([
             token = authStorage.getToken(context),
-            context.executeAction(UserActions.getUserById, token)
+            context.executeAction(UserActions.userConnect, token)
         ]);
     }
 };

@@ -117,7 +117,7 @@ BusinessBookingPage = connectToStores(BusinessBookingPage, [
         business    : context.getStore('BusinessStore').getById(props.route.params.businessId),
         discountObj : context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
         daySelected : props.route.query.date ? moment(props.route.query.date) : null,
-        currentUser: context.getStore('UserStore').getUserInfo(token.userId)
+        currentUser: context.getStore('UserStore').getById(token.userId)
     }
 });
 

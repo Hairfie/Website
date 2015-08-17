@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
-var Gallery = require('./Gallery.jsx');
+var Gallery = require('../Partial/Gallery.jsx');
 
 module.exports = React.createClass({
     getInitialState: function () {
