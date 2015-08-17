@@ -66,7 +66,7 @@ var ImageField = React.createClass ({
     },
     getInitialState: function() {
         return {
-            image: null,
+            image: this.props.defaultPicture || null,
             uploadId: null
         };
     },
