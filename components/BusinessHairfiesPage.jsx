@@ -44,7 +44,7 @@ var BusinessHairfiesPage = React.createClass({
             <Layout business={this.props.business} tab="hairfies">
                 <section>
                     <h3>Nos Hairfies</h3>
-                    <div className="salon-hairfies hairfies">
+                    <div className="hairfies">
                         <div className="row">
                             {_.map(hairfies, function (hairfie) {
                                 var hairdresser = <p>&nbsp;</p>;

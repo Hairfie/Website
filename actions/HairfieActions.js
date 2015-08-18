@@ -18,6 +18,7 @@ module.exports = {
             .get('/hairfies/'+id)
             .then(function (hairfie) {
                 context.dispatch(Actions.RECEIVE_HAIRFIE, hairfie);
+                return hairfie;
             });
     },
     loadBusinessTopHairfies: function (context, businessId) {
@@ -38,12 +39,11 @@ module.exports = {
     },
     loadBusinessHairfies: function (context, params) {
         var params = _.merge({}, { page: 1, pageSize: 12 }, params);
-
         var query = {
             'filter[where][businessId]': params.businessId,
             'filter[order]': 'createdAt DESC',
             'filter[skip]': (params.page - 1) * params.pageSize,
-            'filter[limit]': params.pageSize
+            'filter[limit]': params.pageSize + (params.add || 0)
         };
 
         return  context.hairfieApi
