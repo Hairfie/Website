@@ -182,8 +182,11 @@ var OtherHairfie = React.createClass({
         },
     getInitialState: function () {
         return {
-            page: 1
+            page: 0
         };
+    },
+    componentDidMount: function() {
+        this.loadMore();
     },
     render: function() {
         return (
@@ -231,7 +234,8 @@ var OtherHairfie = React.createClass({
         return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     loadMore: function (e) {
-        e.preventDefault();
+        if (e)
+            e.preventDefault();
         var nextPage = this.state.page + 1;
         this.setState({ page: nextPage });
         this.context.executeAction(HairfieActions.loadBusinessHairfies, {

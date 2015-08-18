@@ -27,19 +27,7 @@ module.exports = {
         ]);
     },
     hairfie: function (context, route) {
-        return context.executeAction(HairfieActions.loadHairfie, route.get('params').get('hairfieId'))
-            .then(function(hairfie) {
-                return context.executeAction(HairfieActions.loadBusinessHairfies, {
-                    businessId: hairfie.business.id,
-                    page: route.get('query').get('page'),
-                    add: 1
-                });
-            }, function(e) {
-                var error = new Error('Invalid URL');
-                error.status = 301;
-                error.location = hairfiePath;
-                throw error;
-            });
+        return context.executeAction(HairfieActions.loadHairfie, route.get('params').get('hairfieId'));
     },
     hairfieSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
