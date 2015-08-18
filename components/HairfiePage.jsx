@@ -185,7 +185,7 @@ var OtherHairfie = React.createClass({
             page: 0
         };
     },
-    componentDidMount: function() {
+    componentWillMount: function() {
         this.loadMore();
     },
     render: function() {
