@@ -4,6 +4,7 @@ var Actions = require('../constants/Actions');
 var _ = require('lodash');
 var NavigationActions = require('./NavigationActions');
 var SearchUtils = require('../lib/search-utils');
+var Promise = require('q');
 
 module.exports = {
     loadTopHairfies: function (context, params) {
@@ -52,6 +53,32 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_BUSINESS_HAIRFIES, {
                     businessId: params.businessId,
                     hairfies: hairfies
+                });
+            });
+    },
+    loadSimilarHairfies: function (context, params) {
+        var params = _.merge({}, { page: 1, pageSize: 12 }, params);
+
+        var query = {
+            page: params.page,
+            pageSize: params.pageSize + (params.add || 0)
+        };
+        _.forEach(params.hairfie.tags, function (tag, i) {
+            query['tags['+i+']'] = tag.name;
+        });
+
+        return  context.hairfieApi
+            .get('/hairfies/similar-hairfies', { query: query })
+            .then(function (hairfies) {
+                var hairfiesId = _.map(hairfies, function(hairfie) {
+                    return hairfie.id;
+                });
+                _.map(hairfies, function (hairfie) {
+                    context.dispatch(Actions.RECEIVE_HAIRFIE, hairfie)
+                });
+                context.dispatch(Actions.RECEIVE_SIMILAR_HAIRFIES, {
+                    hairfieId: params.hairfie.id,
+                    hairfiesId: hairfiesId
                 });
             });
     },

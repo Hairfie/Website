@@ -34,5 +34,6 @@ module.exports = define([
     'UPLOAD_START',
     'UPLOAD_PROGRESS',
     'UPLOAD_SUCCESS',
-    'UPLOAD_FAILURE'
+    'UPLOAD_FAILURE',
+    'RECEIVE_SIMILAR_HAIRFIES'
 ]);

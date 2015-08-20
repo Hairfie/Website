@@ -15,6 +15,7 @@ module.exports = createStore({
         onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES,
         onReceiveUserHairfies: Actions.RECEIVE_USER_HAIRFIES,
         onReceiveUserLikes: Actions.RECEIVE_USER_LIKES,
+        onReceiveSimilarHairfies: Actions.RECEIVE_SIMILAR_HAIRFIES
     }),
     initialize: function () {
         this.hairfies = {};
@@ -75,6 +76,18 @@ module.exports = createStore({
         this.userLikes[payload.userId] = payload.hairfies;
         this.emitChange();
     },
+    onReceiveSimilarHairfies: function(payload) {
+        var arr = _.map(payload.hairfiesId);
+        if (this.hairfies[payload.hairfieId]) {
+            if (_.isArray(this.hairfies[payload.hairfieId].similarHairfies))
+                _.map(arr, function(val) {
+                    this.hairfies[payload.hairfieId].similarHairfies.push(val);
+                }.bind(this));
+            else
+                this.hairfies[payload.hairfieId].similarHairfies = arr;
+        }
+        this.emitChange();
+    },
     getById: function (id) {
         return this.hairfies[id];
     },
@@ -101,6 +114,11 @@ module.exports = createStore({
         var hairfies = _.filter(this.hairfies, function (h) { return h.business && h.business.id === businessId; });
 
         return _.sortByOrder(hairfies, ['createdAt'], [false]);
+    },
+    getSimilarHairfies: function (ids) {
+        return _.map(ids, function (id) {
+            return this.hairfies[id];
+        }.bind(this));
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';
