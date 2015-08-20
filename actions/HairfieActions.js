@@ -73,12 +73,9 @@ module.exports = {
                 var hairfiesId = _.map(hairfies, function(hairfie) {
                     return hairfie.id;
                 });
-                _.map(hairfies, function (hairfie) {
-                    context.dispatch(Actions.RECEIVE_HAIRFIE, hairfie)
-                });
                 context.dispatch(Actions.RECEIVE_SIMILAR_HAIRFIES, {
                     hairfieId: params.hairfie.id,
-                    hairfiesId: hairfiesId
+                    hairfies: hairfies
                 });
             });
     },

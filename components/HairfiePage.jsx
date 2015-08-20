@@ -188,11 +188,18 @@ var OtherHairfie = React.createClass({
     componentWillMount: function() {
         this.loadMore();
     },
+    componentWillReceiveProps: function(nextProps) {
+        if (this.props.hairfie.id != nextProps.hairfie.id) {
+            this.setState({page: 0});
+            this.loadMore();
+        }
+    },
     render: function() {
+        console.log(this);
         return (
             <div className="hairfies">
                 <div className="row">
-                    <h3 className="col-xs-12 text-center">Autres hairfies du même salon</h3>
+                    {this.props.similarHairfies.length > 0 ? <h3 className="col-xs-12 text-center">Autres hairfies du même salon</h3> : ''}
                     {_.map(this.props.similarHairfies, function (hairfie) {
                         var hairdresser = <p>&nbsp;</p>;
                         if (hairfie.hairdresser) {
@@ -299,7 +306,7 @@ HairfiePage = connectToStores(HairfiePage, [
 
     return {
         hairfie: hairfie,
-        similarHairfies: context.getStore('HairfieStore').getSimilarHairfies(hairfie.similarHairfies),
+        similarHairfies: context.getStore('HairfieStore').getSimilarHairfies(hairfie.id),
         hairfieLiked: user
     };
 });

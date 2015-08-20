@@ -77,12 +77,17 @@ module.exports = createStore({
         this.emitChange();
     },
     onReceiveSimilarHairfies: function(payload) {
-        var arr = _.map(payload.hairfiesId);
+        var arr = _.map(payload.hairfies, function(hairfie) {
+            if (payload.hairfieId != hairfie.id) {
+                this.hairfies[hairfie.id] = hairfie;
+            }
+            return hairfie.id;
+        }.bind(this));
         if (this.hairfies[payload.hairfieId]) {
-            if (_.isArray(this.hairfies[payload.hairfieId].similarHairfies))
+            if (_.isArray(this.hairfies[payload.hairfieId].similarHairfies)) {
                 _.map(arr, function(val) {
                     this.hairfies[payload.hairfieId].similarHairfies.push(val);
-                }.bind(this));
+                }.bind(this)); }
             else
                 this.hairfies[payload.hairfieId].similarHairfies = arr;
         }
@@ -115,8 +120,8 @@ module.exports = createStore({
 
         return _.sortByOrder(hairfies, ['createdAt'], [false]);
     },
-    getSimilarHairfies: function (ids) {
-        return _.map(ids, function (id) {
+    getSimilarHairfies: function (id) {
+        return _.map(this.hairfies[id].similarHairfies, function (id) {
             return this.hairfies[id];
         }.bind(this));
     },
