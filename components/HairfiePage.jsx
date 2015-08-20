@@ -254,7 +254,6 @@ var HairfiePage = React.createClass({
         return {};
     },
     render: function () {
-        //console.log(this.props.hairfie, this.props.similarHairfies);
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
