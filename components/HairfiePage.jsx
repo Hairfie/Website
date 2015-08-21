@@ -219,6 +219,8 @@ var OtherHairfie = React.createClass({
             );
     },
     renderMoreButton: function () {
+        if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;
+
         return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     loadMore: function (e) {
