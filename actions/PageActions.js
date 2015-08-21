@@ -29,8 +29,7 @@ module.exports = {
     },
     hairfie: function (context, route) {
         var id = route.get('params').get('hairfieId');
-        if (_.isUndefined(context.getStore('HairfieStore').getById(id)))
-            return context.executeAction(HairfieActions.loadHairfie, id);
+        return context.executeAction(HairfieActions.loadHairfie, id);
     },
     hairfieSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));

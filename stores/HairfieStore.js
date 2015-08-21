@@ -4,6 +4,9 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var Actions = require('../constants/Actions');
 var _ = require('lodash');
+var HairfieActions = require('../actions/HairfieActions');
+
+var PAGE_SIZE = 12;
 
 module.exports = createStore({
     storeName: 'HairfieStore',
@@ -44,7 +47,12 @@ module.exports = createStore({
         this.searchResults = state.searchResults;
     },
     onReceiveHairfie: function (hairfie) {
-        this.hairfies[hairfie.id] = hairfie;
+        if (_.isUndefined(this.hairfies[hairfie.id])) {
+            this.hairfies[hairfie.id] = hairfie;
+        }
+        else {
+            this.hairfies[hairfie.id] = _.assign(this.hairfies[hairfie.id], {}, hairfie);
+        }
         this.emitChange();
     },
     onReceiveTopHairfies: function (hairfies) {
@@ -127,6 +135,12 @@ module.exports = createStore({
         }.bind(this));
     },
     getSimilarHairfiesPage: function (id) {
+        if (_.isUndefined(this.hairfies[id].similarHairfiesPage))
+            this.getContext().executeAction(HairfieActions.loadSimilarHairfies, {
+                hairfie: this.hairfies[id],
+                page: 1,
+                pageSize: PAGE_SIZE
+            });
         return this.hairfies[id].similarHairfiesPage;
     },
     _generateDescriptions: function(hairfie) {
