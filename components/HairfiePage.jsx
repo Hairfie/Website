@@ -178,24 +178,9 @@ var RightColumn = React.createClass({
 
 var OtherHairfie = React.createClass({
     contextTypes: {
-            executeAction: React.PropTypes.func
-        },
-    getInitialState: function () {
-        return {
-            page: 0
-        };
-    },
-    componentWillMount: function() {
-        this.loadMore();
-    },
-    componentWillReceiveProps: function(nextProps) {
-        if (this.props.hairfie.id != nextProps.hairfie.id) {
-            this.setState({page: 0});
-            this.loadMore();
-        }
+        executeAction: React.PropTypes.func
     },
     render: function() {
-        console.log(this);
         return (
             <div className="hairfies">
                 <div className="row">
@@ -234,18 +219,13 @@ var OtherHairfie = React.createClass({
             );
     },
     renderMoreButton: function () {
-        if (this.state.page * PAGE_SIZE > this.props.similarHairfies.length) return;
-
         return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     loadMore: function (e) {
-        if (e)
-            e.preventDefault();
-        var nextPage = this.state.page + 1;
-        this.setState({ page: nextPage });
+        if (e) e.preventDefault();
         this.context.executeAction(HairfieActions.loadSimilarHairfies, {
             hairfie: this.props.hairfie,
-            page: nextPage,
+            page: (this.props.page || 0) + 1,
             pageSize: PAGE_SIZE
         });
     }
@@ -269,7 +249,7 @@ var HairfiePage = React.createClass({
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                         <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </div>
-                    <OtherHairfie hairfie={this.props.hairfie} similarHairfies={this.props.similarHairfies}/>
+                    <OtherHairfie hairfie={this.props.hairfie} similarHairfies={this.props.similarHairfies} page={this.props.similarHairfiesPage}/>
                 </div>
             </PublicLayout>
         );
@@ -307,6 +287,7 @@ HairfiePage = connectToStores(HairfiePage, [
     return {
         hairfie: hairfie,
         similarHairfies: context.getStore('HairfieStore').getSimilarHairfies(hairfie.id),
+        similarHairfiesPage: context.getStore('HairfieStore').getSimilarHairfiesPage(hairfie.id),
         hairfieLiked: user
     };
 });

@@ -75,7 +75,8 @@ module.exports = {
                 });
                 context.dispatch(Actions.RECEIVE_SIMILAR_HAIRFIES, {
                     hairfieId: params.hairfie.id,
-                    hairfies: hairfies
+                    hairfies: hairfies,
+                    hairfiePage: params.page
                 });
             });
     },

@@ -78,7 +78,7 @@ module.exports = createStore({
     },
     onReceiveSimilarHairfies: function(payload) {
         var arr = _.map(payload.hairfies, function(hairfie) {
-            if (payload.hairfieId != hairfie.id) {
+            if (payload.hairfieId != hairfie.id && _.isUndefined(this.hairfies[hairfie.id])) {
                 this.hairfies[hairfie.id] = hairfie;
             }
             return hairfie.id;
@@ -90,6 +90,7 @@ module.exports = createStore({
                 }.bind(this)); }
             else
                 this.hairfies[payload.hairfieId].similarHairfies = arr;
+            this.hairfies[payload.hairfieId].similarHairfiesPage = payload.hairfiePage;
         }
         this.emitChange();
     },
@@ -124,6 +125,9 @@ module.exports = createStore({
         return _.map(this.hairfies[id].similarHairfies, function (id) {
             return this.hairfies[id];
         }.bind(this));
+    },
+    getSimilarHairfiesPage: function (id) {
+        return this.hairfies[id].similarHairfiesPage;
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';
