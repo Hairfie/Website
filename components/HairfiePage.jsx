@@ -184,7 +184,7 @@ var OtherHairfie = React.createClass({
         return (
             <div className="hairfies">
                 <div className="row">
-                    {this.props.similarHairfies.length > 0 ? <h3 className="col-xs-12 text-center">Autres hairfies du même salon</h3> : ''}
+                    {this.props.similarHairfies.length > 0 ? <h3 className="col-xs-12 text-center">Hairfies Similaires</h3> : ''}
                     {_.map(this.props.similarHairfies, function (hairfie) {
                         var hairdresser = <p>&nbsp;</p>;
                         if (hairfie.hairdresser) {
