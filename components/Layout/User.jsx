@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var connectToStores = require('../../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 var AuthActions = require('../../actions/AuthActions');
 var Link = require('../Link.jsx');
@@ -80,11 +80,11 @@ var User = React.createClass({
 User = connectToStores(User, [
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
         token: token,
-        currentUser: stores.UserStore.getById(token.userId)
+        currentUser: context.getStore('UserStore').getById(token.userId)
     };
 });
 
