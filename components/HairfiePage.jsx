@@ -178,24 +178,14 @@ var RightColumn = React.createClass({
 
 var OtherHairfie = React.createClass({
     contextTypes: {
-            executeAction: React.PropTypes.func
-        },
-    getInitialState: function () {
-        return {
-            page: 0
-        };
-    },
-    componentWillMount: function() {
-        this.loadMore();
+        executeAction: React.PropTypes.func
     },
     render: function() {
         return (
             <div className="hairfies">
                 <div className="row">
-                    <h3 className="col-xs-12 text-center">Autres hairfies du même salon</h3>
-                    {_.map(this.props.hairfies, function (hairfie) {
-                        if (hairfie.id == this.props.currentHairfie.id)
-                            return;
+                    {this.props.similarHairfies.length > 0 ? <h3 className="col-xs-12 text-center">Hairfies Similaires</h3> : ''}
+                    {_.map(this.props.similarHairfies, function (hairfie) {
                         var hairdresser = <p>&nbsp;</p>;
                         if (hairfie.hairdresser) {
                             hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;
@@ -229,20 +219,16 @@ var OtherHairfie = React.createClass({
             );
     },
     renderMoreButton: function () {
-        if (this.state.page * PAGE_SIZE > this.props.hairfies.length) return;
+        if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;
 
         return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     loadMore: function (e) {
-        if (e)
-            e.preventDefault();
-        var nextPage = this.state.page + 1;
-        this.setState({ page: nextPage });
-        this.context.executeAction(HairfieActions.loadBusinessHairfies, {
-            businessId: this.props.currentHairfie.business.id,
-            page: nextPage,
-            pageSize: PAGE_SIZE,
-            add: 1
+        if (e) e.preventDefault();
+        this.context.executeAction(HairfieActions.loadSimilarHairfies, {
+            hairfie: this.props.hairfie,
+            page: (this.props.page || 0) + 1,
+            pageSize: PAGE_SIZE
         });
     }
 });
@@ -265,7 +251,7 @@ var HairfiePage = React.createClass({
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                         <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </div>
-                    <OtherHairfie hairfies={this.props.businessHairfies} currentHairfie={this.props.hairfie}/>
+                    <OtherHairfie hairfie={this.props.hairfie} similarHairfies={this.props.similarHairfies} page={this.props.similarHairfiesPage}/>
                 </div>
             </PublicLayout>
         );
@@ -302,8 +288,9 @@ HairfiePage = connectToStores(HairfiePage, [
 
     return {
         hairfie: hairfie,
-        hairfieLiked: user,
-        businessHairfies: context.getStore('HairfieStore').getByBusiness(hairfie.business.id)
+        similarHairfies: context.getStore('HairfieStore').getSimilarHairfies(hairfie.id),
+        similarHairfiesPage: context.getStore('HairfieStore').getSimilarHairfiesPage(hairfie.id),
+        hairfieLiked: user
     };
 });
 
