@@ -119,7 +119,7 @@ module.exports = {
     userHairfies: function (context, route) {
         return Promise.all([
             context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
-            context.executeAction(UserActions.getUserHairfies, route.get('params').get('userId'))
+            context.executeAction(HairfieActions.loadUserHairfies, route.get('params').get('userId'))
         ]);
     },
     userReviews: function (context, route) {
@@ -131,7 +131,7 @@ module.exports = {
     userLikes: function (context, route) {
         return Promise.all([
             context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
-            context.executeAction(UserActions.getUserLikes, route.get('params').get('userId'))
+            context.executeAction(HairfieActions.loadUserLikes, route.get('params').get('userId'))
         ]);
     },
     hairdresser: function(context, route) {

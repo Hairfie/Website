@@ -98,5 +98,62 @@ module.exports = {
                     result: result
                 });
             });
+    },
+    loadHairdresserHairfies: function (context, id) {
+        var query = {
+        'filter[where][businessMemberId]': id,
+        'filter[order]': 'createdAt DESC',
+        'filter[limit]': 12
+        };
+        return context.hairfieApi
+            .get('/hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES, {userId: id, hairfies: hairfies})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    loadUserHairfies: function (context, id) {
+        var query = {
+        'filter[where][authorId]': id,
+        'filter[order]': 'createdAt DESC',
+        'filter[limit]': 12
+        };
+        return context.hairfieApi
+            .get('/hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: id, hairfies: hairfies})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    loadUserLikes: function (context, id) {
+        var query = {
+        'limit': 12,
+        'userId': id,
+        'filter[order]': 'createdAt DESC'
+        };
+        return context.hairfieApi
+            .get('/users/' + id + '/liked-hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_LIKES, {userId: id, hairfies: hairfies})
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
     }
 };
