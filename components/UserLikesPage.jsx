@@ -21,7 +21,6 @@ var UserLikesPage = React.createClass({
                 <div className="hairfies">
                     <div className="row">
                     {_.map(this.props.hairfies, function (hairfie) {
-                        hairfie = hairfie.hairfie;
                         var hairdresser = <p></p>;
                         if (hairfie.hairdresser) {
                             hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;

@@ -82,7 +82,13 @@ module.exports = createStore({
         this.emitChange();
     },
     onReceiveUserLikes: function (payload) {
-        this.userLikes[payload.userId] = payload.hairfies;
+        if (_.isUndefined(this.userLikes[payload.userId]))
+            this.userLikes[payload.userId] = new Array();
+        _.map(payload.hairfies, function (obj) {
+            this.userLikes[payload.userId].push(obj.hairfie.id);
+            if (_.isUndefined(this.hairfies[obj.hairfie.id])
+                this.hairfies[obj.hairfie.id] = obj.hairfie;
+        }.bind(this));
         this.emitChange();
     },
     onReceiveSimilarHairfies: function(payload) {
@@ -109,8 +115,10 @@ module.exports = createStore({
     getHairfiesByUser: function (id) {
         return this.userHairfies[id];
     },
-    getLikesByUser: function (id) {
-        return this.userLikes[id];
+    getLikesByUser: function (userId) {
+        return _.map(this.userLikes[userId], function(id) {
+            return this.hairfies[id];
+        }.bind(this));
     },
     getTop: function () {
         return _.map(this.topIds, this.getById, this);
