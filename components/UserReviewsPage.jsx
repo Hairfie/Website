@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserLayout = require('./UserPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
@@ -70,10 +70,10 @@ var UserReviewsPage = React.createClass({
 UserReviewsPage = connectToStores(UserReviewsPage, [
     'UserStore',
     'BusinessReviewStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        user: stores.UserStore.getById(props.route.params.userId),
-        reviews: stores.BusinessReviewStore.getReviewsByUser(props.route.params.userId)
+        user: context.getStore('UserStore').getById(props.route.params.userId),
+        reviews: context.getStore('BusinessReviewStore').getReviewsByUser(props.route.params.userId)
     };
 });
 

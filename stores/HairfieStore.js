@@ -15,6 +15,7 @@ module.exports = createStore({
         onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES,
         onReceiveUserHairfies: Actions.RECEIVE_USER_HAIRFIES,
         onReceiveUserLikes: Actions.RECEIVE_USER_LIKES,
+        onReceiveHairdresserHairfie: Actions.RECEIVE_HAIRDRESSER_HAIRFIES
     }),
     initialize: function () {
         this.hairfies = {};

@@ -10,6 +10,7 @@ var HairfieActions = require('./HairfieActions');
 var BusinessActions = require('./BusinessActions');
 var BusinessReviewActions = require('./BusinessReviewActions');
 var BusinessServiceActions = require('./BusinessServiceActions');
+var HairdresserActions = require('./HairdresserActions');
 var PlaceActions = require('./PlaceActions');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
@@ -131,6 +132,16 @@ module.exports = {
         return Promise.all([
             context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
             context.executeAction(UserActions.getUserLikes, route.get('params').get('userId'))
+        ]);
+    },
+    hairdresser: function(context, route) {
+        return Promise.all([
+            context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
+        ]);
+    },
+    hairdresserHairfies: function(context, route) {
+        return Promise.all([
+            context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
         ]);
     }
 };

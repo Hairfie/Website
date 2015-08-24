@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
@@ -24,7 +24,7 @@ var HairdresserLayout = React.createClass({
         };
         return (
             <PublicLayout>
-                <div className="container user" id="content">
+                <div className="container hairdresser" id="content">
                     <div className="main-content">
                         <div className="short-info">
                             <div className="col-xs-4">
@@ -33,20 +33,19 @@ var HairdresserLayout = React.createClass({
                             </div>
                             <div className="col-xs-8">
                                 <h1>{this.props.hairdresser.firstName}</h1>
-                                {this.renderEdit()}
                             </div>
                         </div>
-                        <section className="user-content">
+                        <section className="hairdresser-content">
                             <div className="row">
                                 <ul className="nav nav-tabs" role="tablist">
-                                    <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
-                                        <Link route="hairdresser" params={{userId: this.props.hairdresser.id}} preserveScrollPosition={true}>
+                                    <li className={'col-xs-6'+('infos' === this.props.tab ? ' active' : '')}>
+                                        <Link route="hairdresser" params={{id: this.props.hairdresser.id}} preserveScrollPosition={true}>
                                             <span className="icon-nav"></span>
                                             Infos
                                         </Link>
                                     </li>
-                                    <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
-                                        <Link route="hairdresser_hairfies" params={{userId: this.props.hairdresser.id}} preserveScrollPosition={true}>
+                                    <li className={'col-xs-6'+('hairfies' === this.props.tab ? ' active' : '')}>
+                                        <Link route="hairdresser_hairfies" params={{id: this.props.hairdresser.id}} preserveScrollPosition={true}>
                                             <span className="icon-nav"></span>
                                             Hairfies
                                         </Link>
@@ -64,7 +63,7 @@ var HairdresserLayout = React.createClass({
     },
     openGallery: function(e) {
         e.preventDefault();
-        if (this.props.user.picture)
+        if (this.props.hairdresser.picture)
             this.setState({openGallery: true});
     },
     handleCloseGallery: function () {
@@ -72,14 +71,4 @@ var HairdresserLayout = React.createClass({
     }
 });
 
-HairdresserLayout = connectToStores(UserLayout, [
-    'AuthStore',
-    'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
-    return {
-        currentUser: stores.UserStore.getById(token.userId)
-    };
-});
-
-module.exports = UserLayout;
+module.exports = HairdresserLayout;

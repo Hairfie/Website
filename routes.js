@@ -132,5 +132,19 @@ module.exports = {
         path: '/fr/utilisateur/edition',
         method: 'get',
         handler: require('./components/UserEditPage.jsx')
-    }
+    },
+    hairdresser: {
+        title: 'Page Coiffeur',
+        path: '/fr/hairdresser/:id',
+        method: 'get',
+        action: PageActions.hairdresser,
+        handler: require('./components/HairdresserPage.jsx')
+    },
+    hairdresser_hairfies: {
+        title: 'Page Coiffeur',
+        path: '/fr/hairdresser/:id/hairfies',
+        method: 'get',
+        action: PageActions.hairdresserHairfies,
+        handler: require('./components/HairdresserHairfiesPage.jsx')
+    },
 };

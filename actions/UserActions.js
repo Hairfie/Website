@@ -43,9 +43,6 @@ module.exports = {
         delete payload.token;
         return context.hairfieApi
             .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
-            .then(function (data) {
-                console.log(data);
-            })
     },
     getUserById: function(context, id) {
         return context.hairfieApi

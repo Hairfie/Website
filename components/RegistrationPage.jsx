@@ -5,7 +5,7 @@ var _ = require('lodash');
 var PublicLayout = require('./PublicLayout.jsx');
 var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormRegistration = require('./Auth/FormRegistration.jsx');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Link = require('./Link.jsx');
 
 var RegistrationPage = React.createClass({
@@ -33,9 +33,9 @@ var RegistrationPage = React.createClass({
 
 RegistrationPage = connectToStores(RegistrationPage, [
     'BookingStore'
-], function (stores, props) {
+], function (context, props) {
     return {
-        booking: props.route.query.bookingId ? stores.BookingStore.getById(props.route.query.bookingId) : {}
+        booking: props.route.query.bookingId ? context.getStore('BookingStore').getById(props.route.query.bookingId) : {}
     };
 });
 
