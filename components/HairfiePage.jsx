@@ -176,7 +176,7 @@ var RightColumn = React.createClass({
     }
 });
 
-var SimilarHairfiesHairfie = React.createClass({
+var SimilarHairfies = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
     },
