@@ -11,6 +11,8 @@ var moment = require('moment');
 require('moment/locale/fr');
 moment.locale('fr');
 
+var PAGE_SIZE = 15;
+
 function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
 
 var UserHairfiesPage = React.createClass({
@@ -53,6 +55,19 @@ var UserHairfiesPage = React.createClass({
             </UserLayout>
         );
     },
+    renderMoreButton: function () {
+        if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;
+
+        return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
+    },
+    loadMore: function (e) {
+        if (e) e.preventDefault();
+        this.context.executeAction(HairfieActions.loadSimilarHairfies, {
+            hairfie: this.props.hairfie,
+            page: (this.props.page || 0) + 1,
+            pageSize: PAGE_SIZE
+        });
+    },
     renderTitle: function () {
         if (_.isEmpty(this.props.hairfies))
             return <h3>{this.props.user.firstName} n'a pas encore posté d'Hairfie.</h3>
@@ -66,7 +81,8 @@ UserHairfiesPage = connectToStores(UserHairfiesPage, [
 ], function (context, props) {
     return {
         user: context.getStore('UserStore').getById(props.route.params.userId),
-        hairfies: context.getStore('HairfieStore').getHairfiesByUser(props.route.params.userId)
+        hairfies: context.getStore('HairfieStore').getHairfiesByUser(props.route.params.userId),
+        page: context.getStore('HairfieStore').getHairfiesByUserPage(props.route.params.userId)
     };
 });
 

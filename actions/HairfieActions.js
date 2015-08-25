@@ -3,6 +3,7 @@
 var Actions = require('../constants/Actions');
 var _ = require('lodash');
 var NavigationActions = require('./NavigationActions');
+var NotificationActions = require('./NotificationActions');
 var SearchUtils = require('../lib/search-utils');
 var Promise = require('q');
 
@@ -124,17 +125,18 @@ module.exports = {
                 });
             });
     },
-    loadHairdresserHairfies: function (context, id) {
+    loadHairdresserHairfies: function (context, params) {
         var query = {
-        'filter[where][businessMemberId]': id,
+        'filter[where][businessMemberId]': params.id,
         'filter[order]': 'createdAt DESC',
-        'filter[limit]': 12
+        'filter[limit]': params.pageSize,
+        'filter[skip]': (params.page - 1) * params.pageSize
         };
         return context.hairfieApi
             .get('/hairfies', { query: query })
             .then(function (hairfies) {
                 Promise.all([
-                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES, {userId: id, hairfies: hairfies})
+                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES, {userId: params.id, hairfies: hairfies})
                 ]);
             }, function () {
                 return context.executeAction(
@@ -143,17 +145,18 @@ module.exports = {
                 );
             });
     },
-    loadUserHairfies: function (context, id) {
+    loadUserHairfies: function (context, params) {
         var query = {
-        'filter[where][authorId]': id,
+        'filter[where][authorId]': params.id,
         'filter[order]': 'createdAt DESC',
-        'filter[limit]': 12
+        'filter[skip]': (params.page - 1) * params.pageSize,
+        'filter[limit]': params.pageSize
         };
         return context.hairfieApi
             .get('/hairfies', { query: query })
             .then(function (hairfies) {
                 Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: id, hairfies: hairfies})
+                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: paramis.id, hairfies: hairfies})
                 ]);
             }, function () {
                 return context.executeAction(
@@ -162,17 +165,23 @@ module.exports = {
                 );
             });
     },
-    loadUserLikes: function (context, id) {
+    loadUserLikes: function (context, params) {
         var query = {
-        'limit': 12,
-        'userId': id,
-        'filter[order]': 'createdAt DESC'
+        'limit': params.pageSize,
+        'userId': params.id,
+        'filter[order]': 'createdAt DESC',
+        'filter[skip]': (params.page - 1) * params.pageSize
         };
         return context.hairfieApi
-            .get('/users/' + id + '/liked-hairfies', { query: query })
+            .get('/users/' + params.id + '/liked-hairfies', { query: query })
             .then(function (hairfies) {
                 Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_LIKES, {userId: id, hairfies: hairfies})
+                    context.dispatch(Actions.RECEIVE_USER_LIKES,
+                        {
+                        userId: params.id,
+                        hairfies: hairfies,
+                        page: params.page
+                    })
                 ]);
             }, function () {
                 return context.executeAction(

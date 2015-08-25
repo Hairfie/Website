@@ -132,8 +132,7 @@ module.exports = {
     },
     userLikes: function (context, route) {
         return Promise.all([
-            context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
-            context.executeAction(HairfieActions.loadUserLikes, route.get('params').get('userId'))
+            context.executeAction(UserActions.getUserById, route.get('params').get('userId'))
         ]);
     },
     hairdresser: function(context, route) {

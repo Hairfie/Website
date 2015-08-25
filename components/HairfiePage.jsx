@@ -176,7 +176,7 @@ var RightColumn = React.createClass({
     }
 });
 
-var OtherHairfie = React.createClass({
+var SimilarHairfiesHairfie = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
     },
@@ -251,7 +251,7 @@ var HairfiePage = React.createClass({
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                         <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </div>
-                    <OtherHairfie hairfie={this.props.hairfie} similarHairfies={this.props.similarHairfies} page={this.props.similarHairfiesPage}/>
+                    <SimilarHairfies hairfie={this.props.hairfie} similarHairfies={this.props.similarHairfies} page={this.props.similarHairfiesPage}/>
                 </div>
             </PublicLayout>
         );

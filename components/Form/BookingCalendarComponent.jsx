@@ -61,8 +61,8 @@ module.exports = React.createClass({
             <div className="calendar">
                 <table className="cal">
                     <caption>
-                        <span className="prev" onClick={this.prevMonth}><a href="#"></a></span>
-                        <span className="next" onClick={this.nextMonth}><a href="#"></a></span>
+                        <span className="prev" onClick={this.prevMonth}><a role="button"></a></span>
+                        <span className="next" onClick={this.nextMonth}><a role="button"></a></span>
                         {m.format('MMMM YYYY')}
                     </caption>
                     <thead>
