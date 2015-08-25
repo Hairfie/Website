@@ -43,6 +43,14 @@ module.exports = {
         delete payload.token;
         return context.hairfieApi
             .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
+            .then(function () {
+                context.executeAction(NotificationActions.notifySuccess, "Vos informations ont bien été éditée");
+            }, function() {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu, veuillez vous reconnecter"
+                );
+            })
     },
     getUserById: function(context, id) {
         return context.hairfieApi
