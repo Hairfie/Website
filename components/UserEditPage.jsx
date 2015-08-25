@@ -2,7 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
-var connectToStores = require('../lib/connectToStores');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout = require('./PublicLayout.jsx');
 var Link = require('./Link.jsx');
 var ImageField = require('./Partial/ImageField.jsx');
@@ -73,11 +73,11 @@ var UserEditPage = React.createClass({
 UserEditPage = connectToStores(UserEditPage, [
     'AuthStore',
     'UserStore'
-], function (stores, props) {
-    var token = stores.AuthStore.getToken();
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
         token: token,
-        user: stores.UserStore.getById(token.userId)
+        user: context.getStore('UserStore').getById(token.userId)
     };
 });
 
