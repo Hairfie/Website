@@ -4,6 +4,9 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var Actions = require('../constants/Actions');
 var _ = require('lodash');
+var HairfieActions = require('../actions/HairfieActions');
+
+var PAGE_SIZE = 12;
 
 module.exports = createStore({
     storeName: 'HairfieStore',
@@ -15,6 +18,7 @@ module.exports = createStore({
         onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES,
         onReceiveUserHairfies: Actions.RECEIVE_USER_HAIRFIES,
         onReceiveUserLikes: Actions.RECEIVE_USER_LIKES,
+        onReceiveSimilarHairfies: Actions.RECEIVE_SIMILAR_HAIRFIES
     }),
     initialize: function () {
         this.hairfies = {};
@@ -43,7 +47,12 @@ module.exports = createStore({
         this.searchResults = state.searchResults;
     },
     onReceiveHairfie: function (hairfie) {
-        this.hairfies[hairfie.id] = hairfie;
+        if (_.isUndefined(this.hairfies[hairfie.id])) {
+            this.hairfies[hairfie.id] = hairfie;
+        }
+        else {
+            this.hairfies[hairfie.id] = _.assign(this.hairfies[hairfie.id], {}, hairfie);
+        }
         this.emitChange();
     },
     onReceiveTopHairfies: function (hairfies) {
@@ -75,6 +84,24 @@ module.exports = createStore({
         this.userLikes[payload.userId] = payload.hairfies;
         this.emitChange();
     },
+    onReceiveSimilarHairfies: function(payload) {
+        var arr = _.map(payload.hairfies, function(hairfie) {
+            if (payload.hairfieId != hairfie.id && _.isUndefined(this.hairfies[hairfie.id])) {
+                this.hairfies[hairfie.id] = hairfie;
+            }
+            return hairfie.id;
+        }.bind(this));
+        if (this.hairfies[payload.hairfieId]) {
+            if (_.isArray(this.hairfies[payload.hairfieId].similarHairfies)) {
+                _.map(arr, function(val) {
+                    this.hairfies[payload.hairfieId].similarHairfies.push(val);
+                }.bind(this)); }
+            else
+                this.hairfies[payload.hairfieId].similarHairfies = arr;
+            this.hairfies[payload.hairfieId].similarHairfiesPage = payload.hairfiePage;
+        }
+        this.emitChange();
+    },
     getById: function (id) {
         return this.hairfies[id];
     },
@@ -101,6 +128,20 @@ module.exports = createStore({
         var hairfies = _.filter(this.hairfies, function (h) { return h.business && h.business.id === businessId; });
 
         return _.sortByOrder(hairfies, ['createdAt'], [false]);
+    },
+    getSimilarHairfies: function (id) {
+        return _.map(this.hairfies[id].similarHairfies, function (id) {
+            return this.hairfies[id];
+        }.bind(this));
+    },
+    getSimilarHairfiesPage: function (id) {
+        if (_.isUndefined(this.hairfies[id].similarHairfiesPage))
+            this.getContext().executeAction(HairfieActions.loadSimilarHairfies, {
+                hairfie: this.hairfies[id],
+                page: 1,
+                pageSize: PAGE_SIZE
+            });
+        return this.hairfies[id].similarHairfiesPage;
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';

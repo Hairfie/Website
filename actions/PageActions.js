@@ -1,6 +1,7 @@
 'use strict';
 
 var Promise = require('q');
+var _ = require('lodash');
 var executeCritical = require('fluxible-action-utils/async/executeCritical');
 var Actions = require('../constants/Actions');
 var StationActions = require('./StationActions');
@@ -27,7 +28,8 @@ module.exports = {
         ]);
     },
     hairfie: function (context, route) {
-        return context.executeAction(HairfieActions.loadHairfie, route.get('params').get('hairfieId'));
+        var id = route.get('params').get('hairfieId');
+        return context.executeAction(HairfieActions.loadHairfie, id);
     },
     hairfieSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
