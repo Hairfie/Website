@@ -136,7 +136,12 @@ module.exports = {
             .get('/hairfies', { query: query })
             .then(function (hairfies) {
                 Promise.all([
-                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES, {userId: params.id, hairfies: hairfies})
+                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES,
+                        {
+                            hairdresserId: params.id,
+                            hairfies: hairfies,
+                            page: params.page
+                        })
                 ]);
             }, function () {
                 return context.executeAction(
@@ -152,11 +157,17 @@ module.exports = {
         'filter[skip]': (params.page - 1) * params.pageSize,
         'filter[limit]': params.pageSize
         };
+
         return context.hairfieApi
             .get('/hairfies', { query: query })
             .then(function (hairfies) {
                 Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: paramis.id, hairfies: hairfies})
+                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES,
+                        {
+                        userId: params.id,
+                        hairfies: hairfies,
+                        page: params.page
+                    })
                 ]);
             }, function () {
                 return context.executeAction(
@@ -169,8 +180,8 @@ module.exports = {
         var query = {
         'limit': params.pageSize,
         'userId': params.id,
-        'filter[order]': 'createdAt DESC',
-        'filter[skip]': (params.page - 1) * params.pageSize
+        'order': 'createdAt DESC',
+        'skip': (params.page - 1) * params.pageSize
         };
         return context.hairfieApi
             .get('/users/' + params.id + '/liked-hairfies', { query: query })

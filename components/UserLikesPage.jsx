@@ -54,8 +54,8 @@ var UserLikesPage = React.createClass({
                                     </div>
                                 );
                             }, this)}
-                        {this.renderMoreButton()};
                     </div>
+                    {this.renderMoreButton()};
                 </div>
             </UserLayout>
         );

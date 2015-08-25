@@ -6,6 +6,7 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserLayout = require('./UserPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
+var HairfieActions = require('../actions/HairfieActions');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -16,6 +17,9 @@ var PAGE_SIZE = 15;
 function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
 
 var UserHairfiesPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     render: function () {
         return(
             <UserLayout user={this.props.user} tab="hairfies">
@@ -51,19 +55,20 @@ var UserHairfiesPage = React.createClass({
                                 );
                             }, this)}
                     </div>
+                    {this.renderMoreButton()};
                 </div>
             </UserLayout>
         );
     },
     renderMoreButton: function () {
-        if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;
+        if (this.props.page * PAGE_SIZE > this.props.hairfies.length) return;
 
         return <a role="button" onClick={this.loadMore} className="btn btn-red">Voir plus de Hairfies</a>;
     },
     loadMore: function (e) {
         if (e) e.preventDefault();
-        this.context.executeAction(HairfieActions.loadSimilarHairfies, {
-            hairfie: this.props.hairfie,
+        this.context.executeAction(HairfieActions.loadUserHairfies, {
+            id: this.props.user.id,
             page: (this.props.page || 0) + 1,
             pageSize: PAGE_SIZE
         });
