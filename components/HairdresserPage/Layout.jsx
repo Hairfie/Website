@@ -8,6 +8,8 @@ var Link = require('../Link.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 var Gallery = require('../Partial/Gallery.jsx');
 
+function displayName(n) { return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.' }
+
 var HairdresserLayout = React.createClass({
     getInitialState: function () {
         return {
@@ -15,6 +17,7 @@ var HairdresserLayout = React.createClass({
         }
     },
     render: function() {
+        var fullName = displayName(this.props.hairdresser);
         if (!this.props.hairdresser) return (<PublicLayout />);
         var options = {
             width: 340,
@@ -32,7 +35,8 @@ var HairdresserLayout = React.createClass({
                                 <UserProfilePicture className="ProfilePicture" role={this.props.hairdresser.picture ? "button" : ""} onClick={this.props.hairdresser.picture ? this.openGallery : ""} picture={this.props.hairdresser.picture} options={options} gender={this.props.hairdresser.gender}/>
                             </div>
                             <div className="col-xs-8">
-                                <h1>{this.props.hairdresser.firstName}</h1>
+                                <h1>{fullName}</h1>
+                                <h2>{this.props.hairdresser.numHairfies} Hairfies.</h2>
                             </div>
                         </div>
                         <section className="hairdresser-content">

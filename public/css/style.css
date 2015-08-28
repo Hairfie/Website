@@ -12892,47 +12892,21 @@ section.home-footer .row > div {
     .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:nth-child(2) .icon-nav {
       background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
   .container.hairdresser#content .main-content section.hairdresser-content section {
+    margin-bottom: 20px;
     padding-left: 50px;
-    padding-right: 50px; }
+    padding-right: 50px;
+    overflow: auto;
+    margin-bottom: 20px; }
     @media screen and (min-width: 1200px) {
       .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie {
         width: 20%; } }
-    .container.hairdresser#content .main-content section.hairdresser-content section div.comments .ProfilePicture {
-      margin-right: 25px;
-      float: left;
-      width: 60px;
-      border: none; }
-    .container.hairdresser#content .main-content section.hairdresser-content section div.comments .icon-home {
-      margin-left: 25px; }
-      .container.hairdresser#content .main-content section.hairdresser-content section div.comments .icon-home:before {
-        content: " ";
-        background: url(../../img/icons/home.png) no-repeat center center;
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        margin-left: -25px;
-        top: -5px; }
-    .container.hairdresser#content .main-content section.hairdresser-content section div.comments .separate {
-      border-left: solid;
-      border-width: 2px;
-      border-color: #c4c4c4;
-      left: -1px;
-      padding-right: 0; }
-      .container.hairdresser#content .main-content section.hairdresser-content section div.comments .separate p {
-        font-size: 1.2em; }
-      .container.hairdresser#content .main-content section.hairdresser-content section div.comments .separate a {
-        font-size: 1.4em;
-        margin-top: 5px;
-        width: 48%; }
-      @media screen and (max-width: 991px) {
-        .container.hairdresser#content .main-content section.hairdresser-content section div.comments .separate a.businessButton {
-          width: 100%; } }
+    .container.hairdresser#content .main-content section.hairdresser-content section div.image-block img {
+      width: 100%;
+      max-width: 250px; }
     @media screen and (max-width: 1199px) {
       .container.hairdresser#content .main-content section.hairdresser-content section {
         padding-left: 15px;
         padding-right: 15px; } }
-    .container.hairdresser#content .main-content section.hairdresser-content section h4 {
-      color: #343434; }
 
 .connect-form {
   padding-top: 1px;

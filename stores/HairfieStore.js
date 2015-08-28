@@ -23,6 +23,7 @@ module.exports = createStore({
         this.hairfies = {};
         this.userHairfies = {};
         this.userLikes = {};
+        this.hairdresserHairfies = {};
         this.topIds = [];
         this.businessTopIds = {};
         this.searchResults = {};
@@ -32,6 +33,7 @@ module.exports = createStore({
             hairfies: this.hairfies,
             userHairfies: this.userHairfies,
             userLikes: this.userLikes,
+            hairdresserHairfies: this.hairdresserHairfies,
             topIds: this.topIds,
             businessTopIds: this.businessTopIds,
             searchResults: this.searchResults
@@ -41,6 +43,7 @@ module.exports = createStore({
         this.hairfies = state.hairfies;
         this.userHairfies = state.userHairfies;
         this.userLikes = state.userLikes;
+        this.hairdresserHairfies = state.hairdresserHairfies;
         this.topIds = state.topIds;
         this.businessTopIds = state.businessTopIds;
         this.searchResults = state.searchResults;
@@ -76,15 +79,15 @@ module.exports = createStore({
         this.emitChange();
     },
     onReceiveHairdresserHairfies: function (payload) {
-        if (_.isUndefined(this.HairdresserHairfies[payload.hairdresserId]))
-            this.HairdresserHairfies[payload.hairdresserId] = new Array();
+        if (_.isUndefined(this.hairdresserHairfies[payload.hairdresserId]))
+            this.hairdresserHairfies[payload.hairdresserId] = new Array();
         _.map(payload.hairfies, function (hairfie) {
-            this.HairdresserHairfies[payload.hairdresserId].push(hairfie.id);
+            this.hairdresserHairfies[payload.hairdresserId].push(hairfie.id);
             if (_.isUndefined(this.hairfies[hairfie.id]))
                 this.hairfies[hairfie.id] = hairfie;
         }.bind(this));
-        this.HairdresserHairfies[payload.hairdresserId] = _.uniq(this.HairdresserHairfies[payload.hairdresserId]);
-        this.HairdresserHairfies[payload.hairdresserId].page = payload.page;
+        this.hairdresserHairfies[payload.hairdresserId] = _.uniq(this.hairdresserHairfies[payload.hairdresserId]);
+        this.hairdresserHairfies[payload.hairdresserId].page = payload.page;
         this.emitChange();
     },
     onReceiveUserHairfies: function (payload) {
@@ -148,7 +151,7 @@ module.exports = createStore({
         }.bind(this));
     },
     getHairfiesByHairdresserPage: function (hairdresserId) {
-        if (_.isUndefined(this.hairdresserHairfies[userId])) {
+        if (_.isUndefined(this.hairdresserHairfies[hairdresserId])) {
             this.getContext().executeAction(HairfieActions.loadHairdresserHairfies, {
                 id: hairdresserId,
                 page: 1,
@@ -156,7 +159,7 @@ module.exports = createStore({
             });
         }
         else
-            return this.userHairfies[userId].page;
+            return this.hairdresserHairfies[hairdresserId].page;
     },
     getHairfiesByUserPage: function (userId) {
         if (_.isUndefined(this.userHairfies[userId])) {
