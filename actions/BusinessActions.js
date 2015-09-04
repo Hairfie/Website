@@ -64,5 +64,17 @@ module.exports = {
 
                 return result;
             });
+    },
+    loadBusinessCalendar: function(context, payload) {
+        var query = {
+            from: payload.from,
+            until: payload.until
+        };
+
+        return context.hairfieApi
+            .get("/business/" + payload.id + "/timeslots", query)
+            .then(function(timeslots) {
+                console.log(timeslots)
+            });
     }
 };
