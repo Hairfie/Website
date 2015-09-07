@@ -17,7 +17,7 @@ module.exports = React.createClass({
                 <div className="container">
                     <div className="row">
                         <ul className="footer-links col-md-7">
-                        <li className="col-sm-2"><a href="http://blog.hairfie.com/">À propos</a></li>
+                        <li className="col-sm-2"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
                         <li className="col-sm-2"><a href="#">Presse</a></li>
                         <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
                         <li className="col-sm-4"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions Générales</a></li>
