@@ -18,7 +18,7 @@ var HairdresserPage = React.createClass({
         return(
             <HairdresserLayout hairdresser={this.props.hairdresser} tab="infos">
                 <h1>Lieu de travail</h1>
-                <div className="col-xs-12 col-sm-3 image-bloc">
+                <div className="col-xs-3 image-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture
                             picture={_.first(business.pictures)}
@@ -28,12 +28,18 @@ var HairdresserPage = React.createClass({
                         />
                     </Link>
                 </div>
-                <div className="col-xs-12 col-sm-9">
+                <div className="col-xs-9">
                     <div>
                         <h5>{business.name}</h5>
                         <p>{address.street} {address.zipCode} {address.city}</p>
                         <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                     </div>
+                    <div className="hidden-xs businessButtons">
+                        {disabled}
+                        <Link route="business" className="btn btn-red" style={{marginLeft: '10px'}} params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
+                    </div>
+                </div>
+                <div className="col-xs-12 visible-xs businessButtons">
                     {disabled}
                     <Link route="business" className="btn btn-red" style={{marginLeft: '10px'}} params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
                 </div>

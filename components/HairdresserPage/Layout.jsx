@@ -7,6 +7,7 @@ var PublicLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
 var UserProfilePicture = require('../Partial/UserProfilePicture.jsx');
 var Gallery = require('../Partial/Gallery.jsx');
+var Picture = require('../Partial/Picture.jsx');
 
 function displayName(n) { return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.' }
 
@@ -25,8 +26,10 @@ var HairdresserLayout = React.createClass({
             crop: 'thumb',
             gravity: 'faces'
         };
+        console.log(this);
         return (
             <PublicLayout>
+            <Picture className="hairdresser short-background" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png"></Picture>
                 <div className="container hairdresser" id="content">
                     <div className="main-content">
                         <div className="short-info">

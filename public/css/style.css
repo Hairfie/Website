@@ -12866,47 +12866,77 @@ section.home-footer .row > div {
     .container.user#content .main-content section.user-content section h4 {
       color: #343434; }
 
-.container.hairdresser#content .main-content {
-  margin-top: 20px;
-  margin-bottom: 70px; }
-  .container.hairdresser#content .main-content img.ProfilePicture {
-    display: block;
-    width: 14em;
-    border-radius: 100%;
-    margin: 0 auto 20px;
-    border: 10px solid #f0f0f1; }
-  .container.hairdresser#content .main-content .short-info {
-    margin-top: 10px;
-    overflow: auto; }
-    @media screen and (max-width: 767px) {
-      .container.hairdresser#content .main-content .short-info {
-        margin-top: 100px; } }
-  .container.hairdresser#content .main-content section.hairdresser-content h5 {
-    font-family: "Source Sans Pro", sans-serif; }
-  .container.hairdresser#content .main-content section.hairdresser-content > .row {
-    background-color: white; }
-  .container.hairdresser#content .main-content section.hairdresser-content ul.nav {
-    margin: 0; }
-    .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:first-child .icon-nav {
-      background: url(../images/icon-resa-user.png) no-repeat center center; }
-    .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:nth-child(2) .icon-nav {
-      background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
-  .container.hairdresser#content .main-content section.hairdresser-content section {
-    margin-bottom: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    overflow: auto;
-    margin-bottom: 20px; }
-    @media screen and (min-width: 1200px) {
-      .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie {
-        width: 20%; } }
-    .container.hairdresser#content .main-content section.hairdresser-content section div.image-block img {
-      width: 100%;
-      max-width: 250px; }
-    @media screen and (max-width: 1199px) {
-      .container.hairdresser#content .main-content section.hairdresser-content section {
-        padding-left: 15px;
-        padding-right: 15px; } }
+.hairdresser.short-background {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #838B95;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+  -o-filter: blur(5px);
+  filter: blur(5px); }
+
+.container.hairdresser#content {
+  background-color: transparent; }
+  .container.hairdresser#content .main-content {
+    margin-top: 20px;
+    margin-bottom: 70px; }
+    .container.hairdresser#content .main-content img.ProfilePicture {
+      display: block;
+      width: 14em;
+      border-radius: 100%;
+      margin: 0 auto 20px;
+      border: 10px solid #f0f0f1; }
+    .container.hairdresser#content .main-content .short-info {
+      margin-top: 10px;
+      overflow: auto; }
+      @media screen and (max-width: 767px) {
+        .container.hairdresser#content .main-content .short-info {
+          margin-top: 100px; } }
+    .container.hairdresser#content .main-content .short-background {
+      width: 200vw;
+      left: -100vw;
+      position: absolute;
+      height: 400px;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -ms-filter: blur(5px);
+      -o-filter: blur(5px);
+      filter: blur(5px); }
+    .container.hairdresser#content .main-content section.hairdresser-content h5 {
+      font-family: "Source Sans Pro", sans-serif; }
+    .container.hairdresser#content .main-content section.hairdresser-content > .row {
+      background-color: white; }
+    .container.hairdresser#content .main-content section.hairdresser-content ul.nav {
+      margin: 0; }
+      .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:first-child .icon-nav {
+        background: url(../images/icon-resa-user.png) no-repeat center center; }
+      .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:nth-child(2) .icon-nav {
+        background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+    .container.hairdresser#content .main-content section.hairdresser-content section {
+      margin-bottom: 20px;
+      padding-left: 50px;
+      padding-right: 50px;
+      overflow: auto;
+      margin-bottom: 20px;
+      position: relative;
+      background: white; }
+      @media screen and (min-width: 1200px) {
+        .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie {
+          width: 20%; } }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.image-block img {
+        width: 100%;
+        max-width: 250px; }
+      @media screen and (max-width: 1199px) {
+        .container.hairdresser#content .main-content section.hairdresser-content section {
+          padding-left: 15px;
+          padding-right: 15px; } }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.businessButtons {
+        margin-top: 10px; }
 
 .connect-form {
   padding-top: 1px;

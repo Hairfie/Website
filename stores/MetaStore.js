@@ -57,7 +57,15 @@ module.exports = createStore({
             case 'hairfie_search':
                 this._setMetas(this._getHairfieSearchMetas(route));
                 break;
-
+            case 'user_hairfies':
+            case 'user_likes':
+            case 'user_reviews':
+                this._setMetas(this._getUserMetas(route.get('params').get('userId'), route.get('name')));
+                break;
+            case 'hairdresser':
+            case 'hairdresser_hairfies':
+                this._setMetas(this._getHairdresserMetas(route.get('params').get('id'), route.get('name')));
+                break
             default:
                 this._setMetas(this._getDefaultMetas(route));
         }
@@ -226,6 +234,56 @@ module.exports = createStore({
                 { property: 'og:title', content: title }
             ]
         );
+
+        return metas;
+    },
+    _getUserMetas: function(id, routeName) {
+        var user = this.dispatcher.getStore('UserStore').getById(id);
+
+        var title, description;
+        title = "Profil de " + user.firstName;
+        switch(routeName) {
+            case 'user_likes':
+                description = "Les hairfies aimés par " + user.firstName;
+                break;
+            case 'user_hairfies':
+                description = "Les hairfies postés par " + user.firstName;
+                break;
+            case 'user_reviews':
+                description = "Les avis de " + user.firstName;
+            default:
+                description = "Profil de " + user.firstName;
+        }
+
+        var metas = _.union(this._getBaseMetas(), [
+            { property: 'og:title', content: title },
+            { property: 'og:description', content: description },
+            { property: 'og:url', content: this._getUrl(routeName, { userId: user.id }) }
+        ]);
+
+        return metas;
+    },
+    _getHairdresserMetas: function(id, routeName) {
+        var hairdresser = this.dispatcher.getStore('HairdresserStore').getById(id);
+
+        var title, description;
+        title = "Profil de " + hairdresser.firstName;
+        switch(routeName) {
+            case 'hairdresser':
+                description = "Les informations de " + hairdresser.firstName;
+                break;
+            case 'hairdresser':
+                description = "Les hairfies coiffés par " + hairdresser.firstName;
+                break;
+            default:
+                description = "Profil de " + user.firstName;
+        }
+
+        var metas = _.union(this._getBaseMetas(), [
+            { property: 'og:title', content: title },
+            { property: 'og:description', content: description },
+            { property: 'og:url', content: this._getUrl(routeName, { id: hairdresser.id }) }
+        ]);
 
         return metas;
     },
