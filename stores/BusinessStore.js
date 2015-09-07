@@ -10,24 +10,28 @@ module.exports = createStore({
     handlers: makeHandlers({
         onReceiveBusiness: Actions.RECEIVE_BUSINESS,
         onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES,
-        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT,
+        onReceiveTimeslots: Actions.RECEIVE_BUSINESS_TIMESLOTS
     }),
     initialize: function () {
         this.businesses = {};
         this.similarIds = {};
         this.searchResults = {};
+        this.timeslots = {};
     },
     dehydrate: function () {
         return {
             businesses: this.businesses,
             similarIds: this.similarIds,
-            searchResults: this.searchResults
+            searchResults: this.searchResults,
+            timeslots: this.timeslots
         };
     },
     rehydrate: function (state) {
         this.businesses = state.businesses;
         this.similarIds = state.similarIds;
         this.searchResults = state.searchResults;
+        this.timeslots = state.timeslots;
     },
     onReceiveBusiness: function (business) {
         this.businesses[business.id] = business;
@@ -44,6 +48,12 @@ module.exports = createStore({
             hits: _.pluck(payload.result.hits, 'id')
         });
         this.emitChange();
+    },
+    onReceiveTimeslots: function(payload) {
+        if (!this.timeslots[payload.id])
+            this.timeslots[payload.id] = [];
+        console.log(payload);
+
     },
     // TODO: move discount code into a discount store
     getDiscountForBusiness: function(businessId) {
@@ -80,6 +90,9 @@ module.exports = createStore({
     },
     getSimilar: function (businessId, limit) {
         return _.map(this.similarIds[businessId], this.getById, this);
+    },
+    getTimeslotsById: function (businessId) {
+        return this.timeslots[businessId];
     },
     getSearchResult: function (search) {
         var result = this.searchResults[searchKey(search)];

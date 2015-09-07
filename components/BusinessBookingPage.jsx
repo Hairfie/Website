@@ -12,6 +12,7 @@ var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
 var NotificationActions = require('../actions/NotificationActions');
+var BusinessActions = require('../actions/BusinessActions');
 
 var BusinessBookingPage = React.createClass({
     contextTypes: {
@@ -21,7 +22,10 @@ var BusinessBookingPage = React.createClass({
         return {
             daySelected: this.props.daySelected
         };
-    },
+        this.context.executeAction(BusinessActions.loadBusinessTimeslots {
+            from: moment().day(1).format('YYYY-MM-DD');
+            until: moment().day(1).add(1, "M").format('YYYY-MM-DD');
+        });
     render: function () {
         var loading = _.isUndefined(this.props.business);
         return (
@@ -115,6 +119,7 @@ BusinessBookingPage = connectToStores(BusinessBookingPage, [
     var token = context.getStore('AuthStore').getToken();
     return {
         business    : context.getStore('BusinessStore').getById(props.route.params.businessId),
+        businessTimeslots : context.getStore('BusinessStore').getTimeslotsById(props.route.params.businessId),
         discountObj : context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
         daySelected : props.route.query.date ? moment(props.route.query.date) : null,
         currentUser: context.getStore('UserStore').getById(token.userId)
