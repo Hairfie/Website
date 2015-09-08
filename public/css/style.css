@@ -12873,12 +12873,7 @@ section.home-footer .row > div {
   background-color: #838B95;
   width: 100%;
   height: 470px;
-  position: absolute;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -ms-filter: blur(5px);
-  -o-filter: blur(5px);
-  filter: blur(5px); }
+  position: absolute; }
 
 .container.hairdresser#content {
   background-color: transparent; }
@@ -12890,7 +12885,8 @@ section.home-footer .row > div {
       width: 14em;
       border-radius: 100%;
       margin: 0 auto 20px;
-      border: 10px solid #f0f0f1; }
+      border: 10px solid;
+      border-color: rgba(240, 240, 241, 0.5); }
     .container.hairdresser#content .main-content div.pro-label {
       background-color: #fe5b5f;
       border-radius: 3px;
@@ -12901,13 +12897,15 @@ section.home-footer .row > div {
       padding-right: 5px;
       position: absolute;
       top: 25%;
-      right: calc(50% - 70px); }
+      right: calc(50% - 100px); }
     .container.hairdresser#content .main-content .short-info {
       margin-top: 10px;
       overflow: auto; }
       @media screen and (max-width: 767px) {
         .container.hairdresser#content .main-content .short-info {
           margin-top: 100px; } }
+      .container.hairdresser#content .main-content .short-info h1, .container.hairdresser#content .main-content .short-info h2 {
+        color: white; }
     .container.hairdresser#content .main-content section.hairdresser-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
     .container.hairdresser#content .main-content section.hairdresser-content > .row {

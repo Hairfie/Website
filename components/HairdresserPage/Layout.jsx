@@ -29,7 +29,7 @@ var HairdresserLayout = React.createClass({
         console.log(this);
         return (
             <PublicLayout>
-            <Picture className="short-background hairdresser" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png" backgroundStyle={true}></Picture>
+            <Picture className="short-background hairdresser" picture={this.props.hairdresser.picture} options={{effect: "blur:1000"}} placeholder="/images/placeholder-640.png" backgroundStyle={true}></Picture>
                 <div className="container hairdresser" id="content">
                     <div className="main-content">
                         <div className="short-info">
