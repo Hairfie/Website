@@ -74,6 +74,7 @@ module.exports = {
         return context.hairfieApi
             .get("/business/" + payload.id + "/timeslots", query)
             .then(function(timeslots) {
+                console.log(timeslots);
                 context.dispatch(Actions.RECEIVE_BUSINESS_TIMESLOTS, {
                     id: payload.id,
                     timeslots: timeslots

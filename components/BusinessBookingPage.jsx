@@ -19,13 +19,14 @@ var BusinessBookingPage = React.createClass({
         executeAction: React.PropTypes.func
     },
     getInitialState: function () {
+        this.context.executeAction(BusinessActions.loadBusinessTimeslots, {
+            from: moment().day(1).format('YYYY-MM-DD'),
+            until: moment().day(1).add(1, "M").format('YYYY-MM-DD')
+        });
         return {
             daySelected: this.props.daySelected
         };
-        this.context.executeAction(BusinessActions.loadBusinessTimeslots {
-            from: moment().day(1).format('YYYY-MM-DD');
-            until: moment().day(1).add(1, "M").format('YYYY-MM-DD');
-        });
+    },
     render: function () {
         var loading = _.isUndefined(this.props.business);
         return (
