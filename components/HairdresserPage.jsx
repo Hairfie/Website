@@ -9,6 +9,8 @@ var Picture = require('./Partial/Picture.jsx');
 
 var HairdresserPage = React.createClass({
     render: function () {
+        if (!this.props.hairdresser)
+            return null;
         var business = this.props.hairdresser.business;
         var address = business.address;
         var disabled = business.isBookable ?

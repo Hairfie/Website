@@ -26,7 +26,7 @@ var HairdresserLayout = React.createClass({
             crop: 'thumb',
             gravity: 'faces'
         };
-        var background = this.props.hairdresser.picture ? <Picture className="short-background hairdresser" picture={this.props.hairdresser.picture} options={{effect: "blur:1000"}} placeholder="/images/placeholder-640.png" backgroundStyle={true}></Picture> : "";
+        var background = this.props.hairdresser.picture ? <Picture className="short-background hairdresser" picture={this.props.hairdresser.picture} options={{effect: "blur:1000", height: 470, crop: "crop"}} placeholder="/images/placeholder-640.png" backgroundStyle={true}></Picture> : "";
         return (
             <PublicLayout>
             {background}
