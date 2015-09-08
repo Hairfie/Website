@@ -72,9 +72,8 @@ module.exports = {
         };
 
         return context.hairfieApi
-            .get("/business/" + payload.id + "/timeslots", query)
+            .get("/businesses/" + payload.id + "/timeslots", {query: query})
             .then(function(timeslots) {
-                console.log(timeslots);
                 context.dispatch(Actions.RECEIVE_BUSINESS_TIMESLOTS, {
                     id: payload.id,
                     timeslots: timeslots
