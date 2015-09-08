@@ -12872,7 +12872,7 @@ section.home-footer .row > div {
   background-position: 50% 50%;
   background-color: #838B95;
   width: 100%;
-  height: 470px;
+  max-height: 470px;
   position: absolute; }
 
 .container.hairdresser#content {
