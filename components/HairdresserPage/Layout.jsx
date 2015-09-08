@@ -29,15 +29,16 @@ var HairdresserLayout = React.createClass({
         console.log(this);
         return (
             <PublicLayout>
-            <Picture className="hairdresser short-background" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png"></Picture>
                 <div className="container hairdresser" id="content">
                     <div className="main-content">
+                    <Picture className="short-background" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png"></Picture>
                         <div className="short-info">
-                            <div className="col-xs-4">
+                            <div className="col-xs-5 col-sm-4">
                                 <Gallery pictures={this.props.hairdresser.picture} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
                                 <UserProfilePicture className="ProfilePicture" role={this.props.hairdresser.picture ? "button" : ""} onClick={this.props.hairdresser.picture ? this.openGallery : ""} picture={this.props.hairdresser.picture} options={options} gender={this.props.hairdresser.gender}/>
+                                <div className="pro-label">Pro</div>
                             </div>
-                            <div className="col-xs-8">
+                            <div className="col-xs-7 col-sm-8">
                                 <h1>{fullName}</h1>
                                 <h2>{this.props.hairdresser.numHairfies} Hairfies.</h2>
                             </div>
