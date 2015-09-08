@@ -1,11 +1,11 @@
 .hairdresser.short-background {
-    position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
     background-color: #838B95;
     width: 100%;
-    height: 100%;
+    height: 470px;
+    position: absolute;
     @include filter(blur(5px));
 }
 
@@ -23,7 +23,7 @@
                 border: 10px solid $bg2;
         }
         div.pro-label {
-            background-color: red;
+            background-color: $hairfie;
             border-radius: 3px;
             color: white;
             font-size: medium;
@@ -40,13 +40,6 @@
                 margin-top: 100px;
             }
             overflow: auto;
-        }
-        .short-background {
-            width: 200vw;
-            left: -100vw;
-            position: absolute;
-            height: 400px;
-            @include filter(blur(5px));
         }
         section.hairdresser-content {
             h5 {

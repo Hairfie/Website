@@ -29,9 +29,9 @@ var HairdresserLayout = React.createClass({
         console.log(this);
         return (
             <PublicLayout>
+            <Picture className="short-background hairdresser" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png" backgroundStyle={true}></Picture>
                 <div className="container hairdresser" id="content">
                     <div className="main-content">
-                    <Picture className="short-background" picture={_.first(this.props.hairdresser.business.pictures)} placeholder="/images/placeholder-640.png"></Picture>
                         <div className="short-info">
                             <div className="col-xs-5 col-sm-4">
                                 <Gallery pictures={this.props.hairdresser.picture} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />

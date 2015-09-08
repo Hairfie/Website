@@ -12867,13 +12867,13 @@ section.home-footer .row > div {
       color: #343434; }
 
 .hairdresser.short-background {
-  position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   background-color: #838B95;
   width: 100%;
-  height: 100%;
+  height: 470px;
+  position: absolute;
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -ms-filter: blur(5px);
@@ -12892,7 +12892,7 @@ section.home-footer .row > div {
       margin: 0 auto 20px;
       border: 10px solid #f0f0f1; }
     .container.hairdresser#content .main-content div.pro-label {
-      background-color: red;
+      background-color: #fe5b5f;
       border-radius: 3px;
       color: white;
       font-size: medium;
@@ -12908,16 +12908,6 @@ section.home-footer .row > div {
       @media screen and (max-width: 767px) {
         .container.hairdresser#content .main-content .short-info {
           margin-top: 100px; } }
-    .container.hairdresser#content .main-content .short-background {
-      width: 200vw;
-      left: -100vw;
-      position: absolute;
-      height: 400px;
-      -webkit-filter: blur(5px);
-      -moz-filter: blur(5px);
-      -ms-filter: blur(5px);
-      -o-filter: blur(5px);
-      filter: blur(5px); }
     .container.hairdresser#content .main-content section.hairdresser-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
     .container.hairdresser#content .main-content section.hairdresser-content > .row {
