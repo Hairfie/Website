@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
         return (
             <div className="calendar">
-                <Calendar ref="calendar" timetable={business.timetable} onDayChange={this.book} />
+                <Calendar ref="calendar" businessId={business.id} onDayChange={this.book} />
             </div>
         );
     },
