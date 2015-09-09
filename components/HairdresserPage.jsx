@@ -20,7 +20,7 @@ var HairdresserPage = React.createClass({
         return(
             <HairdresserLayout hairdresser={this.props.hairdresser} tab="infos">
                 <h1>Lieu de travail</h1>
-                <div className="col-xs-3 image-bloc">
+                <div className="col-xs-3 col-lg-2 image-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture
                             picture={_.first(business.pictures)}
@@ -30,7 +30,7 @@ var HairdresserPage = React.createClass({
                         />
                     </Link>
                 </div>
-                <div className="col-xs-9">
+                <div className="col-xs-9 col-md-10">
                     <div>
                         <h5>{business.name}</h5>
                         <p>{address.street} {address.zipCode} {address.city}</p>

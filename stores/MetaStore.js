@@ -241,16 +241,18 @@ module.exports = createStore({
         var user = this.dispatcher.getStore('UserStore').getById(id);
 
         var title, description;
-        title = "Profil de " + user.firstName;
         switch(routeName) {
             case 'user_likes':
-                description = "Les hairfies aimés par " + user.firstName;
+                title = "Les Hairfies aimés par " + user.firstName;
+                description = "Découvrez les hairfies préférés de " + user.firstName;
                 break;
             case 'user_hairfies':
-                description = "Les hairfies postés par " + user.firstName;
+                title = "Les hairfies de " + user.firstName;
+                description = "Admirez les hairfies de " + user.firstName;
                 break;
             case 'user_reviews':
-                description = "Les avis de " + user.firstName;
+                title = "Les avis de " + user.firstName;
+                description = "Découvrez les avis de " + user.firstName + " sur différents salon";
             default:
                 description = "Profil de " + user.firstName;
         }
@@ -267,16 +269,17 @@ module.exports = createStore({
         var hairdresser = this.dispatcher.getStore('HairdresserStore').getById(id);
 
         var title, description;
-        title = "Profil de " + hairdresser.firstName;
         switch(routeName) {
             case 'hairdresser':
-                description = "Les informations de " + hairdresser.firstName;
+                title = "Profil coiffeur de " + hairdresser.firstName;
+                description = "Retrouvez toutes les informations sur " + hairdresser.firstName;
                 break;
-            case 'hairdresser':
-                description = "Les hairfies coiffés par " + hairdresser.firstName;
+            case 'hairdresser_hairfies':
+                title = "Les hairfies coiffés par " + hairdresser.firstName;
+                description = "Découvrez les hairfies coiffés par " + hairdresser.firstName;
                 break;
             default:
-                description = "Profil de " + user.firstName;
+                description = "Profil coiffeur de " + user.firstName;
         }
 
         var metas = _.union(this._getBaseMetas(), [
