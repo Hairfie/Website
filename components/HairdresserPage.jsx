@@ -26,7 +26,7 @@ var HairdresserPage = React.createClass({
                             picture={_.first(business.pictures)}
                             options={{ width: 400, height: 400, crop: 'thumb' }}
                             placeholder="/images/placeholder-640.png"
-                            style={{width: "100%", height: "100%"}}
+                            style={{width: "100%", "maxWidth": "125px"}}
                         />
                     </Link>
                 </div>
