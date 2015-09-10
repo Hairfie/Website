@@ -64,20 +64,5 @@ module.exports = {
 
                 return result;
             });
-    },
-    loadBusinessTimeslots: function(context, payload) {
-        var query = {
-            from: payload.from,
-            until: payload.until
-        };
-
-        return context.hairfieApi
-            .get("/businesses/" + payload.id + "/timeslots", {query: query})
-            .then(function(timeslots) {
-                context.dispatch(Actions.RECEIVE_BUSINESS_TIMESLOTS, {
-                    id: payload.id,
-                    timeslots: timeslots
-                });
-            });
     }
 };

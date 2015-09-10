@@ -3,7 +3,7 @@
 var React = require('react');
 var moment = require('moment');
 var connectToStores = require('fluxible-addons-react/connectToStores');
-var BusinessActions = require('../../actions/BusinessActions');
+var TimeslotsActions = require('../../actions/TimeslotsActions');
 
 moment.locale('fr')
 
@@ -30,7 +30,7 @@ var BookingCalendarComponent = React.createClass({
             selectedDate: this.props.defaultDate,
             timeslots: this.props.timeslots
         };
-        this.context.executeAction(BusinessActions.loadBusinessTimeslots, {
+        this.context.executeAction(TimeslotsActions.loadBusinessTimeslots, {
             from: moment(state.month, "YYYY-MM-DD").startOf("month").startOf("week").format('YYYY-MM-DD'),
             until: moment(state.month, "YYYY-MM-DD").endOf("month").endOf("week").format('YYYY-MM-DD'),
             id: this.props.businessId
@@ -158,7 +158,7 @@ var BookingCalendarComponent = React.createClass({
         return this.state.selectedDate;
     },
     loadMonth: function (n) {
-        this.context.executeAction(BusinessActions.loadBusinessTimeslots, {
+        this.context.executeAction(TimeslotsActions.loadBusinessTimeslots, {
             from: moment(this.state.month, "YYYY-MM-DD").add(n, 'months').startOf("month").startOf("week").format('YYYY-MM-DD'),
             until: moment(this.state.month, "YYYY-MM-DD").add(n, 'months').endOf("month").endOf("week").format('YYYY-MM-DD'),
             id: this.props.businessId
@@ -167,10 +167,10 @@ var BookingCalendarComponent = React.createClass({
 });
 
 var BookingCalendarComponent = connectToStores(BookingCalendarComponent, [
-    'BusinessStore'
+    'TimeslotsStore'
 ], function (context, props) {
     return {
-        timeslots : context.getStore('BusinessStore').getTimeslotsById(props.businessId)
+        timeslots : context.getStore('TimeslotsStore').getById(props.businessId)
     }
 });
 

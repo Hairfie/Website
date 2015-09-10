@@ -63,16 +63,17 @@ var TimeSelectComponent = React.createClass({
     },
     timeSlotCallback: function(timeslot, discount, e) {
         e.preventDefault();
-        this.setState({ timeslotSelected: moment(this.props.daySelected + ' ' + timeslot, "YYYY-MM-DD HH:mm")});
+        timeslot = moment(this.props.daySelected + ' ' + timeslot.startTime, "YYYY-MM-DD HH:mm");
+        this.setState({ timeslotSelected: timeslot});
         this.props.onTimeSlotChange(timeslot, discount);
     }
 });
 
 var TimeSelectComponent = connectToStores(TimeSelectComponent, [
-    'BusinessStore'
+    'TimeslotsStore'
 ], function (context, props) {
     return {
-        timeslots : context.getStore('BusinessStore').getTimeslotsById(props.businessId)
+        timeslots : context.getStore('TimeslotsStore').getById(props.businessId)
     }
 });
 
