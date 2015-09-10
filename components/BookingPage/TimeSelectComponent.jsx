@@ -34,7 +34,6 @@ var TimeSelectComponent = React.createClass({
         }
         var daySelected = this.props.daySelected;
         var timeslots = this.props.timeslots[daySelected];
-        console.log(timeslots);
         return(
             <div className="time-table">
                 <table className="cal">
