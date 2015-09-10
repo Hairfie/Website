@@ -51,7 +51,7 @@ var HairdresserHairfiesPage = React.createClass({
                                 );
                             }, this)}
                     </div>
-                    {this.renderMoreButton()};
+                    {this.renderMoreButton()}
                 </div>
             </HairdresserLayout>
         );
@@ -72,7 +72,7 @@ var HairdresserHairfiesPage = React.createClass({
     renderTitle: function () {
         if (_.isEmpty(this.props.hairfies))
             return <h3>{this.props.hairdresser.firstName} n'a pas encore d'Hairfie attribué.</h3>
-        return <h3>Les Hairfies coiffé par {this.props.hairdresser.firstName}</h3>;
+        return <h3>Les Hairfies coiffés par {this.props.hairdresser.firstName}</h3>;
     }
 });
 

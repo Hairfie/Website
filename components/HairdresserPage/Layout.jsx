@@ -40,11 +40,11 @@ var HairdresserLayout = React.createClass({
                             </div>
                             <div className="col-xs-7 col-sm-8">
                                 <h1>{fullName}</h1>
-                                <h2>{this.props.hairdresser.numHairfies} Hairfies.</h2>
+                                <h2>{this.props.hairdresser.numHairfies} Hairfies</h2>
                             </div>
                         </div>
                         <section className="hairdresser-content">
-                            <div className="row">
+                            <div className="row" style={{minHeight: '350px'}}>
                                 <ul className="nav nav-tabs" role="tablist">
                                     <li className={'col-xs-6'+('infos' === this.props.tab ? ' active' : '')}>
                                         <Link route="hairdresser" params={{id: this.props.hairdresser.id}} preserveScrollPosition={true}>

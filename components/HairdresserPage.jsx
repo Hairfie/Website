@@ -19,7 +19,7 @@ var HairdresserPage = React.createClass({
         </Link> : <a className="btn btn-red" disabled>Prendre rendez-vous</a>;
         return(
             <HairdresserLayout hairdresser={this.props.hairdresser} tab="infos">
-                <h1>Lieu de travail</h1>
+                <h3>Lieux où {this.props.hairdresser.firstName} coiffe</h3>
                 <div className="col-xs-3 col-lg-2 image-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture
