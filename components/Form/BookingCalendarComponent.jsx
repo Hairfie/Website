@@ -3,7 +3,7 @@
 var React = require('react');
 var moment = require('moment');
 var connectToStores = require('fluxible-addons-react/connectToStores');
-var TimeslotsActions = require('../../actions/TimeslotsActions');
+var TimeslotActions = require('../../actions/TimeslotActions');
 
 moment.locale('fr')
 
@@ -30,7 +30,7 @@ var BookingCalendarComponent = React.createClass({
             selectedDate: this.props.defaultDate,
             timeslots: this.props.timeslots
         };
-        this.context.executeAction(TimeslotsActions.loadBusinessTimeslots, {
+        this.context.executeAction(TimeslotActions.loadBusinessTimeslots, {
             from: moment(state.month, "YYYY-MM-DD").startOf("month").startOf("week").format('YYYY-MM-DD'),
             until: moment(state.month, "YYYY-MM-DD").endOf("month").endOf("week").format('YYYY-MM-DD'),
             id: this.props.businessId
@@ -153,12 +153,19 @@ var BookingCalendarComponent = React.createClass({
     dayCallback: function(d, e) {
         e.preventDefault();
         this.setState({selectedDate: d}, this.props.onDayChange.bind(null, d));
+        if (moment(d, "YYYY-MM-DD").format("YYYY-MM") != moment(this.state.month, "YYYY-MM-DD").format("YYYY-MM")) {
+            this.context.executeAction(TimeslotActions.loadBusinessTimeslots, {
+                from: moment(d, "YYYY-MM-DD").startOf("month").startOf("week").format('YYYY-MM-DD'),
+                until: moment(d, "YYYY-MM-DD").endOf("month").endOf("week").format('YYYY-MM-DD'),
+                id: this.props.businessId
+            });
+        }
     },
     getDate: function () {
         return this.state.selectedDate;
     },
     loadMonth: function (n) {
-        this.context.executeAction(TimeslotsActions.loadBusinessTimeslots, {
+        this.context.executeAction(TimeslotActions.loadBusinessTimeslots, {
             from: moment(this.state.month, "YYYY-MM-DD").add(n, 'months').startOf("month").startOf("week").format('YYYY-MM-DD'),
             until: moment(this.state.month, "YYYY-MM-DD").add(n, 'months').endOf("month").endOf("week").format('YYYY-MM-DD'),
             id: this.props.businessId
@@ -167,10 +174,10 @@ var BookingCalendarComponent = React.createClass({
 });
 
 var BookingCalendarComponent = connectToStores(BookingCalendarComponent, [
-    'TimeslotsStore'
+    'TimeslotStore'
 ], function (context, props) {
     return {
-        timeslots : context.getStore('TimeslotsStore').getById(props.businessId)
+        timeslots : context.getStore('TimeslotStore').getById(props.businessId)
     }
 });
 

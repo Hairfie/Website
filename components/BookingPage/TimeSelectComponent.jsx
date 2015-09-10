@@ -70,10 +70,10 @@ var TimeSelectComponent = React.createClass({
 });
 
 var TimeSelectComponent = connectToStores(TimeSelectComponent, [
-    'TimeslotsStore'
+    'TimeslotStore'
 ], function (context, props) {
     return {
-        timeslots : context.getStore('TimeslotsStore').getById(props.businessId)
+        timeslots : context.getStore('TimeslotStore').getById(props.businessId)
     }
 });
 
