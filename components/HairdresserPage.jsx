@@ -32,7 +32,7 @@ var HairdresserPage = React.createClass({
                 </div>
                 <div className="col-xs-9 col-md-10">
                     <div>
-                        <h5>{business.name}</h5>
+                        <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}><h5>{business.name}</h5></Link>
                         <p>{address.street} {address.zipCode} {address.city}</p>
                         <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                     </div>
