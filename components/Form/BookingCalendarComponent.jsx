@@ -17,13 +17,11 @@ var BookingCalendarComponent = React.createClass({
     },
     propTypes: {
         defaultDate : React.PropTypes.string,
-        onDayChange: React.PropTypes.func,
-        getDate: React.PropTypes.func
+        onDayChange: React.PropTypes.func
     },
     getDefaultProps: function () {
         return {
-            onDayChange: _.noop,
-            getDate: this.getDate
+            onDayChange: _.noop
         };
     },
     getInitialState: function() {
