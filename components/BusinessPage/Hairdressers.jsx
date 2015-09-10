@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
 var Gallery = require('../Partial/Gallery.jsx');
+var Link = require('../Link.jsx');
 
 function displayName(n) { return n.firstName+' '+(n.lastName || '').substr(0, 1)+'.' }
 function initials(n) { return (n.firstName || '').substr(0, 1)+''+(n.lastName || '').substr(0, 1) }
@@ -52,7 +53,7 @@ module.exports = React.createClass({
             return (
                 <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
                     <HairdresserPicture hairdresser={hairdresser} onClick={this.openGallery.bind(null, index)} />
-                    <p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p>
+                    <Link route="hairdresser" params={{id: hairdresser.id}} className="black"><p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p></Link>
                 </div>
             );
         }, this);

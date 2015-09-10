@@ -3,10 +3,9 @@
 var React = require('react');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
-var UserLayout = require('./UserPage/Layout.jsx');
+var HairdresserLayout = require('./HairdresserPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
-var HairfieActions = require('../actions/HairfieActions');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -16,13 +15,10 @@ var PAGE_SIZE = 15;
 
 function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
 
-var UserHairfiesPage = React.createClass({
-    contextTypes: {
-        executeAction: React.PropTypes.func
-    },
+var HairdresserHairfiesPage = React.createClass({
     render: function () {
         return(
-            <UserLayout user={this.props.user} tab="hairfies">
+            <HairdresserLayout hairdresser={this.props.hairdresser} tab="hairfies">
                 {this.renderTitle()}
                 <div className="hairfies">
                     <div className="row">
@@ -57,7 +53,7 @@ var UserHairfiesPage = React.createClass({
                     </div>
                     {this.renderMoreButton()};
                 </div>
-            </UserLayout>
+            </HairdresserLayout>
         );
     },
     renderMoreButton: function () {
@@ -67,28 +63,28 @@ var UserHairfiesPage = React.createClass({
     },
     loadMore: function (e) {
         if (e) e.preventDefault();
-        this.context.executeAction(HairfieActions.loadUserHairfies, {
-            id: this.props.user.id,
+        this.context.executeAction(HairfieActions.loadHairdresserHairfies, {
+            id: this.props.hairdresser.id,
             page: (this.props.page || 0) + 1,
             pageSize: PAGE_SIZE
         });
     },
     renderTitle: function () {
         if (_.isEmpty(this.props.hairfies))
-            return <h3>{this.props.user.firstName} n'a pas encore posté d'Hairfie.</h3>
-        return <h3>Les Hairfies de {this.props.user.firstName}</h3>;
+            return <h3>{this.props.hairdresser.firstName} n'a pas encore d'Hairfie attribué.</h3>
+        return <h3>Les Hairfies coiffé par {this.props.hairdresser.firstName}</h3>;
     }
 });
 
-UserHairfiesPage = connectToStores(UserHairfiesPage, [
-    'UserStore',
+HairdresserHairfiesPage = connectToStores(HairdresserHairfiesPage, [
+    'HairdresserStore',
     'HairfieStore'
 ], function (context, props) {
     return {
-        user: context.getStore('UserStore').getById(props.route.params.userId),
-        hairfies: context.getStore('HairfieStore').getHairfiesByUser(props.route.params.userId),
-        page: context.getStore('HairfieStore').getHairfiesByUserPage(props.route.params.userId)
+        hairdresser: context.getStore('HairdresserStore').getById(props.route.params.id),
+        hairfies: context.getStore('HairfieStore').getHairfiesByHairdresser(props.route.params.id),
+        page: context.getStore('HairfieStore').getHairfiesByHairdresserPage(props.route.params.id)
     };
 });
 
-module.exports = UserHairfiesPage;
+module.exports = HairdresserHairfiesPage;

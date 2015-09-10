@@ -1,7 +1,8 @@
 'use strict';
 
-var React = require('react'),
-    moment = require('moment');
+var React = require('react');
+var moment = require('moment');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var _ = require('lodash');
 
@@ -11,7 +12,7 @@ var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 
 var Button = require('react-bootstrap').Button;
 
-module.exports = React.createClass({
+var TimeSelectComponent = React.createClass({
     propTypes: {
         onTimeSlotChange: React.PropTypes.func
     },
@@ -31,61 +32,48 @@ module.exports = React.createClass({
         if(!this.props.daySelected) {
             return (<p>Commencez par choisir un jour</p>);
         }
-        var daySelected = this.props.daySelected,
-            timetable = this.props.timetable,
-            timetableSelected = timetable[weekDaysNumber[daySelected.day()]],
-            hours = [],
-            discounts = [];
-
-         _.forEach(timetableSelected, function(slot) {
-            var start = moment(daySelected).hours(slot.startTime.split(":")[0]).minutes(slot.startTime.split(":")[1]),
-                stop  = moment(daySelected).hours(slot.endTime.split(":")[0]).minutes(slot.endTime.split(":")[1]).add(-1, 'hour');
-
-            moment().range(start, stop).by('hours', function(hour) {
-                hours.push({hour: hour, discount: slot.discount});
-            });
-        });
-
-        var rowHours = [], rowLength = 4;
-
-        while (hours.length > 0)
-            rowHours.push(hours.splice(0, rowLength));
-
-        return (
+        var daySelected = this.props.daySelected;
+        var timeslots = this.props.timeslots[daySelected];
+        return(
             <div className="time-table">
                 <table className="cal">
                     <tr>
-                        { _.map(rowHours, this.renderRow, this) }
+                        { _.map(timeslots, this.renderTimeButton, this) }
                     </tr>
                 </table>
             </div>
         );
-
     },
-    renderRow: function(rowHours) {
-        return (
-            <div>{ _.map(rowHours, this.renderTimeButton, this) }</div>
-        );
-    },
-    renderTimeButton: function(timeBtnObj) {
-        var timeslot = timeBtnObj.hour,
-            discount = timeBtnObj.discount,
-            label = timeslot.format("HH:mm"),
-            discountNode;
+    renderTimeButton: function(timeslot) {
+        var hour = timeslot.startTime;
+        var discount = timeslot.discount;
+        var label = timeslot.startTime;
+        var discountNode;
 
         var cls = 'btn timeslot';
-            cls += timeslot.isSame(this.state.timeslotSelected) ? ' active' : '';
+            cls += timeslot == this.state.timeslotSelected ? ' active' : '';
 
         if(discount) {
             discountNode = (<span className="promo-day">{discount}%</span>);
         }
 
-        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)}><a href="#"><p>{label}</p>{discountNode}</a>
+        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)}><a role="button"><p>{label}</p>{discountNode}</a>
             </td>;
     },
     timeSlotCallback: function(timeslot, discount, e) {
         e.preventDefault();
+        timeslot = moment(this.props.daySelected + ' ' + timeslot.startTime, "YYYY-MM-DD HH:mm");
         this.setState({ timeslotSelected: timeslot});
         this.props.onTimeSlotChange(timeslot, discount);
     }
 });
+
+var TimeSelectComponent = connectToStores(TimeSelectComponent, [
+    'TimeslotStore'
+], function (context, props) {
+    return {
+        timeslots : context.getStore('TimeslotStore').getById(props.businessId)
+    }
+});
+
+module.exports = TimeSelectComponent;

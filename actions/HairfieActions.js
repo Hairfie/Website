@@ -3,6 +3,7 @@
 var Actions = require('../constants/Actions');
 var _ = require('lodash');
 var NavigationActions = require('./NavigationActions');
+var NotificationActions = require('./NotificationActions');
 var SearchUtils = require('../lib/search-utils');
 var Promise = require('q');
 
@@ -122,6 +123,82 @@ module.exports = {
                     search: search,
                     result: result
                 });
+            });
+    },
+    loadHairdresserHairfies: function (context, params) {
+        var query = {
+        'filter[where][businessMemberId]': params.id,
+        'filter[order]': 'createdAt DESC',
+        'filter[limit]': params.pageSize,
+        'filter[skip]': (params.page - 1) * params.pageSize
+        };
+        return context.hairfieApi
+            .get('/hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_HAIRDRESSER_HAIRFIES,
+                        {
+                            hairdresserId: params.id,
+                            hairfies: hairfies,
+                            page: params.page
+                        })
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    loadUserHairfies: function (context, params) {
+        var query = {
+        'filter[where][authorId]': params.id,
+        'filter[order]': 'createdAt DESC',
+        'filter[skip]': (params.page - 1) * params.pageSize,
+        'filter[limit]': params.pageSize
+        };
+
+        return context.hairfieApi
+            .get('/hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES,
+                        {
+                        userId: params.id,
+                        hairfies: hairfies,
+                        page: params.page
+                    })
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
+            });
+    },
+    loadUserLikes: function (context, params) {
+        var query = {
+        'limit': params.pageSize,
+        'userId': params.id,
+        'order': 'createdAt DESC',
+        'skip': (params.page - 1) * params.pageSize
+        };
+        return context.hairfieApi
+            .get('/users/' + params.id + '/liked-hairfies', { query: query })
+            .then(function (hairfies) {
+                Promise.all([
+                    context.dispatch(Actions.RECEIVE_USER_LIKES,
+                        {
+                        userId: params.id,
+                        hairfies: hairfies,
+                        page: params.page
+                    })
+                ]);
+            }, function () {
+                return context.executeAction(
+                    NotificationActions.notifyFailure,
+                    "Un problème est survenu"
+                );
             });
     }
 };

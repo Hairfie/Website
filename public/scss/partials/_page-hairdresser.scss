@@ -1,0 +1,64 @@
+.container.hairdresser#content {
+    .main-content {
+        margin-top: 20px;
+        margin-bottom: 70px;
+
+        img.ProfilePicture {
+                display: block;
+                width: 14em;
+                border-radius: 100%;
+                margin: 0 auto 20px;
+                border: 10px solid $bg2;
+        }
+        .short-info {
+            margin-top: 10px;
+            @media screen and (max-width: $screen-xs-max) {
+                margin-top: 100px;
+            }
+            overflow: auto;
+        }
+        section.hairdresser-content {
+            h5 {
+                font-family: $font-main;
+            }
+            > .row {
+                background-color: white;
+            }
+            ul.nav {
+                margin: 0;
+                li {
+                    &:first-child {
+                        .icon-nav {
+                        background: url(../images/icon-resa-user.png) no-repeat center center;
+                        }
+                    }
+                    &:nth-child(2) {
+                        .icon-nav {
+                            background: url(../images/icon-salon-nav3.jpg) no-repeat center center;
+                        }
+                    }
+                }
+            }
+            section {
+                div.hairfies div.row div.single-hairfie {
+                    @media screen and (min-width: $screen-lg-min) {
+                        width: 20%;
+                    }
+                }
+                div.image-block img {
+                    width: 100%;
+                    max-width: 250px;
+                }
+                margin-bottom: 20px;
+                padding-left: 50px;
+                padding-right: 50px;
+                @media screen and (max-width: $screen-md-max) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                overflow: auto;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

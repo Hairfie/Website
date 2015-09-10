@@ -12,6 +12,9 @@ var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./BookingPage/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
 var NotificationActions = require('../actions/NotificationActions');
+var BusinessActions = require('../actions/BusinessActions');
+
+moment.locale('fr')
 
 var BusinessBookingPage = React.createClass({
     contextTypes: {
@@ -53,11 +56,11 @@ var BusinessBookingPage = React.createClass({
                 <div className="row">
                     <div className="col-xs-6">
                         <h2>Choisissez votre date</h2>
-                        <BookingCalendar onDayChange={this.handleDaySelectedChange} timetable={timetable} defaultDate={this.state.daySelected}/>
+                        <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
                     <div className="col-xs-6">
                         <h2>À quelle heure ?</h2>
-                        <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} timetable={timetable} daySelected={this.state.daySelected} />
+                        <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} />
                     </div>
                 </div>
             </div>
@@ -90,7 +93,7 @@ var BusinessBookingPage = React.createClass({
         );
     },
     handleDaySelectedChange: function(m) {
-        this.setState({daySelected: moment(m), timeslotSelected: null});
+        this.setState({daySelected: m, timeslotSelected: null});
     },
     handleTimeSlotSelectedChange: function(timeslotSelected, discount) {
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
@@ -116,7 +119,7 @@ BusinessBookingPage = connectToStores(BusinessBookingPage, [
     return {
         business    : context.getStore('BusinessStore').getById(props.route.params.businessId),
         discountObj : context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
-        daySelected : props.route.query.date ? moment(props.route.query.date) : null,
+        daySelected : props.route.query.date ? props.route.query.date : null,
         currentUser: context.getStore('UserStore').getById(token.userId)
     }
 });
