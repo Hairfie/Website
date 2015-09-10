@@ -10,7 +10,7 @@ var Filters = React.createClass({
         return (
             <div className="sidebar">
                 {this.renderCurrentFilters()}
-                <h1>Affiner la recherche</h1>
+                <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
                 <section>
                     <form>
                     {this.renderRadius()}
