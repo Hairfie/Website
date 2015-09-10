@@ -12930,6 +12930,8 @@ section.home-footer .row > div {
       .container.hairdresser#content .main-content section.hairdresser-content section div.image-block img {
         width: 100%;
         max-width: 250px; }
+      .container.hairdresser#content .main-content section.hairdresser-content section h3 {
+        margin-left: 15px; }
       @media screen and (max-width: 1199px) {
         .container.hairdresser#content .main-content section.hairdresser-content section {
           padding-left: 15px;
