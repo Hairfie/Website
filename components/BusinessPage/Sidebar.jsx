@@ -69,11 +69,11 @@ module.exports = React.createClass({
 
         return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
-    book: function () {
+    book: function (date) {
         var business = this.props.business || {};
         var pathParams = {businessId: business.id, businessSlug: business.slug};
-        var queryParams = {date: this.refs.calendar.getDate()};
+        var queryParams = {date: date};
 
-        this.navToLink('business_booking', { businessId: business.id, businessSlug: business.slug }, { date: this.refs.calendar.getDate() });
+        this.navToLink('business_booking', pathParams, queryParams);
     }
 });
