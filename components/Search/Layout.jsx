@@ -76,7 +76,7 @@ var Layout = React.createClass({
             <div className="row">
                 <div className="col-xs-12 header-part">
                     {coverImage}
-                    <h3>{(place.name || '').split(',')[0]}</h3>
+                    <h3>{(place.title || place.name || '').split(',')[0]}</h3>
                     <p>{place.description}</p>
                 </div>
             </div>
