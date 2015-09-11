@@ -107,42 +107,36 @@ module.exports = {
         handler: require('./components/RegistrationPage.jsx')
     },
     user_hairfies: {
-        title: 'Page utilisateur',
-        path: '/fr/utilisateur/:userId/hairfies',
+        path: '/fr/membre/:userId/hairfies',
         method: 'get',
         handler: require('./components/UserHairfiesPage.jsx'),
         action: PageActions.userHairfies
     },
     user_reviews: {
-        title: 'Page utilisateur',
-        path: '/fr/utilisateur/:userId/avis',
+        path: '/fr/membre/:userId/avis',
         method: 'get',
         handler: require('./components/UserReviewsPage.jsx'),
         action: PageActions.userReviews
     },
     user_likes: {
-        title: 'Page utilisateur',
-        path: '/fr/utilisateur/:userId/likes',
+        path: '/fr/membre/:userId/likes',
         method: 'get',
         action: PageActions.userLikes,
         handler: require('./components/UserLikesPage.jsx')
     },
     user_edit: {
-        title: 'Page utilisateur',
-        path: '/fr/utilisateur/edition',
+        path: '/fr/membre/edition',
         method: 'get',
         handler: require('./components/UserEditPage.jsx')
     },
     hairdresser: {
-        title: 'Page Coiffeur',
-        path: '/fr/hairdresser/:id',
+        path: '/fr/profil-coiffeur/:id',
         method: 'get',
         action: PageActions.hairdresser,
         handler: require('./components/HairdresserPage.jsx')
     },
     hairdresser_hairfies: {
-        title: 'Page Coiffeur',
-        path: '/fr/hairdresser/:id/hairfies',
+        path: '/fr/profil-coiffeur/:id/hairfies',
         method: 'get',
         action: PageActions.hairdresserHairfies,
         handler: require('./components/HairdresserHairfiesPage.jsx')
