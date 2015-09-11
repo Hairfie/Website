@@ -45,6 +45,15 @@
 
   			div.timetable {
   				font-size: small;
+  				margin-top: 15px;
+  				span {
+  					padding: 0;
+  				}
+  				span.extra-small {
+  					@media screen and (max-width: 480px) {
+  						width: 20%;
+  					}
+  				}
   			}
 			.row {
 				background-color: white;

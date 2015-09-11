@@ -77,12 +77,17 @@ module.exports = React.createClass({
                 <div className="col-sm-8">
                   <h1>{business.name}</h1>
                   <h2>Horaires d'ouverture: {open}</h2>
+                  <div className="visible-xs">
+                    {this.renderTimetable()}
+                  </div>
                   <h2>{displayAddress} {linkToMap}</h2>
                   {this.renderAveragePrice()}
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-4" style={{padding: '0'}}>
                   <Rating business={business} />
-                  {this.renderTimetable()}
+                  <div className="hidden-xs">
+                    {this.renderTimetable()}
+                  </div>
                 </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>
@@ -148,14 +153,13 @@ module.exports = React.createClass({
       _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
         render.push(
         <div>
-          {DateTimeConstants.weekDayLabel(val)}: {
+          <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>{
             _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
               return t.startTime + ' - ' + t.endTime;
             }).join(" / ")
           }
         </div>);
       });
-      console.log(render);
       return (
       <div className="timetable">
         {render}
