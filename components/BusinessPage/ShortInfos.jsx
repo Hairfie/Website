@@ -16,7 +16,7 @@ var Rating = React.createClass({
         var rating = Math.round(business.rating / 100 * 5);
 
         return (
-            <div className="col-sm-4 stars">
+            <div className="stars">
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <span className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
@@ -71,32 +71,22 @@ module.exports = React.createClass({
         else
           open = <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a>;
 
-        var timetable = [];
-
-        _.forEach(business.timetable, function(n, key) {
-          var day = DateTimeConstants.weekDayLabel(key) + ":";
-          _.forEach(n, function(timeslot) {
-            day += " " + timeslot.startTime + " - " + timeslot.endTime + " /";
-          });
-          day.replace(/\s\/\z/, '');
-          timetable.push(day);
-        });
-        console.log(timetable);
-
         return (
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
                   <h1>{business.name}</h1>
                   <h2>Horaires d'ouverture: {open}</h2>
-                  {this.renderTimetable()}
                   <h2>{displayAddress} {linkToMap}</h2>
+                  {this.renderAveragePrice()}
                 </div>
-                <Rating business={business} />
+                <div className="col-sm-4">
+                  <Rating business={business} />
+                  {this.renderTimetable()}
+                </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>
                 <div className="prix col-xs-12 col-sm-12">
-                    {this.renderAveragePrice()}
                 </div>
                 {/*
                 <div className="horraires col-xs-12 col-sm-6">
@@ -153,6 +143,22 @@ module.exports = React.createClass({
     renderTimetable: function() {
       if (!this.state.displayTimetable)
         return;
-      return <div className="timetable"> Test </div>;
+      var timetable = this.props.business.timetable;
+      var render = [];
+      _.forEach(DateTimeConstants.weekDaysNumber, function(val) {
+        render.push(
+        <div>
+          {DateTimeConstants.weekDayLabel(val)}: {
+            _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
+              return t.startTime + ' - ' + t.endTime;
+            }).join(" / ")
+          }
+        </div>);
+      });
+      console.log(render);
+      return (
+      <div className="timetable">
+        {render}
+      </div>);
     }
 });

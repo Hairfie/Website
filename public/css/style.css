@@ -11782,9 +11782,7 @@ section.home-footer .row > div {
     width: 100%;
     padding-top: 16px; }
     .salon#content .main-content section.salon-info div.timetable {
-      position: relative;
-      left: 100%;
-      top: -25px; }
+      font-size: small; }
     .salon#content .main-content section.salon-info .row {
       background-color: white;
       padding-left: 35px; }
