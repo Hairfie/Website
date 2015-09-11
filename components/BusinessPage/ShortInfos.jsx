@@ -145,7 +145,7 @@ module.exports = React.createClass({
         return;
       var timetable = this.props.business.timetable;
       var render = [];
-      _.forEach(DateTimeConstants.weekDaysNumber, function(val) {
+      _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
         render.push(
         <div>
           {DateTimeConstants.weekDayLabel(val)}: {
