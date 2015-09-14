@@ -13,6 +13,9 @@ function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName ||
 function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+(u.lastName || '').substr(0, 1); }
 
 var BusinessReviewPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     render: function () {
         if ((this.props.reviews || []).length == 0) {
             return (
