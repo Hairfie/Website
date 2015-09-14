@@ -2,6 +2,7 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
+var CategoryActions = require('../actions/CategoryActions');
 
 var Actions = require('../constants/Actions');
 
@@ -24,10 +25,12 @@ module.exports = createStore({
         this.categories = data.categories;
     },
     onReceiveCategories: function (categories) {
-        this.categories = categories;
+        this.categories = _.sortBy(categories, 'position');;
         this.emitChange();
     },
     getAllSorted: function () {
-        return _.sortBy(this.categories, 'position');
+        if (!this.categories || _.isEmpty(this.categories))
+            this.getContext().executeAction(CategoryActions.loadAll);
+        return categories;
     }
 });

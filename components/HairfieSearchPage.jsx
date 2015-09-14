@@ -20,9 +20,15 @@ var HairfieSearchPage = React.createClass({
             results={this.renderResults()} />;
     },
     renderFilters: function () {
-        var categories = _.keys((this.props.result || {}).categories);
-        var tags = _.keys((this.props.result || {}).tags);
+        var result = _.keys((this.props.result || {}).tags);
+        var tags = _.map(this.props.tags, function (tag) {
+            if (this.props.result && this.props.result.tags[tag.name])
+                return tag;
+        }.bind(this));
+        tags = _.compact(tags);
 
+        console.log(tags);
+        debugger;
         return <Search.Filters
             search={this.props.search}
             tags={tags}
@@ -39,7 +45,9 @@ var HairfieSearchPage = React.createClass({
 
 HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'PlaceStore',
-    'HairfieStore'
+    'HairfieStore',
+    'CategoryStore',
+    'TagStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -55,7 +63,9 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         address: address,
         place: place,
         search: search,
-        result: result
+        result: result,
+        categories: context.getStore('CategoryStore').getAllSorted(),
+        tags: context.getStore('TagStore').getAllSorted()
     };
 });
 

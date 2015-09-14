@@ -60,7 +60,7 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
             return _.assign({}, hit, { topHairfies: context.getStore('HairfieStore').getBusinessTop(hit.id) });
         })});
     }
-    console.log(result);
+
     return {
         address: address,
         place: place,

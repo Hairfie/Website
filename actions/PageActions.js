@@ -23,7 +23,6 @@ var RouteStore = require('../stores/RouteStore');
 module.exports = {
     home: function (context) {
         return Promise.all([
-            context.executeAction(CategoryActions.loadAll),
             context.executeAction(DealActions.loadTopDeals),
             context.executeAction(HairfieActions.loadTopHairfies)
         ]);

@@ -2,6 +2,7 @@
 
 var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
+var TagActions = require('../actions/TagActions');
 
 var Actions = require('../constants/Actions');
 
@@ -23,11 +24,13 @@ module.exports = createStore({
     rehydrate: function (data) {
         this.tags = data.tags;
     },
-    onReceiveCategories: function (tags) {
-        this.tags = tags;
+    onReceiveTags: function (tags) {
+        this.tags = _.sortBy(tags, 'position');;
         this.emitChange();
     },
     getAllSorted: function () {
-        return _.sortBy(this.tags, 'position');
+        if (!this.tags || _.isEmpty(this.tags))
+            this.getContext().executeAction(TagActions.loadAll);
+        return this.tags;
     }
 });
