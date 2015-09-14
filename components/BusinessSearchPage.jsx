@@ -22,7 +22,7 @@ var BusinessSearchPage = React.createClass({
     },
     renderFilters: function () {
         var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categories);
+        var categories = _.keys(facets.categories || facets['categories.fr']);
 
         return <Search.Filters
             address={this.props.address}
