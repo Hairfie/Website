@@ -28,9 +28,9 @@ module.exports = createStore({
         this.categories = _.sortBy(categories, 'position');;
         this.emitChange();
     },
-    getAllSorted: function () {
+    getAllCategories: function () {
         if (!this.categories || _.isEmpty(this.categories))
             this.getContext().executeAction(CategoryActions.loadAll);
-        return categories;
+        return this.categories;
     }
 });

@@ -59,7 +59,7 @@ HomePage = connectToStores(HomePage, [
     'HomeLinkStore'
 ], function (context, props) {
     return {
-        categories  : context.getStore('CategoryStore').getAllSorted(),
+        categories  : context.getStore('CategoryStore').getAllCategories(),
         deals       : context.getStore('DealStore').getTop(),
         hairfies    : context.getStore('HairfieStore').getTop(),
         links       : context.getStore('HomeLinkStore').all()

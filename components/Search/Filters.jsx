@@ -124,25 +124,36 @@ var Filters = React.createClass({
     },
     renderTags: function ()
     {
-        if (!this.props.tags) return;
-
         var tags = this.props.tags || [];
+        if (!this.props.tags || tags.length == 0) return;
 
-        if (tags.length == 0) return;
         return (
             <div>
                 <h2>Tags</h2>
-                {_.map(tags, function (tags, i) {
-                    var active   = this.props.search && (this.props.search.tags || []).indexOf(tags) > -1;
-                    var onChange = active ? this.removeTag.bind(this, tags) : this.addTag.bind(this, tags);
+                {_.map(this.props.tagCategories, function (category) {
+                    var title = <h3>{category.name}</h3>;
+
+                    var tagsInCategory = _.map(tags, function(tag) {
+                        if (tag.category.id != category.id) return;
+                        var active   = this.props.search && (this.props.search.tags || []).indexOf(tag.name) > -1;
+                        var onChange = active ? this.removeTag.bind(this, tag.name) : this.addTag.bind(this, tag.name);
+
+                        return (
+                            <label key={tag.name} className="checkbox-inline">
+                                <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                                <span />
+                                {tag.name}
+                            </label>
+                        );
+                    }, this);
+                    tagsInCategory = _.compact(tagsInCategory);
+                    if (_.isEmpty(tagsInCategory)) return;
 
                     return (
-                        <label key={tags} className="checkbox-inline">
-                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
-                            <span />
-                            {tags}
-                        </label>
-                    );
+                        <div>
+                            {title}
+                            {tagsInCategory}
+                        </div>);
                 }, this)}
             </div>
         );

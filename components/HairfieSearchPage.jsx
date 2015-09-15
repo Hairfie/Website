@@ -27,11 +27,10 @@ var HairfieSearchPage = React.createClass({
         }.bind(this));
         tags = _.compact(tags);
 
-        console.log(tags);
-        debugger;
         return <Search.Filters
             search={this.props.search}
             tags={tags}
+            tagCategories={this.props.tagCategories}
             onChange={this.handleSearchChange} />;
     },
     renderResults: function () {
@@ -64,8 +63,8 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         place: place,
         search: search,
         result: result,
-        categories: context.getStore('CategoryStore').getAllSorted(),
-        tags: context.getStore('TagStore').getAllSorted()
+        tagCategories: context.getStore('TagStore').getTagCategories(),
+        tags: context.getStore('TagStore').getAllTags()
     };
 });
 

@@ -15,22 +15,35 @@ module.exports = createStore({
     }),
     initialize: function () {
         this.tags;
+        this.tagCategory;
     },
     dehydrate: function () {
         return {
-            tags: this.tags
+            tags: this.tags,
+            tagCategory: this.tagCategory
         };
     },
     rehydrate: function (data) {
         this.tags = data.tags;
+        this.tagCategory = data.tagCategory;
     },
     onReceiveTags: function (tags) {
-        this.tags = _.sortBy(tags, 'position');;
+        this.tags = _.sortByAll(tags, ['category.position', 'position']);
+
+        this.tagCategory = _.uniq(_.sortBy(_.map(tags, function (tag) {
+            return tag.category;
+        }), 'position'), 'id');
+
         this.emitChange();
     },
-    getAllSorted: function () {
+    getAllTags: function () {
         if (!this.tags || _.isEmpty(this.tags))
             this.getContext().executeAction(TagActions.loadAll);
         return this.tags;
+    },
+    getTagCategories: function() {
+        if (!this.tagCategory || _.isEmpty(this.tagCategory))
+            this.getContext().executeAction(TagActions.loadAll);
+        return this.tagCategory;
     }
 });
