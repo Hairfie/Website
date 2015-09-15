@@ -11781,6 +11781,14 @@ section.home-footer .row > div {
     background-color: white;
     width: 100%;
     padding-top: 16px; }
+    .salon#content .main-content section.salon-info div.timetable {
+      font-size: small;
+      margin-top: 15px; }
+      .salon#content .main-content section.salon-info div.timetable span {
+        padding: 0; }
+      @media screen and (max-width: 480px) {
+        .salon#content .main-content section.salon-info div.timetable span.extra-small {
+          width: 20%; } }
     .salon#content .main-content section.salon-info .row {
       background-color: white;
       padding-left: 35px; }

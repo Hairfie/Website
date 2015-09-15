@@ -129,9 +129,8 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <h2>Tags</h2>
                 {_.map(this.props.tagCategories, function (category) {
-                    var title = <h3>{category.name}</h3>;
+                    var title = <h2>{category.name}</h2>;
 
                     var tagsInCategory = _.map(tags, function(tag) {
                         if (tag.category.id != category.id) return;

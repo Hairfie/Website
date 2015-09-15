@@ -12,7 +12,13 @@ var HairfieSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+        var categoriesQuery = {};
+        var query = {};
+        query.tags = this.props.search.tags || [];
+        query.categories = this.props.categories;
+
         return <Search.Layout
+            query={query}
             tab="hairfie"
             address={this.props.address}
             place={this.props.place}
@@ -21,11 +27,7 @@ var HairfieSearchPage = React.createClass({
     },
     renderFilters: function () {
         var result = _.keys((this.props.result || {}).tags);
-        var tags = _.map(this.props.tags, function (tag) {
-            if (this.props.result && this.props.result.tags[tag.name])
-                return tag;
-        }.bind(this));
-        tags = _.compact(tags);
+        var tags = this.props.tags;
 
         return <Search.Filters
             search={this.props.search}
@@ -58,13 +60,26 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         result = context.getStore('HairfieStore').getSearchResult(search);
     }
 
+    var tags = _.map(context.getStore('TagStore').getAllTags(), function (tag) {
+    if (result && result.tags[tag.name])
+        return tag;
+    });
+    tags = _.compact(tags);
+
+    var searchTagsId;
+    if (search && !(_.isEmpty(tags))) {
+        searchTagsId = _.map(search.tags, function(tag) {
+            return _.find(tags, {'name': tag}).id;
+        });
+    }
     return {
         address: address,
         place: place,
         search: search,
         result: result,
         tagCategories: context.getStore('TagStore').getTagCategories(),
-        tags: context.getStore('TagStore').getAllTags()
+        tags: tags,
+        categories: context.getStore('CategoryStore').getCategoriesByTags(searchTagsId)
     };
 });
 

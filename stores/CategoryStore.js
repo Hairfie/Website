@@ -32,5 +32,21 @@ module.exports = createStore({
         if (!this.categories || _.isEmpty(this.categories))
             this.getContext().executeAction(CategoryActions.loadAll);
         return this.categories;
+    },
+    getCategoriesByTags: function (tagsId) {
+        if (!this.categories || _.isEmpty(this.categories)) {
+            this.getContext().executeAction(CategoryActions.loadAll);
+            return;
+        }
+        return _.compact(_.map(this.categories, function(category) {
+            var match = _.compact(_.map(category.tags, function(tag) {
+                if (_.isEmpty(_.intersection([tag], tagsId)))
+                    return;
+                else
+                    return true;
+            }));
+            if (!(_.isEmpty(match)))
+                return category.name;
+        }.bind(this)));
     }
 });
