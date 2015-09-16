@@ -11617,7 +11617,7 @@ section.home-footer .row > div {
     #content.search .main-content .tab-pane section .rating {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 15px;
       font-size: 1.2em;
       letter-spacing: 2px; }
       #content.search .main-content .tab-pane section .rating .note {
