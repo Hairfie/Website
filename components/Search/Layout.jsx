@@ -82,14 +82,14 @@ var Layout = React.createClass({
         else if (search.tags && search.tags.lenght == 1 && place.title.tags && place.title.tags[search.tags[0]])
             title = place.title.tags[search.tags[0]];
         else
-            title = place.title.default ? place.title.default : _.isString(place.title) ? place.title : '';
+            title = place.title && place.title.default ? place.title.default : _.isString(place.title) ? place.title : '';
 
         if (search.categories && search.categories.length == 1 && place.description.categories && place.description.categories[search.categories[0]])
             description = place.description.categories[search.categories[0]];
         else if (search.tags && search.tags.lenght == 1 && place.description.tags && place.description.tags[search.tags[0]])
             description = place.description.tags[search.tags[0]];
         else
-            description = place.description.default ? place.description.default : _.isString(place.description) ? place.description : '';
+            description = place.description && place.description.default ? place.description.default : _.isString(place.description) ? place.description : '';
 
         return (
             <div className="row">
