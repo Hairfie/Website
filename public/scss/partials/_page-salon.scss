@@ -216,7 +216,7 @@
     				width:100%;
     				z-index: 9000;
 				}
-			.btn-red {
+			.btn-red, .btn-book {
 				position: relative;
 				display: block;
 				width: 100%;
@@ -278,7 +278,7 @@
   					text-align: center;
 				}
 			}
-			.btn-red {
+			.btn-red, .btn-book {
 				display: block;
 				font-weight: $semiBold;
 				font-size: 1.9em;

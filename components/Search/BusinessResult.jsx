@@ -43,8 +43,8 @@ var Hairfies = React.createClass({
         );
     },
     renderMore: function () {
-        if ((this.props.hairfies || []).length < 6) return;
-
+        if ((this.props.business.topHairfies || []).length < 6) return;
+        console.log("here ?");
         return (
             <li className="more">
                 <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
@@ -63,10 +63,11 @@ var Business = React.createClass({
         var booking_button = null;
         if (this.props.business.isBookable)
             booking_button = (
-                            <Link className="btn btn-red" route="business_booking" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                                Réserver
-                            </Link>
-                            );
+                <Link className="btn btn-book full" route="business_booking" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                    Prendre RDV
+                </Link>
+            );
+
         return (
             <section className="col-xs-12">
                 <div className="col-xs-12 col-sm-4 image-bloc">
@@ -91,8 +92,11 @@ var Business = React.createClass({
                     </div>
                     {this.renderPricing()}
                     <Hairfies business={this.props.business} />
-                    {booking_button}
+                    <div className="book">
+                        {booking_button}
+                    </div>
                     {this.renderRating()}
+                    <div className="clearfix"></div>
                 </div>
             </section>
         );
@@ -143,11 +147,11 @@ var Business = React.createClass({
             women = price.women && Math.round(price.women);
 
         if (men && women) {
-            return <span className="black">&nbsp;&nbsp;prix moyen homme {men}€ / femme {women}€</span>;
+            return <span className="black">Prix moyen homme {men}€ / femme {women}€</span>;
         } else if (men) {
-            return <span className="black">&nbsp;&nbsp;prix moyen homme {men}€</span>;
+            return <span className="black">Prix moyen homme {men}€</span>;
         } else if (women) {
-            return <span className="black">&nbsp;&nbsp;prix moyen femme {women}€</span>;
+            return <span className="black">Prix moyen femme {women}€</span>;
         }
     }
 });
@@ -162,7 +166,7 @@ var BusinessResult = React.createClass({
         if (result.hits.length == 0) return this.renderNoResult();
 
         return (
-            <div className="tab-pane active">
+            <div className="tab-pane active" id="salons">
                 <div className="row">
                     {_.map(result.hits, function (business) {
                         return <Business key={business.id} business={business} date={date} />

@@ -15,7 +15,7 @@ module.exports = React.createClass({
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <img src="/img/book.png" alt="#" />
-                        <h3>Réservez</h3>
+                        <h3>Prenez RDV</h3>
                         <p>Réservez votre coiffeur gratuitement en 3 clics, 24/7</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">

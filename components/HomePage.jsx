@@ -5,7 +5,7 @@ var PublicLayout = require('./PublicLayout.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var Notifications = require('./Notifications.jsx');
-var PageProgress = require('./PageProgress.jsx');
+var PageProgress = require('./Layout/PageProgress.jsx');
 
 var Home = require('./Home');
 
@@ -27,7 +27,7 @@ var HomePage = React.createClass({
                         <Notifications />
                         <div className="row">
                             <div className="headline col-md-12">
-                                <h1>Trouvez votre coupe. <br />Réservez votre coiffeur.</h1>
+                                <h1>Trouvez votre coupe<br />Réservez votre coiffeur</h1>
                                 <p>Des photos valent mieux qu'un long discours. <br />Prenez gratuitement RDV avec le coiffeur qui vous correspond.</p>
                             </div>
                         </div>
