@@ -47,7 +47,6 @@ var HairfieResult = React.createClass({
         return (
             <div className="tab-pane active">
                 <section>
-                    <h3>Les Hairfies</h3>
                     <div className="salon-hairfies hairfies">
                         <div className="row">
                             {_.map(this.props.result.hits, function (hairfie) {

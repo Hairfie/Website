@@ -5,6 +5,7 @@ var PublicLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
 var SearchUtils = require('../../lib/search-utils');
 var Breadcrumb = require('./Breadcrumb.jsx');
+var _ = require('lodash');
 
 var Layout = React.createClass({
     componentDidMount: function () {
@@ -28,7 +29,7 @@ var Layout = React.createClass({
         return (
             <PublicLayout withSearchBar={true}>
                 <div className="mobile-screen hidden-md hidden-lg">
-                    <a href="#" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
+                    <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>
                 <div className="container search" id="content">
                     <div className="mobile-search visible-sm visible-xs">
@@ -88,13 +89,13 @@ var Layout = React.createClass({
         return (
             <ul className="nav nav-tabs">
                 <li className={'col-xs-6'+(this.props.tab == 'business' ? ' active' : '')}>
-                    <Link route="business_search" params={{ address: address }}>
+                    <Link route="business_search" params={{ address: address }} query={this.props.query && this.props.query.categories ? {categories: this.props.query.categories} : {}}>
                         <span className="icon-nav" />
                         Coiffeurs
                     </Link>
                 </li>
                 <li className={'col-xs-6'+(this.props.tab == 'hairfie' ? ' active' : '')}>
-                    <Link route="hairfie_search" params={{ address: address }}>
+                    <Link route="hairfie_search" params={{ address: address }} query={this.props.query && this.props.query.tags ? {tags: this.props.query.tags} : {}}>
                         <span className="icon-nav" />
                         Hairfies
                     </Link>

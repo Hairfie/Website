@@ -12,7 +12,12 @@ var HairfieSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+        var query = {};
+        query.tags = this.props.search.tags || [];
+        query.categories = _.map(this.props.categories, 'name') || [];
+
         return <Search.Layout
+            query={query}
             tab="hairfie"
             address={this.props.address}
             place={this.props.place}
@@ -20,12 +25,13 @@ var HairfieSearchPage = React.createClass({
             results={this.renderResults()} />;
     },
     renderFilters: function () {
-        var categories = _.keys((this.props.result || {}).categories);
-        var tags = _.keys((this.props.result || {}).tags);
+        var result = _.keys((this.props.result || {}).tags);
+        var tags = this.props.tags;
 
         return <Search.Filters
             search={this.props.search}
             tags={tags}
+            tagCategories={this.props.tagCategories}
             onChange={this.handleSearchChange} />;
     },
     renderResults: function () {
@@ -39,7 +45,9 @@ var HairfieSearchPage = React.createClass({
 
 HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'PlaceStore',
-    'HairfieStore'
+    'HairfieStore',
+    'CategoryStore',
+    'TagStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -51,11 +59,23 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         result = context.getStore('HairfieStore').getSearchResult(search);
     }
 
+    var tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
+
+    var searchTagsId;
+    if (search && !(_.isEmpty(tags))) {
+        searchTagsId = _.map(search.tags, function(tag) {
+            return _.find(tags, {'name': tag}).id;
+        });
+    }
+
     return {
         address: address,
         place: place,
         search: search,
-        result: result
+        result: result,
+        tagCategories: context.getStore('TagStore').getTagCategories(),
+        tags: tags,
+        categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId)
     };
 });
 

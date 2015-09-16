@@ -13,7 +13,12 @@ var BusinessSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+        var query = {};
+        query.tags = _.map(this.props.tags, 'name') || [];
+        query.categories = this.props.search.categories;
+
         return <Search.Layout
+            query={query}
             tab="business"
             address={this.props.address}
             place={this.props.place}
@@ -22,7 +27,7 @@ var BusinessSearchPage = React.createClass({
     },
     renderFilters: function () {
         var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categories);
+        var categories = _.keys(facets.categories || facets['categories.fr']);
 
         return <Search.Filters
             address={this.props.address}
@@ -43,7 +48,9 @@ var BusinessSearchPage = React.createClass({
 BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'PlaceStore',
     'HairfieStore',
-    'BusinessStore'
+    'BusinessStore',
+    'CategoryStore',
+    'TagStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -61,11 +68,22 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         })});
     }
 
+    var categories = context.getStore('CategoryStore').getCategoriesByName(_.values(search.categories));
+
+    var searchTagsId = [];
+    if (search && !(_.isEmpty(categories))) {
+        _.map(search.categories, function(category) {
+            searchTagsId = _.union(searchTagsId, _.find(categories, {'name': category}).tags);
+        });
+    }
+
     return {
         address: address,
         place: place,
         search: search,
-        result: result
+        result: result,
+        categories: categories,
+        tags: context.getStore('TagStore').getTagsById(searchTagsId)
     };
 });
 
