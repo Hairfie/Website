@@ -45,5 +45,25 @@ module.exports = createStore({
         if (!this.tagCategory || _.isEmpty(this.tagCategory))
             this.getContext().executeAction(TagActions.loadAll);
         return this.tagCategory;
+    },
+    getTagsById: function(tagsId) {
+        if (!this.tags || _.isEmpty(this.tags))
+            this.getContext().executeAction(TagActions.loadAll);
+
+        return _.compact(_.map(this.tags, function(tag) {
+            if (_.isEmpty(_.intersection([tag.id], tagsId)))
+                return;
+            return tag;
+        }));
+    },
+    getTagsByName: function(tagsName) {
+        if (!this.tags || _.isEmpty(this.tags))
+            this.getContext().executeAction(TagActions.loadAll);
+
+        return _.compact(_.map(this.tags, function(tag) {
+            if (_.isEmpty(_.intersection([tag.name], tagsName)))
+                return;
+            return tag;
+        }));
     }
 });

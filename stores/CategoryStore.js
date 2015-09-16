@@ -33,7 +33,7 @@ module.exports = createStore({
             this.getContext().executeAction(CategoryActions.loadAll);
         return this.categories;
     },
-    getCategoriesByTags: function (tagsId) {
+    getCategoriesByTagsId: function (tagsId) {
         if (!this.categories || _.isEmpty(this.categories)) {
             this.getContext().executeAction(CategoryActions.loadAll);
             return;
@@ -46,7 +46,31 @@ module.exports = createStore({
                     return true;
             }));
             if (!(_.isEmpty(match)))
-                return category.name;
+                return category;
         }.bind(this)));
+    },
+    getCategoriesByName: function(categoriesName) {
+        if (!this.categories || _.isEmpty(this.categories)) {
+            this.getContext().executeAction(CategoryActions.loadAll);
+            return;
+        }
+
+        return _.compact(_.map(this.categories, function(category) {
+            if (_.isEmpty(_.intersection([category.name], categoriesName)))
+                return;
+            return category;
+        }));
+    },
+    getCategoriesById: function(categoriesId) {
+        if (!this.categories || _.isEmpty(this.categories)) {
+            this.getContext().executeAction(CategoryActions.loadAll);
+            return;
+        }
+
+        return _.compact(_.map(this.categories, function(category) {
+            if (_.isEmpty(_.intersection([category.id], categoriesId)))
+                return;
+            return category;
+        }));
     }
 });

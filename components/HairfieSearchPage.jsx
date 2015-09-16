@@ -12,10 +12,9 @@ var HairfieSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
-        var categoriesQuery = {};
         var query = {};
         query.tags = this.props.search.tags || [];
-        query.categories = this.props.categories;
+        query.categories = _.map(this.props.categories, 'name') || [];
 
         return <Search.Layout
             query={query}
@@ -60,11 +59,7 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         result = context.getStore('HairfieStore').getSearchResult(search);
     }
 
-    var tags = _.map(context.getStore('TagStore').getAllTags(), function (tag) {
-    if (result && result.tags[tag.name])
-        return tag;
-    });
-    tags = _.compact(tags);
+    var tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
 
     var searchTagsId;
     if (search && !(_.isEmpty(tags))) {
@@ -72,6 +67,7 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
             return _.find(tags, {'name': tag}).id;
         });
     }
+
     return {
         address: address,
         place: place,
@@ -79,7 +75,7 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         result: result,
         tagCategories: context.getStore('TagStore').getTagCategories(),
         tags: tags,
-        categories: context.getStore('CategoryStore').getCategoriesByTags(searchTagsId)
+        categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId)
     };
 });
 

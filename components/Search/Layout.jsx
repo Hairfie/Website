@@ -29,7 +29,7 @@ var Layout = React.createClass({
         return (
             <PublicLayout withSearchBar={true}>
                 <div className="mobile-screen hidden-md hidden-lg">
-                    <a href="#" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
+                    <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>
                 <div className="container search" id="content">
                     <div className="mobile-search visible-sm visible-xs">
