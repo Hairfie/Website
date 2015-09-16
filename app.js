@@ -70,6 +70,7 @@ app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/BookingStore'));
 app.registerStore(require('./stores/DealStore'));
 app.registerStore(require('./stores/CategoryStore'));
+app.registerStore(require('./stores/TagStore'));
 app.registerStore(require('./stores/PlaceStore'));
 app.registerStore(require('./stores/StationStore'));
 app.registerStore(require('./stores/HomeLinkStore'));

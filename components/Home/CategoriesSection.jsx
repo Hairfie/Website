@@ -36,12 +36,20 @@ module.exports = React.createClass({
         );
     },
     renderCategory: function (cat) {
+        var query = '';
+
+        if (this.props.tags) {
+            query = _.compact(_.map(cat.tags, function(tagId) {
+                return _.find(this.props.tags, {id: tagId}).name;
+            }.bind(this)));
+        }
+
         return (
             <div className="col-sm-4 col-xs-12" key={cat.id} >
                 <figure>
                     <Picture picture={cat.picture} alt={cat.name} />
                     <figcaption>
-                        <Link route="business_search" params={{ address: 'Paris--France' }} query={{ categories: cat.name }}>
+                        <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: query }}>
                             <span className="oneline">{cat.name}</span>
                         </Link>
                         <a href="#"><span>{cat.name}</span></a>
