@@ -25,10 +25,11 @@ var Filters = React.createClass({
         );
     },
     renderCurrentFilters: function () {
-        var filters = _.map(this.props.search.categories, function (category) {
+        var search = this.props.search.categories || this.props.search.tags
+        var filters = _.map(search, function (selection) {
                 return {
-                    label   : category,
-                    onChange: this.removeCategory.bind(this, category)
+                    label   : selection,
+                    onChange: this.removeCategory.bind(this, selection)
                 }
         }, this);
 
