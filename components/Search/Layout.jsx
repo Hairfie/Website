@@ -67,18 +67,36 @@ var Layout = React.createClass({
     },
     renderHeader: function () {
         var place = this.props.place || {};
+        var search = this.props.search || {};
         var coverImage;
 
         if (place.picture) {
             coverImage = <img src={place.picture.url} alt={place.name} className="cover" />;
         }
 
+        var title = '';
+        var description = '';
+
+        if (search.categories && search.categories.length == 1 && place.title.categories && place.title.categories[search.categories[0]])
+            title = place.title.categories[search.categories[0]];
+        else if (search.tags && search.tags.lenght == 1 && place.title.tags && place.title.tags[search.tags[0]])
+            title = place.title.tags[search.tags[0]];
+        else
+            title = place.title.default ? place.title.default : _.isString(place.title) ? place.title : '';
+
+        if (search.categories && search.categories.length == 1 && place.description.categories && place.description.categories[search.categories[0]])
+            description = place.description.categories[search.categories[0]];
+        else if (search.tags && search.tags.lenght == 1 && place.description.tags && place.description.tags[search.tags[0]])
+            description = place.description.tags[search.tags[0]];
+        else
+            description = place.description.default ? place.description.default : _.isString(place.description) ? place.description : '';
+
         return (
             <div className="row">
                 <div className="col-xs-12 header-part">
                     {coverImage}
-                    <h3>{(place.title || place.name || '').split(',')[0]}</h3>
-                    <p>{place.description}</p>
+                    <h3>{(title || place.name || '').split(',')[0]}</h3>
+                    <p>{description}</p>
                 </div>
             </div>
        );
