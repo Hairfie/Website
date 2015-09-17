@@ -19,7 +19,7 @@ module.exports = React.createClass({
                         {...this.props}
                     />
                     {this.renderSearchBar()}
-                    <SearchBar context={this.props.context} mobile={true} />
+                    <SearchBar mobile={true} {...this.props}/>
                 </div>
                 <Notifications />
                 {this.props.children}
@@ -34,7 +34,7 @@ module.exports = React.createClass({
 
         return (
             <div className="row hidden-xs hidden-sm">
-                <SearchBar context={this.props.context} />
+                <SearchBar {...this.props} />
             </div>
         );
     }

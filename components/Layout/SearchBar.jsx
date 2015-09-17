@@ -6,6 +6,8 @@ var BusinessActions = require('../../actions/BusinessActions');
 var Link = require('../Link.jsx');
 var Button = require('react-bootstrap').Button;
 var User = require('./User.jsx');
+var _ = require('lodash');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var mobileHeader = React.createClass({
     contextTypes: {
@@ -21,11 +23,19 @@ var mobileHeader = React.createClass({
         }
     },
     renderLayout: function () {
+        console.log(this.props);
         return (
             <div className="searchbar small-search col-sm-12">
+                <select ref="categories" placeholder="Catégories" className="col-sm-3" style={{fontSize: '2em'}}>
+                    <optgroup label="Catégories">
+                        <option disabled selected>Sélectionnez une catégorie</option>
+                        {_.map(this.props.categories, function(cat) {
+                            return <option value={cat.name}>{cat.name}</option>;
+                        })}
+                    </optgroup>
+                </select>
                 <GeoInput ref="address" placeholder="Où ?" className="col-sm-3" />
-                <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Ex: Coupe, Brushing etc." className="col-sm-3" />
-                <input ref="date" type="date" className="col-sm-3" />
+                <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-sm-3" />
                 <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
             </div>
         );
@@ -81,7 +91,7 @@ var mobileHeader = React.createClass({
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
             q       : this.refs.query.getDOMNode().value,
-            date    : this.refs.date.getDOMNode().value
+            categories    : this.refs.categories.getDOMNode().value
         };
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
@@ -98,6 +108,14 @@ var mobileHeader = React.createClass({
             }
         });
     }
+});
+
+mobileHeader = connectToStores(mobileHeader, [
+    'CategoryStore'
+], function (context, props) {
+    return _.assign({}, {
+        categories: context.getStore('CategoryStore').getAllCategories()
+    }, props);
 });
 
 
