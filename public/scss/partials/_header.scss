@@ -23,7 +23,7 @@ header {
 			margin-right: 15px;
 			margin-top: -6px;
 		}
-		
+
 
 	}
 	nav {
@@ -117,7 +117,7 @@ header {
 }
 .dropdown {
 	font-weight:$regular;
-	
+
 	.dropdown-menu {
 		border: 0;
 		border-radius: 2px;
@@ -169,9 +169,9 @@ header:not(.white) {
 		width: 100vw;
 		max-width: 100%; // fix-mobile horizontal scroll
 		position: fixed; top: 0; z-index: 999;
-		
+
 		a.logo {
-			background: url(../images/logo-red.png) no-repeat center left; 
+			background: url(../images/logo-red.png) no-repeat center left;
 			background-size: 100%;
 			margin-top: 20px;
 		}
@@ -239,6 +239,6 @@ header:not(.white) {
 				text-transform: uppercase;
 			}
 		}
-			
+
 	}
 }

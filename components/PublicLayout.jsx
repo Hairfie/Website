@@ -15,26 +15,16 @@ module.exports = React.createClass({
             <div className="front">
                 <PageProgress context={this.props.context} />
                 <div className="container">
-                    <Header
-                        {...this.props}
-                    />
-                    {this.renderSearchBar()}
-                    <SearchBar mobile={true} {...this.props}/>
+                    <div className="row hidden-xs hidden-sm">
+                        <SearchBar context={this.props.context} />
+                    </div>
+                    <SearchBar context={this.props.context} mobile={true} />
                 </div>
                 <Notifications />
                 {this.props.children}
                 <div className="row" />
                 <Footer context={this.props.context} />
                 <Footer context={this.props.context} mobile={true} />
-            </div>
-        );
-    },
-    renderSearchBar: function () {
-        if (!this.props.withSearchBar) return;
-
-        return (
-            <div className="row hidden-xs hidden-sm">
-                <SearchBar {...this.props} />
             </div>
         );
     }
