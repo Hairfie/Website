@@ -133,7 +133,7 @@ section.home-section {
 }
 // Overrides:
 
-#home section:first-child {
+#home section.categories {
 	figure {
   		&:hover {
 			@include transition(all 0.25s ease-out);
@@ -195,7 +195,7 @@ section.home-section {
 		}
 	}
 }
-#home section:nth-child(2) {
+#home section.deals {
 	.row > div {
 		&:first-child {
 			padding-left: 0;
@@ -318,7 +318,7 @@ section.home-section {
 		}
 	}
 }
-#home section:nth-child(3) {
+#home section.hairfies {
 	// .row + .row {
 	// 	margin:0px;
 	// 	padding: 0;
@@ -446,7 +446,29 @@ section.home-section {
 	@include fullWidthBg($bg2);
 }
 
-#home section:nth-child(5) {
+#home section.download {
+	@media screen and (min-width: $screen-xs-max) {
+    	height: 400px; width: 100vw;
+    	left: calc(-50vw + 50%);
+		background: url(../images/bg-download.jpg) no-repeat center center;
+		background-size: cover;
+		margin: 0;
+    }
+
+    p {
+    	font-size: 1.6em;
+		font-family: $font-second;
+		font-weight: $latoLight;
+		color: $font-color;
+    }
+
+    .btn-apple {
+    	width: 204px;
+    	margin-top: 50px;
+    }
+}
+
+#home section.seo {
 	a {
 		font-size: 1.6em;
 		font-family: $font-second;

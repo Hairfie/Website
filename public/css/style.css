@@ -11182,27 +11182,27 @@ section.home-section {
     margin: 40px auto 0;
     float: none !important; }
 
-#home section:first-child figure:hover {
+#home section.categories figure:hover {
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out; }
-  #home section:first-child figure:hover img {
+  #home section.categories figure:hover img {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1); }
 
-#home section:first-child figcaption {
+#home section.categories figcaption {
   font-size: 2.1em;
   text-align: center; }
-  #home section:first-child figcaption a {
+  #home section.categories figcaption a {
     width: 100%;
     height: 100%;
     display: block;
     line-height: 140px;
     position: relative; }
-    #home section:first-child figcaption a span {
+    #home section.categories figcaption a span {
       display: block;
       line-height: 1.4;
       text-transform: uppercase;
@@ -11215,93 +11215,93 @@ section.home-section {
       position: absolute;
       margin-top: -1.4em;
       margin-left: -20%; }
-      #home section:first-child figcaption a span.oneline {
+      #home section.categories figcaption a span.oneline {
         margin-top: -0.8em; }
 
-#home section:first-child .row + .row {
+#home section.categories .row + .row {
   margin-top: 15px; }
   @media screen and (max-width: 768px) {
-    #home section:first-child .row + .row {
+    #home section.categories .row + .row {
       margin-top: 0 !important; } }
 
 @media screen and (max-width: 768px) {
-  #home section:first-child .row > div {
+  #home section.categories .row > div {
     margin: 10px 0px; } }
 
-#home section:first-child .row .col-sm-4 {
+#home section.categories .row .col-sm-4 {
   padding: 0;
   padding-right: 15px; }
   @media screen and (max-width: 768px) {
-    #home section:first-child .row .col-sm-4:nth-child(3) {
+    #home section.categories .row .col-sm-4:nth-child(3) {
       padding-right: 15px !important; } }
 
-#home section:nth-child(2) .row > div:first-child {
+#home section.deals .row > div:first-child {
   padding-left: 0; }
 
-#home section:nth-child(2) .row > div:last-child {
+#home section.deals .row > div:last-child {
   padding-right: 0; }
 
 @media screen and (max-width: 991px) {
-  #home section:nth-child(2) .row > div:nth-child(2) {
+  #home section.deals .row > div:nth-child(2) {
     padding-left: 7px;
     padding-right: 7px; } }
 
 @media screen and (max-width: 767px) {
-  #home section:nth-child(2) .row > div {
+  #home section.deals .row > div {
     margin-top: 20px !important; }
-    #home section:nth-child(2) .row > div:nth-child(2) {
+    #home section.deals .row > div:nth-child(2) {
       padding-left: 0px;
       padding-right: 0px; } }
 
 @media screen and (max-width: 767px) {
-  #home section:nth-child(2) .row > div {
+  #home section.deals .row > div {
     padding: 0; } }
 
-#home section:nth-child(2) figure {
+#home section.deals figure {
   border-radius: 0;
   cursor: pointer; }
-  #home section:nth-child(2) figure img {
+  #home section.deals figure img {
     height: 275px; }
     @media screen and (max-width: 991px) {
-      #home section:nth-child(2) figure img {
+      #home section.deals figure img {
         height: auto;
         min-height: 200px; } }
-  #home section:nth-child(2) figure figcaption {
+  #home section.deals figure figcaption {
     height: 40%;
     bottom: 0;
     top: auto;
     background-color: rgba(0, 0, 0, 0.35);
     padding: 12px; }
     @media screen and (max-width: 991px) {
-      #home section:nth-child(2) figure figcaption {
+      #home section.deals figure figcaption {
         height: 100%;
         padding-top: 25%; } }
     @media screen and (max-width: 767px) {
-      #home section:nth-child(2) figure figcaption {
+      #home section.deals figure figcaption {
         height: 100%;
         padding-top: 35%; } }
-    #home section:nth-child(2) figure figcaption p {
+    #home section.deals figure figcaption p {
       margin-bottom: 0; }
-    #home section:nth-child(2) figure figcaption .btn-red {
+    #home section.deals figure figcaption .btn-red {
       font-size: 12px;
       padding: 3px 7px;
       letter-spacing: 1px;
       font-weight: 600;
       line-height: 1.4;
       margin-top: 5px; }
-    #home section:nth-child(2) figure figcaption a:first-child, #home section:nth-child(2) figure figcaption a:nth-child(2) {
+    #home section.deals figure figcaption a:first-child, #home section.deals figure figcaption a:nth-child(2) {
       display: block;
       letter-spacing: 2px; }
-    #home section:nth-child(2) figure figcaption a:first-child {
+    #home section.deals figure figcaption a:first-child {
       text-transform: uppercase;
       margin-top: 10px; }
-      #home section:nth-child(2) figure figcaption a:first-child:hover {
+      #home section.deals figure figcaption a:first-child:hover {
         text-decoration: none; }
-    #home section:nth-child(2) figure figcaption a:nth-child(2) {
+    #home section.deals figure figcaption a:nth-child(2) {
       font-weight: 400;
       font-size: .9em;
       margin-bottom: 5px; }
-    #home section:nth-child(2) figure figcaption .icon-promo {
+    #home section.deals figure figcaption .icon-promo {
       position: absolute;
       top: -130%;
       right: 20px;
@@ -11310,100 +11310,100 @@ section.home-section {
       background-size: 100%;
       line-height: 60px; }
       @media screen and (max-width: 991px) {
-        #home section:nth-child(2) figure figcaption .icon-promo {
+        #home section.deals figure figcaption .icon-promo {
           width: 35px !important;
           height: 35px !important;
           line-height: 35px !important;
           font-size: .9em !important; } }
       @media screen and (max-width: 991px) {
-        #home section:nth-child(2) figure figcaption .icon-promo {
+        #home section.deals figure figcaption .icon-promo {
           top: 15px;
           right: 15px;
           width: 60px;
           height: 60px;
           line-height: 60px;
           font-size: 1em; } }
-    #home section:nth-child(2) figure figcaption .stars {
+    #home section.deals figure figcaption .stars {
       height: auto; }
-      #home section:nth-child(2) figure figcaption .stars .star {
+      #home section.deals figure figcaption .stars .star {
         margin: 2px;
         height: 16px;
         width: 16px;
         cursor: default; }
-        #home section:nth-child(2) figure figcaption .stars .star:hover:after {
+        #home section.deals figure figcaption .stars .star:hover:after {
           opacity: 0 !important; }
-      #home section:nth-child(2) figure figcaption .stars .avis {
+      #home section.deals figure figcaption .stars .avis {
         font-size: 1em;
         font-weight: 200;
         letter-spacing: 1px;
         line-height: 1;
         float: none; }
 
-#home section:nth-child(3) .small-hairfies > div {
+#home section.hairfies .small-hairfies > div {
   margin-left: -15px;
   margin-right: -15px; }
-  #home section:nth-child(3) .small-hairfies > div > div {
+  #home section.hairfies .small-hairfies > div > div {
     padding: 0; }
-    #home section:nth-child(3) .small-hairfies > div > div figure {
+    #home section.hairfies .small-hairfies > div > div figure {
       margin: 0 10px 10px 0; }
-    #home section:nth-child(3) .small-hairfies > div > div figcaption a:first-child {
+    #home section.hairfies .small-hairfies > div > div figcaption a:first-child {
       margin-top: 80%; }
       @media screen and (max-width: 991px) {
-        #home section:nth-child(3) .small-hairfies > div > div figcaption a:first-child {
+        #home section.hairfies .small-hairfies > div > div figcaption a:first-child {
           margin-top: 50%; } }
 
-#home section:nth-child(3) .big {
+#home section.hairfies .big {
   padding-left: 0; }
   @media screen and (max-width: 767px) {
-    #home section:nth-child(3) .big {
+    #home section.hairfies .big {
       padding-right: 0; } }
-  #home section:nth-child(3) .big figure {
+  #home section.hairfies .big figure {
     height: 100%;
     height: 100%;
     width: 100%;
     padding: 0; }
-    #home section:nth-child(3) .big figure figcaption {
+    #home section.hairfies .big figure figcaption {
       font-size: 2.1em; }
-      #home section:nth-child(3) .big figure figcaption p {
+      #home section.hairfies .big figure figcaption p {
         margin-left: 20px;
         font-weight: 400; }
-        #home section:nth-child(3) .big figure figcaption p a {
+        #home section.hairfies .big figure figcaption p a {
           display: inline-block;
           margin-top: 0 !important;
           margin-left: 0 !important;
           text-transform: none;
           text-decoration: underline; }
-      #home section:nth-child(3) .big figure figcaption a:first-child {
+      #home section.hairfies .big figure figcaption a:first-child {
         margin-top: 80%; }
         @media screen and (max-width: 991px) {
-          #home section:nth-child(3) .big figure figcaption a:first-child {
+          #home section.hairfies .big figure figcaption a:first-child {
             margin-top: 50%; } }
-      #home section:nth-child(3) .big figure figcaption a {
+      #home section.hairfies .big figure figcaption a {
         margin-left: 20px; }
-      #home section:nth-child(3) .big figure figcaption .pricetag {
+      #home section.hairfies .big figure figcaption .pricetag {
         width: 85px;
         height: 85px;
         line-height: 55px; }
 
-#home section:nth-child(3) figure {
+#home section.hairfies figure {
   cursor: pointer; }
-  #home section:nth-child(3) figure img {
+  #home section.hairfies figure img {
     height: auto; }
-  #home section:nth-child(3) figure figcaption {
+  #home section.hairfies figure figcaption {
     background-color: rgba(0, 0, 0, 0.35);
     opacity: 0;
     padding: 15px; }
-    #home section:nth-child(3) figure figcaption a:first-child, #home section:nth-child(3) figure figcaption a:nth-child(2) {
+    #home section.hairfies figure figcaption a:first-child, #home section.hairfies figure figcaption a:nth-child(2) {
       display: block;
       letter-spacing: 2px; }
-    #home section:nth-child(3) figure figcaption a:first-child {
+    #home section.hairfies figure figcaption a:first-child {
       margin-top: 70%;
       text-transform: uppercase; }
-      #home section:nth-child(3) figure figcaption a:first-child:hover {
+      #home section.hairfies figure figcaption a:first-child:hover {
         text-decoration: none; }
-    #home section:nth-child(3) figure figcaption a:nth-child(2) {
+    #home section.hairfies figure figcaption a:nth-child(2) {
       font-weight: 400; }
-  #home section:nth-child(3) figure:hover figcaption {
+  #home section.hairfies figure:hover figcaption {
     opacity: 1; }
 
 #home section:nth-child(even) {
@@ -11428,13 +11428,32 @@ section.home-section {
     background: #f0f0f1;
     z-index: -1; }
 
-#home section:nth-child(5) a {
+@media screen and (min-width: 767px) {
+  #home section.download {
+    height: 400px;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    background: url(../images/bg-download.jpg) no-repeat center center;
+    background-size: cover;
+    margin: 0; } }
+
+#home section.download p {
+  font-size: 1.6em;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  color: #595959; }
+
+#home section.download .btn-apple {
+  width: 204px;
+  margin-top: 50px; }
+
+#home section.seo a {
   font-size: 1.6em;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   color: #595959;
   letter-spacing: 1px; }
-  #home section:nth-child(5) a:hover {
+  #home section.seo a:hover {
     color: #595959; }
 
 section.home-footer .row > div {
