@@ -34,8 +34,8 @@ module.exports = React.createClass({
         return (
                 <div className="promo-sidebar">
                     {this.renderBestDiscount()}
-                    <Link className="btn btn-red" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
-                        Réserver maintenant
+                    <Link className="btn btn-book" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                        Prendre RDV
                     </Link>
                 </div>
         );

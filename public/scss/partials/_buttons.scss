@@ -1,7 +1,7 @@
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white {
+.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white, .btn-book {
     @extend .btn;
     &.btn-red {
         background-color: $hairfie;
@@ -18,6 +18,11 @@
     &.btn-white {
         background-color: white;
     }
+    &.btn-book {
+        background-color: $book;
+        border-bottom-color: $book-darker;
+    }
+
     border: none;
     color: white;
     font-family: $font-main;
@@ -47,6 +52,10 @@
         &.btn-white {
         background-color: darken(white, 5%);
         color: white;
+        }
+        &.btn-book {
+            background-color: $book-lighter;
+            color: white;
         }
 
     }

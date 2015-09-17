@@ -6,7 +6,7 @@ var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var Notifications = require('./Notifications.jsx');
 var SearchBar = require('./Layout/SearchBar.jsx');
-var PageProgress = require('./PageProgress.jsx');
+var PageProgress = require('./Layout/PageProgress.jsx');
 
 module.exports = React.createClass({
     displayName: 'PublicLayout',

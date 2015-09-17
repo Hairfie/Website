@@ -110,8 +110,8 @@ var HairfieSingle = React.createClass({
                     </a>
                 </div>
                 <div className="cta">
-                    <Link className="btn btn-red full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                        Réserver dans ce salon
+                    <Link className="btn btn-book full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                        Prendre RDV
                     </Link>
                 </div>
             </div>

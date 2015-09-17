@@ -92,7 +92,7 @@ module.exports = {
         });
     },
     loadSearchResult: function (context, search) {
-        var query = { pageSize: 12 };
+        var query = { pageSize: 16 };
         query.page = search.page;
         if (search.location) {
             query.location = [

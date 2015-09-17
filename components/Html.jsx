@@ -28,6 +28,8 @@ var Html = React.createClass({
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
+                <meta name="apple-itunes-app" content="app-id=853590611" />
+
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href="/css/style.css" />
                 <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
