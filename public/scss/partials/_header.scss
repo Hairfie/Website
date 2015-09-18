@@ -1,4 +1,21 @@
 header {
+	a.menu-trigger {
+		background: url(../images/mobile-menu.png) no-repeat center center;
+		background-size: 90%;
+
+		margin-top: 15px;
+		@media screen and (max-width: $screen-xs-max) {
+			margin-top: 25px;
+		}
+		width: 28px;
+		height: 28px;
+		margin-right: 15px;
+		&.close {
+			background: url(../images/mobile-menu-close.png) no-repeat center center;
+			background-size: 90%;
+			opacity: 1;
+		}
+	}
 	$headerHeight: 60px;
 	width: 100%;height: $headerHeight;
 	background-color: transparent;
@@ -175,7 +192,7 @@ header:not(.white) {
 			background-size: 100%;
 			margin-top: 20px;
 		}
-		a.menu-trigger {
+/* 		a.menu-trigger {
 			background: url(../images/mobile-menu.png) no-repeat center center;
 			background-size: 90%;
 			margin-top: 25px;
@@ -187,7 +204,7 @@ header:not(.white) {
 				background-size: 90%;
 				opacity: 1;
 			}
-		}
+		} */
 	}
 	.mobile-menu {
 		background-color: $bg3;

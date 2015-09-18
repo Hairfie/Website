@@ -15,7 +15,7 @@ module.exports = React.createClass({
             <div className="front">
                 <PageProgress context={this.props.context} />
                 <div className="container">
-                    <div className="row hidden-xs hidden-sm">
+                    <div className="row hidden-xs">
                         <SearchBar context={this.props.context} />
                     </div>
                     <SearchBar context={this.props.context} mobile={true} />

@@ -36,14 +36,14 @@ var mobileHeader = React.createClass({
                     <div className="row">
                         <div className="col-md-12">
                             <Link className="logo col-md-4" route="home" />
-                            <nav className='col-md-8 pull-right'>
+                            <nav className='pull-right'>
                                 <ul>
                                     <User />
                                 </ul>
                             </nav>
+                            *<a className={"col-xs-4 menu-trigger pull-right hidden-sm" + (this.state.displaySearchBar ? ' close' : '')} role="button" onClick={this.handleDisplaySearchBar}></a>*
                         </div>
                     </div>
-                    *<a className="col-xs-4 menu-trigger pull-right" role="button"></a>*
                 </header>
                 {this.renderSearchBar()}
             </div>
@@ -52,8 +52,8 @@ var mobileHeader = React.createClass({
     renderSearchBar: function() {
         if (this.state.displaySearchBar) {
             return (
-                <div className="searchbar small-search col-sm-12">
-                    <div className="col-sm-3">
+                <div className="searchbar small-search col-xs-12 hidden-sm">
+                    <div className="col-xs-3">
                         <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
                             <optgroup label="Catégories">
                                 <option disabled selected>Sélectionnez une catégorie</option>
@@ -64,8 +64,8 @@ var mobileHeader = React.createClass({
                             </optgroup>
                         </select>
                     </div>
-                    <GeoInput ref="address" placeholder="Où ?" className="col-sm-3" />
-                    <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-sm-3" />
+                    <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
+                    <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
                     <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
                 </div>
             );
@@ -123,6 +123,10 @@ var mobileHeader = React.createClass({
             e.preventDefault();
             this.submit();
         }
+    },
+    handleDisplaySearchBar: function(e) {
+        e.preventDefault();
+        this.setState({displaySearchBar: !this.state.displaySearchBar});
     },
     submit: function () {
         var search = {
