@@ -8,6 +8,7 @@ var Button = require('react-bootstrap').Button;
 var User = require('./User.jsx');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
+var Select = require('react-select');
 
 var mobileHeader = React.createClass({
     contextTypes: {
@@ -29,7 +30,6 @@ var mobileHeader = React.createClass({
         return <div></div>;
     },
     renderLayout: function () {
-        console.log(this.props);
         return (
             <div>
                 <header className='white hidden-xs'>
@@ -54,15 +54,17 @@ var mobileHeader = React.createClass({
             return (
                 <div className="searchbar small-search col-xs-12 hidden-sm">
                     <div className="col-xs-3">
-                        <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
-                            <optgroup label="Catégories">
-                                <option disabled selected>Sélectionnez une catégorie</option>
-                                {_.map(this.props.categories, function(cat) {
-                                    return <option value={cat.name}>{cat.name}</option>;
+                        <Select ref="categories"
+                        name="Catégories"
+
+                        placeholder="Catégories : "
+                        allowCreate={true}
+                        options={_.map(this.props.categories, function(cat) {
+                                    return {value:cat.name, label:cat.name};
                                 })}
-                                <option>Indifférent</option>
-                            </optgroup>
-                        </select>
+                        multi={true}
+                        searchable={false}
+                        />
                     </div>
                     <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
                     <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
@@ -74,11 +76,11 @@ var mobileHeader = React.createClass({
     },
     renderHomePage: function() {
         return (
-            <div className="searchbar main-searchbar">
+            <div className="searchbar main-searchbar hidden-sm hidden-xs">
                 <div className="col-sm-3">
                     <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
                         <optgroup label="Catégories">
-                            <option disabled selected>Sélectionnez une catégorie</option>
+                            <option disabled selected value=''>Sélectionnez une catégorie</option>
                             {_.map(this.props.categories, function(cat) {
                                 return <option value={cat.name}>{cat.name}</option>;
                             })}
@@ -108,9 +110,18 @@ var mobileHeader = React.createClass({
                         <h2>Recherche</h2>
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
-                            <GeoInput ref="address" className='col-xs-12' placeholder="Où ?" />
-                            <input className='col-xs-12' ref="query" type="search" placeholder='Nom, spécialité...' />
-                            <input ref="date" type="date" className='col-xs-12'/>
+                            <div className="col-sm-12">
+                                <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
+                                    <optgroup label="Catégories">
+                                        <option disabled selected value=''>Sélectionnez une catégorie</option>
+                                        {_.map(this.props.categories, function(cat) {
+                                            return <option value={cat.name}>{cat.name}</option>;
+                                        })}
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <GeoInput ref="address" placeholder="Où ?" className="col-xs-12" />
+                            <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
                             <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                         </div>
                     </div>
@@ -132,7 +143,7 @@ var mobileHeader = React.createClass({
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
             q       : this.refs.query.getDOMNode().value,
-            categories    : this.refs.categories.getDOMNode().value
+            categories    : this.refs.categories.getDOMNode().value || undefined
         };
         this.context.executeAction(BusinessActions.submitSearch, search);
     },

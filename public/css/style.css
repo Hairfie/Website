@@ -10296,6 +10296,9 @@ ul {
   -webkit-appearance: textfield;
   -moz-appearance: textfield; }
 
+.searchbar .Select .Select-control {
+  background-color: white; }
+
 .main-searchbar {
   background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
