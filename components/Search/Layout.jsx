@@ -73,7 +73,7 @@ var Layout = React.createClass({
         if (place.picture) {
             coverImage = <img src={place.picture.url} alt={place.name} className="cover" />;
         }
-        console.log(SearchUtils);
+
         return (
             <div className="row">
                 <div className="col-xs-12 header-part">

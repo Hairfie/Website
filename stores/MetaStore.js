@@ -191,14 +191,17 @@ module.exports = createStore({
             query   = route.query,
             params  = route.params;
 
+        var categories        = query.categories;
+
         var address = SearchUtils.addressFromUrlParameter(params.address);
-        var categories        = query.categories,
-            displayCategories = '';
+        var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
 
-        if(!_.isArray(categories)) categories = [categories];
-        displayCategories = categories.join(', ');
+        var search = {
+            categories: [categories]
+        };
 
-        var title = 'Coiffeurs ' + displayCategories + ' à ' + address;
+        var title = SearchUtils.searchToTitle(search, place, "business");
+        var description = SearchUtils.searchToDescription(search, place);
         if(query.withDiscount) title = 'Promotions à ' + address;
 
         if(query.page) title += ' - page ' + query.page;
@@ -206,7 +209,8 @@ module.exports = createStore({
         var metas = _.union(
             this._getBaseMetas(),
             [
-                { property: 'og:title', content: title }
+                { property: 'og:title', content: title },
+                { property: 'og:description', content: description }
             ]
         );
 
@@ -217,21 +221,24 @@ module.exports = createStore({
             query   = route.query,
             params  = route.params;
 
+        var tags        = query.tags;
+
         var address = SearchUtils.addressFromUrlParameter(params.address);
-        var categories        = query.categories,
-            displayCategories = '';
+        var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
 
-        if(!_.isArray(categories)) categories = [categories];
-        displayCategories = categories.join(', ');
-
-        var title = 'Hairfies ' + displayCategories + ' à ' + address;
+        var search = {
+            tags: [tags]
+        };
+        var title = SearchUtils.searchToTitle(search, place, "hairfie");
+        var description = SearchUtils.searchToDescription(search, place);
 
         if(query.page) title += ' - page ' + query.page;
 
         var metas = _.union(
             this._getBaseMetas(),
             [
-                { property: 'og:title', content: title }
+                { property: 'og:title', content: title },
+                { property: 'og:description', content: description }
             ]
         );
 
