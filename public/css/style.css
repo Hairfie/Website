@@ -10318,13 +10318,8 @@ ul {
 .searchbar .homeSearch .Select .Select-arrow {
   top: 30px; }
 
-.searchbar .Select-menu-outer {
-  position: absolute;
-  z-index: 10000; }
-
 .main-searchbar {
   background-color: rgba(255, 255, 255, 0.9);
-  overflow: hidden;
   position: relative; }
   .main-searchbar.open {
     overflow: visible; }

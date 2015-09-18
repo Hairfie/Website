@@ -91,12 +91,9 @@ var Filters = React.createClass({
                 <h2>Où ?</h2>
                 <div className="input-group">
                     <div className="input-group-addon"></div>
-                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.address}
-                        onChange={this.handleAddressChange}
-                        onKeyDown={this.handleAddressKey}
-                        onKeyUp={this.handleAddressKey}
-                        onKeyPress={this.handleAddressKey}/>
-                    <div className="input-group-addon"><a role="button"></a></div>
+                    <input className="form-control" ref="address" type="text" defaultValue={this.props.search.address}
+                    />
+                    <div className="input-group-addon" onClick={this.handleAddressChange}><a role="button"></a></div>
                 </div>
             </div>
         );
@@ -211,14 +208,8 @@ var Filters = React.createClass({
          }
     },
     handleAddressChange: _.debounce(function () {
-        this.props.onChange({address: this.refs.query.getDOMNode().value});
+        this.props.onChange({address: this.refs.address.getDOMNode().value});
     }, 500),
-    handleAddressKey: function (e) {
-        if(event.keyCode == 13){
-            e.preventDefault();
-            this.props.onChange({address: this.refs.query.getDOMNode().value});
-         }
-    },
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
     },
