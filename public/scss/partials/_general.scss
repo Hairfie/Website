@@ -218,20 +218,25 @@ ul {
 		-moz-appearance: textfield;
 	}
 	.Select {
+		position: relative;
 		.Select-control {
-			background-color: white;
-		}
-		.Select-placeholder {
+			min-height: 40px;
+			.Select-placeholder {
+				top: 4px;
+			}
+			.Select-input {
+				display: inline-block;
+			}
+			.Select-arrow-zone {
 
-		}
-		.Select-Input {
+			}
+			.Select-arrow {
 
-		}
-		.Select-arrow-zone {
-
-		}
-		.select-arrow {
-
+			}
+			.Select-item {
+				color: rgb(115, 35, 35);
+				background-color: rgba(230, 160, 160, 0.2);
+			}
 		}
 	}
 }

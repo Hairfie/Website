@@ -53,7 +53,7 @@ var mobileHeader = React.createClass({
         if (this.state.displaySearchBar) {
             return (
                 <div className="searchbar small-search col-xs-12 hidden-sm">
-                    <div className="col-xs-3">
+                    <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         <Select ref="categories"
                         name="Catégories"
 
