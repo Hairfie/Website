@@ -10296,6 +10296,9 @@ ul {
   -webkit-appearance: textfield;
   -moz-appearance: textfield; }
 
+.searchbar .Select .Select-control {
+  background-color: white; }
+
 .main-searchbar {
   background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
@@ -10762,6 +10765,20 @@ header {
   height: 60px;
   background-color: transparent;
   font-size: 1em; }
+  header a.menu-trigger {
+    background: url(../images/mobile-menu.png) no-repeat center center;
+    background-size: 90%;
+    margin-top: 15px;
+    width: 28px;
+    height: 28px;
+    margin-right: 15px; }
+    @media screen and (max-width: 767px) {
+      header a.menu-trigger {
+        margin-top: 25px; } }
+    header a.menu-trigger.close {
+      background: url(../images/mobile-menu-close.png) no-repeat center center;
+      background-size: 90%;
+      opacity: 1; }
   header .logo {
     background: url(../images/logo.png) no-repeat center center;
     width: 128px;
@@ -10903,22 +10920,24 @@ header:not(.white) .dropdown-menu {
     max-width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999; }
+    z-index: 999;
+    /* 		a.menu-trigger {
+			background: url(../images/mobile-menu.png) no-repeat center center;
+			background-size: 90%;
+			margin-top: 25px;
+			width: 28px;
+			height: 28px;
+			margin-right: 15px;
+			&.close {
+				background: url(../images/mobile-menu-close.png) no-repeat center center;
+				background-size: 90%;
+				opacity: 1;
+			}
+		} */ }
     .mobile-nav header a.logo {
       background: url(../images/logo-red.png) no-repeat center left;
       background-size: 100%;
       margin-top: 20px; }
-    .mobile-nav header a.menu-trigger {
-      background: url(../images/mobile-menu.png) no-repeat center center;
-      background-size: 90%;
-      margin-top: 25px;
-      width: 28px;
-      height: 28px;
-      margin-right: 15px; }
-      .mobile-nav header a.menu-trigger.close {
-        background: url(../images/mobile-menu-close.png) no-repeat center center;
-        background-size: 90%;
-        opacity: 1; }
   .mobile-nav .mobile-menu {
     background-color: #f4f4f4;
     position: fixed;

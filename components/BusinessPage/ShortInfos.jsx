@@ -66,11 +66,12 @@ module.exports = React.createClass({
         var linkToMap = _.isEmpty(address) ? null : <div onClick={function() {$('html,body').animate({ scrollTop: $("#location").offset().top}, 'slow');}}><Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link></div>;
         var open;
 
-        if (_.isEmpty(this.props.business.timetable[today]))
-          open = <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a>;
-        else
-          open = <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a>;
-
+        if (this.props.business.timetable) {
+          if (_.isEmpty(this.props.business.timetable[today]))
+            open = <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a>;
+          else
+            open = <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a>;
+      }
         return (
             <section className="salon-info">
               <div className="row">
@@ -146,7 +147,7 @@ module.exports = React.createClass({
       this.setState({displayTimetable: (!this.state.displayTimetable)});
     },
     renderTimetable: function() {
-      if (!this.state.displayTimetable)
+      if (!this.state.displayTimetable || !this.props.business.timetable)
         return;
       var timetable = this.props.business.timetable;
       var render = [];
