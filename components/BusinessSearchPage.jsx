@@ -19,6 +19,7 @@ var BusinessSearchPage = React.createClass({
 
         return <Search.Layout
             query={query}
+            search={this.props.search}
             tab="business"
             address={this.props.address}
             place={this.props.place}
