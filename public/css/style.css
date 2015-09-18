@@ -10308,6 +10308,20 @@ ul {
       color: #732323;
       background-color: rgba(230, 160, 160, 0.2); }
 
+.searchbar .homeSearch .Select .Select-control {
+  min-height: 60px; }
+
+.searchbar .homeSearch .Select .Select-placeholder {
+  top: 10px;
+  font-size: 1.5em; }
+
+.searchbar .homeSearch .Select .Select-arrow {
+  top: 30px; }
+
+.searchbar .Select-menu-outer {
+  position: absolute;
+  z-index: 10000; }
+
 .main-searchbar {
   background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;

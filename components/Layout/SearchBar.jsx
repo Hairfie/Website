@@ -16,7 +16,8 @@ var mobileHeader = React.createClass({
     },
     getInitialState: function () {
         return {
-            displaySearchBar: false
+            displaySearchBar: false,
+            selectedCategories: ""
         };
     },
     render: function () {
@@ -55,15 +56,16 @@ var mobileHeader = React.createClass({
                 <div className="searchbar small-search col-xs-12 hidden-sm">
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         <Select ref="categories"
-                        name="Catégories"
-
-                        placeholder="Catégories : "
-                        allowCreate={true}
-                        options={_.map(this.props.categories, function(cat) {
-                                    return {value:cat.name, label:cat.name};
-                                })}
-                        multi={true}
-                        searchable={false}
+                            name="Catégories"
+                            value={this.state.selectedCategories}
+                            onChange={this.handleSelectCategoriesChange}
+                            placeholder="Catégories : "
+                            allowCreate={true}
+                            options={_.map(this.props.categories, function(cat) {
+                                        return {value:cat.name, label:cat.name};
+                                    })}
+                            multi={true}
+                            searchable={false}
                         />
                     </div>
                     <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
@@ -77,15 +79,19 @@ var mobileHeader = React.createClass({
     renderHomePage: function() {
         return (
             <div className="searchbar main-searchbar hidden-sm hidden-xs">
-                <div className="col-sm-3">
-                    <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
-                        <optgroup label="Catégories">
-                            <option disabled selected value=''>Sélectionnez une catégorie</option>
-                            {_.map(this.props.categories, function(cat) {
-                                return <option value={cat.name}>{cat.name}</option>;
-                            })}
-                        </optgroup>
-                    </select>
+                <div className="col-xs-3 homeSearch" style={{padding: '0'}}>
+                    <Select ref="categories"
+                        name="Catégories"
+                        value={this.state.selectedCategories}
+                        onChange={this.handleSelectCategoriesChange}
+                        placeholder="Catégories : "
+                        allowCreate={true}
+                        options={_.map(this.props.categories, function(cat) {
+                                    return {value:cat.name, label:cat.name};
+                                })}
+                        multi={true}
+                        searchable={false}
+                    />
                 </div>
                 <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
                 <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
@@ -110,15 +116,19 @@ var mobileHeader = React.createClass({
                         <h2>Recherche</h2>
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
-                            <div className="col-sm-12">
-                                <select ref="categories" placeholder="Catégories" style={{fontSize: '2em'}}>
-                                    <optgroup label="Catégories">
-                                        <option disabled selected value=''>Sélectionnez une catégorie</option>
-                                        {_.map(this.props.categories, function(cat) {
-                                            return <option value={cat.name}>{cat.name}</option>;
-                                        })}
-                                    </optgroup>
-                                </select>
+                            <div className="col-xs-12" style={{paddingLeft: '0', marginBottom: '20px', textAlign: 'start'}}>
+                                <Select ref="categories"
+                                    name="Catégories"
+                                    value={this.state.selectedCategories}
+                                    onChange={this.handleSelectCategoriesChange}
+                                    placeholder="Catégories : "
+                                    allowCreate={true}
+                                    options={_.map(this.props.categories, function(cat) {
+                                                return {value:cat.name, label:cat.name};
+                                            })}
+                                    multi={true}
+                                    searchable={false}
+                                />
                             </div>
                             <GeoInput ref="address" placeholder="Où ?" className="col-xs-12" />
                             <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
@@ -139,11 +149,14 @@ var mobileHeader = React.createClass({
         e.preventDefault();
         this.setState({displaySearchBar: !this.state.displaySearchBar});
     },
+    handleSelectCategoriesChange: function (newVal) {
+        this.setState({selectedCategories: newVal});
+    },
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
             q       : this.refs.query.getDOMNode().value,
-            categories    : this.refs.categories.getDOMNode().value || undefined
+            categories    : this.state.selectedCategories.split(',') || undefined
         };
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
