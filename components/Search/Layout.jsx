@@ -67,6 +67,7 @@ var Layout = React.createClass({
     },
     renderHeader: function () {
         var place = this.props.place || {};
+        var search = this.props.search || {};
         var coverImage;
 
         if (place.picture) {
@@ -77,8 +78,8 @@ var Layout = React.createClass({
             <div className="row">
                 <div className="col-xs-12 header-part">
                     {coverImage}
-                    <h3>{(place.title || place.name || '').split(',')[0]}</h3>
-                    <p>{place.description}</p>
+                    <h3>{SearchUtils.searchToTitle(search, place, this.props.tab)}</h3>
+                    <p>{SearchUtils.searchToDescription(search, place)}</p>
                 </div>
             </div>
        );

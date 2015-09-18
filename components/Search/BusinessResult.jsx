@@ -44,7 +44,6 @@ var Hairfies = React.createClass({
     },
     renderMore: function () {
         if ((this.props.business.topHairfies || []).length < 6) return;
-        console.log("here ?");
         return (
             <li className="more">
                 <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>

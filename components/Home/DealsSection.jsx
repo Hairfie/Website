@@ -10,7 +10,7 @@ module.exports = React.createClass({
     mixins: [NavToLinkMixin],
     render: function () {
         return (
-            <section className="home-section">
+            <section className="home-section deals">
                 <h2>Nos offres actuelles</h2>
                 {_.map(_.chunk(this.props.deals, 3), this.renderDealsRow)}
                 <Link className="btn btn-red home-cta col-md-3 col-xs-10" route="business_search" params={{address: 'Paris--France'}} query={{withDiscount: true}}>Plus de promotions</Link>

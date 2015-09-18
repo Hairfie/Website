@@ -25,11 +25,11 @@ var Filters = React.createClass({
         );
     },
     renderCurrentFilters: function () {
-        var search = this.props.search.categories || this.props.search.tags
+        var search = this.props.search.categories || this.props.search.tags;
         var filters = _.map(search, function (selection) {
                 return {
                     label   : selection,
-                    onChange: this.removeCategory.bind(this, selection)
+                    onChange: this.removeSelection.bind(this, selection)
                 }
         }, this);
 
@@ -161,6 +161,12 @@ var Filters = React.createClass({
     },
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
+    },
+    removeSelection: function(selection) {
+        if (this.props.search.tags)
+            this.props.onChange({tags: _.without(this.props.search.tags, selection)});
+        else if (this.props.search.categories)
+            this.props.onChange({categories: _.without(this.props.search.categories, selection)});
     },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});
