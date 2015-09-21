@@ -18,6 +18,7 @@ var HairfieSearchPage = React.createClass({
 
         return <Search.Layout
             query={query}
+            search={this.props.search}
             tab="hairfie"
             address={this.props.address}
             place={this.props.place}

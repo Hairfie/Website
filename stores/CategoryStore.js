@@ -25,7 +25,7 @@ module.exports = createStore({
         this.categories = data.categories;
     },
     onReceiveCategories: function (categories) {
-        this.categories = _.sortBy(categories, 'position');;
+        this.categories = _.sortBy(categories, 'position');
         this.emitChange();
     },
     getAllCategories: function () {

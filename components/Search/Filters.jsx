@@ -4,6 +4,8 @@ var React = require('react');
 var _ = require('lodash');
 var PriceFilter = require('./PriceFilter.jsx');
 var RadiusFilter = require('./RadiusFilter.jsx');
+var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
+
 
 var Filters = React.createClass({
     render: function () {
@@ -15,6 +17,7 @@ var Filters = React.createClass({
                     <form>
                     {this.renderRadius()}
                     {this.renderQ()}
+                    {this.renderAddress()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderPrice()}
@@ -25,11 +28,11 @@ var Filters = React.createClass({
         );
     },
     renderCurrentFilters: function () {
-        var search = this.props.search.categories || this.props.search.tags
+        var search = this.props.search.categories || this.props.search.tags;
         var filters = _.map(search, function (selection) {
                 return {
                     label   : selection,
-                    onChange: this.removeCategory.bind(this, selection)
+                    onChange: this.removeSelection.bind(this, selection)
                 }
         }, this);
 
@@ -72,13 +75,27 @@ var Filters = React.createClass({
             <div>
                 <h2>Qui ?</h2>
                 <div className="input-group">
-                    <div className="input-group-addon"></div>
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onChange={this.handleQueryChange}
-                        onKeyDown={this.handleKey}
-                        onKeyUp={this.handleKey}
-                        onKeyPress={this.handleKey}/>
-                    <div className="input-group-addon"><a href="#"></a></div>
+                        onKeyDown={this.handleQueryKey}
+                        onKeyUp={this.handleQueryKey}
+                        onKeyPress={this.handleQueryKey}/>
+                    <div className="input-group-addon"><a role="button"></a></div>
+                </div>
+            </div>
+        );
+    },
+    renderAddress: function() {
+        if (!this.props.withQ) return;
+
+        return (
+            <div>
+                <h2>Où ?</h2>
+                <div className="input-group">
+                    <div className="input-group-addon"></div>
+                    <GeoInput className="form-control" ref="address" type="text" defaultValue={this.props.address}
+                    />
+                    <div className="input-group-addon" onClick={this.handleAddressChange}><a role="button"></a></div>
                 </div>
             </div>
         );
@@ -123,8 +140,7 @@ var Filters = React.createClass({
             </div>
         );
     },
-    renderTags: function ()
-    {
+    renderTags: function () {
         var tags = this.props.tags || [];
         if (!this.props.tags || tags.length == 0) return;
 
@@ -162,6 +178,12 @@ var Filters = React.createClass({
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
     },
+    removeSelection: function(selection) {
+        if (this.props.search.tags)
+            this.props.onChange({tags: _.without(this.props.search.tags, selection)});
+        else if (this.props.search.categories)
+            this.props.onChange({categories: _.without(this.props.search.categories, selection)});
+    },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});
     },
@@ -180,12 +202,15 @@ var Filters = React.createClass({
     handleQueryChange: _.debounce(function () {
         this.props.onChange({q: this.refs.query.getDOMNode().value});
     }, 500),
-    handleKey: function (e) {
+    handleQueryKey: function (e) {
         if(event.keyCode == 13){
             e.preventDefault();
             this.props.onChange({q: this.refs.query.getDOMNode().value});
          }
     },
+    handleAddressChange: _.debounce(function () {
+        this.props.onChange({address: this.refs.address.getDOMNode().value});
+    }, 500),
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
     },
