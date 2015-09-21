@@ -11000,6 +11000,18 @@ header:not(.white) .dropdown-menu {
         border-radius: 0;
         font-size: 1.6em;
         text-transform: uppercase; }
+      .mobile-nav .mobile-menu .searchbar .mobile-categories {
+        padding: 0; }
+        .mobile-nav .mobile-menu .searchbar .mobile-categories select {
+          width: 100%;
+          background-color: white;
+          height: 65px;
+          border: 2px solid #e6e6e6;
+          font-family: "Lato", sans-serif;
+          font-weight: 700;
+          font-size: 1.4em;
+          letter-spacing: 2px;
+          color: #c4c4c4; }
 
 /*////////////////////////////////
 	   F O O T E R
