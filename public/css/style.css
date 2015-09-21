@@ -11494,10 +11494,9 @@ section.home-section {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   color: #595959; }
-
-#home section.download .btn-apple {
-  width: 204px;
-  margin-top: 50px; }
+  #home section.download p.buttons {
+    margin-top: 50px;
+    text-align: center; }
 
 #home section.seo a {
   font-size: 1.6em;

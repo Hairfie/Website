@@ -460,11 +460,15 @@ section.home-section {
 		font-family: $font-second;
 		font-weight: $latoLight;
 		color: $font-color;
+
+		&.buttons {
+			margin-top: 50px;
+			text-align: center;
+		}
     }
 
     .btn-apple {
-    	width: 204px;
-    	margin-top: 50px;
+    	//width: 204px;
     }
 }
 
