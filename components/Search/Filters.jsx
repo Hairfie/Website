@@ -93,7 +93,7 @@ var Filters = React.createClass({
                 <h2>Où ?</h2>
                 <div className="input-group">
                     <div className="input-group-addon"></div>
-                    <GeoInput className="form-control" ref="address" type="text" defaultValue={this.props.search.address}
+                    <GeoInput className="form-control" ref="address" type="text" defaultValue={this.props.address}
                     />
                     <div className="input-group-addon" onClick={this.handleAddressChange}><a role="button"></a></div>
                 </div>
