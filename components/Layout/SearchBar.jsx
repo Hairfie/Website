@@ -95,7 +95,7 @@ var mobileHeader = React.createClass({
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
                             <div className="col-xs-12 mobile-categories" style={{marginBottom: '20px', textAlign: 'start'}}>
-                                <select ref="mobileCategories" placeholder="Catégories" className="col-sm-3">
+                                <select ref="mobileCategories" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
                                     <optgroup label="Catégories">
                                         <option value="" disabled selected>Sélectionnez une catégorie</option>
                                         {_.map(this.props.categories, function(cat) {
@@ -143,13 +143,17 @@ var mobileHeader = React.createClass({
     handleSelectCategoriesChange: function (newVal) {
         this.setState({selectedCategories: newVal});
     },
+    handleMobileCategoriesChange: function (e) {
+        e.preventDefault();
+        this.setState({selectedCategories: this.refs.mobileCategories.getDOMNode().value});
+    },
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
             q       : this.refs.query.getDOMNode().value
         };
-        if (this.state.selectedCategories || this.refs.mobileCategories.getDOMNode().value) {
-            search['categories'] = this.state.selectedCategories.split(',') || this.refs.mobileCategories.getDOMNode().value;
+        if (this.state.selectedCategories) {
+            search['categories'] = this.state.selectedCategories.split(',');
         }
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
