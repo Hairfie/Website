@@ -155,9 +155,11 @@ var mobileHeader = React.createClass({
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
-            q       : this.refs.query.getDOMNode().value,
-            categories    : this.state.selectedCategories.split(',') || undefined
+            q       : this.refs.query.getDOMNode().value
         };
+        if (this.state.selectedCategories) {
+            search['categories'] = this.state.selectedCategories.split(',');
+        }
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
     componentDidMount: function() {
