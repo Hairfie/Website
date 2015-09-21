@@ -217,11 +217,44 @@ ul {
 		-webkit-appearance: textfield;
 		-moz-appearance: textfield;
 	}
+	.Select {
+		position: relative;
+		.Select-control {
+			min-height: 40px;
+			.Select-placeholder {
+				// float: left;
+				// padding-left: 20px;
+			}
+			.Select-input {
+				display: inline-block;
+			}
+			.Select-item {
+				color: rgb(115, 35, 35);
+				background-color: rgba(230, 160, 160, 0.2);
+			}
+		}
+	}
+	.homeSearch .Select {
+		.Select-control {
+			line-height: 60px;
+			padding: 0;
+    		height: 60px;
+		}
+		.Select-placeholder {
+			padding: 0;
+    		height: 60px;
+			float: left;
+			padding-left: 20px;
+			text-align: left;
+		}
+		.Select-arrow {
+			top: 30px;
+		}
+	}
 }
 // Search bar home specific style
 .main-searchbar {
 	background-color: rgba(255,255,255,0.9);
-	overflow: hidden;
 	position: relative;
 	&.open {
 		overflow: visible;
