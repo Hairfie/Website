@@ -10300,8 +10300,6 @@ ul {
   position: relative; }
   .searchbar .Select .Select-control {
     min-height: 40px; }
-    .searchbar .Select .Select-control .Select-placeholder {
-      top: 4px; }
     .searchbar .Select .Select-control .Select-input {
       display: inline-block; }
     .searchbar .Select .Select-control .Select-item {
@@ -10309,11 +10307,16 @@ ul {
       background-color: rgba(230, 160, 160, 0.2); }
 
 .searchbar .homeSearch .Select .Select-control {
-  min-height: 60px; }
+  line-height: 60px;
+  padding: 0;
+  height: 60px; }
 
 .searchbar .homeSearch .Select .Select-placeholder {
-  top: 10px;
-  font-size: 1.5em; }
+  padding: 0;
+  height: 60px;
+  float: left;
+  padding-left: 20px;
+  text-align: left; }
 
 .searchbar .homeSearch .Select .Select-arrow {
   top: 30px; }
@@ -13118,14 +13121,19 @@ section.home-footer .row > div {
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-color: #d9d9d9 #cccccc #b3b3b3;
-  border-radius: 4px;
   box-sizing: border-box;
-  color: #333333;
   cursor: default;
   outline: none;
-  padding: 8px 52px 8px 10px; }
+  padding: 8px 52px 8px 10px;
+  background-color: white;
+  border: 2px solid #e6e6e6;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  color: #c4c4c4; }
+  .Select-control:focus {
+    outline: 0; }
 
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
@@ -13136,8 +13144,7 @@ section.home-footer .row > div {
 .is-open > .Select-control {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #ffffff;
-  border-color: #b3b3b3 #cccccc #d9d9d9; }
+  background: #ffffff; }
 
 .is-open > .Select-control > .Select-arrow {
   border-color: transparent transparent #999999;
@@ -13145,10 +13152,6 @@ section.home-footer .row > div {
 
 .is-searchable.is-focused:not(.is-open) > .Select-control {
   cursor: text; }
-
-.is-focused:not(.is-open) > .Select-control {
-  border-color: #0088cc #0099e6 #0099e6;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 5px -1px rgba(0, 136, 204, 0.5); }
 
 .Select-placeholder {
   color: #aaaaaa;

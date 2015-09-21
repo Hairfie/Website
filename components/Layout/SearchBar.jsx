@@ -78,20 +78,9 @@ var mobileHeader = React.createClass({
     },
     renderHomePage: function() {
         return (
-            <div className="searchbar main-searchbar hidden-sm hidden-xs">
+            <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-xs-3 homeSearch" style={{padding: '0'}}>
-                    <Select ref="categories"
-                        name="Catégories"
-                        value={this.state.selectedCategories}
-                        onChange={this.handleSelectCategoriesChange}
-                        placeholder="Catégories : "
-                        allowCreate={true}
-                        options={_.map(this.props.categories, function(cat) {
-                                    return {value:cat.name, label:cat.name};
-                                })}
-                        multi={true}
-                        searchable={false}
-                    />
+                    {this.renderSelect()}
                 </div>
                 <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
                 <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
@@ -117,18 +106,7 @@ var mobileHeader = React.createClass({
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
                             <div className="col-xs-12" style={{paddingLeft: '0', marginBottom: '20px', textAlign: 'start'}}>
-                                <Select ref="categories"
-                                    name="Catégories"
-                                    value={this.state.selectedCategories}
-                                    onChange={this.handleSelectCategoriesChange}
-                                    placeholder="Catégories : "
-                                    allowCreate={true}
-                                    options={_.map(this.props.categories, function(cat) {
-                                                return {value:cat.name, label:cat.name};
-                                            })}
-                                    multi={true}
-                                    searchable={false}
-                                />
+                                {this.renderSelect()}
                             </div>
                             <GeoInput ref="address" placeholder="Où ?" className="col-xs-12" />
                             <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
@@ -137,6 +115,23 @@ var mobileHeader = React.createClass({
                     </div>
                 </div>
             </div>
+        );
+    },
+    renderSelect: function() {
+        return  (
+            <Select ref="categories"
+                name="Catégories"
+                value={this.state.selectedCategories}
+                onChange={this.handleSelectCategoriesChange}
+                placeholder="Catégories"
+                allowCreate={false}
+                options={_.map(this.props.categories, function(cat) {
+                            return {value:cat.name, label:cat.name};
+                        })}
+                multi={false}
+                searchable={false}
+                clearable={false}
+            />
         );
     },
     handleKey: function(e) {
