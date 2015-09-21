@@ -222,7 +222,8 @@ ul {
 		.Select-control {
 			min-height: 40px;
 			.Select-placeholder {
-				top: 4px;
+				// float: left;
+				// padding-left: 20px;
 			}
 			.Select-input {
 				display: inline-block;
@@ -235,11 +236,16 @@ ul {
 	}
 	.homeSearch .Select {
 		.Select-control {
-			min-height: 60px;
+			line-height: 60px;
+			padding: 0;
+    		height: 60px;
 		}
 		.Select-placeholder {
-			top: 10px;
-			font-size: 1.5em;
+			padding: 0;
+    		height: 60px;
+			float: left;
+			padding-left: 20px;
+			text-align: left;
 		}
 		.Select-arrow {
 			top: 30px;
