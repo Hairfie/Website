@@ -140,8 +140,7 @@ var Filters = React.createClass({
             </div>
         );
     },
-    renderTags: function ()
-    {
+    renderTags: function () {
         var tags = this.props.tags || [];
         if (!this.props.tags || tags.length == 0) return;
 
