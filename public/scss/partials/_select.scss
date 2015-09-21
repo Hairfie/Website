@@ -17,15 +17,15 @@
   cursor: default;
   outline: none;
   padding: 8px 52px 8px 10px;
-    background-color: white;
-    border: 2px solid #e6e6e6;
-    font-family: $font-second;
-    font-weight: $latoBold;
-    font-size: 1.4em; letter-spacing: 2px;
-    color: $grey;
-    &:focus {
-      outline:0;
-    }
+  background-color: white;
+  border: 2px solid #e6e6e6;
+  font-family: $font-second;
+  font-weight: $latoBold;
+  font-size: 1.4em; letter-spacing: 2px;
+  color: $grey;
+  &:focus {
+    outline:0;
+  }
 }
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
@@ -169,7 +169,7 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
-  max-height: 400px;
+  height: 400px;
   position: absolute;
   top: 100%;
   width: 100%;
@@ -177,7 +177,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .Select-menu {
-  max-height: 198px;
+  //max-height: 198px;
   overflow-y: auto;
 }
 .Select-option {
@@ -186,6 +186,11 @@
   cursor: pointer;
   display: block;
   padding: 8px 10px;
+  font-family: $font-second;
+  font-weight: $latoBold;
+  font-size: 1.2em; letter-spacing: 2px;
+  color: $grey;
+  text-align: left;
 }
 .Select-option:last-child {
   border-bottom-right-radius: 4px;

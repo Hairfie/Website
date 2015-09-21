@@ -55,18 +55,7 @@ var mobileHeader = React.createClass({
             return (
                 <div className="searchbar small-search col-xs-12 hidden-sm">
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
-                        <Select ref="categories"
-                            name="Catégories"
-                            value={this.state.selectedCategories}
-                            onChange={this.handleSelectCategoriesChange}
-                            placeholder="Catégories : "
-                            allowCreate={true}
-                            options={_.map(this.props.categories, function(cat) {
-                                        return {value:cat.name, label:cat.name};
-                                    })}
-                            multi={true}
-                            searchable={false}
-                        />
+                         {this.renderSelect()}
                     </div>
                     <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
                     <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
