@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var PriceFilter = require('./PriceFilter.jsx');
 var RadiusFilter = require('./RadiusFilter.jsx');
+var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 
 var Filters = React.createClass({
     render: function () {
@@ -73,7 +74,7 @@ var Filters = React.createClass({
             <div>
                 <h2>Qui ?</h2>
                 <div className="input-group">
-                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
+                    <GeoInput className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onChange={this.handleQueryChange}
                         onKeyDown={this.handleQueryKey}
                         onKeyUp={this.handleQueryKey}
