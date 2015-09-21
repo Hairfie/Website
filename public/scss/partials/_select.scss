@@ -1,5 +1,9 @@
 .Select {
   position: relative;
+
+  &:focus {
+    outline: 0;
+  }
 }
 .Select-control {
   position: relative;
@@ -165,7 +169,7 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
-  max-height: 200px;
+  max-height: 400px;
   position: absolute;
   top: 100%;
   width: 100%;
@@ -219,7 +223,7 @@
   border: 1px solid #c9e6f2;
   color: #0088cc;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.4em;
   margin: 2px;
 }
 .Select-item-icon,
