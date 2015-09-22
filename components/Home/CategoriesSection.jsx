@@ -14,13 +14,13 @@ module.exports = React.createClass({
         };
     },
     render: function () {
-        var categories = this.state.showAll ? this.props.categories : _.take(this.props.categories, 6);
+        var categories = this.state.showAll ? this.props.categories : _.take(this.props.categories, 8);
 
         return (
             <section className="home-section categories">
                 <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
-                    {_.map(_.chunk(categories, 3), this.renderCategoriesRow)}
+                    {_.map(_.chunk(categories, 4), this.renderCategoriesRow)}
                 </div>
                 <a href="#" onClick={this.toggleShowAll} className="btn btn-red home-cta col-md-3 col-xs-10">
                     {this.state.showAll ? 'Moins' : 'Plus'} de catégories
@@ -45,12 +45,12 @@ module.exports = React.createClass({
         }
 
         return (
-            <div className="col-sm-4 col-xs-12" key={cat.id} >
+            <div className="col-sm-3 col-xs-12" key={cat.id} >
                 <figure>
                     <Picture picture={cat.picture} alt={cat.name} />
                     <figcaption>
                         <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: query }}>
-                            <span className="oneline">{cat.name}</span>
+                            <span className={/\s/.test(cat.name) ? '' : 'oneline'} dangerouslySetInnerHTML={{__html: cat.name.split(' ').join('<br />')}} />
                         </Link>
                         <a href="#"><span>{cat.name}</span></a>
                     </figcaption>
