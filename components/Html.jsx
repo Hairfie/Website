@@ -47,6 +47,8 @@ var Html = React.createClass({
                 <script src={this.getAssetSrc("/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js")}></script>
                 <script src={this.getAssetSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
                 <script src={this.getAssetSrc("/components/gsap/src/minified/TweenMax.min.js")}></script>
+                <script src={this.getAssetSrc("/components/gsap/src/minified/plugins/ScrollToPlugin.min.js")}></script>
+
                 <script src={this.getAssetSrc("/components/blueimp-gallery/js/jquery.blueimp-gallery.min.js")}></script>
                 <script src={this.getAssetSrc("/js/share.min.js")}></script>
                 <script dangerouslySetInnerHTML={{__html: this.getStateScript()}}></script>

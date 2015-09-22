@@ -7,5 +7,6 @@ module.exports = {
     TopHairfies: require('./TopHairfiesSection.jsx'),
     LinksSection: require('./LinksSection.jsx'),
     HowSection: require('./HowSection.jsx'),
-    DownloadSection: require('./DownloadSection.jsx')
+    DownloadSection: require('./DownloadSection.jsx'),
+    SearchSection: require('./SearchSection.jsx')
 };

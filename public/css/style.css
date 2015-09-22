@@ -11136,32 +11136,6 @@ footer.mobile {
     .landing .headline p {
       letter-spacing: 1.34px;
       padding: 0 10%; }
-  .landing .main-searchbar {
-    padding: 20px;
-    margin: 90px 15px 60px 15px;
-    height: 100px;
-    border-radius: 3px; }
-    .landing .main-searchbar > div {
-      padding-left: 0; }
-      .landing .main-searchbar > div:nth-child(2) {
-        padding-right: 0; }
-    .landing .main-searchbar input {
-      height: 60px;
-      line-height: 60px;
-      margin-right: 0px;
-      margin-left: -5px; }
-      .landing .main-searchbar input:first-child {
-        margin-right: 10px; }
-      .landing .main-searchbar input:nth-child(2) {
-        margin-left: -5px; }
-    .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book {
-      height: 58px;
-      font-size: 1.4em;
-      text-align: center;
-      padding: 0;
-      margin-top: 1px;
-      margin-left: -5px;
-      line-height: 60px; }
 
 section.home-section {
   margin: 0 15px;
@@ -11229,6 +11203,36 @@ section.home-section {
     display: block;
     margin: 40px auto 0;
     float: none !important; }
+
+.choice {
+  margin-top: 90px; }
+
+.landing .main-searchbar, .home-search .main-searchbar {
+  padding: 20px;
+  margin: 90px 15px 60px 15px;
+  height: 100px;
+  border-radius: 3px; }
+  .landing .main-searchbar > div, .home-search .main-searchbar > div {
+    padding-left: 0; }
+    .landing .main-searchbar > div:nth-child(2), .home-search .main-searchbar > div:nth-child(2) {
+      padding-right: 0; }
+  .landing .main-searchbar input, .home-search .main-searchbar input {
+    height: 60px;
+    line-height: 60px;
+    margin-right: 0px;
+    margin-left: -5px; }
+    .landing .main-searchbar input:first-child, .home-search .main-searchbar input:first-child {
+      margin-right: 10px; }
+    .landing .main-searchbar input:nth-child(2), .home-search .main-searchbar input:nth-child(2) {
+      margin-left: -5px; }
+  .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
+    height: 58px;
+    font-size: 1.4em;
+    text-align: center;
+    padding: 0;
+    margin-top: 1px;
+    margin-left: -5px;
+    line-height: 60px; }
 
 #home section.categories figure:hover {
   -webkit-transition: all 0.25s ease-out;
