@@ -9761,6 +9761,11 @@ div#app {
 .socicon {
   font-family: 'socicon'; }
 
+.seo-hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/

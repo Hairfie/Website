@@ -60,18 +60,21 @@ module.exports = React.createClass({
     render: function () {
         var business = this.props.business || {};
         var address  = business.address || {};
+        var timetable = business.timetable || {};
+
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var linkToMap = _.isEmpty(address) ? null : <div onClick={function() {$('html,body').animate({ scrollTop: $("#location").offset().top}, 'slow');}}><Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link></div>;
         var open;
 
-        if (this.props.timetable) {
+        if (timetable) {
           if (_.isEmpty(this.props.business.timetable[today]))
             open = <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a>;
           else
             open = <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a>;
         }
+
         return (
             <section className="salon-info">
               <div className="row">
@@ -147,23 +150,25 @@ module.exports = React.createClass({
       this.setState({displayTimetable: (!this.state.displayTimetable)});
     },
     renderTimetable: function() {
-      if (!this.state.displayTimetable || !this.props.timetable)
-        return;
-      var timetable = this.props.business.timetable;
-      var render = [];
-      _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
-        render.push(
-        <div>
-          <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>{
-            _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
-              return t.startTime + ' - ' + t.endTime;
-            }).join(" / ")
-          }
-        </div>);
-      });
+        if (!this.props.business.timetable)
+            return;
+
+        var timetable = this.props.business.timetable;
+        var render = [];
+        _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
+            render.push(
+                <div className={this.state.displayTimetable ? '' : 'seo-hide'}>
+                    <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>
+                    { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
+                            return t.startTime + ' - ' + t.endTime;
+                        }).join(" / ") }
+                </div>
+            );
+        }, this);
       return (
-      <div className="timetable">
-        {render}
-      </div>);
+          <div className="timetable">
+              {render}
+          </div>
+      );
     }
 });
