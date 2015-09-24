@@ -149,6 +149,9 @@ section.home-section {
 		&:nth-child(2) {
 			margin-left: -5px;
 		}
+		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+			font-size: 1.0em;
+		}
 	}
 	.btn-red, .btn-book {
 		height: 58px;
@@ -157,6 +160,11 @@ section.home-section {
 		padding: 0; margin-top: 1px;
 		margin-left: -5px;
 		line-height: 60px;
+
+		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+			letter-spacing: 1px;
+			font-size: 1.0em;
+		}
 	}
 }
 

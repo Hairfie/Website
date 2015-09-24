@@ -33,7 +33,7 @@ var HomePage = React.createClass({
                         </div>
                         <div className="row choice">
                             <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Je cherche une coupe</a>
-                            <a onClick={this.scrollTo.bind(this, "search")} className="btn btn-red">Je cherche un coiffeur</a>
+                            <a onClick={this.searchHairdresser} className="btn btn-red">Je cherche un coiffeur</a>
                         </div>
                     </div>
                 </section>
@@ -53,7 +53,21 @@ var HomePage = React.createClass({
             </div>
         );
     },
-
+    searchHairdresser: function() {
+        if($('.mobile-menu').is(':visible')) {
+            if( $('.mobile-menu').height() == 0 ) {
+                $('body').toggleClass('locked');
+                $('.menu-trigger').addClass('close');
+                TweenMax.to('.mobile-menu', 0.4, {height:'100vh',ease:Power2.easeInOut});
+            } else {
+                $('body').toggleClass('locked');
+                $('.menu-trigger').removeClass('close');
+                TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
+            }
+        } else {
+            this.scrollTo("search");
+        }
+    },
     scrollTo: function(toRef) {
         var target = this.refs[toRef].getDOMNode();
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});

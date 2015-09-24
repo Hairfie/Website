@@ -11252,6 +11252,9 @@ section.home-section {
       margin-right: 10px; }
     .landing .main-searchbar input:nth-child(2), .home-search .main-searchbar input:nth-child(2) {
       margin-left: -5px; }
+    @media screen and (max-width: 992px) and (min-width: 768px) {
+      .landing .main-searchbar input, .home-search .main-searchbar input {
+        font-size: 1.0em; } }
   .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
     height: 58px;
     font-size: 1.4em;
@@ -11260,6 +11263,10 @@ section.home-section {
     margin-top: 1px;
     margin-left: -5px;
     line-height: 60px; }
+    @media screen and (max-width: 992px) and (min-width: 768px) {
+      .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
+        letter-spacing: 1px;
+        font-size: 1.0em; } }
 
 #home section.home-search .main-searchbar {
   margin: 0; }
@@ -13177,6 +13184,9 @@ section.home-footer .row > div {
   color: #c4c4c4; }
   .Select-control:focus {
     outline: 0; }
+  @media screen and (max-width: 992px) and (min-width: 768px) {
+    .Select-control {
+      font-size: 1.0em; } }
 
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
