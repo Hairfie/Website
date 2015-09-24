@@ -210,13 +210,16 @@ module.exports = createStore({
         }.bind(this));
     },
     getSimilarHairfiesPage: function (id) {
-        if (_.isUndefined(this.hairfies[id].similarHairfiesPage))
+        if (_.isUndefined(this.hairfies[id].similarHairfiesPage)) {
             this.getContext().executeAction(HairfieActions.loadSimilarHairfies, {
                 hairfie: this.hairfies[id],
                 page: 1,
                 pageSize: 12
             });
-        return this.hairfies[id].similarHairfiesPage;
+            return -1;
+        }
+        else
+            return this.hairfies[id].similarHairfiesPage;
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';
