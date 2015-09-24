@@ -17,6 +17,9 @@ function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName ||
 
 var HairdresserHairfiesPage = React.createClass({
     render: function () {
+        if (_.isUndefined(this.props.page) || this.props.page < 0)
+            return this.renderLoader();
+
         return(
             <HairdresserLayout hairdresser={this.props.hairdresser} tab="hairfies">
                 {this.renderTitle()}
@@ -54,6 +57,17 @@ var HairdresserHairfiesPage = React.createClass({
                     {this.renderMoreButton()}
                 </div>
             </HairdresserLayout>
+        );
+    },
+    renderLoader: function () {
+        return (
+        <HairdresserLayout hairdresser={this.props.hairdresser} tab="hairfies">
+            <div className="hairfies">
+                <div className="row">
+                    <div className="loading" />
+                </div>
+            </div>
+        </HairdresserLayout>
         );
     },
     renderMoreButton: function () {

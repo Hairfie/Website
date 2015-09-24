@@ -157,6 +157,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            return -1;
         }
         else
             return this.hairdresserHairfies[hairdresserId].page;
@@ -168,6 +169,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            return -1;
         }
         else
             return this.userHairfies[userId].page;
@@ -179,6 +181,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            return -1;
         }
         else
             return this.userLikes[userId].page;
