@@ -181,6 +181,9 @@ var SimilarHairfies = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function() {
+        if (_.isUndefined(this.props.page) || this.props.page < 0)
+            return this.renderLoader();
+
         return (
             <div className="hairfies">
                 <div className="row">
@@ -217,6 +220,15 @@ var SimilarHairfies = React.createClass({
                 {this.renderMoreButton()}
             </div>
             );
+    },
+    renderLoader: function () {
+        return (
+            <div className="hairfies">
+                <div className="row">
+                    <div className="loading" />
+                </div>
+            </div>
+        );
     },
     renderMoreButton: function () {
         if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;

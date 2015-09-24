@@ -21,6 +21,9 @@ var UserHairfiesPage = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function () {
+        if (_.isUndefined(this.props.page) || this.props.page < 0)
+            return this.renderLoader();
+
         return(
             <UserLayout user={this.props.user} tab="hairfies">
                 {this.renderTitle()}
@@ -58,6 +61,17 @@ var UserHairfiesPage = React.createClass({
                     {this.renderMoreButton()};
                 </div>
             </UserLayout>
+        );
+    },
+    renderLoader: function () {
+        return (
+        <UserLayout user={this.props.user} tab="hairfies">
+            <div className="hairfies">
+                <div className="row">
+                    <div className="loading" />
+                </div>
+            </div>
+        </UserLayout>
         );
     },
     renderMoreButton: function () {
