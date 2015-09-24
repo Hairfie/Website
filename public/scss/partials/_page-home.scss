@@ -3,7 +3,10 @@
 ////////////////////////////////*/
 
 .landing {
-	height: 610px; width: 100vw;
+	width: 100vw;
+	@media screen and (min-width: $screen-xs-max) {
+		height: 500px;
+	}
 	max-width: 100%; // fix-mobile horizontal scroll
 	background: url(../images/bg-landing.jpg) no-repeat top center;
 	background-size: cover;
@@ -23,48 +26,37 @@
 		font-weight: $regular;
 	}
 	.headline {
-	    margin: 140px auto 0;
+	    margin: 100px auto 0;
 	    height: 132px;
 	    @include nofloat;
 	    h1 {
 	    	@media screen and (max-width: $screen-xs-max) {
-	    		margin-top: 200px;
+	    		margin-top: 150px;
 	    	}
 	    }
 	    p {
 	    	letter-spacing: 1.34px;
 	    	padding: 0 10%;
+	    	@media screen and (max-width: $screen-xs-max) {
+	    		display: none;
+	    	}
 	    }
 	}
-	.main-searchbar {
-		padding: 20px;
-		margin: 90px 15px 60px 15px;
-		height: 100px;
-		border-radius:3px;
-		> div {
-			padding-left: 0;
-			&:nth-child(2) {
-				padding-right: 0;
-			}
-		}
-		input {
-			height: 60px;line-height: 60px;
-			margin-right: 0px; margin-left: -5px;
-			&:first-child {
-				margin-right: 10px;
-			}
-			&:nth-child(2) {
-				margin-left: -5px;
-			}
-		}
-		.btn-red, .btn-book {
-			height: 58px;
-			font-size: 1.4em;
-			text-align: center;
-			padding: 0; margin-top: 1px;
-			margin-left: -5px;
-			line-height: 60px;
-		}
+
+	.btn-red {
+		height: 58px;
+		font-size: 1.4em;
+		text-align: center;
+		padding: 0; 
+		margin: 10px;
+		line-height: 30px;
+		text-transform: uppercase;
+		font-family: $font-second;
+		font-weight: $latoBold;
+		border-radius:0;
+		padding: 16px 30px;
+		border-radius: 0 !important;
+		letter-spacing: 2px;
 	}
 }
 section.home-section {
@@ -131,7 +123,56 @@ section.home-section {
 		@include nofloat;
 	}
 }
-// Overrides:
+
+.choice {
+	margin-top: 90px;
+	
+}
+
+.landing .main-searchbar, .home-search .main-searchbar {
+	padding: 20px;
+	margin: 90px 15px 60px 15px;
+	height: 100px;
+	border-radius:3px;
+	> div {
+		padding-left: 0;
+		&:nth-child(2) {
+			padding-right: 0;
+		}
+	}
+	input {
+		height: 60px;line-height: 60px;
+		margin-right: 0px; margin-left: -5px;
+		&:first-child {
+			margin-right: 10px;
+		}
+		&:nth-child(2) {
+			margin-left: -5px;
+		}
+		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+			font-size: 1.0em;
+		}
+	}
+	.btn-red, .btn-book {
+		height: 58px;
+		font-size: 1.4em;
+		text-align: center;
+		padding: 0; margin-top: 1px;
+		margin-left: -5px;
+		line-height: 60px;
+
+		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+			letter-spacing: 1px;
+			font-size: 1.0em;
+		}
+	}
+}
+
+#home section.home-search {
+	.main-searchbar {
+		margin: 0;
+	}
+}
 
 #home section.categories {
 	figure {
@@ -447,7 +488,7 @@ section.home-section {
 		}
 	}
 }
-#home section:nth-child(even) {
+#home section:nth-child(odd) {
 	background-color: $bg2;
 	@include fullWidthBg($bg2);
 }

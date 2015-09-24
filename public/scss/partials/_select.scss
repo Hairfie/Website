@@ -26,6 +26,9 @@
   &:focus {
     outline:0;
   }
+  @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+    font-size: 1.0em;
+  }
 }
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
