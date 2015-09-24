@@ -65,7 +65,8 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
     var searchTagsId;
     if (search && !(_.isEmpty(tags))) {
         searchTagsId = _.map(search.tags, function(tag) {
-            return _.find(tags, {'name': tag}).id;
+            var foundTag = _.find(tags, {'name': tag});
+            return foundTag && foundTag.id;
         });
     }
 
