@@ -4,6 +4,7 @@ var React = require('react');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var NotificationActions = require('../actions/NotificationActions');
 var Alert = require('react-bootstrap').Alert;
+var NotificationSystem = require('react-notification-system');
 
 var Notifications = React.createClass({
     contextTypes: {
@@ -22,7 +23,7 @@ var Notifications = React.createClass({
             case 'success':
                 type = 'success';
                 break;
-            case 'failure':
+            case 'error':
                 type = 'danger';
                 break;
         }

@@ -28,6 +28,7 @@ module.exports = {
                 function () {
                     return context.executeAction(
                         NotificationActions.notifyFailure,
+                        'Problème lors de la réservation',
                         'Un problème est survenu, avez-vous bien rempli les champs obligatoires ?'
                     );
                 }

@@ -19,12 +19,14 @@ module.exports = {
             .post('/users/reset', {email: payload.email})
             .then(function () {
                 context.executeAction(
-                    NotificationActions.notifySuccess,
+                    NotificationActions.notifyInfo,
+                    'Changement de mot de passe',
                     'Vous allez recevoir, un mail pour vous permettre de changer votre mot de passe'
                 );
             }, function () {
                 context.executeAction(
                     NotificationActions.notifyFailure,
+                    'Echec',
                     'Votre requête pour obtenir un nouveau mot de passe a échoué, vérifiez bien que vous avez rentré un adresse e-mail valide'
                 );
             })
@@ -39,6 +41,7 @@ module.exports = {
                 return Promise.all([
                     context.executeAction(
                         NotificationActions.notifySuccess,
+                        'Nouveau mot de passe',
                         'Votre mot de passe a été changé avec succès.'
                     ),
                     context.executeAction(
@@ -50,6 +53,7 @@ module.exports = {
                 return Promise.all([
                     context.executeAction(
                         NotificationActions.notifyFailure,
+                        'Echec',
                         "Votre mot de passe n'a pas pu être changé, veuillez réessayer"
                     ),
                     context.executeAction(
@@ -79,6 +83,7 @@ module.exports = {
                 }, function () {
                     return context.executeAction(
                         NotificationActions.notifyFailure,
+                        'Echec de connexion',
                         "Un problème est survenu, veuillez vérifier votre e-mail et mot de passe"
                     );
             })
@@ -102,7 +107,8 @@ module.exports = {
                 }, function () {
                     return context.executeAction(
                         NotificationActions.notifyFailure,
-                        "Un problème est survenu, veuillez vérifier votre e-mail et mot de passe"
+                        'Echec de connexion',
+                        "Un problème est survenu, veuillez réessayer"
                     );
             })
     },
@@ -118,6 +124,7 @@ module.exports = {
             }, function () {
                 return context.executeAction(
                     NotificationActions.notifyFailure,
+                    'Echec de déconnexion',
                     "Un problème est survenu"
                 );
             })
@@ -141,6 +148,7 @@ module.exports = {
                 }, function () {
                     return context.executeAction(
                         NotificationActions.notifyFailure,
+                        "Problème lors de l'inscription",
                         "Un problème est survenu, veuillez vérifier que tous les champs obligatoires ont bien été remplis"
                     );
             })

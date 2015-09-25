@@ -5,16 +5,19 @@ var Uuid = require('uuid');
 
 module.exports = {
     notifySuccess: notify.bind(null, 'success'),
-    notifyFailure: notify.bind(null, 'failure'),
+    notifyInfo   : notify.bind(null, 'info'),
+    notifyWarning: notify.bind(null, 'warning'),
+    notifyFailure: notify.bind(null, 'error'),
     closeNotification: function (context, notificationId) {
         context.dispatch(Actions.CLOSE_NOTIFICATION, notificationId);
     }
 };
 
-function notify(type, context, body) {
+function notify(level, context, title, message) {
     return context.dispatch(Actions.RECEIVE_NOTIFICATION, {
         id: Uuid.v4(),
-        type: type,
-        body: body
+        level: level,
+        title: title,
+        message: message
     });
 }
