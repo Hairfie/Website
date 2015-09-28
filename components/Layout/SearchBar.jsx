@@ -122,7 +122,7 @@ var mobileHeader = React.createClass({
                 placeholder="Catégories"
                 allowCreate={false}
                 options={_.map(this.props.categories, function(cat) {
-                            return {value:cat.name, label:cat.description};
+                            return {value:cat.name, label:cat.name};
                         })}
                 multi={false}
                 searchable={false}
