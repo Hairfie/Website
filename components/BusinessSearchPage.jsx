@@ -13,6 +13,8 @@ var BusinessSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+        console.log(this.props);
+
         var query = {};
         query.tags = _.map(this.props.tags, 'name') || [];
         query.categories = this.props.search.categories;
@@ -28,7 +30,9 @@ var BusinessSearchPage = React.createClass({
     },
     renderFilters: function () {
         var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categories || facets['categories.fr']);
+        var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
+
+        debugger;
 
         return <Search.Filters
             address={this.props.address}

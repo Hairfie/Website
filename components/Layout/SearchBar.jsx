@@ -99,7 +99,7 @@ var mobileHeader = React.createClass({
                                     <optgroup label="Catégories">
                                         <option value="" disabled selected>Sélectionnez une catégorie</option>
                                         {_.map(this.props.categories, function(cat) {
-                                            return <option value={cat.name}>{cat.name}</option>;
+                                            return <option value={cat.slug}>{cat.label}</option>;
                                         })}
                                     </optgroup>
                                 </select>
@@ -122,7 +122,7 @@ var mobileHeader = React.createClass({
                 placeholder="Catégories"
                 allowCreate={false}
                 options={_.map(this.props.categories, function(cat) {
-                            return {value:cat.name, label:cat.name};
+                            return {value:cat.slug, label:cat.label};
                         })}
                 multi={false}
                 searchable={false}
