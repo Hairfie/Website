@@ -14,7 +14,7 @@ var HairfieSearchPage = React.createClass({
     render: function () {
         var query = {};
         query.tags = this.props.search.tags || [];
-        query.categories = _.map(this.props.categories, 'name') || [];
+        query.categories = _.map(this.props.categories, 'slug') || [];
 
         return <Search.Layout
             query={query}
