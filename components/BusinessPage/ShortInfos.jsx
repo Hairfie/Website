@@ -3,6 +3,10 @@
 var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
+var moment = require('moment');
+var DateTimeConstants = require('../../constants/DateTimeConstants');
+
+moment.locale('fr');
 
 var Rating = React.createClass({
     render: function () {
@@ -12,7 +16,7 @@ var Rating = React.createClass({
         var rating = Math.round(business.rating / 100 * 5);
 
         return (
-            <div className="col-sm-4 stars">
+            <div className="stars">
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <span className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
@@ -48,26 +52,52 @@ var ShareButton = React.createClass({
 });
 
 module.exports = React.createClass({
+    getInitialState: function() {
+      return {
+        displayTimetable: false
+      };
+    },
     render: function () {
         var business = this.props.business || {};
         var address  = business.address || {};
+        var timetable = business.timetable || {};
+
+        var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var linkToMap = _.isEmpty(address) ? null : <div onClick={function() {$('html,body').animate({ scrollTop: $("#location").offset().top}, 'slow');}}><Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link></div>;
+        var open;
+
+        if (!_.isEmpty(timetable)) {
+          if (!timetable[today])
+            open = <h2>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></h2>;
+          else
+            open = <h2>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></h2>;
+        } else {
+            open = null;
+        }
 
         return (
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
                   <h1>{business.name}</h1>
+                  {open}
+                  <div className="visible-xs">
+                    {this.renderTimetable()}
+                  </div>
                   <h2>{displayAddress} {linkToMap}</h2>
+                  {this.renderAveragePrice()}
                 </div>
-                <Rating business={business} />
+                <div className="col-sm-4" style={{padding: '0'}}>
+                  <Rating business={business} />
+                  <div className="hidden-xs">
+                    {this.renderTimetable()}
+                  </div>
+                </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>
                 <div className="prix col-xs-12 col-sm-12">
-                    {this.renderAveragePrice()}
-                    <ShareButton />
                 </div>
                 {/*
                 <div className="horraires col-xs-12 col-sm-6">
@@ -117,5 +147,30 @@ module.exports = React.createClass({
                 {price.women ? <span>&nbsp;{Math.round(price.women)}€</span> : ''}
             </p>
         );
+    },
+    handleDisplayTimetable: function() {
+      this.setState({displayTimetable: (!this.state.displayTimetable)});
+    },
+    renderTimetable: function() {
+        if (!this.props.business.timetable)
+            return;
+
+        var timetable = this.props.business.timetable;
+        var render = [];
+        _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
+            render.push(
+                <div className={this.state.displayTimetable ? '' : 'seo-hide'}>
+                    <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>
+                    { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
+                            return t.startTime + ' - ' + t.endTime;
+                        }).join(" / ") }
+                </div>
+            );
+        }, this);
+      return (
+          <div className="timetable">
+              {render}
+          </div>
+      );
     }
 });

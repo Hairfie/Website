@@ -49,7 +49,7 @@ var BookingConfirmationPage = React.createClass({
                         Votre réservation a bien été bien prise en compte,
                         vous allez recevoir un email dans quelques instants vous confirmant votre demande.
                         En attendant, n'hésitez pas à télécharger l'application Hairfie ou
-                        à aller vous inspirez en regardant les Hairfies déjà postés par votre salon.
+                        à aller vous inspirer en regardant les Hairfies déjà postés par votre salon.
                     </p>
                 </div>
             );

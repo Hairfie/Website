@@ -13,7 +13,14 @@ var BusinessSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+
+        var query = {};
+        query.tags = _.map(this.props.tags, 'name') || [];
+        query.categories = this.props.search.categories;
+
         return <Search.Layout
+            query={query}
+            search={this.props.search}
             tab="business"
             address={this.props.address}
             place={this.props.place}
@@ -22,7 +29,11 @@ var BusinessSearchPage = React.createClass({
     },
     renderFilters: function () {
         var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categories);
+        var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
+
+        var categories = _.compact(_.map(categories, function(cat) {
+            return _.find(this.props.categories, {slug: cat});
+        }.bind(this)));
 
         return <Search.Filters
             address={this.props.address}
@@ -43,7 +54,9 @@ var BusinessSearchPage = React.createClass({
 BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'PlaceStore',
     'HairfieStore',
-    'BusinessStore'
+    'BusinessStore',
+    'CategoryStore',
+    'TagStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -61,11 +74,24 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         })});
     }
 
+    var cat = context.getStore('CategoryStore').getCategoriesBySlug(_.values(search.categories));
+
+    var searchTagsId = [];
+    if (search && !(_.isEmpty(cat))) {
+        _.map(search.categories, function(category) {
+            var find = _.find(cat, {'slug': category});
+            find = find ? find.tags : undefined;
+            searchTagsId = _.union(searchTagsId, find);
+        });
+    }
+
     return {
         address: address,
         place: place,
         search: search,
-        result: result
+        result: result,
+        categories: context.getStore('CategoryStore').getAllCategories(),
+        tags: context.getStore('TagStore').getTagsById(searchTagsId)
     };
 });
 

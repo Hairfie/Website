@@ -28,6 +28,8 @@ var Html = React.createClass({
                     return <meta property={metaObj.property} content={metaObj.content} />;
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
+                <meta name="apple-itunes-app" content="app-id=853590611" />
+
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href="/css/style.css" />
                 <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
@@ -45,6 +47,8 @@ var Html = React.createClass({
                 <script src={this.getAssetSrc("/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js")}></script>
                 <script src={this.getAssetSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
                 <script src={this.getAssetSrc("/components/gsap/src/minified/TweenMax.min.js")}></script>
+                <script src={this.getAssetSrc("/components/gsap/src/minified/plugins/ScrollToPlugin.min.js")}></script>
+
                 <script src={this.getAssetSrc("/components/blueimp-gallery/js/jquery.blueimp-gallery.min.js")}></script>
                 <script src={this.getAssetSrc("/js/share.min.js")}></script>
                 <script dangerouslySetInnerHTML={{__html: this.getStateScript()}}></script>

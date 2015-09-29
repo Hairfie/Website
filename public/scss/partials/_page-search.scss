@@ -37,7 +37,6 @@
 
 		.search-content {
 			@include fullWidthBg($bg3);
-			
 		}
 		
 		.header-part {
@@ -179,7 +178,7 @@
 
 			.rating {
 				position: absolute;
-				top: 0;right: 0;
+				top: 0;right: 15px;
 				font-size: 1.2em;
 				letter-spacing: 2px;
 
@@ -226,10 +225,10 @@
 				}
 			}
 			
-			.btn-red {
+			.btn-red, .btn-book {
 				text-transform: uppercase;
-				letter-spacing: .5px;
-				font-weight: $semiBold;
+				letter-spacing: 1px;
+				//font-weight: $semiBold;
 				font-size: 1.2em;
 			}
 			.salon-hairfies {
@@ -282,35 +281,27 @@
 				}
 			}
 		}
-		.tab-pane#salons {
-			section {
-				max-height: 220px;
-  				overflow: hidden;
-  				@media screen and (max-width: $screen-sm-max) {
-  					max-height: 100%;
-  				}
-				.image-bloc {
-					padding-left: 0;
-					@media screen and (max-width: $screen-sm-max) {
-	  					padding-right: 0;
-	  				}
-					img {
-						display: inline;
-					}
-  				}
-  				
-			}
-		}
 		.tab-pane#salons, .tab-pane#adom {
 			.image-bloc {
 				overflow: hidden;
 			}
 			.info-bloc {
+				@media (min-width: $screen-sm-min) {
+					position: absolute;
+					left: 33.3%;
+					height: 100%;
+
+					.book {
+						bottom: 20px;
+						position: absolute;
+					}
+				}
+
 				@media screen and (max-width: $screen-xs-max) {
   					padding-left: 0;
   					padding-right: 0;
   					padding-top: 15px;
-  					.btn-red {
+  					.btn-red, .btn-book {
   						display: block;
   						float:none;
   						margin:0 auto;
@@ -392,7 +383,7 @@
 			height: 40px;
 
 			input {
-				height: 44px;
+				height: 45px;
 				-webkit-appearance: none;
 				border:0;
 				border: 1px solid #e2e3e6;

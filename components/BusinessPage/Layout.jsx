@@ -67,7 +67,7 @@ var Layout = React.createClass({
 });
 
 Layout = connectToStores(Layout, [
-    'BusinessStore',
+    'BusinessStore'
 ], function (context, props) {
     return {
         similarBusinesses: props.business && props.business.crossSell && context.getStore('BusinessStore').getSimilar(props.business.id)

@@ -3,7 +3,7 @@
 var React = require('react');
 var Link = require('../Link.jsx');
 var _ = require('lodash');
-var User = require('./User.jsx')
+var User = require('./User.jsx');
 
 var Header = React.createClass({
     render: function () {

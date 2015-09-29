@@ -110,8 +110,8 @@ var HairfieSingle = React.createClass({
                     </a>
                 </div>
                 <div className="cta">
-                    <Link className="btn btn-red full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                        Réserver dans ce salon
+                    <Link className="btn btn-book full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                        Prendre RDV
                     </Link>
                 </div>
             </div>
@@ -181,6 +181,9 @@ var SimilarHairfies = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function() {
+        if (_.isUndefined(this.props.page) || this.props.page < 0)
+            return this.renderLoader();
+
         return (
             <div className="hairfies">
                 <div className="row">
@@ -217,6 +220,15 @@ var SimilarHairfies = React.createClass({
                 {this.renderMoreButton()}
             </div>
             );
+    },
+    renderLoader: function () {
+        return (
+            <div className="hairfies">
+                <div className="row">
+                    <div className="loading" />
+                </div>
+            </div>
+        );
     },
     renderMoreButton: function () {
         if (this.props.page * PAGE_SIZE > this.props.similarHairfies.length) return;

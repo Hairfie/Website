@@ -47,7 +47,6 @@ var HairfieResult = React.createClass({
         return (
             <div className="tab-pane active">
                 <section>
-                    <h3>Les Hairfies</h3>
                     <div className="salon-hairfies hairfies">
                         <div className="row">
                             {_.map(this.props.result.hits, function (hairfie) {
@@ -61,7 +60,7 @@ var HairfieResult = React.createClass({
         );
     },
     renderPagination: function () {
-        var numPages = Math.ceil(this.props.result.numHits / 12);
+        var numPages = Math.ceil(this.props.result.numHits / 16);
         var params = SearchUtils.searchToRouteParams(this.props.search);
 
         return <Pagination
