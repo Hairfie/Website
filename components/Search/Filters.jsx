@@ -28,7 +28,14 @@ var Filters = React.createClass({
         );
     },
     renderCurrentFilters: function () {
-        var search = this.props.search.categories || this.props.search.tags;
+        if (this.props.categories)
+            var search = _.compact(_.map(this.props.search.categories, function (cat) {
+                var category = _.find(this.props.categories, {slug: cat});
+                return category ? category.label : undefined;
+            }.bind(this)));
+        else
+            var search = this.props.search.tags;
+
         var filters = _.map(search, function (selection) {
                 return {
                     label   : selection,
@@ -109,14 +116,14 @@ var Filters = React.createClass({
             <div>
                 <h2>Catégories</h2>
                 {_.map(categories, function (category, i) {
-                    var active   = this.props.search && (this.props.search.categories || []).indexOf(category) > -1;
-                    var onChange = active ? this.removeCategory.bind(this, category) : this.addCategory.bind(this, category);
+                    var active   = this.props.search && (this.props.search.categories || []).indexOf(category.slug) > -1;
+                    var onChange = active ? this.removeCategory.bind(this, category.slug) : this.addCategory.bind(this, category.slug);
 
                     return (
-                        <label key={category} className="checkbox-inline">
+                        <label key={category.label} className="checkbox-inline">
                             <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
                             <span />
-                            {category}
+                            {category.label}
                         </label>
                     );
                 }, this)}

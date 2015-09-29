@@ -13,6 +13,7 @@ var BusinessSearchPage = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
+
         var query = {};
         query.tags = _.map(this.props.tags, 'name') || [];
         query.categories = this.props.search.categories;
@@ -28,7 +29,11 @@ var BusinessSearchPage = React.createClass({
     },
     renderFilters: function () {
         var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categories || facets['categories.fr']);
+        var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
+
+        var categories = _.compact(_.map(categories, function(cat) {
+            return _.find(this.props.categories, {slug: cat});
+        }.bind(this)));
 
         return <Search.Filters
             address={this.props.address}
@@ -69,12 +74,14 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         })});
     }
 
-    var categories = context.getStore('CategoryStore').getCategoriesByName(_.values(search.categories));
+    var cat = context.getStore('CategoryStore').getCategoriesBySlug(_.values(search.categories));
 
     var searchTagsId = [];
-    if (search && !(_.isEmpty(categories))) {
+    if (search && !(_.isEmpty(cat))) {
         _.map(search.categories, function(category) {
-            searchTagsId = _.union(searchTagsId, _.find(categories, {'name': category}).tags);
+            var find = _.find(cat, {'slug': category});
+            find = find ? find.tags : undefined;
+            searchTagsId = _.union(searchTagsId, find);
         });
     }
 
@@ -83,7 +90,7 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         place: place,
         search: search,
         result: result,
-        categories: categories,
+        categories: context.getStore('CategoryStore').getAllCategories(),
         tags: context.getStore('TagStore').getTagsById(searchTagsId)
     };
 });

@@ -61,6 +61,18 @@ module.exports = createStore({
             return category;
         }));
     },
+    getCategoriesBySlug: function(categoriesName) {
+        if (!this.categories || _.isEmpty(this.categories)) {
+            this.getContext().executeAction(CategoryActions.loadAll);
+            return;
+        }
+
+        return _.compact(_.map(this.categories, function(category) {
+            if (_.isEmpty(_.intersection([category.slug], categoriesName)))
+                return;
+            return category;
+        }));
+    },
     getCategoriesById: function(categoriesId) {
         if (!this.categories || _.isEmpty(this.categories)) {
             this.getContext().executeAction(CategoryActions.loadAll);

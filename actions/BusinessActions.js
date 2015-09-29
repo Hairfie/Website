@@ -51,7 +51,7 @@ module.exports = {
         if (search.withDiscount) query.withDiscount = search.withDiscount;
 
         _.forEach(search.categories, function (category, i) {
-            query['facetFilters[categories]['+i+']'] = category;
+            query['facetFilters[categorySlugs]['+i+']'] = category;
         });
 
         return context.hairfieApi
