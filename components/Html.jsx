@@ -11,7 +11,7 @@ var oldBrowserHtml = '<!--[if lt IE 9]> \
         </p> \
     <![endif]-->';
 
-var mailChimpHtml = '<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
+var mailChimpHtml = '';//'<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
 
 var Html = React.createClass({
     render: function() {
