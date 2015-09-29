@@ -54,7 +54,7 @@ var Carousel = React.createClass({
                         return (
                             <div key={i+'-'+picture.url} className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
                                 <div className="outer-img">
-                                    <Picture picture={picture} />
+                                    <Picture picture={picture}/>
                                     {this.renderPrice()}
                                 </div>
                             </div>
