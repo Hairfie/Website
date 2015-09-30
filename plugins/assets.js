@@ -32,7 +32,7 @@ function getUrl(options, asset) {
     if (options.version) {
         if(!url.match(/\?./)) url = url + '?';
 
-        url = url+'v=aa'+options.version;
+        url = url+'v='+options.version;
     }
 
     return url;
