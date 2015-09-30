@@ -139,7 +139,11 @@ var RightColumn = React.createClass({
                     <div className="row">
                         <div className="col-xs-3">
                             <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                                <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
+                                <Picture
+                                    picture={_.first(this.props.hairfie.business.pictures)}
+                                    options={{ width: 220, height: 220, crop: 'thumb' }}
+                                    placeholder="/img/placeholder-640.png"
+                                />
                             </Link>
                         </div>
                         <div className="col-xs-9 address-bloc">

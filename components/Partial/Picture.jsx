@@ -54,7 +54,7 @@ module.exports = React.createClass({
 
         //var url = this.context.getAssetUrl(this.props.picture.url);
 
-        return this.context.getAssetUrl(this.props.picture.url)+'?'+query.join('&');
+        return this.context.getAssetUrl(this.props.picture.url);
     },
     getCloudinarySrc: function () {
         // BC
