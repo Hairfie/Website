@@ -31,12 +31,12 @@ var Html = React.createClass({
                 <meta name="apple-itunes-app" content="app-id=853590611" />
 
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
-                <link rel="stylesheet" href="/css/style.css" />
+                <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
                 <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-                <link href="/components/blueimp-gallery/css/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
+                <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />

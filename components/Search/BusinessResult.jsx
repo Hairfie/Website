@@ -47,7 +47,7 @@ var Hairfies = React.createClass({
         return (
             <li className="more">
                 <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
-                    <img src="/img/placeholder-hairfie-thumb-more.png" alt="" />
+                    <Picture picture={{url: "/img/placeholder-hairfie-thumb-more.png"}} alt="" />
                 </Link>
             </li>
         );
@@ -99,11 +99,6 @@ var Business = React.createClass({
                 </div>
             </section>
         );
-    },
-    renderPicture: function (picture, alt) {
-        if (!picture) return;
-
-        return <img src={picture.url} alt={alt} />
     },
     renderRating: function () {
         if (!this.props.business.numReviews) return;

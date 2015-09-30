@@ -5,6 +5,9 @@ var _ = require('lodash');
 var cloudinary = require('cloudinary/lib/utils');
 
 module.exports = React.createClass({
+    contextTypes: {
+        getAssetUrl: React.PropTypes.func.isRequired
+    },
     getDefaultProps: function () {
         return {
             options: {},
@@ -18,10 +21,10 @@ module.exports = React.createClass({
     componentDidMount: function () {
         this.setState({maxWidth: window.screen.width});
 
-        if (!this.placeholder)
+        if (!this.placeholder) return;
 
         var $image = jQuery(this.refs.image.getDOMNode());
-        $image.attr('src', this.props.placeholder);
+        $image.attr('src', this.context.getAssetUrl(this.props.placeholder));
         $image.one('load', function () {
             $image.attr('src', this.getSrc());
         }.bind(this));
@@ -38,18 +41,20 @@ module.exports = React.createClass({
         }
     },
     getSrc: function () {
-        if (!this.props.picture || !this.props.picture.url) return this.props.placeholder;
+        if (!this.props.picture || !this.props.picture.url) return this.context.getAssetUrl(this.props.placeholder);
 
         if (this.props.picture.cloudinary) {
             return this.getCloudinarySrc();
-        }
+        } 
 
         var query = [];
         var resolution = this._resolution();
         if (resolution.width) query.push('width='+resolution.width);
         if (resolution.height) query.push('height='+resolution.height);
 
-        return this.props.picture.url+'?'+query.join('&');
+        //var url = this.context.getAssetUrl(this.props.picture.url);
+
+        return this.context.getAssetUrl(this.props.picture.url)+'?'+query.join('&');
     },
     getCloudinarySrc: function () {
         // BC
