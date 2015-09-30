@@ -181,7 +181,7 @@ module.exports = createStore({
                 metas.push({ propery: 'og:image', content: picture.url });
             });
         } else {
-            metas.push({ property: 'og:image', content: this._getAssetUrl('/images/logo-red.png') });
+            metas.push({ property: 'og:image', content: this._getAssetUrl('/img/logo-red.png') });
         }
 
         return metas;

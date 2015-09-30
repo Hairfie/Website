@@ -13,10 +13,10 @@ module.exports = React.createClass({
                         <p>Pour avoir toujours Hairfie au bout des doigts et pouvoir poster vos plus beaux #Hairfies, téléchargez notre application mobile</p>
                         <p className="center-block buttons">
                             <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="btn-apple col-sm-6 col-xs-12" target="_blank">
-                                <Picture picture={{url: '/images/btn-apple@2x.png'}} style={{width: 204, height: 64}}/>
+                                <Picture picture={{url: '/img/btn-apple@2x.png'}} style={{width: 204, height: 64}}/>
                             </a>
                             <span className="col-sm-6 col-xs-12">
-                                <Picture picture={{url: '/images/coming-soon-play-store.png'}} style={{width: 216, height: 64}} />
+                                <Picture picture={{url: '/img/coming-soon-play-store.png'}} style={{width: 216, height: 64}} />
                             </span>
                         </p>
                     </div>

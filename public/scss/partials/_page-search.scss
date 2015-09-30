@@ -60,17 +60,17 @@
 			li {
 				&:first-child {
 					.icon-nav {
-						background: url(../images/icon-search-nav1.png) no-repeat center center;
+						background: url(../img/icon-search-nav1.png) no-repeat center center;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../images/icon-search-nav2.png) no-repeat center center;
+						background: url(../img/icon-search-nav2.png) no-repeat center center;
 					}
 				}
 				&:last-child {
 					.icon-nav {
-						background: url(../images/icon-salon-nav3.jpg) no-repeat center center;
+						background: url(../img/icon-salon-nav3.jpg) no-repeat center center;
 					}
 				}
 			}
@@ -135,7 +135,7 @@
 				}
 				span.caret {
 					width: 12px;height: 8px;
-					background: url(../images/icon-chevron-down.png) no-repeat center center;
+					background: url(../img/icon-chevron-down.png) no-repeat center center;
 
 					position: absolute;
 					top: 18px; right: 25px;
@@ -402,7 +402,7 @@
 				border: 1px solid #e2e3e6;
 			}
 			.input-group-addon:first-child {
-				background: url(../images/icon-location.png) no-repeat center center;
+				background: url(../img/icon-location.png) no-repeat center center;
 				width: 50px; height: 40px; background-size: 40%;
 				border-right: 1px solid #e2e3e6;
 				border-right: 0;
@@ -411,7 +411,7 @@
 				padding: 0;
 				border-left: 0;
 				a {
-					background-image: url(../images/icon-search-glass.png);
+					background-image: url(../img/icon-search-glass.png);
 					background-repeat: no-repeat;
 					background-position: center center;
 					width: 50px; height: 40px; background-size: 40%;

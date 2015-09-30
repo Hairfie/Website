@@ -8,7 +8,7 @@
 		height: 500px;
 	}
 	max-width: 100%; // fix-mobile horizontal scroll
-	background: url(../images/bg-landing.jpg) no-repeat top center;
+	background: url(../img/bg-landing.jpg) no-repeat top center;
 	background-size: cover;
 	text-align: center;
 	position: relative;
@@ -497,7 +497,7 @@ section.home-section {
 	@media screen and (min-width: $screen-xs-max) {
     	height: 400px; width: 100vw;
     	left: calc(-50vw + 50%);
-		background: url(../images/bg-download.jpg) no-repeat center center;
+		background: url(../img/bg-download.jpg) no-repeat center center;
 		background-size: cover;
 		margin: 0;
     }

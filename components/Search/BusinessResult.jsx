@@ -36,7 +36,7 @@ var Hairfies = React.createClass({
                 <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                     <Picture picture={_.last(hairfie.pictures)}
                              options={{width: 55, height: 55}}
-                          placeholder="/images/placeholder-55.png"
+                          placeholder="/img/placeholder-55.png"
                                  alt="" />
                 </Link>
             </li>
@@ -47,7 +47,7 @@ var Hairfies = React.createClass({
         return (
             <li className="more">
                 <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
-                    <img src="/images/placeholder-hairfie-thumb-more.png" alt="" />
+                    <img src="/img/placeholder-hairfie-thumb-more.png" alt="" />
                 </Link>
             </li>
         );
@@ -74,7 +74,7 @@ var Business = React.createClass({
                         <Picture
                             picture={_.first(this.props.business.pictures)}
                             options={{ width: 400, height: 400, crop: 'thumb' }}
-                            placeholder="/images/placeholder-640.png"
+                            placeholder="/img/placeholder-640.png"
                             />
                      </Link>
                 </div>
