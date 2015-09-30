@@ -74,7 +74,7 @@ server.use(function (req, res, next) {
 });
 
 server.use(function (err, req, res, next) { // try localized page
-    if('/fr/' !== req.url.substr(0, 4)) {
+    if('/assets/' !== req.url.substr(0, 8) && '/fr/' !== req.url.substr(0, 4)) {
         res.redirect(302, '/fr'+req.url);
     } else {
         next(err);

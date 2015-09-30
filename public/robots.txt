@@ -1,0 +1,4 @@
+# No index on CDN
+
+User-agent: *
+Disallow: /
