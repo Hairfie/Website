@@ -78,7 +78,13 @@ module.exports = createStore({
         return this.metas;
     },
     _setMetas: function (metas) {
+        var ogDescription = _.find(metas, {property: 'og:description'});
+        var description = _.find(metas, {property: 'description'});
+
+        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content })
+
         this.metas = metas;
+
         this.emitChange();
     },
     _getHomeMetas: function () {
@@ -149,12 +155,12 @@ module.exports = createStore({
         }
 
         title += ' | Hairfie';
-
+        var description = description ? description : 'Prenez RDV gratuitement en quelques clics sur Hairfie';
         var metas = _.union(
             this._getBaseMetas(),
             [
                 { property: 'og:title', content: title },
-                { property: 'og:description', content: 'Prenez rendez-vous gratuitement en quelques clics sur Hairfie' },
+                { property: 'og:description', content: description },
                 { property: 'og:type', content: this.getContext().config.facebookAppNamespace+':business' },
                 { property: 'og:url', content: this._getUrl('business', { businessId: business.id, businessSlug: business.slug }) }
             ],
