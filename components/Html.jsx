@@ -18,6 +18,9 @@ var Html = React.createClass({
         var title = this.props.context.getStore('MetaStore').getTitle();
         var metas = this.props.context.getStore('MetaStore').getMetas();
 
+        var canonicalUrl = this.props.context.getStore('MetaStore').getCanonicalUrl();
+        var canonicalNode = canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null;
+
         return (
             <html className="no-js">
             <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hairfie: http://ogp.me/ns/fb/hairfie#">
@@ -29,6 +32,8 @@ var Html = React.createClass({
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <meta name="apple-itunes-app" content="app-id=853590611" />
+
+                {canonicalNode}
 
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
