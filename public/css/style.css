@@ -11114,7 +11114,7 @@ footer.mobile {
     right: 15px; }
 
 /*////////////////////////////////
-	   P A G E  H O M E
+       P A G E  H O M E
 ////////////////////////////////*/
 .landing {
   width: 100vw;
@@ -11270,6 +11270,10 @@ section.home-section {
 
 #home section.home-search .main-searchbar {
   margin: 0; }
+
+@media screen and (max-width: 767px) {
+  #home section.home-search {
+    display: none; } }
 
 #home section.categories figure:hover {
   -webkit-transition: all 0.25s ease-out;
@@ -13438,6 +13442,9 @@ section.home-footer .row > div {
 @-webkit-keyframes Select-animation-spin {
   to {
     -webkit-transform: rotate(1turn); } }
+
+.email-modal p {
+  font-size: 18px; }
 
 .connect-form {
   padding-top: 1px;
