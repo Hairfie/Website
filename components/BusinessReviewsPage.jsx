@@ -31,6 +31,7 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews">
+            {this.renderForm()}
                 <div className="comments">
                     {_.map(this.props.reviews, function (review) {
                         return (
@@ -51,6 +52,17 @@ var BusinessReviewPage = React.createClass({
                 </div>
             </Layout>
         );
+    },
+    renderForm: function() {
+        return(
+            <form>
+                <input type="textarea" ref="comment" />
+                <a className="btn" onClick={this.submit} />
+            </form>
+            );
+    },
+    submit: function(e) {
+        e.preventDefault();
     }
 });
 
