@@ -5,6 +5,7 @@ var makeHandlers = require('../lib/fluxible/makeHandlers');
 var _ = require('lodash');
 var Actions = require('../constants/Actions');
 var authStorage = require('../services/auth-storage');
+var SubscriberActions = require('../actions/SubscriberActions');
 
 module.exports = createStore({
     storeName: 'AuthStore',
@@ -15,7 +16,7 @@ module.exports = createStore({
     }),
     initialize: function () {
         this.tokens = {};
-        this.closesPopupStatus = false;
+        this.closesPopupStatus;
     },
     dehydrate: function () {
         return { tokens: this.tokens };
@@ -35,9 +36,15 @@ module.exports = createStore({
         return this.tokens;
     },
     onClosedPopupStatusChange: function(status) {
-        this.closesPopupStatus = status;
+        this.closedPopupStatus = status;
+        this.emitChange();
     },
     getClosedPopupStatus: function() {
-        return this.closesPopupStatus;
+        if(_.isUndefined(this.closedPopupStatus)) {
+            this.getContext().executeAction(SubscriberActions.getClosedPopupStatus);
+            return true;
+        } else {
+            return this.closedPopupStatus;
+        }
     }
 });

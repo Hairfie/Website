@@ -1,18 +1,19 @@
 'use strict';
 
-var SubscriberActions = require('../../actions/SubscriberActions');
-var connectToStores = require('fluxible-addons-react/connectToStores');
-
 var React = require('react');
+var connectToStores = require('fluxible-addons-react/connectToStores');
+var SubscriberActions = require('../../actions/SubscriberActions');
+
 var Modal = require('react-bootstrap').Modal;
 var Button = require('react-bootstrap').Button;
 var Input = require('react-bootstrap').Input;
 
-var _
+var _ = require('lodash');
 
 var EmailModal = React.createClass({
     contextTypes: {
-        executeAction: React.PropTypes.func.isRequired
+        executeAction: React.PropTypes.func.isRequired,
+        getStore: React.PropTypes.func.isRequired
     },
     getInitialState: function() {
         return { 
@@ -23,25 +24,39 @@ var EmailModal = React.createClass({
             label: 'Email'
         };
     },
+    componentWillMount: function () {
+        //this.context.executeAction(SubscriberActions.getClosedPopupStatus);
+        this.context.getStore('AuthStore').addChangeListener(this.onStoreChange);
+        this.setState(this.getStateFromStores());
+    },
+    componentWillUnmount: function () {
+        this.context.getStore('AuthStore').removeChangeListener(this.onStoreChange);
+    },
+    getStateFromStores: function() {
+        var hasClosedPopup =  this.context.getStore('AuthStore').getClosedPopupStatus();
+
+        return {
+            hasClosedPopup: hasClosedPopup
+        };
+    },
+    onStoreChange: function () {
+        this.setState(this.getStateFromStores());
+    },
     close: function() {
         this.context.executeAction(SubscriberActions.hasClosedPopup);
         this.setState({ showModal: false });
     },
     open: function() {
-        if(!this.props.hasClosedPopup) {
-            this.setState({ 
-                showModal: true, 
-                hasSubscribed: false,  
-                isValid: null,
-                bsStyle: null,
-                label: 'Email'  
-            });
-        } else {
-            return;
-        }
+        this.setState({ 
+            showModal: true, 
+            hasSubscribed: false,  
+            isValid: null,
+            bsStyle: null,
+            label: 'Email'  
+        });
     },
     autoOpen: function() {
-        if(!this.props.hasClosedPopup) {
+        if(!this.state.hasClosedPopup) {
             this.setState({ 
                 showModal: true, 
                 hasSubscribed: false,  
@@ -121,13 +136,5 @@ function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
-
-EmailModal = connectToStores(EmailModal, [
-    'AuthStore'
-], function (context) {
-    return {
-        hasClosedPopup: context.getStore('AuthStore').getClosedPopupStatus()
-    };
-});
 
 module.exports = EmailModal;

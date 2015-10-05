@@ -19,7 +19,7 @@ function setHasClosedPopup(context) {
 }
 
 function getClosedPopup(context) {
-    context.getCookie("HAS_CLOSED_POPUP");
+    return context.getCookie("HAS_CLOSED_POPUP") || false;
 }
 
 module.exports = {
