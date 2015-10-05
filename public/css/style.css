@@ -11526,7 +11526,7 @@ section.home-section {
     height: 400px;
     width: 100vw;
     left: calc(-50vw + 50%);
-    background: url(../img/bg-download.jpg) no-repeat center center;
+    background: url(../img/bg-download-lite.jpg) no-repeat center center;
     background-size: cover;
     margin: 0; } }
 
