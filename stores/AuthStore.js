@@ -10,10 +10,12 @@ module.exports = createStore({
     storeName: 'AuthStore',
     handlers: makeHandlers({
         onReceiveToken: Actions.RECEIVE_TOKEN,
-        onDeleteToken: Actions.DELETE_TOKEN
+        onDeleteToken: Actions.DELETE_TOKEN,
+        onClosedPopupStatusChange: Actions.CLOSED_POPUP_STATUS
     }),
     initialize: function () {
         this.tokens = {};
+        this.closesPopupStatus = false;
     },
     dehydrate: function () {
         return { tokens: this.tokens };
@@ -31,5 +33,11 @@ module.exports = createStore({
     },
     getToken: function () {
         return this.tokens;
+    },
+    onClosedPopupStatusChange: function(status) {
+        this.closesPopupStatus = status;
+    },
+    getClosedPopupStatus: function() {
+        return this.closesPopupStatus;
     }
 });

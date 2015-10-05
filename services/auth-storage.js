@@ -14,8 +14,18 @@ function getToken(context) {
     return JSON.parse(context.getCookie("AUTH_TOKEN"));
 }
 
+function setHasClosedPopup(context) {
+    context.setCookie("HAS_CLOSED_POPUP", true);
+}
+
+function getClosedPopup(context) {
+    context.getCookie("HAS_CLOSED_POPUP");
+}
+
 module.exports = {
     setToken: setToken,
     clearToken: clearToken,
-    getToken: getToken
+    getToken: getToken,
+    setHasClosedPopup: setHasClosedPopup,
+    getClosedPopup: getClosedPopup
 };

@@ -1,13 +1,16 @@
 'use strict';
 
 var SubscriberActions = require('../../actions/SubscriberActions');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var React = require('react');
 var Modal = require('react-bootstrap').Modal;
 var Button = require('react-bootstrap').Button;
 var Input = require('react-bootstrap').Input;
 
-module.exports = React.createClass({
+var _
+
+var EmailModal = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
@@ -21,16 +24,32 @@ module.exports = React.createClass({
         };
     },
     close: function() {
+        this.context.executeAction(SubscriberActions.hasClosedPopup);
         this.setState({ showModal: false });
     },
     open: function() {
-        this.setState({ 
-            showModal: true, 
-            hasSubscribed: false,  
-            isValid: null,
-            bsStyle: null,
-            label: 'Email'  
-        });
+        if(!this.props.hasClosedPopup) {
+            this.setState({ 
+                showModal: true, 
+                hasSubscribed: false,  
+                isValid: null,
+                bsStyle: null,
+                label: 'Email'  
+            });
+        } else {
+            return;
+        }
+    },
+    autoOpen: function() {
+        if(!this.props.hasClosedPopup) {
+            this.setState({ 
+                showModal: true, 
+                hasSubscribed: false,  
+                isValid: null,
+                bsStyle: null,
+                label: 'Email'  
+            });
+        }
     },
     render: function() {
         return (
@@ -90,6 +109,7 @@ module.exports = React.createClass({
             }
         });
         this.setState({ hasSubscribed: true }, function () {
+            this.context.executeAction(SubscriberActions.hasClosedPopup);
             setTimeout(function() {
                modal.close();
             }, 2000);
@@ -101,3 +121,13 @@ function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
+
+EmailModal = connectToStores(EmailModal, [
+    'AuthStore'
+], function (context) {
+    return {
+        hasClosedPopup: context.getStore('AuthStore').getClosedPopupStatus()
+    };
+});
+
+module.exports = EmailModal;
