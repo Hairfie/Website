@@ -63,7 +63,6 @@ module.exports = React.createClass({
     contextTypes: {
         makePath: React.PropTypes.func.isRequired,
         executeAction: React.PropTypes.func.isRequired
-
     },
     render: function () {
         return (
@@ -88,17 +87,6 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </section>
-                {/*<section className="home-section">
-                    <div className="row">
-                        <div className="col-sm-4 col-sm-offset-1">
-                            <h3>Internet sans vous couper les cheveux en 4</h3>
-                            <p>Tirez partie du Web en montrant votre travail et savoir-faire grâce aux Hairfie</p>
-                        </div>
-                        <div className="col-sm-4 col-sm-offset-1">
-                            <img src="/img/pro-1.png" alt="#" />
-                        </div>
-                    </div>
-                </section> */}
             </PublicLayout>
         );
     },

@@ -6,6 +6,7 @@ var Link = require('../Link.jsx');
 var SearchUtils = require('../../lib/search-utils');
 var Breadcrumb = require('./Breadcrumb.jsx');
 var _ = require('lodash');
+var Picture = require('../Partial/Picture.jsx');
 
 var Layout = React.createClass({
     componentDidMount: function () {
@@ -71,7 +72,7 @@ var Layout = React.createClass({
         var coverImage;
 
         if (place.picture) {
-            coverImage = <img src={place.picture.url} alt={place.name} className="cover" />;
+            coverImage = <Picture picture={{url: place.picture.url}} alt={place.name} className="cover" />;
         }
 
         return (

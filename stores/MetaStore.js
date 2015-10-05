@@ -74,11 +74,21 @@ module.exports = createStore({
         var meta = _.find(this.metas, {property: 'og:title'});
         return meta && meta.content;
     },
+    getCanonicalUrl: function() {
+        var meta = _.find(this.metas, {property: 'url'});
+        return meta && meta.content;
+    },
     getMetas: function() {
         return this.metas;
     },
     _setMetas: function (metas) {
+        var ogDescription = _.find(metas, {property: 'og:description'});
+        var description = _.find(metas, {property: 'description'});
+
+        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content })
+
         this.metas = metas;
+
         this.emitChange();
     },
     _getHomeMetas: function () {
@@ -86,7 +96,8 @@ module.exports = createStore({
             { property: 'og:title', content: 'Hairfie' },
             { property: 'og:description', content: 'Trouvez et réservez le coiffeur qui vous correspond grâce à nos #hairfies' },
             { property: 'og:image', content: this.getContext().getAssetUrl('/img/background-pro-trans.jpg') },
-            { property: 'og:url', content: this._getUrl('home') }
+            { property: 'og:url', content: this._getUrl('home') },
+            { property: 'url', content: this._getUrl('home') }
         ]);
     },
     _getHairfieMetas: function (hairfieId) {
@@ -95,13 +106,13 @@ module.exports = createStore({
         var title, description;
         if(hairfie.hairdresser) {
             title = 'Hairfie réalisé par ' + hairfie.hairdresser.firstName;
-            description = 'Réservez gratuitement en ligne la même prestation réalisée par ' + hairfie.hairdresser.firstName + ' au salon ' + hairfie.business.name + ' sur Hairfie';
+            description = 'Prenez rdv pour la même prestation réalisée par ' + hairfie.hairdresser.firstName + ' au salon ' + hairfie.business.name + ' sur Hairfie';
         } else if (hairfie.business) {
             title = 'Hairfie réalisé chez ' + hairfie.business.name;
-            description = 'Réservez gratuitement en ligne la même prestation réalisée au salon ' + hairfie.business.name + ' sur Hairfie';
+            description = 'Prenez rdv pour la même prestation réalisée au salon ' + hairfie.business.name + ' sur Hairfie';
         } else {
             title = 'Hairfie posté par ' + hairfie.author.firstName;
-            description = 'Réservez gratuitement votre séance en ligne sur Hairfie'
+            description = 'Prenez rdv avec votre coiffeur sur Hairfie'
         }
 
         var metas = _.union(this._getBaseMetas(), [
@@ -109,6 +120,7 @@ module.exports = createStore({
             { property: 'og:description', content: description },
             { property: 'og:type', content: this.getContext().config.facebookAppNamespace+':hairfie' },
             { property: 'og:url', content: this._getUrl('hairfie', { hairfieId: hairfie.id }) },
+            { property: 'url', content: this._getUrl('hairfie', { hairfieId: hairfie.id }) },
             { property: 'og:image', content: (_.first(hairfie.pictures) || {}).url }
         ]);
 
@@ -134,6 +146,7 @@ module.exports = createStore({
                 } else {
                     description = 'Découvrez les hairfies du salon ' + title + ' et réservez en ligne';
                 }
+
                 break;
             case 'business_reviews':
                 title = 'Les avis sur ' + title;
@@ -149,14 +162,17 @@ module.exports = createStore({
         }
 
         title += ' | Hairfie';
+        var url = this._getUrl(routeName, { businessId: business.id, businessSlug: business.slug });
 
+        var description = description ? description : 'Prenez RDV gratuitement en quelques clics sur Hairfie';
         var metas = _.union(
             this._getBaseMetas(),
             [
                 { property: 'og:title', content: title },
-                { property: 'og:description', content: 'Prenez rendez-vous gratuitement en quelques clics sur Hairfie' },
+                { property: 'og:description', content: description },
                 { property: 'og:type', content: this.getContext().config.facebookAppNamespace+':business' },
-                { property: 'og:url', content: this._getUrl('business', { businessId: business.id, businessSlug: business.slug }) }
+                { property: 'og:url', content: this._getUrl('business', { businessId: business.id, businessSlug: business.slug }) },
+                { property: 'url', content: url }
             ],
             this._getAddressMetas(business.address)
         );
@@ -178,10 +194,10 @@ module.exports = createStore({
 
         if (business.pictures) {
             _.forEach(business.pictures, function (picture) {
-                metas.push({ propery: 'og:image', content: picture.url });
+                metas.push({ property: 'og:image', content: picture.url });
             });
         } else {
-            metas.push({ property: 'og:image', content: this._getAssetUrl('/images/logo-red.png') });
+            metas.push({ property: 'og:image', content: this._getAssetUrl('/img/logo-red.png') });
         }
 
         return metas;

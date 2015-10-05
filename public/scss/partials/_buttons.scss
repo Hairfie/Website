@@ -81,14 +81,14 @@ span.arrow {
     margin-top: -19px;
 }
 span.arrow-left {
-    background: url(../images/arrow-left.png) no-repeat center center;
+    background: url(../img/arrow-left.png) no-repeat center center;
     left: 60px;
     @media screen and (max-width: $screen-sm-max) {
         margin-top: 20px;
     }
 }
 span.arrow-right {
-    background: url(../images/arrow-right.png) no-repeat center center;
+    background: url(../img/arrow-right.png) no-repeat center center;
     right: 60px;
     @media screen and (max-width: $screen-sm-max) {
         margin-top: 20px;

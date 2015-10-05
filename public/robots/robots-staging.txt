@@ -1,3 +1,6 @@
 # go away
+User-agent: Amazon CloudFront
+Disallow: /
+
 User-agent: *
 Disallow: /

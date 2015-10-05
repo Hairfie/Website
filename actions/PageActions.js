@@ -16,6 +16,8 @@ var PlaceActions = require('./PlaceActions');
 var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var UserActions = require('./UserActions');
+var TagActions = require('./TagActions');
+var CategoryActions = require('./CategoryActions');
 var SearchUtils = require('../lib/search-utils');
 
 var RouteStore = require('../stores/RouteStore');
@@ -25,7 +27,9 @@ module.exports = {
         return Promise.all([
             context.executeAction(CategoryActions.loadAll),
             context.executeAction(DealActions.loadTopDeals),
-            context.executeAction(HairfieActions.loadTopHairfies)
+            context.executeAction(HairfieActions.loadTopHairfies),
+            context.executeAction(TagActions.loadAll),
+            context.executeAction(CategoryActions.loadAll)
         ]);
     },
     hairfie: function (context, route) {

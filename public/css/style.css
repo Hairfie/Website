@@ -9679,7 +9679,7 @@ figcaption a.address {
   height: 100%;
   min-height: 100px;
   max-height: 200px;
-  background: url(/img/loader_128.png) no-repeat center center;
+  background: url(../img/loader_128.png) no-repeat center center;
   background-size: 64px 64px;
   -webkit-animation: spinX 2s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
   -moz-animation: spinX 2s infinite cubic-bezier(0.3, 0.01, 0.58, 1);
@@ -9831,14 +9831,14 @@ span.arrow {
   margin-top: -19px; }
 
 span.arrow-left {
-  background: url(../images/arrow-left.png) no-repeat center center;
+  background: url(../img/arrow-left.png) no-repeat center center;
   left: 60px; }
   @media screen and (max-width: 991px) {
     span.arrow-left {
       margin-top: 20px; } }
 
 span.arrow-right {
-  background: url(../images/arrow-right.png) no-repeat center center;
+  background: url(../img/arrow-right.png) no-repeat center center;
   right: 60px; }
   @media screen and (max-width: 991px) {
     span.arrow-right {
@@ -9946,7 +9946,7 @@ div.connect-button .twitter {
       .cal caption a:hover {
         color: white; }
     .cal caption .prev {
-      background: url(../images/arrow-left.png) no-repeat center center;
+      background: url(../img/arrow-left.png) no-repeat center center;
       background-size: 11px 20px;
       width: 11px;
       height: 20px;
@@ -9955,7 +9955,7 @@ div.connect-button .twitter {
       margin-top: -10px;
       left: 24px; }
     .cal caption .next {
-      background: url(../images/arrow-right.png) no-repeat center center;
+      background: url(../img/arrow-right.png) no-repeat center center;
       background-size: 11px 20px;
       width: 11px;
       height: 20px;
@@ -10242,7 +10242,7 @@ ul {
   .stars .star {
     height: 24px;
     width: 24px;
-    background: url(../images/star.png) no-repeat center center;
+    background: url(../img/star.png) no-repeat center center;
     background-size: 100%;
     margin: 6px;
     cursor: pointer;
@@ -10258,7 +10258,7 @@ ul {
       -o-transition: all 0.15s ease-out;
       width: 100%;
       height: 100%;
-      background: url(../images/star-full.png) no-repeat center center;
+      background: url(../img/star-full.png) no-repeat center center;
       background-size: 100%;
       position: absolute;
       top: 0;
@@ -10273,7 +10273,7 @@ ul {
       -ms-transition: all 0.15s ease-out;
       -o-transition: all 0.15s ease-out; }
     .stars .star.full {
-      background: url(../images/star-full.png) no-repeat center center;
+      background: url(../img/star-full.png) no-repeat center center;
       background-size: 100%; }
   .stars a.avis {
     padding-right: 15px;
@@ -10486,7 +10486,7 @@ figure {
   width: 34px;
   height: 34px;
   display: inline-block;
-  background: url(../images/icon-promo.png) no-repeat center center;
+  background: url(../img/icon-promo.png) no-repeat center center;
   text-align: center;
   color: white;
   line-height: 34px;
@@ -10540,7 +10540,7 @@ input[type="checkbox"]:checked + span:after {
   left: -18px;
   width: 14px;
   height: 15px;
-  background: url(../images/sign-checkbox.png) no-repeat center center;
+  background: url(../img/sign-checkbox.png) no-repeat center center;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
@@ -10563,7 +10563,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   left: -18px;
   width: 13px;
   height: 13px;
-  background: url(../images/sign-checkbox-locked.png) no-repeat center center;
+  background: url(../img/sign-checkbox-locked.png) no-repeat center center;
   background-size: 100%; }
 
 .social-links {
@@ -10791,7 +10791,7 @@ header {
   background-color: transparent;
   font-size: 1em; }
   header a.menu-trigger {
-    background: url(../images/mobile-menu.png) no-repeat center center;
+    background: url(../img/mobile-menu.png) no-repeat center center;
     background-size: 90%;
     margin-top: 15px;
     width: 28px;
@@ -10801,11 +10801,11 @@ header {
       header a.menu-trigger {
         margin-top: 25px; } }
     header a.menu-trigger.close {
-      background: url(../images/mobile-menu-close.png) no-repeat center center;
+      background: url(../img/mobile-menu-close.png) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header .logo {
-    background: url(../images/logo.png) no-repeat center center;
+    background: url(../img/logo.png) no-repeat center center;
     width: 128px;
     height: 41px;
     margin-top: 9px;
@@ -10891,7 +10891,7 @@ header {
       header.white > .row:first-child:after {
         height: 60px; }
     header.white .logo {
-      background: url(../images/logo-red.png) no-repeat center center;
+      background: url(../img/logo-red.png) no-repeat center center;
       background-size: 100%; }
     header.white nav ul li a {
       color: #c4c4c4; }
@@ -10947,20 +10947,20 @@ header:not(.white) .dropdown-menu {
     top: 0;
     z-index: 999;
     /* 		a.menu-trigger {
-			background: url(../images/mobile-menu.png) no-repeat center center;
+			background: url(../img/mobile-menu.png) no-repeat center center;
 			background-size: 90%;
 			margin-top: 25px;
 			width: 28px;
 			height: 28px;
 			margin-right: 15px;
 			&.close {
-				background: url(../images/mobile-menu-close.png) no-repeat center center;
+				background: url(../img/mobile-menu-close.png) no-repeat center center;
 				background-size: 90%;
 				opacity: 1;
 			}
 		} */ }
     .mobile-nav header a.logo {
-      background: url(../images/logo-red.png) no-repeat center left;
+      background: url(../img/logo-red.png) no-repeat center left;
       background-size: 100%;
       margin-top: 20px; }
   .mobile-nav .mobile-menu {
@@ -11062,7 +11062,7 @@ footer {
     position: absolute;
     width: 204px;
     height: 64px;
-    background: url(../images/btn-app-dl.png) no-repeat center center;
+    background: url(../img/btn-app-dl.png) no-repeat center center;
     background-size: 100%;
     top: 50%;
     right: 5%; }
@@ -11114,12 +11114,12 @@ footer.mobile {
     right: 15px; }
 
 /*////////////////////////////////
-	   P A G E  H O M E
+       P A G E  H O M E
 ////////////////////////////////*/
 .landing {
   width: 100vw;
   max-width: 100%;
-  background: url(../images/bg-landing.jpg) no-repeat top center;
+  background: url(../img/bg-landing.jpg) no-repeat top center;
   background-size: cover;
   text-align: center;
   position: relative; }
@@ -11270,6 +11270,10 @@ section.home-section {
 
 #home section.home-search .main-searchbar {
   margin: 0; }
+
+@media screen and (max-width: 767px) {
+  #home section.home-search {
+    display: none; } }
 
 #home section.categories figure:hover {
   -webkit-transition: all 0.25s ease-out;
@@ -11522,7 +11526,7 @@ section.home-section {
     height: 400px;
     width: 100vw;
     left: calc(-50vw + 50%);
-    background: url(../images/bg-download.jpg) no-repeat center center;
+    background: url(../img/bg-download.jpg) no-repeat center center;
     background-size: cover;
     margin: 0; } }
 
@@ -11632,11 +11636,11 @@ section.home-footer .row > div {
     letter-spacing: 1px;
     margin-bottom: 30px; }
   #content.search .main-content .nav li:first-child .icon-nav {
-    background: url(../images/icon-search-nav1.png) no-repeat center center; }
+    background: url(../img/icon-search-nav1.png) no-repeat center center; }
   #content.search .main-content .nav li:nth-child(2) .icon-nav {
-    background: url(../images/icon-search-nav2.png) no-repeat center center; }
+    background: url(../img/icon-search-nav2.png) no-repeat center center; }
   #content.search .main-content .nav li:last-child .icon-nav {
-    background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+    background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
   #content.search .main-content .filters {
     margin: 20px 0;
     padding: 20px 10px;
@@ -11688,7 +11692,7 @@ section.home-footer .row > div {
       #content.search .main-content .filters label span.caret {
         width: 12px;
         height: 8px;
-        background: url(../images/icon-chevron-down.png) no-repeat center center;
+        background: url(../img/icon-chevron-down.png) no-repeat center center;
         position: absolute;
         top: 18px;
         right: 25px;
@@ -11881,7 +11885,7 @@ section.home-footer .row > div {
       background: transparent;
       border: 1px solid #e2e3e6; }
     #content.search .sidebar div.input-group .input-group-addon:first-child {
-      background: url(../images/icon-location.png) no-repeat center center;
+      background: url(../img/icon-location.png) no-repeat center center;
       width: 50px;
       height: 40px;
       background-size: 40%;
@@ -11891,7 +11895,7 @@ section.home-footer .row > div {
       padding: 0;
       border-left: 0; }
       #content.search .sidebar div.input-group .input-group-addon:last-child a {
-        background-image: url(../images/icon-search-glass.png);
+        background-image: url(../img/icon-search-glass.png);
         background-repeat: no-repeat;
         background-position: center center;
         width: 50px;
@@ -11949,7 +11953,7 @@ section.home-footer .row > div {
 ////////////////////////////////*/
 #carousel-salon .carousel-inner .item {
   height: 470px;
-  background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+  background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
   background-size: cover;
   background: none; }
   @media screen and (max-width: 767px) {
@@ -11959,7 +11963,7 @@ section.home-footer .row > div {
     margin: auto; }
   #carousel-salon .carousel-inner .item.placeholder {
     height: 470px;
-    background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+    background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
     background-size: cover; }
   #carousel-salon .carousel-inner .item img {
     background-repeat: no-repeat;
@@ -12046,13 +12050,13 @@ section.home-footer .row > div {
   .salon#content section.salon-content > .row {
     background-color: white; }
   .salon#content section.salon-content ul.nav li:first-child .icon-nav {
-    background: url(../images/icon-salon-nav1.jpg) no-repeat center center; }
+    background: url(../img/icon-salon-nav1.jpg) no-repeat center center; }
   .salon#content section.salon-content ul.nav li:nth-child(2) .icon-nav {
-    background: url(../images/icon-salon-nav2.jpg) no-repeat center center; }
+    background: url(../img/icon-salon-nav2.jpg) no-repeat center center; }
   .salon#content section.salon-content ul.nav li:last-child {
     border-right: none; }
     .salon#content section.salon-content ul.nav li:last-child .icon-nav {
-      background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+      background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
   .salon#content section.salon-content section {
     padding-left: 50px;
     padding-right: 50px;
@@ -12102,7 +12106,7 @@ section.home-footer .row > div {
     .salon#content section.salon-content section .map {
       height: 247px;
       width: auto;
-      background: url(../images/placeholder-map.jpg) no-repeat center center;
+      background: url(../img/placeholder-map.jpg) no-repeat center center;
       margin: 30px -50px 0;
       background-size: cover; }
   .salon#content section.salon-content #avis .row {
@@ -12174,7 +12178,7 @@ section.home-footer .row > div {
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD7474D', endColorstr='#FFFC5B62', GradientType=0); }
     .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
       content: " ";
-      background: url(../../images/icon-phone.png) no-repeat center center;
+      background: url(../../img/icon-phone.png) no-repeat center center;
       position: absolute;
       width: 25px;
       height: 25px;
@@ -12826,7 +12830,7 @@ section.home-footer .row > div {
     #content.reservation.bookingForm .confirm-bloc-form form label {
       width: 100%; }
       #content.reservation.bookingForm .confirm-bloc-form form label .icon {
-        background: url(../images/icon-resa-user.png) no-repeat center left;
+        background: url(../img/icon-resa-user.png) no-repeat center left;
         width: 16px;
         height: 16px;
         display: inline-block;
@@ -12849,10 +12853,10 @@ section.home-footer .row > div {
             margin-right: 0;
             padding-left: 13px; }
       #content.reservation.bookingForm .confirm-bloc-form form label[for='email'] .icon {
-        background: url(../images/icon-resa-mail.png) no-repeat center left;
+        background: url(../img/icon-resa-mail.png) no-repeat center left;
         width: 17px; }
       #content.reservation.bookingForm .confirm-bloc-form form label[for='phone'] .icon {
-        background: url(../images/icon-resa-phone.png) no-repeat center left;
+        background: url(../img/icon-resa-phone.png) no-repeat center left;
         width: 17px; }
       #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] {
         padding-left: 0; }
@@ -13041,11 +13045,11 @@ section.home-footer .row > div {
   .container.user#content .main-content section.user-content ul.nav {
     margin: 0; }
     .container.user#content .main-content section.user-content ul.nav li:first-child .icon-nav {
-      background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+      background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
     .container.user#content .main-content section.user-content ul.nav li:nth-child(2) .icon-nav {
-      background: url(../images/icon-salon-nav2.jpg) no-repeat center center; }
+      background: url(../img/icon-salon-nav2.jpg) no-repeat center center; }
     .container.user#content .main-content section.user-content ul.nav li:last-child .icon-nav {
-      background: url(../images/icon-coeur.png) no-repeat center center; }
+      background: url(../img/icon-coeur.png) no-repeat center center; }
   .container.user#content .main-content section.user-content section {
     padding-left: 50px;
     padding-right: 50px; }
@@ -13136,9 +13140,9 @@ section.home-footer .row > div {
     .container.hairdresser#content .main-content section.hairdresser-content ul.nav {
       margin: 0; }
       .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:first-child .icon-nav {
-        background: url(../images/icon-resa-user.png) no-repeat center center; }
+        background: url(../img/icon-resa-user.png) no-repeat center center; }
       .container.hairdresser#content .main-content section.hairdresser-content ul.nav li:nth-child(2) .icon-nav {
-        background: url(../images/icon-salon-nav3.jpg) no-repeat center center; }
+        background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
     .container.hairdresser#content .main-content section.hairdresser-content section {
       margin-bottom: 20px;
       padding-left: 50px;
@@ -13438,6 +13442,9 @@ section.home-footer .row > div {
 @-webkit-keyframes Select-animation-spin {
   to {
     -webkit-transform: rotate(1turn); } }
+
+.email-modal p {
+  font-size: 18px; }
 
 .connect-form {
   padding-top: 1px;

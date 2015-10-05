@@ -54,7 +54,7 @@ var Carousel = React.createClass({
                         return (
                             <div key={i+'-'+picture.url} className={'item '+(this.state.displayIndex == i ? ' active' : '')}>
                                 <div className="outer-img">
-                                    <Picture picture={picture} />
+                                    <Picture picture={picture}/>
                                     {this.renderPrice()}
                                 </div>
                             </div>
@@ -139,7 +139,11 @@ var RightColumn = React.createClass({
                     <div className="row">
                         <div className="col-xs-3">
                             <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                                <Picture picture={this.props.hairfie.business.pictures[0]} resolution={220} />
+                                <Picture
+                                    picture={_.first(this.props.hairfie.business.pictures)}
+                                    options={{ width: 220, height: 220, crop: 'thumb' }}
+                                    placeholder="/img/placeholder-640.png"
+                                />
                             </Link>
                         </div>
                         <div className="col-xs-9 address-bloc">
@@ -204,7 +208,7 @@ var SimilarHairfies = React.createClass({
                                     <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                                         <Picture picture={_.last(hairfie.pictures)}
                                                 resolution={{width: 640, height: 640}}
-                                                placeholder="/images/placeholder-640.png"
+                                                placeholder="/img/placeholder-640.png"
                                                 alt="" />
                                         <figcaption>
                                             {hairdresser}

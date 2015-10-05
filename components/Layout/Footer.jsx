@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Link = require('../Link.jsx');
+var EmailModal = require('../Partial/EmailModal.jsx');
 
 module.exports = React.createClass({
     render: function() {
@@ -10,19 +11,18 @@ module.exports = React.createClass({
         } else {
             return this.renderDesktop();
         }
-    },
+    }, 
     renderDesktop: function () {
         return (
             <footer className="visible-md visible-lg">
                 <div className="container">
                     <div className="row">
                         <ul className="footer-links col-md-7">
-                        <li className="col-sm-2"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
-                        <li className="col-sm-2"><a href="#">Presse</a></li>
-                        <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
-                        <li className="col-sm-4"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions Générales</a></li>
-                        <li className="col-sm-2"><Link route="home_pro" className="btn btn-red">Gérez votre salon</Link></li>
-
+                            <li className="col-sm-2"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
+                            <li className="col-sm-2"><a onClick={this.openEmailModal}>Newsletter</a></li>
+                            <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
+                            <li className="col-sm-4"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions Générales</a></li>
+                            <li className="col-sm-2"><Link route="home_pro" className="btn btn-red">Gérez votre salon</Link></li>
                         </ul>
                     </div>
                     <div className="row">
@@ -40,6 +40,7 @@ module.exports = React.createClass({
                     </div>
                     <p>© Hairfie 2015</p>
                 </div>
+                <EmailModal ref="emailModal" />
             </footer>
         );
     },
@@ -56,5 +57,8 @@ module.exports = React.createClass({
                 </div>
             </footer>
         )
+    },
+    openEmailModal: function() {
+        this.refs.emailModal.open();
     }
 });
