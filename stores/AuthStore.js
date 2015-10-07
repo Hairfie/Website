@@ -12,11 +12,12 @@ module.exports = createStore({
     handlers: makeHandlers({
         onReceiveToken: Actions.RECEIVE_TOKEN,
         onDeleteToken: Actions.DELETE_TOKEN,
-        onClosedPopupStatusChange: Actions.CLOSED_POPUP_STATUS
+        onClosedPopupStatusChange: Actions.CLOSED_POPUP_STATUS,
+        onNavigateSuccess: Actions.NAVIGATE_SUCCESS
     }),
     initialize: function () {
         this.tokens = {};
-        this.closesPopupStatus;
+        this.closesPopupStatus, this.hasNavigated;
     },
     dehydrate: function () {
         return { tokens: this.tokens };
@@ -46,5 +47,14 @@ module.exports = createStore({
         } else {
             return this.closedPopupStatus;
         }
-    }
+    },
+    onNavigateSuccess: function() {
+        this.hasNavigated = true;
+        this.emitChange();
+    },
+    shouldOpenPopup: function() {
+        var shouldOpenPopup = this.hasNavigated && !this.closedPopupStatus && !_.isUndefined(this.closedPopupStatus);
+
+        return shouldOpenPopup;
+    },
 });

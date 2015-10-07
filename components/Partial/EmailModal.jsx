@@ -34,13 +34,17 @@ var EmailModal = React.createClass({
     },
     getStateFromStores: function() {
         var hasClosedPopup =  this.context.getStore('AuthStore').getClosedPopupStatus();
+        var shouldOpenPopup = this.context.getStore('AuthStore').shouldOpenPopup();
 
         return {
-            hasClosedPopup: hasClosedPopup
+            hasClosedPopup: hasClosedPopup,
+            shouldOpenPopup: shouldOpenPopup
         };
     },
     onStoreChange: function () {
         this.setState(this.getStateFromStores());
+        var shouldOpenPopup = this.context.getStore('AuthStore').shouldOpenPopup();
+        if(shouldOpenPopup) this.open();
     },
     close: function() {
         this.context.executeAction(SubscriberActions.hasClosedPopup);
@@ -54,17 +58,6 @@ var EmailModal = React.createClass({
             bsStyle: null,
             label: 'Email'  
         });
-    },
-    autoOpen: function() {
-        if(!this.state.hasClosedPopup) {
-            this.setState({ 
-                showModal: true, 
-                hasSubscribed: false,  
-                isValid: null,
-                bsStyle: null,
-                label: 'Email'  
-            });
-        }
     },
     render: function() {
         return (
@@ -89,7 +82,7 @@ var EmailModal = React.createClass({
                     <p>Vous souhaitez être tenu au courant de l'actualité de Hairfie, de nos conseils et bons plans coiffure du moment ?</p>
                     <p>
                         <Input type="email" ref="email" label={this.state.label} bsStyle={this.state.bsStyle} placeholder="julia@hairfie.com" onBlur={this.validateEmailInput} />
-                        <Button onClick={this.addSubscriber.bind(this)} className="btn btn-red">S'inscrire</Button>
+                        <Button onClick={this.addSubscriber} className="btn btn-red">S'inscrire</Button>
                     </p>
                     <p>Promis, on garde l'email pour nous et pas de spam.</p>
                 </Modal.Body>
