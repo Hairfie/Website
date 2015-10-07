@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./BusinessPage/Layout.jsx');
+var Link = require('./Link.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -13,9 +14,6 @@ function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName ||
 function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+(u.lastName || '').substr(0, 1); }
 
 var BusinessReviewPage = React.createClass({
-    contextTypes: {
-        executeAction: React.PropTypes.func
-    },
     render: function () {
         if ((this.props.reviews || []).length == 0) {
             return (
@@ -31,8 +29,8 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews">
-            {this.renderForm()}
                 <div className="comments">
+                    <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Déposer un avis</Link>
                     {_.map(this.props.reviews, function (review) {
                         return (
                             <div key={review.id} className="single-comment col-xs-12">
@@ -52,17 +50,6 @@ var BusinessReviewPage = React.createClass({
                 </div>
             </Layout>
         );
-    },
-    renderForm: function() {
-        return(
-            <form>
-                <input type="textarea" ref="comment" />
-                <a className="btn" onClick={this.submit} />
-            </form>
-            );
-    },
-    submit: function(e) {
-        e.preventDefault();
     }
 });
 

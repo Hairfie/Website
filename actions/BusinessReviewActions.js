@@ -21,14 +21,9 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_BUSINESS_REVIEWS, businessReviews);
             });
     },
-    loadRequest: loadRequest,
-    submitVerified: function (context, payload) {
-        var review = _.assign({}, payload.businessReview, {
-            requestId: payload.businessReviewRequest.id
-        });
-
+    submitReview: function(context, payload) {
         return context.hairfieApi
-            .post('/businessReviews', review, { token: null })
+            .post('/businessReviews', payload.review, {token: payload.token})
             .then(function (businessReview) {
                 ga('send', 'event', 'Business Reviews', 'Submit');
 
@@ -47,11 +42,3 @@ module.exports = {
             });
     }
 };
-
-function loadRequest(context, requestId) {
-    return context.hairfieApi
-        .get('/businessReviewRequests/'+requestId)
-        .then(function (request) {
-            context.dispatch(Actions.RECEIVE_BUSINESS_REVIEW_REQUEST, request);
-        });
-}

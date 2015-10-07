@@ -626,6 +626,16 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 	}
 }
 .comments {
+	.post-comment {
+		textarea {
+			margin-top: 10px;
+			width: 100%;
+			height: 80px;
+			border-color: $hairfie;
+			border-radius: 10px;
+			resize: none;
+		}
+	}
 	.single-comment {
 		border-bottom: 1px solid $border-color;
 		padding: 20px;

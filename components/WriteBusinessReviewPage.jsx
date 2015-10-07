@@ -45,7 +45,7 @@ var RatingInput = React.createClass({
             off : !on
         });
 
-        return <a href="#" className={className} style={{margin: '2px'}} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
+        return <a role="button" className={className} style={{margin: '2px'}} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
     },
     getValue: function () {
         return this.state.value;
@@ -94,13 +94,13 @@ var ReviewForm = React.createClass({
                 <Row>
                     <Col sm={6}>
                         <Input ref="firstName" type="text"
-                            defaultValue={this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName}
+                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName || this.props.currentUser && this.props.currentUser.firstName}
                             label={<div>Votre prénom <RequiredAsterisk /></div>}
                         />
                     </Col>
                     <Col sm={6}>
                         <Input ref="lastName" type="text"
-                            defaultValue={this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName}
+                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName || this.props.currentUser && this.props.currentUser.lastName}
                             label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
@@ -177,24 +177,18 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
     renderBody: function () {
-        var brr = this.props.businessReviewRequest;
+        var business = this.props.business;
+        var brr = this.props.businessReviewRequest
 
-        if (!brr) return <p>La page que vous avez demandée est introuvable.</p>;
-        if (brr.used) return (
-            <div className="container write-review" id="content" style={{minHeight: '100%'}}>
-                <h1>Merci !</h1>
-                <p>Votre avis a bien été envoyé.</p>
-            </div>
-        );
-        if (!brr.canWrite) return <p>Il semble que vous ne puissiez pas soumettre d'avis pour le moment.{/*'*/}</p>;
+        if (!business) return <p>La page que vous avez demandée est introuvable.</p>;
 
-        var title = 'Votre avis sur ' + brr.business.name;
+        var title = 'Votre avis sur ' + business.name;
         var bookingNode;
 
-        if(brr.booking) {
+        if(brr && brr.booking) {
             bookingNode = <p>Vous êtes allé le <strong>{moment(brr.booking.timeslot).format("dddd D MMMM YYYY")}</strong> chez <strong>{brr.business.name}</strong>.</p>
         } else {
-            bookingNode = <p>Vous êtes récemment passé(e) chez <strong>{brr.business.name}</strong>.</p>
+            bookingNode = <p>Vous êtes récemment passé(e) chez <strong>{business.name}</strong>.</p>
         }
 
         return (
@@ -203,23 +197,28 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
                 {bookingNode}
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
-                <ReviewForm businessReviewRequest={brr} onSubmit={this.submitReview} />
+                <ReviewForm businessReviewRequest={brr} currentUser={this.props.currentUser} onSubmit={this.submitReview} />
             </div>
         );
     },
     submitReview: function (review) {
-        this.context.executeAction(BusinessReviewActions.submitVerified, {
-            businessReviewRequest: this.props.businessReviewRequest,
-            businessReview       : review
+        this.context.executeAction(BusinessReviewActions.submitReview, {
+            review: review,
+            token: token
         });
     }
 });
 
 WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
-    'BusinessReviewRequestStore'
+    'AuthStore',
+    'UserStore',
+    'BusinessStore'
 ], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
-        businessReviewRequest: context.getStore('BusinessReviewRequestStore').getById(props.route.params.businessReviewRequestId)
+        token: token,
+        currentUser: context.getStore('UserStore').getById(token.userId),
+        business: context.getStore('BusinessStore').getById(props.route.query.businessId)
     };
 });
 

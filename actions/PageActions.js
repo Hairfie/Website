@@ -96,11 +96,6 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_BOOKING, booking);
             });
     },
-    writeVerifiedBusinessReview: function (context, route) {
-        var businessReviewRequestId  = route.get('params').get('businessReviewRequestId');
-
-        return context.executeAction(BusinessReviewActions.loadRequest, businessReviewRequestId);
-    },
     resetPassword: function (context, route) {
         return context.hairfieApi
             .get('/accessTokens/'+route.get('params').get('tokenId'))
@@ -146,6 +141,13 @@ module.exports = {
     hairdresserHairfies: function(context, route) {
         return Promise.all([
             context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
+        ]);
+    },
+    writeBusinessReview: function(context, route) {
+        var id = route.get('query').get('businessId');
+        if (!id) return;
+        return Promise.all([
+            context.executeAction(BusinessActions.loadBusiness, id)
         ]);
     }
 };
