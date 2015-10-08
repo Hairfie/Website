@@ -7,6 +7,16 @@ var NotificationActions = require('./NotificationActions');
 var ga = require('../services/analytics');
 
 module.exports = {
+    loadRequest: function (context, requestId) {
+        console.log(requestId);
+        if (!requestId) return;
+        return context.hairfieApi
+            .get('/businessReviewRequests/'+requestId)
+            .then(function (request) {
+                context.dispatch(Actions.RECEIVE_BUSINESS_REVIEW_REQUEST, request);
+                return request;
+            });
+    },
     loadBusinessReviews: function (context, payload) {
         var businessId = payload.businessId;
 

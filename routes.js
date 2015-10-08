@@ -31,6 +31,13 @@ module.exports = {
         method: 'get',
         handler: require('./components/AskResetPasswordPage.jsx')
     },
+    old_write_business_review: {
+        title: 'Donnez votre avis',
+        path: '/fr/write-business-review/:businessReviewRequestId',
+        method: 'get',
+        handler: require('./components/WriteBusinessReviewPage.jsx'),
+        action: PageActions.writeBusinessReview
+    },
     write_business_review: {
         title: 'Donnez votre avis',
         path: '/fr/deposer-un-avis',
