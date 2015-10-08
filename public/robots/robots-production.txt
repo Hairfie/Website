@@ -1,6 +1,3 @@
-User-agent: Amazon CloudFront
-Disallow: /
-
 User-agent: *
 Disallow: /fr/search/
 Disallow: /fr/businesses/

@@ -65,8 +65,9 @@ server.use(function (req, res, next) {
                 markup  : markup
             }));
 
-            res.write(html);
-            res.end();
+            // res.write(html);
+            // res.end();
+            res.send(html);
         })
         .catch(function (err) {
             next(err);
