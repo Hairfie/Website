@@ -79,7 +79,7 @@ var EmailModal = React.createClass({
         } else {
             return (
                 <Modal.Body>
-                    <p>Vous souhaitez être tenu au courant de l'actualité de Hairfie, de nos conseils et bons plans coiffure du moment ?</p>
+                    <p>Vous souhaitez être tenu(e) au courant de l'actualité de Hairfie, de nos conseils et bons plans coiffure du moment ?</p>
                     <p>
                         <Input type="email" ref="email" label={this.state.label} bsStyle={this.state.bsStyle} placeholder="julia@hairfie.com" onBlur={this.validateEmailInput} />
                         <Button onClick={this.addSubscriber} className="btn btn-red">S'inscrire</Button>
