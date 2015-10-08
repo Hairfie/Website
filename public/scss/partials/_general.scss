@@ -164,7 +164,7 @@ ul {
 
 	.star {
 		height: 24px;width: 24px;
-		background: url(../images/star.png) no-repeat center center;
+		background: url(../img/star.png) no-repeat center center;
 		background-size:100%;
 		margin: 6px;
 		cursor: pointer;
@@ -178,7 +178,7 @@ ul {
 			@include transition(all 0.15s ease-out);
 
 			width: 100%;height: 100%;
-			background: url(../images/star-full.png) no-repeat center center;
+			background: url(../img/star-full.png) no-repeat center center;
 			background-size:100%;
 			position: absolute; top: 0;left: 0;bottom: 0;right: 0;margin: auto;
 		}
@@ -189,7 +189,7 @@ ul {
 			}
 		}
 		&.full{
-			background: url(../images/star-full.png) no-repeat center center;
+			background: url(../img/star-full.png) no-repeat center center;
 			background-size:100%;
 		}
 	}
@@ -414,7 +414,7 @@ figure {
 	float: left;
 	width: 34px;height: 34px;
 	display: inline-block;
-	background: url(../images/icon-promo.png) no-repeat center center;
+	background: url(../img/icon-promo.png) no-repeat center center;
 
 	text-align: center;
 	color: white; line-height: 34px;
@@ -474,7 +474,7 @@ input[type="checkbox"]:checked + span:after {
 	position: absolute;
 	top: 0;left: -18px;
 	width: 14px; height: 15px;
-	background: url(../images/sign-checkbox.png) no-repeat center center;
+	background: url(../img/sign-checkbox.png) no-repeat center center;
 	@include transition(all .2s);
 }
 /* Aspect si "pas cochée" */
@@ -494,7 +494,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 	left: -18px;
 	width: 13px;
 	height: 13px;
-	background: url(../images/sign-checkbox-locked.png) no-repeat center center;
+	background: url(../img/sign-checkbox-locked.png) no-repeat center center;
 	background-size: 100%;
 }
 

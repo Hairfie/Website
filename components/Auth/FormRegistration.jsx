@@ -13,7 +13,7 @@ module.exports = React.createClass({
         executeAction: React.PropTypes.func
   },
   getInitialState: function() {
-    return {cgu: false, newsletter: true, userGender: this.props.gender || ""};
+    return {newsletter: true, userGender: this.props.gender || ""};
   },
 	render: function() {
 		return (
@@ -36,16 +36,11 @@ module.exports = React.createClass({
           <div className="form-group">
             <ImageField ref="picture" container="users" text="(facultatif)"/>
           </div>
-  				<label for="cgu" className="register-checkbox">
+  				<label for="newsletter" className="register-checkbox">
             <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged} />
             <span></span>
             Je souhaite recevoir les Newsletters.
           </label>
-  				<label for="cgu" className="register-checkbox">
-            <input type="checkbox" name='cgu' checked={this.state.cgu === true} onChange={this.handleCGUChanged} />
-            <span></span>
-            Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
-        </label>
   			<a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
 		</form>
 		);
@@ -55,11 +50,7 @@ module.exports = React.createClass({
       userGender: e.currentTarget.value
     });
   },
-  handleCGUChanged: function (e) {
-    this.setState({
-    	cgu: e.currentTarget.checked
-    });
-  },
+
   handleNewsletterChanged: function (e) {
   	this.setState({
   		newsletter: e.currentTarget.checked
@@ -68,11 +59,6 @@ module.exports = React.createClass({
 	submit: function(e) {
     e.preventDefault();
 
-		if (!this.state.cgu)
-            return this.context.executeAction(
-                NotificationActions.notifyFailure,
-                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
-            );
 		var userInfo = {
 			email: this.refs.email.getValue(),
 			firstName: this.refs.firstName.getValue(),

@@ -1,559 +1,563 @@
 /*////////////////////////////////
-	   P A G E  H O M E
+       P A G E  H O M E
 ////////////////////////////////*/
 
 .landing {
-	width: 100vw;
-	@media screen and (min-width: $screen-xs-max) {
-		height: 500px;
-	}
-	max-width: 100%; // fix-mobile horizontal scroll
-	background: url(../images/bg-landing.jpg) no-repeat top center;
-	background-size: cover;
-	text-align: center;
-	position: relative;
-	h1, p {
-		width: 100%;
-		color: white;
-	}
-	h1 {
-		margin-bottom: 40px;
-		text-transform: uppercase;
-		letter-spacing: 5px;
-	}
-	p {
-		font-size: 1.6em;
-		font-weight: $regular;
-	}
-	.headline {
-	    margin: 100px auto 0;
-	    height: 132px;
-	    @include nofloat;
-	    h1 {
-	    	@media screen and (max-width: $screen-xs-max) {
-	    		margin-top: 150px;
-	    	}
-	    }
-	    p {
-	    	letter-spacing: 1.34px;
-	    	padding: 0 10%;
-	    	@media screen and (max-width: $screen-xs-max) {
-	    		display: none;
-	    	}
-	    }
-	}
+    width: 100vw;
+    @media screen and (min-width: $screen-xs-max) {
+        height: 500px;
+    }
+    max-width: 100%; // fix-mobile horizontal scroll
+    background: url(../img/bg-landing.jpg) no-repeat top center;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    h1, p {
+        width: 100%;
+        color: white;
+    }
+    h1 {
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+    p {
+        font-size: 1.6em;
+        font-weight: $regular;
+    }
+    .headline {
+        margin: 100px auto 0;
+        height: 132px;
+        @include nofloat;
+        h1 {
+            @media screen and (max-width: $screen-xs-max) {
+                margin-top: 150px;
+            }
+        }
+        p {
+            letter-spacing: 1.34px;
+            padding: 0 10%;
+            @media screen and (max-width: $screen-xs-max) {
+                display: none;
+            }
+        }
+    }
 
-	.btn-red {
-		height: 58px;
-		font-size: 1.4em;
-		text-align: center;
-		padding: 0; 
-		margin: 10px;
-		line-height: 30px;
-		text-transform: uppercase;
-		font-family: $font-second;
-		font-weight: $latoBold;
-		border-radius:0;
-		padding: 16px 30px;
-		border-radius: 0 !important;
-		letter-spacing: 2px;
-	}
+    .btn-red {
+        height: 58px;
+        font-size: 1.4em;
+        text-align: center;
+        padding: 0; 
+        margin: 10px;
+        line-height: 30px;
+        text-transform: uppercase;
+        font-family: $font-second;
+        font-weight: $latoBold;
+        border-radius:0;
+        padding: 16px 30px;
+        border-radius: 0 !important;
+        letter-spacing: 2px;
+    }
 }
 section.home-section {
-	margin: 0 15px;
-	padding-bottom: 40px;
-	background:white;
-	@include fullWidthBg(white);
-	.row  {
-		margin-left: 0;
-		margin-right: 0;
-	}
-	h2 {
-		font-family: $font-second;
-		font-weight: $regular;
-		letter-spacing: 3px;
-		padding:50px 0;
-		margin: 0;
-		font-size: 2.4em;
-		color: $darkgrey;
-	}
-	// .row + .row {
-	// 	margin-top:20px;
-	// }
-	figure {
-  		overflow: hidden;
-  		background-color: $darkgrey;
+    margin: 0 15px;
+    padding-bottom: 40px;
+    background:white;
+    @include fullWidthBg(white);
+    .row  {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    h2 {
+        font-family: $font-second;
+        font-weight: $regular;
+        letter-spacing: 3px;
+        padding:50px 0;
+        margin: 0;
+        font-size: 2.4em;
+        color: $darkgrey;
+    }
+    // .row + .row {
+    //  margin-top:20px;
+    // }
+    figure {
+        overflow: hidden;
+        background-color: $darkgrey;
 
-  		img {
-  			min-width: 100%; height: auto;
-			@include transition(all 0.25s ease-out);
-  		}
+        img {
+            min-width: 100%; height: auto;
+            @include transition(all 0.25s ease-out);
+        }
 
-  		figcaption {
-  			top: 0;left: 0;
-  			background: rgba(0,0,0,0.07);
-			color: white;
+        figcaption {
+            top: 0;left: 0;
+            background: rgba(0,0,0,0.07);
+            color: white;
 
-			font-family: $font-main;
-			font-weight: $semiBold;
+            font-family: $font-main;
+            font-weight: $semiBold;
 
-			font-size: 1.6em;
-			text-align: left;
+            font-size: 1.6em;
+            text-align: left;
 
 
-  			a {
-  				color: white;
-  				font-family: $font-main;
-  				font-weight: $regular;
+            a {
+                color: white;
+                font-family: $font-main;
+                font-weight: $regular;
 
-  				&:hover {
-  					text-decoration: underline;
-  				}
-  				&:visited,&:active,&:focus {
-  					color: white;
-  					text-decoration: none;
-  				}
-  			}
+                &:hover {
+                    text-decoration: underline;
+                }
+                &:visited,&:active,&:focus {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
 
-  		}
-	}
-	.btn.home-cta {
-		display: block;
-		margin: 40px auto 0;
-		@include nofloat;
-	}
+        }
+    }
+    .btn.home-cta {
+        display: block;
+        margin: 40px auto 0;
+        @include nofloat;
+    }
 }
 
 .choice {
-	margin-top: 90px;
-	
+    margin-top: 90px;
+    
 }
 
 .landing .main-searchbar, .home-search .main-searchbar {
-	padding: 20px;
-	margin: 90px 15px 60px 15px;
-	height: 100px;
-	border-radius:3px;
-	> div {
-		padding-left: 0;
-		&:nth-child(2) {
-			padding-right: 0;
-		}
-	}
-	input {
-		height: 60px;line-height: 60px;
-		margin-right: 0px; margin-left: -5px;
-		&:first-child {
-			margin-right: 10px;
-		}
-		&:nth-child(2) {
-			margin-left: -5px;
-		}
-		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
-			font-size: 1.0em;
-		}
-	}
-	.btn-red, .btn-book {
-		height: 58px;
-		font-size: 1.4em;
-		text-align: center;
-		padding: 0; margin-top: 1px;
-		margin-left: -5px;
-		line-height: 60px;
+    padding: 20px;
+    margin: 90px 15px 60px 15px;
+    height: 100px;
+    border-radius:3px;
+    > div {
+        padding-left: 0;
+        &:nth-child(2) {
+            padding-right: 0;
+        }
+    }
+    input {
+        height: 60px;line-height: 60px;
+        margin-right: 0px; margin-left: -5px;
+        &:first-child {
+            margin-right: 10px;
+        }
+        &:nth-child(2) {
+            margin-left: -5px;
+        }
+        @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+            font-size: 1.0em;
+        }
+    }
+    .btn-red, .btn-book {
+        height: 58px;
+        font-size: 1.4em;
+        text-align: center;
+        padding: 0; margin-top: 1px;
+        margin-left: -5px;
+        line-height: 60px;
 
-		@media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
-			letter-spacing: 1px;
-			font-size: 1.0em;
-		}
-	}
+        @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+            letter-spacing: 1px;
+            font-size: 1.0em;
+        }
+    }
 }
 
 #home section.home-search {
-	.main-searchbar {
-		margin: 0;
-	}
+    .main-searchbar {
+        margin: 0;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        display: none;
+    }
 }
 
 #home section.categories {
-	figure {
-  		&:hover {
-			@include transition(all 0.25s ease-out);
+    figure {
+        &:hover {
+            @include transition(all 0.25s ease-out);
 
-			img {
-				@include scale(1.1);
-			}
-		}
-	}
-	figcaption{
+            img {
+                @include scale(1.1);
+            }
+        }
+    }
+    figcaption{
 
-		font-size: 2.1em;
-		text-align: center;
-		a {
-			width: 100%;
-			height: 100%;
-			display: block;
-			line-height: 140px;
-			position: relative;
-			span {
-				display: block;
-				line-height: 1.4;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				font-weight: $semiBold;
+        font-size: 2.1em;
+        text-align: center;
+        a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            line-height: 140px;
+            position: relative;
+            span {
+                display: block;
+                line-height: 1.4;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: $semiBold;
 
-				width: 100%;
-				height: 2.8em;
-				top: 50%;
-				//left: 50%;
-				position: absolute;
-				//margin-top: -0.8em;
-				margin-top: -1.4em;
-				//margin-left: -20%;
-				&.oneline {
-					margin-top: -0.8em;
-				}
-			}
-		}
-	}
-	.row + .row {
-		margin-top: 15px;
-		@media screen and (max-width: $screen-sm-min) {
-			margin-top: 0 !important;
-		}
-	}
-	.row {
-		@media screen and (max-width: $screen-sm-min) {
-			> div {
-				margin: 10px 0px;
-			}
-		}
-		.col-sm-3 {
-			padding: 0;
-			padding-right: 15px;
-			&:nth-child(4) {
-				@media screen and (max-width: $screen-sm-min) {
-					padding-right: 15px !important;
-				}
-			}
+                width: 100%;
+                height: 2.8em;
+                top: 50%;
+                //left: 50%;
+                position: absolute;
+                //margin-top: -0.8em;
+                margin-top: -1.4em;
+                //margin-left: -20%;
+                &.oneline {
+                    margin-top: -0.8em;
+                }
+            }
+        }
+    }
+    .row + .row {
+        margin-top: 15px;
+        @media screen and (max-width: $screen-sm-min) {
+            margin-top: 0 !important;
+        }
+    }
+    .row {
+        @media screen and (max-width: $screen-sm-min) {
+            > div {
+                margin: 10px 0px;
+            }
+        }
+        .col-sm-3 {
+            padding: 0;
+            padding-right: 15px;
+            &:nth-child(4) {
+                @media screen and (max-width: $screen-sm-min) {
+                    padding-right: 15px !important;
+                }
+            }
 
-		}
-	}
+        }
+    }
 }
 #home section.deals {
-	.row > div {
-		&:first-child {
-			padding-left: 0;
-		}
-		&:last-child {
-			padding-right: 0;
-		}
-		@media screen and (max-width: $screen-sm-max) {
-			// margin-top: 20px !important;
-			&:nth-child(2) {
-				padding-left: 7px;
-				padding-right: 7px;
-			}
-		}
-		@media screen and (max-width: $screen-xs-max) {
-			margin-top: 20px !important;
-			&:nth-child(2) {
-				padding-left: 0px;
-				padding-right: 0px;
-			}
-		}
-		@media screen and (max-width: $screen-xs-max) {
-			padding: 0;
-		}
-	}
-	figure {
-		border-radius: 0;
-		cursor: pointer;
-		img {
-			height: 275px;
-			@media screen and (max-width: $screen-sm-max) {
-				height:auto;
-				min-height: 200px;
-			}
-		}
-		figcaption {
-			height: 40%;
-			bottom:0; top: auto;
-			background-color: rgba(0,0,0,0.35);
-			padding: 12px;
+    .row > div {
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+        @media screen and (max-width: $screen-sm-max) {
+            // margin-top: 20px !important;
+            &:nth-child(2) {
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            margin-top: 20px !important;
+            &:nth-child(2) {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            padding: 0;
+        }
+    }
+    figure {
+        border-radius: 0;
+        cursor: pointer;
+        img {
+            height: 275px;
+            @media screen and (max-width: $screen-sm-max) {
+                height:auto;
+                min-height: 200px;
+            }
+        }
+        figcaption {
+            height: 40%;
+            bottom:0; top: auto;
+            background-color: rgba(0,0,0,0.35);
+            padding: 12px;
 
-			@media screen and (max-width: $screen-sm-max) {
-				height:100% ;
-				padding-top: 25%;
-			}
-			@media screen and (max-width: $screen-xs-max) {
-				height:100% ;
-				padding-top: 35%;
-			}
+            @media screen and (max-width: $screen-sm-max) {
+                height:100% ;
+                padding-top: 25%;
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                height:100% ;
+                padding-top: 35%;
+            }
 
-			p {
-				margin-bottom: 0;
-			}
-			.btn-red {
-				font-size: 12px;
-				padding: 3px 7px;
-				letter-spacing: 1px;
-				font-weight: $semiBold;
-				line-height: 1.4;
-				margin-top: 5px;
-			}
-			span {
-				font-size: 20px;
-			}
-			a:first-child, a:nth-child(2) {
-				display: block;
-				letter-spacing: 2px;
-			}
-			a:first-child {
-				text-transform: uppercase;
-			    margin-top: 10px;
+            p {
+                margin-bottom: 0;
+            }
+            .btn-red {
+                font-size: 12px;
+                padding: 3px 7px;
+                letter-spacing: 1px;
+                font-weight: $semiBold;
+                line-height: 1.4;
+                margin-top: 5px;
+            }
+            span {
+                font-size: 20px;
+            }
+            a:first-child, a:nth-child(2) {
+                display: block;
+                letter-spacing: 2px;
+            }
+            a:first-child {
+                text-transform: uppercase;
+                margin-top: 10px;
 
-				&:hover {
-					text-decoration: none;
-				}
-			}
-			a:nth-child(2) {
-				font-weight: $regular;
-				font-size: .9em;
-				margin-bottom: 5px;
-			}
-			.icon-promo {
-				position: absolute;
-				top: -130%; right: 20px;
-				width: 60px; height: 60px;
-				background-size: 100%; line-height: 60px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            a:nth-child(2) {
+                font-weight: $regular;
+                font-size: .9em;
+                margin-bottom: 5px;
+            }
+            .icon-promo {
+                position: absolute;
+                top: -130%; right: 20px;
+                width: 60px; height: 60px;
+                background-size: 100%; line-height: 60px;
 
-				@media screen and (max-width: $screen-sm-max) {
-					width: 35px !important;
-					height: 35px !important;
-					line-height: 35px !important;
-					font-size: .9em !important;
-				}
-				@media screen and (max-width: $screen-sm-max) {
-					top: 15px;
-					right: 15px;
-					width: 60px; height: 60px;
-					line-height: 60px;
-					font-size: 1em;
-				}
-			}
-			.stars {
-				height: auto;
-				.star {
-					margin: 2px;
-					height: 16px;
-  					width: 16px;
-  					cursor: default;
-  					&:hover {
-  						&:after {
-							opacity: 0 !important;
-						}
-  					}
-				}
-				.avis {
-					font-size: 1em;
-					font-weight: $light;
-					letter-spacing: 1px;
-					line-height: 1;
-					float: none;
-				}
-			}
-		}
-	}
+                @media screen and (max-width: $screen-sm-max) {
+                    width: 35px !important;
+                    height: 35px !important;
+                    line-height: 35px !important;
+                    font-size: .9em !important;
+                }
+                @media screen and (max-width: $screen-sm-max) {
+                    top: 15px;
+                    right: 15px;
+                    width: 60px; height: 60px;
+                    line-height: 60px;
+                    font-size: 1em;
+                }
+            }
+            .stars {
+                height: auto;
+                .star {
+                    margin: 2px;
+                    height: 16px;
+                    width: 16px;
+                    cursor: default;
+                    &:hover {
+                        &:after {
+                            opacity: 0 !important;
+                        }
+                    }
+                }
+                .avis {
+                    font-size: 1em;
+                    font-weight: $light;
+                    letter-spacing: 1px;
+                    line-height: 1;
+                    float: none;
+                }
+            }
+        }
+    }
 }
 #home section.hairfies {
-	// .row + .row {
-	// 	margin:0px;
-	// 	padding: 0;
-	// }
-	// .col-sm-3 {
-	// 	padding: 0;
-	// }
+    // .row + .row {
+    //  margin:0px;
+    //  padding: 0;
+    // }
+    // .col-sm-3 {
+    //  padding: 0;
+    // }
 
-	.small-hairfies {
+    .small-hairfies {
 
-		> div { // .row
-			margin-left: -15px;
-			margin-right: -15px;
+        > div { // .row
+            margin-left: -15px;
+            margin-right: -15px;
 
-			> div { // .col-xs-6
-				// max-width: 265px;max-height: 265px;
-				padding: 0;
-				// @media screen and (max-width: $screen-xs-max) {
-				// 	margin-right: 0;
-				// 	width: 100%;
-				// 	min-width: 100%;
-				// 	max-height: 325px;
-				// }
-				figure {
-					margin: 0 10px 10px 0;
-				}
-				figcaption{
-					a:first-child {
-						margin-top: 80%;
-						@media screen and (max-width: $screen-sm-max) {
-							margin-top: 50%;
-						}
-					}
-				}
-			}
-		}
-	}
-	.big {
-	    padding-left: 0;
-	    // height: 540px;
+            > div { // .col-xs-6
+                // max-width: 265px;max-height: 265px;
+                padding: 0;
+                // @media screen and (max-width: $screen-xs-max) {
+                //  margin-right: 0;
+                //  width: 100%;
+                //  min-width: 100%;
+                //  max-height: 325px;
+                // }
+                figure {
+                    margin: 0 10px 10px 0;
+                }
+                figcaption{
+                    a:first-child {
+                        margin-top: 80%;
+                        @media screen and (max-width: $screen-sm-max) {
+                            margin-top: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .big {
+        padding-left: 0;
+        // height: 540px;
 
-		@media screen and (max-width: $screen-xs-max) {
-			// height: 325px;
-			padding-right: 0;
-		}
+        @media screen and (max-width: $screen-xs-max) {
+            // height: 325px;
+            padding-right: 0;
+        }
 
-		figure {
-		    height: 100%;
-		    // max-height: 540px;
-		    height: 100%;
-			width: 100%;
-			padding: 0;
+        figure {
+            height: 100%;
+            // max-height: 540px;
+            height: 100%;
+            width: 100%;
+            padding: 0;
 
-			// @media screen and (max-width: $screen-xs-max) {
-			// 	height: 325px;
-			// }
+            // @media screen and (max-width: $screen-xs-max) {
+            //  height: 325px;
+            // }
 
-		    figcaption{
-		    	font-size: 2.1em;
-				p{
-					margin-left: 20px;
-					font-weight: $regular;
-					a {
-						display: inline-block;
-					    margin-top: 0 !important;
-					    margin-left: 0 !important;
-					    text-transform: none;
-					    text-decoration: underline;
-					}
-				}
-				a:first-child {
-					margin-top: 80%;
-					@media screen and (max-width: $screen-sm-max) {
-						margin-top: 50%;
-					}
+            figcaption{
+                font-size: 2.1em;
+                p{
+                    margin-left: 20px;
+                    font-weight: $regular;
+                    a {
+                        display: inline-block;
+                        margin-top: 0 !important;
+                        margin-left: 0 !important;
+                        text-transform: none;
+                        text-decoration: underline;
+                    }
+                }
+                a:first-child {
+                    margin-top: 80%;
+                    @media screen and (max-width: $screen-sm-max) {
+                        margin-top: 50%;
+                    }
 
-				}
-				a {margin-left: 20px;}
+                }
+                a {margin-left: 20px;}
 
-		    	.pricetag {
-				  width: 85px;
-				  height: 85px;
-				  line-height: 55px;
-		    	}
-		    }
-		}
-	}
+                .pricetag {
+                  width: 85px;
+                  height: 85px;
+                  line-height: 55px;
+                }
+            }
+        }
+    }
 
-	figure {
-		cursor: pointer;
+    figure {
+        cursor: pointer;
 
-		img {
-			height: auto;
-		}
+        img {
+            height: auto;
+        }
 
-		figcaption {
-			background-color: rgba(0,0,0,0.35);
-			opacity:0;
-			padding: 15px;
+        figcaption {
+            background-color: rgba(0,0,0,0.35);
+            opacity:0;
+            padding: 15px;
 
-			a:first-child, a:nth-child(2) {
-				display: block;
-				letter-spacing: 2px;
-			}
-			a:first-child {
-				margin-top: 70%;
-				text-transform: uppercase;
-				&:hover {
-					text-decoration: none;
-				}
-			}
-			a:nth-child(2) {
-				font-weight: $regular;
-			}
-		}
-		&:hover {
-			figcaption {
-				opacity: 1;
-			}
-		}
-	}
+            a:first-child, a:nth-child(2) {
+                display: block;
+                letter-spacing: 2px;
+            }
+            a:first-child {
+                margin-top: 70%;
+                text-transform: uppercase;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            a:nth-child(2) {
+                font-weight: $regular;
+            }
+        }
+        &:hover {
+            figcaption {
+                opacity: 1;
+            }
+        }
+    }
 }
 #home section:nth-child(odd) {
-	background-color: $bg2;
-	@include fullWidthBg($bg2);
+    background-color: $bg2;
+    @include fullWidthBg($bg2);
 }
 
 #home section.download {
-	@media screen and (min-width: $screen-xs-max) {
-    	height: 400px; width: 100vw;
-    	left: calc(-50vw + 50%);
-		background: url(../images/bg-download.jpg) no-repeat center center;
-		background-size: cover;
-		margin: 0;
+    @media screen and (min-width: $screen-xs-max) {
+        height: 400px; width: 100vw;
+        left: calc(-50vw + 50%);
+        background: url(../img/bg-download-lite.jpg) no-repeat center center;
+        background-size: cover;
+        margin: 0;
     }
 
     p {
-    	font-size: 1.6em;
-		font-family: $font-second;
-		font-weight: $latoLight;
-		color: $font-color;
+        font-size: 1.6em;
+        font-family: $font-second;
+        font-weight: $latoLight;
+        color: $font-color;
 
-		&.buttons {
-			margin-top: 50px;
-			text-align: center;
-		}
+        &.buttons {
+            margin-top: 50px;
+            text-align: center;
+        }
     }
 
     .btn-apple {
-    	//width: 204px;
+        //width: 204px;
     }
 }
 
 #home section.seo {
-	a {
-		font-size: 1.6em;
-		font-family: $font-second;
-		font-weight: $latoLight;
-		color: $font-color;
-		letter-spacing: 1px;
-		&:hover {color: $font-color;}
-	}
+    a {
+        font-size: 1.6em;
+        font-family: $font-second;
+        font-weight: $latoLight;
+        color: $font-color;
+        letter-spacing: 1px;
+        &:hover {color: $font-color;}
+    }
 
 }
 section.home-footer {
-	.row > div {
-		margin-bottom:60px;
-		text-align: center;
-		img {
-			width: 100px;height: 100px;
-			display: block;
-			margin: 0 auto 40px;
-		}
-		h3 {
-			font-family: $font-main;
-			font-weight: $semiBold;
-			color: #848b95;
-			text-transform: uppercase;
-			font-size: 1.6em;
-		}
-		p {
-			font-weight: $light;
-			color: $darkgrey;
-			font-size: 1.4em;
-			line-height: 2em;
-			letter-spacing: 1px;
-			width: 78%;
-			margin: 10px auto;
-		}
-	}
+    .row > div {
+        margin-bottom:60px;
+        text-align: center;
+        img {
+            width: 100px;height: 100px;
+            display: block;
+            margin: 0 auto 40px;
+        }
+        h3 {
+            font-family: $font-main;
+            font-weight: $semiBold;
+            color: #848b95;
+            text-transform: uppercase;
+            font-size: 1.6em;
+        }
+        p {
+            font-weight: $light;
+            color: $darkgrey;
+            font-size: 1.4em;
+            line-height: 2em;
+            letter-spacing: 1px;
+            width: 78%;
+            margin: 10px auto;
+        }
+    }
 }

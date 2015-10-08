@@ -99,12 +99,6 @@ var BusinessBookingPage = React.createClass({
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
     },
     handleSubmit: function() {
-        var cgu = this.refs.booking.getCGUStatus();
-        if (!cgu)
-            return this.context.executeAction(
-                NotificationActions.notifyFailure,
-                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
-            );
         var booking = this.refs.booking.getBookingInfo();
         this.context.executeAction(BookingActions.submitBooking, booking);
     }

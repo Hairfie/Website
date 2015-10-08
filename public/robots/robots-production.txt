@@ -1,4 +1,3 @@
-# Temp, SEO not on
 User-agent: *
 Disallow: /fr/search/
 Disallow: /fr/businesses/

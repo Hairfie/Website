@@ -3,7 +3,7 @@
 ////////////////////////////////*/
 #carousel-salon .carousel-inner .item {
 	height: 470px;
-	background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+	background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
 	background-size: cover;
 	background: none;
 
@@ -17,7 +17,7 @@
 
 	&.placeholder {
 		height: 470px;
-		background: url(../images/placeholder-salon-img.jpg) no-repeat center center;
+		background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
 		background-size: cover;
 	}
 
@@ -115,18 +115,18 @@
 			li {
 				&:first-child {
 					.icon-nav {
-						background: url(../images/icon-salon-nav1.jpg) no-repeat center center;
+						background: url(../img/icon-salon-nav1.jpg) no-repeat center center;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../images/icon-salon-nav2.jpg) no-repeat center center;
+						background: url(../img/icon-salon-nav2.jpg) no-repeat center center;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background: url(../images/icon-salon-nav3.jpg) no-repeat center center;
+						background: url(../img/icon-salon-nav3.jpg) no-repeat center center;
 					}
 				}
 			}
@@ -195,7 +195,7 @@
 			.map {
 				height: 247px;
 				width: auto;
-				background: url(../images/placeholder-map.jpg) no-repeat center center;
+				background: url(../img/placeholder-map.jpg) no-repeat center center;
 				margin: 30px -50px 0;
 				background-size:cover;
 			}
@@ -248,7 +248,7 @@
 				}
 				&:after {
 					content: " ";
-					background: url(../../images/icon-phone.png) no-repeat center center;
+					background: url(../img/icon-phone.png) no-repeat center center;
 					position: absolute;
 					width: 25px;
 					height: 25px;

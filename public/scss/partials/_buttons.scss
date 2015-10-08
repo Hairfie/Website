@@ -81,14 +81,14 @@ span.arrow {
     margin-top: -19px;
 }
 span.arrow-left {
-    background: url(../images/arrow-left.png) no-repeat center center;
+    background: url(../img/arrow-left.png) no-repeat center center;
     left: 60px;
     @media screen and (max-width: $screen-sm-max) {
         margin-top: 20px;
     }
 }
 span.arrow-right {
-    background: url(../images/arrow-right.png) no-repeat center center;
+    background: url(../img/arrow-right.png) no-repeat center center;
     right: 60px;
     @media screen and (max-width: $screen-sm-max) {
         margin-top: 20px;
@@ -112,7 +112,7 @@ div.connect-button {
         background-color: $facebook-bg;
         &:before {
             content: " ";
-            background: url(../../img/facebook@2x.png) no-repeat center center;
+            background: url(../img/facebook@2x.png) no-repeat center center;
             position: absolute;
             width: 60px;
             height: 60px;
@@ -128,7 +128,7 @@ div.connect-button {
         background-color: $twitter-bg;
         &:before {
             content: " ";
-            background: url(../../img/twitter@2x.png) no-repeat center center;
+            background: url(../img/twitter@2x.png) no-repeat center center;
             position: absolute;
             width: 60px;
             height: 60px;

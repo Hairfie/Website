@@ -20,7 +20,7 @@ var HairdresserPicture = React.createClass({
                         crop: 'thumb',
                         gravity: 'faces'
                      }}
-                    placeholder="/images/placeholder-640.png"
+                    placeholder="/img/placeholder-640.png"
                             alt={this.getAlt()} {...this.props} />;
     },
     renderDefault: function () {

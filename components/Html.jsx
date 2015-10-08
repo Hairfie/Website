@@ -11,12 +11,15 @@ var oldBrowserHtml = '<!--[if lt IE 9]> \
         </p> \
     <![endif]-->';
 
-var mailChimpHtml = '<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
+var mailChimpHtml = '';//'<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
 
 var Html = React.createClass({
     render: function() {
         var title = this.props.context.getStore('MetaStore').getTitle();
         var metas = this.props.context.getStore('MetaStore').getMetas();
+
+        var canonicalUrl = this.props.context.getStore('MetaStore').getCanonicalUrl();
+        var canonicalNode = canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null;
 
         return (
             <html className="no-js">
@@ -30,13 +33,15 @@ var Html = React.createClass({
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <meta name="apple-itunes-app" content="app-id=853590611" />
 
+                {canonicalNode}
+
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
-                <link rel="stylesheet" href="/css/style.css" />
+                <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
                 <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
                 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-                <link href="/components/blueimp-gallery/css/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
+                <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />

@@ -6,6 +6,7 @@ var NotificationActions = require('./NotificationActions');
 var NavigationActions = require('./NavigationActions');
 var authStorage = require('../services/auth-storage');
 var UserActions = require('./UserActions');
+var SubscriberActions = require('./SubscriberActions');
 
 var _storeTokenAndGetUser = function(context, token) {
     return Promise.all([
@@ -158,7 +159,8 @@ module.exports = {
 
         return Promise.all([
             token = authStorage.getToken(context),
-            context.executeAction(UserActions.userConnect, token)
+            context.executeAction(UserActions.userConnect, token),
+            context.executeAction(SubscriberActions.getClosedPopup)
         ]);
     }
 };

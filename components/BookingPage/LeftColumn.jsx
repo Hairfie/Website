@@ -21,7 +21,7 @@ module.exports = React.createClass({
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
                            resolution={{width: 220, height: 220}}
-                           placeholder="/images/placeholder-55.png" />
+                           placeholder="/img/placeholder-55.png" />
                     </Link>
                     <div className="address-bloc">
                         <h2>

@@ -1,6 +1,6 @@
 {
   "name": "Website",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "engines": {
     "node": "0.12.x"
   },
@@ -64,6 +64,7 @@
     "react-google-analytics": "^0.2.0",
     "react-intl": "^1.0.1",
     "react-notification-system": "^0.1.14",
+    "react-modal": "dinodsaurus/react-modal",
     "react-select": "^0.6.8",
     "reactify": "^1.1.1",
     "request": "~2.60.0",

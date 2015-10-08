@@ -45,7 +45,7 @@ var UserHairfiesPage = React.createClass({
                                     <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
                                         <Picture picture={_.last(hairfie.pictures)}
                                                 resolution={{width: 640, height: 640}}
-                                                placeholder="/images/placeholder-640.png"
+                                                placeholder="/img/placeholder-640.png"
                                                 alt="" />
                                                 <figcaption>
                                                     {hairdresser}

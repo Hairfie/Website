@@ -255,7 +255,7 @@
 				width: 100%;
 				// padding-left: 40px;
 				.icon {
-					background: url(../images/icon-resa-user.png) no-repeat center left;
+					background: url(../img/icon-resa-user.png) no-repeat center left;
 					width: 16px;height: 16px;display: inline-block;
 					position: absolute; left: 0; top: 3px;
 				}
@@ -281,13 +281,13 @@
 				}
 				&[for='email'] {
 					.icon {
-						background:url(../images/icon-resa-mail.png) no-repeat center left;
+						background:url(../img/icon-resa-mail.png) no-repeat center left;
 						width: 17px;
 					}
 				}
 				&[for='phone'] {
 					.icon {
-						background:url(../images/icon-resa-phone.png) no-repeat center left;
+						background:url(../img/icon-resa-phone.png) no-repeat center left;
 						width: 17px;
 					}
 				}
@@ -402,25 +402,25 @@
 			}
 			a:first-child {
 				&:before {
-            		background: url(../../img/icons/googleCalendar.png) no-repeat center center;
+            		background: url(../img/icons/googleCalendar.png) no-repeat center center;
             		background-size: contain;
         		}
 			}
 			a:nth-child(2) {
 				&:before {
-        			background: url(../../img/icons/yahooCalendar.png) no-repeat center center;
+        			background: url(../img/icons/yahooCalendar.png) no-repeat center center;
             		background-size: contain;
         		}
 			}
 			a:nth-child(3) {
 				&:before {
-        			background: url(../../img/icons/outlook.png) no-repeat center center;
+        			background: url(../img/icons/outlook.png) no-repeat center center;
             		background-size: contain;
         		}
 			}
 			a:nth-child(4) {
 				&:before {
-            		background: url(../../img/icons/icals.png) no-repeat center center;
+            		background: url(../img/icons/icals.png) no-repeat center center;
             		background-size: contain;
         		}
 			}

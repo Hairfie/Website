@@ -27,10 +27,12 @@ function assetsPlugin(options) {
 module.exports = assetsPlugin;
 
 function getUrl(options, asset) {
-    var url = (options.cdnUrl || '')+asset;
+    var url = (options.cdnUrl || '/assets') + asset;
 
     if (options.version) {
-        url = url+'?v='+options.version;
+        if(!url.match(/\?./)) url = url + '?';
+
+        url = url+'v='+options.version;
     }
 
     return url;

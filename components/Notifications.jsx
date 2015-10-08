@@ -10,28 +10,20 @@ var Notifications = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
     },
-    render: function () {
-        return (
-            <div>
-                {(this.props.notifications || []).map(this.renderNotification)}
-            </div>
-        );
+    _notificationSystem: null,
+    _addNotification: function(event) {
+        event.preventDefault();
+        this._notificationSystem.addNotification({
+          message: 'Notification message',
+          level: 'success'
+        });
     },
-    renderNotification: function (notification) {
-        var type;
-        switch (notification.type) {
-            case 'success':
-                type = 'success';
-                break;
-            case 'error':
-                type = 'danger';
-                break;
-        }
-
+    componentDidMount: function() {
+        this._notificationSystem = this.refs.notificationSystem;
+    },
+    render: function (notification) {
         return (
-            <Alert key={notification.id} bsStyle={type} onDismiss={this.close.bind(this, notification.id)}>
-                {notification.body}
-            </Alert>
+            <NotificationSystem ref="notificationSystem" />
         );
     },
     close: function (notificationId) {
