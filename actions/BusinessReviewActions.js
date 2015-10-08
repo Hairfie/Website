@@ -23,7 +23,7 @@ module.exports = {
     },
     submitReview: function(context, payload) {
         return context.hairfieApi
-            .post('/businessReviews', payload.review, {token: payload.token})
+            .post('/businessReviews', payload.review, {token: payload.token || null})
             .then(function (businessReview) {
                 ga('send', 'event', 'Business Reviews', 'Submit');
 

@@ -22,6 +22,7 @@ var BusinessReviewPage = React.createClass({
                         <br /><br />
                         Pas encore d'avis sur ce coiffeur.
                         <br /><br />
+                        <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Soyez le premier à déposer un avis</Link>
                     </p>
                 </Layout>
             );
@@ -29,8 +30,10 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews">
-                <div className="comments">
+                <div className="text-center" style={{marginTop: '10px'}}>
                     <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Déposer un avis</Link>
+                </div>
+                <div className="comments">
                     {_.map(this.props.reviews, function (review) {
                         return (
                             <div key={review.id} className="single-comment col-xs-12">

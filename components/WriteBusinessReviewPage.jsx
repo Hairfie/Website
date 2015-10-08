@@ -104,6 +104,18 @@ var ReviewForm = React.createClass({
                             label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
+                    <Col sm={6}>
+                        <Input ref="email" type="text"
+                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.email || this.props.currentUser && this.props.currentUser.email}
+                            label={<div>Votre adresse email <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
+                        />
+                    </Col>
+                    <Col sm={6}>
+                        <Input ref="phoneNumber" type="text"
+                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.phoneNumber || this.props.currentUser && this.props.currentUser.phoneNumber}
+                            label={<div>Votre numéro de téléphone <small>(cette information n'apparaitra pas)</small></div>}
+                        />
+                    </Col>
                 </Row>
                 <hr />
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
@@ -141,8 +153,12 @@ var ReviewForm = React.createClass({
     },
     getReview: function () {
         return {
+            businessId  : this.props.business.id,
+            authorId    : this.props.currentUser.id || undefined,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
+            email       : this.refs.email.getValue().trim(),
+            phoneNumber : this.refs.email.getValue().trim(),
             criteria    : {
                 welcome             : this.refs.welcome.getValue(),
                 discussion          : this.refs.discussion.getValue(),
@@ -152,7 +168,8 @@ var ReviewForm = React.createClass({
                 resultQuality       : this.refs.resultQuality.getValue(),
                 availability        : this.refs.availability.getValue()
             },
-            comment     : this.refs.comment.getValue().trim()
+            comment     : this.refs.comment.getValue().trim(),
+            requestId   : this.props.businessReviewRequest && this.props.businessReviewRequest.id || undefined
         }
     },
     submit: function () {
@@ -197,14 +214,14 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
                 {bookingNode}
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
-                <ReviewForm businessReviewRequest={brr} currentUser={this.props.currentUser} onSubmit={this.submitReview} />
+                <ReviewForm businessReviewRequest={brr} currentUser={this.props.currentUser} business={this.props.business} onSubmit={this.submitReview} />
             </div>
         );
     },
     submitReview: function (review) {
         this.context.executeAction(BusinessReviewActions.submitReview, {
             review: review,
-            token: token
+            token: this.props.token
         });
     }
 });
@@ -212,13 +229,15 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
 WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPage, [
     'AuthStore',
     'UserStore',
-    'BusinessStore'
+    'BusinessStore',
+    'BusinessReviewRequestStore'
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
     return {
         token: token,
         currentUser: context.getStore('UserStore').getById(token.userId),
-        business: context.getStore('BusinessStore').getById(props.route.query.businessId)
+        business: context.getStore('BusinessStore').getById(props.route.query.businessId),
+        businessReviewRequest: context.getStore('BusinessReviewRequestStore').getById(props.route.query.requestId) || null
     };
 });
 
