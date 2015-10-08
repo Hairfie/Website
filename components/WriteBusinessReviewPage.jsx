@@ -154,7 +154,7 @@ var ReviewForm = React.createClass({
     getReview: function () {
         return {
             businessId  : this.props.business.id,
-            authorId    : this.props.currentUser.id || undefined,
+            authorId    : this.props.currentUser ? this.props.currentUser.id : undefined,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
             email       : this.refs.email.getValue().trim(),
