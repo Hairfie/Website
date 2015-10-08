@@ -9861,7 +9861,7 @@ div.connect-button .facebook {
   background-color: #6686D0; }
   div.connect-button .facebook:before {
     content: " ";
-    background: url(../../img/facebook@2x.png) no-repeat center center;
+    background: url(../img/facebook@2x.png) no-repeat center center;
     position: absolute;
     width: 60px;
     height: 60px;
@@ -9876,7 +9876,7 @@ div.connect-button .twitter {
   background-color: #14C4F8; }
   div.connect-button .twitter:before {
     content: " ";
-    background: url(../../img/twitter@2x.png) no-repeat center center;
+    background: url(../img/twitter@2x.png) no-repeat center center;
     position: absolute;
     width: 60px;
     height: 60px;
@@ -12178,7 +12178,7 @@ section.home-footer .row > div {
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD7474D', endColorstr='#FFFC5B62', GradientType=0); }
     .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
       content: " ";
-      background: url(../../img/icon-phone.png) no-repeat center center;
+      background: url(../img/icon-phone.png) no-repeat center center;
       position: absolute;
       width: 25px;
       height: 25px;
@@ -12958,16 +12958,16 @@ section.home-footer .row > div {
       display: block;
       left: -10px; }
   #content.reservation.confirmation .row div.calendarPanel a:first-child:before {
-    background: url(../../img/icons/googleCalendar.png) no-repeat center center;
+    background: url(../img/icons/googleCalendar.png) no-repeat center center;
     background-size: contain; }
   #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before {
-    background: url(../../img/icons/yahooCalendar.png) no-repeat center center;
+    background: url(../img/icons/yahooCalendar.png) no-repeat center center;
     background-size: contain; }
   #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before {
-    background: url(../../img/icons/outlook.png) no-repeat center center;
+    background: url(../img/icons/outlook.png) no-repeat center center;
     background-size: contain; }
   #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before {
-    background: url(../../img/icons/icals.png) no-repeat center center;
+    background: url(../img/icons/icals.png) no-repeat center center;
     background-size: contain; }
 
 #content.reservation.confirmation .row .infoFrame {
@@ -13065,7 +13065,7 @@ section.home-footer .row > div {
       margin-left: 25px; }
       .container.user#content .main-content section.user-content section div.comments .icon-home:before {
         content: " ";
-        background: url(../../img/icons/home.png) no-repeat center center;
+        background: url(../img/icons/home.png) no-repeat center center;
         width: 20px;
         height: 20px;
         position: absolute;
