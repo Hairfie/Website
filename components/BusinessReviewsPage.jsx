@@ -40,6 +40,7 @@ var BusinessReviewPage = React.createClass({
                                 <span className="user-profil col-xs-1">
                                     <img src={'http://placehold.it/40&text='+initials(review)} alt={'Photo de '+displayName(review)} />
                                 </span>
+                                {this.verified(review)}
                                 <div className="col-xs-8">
                                     <p><strong>Note : {Math.round(review.rating / 100 * 5)}/5</strong></p>
                                     <p>{review.comment}</p>
@@ -49,10 +50,14 @@ var BusinessReviewPage = React.createClass({
                                 </div>
                             </div>
                         );
-                    })}
+                    }, this)}
                 </div>
             </Layout>
         );
+    },
+    verified: function(review) {
+        if (review && !review.verified) return null;
+        return (<strong className="pull-right red">Commentaire vérifié</strong>);
     }
 });
 
