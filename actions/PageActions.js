@@ -192,8 +192,6 @@ function oldHairfiePath(context, route) {
 }
 
 function oldBusinessRequestReviewPath(context, route, businessId) {
-    console.log('IIIIIICCCCCCCCIIIIIIII', route.get('params').get('businessReviewRequestId'), businessId);
-
     return context.getStore('RouteStore').makeUrl('write_business_review', {},
         {
             requestId: route.get('params').get('businessReviewRequestId'),

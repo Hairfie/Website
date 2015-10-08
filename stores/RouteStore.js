@@ -5,7 +5,6 @@ var routes = require('../routes');
 var QueryString = require('query-string');
 
 RouteStore.prototype.makeUrl = function (route, params, query) {
-    console.log('TRALALALALALALALALALALALALALALAL', query);
     var path = this.makePath(route, params);
     var queryStr = QueryString.stringify(query);
 
