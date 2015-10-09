@@ -29,7 +29,7 @@ var User = React.createClass({
             <li className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <Picture picture={{url: '/img/profile-picture/icon-user.png'}} />
+                        <Picture picture={{url: '/img/profile-picture/icon-user.png'}} alt="Connexion" />
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
