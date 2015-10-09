@@ -13465,6 +13465,8 @@ section.home-footer .row > div {
 
 .container.write-review {
   font-size: 1.3em; }
+  .container.write-review form.form .green {
+    float: left; }
 
 .connect-form {
   padding-top: 1px;

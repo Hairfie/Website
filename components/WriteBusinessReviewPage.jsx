@@ -12,6 +12,10 @@ var BusinessReviewActions = require('../actions/BusinessReviewActions');
 var _ = require('lodash');
 var moment = require('moment');
 
+var FacebookButton = require('./Auth/FacebookButton.jsx');
+var FormConnect = require('./Auth/FormConnect.jsx');
+
+
 var RequiredAsterisk = React.createClass({
     render: function () {
         return <span className="required-asterisk">*</span>;
@@ -70,9 +74,28 @@ var RatingInput = React.createClass({
 
 var ReviewForm = React.createClass({
     getInitialState: function () {
+        if (this.props.currentUser) {
+            return {
+                firstName: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName) || this.props.currentUser.firstName || "",
+                lastName: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName) || this.props.currentUser.lastName || "",
+                email: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.email) || this.props.currentUser.email || "",
+                phoneNumber: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.phoneNumber) || this.props.currentUser.phoneNumber || "",
+                errors: []
+            };
+        }
         return {
             errors: []
         };
+    },
+    componentWillReceiveProps: function(nextProps) {
+        if (!nextProps.currentUser)
+            return;
+        this.setState({
+            firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
+            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "",
+            email: nextProps.currentUser.email ? nextProps.currentUser.email : "",
+            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : ""
+        });
     },
     render: function () {
         var errorsNode;
@@ -94,25 +117,29 @@ var ReviewForm = React.createClass({
                 <Row>
                     <Col sm={6}>
                         <Input ref="firstName" type="text"
-                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName || this.props.currentUser && this.props.currentUser.firstName}
+                            value={this.state.firstName}
+                            onChange={this.handleFirstNameChanged}
                             label={<div>Votre prénom <RequiredAsterisk /></div>}
                         />
                     </Col>
                     <Col sm={6}>
                         <Input ref="lastName" type="text"
-                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName || this.props.currentUser && this.props.currentUser.lastName}
+                            value={this.state.lastName}
+                            onChange={this.handleLasttNameChanged}
                             label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
                     <Col sm={6}>
                         <Input ref="email" type="text"
-                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.email || this.props.currentUser && this.props.currentUser.email}
+                            value={this.state.email}
+                            onChange={this.handleEmailChanged}
                             label={<div>Votre adresse email <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
                     <Col sm={6}>
                         <Input ref="phoneNumber" type="text"
-                            defaultValue={this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.phoneNumber || this.props.currentUser && this.props.currentUser.phoneNumber}
+                            value={this.state.phoneNumber}
+                            onChange={this.handlePhoneNumberChanged}
                             label={<div>Votre numéro de téléphone <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
@@ -150,6 +177,26 @@ var ReviewForm = React.createClass({
                 <p><RequiredAsterisk /> Indique les champs requis.</p>
             </div>
         );
+    },
+    handleFirstNameChanged: function (e) {
+        this.setState({
+            firstName: e.currentTarget.value
+        });
+    },
+    handleLastNameChanged: function (e) {
+        this.setState({
+            lastName: e.currentTarget.value
+        });
+    },
+    handleEmailChanged: function (e) {
+        this.setState({
+            email: e.currentTarget.value
+        });
+    },
+    handlePhoneNumberChanged: function (e) {
+        this.setState({
+            phoneNumber: e.currentTarget.value
+        });
     },
     getReview: function () {
         return {
@@ -196,6 +243,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
                 formConnect: false
             };
         }
+        return null;
     },
     render: function () {
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
@@ -221,6 +269,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
                 {bookingNode}
                 <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
+                {this.renderIfNotConnected()}
                 <ReviewForm businessReviewRequest={brr} currentUser={this.props.currentUser} business={this.props.business} onSubmit={this.submitReview} />
             </div>
         );
@@ -241,8 +290,8 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         if (!this.state.formConnect)
             return;
         return (
-            <div>
-                <FacebookButton withNavigate={false}/>
+            <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center" style={{marginBottom: '25px'}}>
+                <FacebookButton withNavigate={false} style={{textAlign: 'left'}}/>
                 <FormConnect withNavigate={false}/>
             </div>
         );
