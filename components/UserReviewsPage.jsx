@@ -17,6 +17,14 @@ function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+
 
 var UserReviewsPage = React.createClass({
     render: function () {
+        if (!_.isArray(this.props.reviews)) {
+            return (
+                <UserLayout user={this.props.user} tab="reviews">
+                        <div className="loading" />
+                </UserLayout>
+            );
+        }
+
         return(
             <UserLayout user={this.props.user} tab="reviews">
             {this.renderTitle()}
