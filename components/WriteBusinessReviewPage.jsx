@@ -74,14 +74,23 @@ var RatingInput = React.createClass({
 
 var ReviewForm = React.createClass({
     getInitialState: function () {
-        if (this.props.currentUser) {
+        if (this.props.businessReviewRequest && this.props.businessReviewRequest.booking) {
             return {
-                firstName: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.firstName) || this.props.currentUser.firstName || "",
-                lastName: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.lastName) || this.props.currentUser.lastName || "",
-                email: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.email) || this.props.currentUser.email || "",
-                phoneNumber: (this.props.businessReviewRequest && this.props.businessReviewRequest.booking && this.props.businessReviewRequest.booking.phoneNumber) || this.props.currentUser.phoneNumber || "",
+                firstName: this.props.businessReviewRequest.booking.firstName || (this.props.currentUser && this.props.currentUser.firstName) || "",
+                lastName: this.props.businessReviewRequest.booking.lastName || (this.props.currentUser && this.props.currentUser.lastName) || "",
+                email: this.props.businessReviewRequest.booking.email || (this.props.currentUser && this.props.currentUser.email) || "",
+                phoneNumber: this.props.businessReviewRequest.booking.phoneNumber || (this.props.currentUser && this.props.currentUser.phoneNumber) || "",
                 errors: []
             };
+        }
+        else if (this.props.currentUser) {
+            return {
+                firstName: this.props.currentUser.firstName || "",
+                lastName: this.props.currentUser.lastName || "",
+                email: this.props.currentUser.email || "",
+                phoneNumber: this.props.currentUser.phoneNumber || "",
+                errors: []
+            }
         }
         return {
             errors: []
