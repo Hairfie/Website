@@ -626,6 +626,12 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 	}
 }
 .comments {
+	.verified {
+		&:before {
+            content: " ";
+            background: url(../img/sign-checkbox.png) no-repeat center center;
+		}
+	}
 	.post-comment {
 		textarea {
 			margin-top: 10px;
@@ -637,6 +643,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		}
 	}
 	.single-comment {
+		word-wrap: break-word;
 		border-bottom: 1px solid $border-color;
 		padding: 20px;
 

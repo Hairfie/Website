@@ -66,7 +66,7 @@ var BusinessReviewPage = React.createClass({
     },
     verified: function(review) {
         if (review && !review.verified) return null;
-        return (<strong className="pull-right red">Commentaire vérifié</strong>);
+        return (<strong className="pull-right red verified">Commentaire vérifié</strong>);
     }
 });
 
