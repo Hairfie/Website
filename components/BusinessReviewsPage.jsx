@@ -5,6 +5,7 @@ var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Link = require('./Link.jsx');
+var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -15,7 +16,15 @@ function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+
 
 var BusinessReviewPage = React.createClass({
     render: function () {
-        if ((this.props.reviews || []).length == 0) {
+        var reviews = this.props.reviews;
+
+        var options = {
+        width: 340,
+        height: 340,
+        crop: 'thumb',
+        gravity: 'faces'
+        };
+        if ((reviews || []).length == 0) {
             return (
                 <Layout business={this.props.business} tab="reviews">
                     <p className="text-center">
@@ -34,11 +43,11 @@ var BusinessReviewPage = React.createClass({
                     <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Déposer un avis</Link>
                 </div>
                 <div className="comments">
-                    {_.map(this.props.reviews, function (review) {
+                    {_.map(reviews, function (review) {
                         return (
                             <div key={review.id} className="single-comment col-xs-12">
                                 <span className="user-profil col-xs-1">
-                                    <img src={'http://placehold.it/40&text='+initials(review)} alt={'Photo de '+displayName(review)} />
+                                    <UserProfilePicture className="ProfilePicture" picture={review && review.author ? review.author.picture : ''} options={options} gender={review && review.author ? review.author.gender : ''}/>
                                 </span>
                                 {this.verified(review)}
                                 <div className="col-xs-8">
