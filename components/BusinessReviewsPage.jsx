@@ -6,6 +6,7 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
+var Rating = require('./Partial/Rating.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -57,7 +58,7 @@ var BusinessReviewPage = React.createClass({
                                 </span>
                                 {this.verified(review)}
                                 <div className="col-xs-8">
-                                    <p><strong>Note : {Math.round(review.rating / 100 * 5)}/5</strong></p>
+                                    <p><Rating rating={review.rating} min={true} /></p>
                                     <p>{review.comment}</p>
                                     <div className="by-when">
                                         {displayName(review)} - {moment(review.createdAt).format('LL')}

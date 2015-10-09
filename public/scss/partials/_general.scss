@@ -189,8 +189,11 @@ ul {
 			}
 		}
 		&.full{
-			background: url(../img/star-full.png) no-repeat center center;
-			background-size:100%;
+			background-image: url(../img/star-full.png);
+		}
+		&.min {
+			background-size:75%;
+			margin: 0px;
 		}
 	}
 	a.avis {

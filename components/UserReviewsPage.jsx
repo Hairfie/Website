@@ -7,6 +7,7 @@ var UserLayout = require('./UserPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
+var Rating = require('./Partial/Rating.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -47,7 +48,7 @@ var UserReviewsPage = React.createClass({
                                     <Link route="business" className="hidden-lg hidden-sm hidden-md" params={{ businessId: business.id, businessSlug: business.slug }}>
                                         <p><strong className="icon-home">{business.name}</strong></p>
                                     </Link>
-                                    <p><strong>Note : {Math.round(review.rating / 100 * 5)}/5</strong></p>
+                                    <p><Rating rating={review.rating} min={true}></Rating></p>
                                     <p>{review.comment}</p>
                                     <div className="by-when">
                                         {displayName(review)} - {moment(review.createdAt).format('LL')}

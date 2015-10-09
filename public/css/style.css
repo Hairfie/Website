@@ -10273,8 +10273,10 @@ ul {
       -ms-transition: all 0.15s ease-out;
       -o-transition: all 0.15s ease-out; }
     .stars .star.full {
-      background: url(../img/star-full.png) no-repeat center center;
-      background-size: 100%; }
+      background-image: url(../img/star-full.png); }
+    .stars .star.min {
+      background-size: 75%;
+      margin: 0px; }
   .stars a.avis {
     padding-right: 15px;
     line-height: 3.3em;
