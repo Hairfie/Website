@@ -1,4 +1,5 @@
 # No index on CDN
 
 User-agent: *
-Disallow: /
+Disallow: /en
+Disallow: /fr

@@ -115,6 +115,26 @@ module.exports = createStore({
                 displayName: "Coiffeur dans le Marais",
                 address: "Le-Marais--Paris--France",
                 category: ""
+            },
+            {
+                displayName: "Coiffeur à Montmartre",
+                address: "Montmartre--75018-Paris--France",
+                category: ""
+            },
+            {
+                displayName: "Coiffeur proche des Champs-Elysées",
+                address: "Champs~Élysées--Paris--France",
+                category: ""
+            },
+            {
+                displayName: "Coloration à Paris",
+                address: "Paris--France",
+                category: "coloration"
+            },
+            {
+                displayName: "Barbier à Paris",
+                address: "Paris--France",
+                category: "barbier"
             }
         ];
     }
