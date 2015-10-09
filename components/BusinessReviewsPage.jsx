@@ -17,7 +17,6 @@ function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+
 var BusinessReviewPage = React.createClass({
     render: function () {
         var reviews = this.props.reviews;
-        console.log(reviews);
 
         var options = {
             width: 340,
