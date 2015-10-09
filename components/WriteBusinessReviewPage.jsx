@@ -190,6 +190,13 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
+    getInitialState: function() {
+        if (!this.props.currentUser) {
+            return {
+                formConnect: false
+            };
+        }
+    },
     render: function () {
         return <Layout context={this.props.context}>{this.renderBody()}</Layout>;
     },
@@ -218,10 +225,37 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
             </div>
         );
     },
+    renderIfNotConnected: function() {
+        if (!this.props.currentUser)
+            return (
+                <div>
+                    <a className="green" onClick={this.handleFormConnectChanged} role="button">
+                        Si vous avez déjà un compte, vous pouvez gagner du temps en cliquant ici.
+                    </a>
+                    {this.renderConnectForm()}
+                    <hr />
+                </div>
+            );
+    },
+    renderConnectForm: function() {
+        if (!this.state.formConnect)
+            return;
+        return (
+            <div>
+                <FacebookButton withNavigate={false}/>
+                <FormConnect withNavigate={false}/>
+            </div>
+        );
+    },
     submitReview: function (review) {
         this.context.executeAction(BusinessReviewActions.submitReview, {
             review: review,
             token: this.props.token
+        });
+    },
+    handleFormConnectChanged: function () {
+        this.setState({
+           formConnect: !this.state.formConnect
         });
     }
 });

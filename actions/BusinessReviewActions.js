@@ -8,7 +8,6 @@ var ga = require('../services/analytics');
 
 module.exports = {
     loadRequest: function (context, requestId) {
-        if (!requestId) return;
         return context.hairfieApi
             .get('/businessReviewRequests/'+requestId)
             .then(function (request) {

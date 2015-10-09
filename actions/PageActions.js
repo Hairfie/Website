@@ -157,11 +157,10 @@ module.exports = {
 
         var businessId = route.get('query').get('businessId');
         var requestId = route.get('query').get('requestId');
-
         if (!businessId) return;
         return Promise.all([
-            context.executeAction(BusinessReviewActions.loadRequest, requestId),
-            context.executeAction(BusinessActions.loadBusiness, businessId)
+            requestId ? context.executeAction(BusinessReviewActions.loadRequest, requestId) : '',
+            businessId ? context.executeAction(BusinessActions.loadBusiness, businessId) : ''
         ]);
     }
 };

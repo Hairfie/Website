@@ -10239,6 +10239,8 @@ ul {
 .stars {
   height: 3.9em;
   padding-left: 0; }
+  .stars.min {
+    height: 25px; }
   .stars .star {
     height: 24px;
     width: 24px;

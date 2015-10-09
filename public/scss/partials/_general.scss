@@ -161,7 +161,9 @@ ul {
 .stars {
 	height: 3.9em;
 	padding-left: 0;
-
+	&.min {
+		height: 25px;
+	}
 	.star {
 		height: 24px;width: 24px;
 		background: url(../img/star.png) no-repeat center center;

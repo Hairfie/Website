@@ -110,6 +110,7 @@ BusinessBookingPage = connectToStores(BusinessBookingPage, [
     'UserStore'
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
+
     return {
         business    : context.getStore('BusinessStore').getById(props.route.params.businessId),
         discountObj : context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
