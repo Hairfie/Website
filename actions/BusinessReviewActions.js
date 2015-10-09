@@ -27,7 +27,7 @@ module.exports = {
         return context.hairfieApi
             .get('/businessReviews', { query: query })
             .then(function (businessReviews) {
-                context.dispatch(Actions.RECEIVE_BUSINESS_REVIEWS, businessReviews);
+                context.dispatch(Actions.RECEIVE_BUSINESS_REVIEWS, {reviews: businessReviews, businessId: businessId});
             });
     },
     submitReview: function(context, payload) {

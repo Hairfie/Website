@@ -91,6 +91,9 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-4" style={{padding: '0'}}>
                   <Rating business={business} />
+                  <div className="text-center" style={{marginTop: '10px'}}>
+                    <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Déposez un avis</Link>
+                  </div>
                   <div className="hidden-xs">
                     {this.renderTimetable()}
                   </div>

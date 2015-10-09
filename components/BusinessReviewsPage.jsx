@@ -17,14 +17,24 @@ function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+
 var BusinessReviewPage = React.createClass({
     render: function () {
         var reviews = this.props.reviews;
+        console.log(reviews);
 
         var options = {
-        width: 340,
-        height: 340,
-        crop: 'thumb',
-        gravity: 'faces'
+            width: 340,
+            height: 340,
+            crop: 'thumb',
+            gravity: 'faces'
         };
-        if ((reviews || []).length == 0) {
+
+        if (!_.isArray(this.props.reviews)) {
+            return (
+                <Layout business={this.props.business} tab="reviews">
+                        <div className="loading" />
+                </Layout>
+            );
+        }
+
+        if (_.isEmpty(this.props.reviews)) {
             return (
                 <Layout business={this.props.business} tab="reviews">
                     <p className="text-center">
@@ -39,9 +49,6 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews">
-                <div className="text-center" style={{marginTop: '10px'}}>
-                    <Link route="write_business_review" className="btn btn-red" query={{businessId: this.props.business.id}}>Déposer un avis</Link>
-                </div>
                 <div className="comments">
                     {_.map(reviews, function (review) {
                         return (
@@ -66,7 +73,7 @@ var BusinessReviewPage = React.createClass({
     },
     verified: function(review) {
         if (review && !review.verified) return null;
-        return (<strong className="pull-right red verified">Commentaire vérifié</strong>);
+        return (<strong className="pull-right red verified">Avis vérifié</strong>);
     }
 });
 
