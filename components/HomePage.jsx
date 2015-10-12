@@ -41,6 +41,7 @@ var HomePage = React.createClass({
                     <div className="main-content" id="home">
                         <Home.SearchSection {...this.props} ref="search" />
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
+                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.Deals deals={this.props.deals} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
@@ -81,14 +82,16 @@ HomePage = connectToStores(HomePage, [
     'TagStore',
     'HairfieStore',
     'DealStore',
-    'HomeLinkStore'
+    'HomeLinkStore',
+    'BlogPostStore'
 ], function (context, props) {
     return {
         categories  : context.getStore('CategoryStore').getAllCategories(),
         tags        : context.getStore('TagStore').getAllTags(),
         deals       : context.getStore('DealStore').getTop(),
         hairfies    : context.getStore('HairfieStore').getTop(),
-        links       : context.getStore('HomeLinkStore').all()
+        links       : context.getStore('HomeLinkStore').all(),
+        posts       : context.getStore('BlogPostStore').getRecent()
     };
 });
 

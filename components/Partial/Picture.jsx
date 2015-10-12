@@ -45,14 +45,16 @@ module.exports = React.createClass({
 
         if (this.props.picture.cloudinary) {
             return this.getCloudinarySrc();
-        } 
+        }
+
+        if (/^(f|ht)tps?:\/\//i.test(this.props.picture.url)) {
+            return this.props.picture.url;
+        }
 
         var query = [];
         var resolution = this._resolution();
         if (resolution.width) query.push('width='+resolution.width);
         if (resolution.height) query.push('height='+resolution.height);
-
-        //var url = this.context.getAssetUrl(this.props.picture.url);
 
         return this.context.getAssetUrl(this.props.picture.url);
     },

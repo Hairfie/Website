@@ -18,6 +18,7 @@ var NavigationActions = require('./NavigationActions');
 var UserActions = require('./UserActions');
 var TagActions = require('./TagActions');
 var CategoryActions = require('./CategoryActions');
+var BlogPostActions = require('./BlogPostActions');
 var SearchUtils = require('../lib/search-utils');
 
 var RouteStore = require('../stores/RouteStore');
@@ -29,7 +30,8 @@ module.exports = {
             context.executeAction(DealActions.loadTopDeals),
             context.executeAction(HairfieActions.loadTopHairfies),
             context.executeAction(TagActions.loadAll),
-            context.executeAction(CategoryActions.loadAll)
+            context.executeAction(CategoryActions.loadAll),
+            context.executeAction(BlogPostActions.getRecent)
         ]);
     },
     hairfie: function (context, route) {

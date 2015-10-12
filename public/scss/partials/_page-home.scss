@@ -369,6 +369,56 @@ section.home-section {
         }
     }
 }
+
+#home section.blog-posts {
+    .post {
+        img {
+            max-width: 100%;
+            max-height: 160px;
+        }
+        .picture-container {
+            display: inline-block;
+            overflow: hidden; 
+            width: 100%;
+            a {
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            img {
+                @include transition(all 0.25s ease-out);
+                @include scale(1.1);
+            }
+        }
+
+        .picture-caption a,  .picture-caption:hover a {
+            text-decoration: none;
+            color: $font-color;
+        }
+
+        h4 {
+            font-size: 20px;
+            display: block;
+            letter-spacing: 2px;
+
+            @media screen and (min-width: $screen-xs-max) {
+                min-height: 70px;
+            }
+        }
+
+        p, span {
+            font-size: 14px;
+            font-weight: $regular;
+        }
+
+        a.readmore, a.readmore:hover {
+            text-decoration: underline;
+            font-size: 14px; 
+        }
+    }
+}
+
 #home section.hairfies {
     // .row + .row {
     //  margin:0px;

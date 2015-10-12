@@ -40,7 +40,7 @@ module.exports = React.createClass({
         return (
             <div className={hairfieClass} onClick={this.navToLink.bind(this, "hairfie", {hairfieId: hairfie.id}, null)} key={hairfie.id}>
                 <figure className={figureClass}>
-                    <Picture picture={picture} />
+                    <Picture picture={picture} alt={hairfie.description} />
                     <figcaption>
                         <Link route="hairfie" params={{hairfieId: hairfie.id}}>
                             {displayBusinessName}
