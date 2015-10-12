@@ -24,6 +24,12 @@ var User = React.createClass({
                 </li>
                 );
     },
+    componentDidMount: function() {
+        if(this.props.currentUser) {
+            heap.identify({name: this.props.currentUser.firstName + ' ' + this.props.currentUser.lastName,
+                email: this.props.currentUser.email});
+        }
+    },
     renderMobile: function() {
         return (
             <li className="user">

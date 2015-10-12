@@ -90,7 +90,6 @@ var EmailModal = React.createClass({
         }
     },
     validateEmailInput: function() {
-        console.log("validation");
         var email = this.refs.email.getValue();
         var valid = validateEmail(email);
         if(valid) {
@@ -111,13 +110,16 @@ var EmailModal = React.createClass({
         var modal = this;
         if(!this.state.isValid) return;
 
+        var email = this.refs.email.getValue();
+
         this.context.executeAction(SubscriberActions.submit, {
             subscriber        : {
-                email       : this.refs.email.getValue()
+                email       : email
             }
         });
         this.setState({ hasSubscribed: true }, function () {
             this.context.executeAction(SubscriberActions.hasClosedPopup);
+            heap.identify({email: email});
             setTimeout(function() {
                modal.close();
             }, 2000);
