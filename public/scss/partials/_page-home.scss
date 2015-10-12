@@ -412,7 +412,7 @@ section.home-section {
             font-weight: $regular;
         }
 
-        a.readmore {
+        a.readmore, a.readmore:hover {
             text-decoration: underline;
             font-size: 14px; 
         }

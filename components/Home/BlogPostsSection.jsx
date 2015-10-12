@@ -11,7 +11,7 @@ module.exports = React.createClass({
 
         return (
             <section className="home-section blog-posts" id="blog-posts" ref="blog-posts">
-                <h2>Les dernières nouvelles coiffures</h2>
+                <h2>Les dernières tendances coiffures</h2>
                 <div className="section-content-1">
                     <div className="row">
                         {_.map(posts, this.renderPost)}
