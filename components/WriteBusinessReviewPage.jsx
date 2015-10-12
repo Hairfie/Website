@@ -152,6 +152,13 @@ var ReviewForm = React.createClass({
                             label={<div>Votre numéro de téléphone <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
+                    <select ref="gender" placeholder="Sexe" onChange={this.handleMobileCategoriesChange}>
+                            <optgroup label="Sexe">
+                                <option value="" disabled selected>Genre</option>
+                                <option value="MALE">Homme</option>
+                                <option value="FEMALE">Femme</option>
+                            </optgroup>
+                    </select>
                 </Row>
                 <hr />
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>

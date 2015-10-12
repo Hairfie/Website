@@ -7,6 +7,13 @@ var NotificationActions = require('./NotificationActions');
 var ga = require('../services/analytics');
 
 module.exports = {
+    loadReview: function(context, reviewId) {
+        return context.hairfieApi
+            .get('/businessReviews/'+reviewId)
+            .then(function (review) {
+                context.dispatch(Actions.RECEIVE_REVIEW, review);
+            });
+    },
     loadRequest: function (context, requestId) {
         return context.hairfieApi
             .get('/businessReviewRequests/'+requestId)
@@ -40,10 +47,9 @@ module.exports = {
                     'Votre avis a bien été pris en compte, merci !'
                 ).then(function () {
                     return context.executeAction(NavigationActions.navigate, {
-                        route: 'business',
+                        route: 'business_reviews_confirmation',
                         params: {
-                            businessId: businessReview.business.id,
-                            businessSlug: businessReview.business.slug
+                            reviewId: businessReview.id
                         }
                     });
                 });

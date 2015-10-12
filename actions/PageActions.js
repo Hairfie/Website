@@ -162,6 +162,11 @@ module.exports = {
             requestId ? context.executeAction(BusinessReviewActions.loadRequest, requestId) : '',
             businessId ? context.executeAction(BusinessActions.loadBusiness, businessId) : ''
         ]);
+    },
+    writeBusinessReviewConfirmation: function(context, route) {
+        return Promise.all([
+            context.executeAction(BusinessReviewActions.loadReview, route.get('params').get('reviewId'))
+        ]);
     }
 };
 

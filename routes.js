@@ -45,6 +45,13 @@ module.exports = {
         action: PageActions.writeBusinessReview,
         handler: require('./components/WriteBusinessReviewPage.jsx')
     },
+    business_reviews_confirmation: {
+        title: 'Avis déposé',
+        path: '/fr/avis/:reviewId',
+        method: 'get',
+        action: PageActions.writeBusinessReviewConfirmation,
+        handler: require('./components/WriteBusinessReviewConfirmationPage.jsx')
+    },
     hairfie: {
         path: '/fr/hairfie/:hairfieId',
         method: 'get',

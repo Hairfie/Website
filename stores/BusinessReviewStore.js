@@ -4,12 +4,14 @@ var createStore = require('fluxible/addons/createStore');
 var makeHandlers = require('../lib/fluxible/makeHandlers');
 var _ = require('lodash');
 var Actions = require('../constants/Actions');
+var BusinessReviewActions = require('../actions/BusinessReviewActions.js');
 
 module.exports = createStore({
     storeName: 'BusinessReviewStore',
     handlers: makeHandlers({
         onReceiveBusinessReviews: Actions.RECEIVE_BUSINESS_REVIEWS,
-        onReceiveUserReviews: Actions.RECEIVE_USER_REVIEWS
+        onReceiveUserReviews: Actions.RECEIVE_USER_REVIEWS,
+        onReceiveReview: Actions.RECEIVE_REVIEW
     }),
     initialize: function () {
         this.reviews = {};
@@ -27,6 +29,10 @@ module.exports = createStore({
         this.reviews = state.reviews;
         this.userReviews = state.userReviews;
         this.businessReviews = state.businessReviews;
+    },
+    onReceiveReview: function(review) {
+        this.reviews[review.id] = review;
+        this.emitChange();
     },
     onReceiveBusinessReviews: function (payload) {
         this.reviews = _.assign({}, this.reviews, _.indexBy(payload.reviews, 'id'));
@@ -53,5 +59,8 @@ module.exports = createStore({
         return _.map(this.userReviews[userId], function(reviewId) {
             return this.reviews[reviewId];
         }, this);
+    },
+    getById: function (id) {
+        return this.reviews[id];
     }
 });

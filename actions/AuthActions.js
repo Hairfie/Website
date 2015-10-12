@@ -132,6 +132,10 @@ module.exports = {
             .then(function (data) {
                 return _storeTokenAndGetUser(context, data.accessToken)
                     .then(function() {
+                        context.executeAction(
+                        NotificationActions.notifySuccess,
+                            "Incription réussi, vous êtes à présent connecté !"
+                        );
                         if (!withNavigate)
                             return;
                         context.executeAction(

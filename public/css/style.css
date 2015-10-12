@@ -1548,13 +1548,13 @@ pre {
   .row:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left; }
 
 .col-xs-1 {
@@ -1563,7 +1563,7 @@ pre {
 .col-xs-2 {
   width: 16.6666666667%; }
 
-.col-xs-3, #content.reservation.confirmation .row div.calendarPanel a {
+.col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
   width: 25%; }
 
 .col-xs-4 {
@@ -9716,7 +9716,7 @@ figcaption a.address {
 div#app {
   overflow-x: hidden; }
 
-#content.reservation.confirmation .confirm-bloc-form form label {
+#content.reservation.confirmation .confirm-bloc-form form label, .confirmation.review-confirmation .confirm-bloc-form form label {
   width: inherit;
   line-height: 30px;
   height: 30px; }
@@ -12631,76 +12631,76 @@ section.home-footer .row > div {
 /*////////////////////////////////
 	    P A G E  R E S A
 ////////////////////////////////*/
-#content.reservation {
+#content.reservation, .review-confirmation {
   padding-top: 50px;
   padding-bottom: 50px; }
   @media screen and (max-width: 991px) {
-    #content.reservation {
+    #content.reservation, .review-confirmation {
       padding-top: 130px; } }
-  #content.reservation .sidebar {
+  #content.reservation .sidebar, .review-confirmation .sidebar {
     background: white;
     padding: 20px; }
     @media screen and (max-width: 991px) {
-      #content.reservation .sidebar {
+      #content.reservation .sidebar, .review-confirmation .sidebar {
         margin-bottom: 40px; } }
-    #content.reservation .sidebar .salon-bloc a:first-child {
+    #content.reservation .sidebar .salon-bloc a:first-child, .review-confirmation .sidebar .salon-bloc a:first-child {
       display: block;
       width: 100%;
       max-height: 185px;
       overflow: hidden; }
       @media screen and (max-width: 991px) {
-        #content.reservation .sidebar .salon-bloc a:first-child {
+        #content.reservation .sidebar .salon-bloc a:first-child, .review-confirmation .sidebar .salon-bloc a:first-child {
           max-height: 255px; } }
-      #content.reservation .sidebar .salon-bloc a:first-child img {
+      #content.reservation .sidebar .salon-bloc a:first-child img, .review-confirmation .sidebar .salon-bloc a:first-child img {
         max-height: 185px;
         width: auto;
         min-width: 100%;
         margin: 0 auto; }
         @media screen and (max-width: 991px) {
-          #content.reservation .sidebar .salon-bloc a:first-child img {
+          #content.reservation .sidebar .salon-bloc a:first-child img, .review-confirmation .sidebar .salon-bloc a:first-child img {
             max-height: 255px;
             min-width: auto;
             height: 100%; } }
-    #content.reservation .sidebar .salon-bloc .address-bloc {
+    #content.reservation .sidebar .salon-bloc .address-bloc, .review-confirmation .sidebar .salon-bloc .address-bloc {
       margin-top: 20px; }
-    #content.reservation .sidebar .promo {
+    #content.reservation .sidebar .promo, .review-confirmation .sidebar .promo {
       margin-top: 20px;
       margin-bottom: 20px;
       margin-left: -20px; }
-      #content.reservation .sidebar .promo p {
+      #content.reservation .sidebar .promo p, .review-confirmation .sidebar .promo p {
         color: #f39c12; }
-    #content.reservation .sidebar div:last-child p {
+    #content.reservation .sidebar div:last-child p, .review-confirmation .sidebar div:last-child p {
       font-weight: 200;
       font-size: 1.4em;
       color: #595959;
       line-height: 20px; }
-    #content.reservation .sidebar div:last-child div {
+    #content.reservation .sidebar div:last-child div, .review-confirmation .sidebar div:last-child div {
       padding: 20px;
       border: 1px solid #c9c9c9; }
-      #content.reservation .sidebar div:last-child div h3 {
+      #content.reservation .sidebar div:last-child div h3, .review-confirmation .sidebar div:last-child div h3 {
         color: #595959;
         font-size: 1.6em;
         margin: 0;
         font-weight: 600; }
-      #content.reservation .sidebar div:last-child div ul {
+      #content.reservation .sidebar div:last-child div ul, .review-confirmation .sidebar div:last-child div ul {
         margin-top: 10px; }
-        #content.reservation .sidebar div:last-child div ul li {
+        #content.reservation .sidebar div:last-child div ul li, .review-confirmation .sidebar div:last-child div ul li {
           font-size: 1.6em;
           padding-left: 15px; }
-  #content.reservation .main-content {
+  #content.reservation .main-content, .review-confirmation .main-content {
     padding-left: 30px; }
     @media screen and (max-width: 991px) {
-      #content.reservation .main-content {
+      #content.reservation .main-content, .review-confirmation .main-content {
         padding-left: 15px;
         float: none !important; } }
-    #content.reservation .main-content .legend {
+    #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
       color: #595959;
       font-weight: 400;
       font-size: 1.231em; }
-      #content.reservation .main-content .legend p {
+      #content.reservation .main-content .legend p, .review-confirmation .main-content .legend p {
         margin-bottom: 20px;
         letter-spacing: 1px; }
-        #content.reservation .main-content .legend p span {
+        #content.reservation .main-content .legend p span, .review-confirmation .main-content .legend p span {
           width: 25px;
           height: 25px;
           display: inline-block;
@@ -12709,50 +12709,50 @@ section.home-footer .row > div {
           vertical-align: middle;
           margin-top: -2px;
           border-radius: 1px; }
-        #content.reservation .main-content .legend p:nth-child(2) {
+        #content.reservation .main-content .legend p:nth-child(2), .review-confirmation .main-content .legend p:nth-child(2) {
           line-height: 25px; }
-    #content.reservation .main-content .row > div h2 {
+    #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
       font-size: 2.1em;
       font-weight: 400;
       color: #595959;
       margin: 20px 0;
       text-decoration: underline; }
-    #content.reservation .main-content .row > div td {
+    #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
       width: 50px; }
     @media screen and (max-width: 545px) {
-      #content.reservation .main-content .row > div:nth-child(1) {
+      #content.reservation .main-content .row > div:nth-child(1), .review-confirmation .main-content .row > div:nth-child(1) {
         float: none !important;
         width: 100%; } }
-    #content.reservation .main-content .row > div:nth-child(2) {
+    #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
       padding-left: 62px;
       padding-right: 0; }
       @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2) {
+        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
           padding-left: 0px; } }
       @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2) {
+        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
           margin-right: -50px; } }
       @media screen and (max-width: 767px) {
-        #content.reservation .main-content .row > div:nth-child(2) {
+        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
           padding-left: 15px; } }
       @media screen and (max-width: 545px) {
-        #content.reservation .main-content .row > div:nth-child(2) {
+        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
           float: none !important;
           width: 100%; } }
-      #content.reservation .main-content .row > div:nth-child(2) .time-table table {
+      #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
         width: 100%; }
         @media screen and (max-width: 991px) {
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
             margin-right: -50px; } }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody {
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
           display: block;
           margin-right: -10px;
           border: none;
           width: 100%; }
           @media screen and (max-width: 991px) {
-            #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody {
+            #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
               margin-right: -50px; } }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table td {
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td {
           height: 54px;
           width: 74px;
           position: relative;
@@ -12763,57 +12763,57 @@ section.home-footer .row > div {
           text-align: center;
           margin: 3px;
           margin-left: 0; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td a {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table td a, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a {
             position: relative;
             line-height: 1.2; }
             @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span {
+              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
                 bottom: 2px; } }
             @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span {
+              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
                 bottom: -28px; } }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td p {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table td p, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td p {
             position: absolute;
             top: 6px;
             width: 100%;
             font-size: 1em; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td.disabled {
             background: #efeff0;
             border-color: #efeff0;
             cursor: not-allowed;
             opacity: .7; }
 
-#content.reservation.bookingForm {
+#content.reservation.bookingForm, .bookingForm.review-confirmation {
   color: #595959; }
-  #content.reservation.bookingForm hr {
+  #content.reservation.bookingForm hr, .bookingForm.review-confirmation hr {
     border-color: #9a9a9a; }
-  #content.reservation.bookingForm .legend.conf p {
+  #content.reservation.bookingForm .legend.conf p, .bookingForm.review-confirmation .legend.conf p {
     margin-bottom: 10px; }
-    #content.reservation.bookingForm .legend.conf p:first-child {
+    #content.reservation.bookingForm .legend.conf p:first-child, .bookingForm.review-confirmation .legend.conf p:first-child {
       color: #fc5a5f; }
-  #content.reservation.bookingForm .legend.conf .promo {
+  #content.reservation.bookingForm .legend.conf .promo, .bookingForm.review-confirmation .legend.conf .promo {
     border: 0;
     color: #f39c12;
     padding-left: 0; }
-  #content.reservation.bookingForm p, #content.reservation.bookingForm a, #content.reservation.bookingForm label, #content.reservation.bookingForm select {
+  #content.reservation.bookingForm p, .bookingForm.review-confirmation p, #content.reservation.bookingForm a, .bookingForm.review-confirmation a, #content.reservation.bookingForm label, .bookingForm.review-confirmation label, #content.reservation.bookingForm select, .bookingForm.review-confirmation select {
     font-size: 1.4em;
     color: #595959; }
-  #content.reservation.bookingForm .legend.conf + a {
+  #content.reservation.bookingForm .legend.conf + a, .bookingForm.review-confirmation .legend.conf + a {
     text-decoration: underline;
     margin-top: -2em; }
-    #content.reservation.bookingForm .legend.conf + a:hover, #content.reservation.bookingForm .legend.conf + a:active {
+    #content.reservation.bookingForm .legend.conf + a:hover, .bookingForm.review-confirmation .legend.conf + a:hover, #content.reservation.bookingForm .legend.conf + a:active, .bookingForm.review-confirmation .legend.conf + a:active {
       color: #595959; }
     @media screen and (max-width: 767px) {
-      #content.reservation.bookingForm .legend.conf + a {
+      #content.reservation.bookingForm .legend.conf + a, .bookingForm.review-confirmation .legend.conf + a {
         float: none !important; } }
-  #content.reservation.bookingForm .confirm-bloc-form {
+  #content.reservation.bookingForm .confirm-bloc-form, .bookingForm.review-confirmation .confirm-bloc-form {
     float: none;
     margin: 0 auto; }
-    #content.reservation.bookingForm .confirm-bloc-form a:first-child {
+    #content.reservation.bookingForm .confirm-bloc-form a:first-child, .bookingForm.review-confirmation .confirm-bloc-form a:first-child {
       text-decoration: underline; }
-      #content.reservation.bookingForm .confirm-bloc-form a:first-child:hover, #content.reservation.bookingForm .confirm-bloc-form a:first-child:active {
+      #content.reservation.bookingForm .confirm-bloc-form a:first-child:hover, .bookingForm.review-confirmation .confirm-bloc-form a:first-child:hover, #content.reservation.bookingForm .confirm-bloc-form a:first-child:active, .bookingForm.review-confirmation .confirm-bloc-form a:first-child:active {
         color: #595959; }
-    #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect {
+    #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect, .bookingForm.review-confirmation .confirm-bloc-form a.facebook-connect {
       width: 100%;
       display: block;
       height: 40px;
@@ -12828,25 +12828,25 @@ section.home-footer .row > div {
       background-image: linear-gradient(to bottom, #5973aa 0%, #425f9c 100%);
       background-repeat: repeat-x;
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF5973AA', endColorstr='#FF425F9C', GradientType=0); }
-      #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect:hover, #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect:active {
+      #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect:hover, .bookingForm.review-confirmation .confirm-bloc-form a.facebook-connect:hover, #content.reservation.bookingForm .confirm-bloc-form a.facebook-connect:active, .bookingForm.review-confirmation .confirm-bloc-form a.facebook-connect:active {
         text-decoration: none; }
-    #content.reservation.bookingForm .confirm-bloc-form p.center {
+    #content.reservation.bookingForm .confirm-bloc-form p.center, .bookingForm.review-confirmation .confirm-bloc-form p.center {
       text-align: center;
       line-height: 45px; }
-    #content.reservation.bookingForm .confirm-bloc-form form input, #content.reservation.bookingForm .confirm-bloc-form form select {
+    #content.reservation.bookingForm .confirm-bloc-form form input, .bookingForm.review-confirmation .confirm-bloc-form form input, #content.reservation.bookingForm .confirm-bloc-form form select, .bookingForm.review-confirmation .confirm-bloc-form form select {
       height: 30px;
       background-color: white;
       border: 1px solid #eeeeee;
       line-height: 30px;
       margin-bottom: 10px; }
-      #content.reservation.bookingForm .confirm-bloc-form form input:focus, #content.reservation.bookingForm .confirm-bloc-form form select:focus {
+      #content.reservation.bookingForm .confirm-bloc-form form input:focus, .bookingForm.review-confirmation .confirm-bloc-form form input:focus, #content.reservation.bookingForm .confirm-bloc-form form select:focus, .bookingForm.review-confirmation .confirm-bloc-form form select:focus {
         outline: none; }
-    #content.reservation.bookingForm .confirm-bloc-form form select {
+    #content.reservation.bookingForm .confirm-bloc-form form select, .bookingForm.review-confirmation .confirm-bloc-form form select {
       font-size: 1em;
       border-radius: 0 !important; }
-    #content.reservation.bookingForm .confirm-bloc-form form label {
+    #content.reservation.bookingForm .confirm-bloc-form form label, .bookingForm.review-confirmation .confirm-bloc-form form label {
       width: 100%; }
-      #content.reservation.bookingForm .confirm-bloc-form form label .icon {
+      #content.reservation.bookingForm .confirm-bloc-form form label .icon, .bookingForm.review-confirmation .confirm-bloc-form form label .icon {
         background: url(../img/icon-resa-user.png) no-repeat center left;
         width: 16px;
         height: 16px;
@@ -12854,39 +12854,39 @@ section.home-footer .row > div {
         position: absolute;
         left: 0;
         top: 3px; }
-      #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] {
+      #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"], .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] {
         padding-left: 13px; }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select, .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] select {
           margin-right: 28px; }
           @media screen and (max-width: 991px) {
-            #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select {
+            #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select, .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] select {
               margin-right: 20px; } }
           @media screen and (max-width: 767px) {
-            #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select {
+            #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] select, .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] select {
               margin-right: 17px; } }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] input {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] input, .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] input {
           margin-right: 13px; }
-          #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] input:last-child {
+          #content.reservation.bookingForm .confirm-bloc-form form label[for="infos"] input:last-child, .bookingForm.review-confirmation .confirm-bloc-form form label[for="infos"] input:last-child {
             margin-right: 0;
             padding-left: 13px; }
-      #content.reservation.bookingForm .confirm-bloc-form form label[for='email'] .icon {
+      #content.reservation.bookingForm .confirm-bloc-form form label[for='email'] .icon, .bookingForm.review-confirmation .confirm-bloc-form form label[for='email'] .icon {
         background: url(../img/icon-resa-mail.png) no-repeat center left;
         width: 17px; }
-      #content.reservation.bookingForm .confirm-bloc-form form label[for='phone'] .icon {
+      #content.reservation.bookingForm .confirm-bloc-form form label[for='phone'] .icon, .bookingForm.review-confirmation .confirm-bloc-form form label[for='phone'] .icon {
         background: url(../img/icon-resa-phone.png) no-repeat center left;
         width: 17px; }
-      #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] {
+      #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'], .bookingForm.review-confirmation .confirm-bloc-form form label[for='discount'] {
         padding-left: 0; }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] .icon {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] .icon, .bookingForm.review-confirmation .confirm-bloc-form form label[for='discount'] .icon {
           display: none; }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] p.inline {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] p.inline, .bookingForm.review-confirmation .confirm-bloc-form form label[for='discount'] p.inline {
           display: inline-block;
           width: auto;
           font-size: 1em;
           font-weight: 200; }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] input {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] input, .bookingForm.review-confirmation .confirm-bloc-form form label[for='discount'] input {
           width: 60%; }
-        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] button {
+        #content.reservation.bookingForm .confirm-bloc-form form label[for='discount'] button, .bookingForm.review-confirmation .confirm-bloc-form form label[for='discount'] button {
           position: absolute;
           right: 15px;
           top: 0;
@@ -12896,17 +12896,17 @@ section.home-footer .row > div {
           background: white;
           border: 1px solid #eeeeee;
           border-radius: 0; }
-  #content.reservation.bookingForm label[for='cgu'] {
+  #content.reservation.bookingForm label[for='cgu'], .bookingForm.review-confirmation label[for='cgu'] {
     display: block;
     float: none;
     font-weight: 200; }
-    #content.reservation.bookingForm label[for='cgu'] a {
+    #content.reservation.bookingForm label[for='cgu'] a, .bookingForm.review-confirmation label[for='cgu'] a {
       font-size: 1em;
       color: #595959; }
     @media screen and (max-width: 767px) {
-      #content.reservation.bookingForm label[for='cgu'] {
+      #content.reservation.bookingForm label[for='cgu'], .bookingForm.review-confirmation label[for='cgu'] {
         padding-left: 30px; } }
-    #content.reservation.bookingForm label[for='cgu'] input[type="checkbox"] {
+    #content.reservation.bookingForm label[for='cgu'] input[type="checkbox"], .bookingForm.review-confirmation label[for='cgu'] input[type="checkbox"] {
       left: 0;
       margin-left: 20px;
       opacity: 0;
@@ -12914,21 +12914,21 @@ section.home-footer .row > div {
       width: 17px;
       height: 17px;
       top: -1px; }
-    #content.reservation.bookingForm label[for='cgu'] span {
+    #content.reservation.bookingForm label[for='cgu'] span, .bookingForm.review-confirmation label[for='cgu'] span {
       width: 17px;
       height: 17px;
       padding-left: 0;
       padding-right: 30px;
       display: inline-block; }
-      #content.reservation.bookingForm label[for='cgu'] span:before {
+      #content.reservation.bookingForm label[for='cgu'] span:before, .bookingForm.review-confirmation label[for='cgu'] span:before {
         width: 17px;
         height: 17px;
         left: 0; }
-      #content.reservation.bookingForm label[for='cgu'] span:after {
+      #content.reservation.bookingForm label[for='cgu'] span:after, .bookingForm.review-confirmation label[for='cgu'] span:after {
         width: 17px;
         height: 17px;
         left: 1px; }
-  #content.reservation.bookingForm .btn-red, #content.reservation.bookingForm .btn-book {
+  #content.reservation.bookingForm .btn-red, .bookingForm.review-confirmation .btn-red, #content.reservation.bookingForm .btn-book, .bookingForm.review-confirmation .btn-book {
     display: block;
     margin: auto;
     margin-bottom: 15px;
@@ -12945,96 +12945,96 @@ section.home-footer .row > div {
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
 
-#content.reservation.confirmation .row input.registration {
+#content.reservation.confirmation .row input.registration, .confirmation.review-confirmation .row input.registration {
   width: 60%;
   float: left; }
 
-#content.reservation.confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue {
+#content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
   margin-top: 10px;
   width: 48%;
   margin-bottom: 10px; }
   @media screen and (max-width: 767px) {
-    #content.reservation.confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue {
+    #content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
       width: 100%; } }
 
-#content.reservation.confirmation .row div.calendarPanel {
+#content.reservation.confirmation .row div.calendarPanel, .confirmation.review-confirmation .row div.calendarPanel {
   overflow: auto;
   width: 100%;
   margin-bottom: 10px; }
-  #content.reservation.confirmation .row div.calendarPanel a {
+  #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
     text-align: center;
     display: inline-block;
     font-size: 1.3em;
     font-weight: bold;
     left: 10px; }
-    #content.reservation.confirmation .row div.calendarPanel a:before {
+    #content.reservation.confirmation .row div.calendarPanel a:before, .confirmation.review-confirmation .row div.calendarPanel a:before {
       content: " ";
       position: absolute;
       width: 20px;
       height: 20px;
       display: block;
       left: -10px; }
-  #content.reservation.confirmation .row div.calendarPanel a:first-child:before {
+  #content.reservation.confirmation .row div.calendarPanel a:first-child:before, .confirmation.review-confirmation .row div.calendarPanel a:first-child:before {
     background: url(../img/icons/googleCalendar.png) no-repeat center center;
     background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before {
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(2):before {
     background: url(../img/icons/yahooCalendar.png) no-repeat center center;
     background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before {
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(3):before {
     background: url(../img/icons/outlook.png) no-repeat center center;
     background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before {
+  #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(4):before {
     background: url(../img/icons/icals.png) no-repeat center center;
     background-size: contain; }
 
-#content.reservation.confirmation .row .infoFrame {
+#content.reservation.confirmation .row .infoFrame, .confirmation.review-confirmation .row .infoFrame {
   margin-top: 25px;
   border-color: #c4c4c4;
   border-width: 1px;
   border-style: solid;
   padding: 10px; }
-  #content.reservation.confirmation .row .infoFrame p {
+  #content.reservation.confirmation .row .infoFrame p, .confirmation.review-confirmation .row .infoFrame p {
     font-size: 1.2em; }
-  #content.reservation.confirmation .row .infoFrame ul {
+  #content.reservation.confirmation .row .infoFrame ul, .confirmation.review-confirmation .row .infoFrame ul {
     list-style: initial;
     list-style-position: inside; }
-    #content.reservation.confirmation .row .infoFrame ul li {
+    #content.reservation.confirmation .row .infoFrame ul li, .confirmation.review-confirmation .row .infoFrame ul li {
       font-size: 1.2em; }
-  #content.reservation.confirmation .row .infoFrame a {
+  #content.reservation.confirmation .row .infoFrame a, .confirmation.review-confirmation .row .infoFrame a {
     margin-top: 5px;
     width: 48%; }
   @media screen and (max-width: 767px) {
-    #content.reservation.confirmation .row .infoFrame a.businessButton {
+    #content.reservation.confirmation .row .infoFrame a.businessButton, .confirmation.review-confirmation .row .infoFrame a.businessButton {
       width: 100%; } }
-  #content.reservation.confirmation .row .infoFrame div.separate:first-child {
+  #content.reservation.confirmation .row .infoFrame div.separate:first-child, .confirmation.review-confirmation .row .infoFrame div.separate:first-child {
     border-right: solid;
     border-width: 1px;
     border-color: #c4c4c4; }
-  #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) {
+  #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2), .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) {
     border-left: solid;
     border-width: 1px;
     border-color: #c4c4c4;
     left: -1px;
     padding-right: 0; }
-    #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) a {
+    #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) a, .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) a {
       font-size: 1.4em; }
 
-#content.reservation.confirmation .row .buttonPanel a {
+#content.reservation.confirmation .row .buttonPanel a, .confirmation.review-confirmation .row .buttonPanel a {
   margin-top: 5px;
   text-align: center; }
-  #content.reservation.confirmation .row .buttonPanel a:first-child {
+  #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child {
     margin-right: 4%; }
-  #content.reservation.confirmation .row .buttonPanel a:first-child, #content.reservation.confirmation .row .buttonPanel a:nth-child(2) {
+  #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child, #content.reservation.confirmation .row .buttonPanel a:nth-child(2), .confirmation.review-confirmation .row .buttonPanel a:nth-child(2) {
     width: 48%;
     float: left; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(3) {
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3) {
     margin-left: 16%;
     margin-right: 8%; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), #content.reservation.confirmation .row .buttonPanel a:nth-child(4) {
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3), #content.reservation.confirmation .row .buttonPanel a:nth-child(4), .confirmation.review-confirmation .row .buttonPanel a:nth-child(4) {
     width: 30%;
     margin-bottom: 5px;
     float: left; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(5) {
+  #content.reservation.confirmation .row .buttonPanel a:nth-child(5), .confirmation.review-confirmation .row .buttonPanel a:nth-child(5) {
     width: 30%;
     display: block;
     clear: both;
@@ -13467,6 +13467,20 @@ section.home-footer .row > div {
   font-size: 1.3em; }
   .container.write-review form.form .green {
     float: left; }
+
+.review-confirmation .row button.registration {
+  width: 100%; }
+
+.review-confirmation .row select {
+  width: 100%;
+  background-color: white;
+  height: 34px;
+  border: 2px solid #e6e6e6;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  color: #c4c4c4; }
 
 .connect-form {
   padding-top: 1px;

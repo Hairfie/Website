@@ -6,3 +6,23 @@
         }
     }
 }
+
+.review-confirmation {
+    @extend #content.reservation;
+    .row {
+        button.registration {
+           width: 100%;
+        }
+        select {
+            width: 100%;
+            background-color: white;
+            height: 34px;
+            border: 2px solid #e6e6e6;
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-size: 1.4em;
+            letter-spacing: 2px;
+            color: #c4c4c4;
+        }
+    }
+}
