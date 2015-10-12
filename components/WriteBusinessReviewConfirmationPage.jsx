@@ -18,7 +18,6 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
         this.props.review = newProps.review;
     },
     render: function () {
-        console.log(this.props);
         if (!this.props.review) return null;
         var review = this.props.review;
         var business = review.business;
