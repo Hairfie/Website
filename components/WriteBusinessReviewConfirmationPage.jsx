@@ -18,6 +18,7 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
         this.props.review = newProps.review;
     },
     render: function () {
+        console.log(this.props);
         if (!this.props.review) return null;
         var review = this.props.review;
         var business = review.business;
@@ -59,19 +60,10 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
             return (
                 <div>
                     <h3 className="orange">Complétez votre inscription</h3>
-                    <div className="col-sm-6 col-xs-12">
+                    <div className="col-sm-8 col-xs-12">
                         <Input type="password" ref="password" placeholder="Choisissez un mot de passe" className="registration"/>
                     </div>
-                    <div className="col-sm-3 col-xs-6">
-                        <select ref="gender" placeholder="Sexe" onChange={this.handleMobileCategoriesChange}>
-                            <optgroup label="Sexe">
-                                <option value="" disabled selected>Genre</option>
-                                <option value="MALE">Homme</option>
-                                <option value="FEMALE">Femme</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div className="col-sm-3 col-xs-6">
+                    <div className="col-sm-4 col-xs-12">
                         <Button onClick={this.handleRegisterClick} className="btn-red pull-right registration">S'inscrire</Button>
                     </div>
                 </div>

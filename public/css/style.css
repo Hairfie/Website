@@ -13467,20 +13467,19 @@ section.home-footer .row > div {
   font-size: 1.3em; }
   .container.write-review form.form .green {
     float: left; }
+  .container.write-review select {
+    width: 100%;
+    background-color: white;
+    height: 34px;
+    border: 2px solid #e6e6e6;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    color: #c4c4c4; }
 
 .review-confirmation .row button.registration {
   width: 100%; }
-
-.review-confirmation .row select {
-  width: 100%;
-  background-color: white;
-  height: 34px;
-  border: 2px solid #e6e6e6;
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-size: 1.4em;
-  letter-spacing: 2px;
-  color: #c4c4c4; }
 
 .connect-form {
   padding-top: 1px;

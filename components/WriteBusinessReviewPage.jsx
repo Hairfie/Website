@@ -80,6 +80,7 @@ var ReviewForm = React.createClass({
                 lastName: this.props.businessReviewRequest.booking.lastName || (this.props.currentUser && this.props.currentUser.lastName) || "",
                 email: this.props.businessReviewRequest.booking.email || (this.props.currentUser && this.props.currentUser.email) || "",
                 phoneNumber: this.props.businessReviewRequest.booking.phoneNumber || (this.props.currentUser && this.props.currentUser.phoneNumber) || "",
+                gender: this.props.businessReviewRequest.booking.gender || (this.props.currentUser && this.props.currentUser.gender) || "",
                 errors: []
             };
         }
@@ -87,6 +88,7 @@ var ReviewForm = React.createClass({
             return {
                 firstName: this.props.currentUser.firstName || "",
                 lastName: this.props.currentUser.lastName || "",
+                gender: this.props.currentUser.gender || "",
                 email: this.props.currentUser.email || "",
                 phoneNumber: this.props.currentUser.phoneNumber || "",
                 errors: []
@@ -152,13 +154,16 @@ var ReviewForm = React.createClass({
                             label={<div>Votre numéro de téléphone <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
-                    <select ref="gender" placeholder="Sexe" onChange={this.handleMobileCategoriesChange}>
-                            <optgroup label="Sexe">
-                                <option value="" disabled selected>Genre</option>
-                                <option value="MALE">Homme</option>
-                                <option value="FEMALE">Femme</option>
-                            </optgroup>
-                    </select>
+                    <div className="col-xs-6">
+                        <div style={{fontWeight: 'bold'}}>Votre genre (Homme ou Femme) <RequiredAsterisk /></div>
+                        <select ref="gender" value={this.state.gender} onChange={this.handleGender}>
+                                <optgroup label="Sexe">
+                                    <option value="" disabled selected>Genre</option>
+                                    <option value="MALE">Homme</option>
+                                    <option value="FEMALE">Femme</option>
+                                </optgroup>
+                        </select>
+                    </div>
                 </Row>
                 <hr />
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
@@ -214,12 +219,17 @@ var ReviewForm = React.createClass({
             phoneNumber: e.currentTarget.value
         });
     },
+    handleGender: function (e) {
+        e.preventDefault();
+        this.setState({gender: this.refs.gender.getDOMNode().value});
+    },
     getReview: function () {
         return {
             businessId  : this.props.business.id,
             authorId    : this.props.currentUser ? this.props.currentUser.id : undefined,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
+            gender      : this.refs.gender.getDOMNode().value.trim(),
             email       : this.refs.email.getValue().trim(),
             phoneNumber : this.refs.email.getValue().trim(),
             criteria    : {
