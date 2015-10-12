@@ -78,7 +78,7 @@ app.registerStore(require('./stores/UserStore'));
 app.registerStore(require('./stores/UploadStore'));
 app.registerStore(require('./stores/HairdresserStore'));
 app.registerStore(require('./stores/TimeslotStore'));
-
+app.registerStore(require('./stores/BlogPostStore'));
 // Front end require
 //var Share = require('public/js/share.min.js');
 
