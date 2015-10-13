@@ -82,6 +82,13 @@ module.exports = {
             .then(function (token) {
                 return _storeTokenAndGetUser(context, token)
                     .then(function() {
+                        context.executeAction(
+                            NotificationActions.notifySuccess,
+                            {
+                                title: 'Connexion',
+                                message: "Vous êtes à présent connecté"
+                            }
+                        );
                         if (!withNavigate)
                             return;
                         context.executeAction(
