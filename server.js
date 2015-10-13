@@ -13,7 +13,9 @@ var url             = require('url');
 var debug           = require('debug')('Server');
 var server          = express();
 var compress        = require('compression');
-var robots          = require('robots.txt')
+var robots          = require('robots.txt');
+
+var sitemap         = require('./services/sitemap');
 
 var React           = require('react');
 var app             = require('./app');
@@ -25,6 +27,7 @@ var provideContext  = require('fluxible-addons-react/provideContext');
 
 var Html = provideContext(require('./components/Html.jsx'), require('./context'));
 var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('./context'));
+
 
 // Gzip compression
 server.use(compress());
@@ -43,7 +46,13 @@ server.all('*', function(req, res, next) {
 });
 
 server.use('/assets', express.static(path.join(__dirname, 'public')));
-//server.use(express.static(path.join(__dirname, 'public')));
+
+server.get('/sitemap.xml', function(req, res) {
+  res.header('Content-Type', 'application/xml');
+  console.log("here !");
+  res.send(sitemap.toString());
+});
+
 
 // serve application
 server.use(function (req, res, next) {
@@ -75,7 +84,7 @@ server.use(function (req, res, next) {
 });
 
 server.use(function (err, req, res, next) { // try localized page
-    if('/assets/' !== req.url.substr(0, 8) && '/fr/' !== req.url.substr(0, 4)) {
+    if('/assets/' !== req.url.substr(0, 8) && !(req.url.indexOf('sitemap') > -1) && '/fr/' !== req.url.substr(0, 4)) {
         res.redirect(302, '/fr'+req.url);
     } else {
         next(err);

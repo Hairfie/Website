@@ -11469,7 +11469,7 @@ section.home-section {
   font-size: 14px;
   font-weight: 400; }
 
-#home section.blog-posts .post a.readmore {
+#home section.blog-posts .post a.readmore, #home section.blog-posts .post a.readmore:hover {
   text-decoration: underline;
   font-size: 14px; }
 
