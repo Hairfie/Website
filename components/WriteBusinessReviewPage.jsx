@@ -302,7 +302,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         );
     },
     renderIfNotConnected: function() {
-        if (!this.props.currentUser)
+        if (!this.props.currentUser && !this.state.formConnect)
             return (
                 <div>
                     <a className="color-hairfie" onClick={this.handleFormConnectChanged} role="button">
