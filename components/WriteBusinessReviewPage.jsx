@@ -103,10 +103,11 @@ var ReviewForm = React.createClass({
         if (!nextProps.currentUser)
             return;
         this.setState({
-            firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
-            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "",
-            email: nextProps.currentUser.email ? nextProps.currentUser.email : "",
-            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : ""
+            firstName: nextProps.currentUser.firstName || "",
+            lastName: nextProps.currentUser.lastName || "",
+            email: nextProps.currentUser.email || "",
+            phoneNumber: nextProps.currentUser.phoneNumber  || "",
+            gender: nextProps.currentUser.gender || "FEMALE"
         });
     },
     render: function () {
