@@ -34,7 +34,10 @@ module.exports = {
 
                 return context.executeAction(
                     NotificationActions.notifySuccess,
-                    'Votre avis a bien été pris en compte, merci !'
+                    {
+                        title: 'Avis déposé',
+                        message: 'Votre avis a bien été pris en compte, merci !'
+                    }
                 ).then(function () {
                     return context.executeAction(NavigationActions.navigate, {
                         route: 'business',

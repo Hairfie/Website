@@ -13,6 +13,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="front">
+                <Notifications />
                 <PageProgress context={this.props.context} />
                 <div className="container">
                     <div className="row hidden-xs">
@@ -20,7 +21,6 @@ module.exports = React.createClass({
                     </div>
                     <SearchBar context={this.props.context} mobile={true} />
                 </div>
-                <Notifications />
                 {this.props.children}
                 <div className="row" />
                 <Footer context={this.props.context} />
