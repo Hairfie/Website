@@ -89,11 +89,10 @@ module.exports = React.createClass({
                   <h2>{displayAddress} {linkToMap}</h2>
                   {this.renderAveragePrice()}
                 </div>
-                <div className="col-sm-4" style={{padding: '0'}}>
+                <div className="col-sm-4" style={{padding: '0', paddingRight: '15px'}}>
                   <Rating business={business} />
                   <div className="text-center" style={{marginTop: '10px'}}>
-                    <Link route="write_business_review" className="pull-right"
-                      style={{fontWeight: '400', fontSize: '1.3em', color: 'black', marginRight: '5px'}}
+                    <Link route="write_business_review" className="pull-right request-review"
                       query={{businessId: this.props.business.id}}>
                       {business.numReviews > 0 ? 'Déposez un avis' : 'Soyez le 1er à déposer un avis'}
                     </Link>

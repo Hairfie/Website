@@ -12415,6 +12415,16 @@ section.home-footer .row > div {
             .salon#content .sidebar .networks .social-links li a:hover:after {
               opacity: 1; }
 
+.request-review {
+  font-weight: 400;
+  font-size: 1.6em;
+  color: #595959;
+  margin-right: 5px;
+  text-decoration: underline; }
+  @media screen and (max-width: 1199px) {
+    .request-review {
+      float: left !important; } }
+
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/

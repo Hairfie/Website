@@ -36,19 +36,19 @@ var BusinessReviewPage = React.createClass({
 
         if (_.isEmpty(this.props.reviews)) {
             return (
-                <Layout business={this.props.business} tab="reviews">
+                <Layout business={this.props.business} tab="reviews" className="reviews">
                     <p className="text-center">
                         <br /><br />
                         Pas encore d'avis sur ce coiffeur.
                         <br /><br />
-                        <Link route="write_business_review" className="btn btn-red" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Soyez le premier à déposer un avis</Link>
+                        <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Soyez le premier à déposer un avis</Link>
                     </p>
                 </Layout>
             );
         }
 
         return (
-            <Layout business={this.props.business} tab="reviews">
+            <Layout business={this.props.business} tab="reviews" className="reviews">
                 <div className="comments">
                     {_.map(reviews, function (review) {
                         return (
@@ -67,6 +67,11 @@ var BusinessReviewPage = React.createClass({
                             </div>
                         );
                     }, this)}
+                    <p className="text-center">
+                        <br /><br />
+                        <br /><br />
+                        <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Déposez un avis</Link>
+                    </p>
                 </div>
             </Layout>
         );
