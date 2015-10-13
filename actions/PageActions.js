@@ -98,11 +98,6 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_BOOKING, booking);
             });
     },
-    writeVerifiedBusinessReview: function (context, route) {
-        var businessReviewRequestId  = route.get('params').get('businessReviewRequestId');
-
-        return context.executeAction(BusinessReviewActions.loadRequest, businessReviewRequestId);
-    },
     resetPassword: function (context, route) {
         return context.hairfieApi
             .get('/accessTokens/'+route.get('params').get('tokenId'))
@@ -152,6 +147,31 @@ module.exports = {
         return Promise.all([
             context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
         ]);
+    },
+    writeBusinessReview: function(context, route) {
+        //if OLD PATH
+        if (!route.get('query').get('businessId') && route.get('params').get('businessReviewRequestId')) {
+            return context.executeAction(BusinessReviewActions.loadRequest, route.get('params').get('businessReviewRequestId'))
+                .then(function (brr) {
+                    var error = new Error('Invalid URL');
+                    error.status = 301;
+                    error.location = oldBusinessRequestReviewPath(context, route, brr && brr.business ? brr.business.id : undefined);
+                    throw error;
+            });
+        }
+
+        var businessId = route.get('query').get('businessId');
+        var requestId = route.get('query').get('requestId');
+        if (!businessId) return;
+        return Promise.all([
+            requestId ? context.executeAction(BusinessReviewActions.loadRequest, requestId) : '',
+            businessId ? context.executeAction(BusinessActions.loadBusiness, businessId) : ''
+        ]);
+    },
+    writeBusinessReviewConfirmation: function(context, route) {
+        return Promise.all([
+            context.executeAction(BusinessReviewActions.loadReview, route.get('params').get('reviewId'))
+        ]);
     }
 };
 
@@ -178,4 +198,13 @@ function oldHairfiePath(context, route) {
     return context.getStore('RouteStore').makePath('hairfie', {
         hairfieId  : route.get('params').get('address')
     });
+}
+
+function oldBusinessRequestReviewPath(context, route, businessId) {
+    return context.getStore('RouteStore').makeUrl('write_business_review', {},
+        {
+            requestId: route.get('params').get('businessReviewRequestId'),
+            businessId: businessId
+        }
+    );
 }

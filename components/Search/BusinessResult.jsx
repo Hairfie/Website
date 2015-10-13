@@ -111,7 +111,7 @@ var Business = React.createClass({
                 <div className="note">
                     <span>{rating}</span>/10
                 </div>
-                <Link className="small" route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                <Link className="small" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                     {this.props.business.numReviews} avis
                 </Link>
             </div>
