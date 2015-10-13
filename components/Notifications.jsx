@@ -13,7 +13,6 @@ var Notifications = React.createClass({
     },
     _notificationSystem: null,
     _addNotification: function(notif) {
-        console.log(notif);
         if(this._notificationSystem) {
             this._notificationSystem.addNotification({
                 uid: notif.id,

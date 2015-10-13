@@ -27,7 +27,6 @@ module.exports = createStore({
         this.emitChange();
     },
     onCloseNotification: function (notificationId) {
-        console.log("close notifications");
         this.notifications = _.reject(this.notifications, { id: notificationId });
         this.emitChange();
     },
