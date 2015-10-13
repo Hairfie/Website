@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var PublicLayout = require('./PublicLayout.jsx');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var Notifications = require('./Notifications.jsx');
@@ -19,12 +18,12 @@ var HomePage = React.createClass({
     render: function () {
         return (
             <div className="front">
+                <Notifications />
                 <PageProgress />
                 <section className="landing">
                     <div className="container">
                         <Header withLogin={this.props.withLogin} headerClassName='normal' />
                         <SearchBar mobile={true} {...this.props}/>
-                        <Notifications />
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Trouvez votre coupe<br />Réservez votre coiffeur</h1>

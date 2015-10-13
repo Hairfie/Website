@@ -110,7 +110,10 @@ module.exports = {
                         'veuillez recommencer le processus de réinitialisation de mot de passe.'
                     ].join(' ');
 
-                    return context.executeAction(NotificationActions.notifyFailure, body)
+                    return context.executeAction(NotificationActions.notifyError, {
+                        title: 'Réinitialisation du mot de passe',
+                        message: body
+                    })
                         .then(function () {
                             return context.executeAction(NavigationActions.navigate, { route: 'home' });
                         });
