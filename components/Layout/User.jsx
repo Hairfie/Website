@@ -24,12 +24,18 @@ var User = React.createClass({
                 </li>
                 );
     },
+    componentDidMount: function() {
+        if(this.props.currentUser) {
+            heap.identify({name: this.props.currentUser.firstName + ' ' + this.props.currentUser.lastName,
+                email: this.props.currentUser.email});
+        }
+    },
     renderMobile: function() {
         return (
             <li className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <Picture picture={{url: '/img/profile-picture/icon-user.png'}} />
+                        <Picture picture={{url: '/img/profile-picture/icon-user.png'}} alt="Connexion" />
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
