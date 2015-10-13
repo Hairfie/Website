@@ -128,19 +128,28 @@ var ReviewForm = React.createClass({
             <div>
                 {errorsNode}
                 <Row>
-                    <Col sm={6}>
+                    <Col sm={3}>
                         <Input ref="firstName" type="text"
                             value={this.state.firstName}
                             onChange={this.handleFirstNameChanged}
                             label={<div>Votre prénom <RequiredAsterisk /></div>}
                         />
                     </Col>
-                    <Col sm={6}>
+                    <Col sm={5}>
                         <Input ref="lastName" type="text"
                             value={this.state.lastName}
                             onChange={this.handleLasttNameChanged}
                             label={<div>Votre nom <RequiredAsterisk /> <small>(cette information n'apparaitra pas)</small></div>}
                         />
+                    </Col>
+                    <Col sm={4}>
+                        <div style={{fontWeight: 'bold'}}>Votre genre (Homme ou Femme) <RequiredAsterisk /></div>
+                        <select ref="gender" value={this.state.gender} onChange={this.handleGender}>
+                                <optgroup>
+                                    <option value="MALE">Homme</option>
+                                    <option value="FEMALE">Femme</option>
+                                </optgroup>
+                        </select>
                     </Col>
                     <Col sm={6}>
                         <Input ref="email" type="text"
@@ -156,15 +165,6 @@ var ReviewForm = React.createClass({
                             label={<div>Votre numéro de téléphone <small>(cette information n'apparaitra pas)</small></div>}
                         />
                     </Col>
-                    <div className="col-xs-6">
-                        <div style={{fontWeight: 'bold'}}>Votre genre (Homme ou Femme) <RequiredAsterisk /></div>
-                        <select ref="gender" value={this.state.gender} onChange={this.handleGender}>
-                                <optgroup label="Genre">
-                                    <option value="MALE">Homme</option>
-                                    <option value="FEMALE">Femme</option>
-                                </optgroup>
-                        </select>
-                    </div>
                 </Row>
                 <hr />
                 <p>Veuillez attribuer une note à chacun des critères suivants :</p>
@@ -194,7 +194,7 @@ var ReviewForm = React.createClass({
                 </Row>
                 <hr />
                 <Input ref="comment" type="textarea" label="Un commentaire ?" />
-                <Button onClick={this.submit} className="btn btn-red full">Déposer l'avis</Button>
+                <Button onClick={this.submit} className="btn btn-book full">Je dépose mon avis</Button>
                 <hr />
                 <p><RequiredAsterisk /> Indique les champs requis.</p>
             </div>
@@ -284,17 +284,17 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         var title = 'Votre avis sur ' + business.name;
         var bookingNode;
 
-        if(brr && brr.booking) {
+        if(brr.booking) {
             bookingNode = <p>Vous êtes allé le <strong>{moment(brr.booking.timeslot).format("dddd D MMMM YYYY")}</strong> chez <strong>{brr.business.name}</strong>.</p>
         } else {
-            bookingNode = <p>Vous êtes récemment passé(e) chez <strong>{business.name}</strong>.</p>
+            bookingNode = <p>Vous êtes récemment passé chez <strong>{business.name}</strong>.</p>
         }
 
         return (
             <div className="container write-review" id="content">
                 <h1>{title}</h1>
                 {bookingNode}
-                <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, (et même s’ils ont disparus), votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
+                <p>Que vous soyez content(e) ou déçu(e), que vous soyez chauve ou chevelu(e), que vous ayez les cheveux lisses ou crépus, votre avis compte pour la communauté, alors dites nous avec vérité, ce que vous en pensez !</p>
                 <br />
                 {this.renderIfNotConnected()}
                 <ReviewForm businessReviewRequest={brr} currentUser={this.props.currentUser} business={this.props.business} onSubmit={this.submitReview} />
@@ -305,8 +305,8 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         if (!this.props.currentUser)
             return (
                 <div>
-                    <a className="green" onClick={this.handleFormConnectChanged} role="button">
-                        Si vous avez déjà un compte, vous pouvez gagner du temps en cliquant ici.
+                    <a className="color-hairfie" onClick={this.handleFormConnectChanged} role="button">
+                        Déjà un compte ?
                     </a>
                     {this.renderConnectForm()}
                     <hr />

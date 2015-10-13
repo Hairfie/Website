@@ -73,8 +73,6 @@ var HomePage = React.createClass({
         var target = this.refs[toRef].getDOMNode();
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     }
-
-
 });
 
 HomePage = connectToStores(HomePage, [

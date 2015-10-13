@@ -1,9 +1,13 @@
 .container.write-review {
+    margin-top: 25px;
     font-size: 1.3em;
     form.form {
         .green {
             float: left;
         }
+    }
+    div.stars {
+        height: 1.9em;
     }
     select {
         width: 100%;

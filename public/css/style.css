@@ -9710,9 +9710,6 @@ figcaption a.address {
   to {
     transform: rotate(360deg); } }
 
-.write-review {
-  margin-top: 85px; }
-
 div#app {
   overflow-x: hidden; }
 
@@ -9751,6 +9748,9 @@ div#app {
 
 .black {
   color: black !important; }
+
+.color-hairfie {
+  color: #fe5b5f !important; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -13505,9 +13505,12 @@ section.home-footer .row > div {
   font-size: 18px; }
 
 .container.write-review {
+  margin-top: 25px;
   font-size: 1.3em; }
   .container.write-review form.form .green {
     float: left; }
+  .container.write-review div.stars {
+    height: 1.9em; }
   .container.write-review select {
     width: 100%;
     background-color: white;
