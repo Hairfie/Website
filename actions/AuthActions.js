@@ -21,14 +21,18 @@ module.exports = {
             .then(function () {
                 context.executeAction(
                     NotificationActions.notifyInfo,
-                    'Changement de mot de passe',
-                    'Vous allez recevoir, un mail pour vous permettre de changer votre mot de passe'
+                    {
+                        title: 'Changement de mot de passe',
+                        message: 'Vous allez recevoir, un mail pour vous permettre de changer votre mot de passe'
+                    }
                 );
             }, function () {
                 context.executeAction(
-                    NotificationActions.notifyFailure,
-                    'Echec',
-                    'Votre requête pour obtenir un nouveau mot de passe a échoué, vérifiez bien que vous avez rentré un adresse e-mail valide'
+                    NotificationActions.notifyError,
+                    {
+                        title: 'Echec',
+                        message: 'Votre requête pour obtenir un nouveau mot de passe a échoué, vérifiez bien que vous avez rentré un adresse e-mail valide'
+                    }
                 );
             })
     },
@@ -42,8 +46,10 @@ module.exports = {
                 return Promise.all([
                     context.executeAction(
                         NotificationActions.notifySuccess,
-                        'Nouveau mot de passe',
-                        'Votre mot de passe a été changé avec succès.'
+                        {
+                            title: 'Nouveau mot de passe',
+                            message: 'Votre mot de passe a été changé avec succès.'
+                        }
                     ),
                     context.executeAction(
                         NavigationActions.navigate,
@@ -53,9 +59,11 @@ module.exports = {
             }, function () {
                 return Promise.all([
                     context.executeAction(
-                        NotificationActions.notifyFailure,
-                        'Echec',
-                        "Votre mot de passe n'a pas pu être changé, veuillez réessayer"
+                        NotificationActions.notifyError,
+                        {
+                            title: 'Echec',
+                            message: "Votre mot de passe n'a pas pu être changé, veuillez réessayer"
+                        }
                     ),
                     context.executeAction(
                         NavigationActions.navigate,
@@ -83,9 +91,11 @@ module.exports = {
                     })
                 }, function () {
                     return context.executeAction(
-                        NotificationActions.notifyFailure,
-                        'Echec de connexion',
-                        "Un problème est survenu, veuillez vérifier votre e-mail et mot de passe"
+                        NotificationActions.notifyError,
+                        {
+                            title: 'Echec de connexion',
+                            message: "Un problème est survenu, veuillez vérifier votre e-mail et mot de passe"
+                        }
                     );
             })
     },
@@ -98,6 +108,13 @@ module.exports = {
             .then(function (token) {
                 return _storeTokenAndGetUser(context, token)
                     .then(function() {
+                        context.executeAction(
+                            NotificationActions.notifySuccess,
+                            {
+                                title: 'Connexion',
+                                message: "Vous êtes à présent connecté"
+                            }
+                        );
                         if (!withNavigate)
                             return;
                         context.executeAction(
@@ -107,9 +124,11 @@ module.exports = {
                     })
                 }, function () {
                     return context.executeAction(
-                        NotificationActions.notifyFailure,
-                        'Echec de connexion',
-                        "Un problème est survenu, veuillez réessayer"
+                        NotificationActions.notifyError,
+                        {
+                            title: 'Echec de connexion',
+                            message: "Un problème est survenu, veuillez réessayer"
+                        }
                     );
             })
     },
@@ -117,6 +136,13 @@ module.exports = {
         return context.hairfieApi
             .post('/users/logout', token, { query: { access_token: token.id }})
             .then(function () {
+            context.executeAction(
+                NotificationActions.notifyInfo,
+                {
+                    title: 'Déconnexion',
+                    message: "Vous êtes à présent déconnecté"
+                }
+            );
             return Promise.all([
                 authStorage.clearToken(context),
                 context.dispatch(Actions.DELETE_TOKEN),
@@ -124,9 +150,11 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    'Echec de déconnexion',
-                    "Un problème est survenu"
+                    NotificationActions.notifyError,
+                    {
+                        title: 'Echec de déconnexion',
+                        message: "Un problème est survenu"
+                    }
                 );
             })
     },
@@ -139,6 +167,13 @@ module.exports = {
             .then(function (data) {
                 return _storeTokenAndGetUser(context, data.accessToken)
                     .then(function() {
+                        context.executeAction(
+                            NotificationActions.notifySuccess,
+                            {
+                                title: 'Inscription',
+                                message: "Félicitations ! Vous êtes maintenant inscrit sur Hairfie, vous êtes à présent connecté"
+                            }
+                        );
                         if (!withNavigate)
                             return;
                         context.executeAction(
@@ -148,9 +183,11 @@ module.exports = {
                     })
                 }, function () {
                     return context.executeAction(
-                        NotificationActions.notifyFailure,
-                        "Problème lors de l'inscription",
-                        "Un problème est survenu, veuillez vérifier que tous les champs obligatoires ont bien été remplis"
+                        NotificationActions.notifyError,
+                        {
+                            title: "Problème lors de l'inscription",
+                            message: "Un problème est survenu, veuillez vérifier que tous les champs obligatoires ont bien été remplis"
+                        }
                     );
             })
     },

@@ -24,8 +24,10 @@ module.exports = React.createClass({
             return this.context.executeAction(AuthActions.askResetPassword, {email: email});
         else
             return this.context.executeAction(
-                NotificationActions.notifyFailure,
-                "Vous devez accepter les conditions générales d'utilisations pour finaliser l'inscription"
+                NotificationActions.notifyWarning, {
+                    title: "Email",
+                    message: "Vous devez entrer une adresse email"
+                }
             );
     }
 });

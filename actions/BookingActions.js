@@ -27,9 +27,11 @@ module.exports = {
                 },
                 function () {
                     return context.executeAction(
-                        NotificationActions.notifyFailure,
-                        'Problème lors de la réservation',
-                        'Un problème est survenu, avez-vous bien rempli les champs obligatoires ?'
+                        NotificationActions.notifyError,
+                        {
+                            title: 'Problème lors de la réservation',
+                            message: 'Un problème est survenu, avez-vous bien rempli les champs obligatoires ?'
+                        }
                     );
                 }
             );
@@ -43,8 +45,11 @@ module.exports = {
                     context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter}));
                 }, function () {
                     return context.executeAction(
-                        NotificationActions.notifyFailure,
-                        'Un problème est survenu'
+                        NotificationActions.notifyError,
+                        {
+                            title: 'Erreur',
+                            message: 'Un problème est survenu'
+                        }
                     );
                 }
             );

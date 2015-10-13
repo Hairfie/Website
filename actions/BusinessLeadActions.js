@@ -15,8 +15,11 @@ module.exports = {
                 ga('send', 'event', 'Business Lead', 'Submit');
 
                 return context.executeAction(
-                    NotificationActions.notifySuccess,
-                    'Votre demande a bien été prise en compte, merci !'
+                    NotificationActions.notifyInfo,
+                    {
+                        title: "Demande prise en compte",
+                        message: 'Votre demande a bien été prise en compte, merci !'
+                    }
                 ).then(function () {
                     return context.executeAction(NavigationActions.navigate, {
                         route: 'home_pro'
