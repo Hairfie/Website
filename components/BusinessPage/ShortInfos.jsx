@@ -5,7 +5,6 @@ var _ = require('lodash');
 var Link = require('../Link.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
-
 moment.locale('fr');
 
 var Rating = React.createClass({
