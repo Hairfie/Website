@@ -82,47 +82,6 @@ module.exports = {
                 );
             })
     },
-    getUserHairfies: function (context, id) {
-        var query = {
-        'filter[where][authorId]': id,
-        'filter[order]': 'createdAt DESC',
-        'filter[limit]': 12
-        };
-        return context.hairfieApi
-            .get('/hairfies', { query: query })
-            .then(function (hairfies) {
-                Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: id, hairfies: hairfies})
-                ]);
-            }, function () {
-                return context.executeAction(
-                    NotificationActions.notifyError, {
-                        title: "Récupération d'hairfies",
-                        message: "Un problème est survenu"
-                    }
-                );
-            });
-    },
-    getUserLikes: function (context, id) {
-        var query = {
-        'limit': 12,
-        'userId': id
-        };
-        return context.hairfieApi
-            .get('/users/' + id + '/liked-hairfies', { query: query })
-            .then(function (hairfies) {
-                Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_LIKES, {userId: id, hairfies: hairfies})
-                ]);
-            }, function () {
-                return context.executeAction(
-                    NotificationActions.notifyError, {
-                        title: "Récupération d'hairfies",
-                        message: "Un problème est survenu"
-                    }
-                );
-            });
-    },
     getUserReviews: function (context, id) {
         var query = {
         'filter[where][authorId]': id,
