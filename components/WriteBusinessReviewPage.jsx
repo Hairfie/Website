@@ -78,7 +78,7 @@ var ReviewForm = React.createClass({
             return {
                 firstName: this.props.businessReviewRequest.booking.firstName || (this.props.currentUser && this.props.currentUser.firstName) || "",
                 lastName: this.props.businessReviewRequest.booking.lastName || (this.props.currentUser && this.props.currentUser.lastName) || "",
-                email: this.props.businessReviewRequest.booking.email || (this.props.currentUser && this.props.currentUser.email) || "",
+                email: this.props.businessReviewRequest.booking.email || this.props.businessReviewRequest.email || (this.props.currentUser && this.props.currentUser.email) || "",
                 phoneNumber: this.props.businessReviewRequest.booking.phoneNumber || (this.props.currentUser && this.props.currentUser.phoneNumber) || "",
                 gender: this.props.businessReviewRequest.booking.gender || (this.props.currentUser && this.props.currentUser.gender) || "FEMALE",
                 errors: []
@@ -89,7 +89,7 @@ var ReviewForm = React.createClass({
                 firstName: this.props.currentUser.firstName || "",
                 lastName: this.props.currentUser.lastName || "",
                 gender: this.props.currentUser.gender || "FEMALE",
-                email: this.props.currentUser.email || "",
+                email: this.props.businessReviewRequest ? this.props.businessReviewRequest.email : this.props.currentUser.email || "",
                 phoneNumber: this.props.currentUser.phoneNumber || "",
                 errors: []
             }
@@ -343,6 +343,7 @@ WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPag
     'BusinessReviewRequestStore'
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
+
     return {
         token: token,
         currentUser: context.getStore('UserStore').getById(token.userId),
