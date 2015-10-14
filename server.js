@@ -15,7 +15,7 @@ var server          = express();
 var compress        = require('compression');
 var robots          = require('robots.txt');
 
-var sitemap         = require('./services/sitemap');
+var sitemap         = require('./sitemap');
 
 var React           = require('react');
 var app             = require('./app');
@@ -49,7 +49,6 @@ server.use('/assets', express.static(path.join(__dirname, 'public')));
 
 server.get('/sitemap.xml', function(req, res) {
   res.header('Content-Type', 'application/xml');
-  console.log("here !");
   res.send(sitemap.toString());
 });
 
