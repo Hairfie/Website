@@ -5,9 +5,27 @@ var _ = require('lodash');
 var Link = require('../Link.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
-var Rating = require('../Partial/Rating.jsx');
 moment.locale('fr');
 
+var Rating = React.createClass({
+    render: function () {
+        var business = this.props.business || {};
+        if (!business.numReviews) return <span />;
+
+        var rating = Math.round(business.rating / 100 * 5);
+
+        return (
+            <div className="stars">
+                {_.map([1, 2, 3, 4, 5], function (starValue) {
+                    return <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
+                })}
+                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis  hidden-md">
+                    {business.numReviews+' avis'}
+                </Link>
+            </div>
+        );
+    }
+});
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -70,8 +88,14 @@ module.exports = React.createClass({
                   <h2>{displayAddress} {linkToMap}</h2>
                   {this.renderAveragePrice()}
                 </div>
-                <div className="col-sm-4" style={{padding: '0'}}>
+                <div className="col-sm-4" style={{padding: '0', paddingRight: '15px'}}>
                   <Rating business={business} />
+                  <div className="text-center" style={{marginTop: '10px'}}>
+                    <Link route="write_business_review" className="pull-right request-review"
+                      query={{businessId: this.props.business.id}}>
+                      {business.numReviews > 0 ? 'Déposez un avis' : 'Soyez le 1er à déposer un avis'}
+                    </Link>
+                  </div>
                   <div className="hidden-xs">
                     {this.renderTimetable()}
                   </div>

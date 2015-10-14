@@ -5,3 +5,5 @@ Disallow: /en
 Disallow: /fr/pro/
 Disallow: /pro/
 Allow: /fr/pro/$
+Disallow: /fr/deposer-un-avis
+Disallow: /fr/write-business-review/

@@ -6,6 +6,15 @@ var SearchUtils = require('../lib/search-utils');
 var _ = require('lodash');
 
 module.exports = {
+    loadBusiness: function (context, id) {
+        return context.hairfieApi
+            .get('/businesses/'+id)
+            .then(function (business) {
+                context.dispatch(Actions.RECEIVE_BUSINESS, business);
+
+                return business;
+            });
+    },
     loadSimilarBusinesses: function (context, payload) {
         var businessId = payload.businessId;
         var limit = payload.limit;
