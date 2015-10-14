@@ -11,8 +11,11 @@ var _ = require('lodash');
 var _mustBeConnected = function(context) {
     return Promise.all([
         context.executeAction(
-            NotificationActions.notifyFailure,
-            "Vous devez vous connecter pour exécuter cette action"
+            NotificationActions.notifyWarning,
+            {
+                title: "Connexion nécessaire",
+                message: "Vous devez vous connecter pour exécuter cette action"
+            }
         ),
         context.executeAction(
             NavigationActions.navigate,
@@ -33,8 +36,11 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu, veuillez vous reconnecter"
+                    NotificationActions.notifyError,
+                    {
+                        title: "Erreur de connexion",
+                        message: "Un problème est survenu, veuillez vous reconnecter"
+                    }
                 );
             })
     },
@@ -44,11 +50,18 @@ module.exports = {
         return context.hairfieApi
             .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
             .then(function () {
-                context.executeAction(NotificationActions.notifySuccess, "Vos informations ont bien été éditée");
+                context.executeAction(NotificationActions.notifySuccess,
+                        {
+                            title: "Modification des informations",
+                            message: "Vos informations ont bien été éditées"
+                        }
+                    );
             }, function() {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu, veuillez vous reconnecter"
+                    NotificationActions.notifyError, {
+                        title: "Modification des informations",
+                        message: "Un problème est survenu, veuillez vous reconnecter"
+                    }
                 );
             })
     },
@@ -61,47 +74,13 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu, veuillez vous reconnecter"
+                    NotificationActions.notifyError,
+                    {
+                        title: "Utilisateur",
+                        message: "Un problème est survenu, veuillez vous reconnecter"
+                    }
                 );
             })
-    },
-    getUserHairfies: function (context, id) {
-        var query = {
-        'filter[where][authorId]': id,
-        'filter[order]': 'createdAt DESC',
-        'filter[limit]': 12
-        };
-        return context.hairfieApi
-            .get('/hairfies', { query: query })
-            .then(function (hairfies) {
-                Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_HAIRFIES, {userId: id, hairfies: hairfies})
-                ]);
-            }, function () {
-                return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
-                );
-            });
-    },
-    getUserLikes: function (context, id) {
-        var query = {
-        'limit': 12,
-        'userId': id
-        };
-        return context.hairfieApi
-            .get('/users/' + id + '/liked-hairfies', { query: query })
-            .then(function (hairfies) {
-                Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_LIKES, {userId: id, hairfies: hairfies})
-                ]);
-            }, function () {
-                return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
-                );
-            });
     },
     getUserReviews: function (context, id) {
         var query = {
@@ -116,8 +95,10 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError, {
+                        title: "Récupération d'avis",
+                        message: "Un problème est survenu"
+                    }
                 );
             });
     },
@@ -136,8 +117,10 @@ module.exports = {
                         ]);
             }, function() {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError, {
+                        title: "Hairfie",
+                        message: "Un problème est survenu"
+                    }
                 );
             })
     },
@@ -156,8 +139,10 @@ module.exports = {
                         ]);
             }, function() {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError, {
+                        title: "Hairfie",
+                        message: "Un problème est survenu"
+                    }
                 );
             })
     },

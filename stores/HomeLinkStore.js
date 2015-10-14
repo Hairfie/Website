@@ -7,123 +7,128 @@ module.exports = createStore({
     all: function () {
         return [
             {
-                displayName: "Coiffeur 1er Arrondissement",
+                displayName: "Coiffeurs 1er Arrondissement",
                 address: "1er-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 2ème Arrondissement",
+                displayName: "Coiffeurs 2ème Arrondissement",
                 address: "2e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 3ème Arrondissement",
+                displayName: "Coiffeurs 3ème Arrondissement",
                 address: "3e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 4ème Arrondissement",
+                displayName: "Coiffeurs 4ème Arrondissement",
                 address: "4e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 5ème Arrondissement",
+                displayName: "Coiffeurs 5ème Arrondissement",
                 address: "5e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 6ème Arrondissement",
+                displayName: "Coiffeurs 6ème Arrondissement",
                 address: "6e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 7ème Arrondissement",
+                displayName: "Coiffeurs 7ème Arrondissement",
                 address: "7e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 8ème Arrondissement",
+                displayName: "Coiffeurs 8ème Arrondissement",
                 address: "8e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 9ème Arrondissement",
+                displayName: "Coiffeurs 9ème Arrondissement",
                 address: "9e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 10ème Arrondissement",
+                displayName: "Coiffeurs 10ème Arrondissement",
                 address: "10e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 11ème Arrondissement",
+                displayName: "Coiffeurs 11ème Arrondissement",
                 address: "11e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 12ème Arrondissement",
+                displayName: "Coiffeurs 12ème Arrondissement",
                 address: "12e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 13ème Arrondissement",
+                displayName: "Coiffeurs 13ème Arrondissement",
                 address: "13e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 14ème Arrondissement",
+                displayName: "Coiffeurs 14ème Arrondissement",
                 address: "14e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 15ème Arrondissement",
+                displayName: "Coiffeurs 15ème Arrondissement",
                 address: "15e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 16ème Arrondissement",
+                displayName: "Coiffeurs 16ème Arrondissement",
                 address: "16e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 17ème Arrondissement",
+                displayName: "Coiffeurs 17ème Arrondissement",
                 address: "17e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 18ème Arrondissement",
+                displayName: "Coiffeurs 18ème Arrondissement",
                 address: "18e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 19ème Arrondissement",
+                displayName: "Coiffeurs 19ème Arrondissement",
                 address: "19e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur 20ème Arrondissement",
+                displayName: "Coiffeurs 20ème Arrondissement",
                 address: "20e-Arrondissement--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur Les Batignolles",
+                displayName: "Coiffeurs Les Batignolles",
                 address: "Batignolles--75017-Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur dans le Marais",
+                displayName: "Coiffeurs dans le Marais",
                 address: "Le-Marais--Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur à Montmartre",
+                displayName: "Coiffeurs à Montmartre",
                 address: "Montmartre--75018-Paris--France",
                 category: ""
             },
             {
-                displayName: "Coiffeur proche des Champs-Elysées",
+                displayName: "Coiffeurs proche des Champs-Elysées",
                 address: "Champs~Élysées--Paris--France",
+                category: ""
+            },
+            {
+                displayName: "Coiffeurs du Quartier Montorgueil",
+                address: "Rue-Montorgueil--Paris--France",
                 category: ""
             },
             {
@@ -132,7 +137,7 @@ module.exports = createStore({
                 category: "coloration"
             },
             {
-                displayName: "Barbier à Paris",
+                displayName: "Barbiers à Paris",
                 address: "Paris--France",
                 category: "barbier"
             }

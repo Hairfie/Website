@@ -16,6 +16,9 @@
 .black {
 	color: black !important;
 }
+.color-hairfie {
+	color: $hairfie !important;
+}
 @mixin transition($transition)
 {
 	-webkit-transition: $transition;

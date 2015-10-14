@@ -145,8 +145,11 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError,
+                    {
+                        title: "Problème lors du chargement des Hairfies",
+                        message: "Un problème est survenu"
+                    }
                 );
             });
     },
@@ -171,8 +174,11 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError,
+                    {
+                        title: "Problème lors du chargement des Hairfies",
+                        message: "Un problème est survenu"
+                    }
                 );
             });
     },
@@ -196,8 +202,11 @@ module.exports = {
                 ]);
             }, function () {
                 return context.executeAction(
-                    NotificationActions.notifyFailure,
-                    "Un problème est survenu"
+                    NotificationActions.notifyError,
+                    {
+                        title: "Erreur",
+                        message: "Un problème est survenu, veuillez réessayer ultérieurement."
+                    }
                 );
             });
     }

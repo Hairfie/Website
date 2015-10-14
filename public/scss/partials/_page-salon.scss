@@ -441,3 +441,15 @@
 		}
 	}
 }
+
+.request-review {
+	font-weight: 400;
+	font-size: 1.6em; 
+	color: $font-color; 
+	margin-right: 5px; 
+	text-decoration: underline;
+
+	@media screen and (max-width: $screen-md-max)  {
+		float: left !important;
+	}
+}

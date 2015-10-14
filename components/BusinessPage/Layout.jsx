@@ -22,7 +22,7 @@ var Layout = React.createClass({
                 <div className="container salon" id="content">
                     <div className="main-content col-md-8 col-sm-12">
                         <ShortInfos business={business} />
-                        <section className="salon-content">
+                        <section id="salon-content" className="salon-content">
                             <div className="row">
                                 <div role="tabpannel">
                                     <div className="row">

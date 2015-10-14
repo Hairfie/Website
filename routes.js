@@ -31,12 +31,26 @@ module.exports = {
         method: 'get',
         handler: require('./components/AskResetPasswordPage.jsx')
     },
-    write_verified_business_review: {
+    old_write_business_review: {
         title: 'Donnez votre avis',
         path: '/fr/write-business-review/:businessReviewRequestId',
         method: 'get',
-        handler: require('./components/WriteVerifiedBusinessReviewPage.jsx'),
-        action: PageActions.writeVerifiedBusinessReview
+        handler: require('./components/WriteBusinessReviewPage.jsx'),
+        action: PageActions.writeBusinessReview
+    },
+    write_business_review: {
+        title: 'Donnez votre avis',
+        path: '/fr/deposer-un-avis',
+        method: 'get',
+        action: PageActions.writeBusinessReview,
+        handler: require('./components/WriteBusinessReviewPage.jsx')
+    },
+    business_reviews_confirmation: {
+        title: 'Avis déposé',
+        path: '/fr/avis/:reviewId',
+        method: 'get',
+        action: PageActions.writeBusinessReviewConfirmation,
+        handler: require('./components/WriteBusinessReviewConfirmationPage.jsx')
     },
     hairfie: {
         path: '/fr/hairfie/:hairfieId',
