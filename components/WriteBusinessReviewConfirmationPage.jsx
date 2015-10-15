@@ -70,7 +70,6 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
     },
     handleRegisterClick: function(e) {
         e.preventDefault();
-        console.log(this.props);
 
         var userInfo = {
             email: this.props.review.email,
