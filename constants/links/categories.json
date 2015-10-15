@@ -1,14 +1,74 @@
 [
     {
-        "displayName": "Coloration à Paris",
+        "displayName": "Spécialistes Femmes",
+        "address": "Paris--France",
+        "category": "femme",
+        "url": "/fr/coiffeurs/Paris--France?categories=femme"
+    },
+    {
+        "displayName": "Hairfies et Coiffures",
         "address": "Paris--France",
         "category": "coloration",
         "url": "/fr/coiffeurs/Paris--France?categories=coloration"
+    },
+    {
+        "displayName": "Spécialistes Balayage Tie & Dye à Paris",
+        "address": "Paris--France",
+        "category": "balayage-tie-and-dye",
+        "url": "/fr/coiffeurs/Paris--France?categories=balayage-tie-and-dye"
+    },
+    {
+        "displayName": "Spécialistes Lissage à Paris",
+        "address": "Paris--France",
+        "category": "lissage",
+        "url": "/fr/coiffeurs/Paris--France?categories=lissage"
+    },
+    {
+        "displayName": "Coiffeurs Homme à Paris",
+        "address": "Paris--France",
+        "category": "homme",
+        "url": "/fr/coiffeurs/Paris--France?categories=homme"
     },
     {
         "displayName": "Barbiers à Paris",
         "address": "Paris--France",
         "category": "barbier",
         "url": "/fr/coiffeurs/Paris--France?categories=barbier"
+    },
+    {
+        "displayName": "Coiffeurs Ethniques, Spécialistes Afro & Coiffeurs Asiatiques à Paris",
+        "address": "Paris--France",
+        "category": "ethnique",
+        "url": "/fr/coiffeurs/Paris--France?categories=ethnique"
+    },
+    {
+        "displayName": "Coiffeurs Spécialistes Extensions à Paris",
+        "address": "Paris--France",
+        "category": "extensions",
+        "url": "/fr/coiffeurs/Paris--France?categories=extensions"
+    },
+    {
+        "displayName": "Coiffeurs Spécialistes Mariage à Paris",
+        "address": "Paris--France",
+        "category": "mariage",
+        "url": "/fr/coiffeurs/Paris--France?categories=mariage"
+    },
+    {
+        "displayName": "Coiffures, Styling & Chignons à Paris",
+        "address": "Paris--France",
+        "category": "coiffures",
+        "url": "/fr/coiffeurs/Paris--France?categories=coiffures"
+    },
+    {
+        "displayName": "Coiffeurs Spécialistes Boucles Cheveux Frisés et Ondulés à Paris",
+        "address": "Paris--France",
+        "category": "boucles",
+        "url": "/fr/coiffeurs/Paris--France?categories=boucles"
+    },
+    {
+        "displayName": "Coiffeurs pour Enfant à Paris",
+        "address": "Paris--France",
+        "category": "enfant",
+        "url": "/fr/coiffeurs/Paris--France?categories=enfant"
     }
 ]
