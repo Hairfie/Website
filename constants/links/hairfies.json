@@ -1,0 +1,80 @@
+[
+    {
+        "displayName": "Hairfies Paris",
+        "address": "Paris--France",
+        "category": "coloration",
+        "url": "/fr/hairfies/Paris--France"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Femmes",
+        "address": "Paris--France",
+        "category": "femme",
+        "url": "/fr/hairfies/Paris--France?tags=Femme"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Coloration à Paris",
+        "address": "Paris--France",
+        "category": "coloration",
+        "url": "/fr/hairfies/Paris--France?tags=Coloration&tags=Generik&tags=Mèches"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Balayage Tie & Dye à Paris",
+        "address": "Paris--France",
+        "category": "balayage-tie-and-dye",
+        "url": "/fr/hairfies/Paris--France?tags=Balayage&tags=Bronde&tags=Mèches&tags=Tie%20%26%20Dye"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Lissage à Paris",
+        "address": "Paris--France",
+        "category": "lissage",
+        "url": "/fr/hairfies/Paris--France?tags=Afro&tags=Crépus&tags=Lissage&tags=Lissage%20brésilien&tags=Lissage%20japonais"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Homme à Paris",
+        "address": "Paris--France",
+        "category": "homme",
+        "url": "/fr/hairfies/Paris--France?tags=Homme"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Barbier à Paris",
+        "address": "Paris--France",
+        "category": "barbier",
+        "url": "/fr/hairfies/Paris--France?tags=Barbe&tags=Moustache"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Ethniques Afro & Asiatiques à Paris",
+        "address": "Paris--France",
+        "category": "ethnique",
+        "url": "/fr/hairfies/Paris--France?tags=Afro&tags=Asiatique&tags=Crépus&tags=Lissage%20brésilien&tags=Lissage%20japonais&tags=Métisse&tags=Tissage"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Extensions à Paris",
+        "address": "Paris--France",
+        "category": "extensions",
+        "url": "/fr/hairfies/Paris--France?tags=Extensions&tags=Tissage"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Mariage à Paris",
+        "address": "Paris--France",
+        "category": "mariage",
+        "url": "/fr/hairfies/Paris--France?tags=Chignon&tags=Mariage"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Styling & Chignons à Paris",
+        "address": "Paris--France",
+        "category": "coiffures",
+        "url": "/fr/hairfies/Paris--France?tags=Beach%20Waves&tags=Brushing&tags=Carré&tags=Chignon&tags=Coiffage&tags=Décalé&tags=Frange&tags=Mèches&tags=Pixie&tags=Queue%20de%20cheval&tags=Rétro&tags=Tendance&tags=Tresse"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Boucles Cheveux Frisés et Ondulés à Paris",
+        "address": "Paris--France",
+        "category": "boucles",
+        "url": "/fr/hairfies/Paris--France?tags=Beach%20Waves&tags=Bouclés&tags=Curl&tags=Permanente"
+    },
+    {
+        "displayName": "Coiffures, Inspirations et #Hairfies Enfant à Paris",
+        "address": "Paris--France",
+        "category": "enfant",
+        "url": "/fr/hairfies/Paris--France?tags=Enfant"
+    }
+]
