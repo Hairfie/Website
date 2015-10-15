@@ -76,7 +76,7 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
             firstName: this.props.review.firstName,
             lastName: this.props.review.lastName,
             password: this.refs.password.getValue(),
-            gender: this.refs.gender.getDOMNode().value
+            gender: this.props.review.gender || 'FEMALE'
         };
         this.context.executeAction(AuthActions.register, userInfo);
     }
