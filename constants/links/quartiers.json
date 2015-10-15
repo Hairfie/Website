@@ -1,0 +1,38 @@
+[
+    {
+        "displayName": "Coiffeurs à Paris",
+        "address": "Coiffeurs à Paris",
+        "category": "",
+        "url": "/fr/coiffeurs/Paris--France"
+    },
+    {
+        "displayName": "Coiffeurs Les Batignolles",
+        "address": "Batignolles--75017-Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Batignolles--75017-Paris--France"
+    },
+    {
+        "displayName": "Coiffeurs dans le Marais",
+        "address": "Le-Marais--Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Le-Marais--Paris--France"
+    },
+    {
+        "displayName": "Coiffeurs à Montmartre",
+        "address": "Montmartre--75018-Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Montmartre--75018-Paris--France"
+    },
+    {
+        "displayName": "Coiffeurs proche des Champs-Elysées",
+        "address": "Champs~Élysées--Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Champs~Élysées--Paris--France"
+    },
+    {
+        "displayName": "Coiffeurs du Quartier Montorgueil",
+        "address": "Rue-Montorgueil--Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Rue-Montorgueil--Paris--France"
+    }
+]
