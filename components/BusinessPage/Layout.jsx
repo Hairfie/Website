@@ -7,6 +7,7 @@ var Carousel = require('./Carousel.jsx');
 var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
+var Breadcrumb = require('./Breadcrumb.jsx');
 
 var Layout = React.createClass({
     render: function () {
@@ -18,6 +19,7 @@ var Layout = React.createClass({
 
         return (
             <ParentLayout>
+                <Breadcrumb business={business} />
                 <Carousel pictures={business.pictures} />
                 <div className="container salon" id="content">
                     <div className="main-content col-md-8 col-sm-12">

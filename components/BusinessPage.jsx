@@ -20,9 +20,9 @@ var BusinessPage = React.createClass({
             <Layout business={this.props.business} tab="infos">
                 {this.renderHairdressers()}
                 {this.renderServices()}
+                {this.renderDescription()}
                 {this.renderDiscounts()}
                 {this.renderLocation()}
-                {this.renderDescription()}
             </Layout>
         );
     },
