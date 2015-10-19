@@ -42,7 +42,6 @@ module.exports = createStore({
     },
     onReceiveUserReviews: function (payload) {
         this.reviews = _.assign({}, this.reviews, _.indexBy(payload.reviews, 'id'));
-
         this.userReviews[payload.userId] = _.map(_.sortBy(payload.reviews, 'createdAt', [false]), 'id');
         this.emitChange();
     },
@@ -54,7 +53,7 @@ module.exports = createStore({
         }, this);
     },
     getReviewsByUser: function (userId) {
-        if (this.userReviews[userId]) return null;
+        if (!this.userReviews[userId]) return null;
 
         return _.map(this.userReviews[userId], function(reviewId) {
             return this.reviews[reviewId];
