@@ -7,6 +7,7 @@ var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var HairfieActions = require('../../actions/HairfieActions');
 var SearchUtils = require('../../lib/search-utils');
+var Rating = require('../Partial/Rating.jsx');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -89,12 +90,12 @@ var Business = React.createClass({
                             {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
                         </Link>
                     </div>
+                    {this.renderRating()}
                     {this.renderPricing()}
                     <Hairfies business={this.props.business} />
                     <div className="book">
                         {booking_button}
                     </div>
-                    {this.renderRating()}
                     <div className="clearfix"></div>
                 </div>
             </section>
@@ -102,14 +103,12 @@ var Business = React.createClass({
     },
     renderRating: function () {
         if (!this.props.business.numReviews) return;
-
-        var rating = (this.props.business.rating / 10).toPrecision(2);
         var query  = this.props.date ? { date: this.props.date } : {};
 
         return (
             <div className="rating">
                 <div className="note">
-                    <span>{rating}</span>/10
+                    <Rating rating={this.props.business.rating} min={true} />
                 </div>
                 <Link className="small" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                     {this.props.business.numReviews} avis

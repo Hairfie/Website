@@ -11630,7 +11630,7 @@ section.home-footer .row > div {
     margin: 10px auto; }
 
 /*////////////////////////////////
-	   P A G E  S E A R C H  
+	   P A G E  S E A R C H
 ////////////////////////////////*/
 @media screen and (max-width: 991px) {
   #content.search {
@@ -11784,9 +11784,6 @@ section.home-footer .row > div {
       max-height: none;
       width: 100%; }
     #content.search .main-content .tab-pane section .rating {
-      position: absolute;
-      top: 0;
-      right: 15px;
       font-size: 1.2em;
       letter-spacing: 2px; }
       #content.search .main-content .tab-pane section .rating .note {
@@ -11812,7 +11809,7 @@ section.home-footer .row > div {
     #content.search .main-content .tab-pane section .inline-promo {
       text-align: left;
       width: 100%;
-      margin: 8px 0; }
+      margin: 0; }
       #content.search .main-content .tab-pane section .inline-promo .icon-promo {
         margin-right: 10px; }
     #content.search .main-content .tab-pane section div.address-bloc h3 {

@@ -68,6 +68,9 @@ var HomePage = React.createClass({
             this.scrollTo("search");
         }
     },
+    componentWillUnmount: function() {
+        $('body').removeClass('locked');
+    },
     scrollTo: function(toRef) {
         var target = this.refs[toRef].getDOMNode();
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});

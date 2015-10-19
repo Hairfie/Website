@@ -155,6 +155,7 @@ var mobileHeader = React.createClass({
         if (this.state.selectedCategories) {
             search['categories'] = this.state.selectedCategories.split(',');
         }
+
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
     componentDidMount: function() {
@@ -169,6 +170,9 @@ var mobileHeader = React.createClass({
                 TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
             }
         });
+    },
+    componentWillUnmount: function() {
+        $('body').removeClass('locked');
     }
 });
 
