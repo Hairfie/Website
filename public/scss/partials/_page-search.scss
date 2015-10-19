@@ -1,5 +1,5 @@
 /*////////////////////////////////
-	   P A G E  S E A R C H  
+	   P A G E  S E A R C H
 ////////////////////////////////*/
 #content.search {
 	@media screen and (max-width: $screen-sm-max) {
@@ -38,7 +38,7 @@
 		.search-content {
 			@include fullWidthBg($bg3);
 		}
-		
+
 		.header-part {
 			.cover {
 				border-radius: 3px;
@@ -86,7 +86,7 @@
 				font-size: 1.2em;
 				letter-spacing: 1px;
 				// height: 40px;
-				line-height: 40px;	
+				line-height: 40px;
 				margin: 0;
 				position: relative;
 
@@ -95,7 +95,7 @@
 					line-height: 1.2em;
 					display: inline-block;
 					background-color: $bgfooter;
-					color: white;	
+					color: white;
 
 					@media screen and (max-width: $screen-xs-max) {
 						width: auto;
@@ -125,7 +125,7 @@
 					@media screen and (max-width: $screen-xs-max) {
 						width: 68.5%;
 					}
-					
+
 				}
 				select {
 					padding: 15px 40px 15px 15px;
@@ -152,13 +152,13 @@
 						float:none !important;
 					}
 				}
-				
+
 			}
 		}
 		.tab-pane section {
 			padding-bottom: 20px;
 			margin-bottom: 20px;
-			
+
 			&:after {
 				content:" ";
 				width: 96%;
@@ -177,8 +177,6 @@
 			}
 
 			.rating {
-				position: absolute;
-				top: 0;right: 15px;
 				font-size: 1.2em;
 				letter-spacing: 2px;
 
@@ -210,7 +208,7 @@
 			.inline-promo {
 				text-align: left;
 				width: 100%;
-				margin: 8px 0;
+				margin: 0;
 				.icon-promo {
 					margin-right: 10px;
 				}
@@ -224,7 +222,7 @@
 					font-size: 1.4em;
 				}
 			}
-			
+
 			.btn-red, .btn-book {
 				text-transform: uppercase;
 				letter-spacing: 1px;
@@ -262,7 +260,7 @@
 			margin-top: 20px;
 			section {
 				.image-bloc {
-					
+
 					img {
 						border-radius: 100%;
 						@media screen and (max-width: $screen-sm-max) {
@@ -273,7 +271,7 @@
 				}
 				.rating {
 					@media screen and (max-width: $screen-xs-max) {
-						top: -85%;	
+						top: -85%;
 						a {
 							color: $darkgrey;
 						}
@@ -309,7 +307,7 @@
   					}
   				}
 			}
-		} 
+		}
 		.tab-pane#hairfies {
 			section {
 				&:after {
@@ -341,11 +339,11 @@
 		.filter-recap {
 			h2{line-height: 50px; }
 		}
-		
+
 		.checkbox-inline + .checkbox-inline {
 			margin-left: 0;
 		}
-		
+
 		h1 {
 			color: $font-color;
 			font-weight: $semiBold;
@@ -367,14 +365,14 @@
 			background-color: white;
 			border-bottom: 1px solid #e2e3e6;
 			font-size: 1.6em;
-			font-weight: $regular;	
+			font-weight: $regular;
 			letter-spacing: 1px;
 			line-height: 2.2;
 
 			display: block;
 			width: 100%;
   			padding-left: 30px;
-			
+
 		}
 		div.input-group {
 			padding: 24px 12px;
@@ -394,7 +392,7 @@
 					outline: none !important;
 				}
 			}
-			
+
 			.input-group-addon {
 			    border: none;
 			    border-radius: 0;
@@ -422,7 +420,7 @@
 		.price {
 			.selectRange {
 				padding: 30px 12px;
-				background: white;	
+				background: white;
 			}
 			p {
 				font-size: 1.5em;
@@ -435,13 +433,13 @@
 				}
 			}
 			.rangeslider {
-				height: 11px; 
+				height: 11px;
 				background: #e2e3e6;
 				border:0;
 				margin-bottom: 15px;
 
 				.ui-slider-range {
-					height: 11px; 
+					height: 11px;
 					background: $red;
 				}
 				.ui-slider-handle {
@@ -450,7 +448,7 @@
 					width: 22px;height: 22px;
 					border: 4px solid white;
 					border-radius:100%;
-					background:$red; 
+					background:$red;
 					@include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
 				}
 			}
@@ -460,8 +458,8 @@
 		position: relative;
 		width: 100vw;
 		.btn-red.trigger-filters {
-			
-		}	
+
+		}
 		.mobile-filtres {
 			position: fixed;
   			left: 0; z-index: 998;

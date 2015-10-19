@@ -69,9 +69,9 @@ var UserLayout = React.createClass({
         );
     },
     renderEdit: function() {
-        if (this.props.user.id == this.props.currentUser.id)
+        if (this.props.currentUser && this.props.user.id == this.props.currentUser.id)
             return (<Link style={{marginBottom: '5px'}} className="green" route="user_edit">(Modifier mon profil)</Link>);
-        return {};
+        return null;
     },
     openGallery: function(e) {
         e.preventDefault();
@@ -89,6 +89,7 @@ UserLayout = connectToStores(UserLayout, [
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
     return {
+        user: props.user,
         currentUser: context.getStore('UserStore').getById(token.userId)
     };
 });

@@ -72,7 +72,7 @@ var UserReviewsPage = React.createClass({
     renderTitle: function () {
         if (_.isEmpty(this.props.reviews))
             return <h3>{this.props.user.firstName} n'a pas encore laissé d'avis.</h3>
-        return <h3>{this.props.user.firstName} a laissé des Avis</h3>;
+        return null;
     }
 });
 
