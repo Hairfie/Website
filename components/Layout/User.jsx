@@ -25,7 +25,7 @@ var User = React.createClass({
                 );
     },
     componentDidMount: function() {
-        if(this.props.currentUser) {
+        if(this.props.currentUser  && heap) {
             heap.identify({name: this.props.currentUser.firstName + ' ' + this.props.currentUser.lastName,
                 email: this.props.currentUser.email});
         }
