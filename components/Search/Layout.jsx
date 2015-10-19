@@ -26,6 +26,9 @@ var Layout = React.createClass({
             }
         });
     },
+    componentWillUnmount: function() {
+        $('body').removeClass('locked');
+    },
     render: function () {
         return (
             <PublicLayout withSearchBar={true}>

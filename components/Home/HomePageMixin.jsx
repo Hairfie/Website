@@ -38,6 +38,9 @@ var HomePageMixin = {
         $('body').on('click','.main-searchbar input', function(){
             $('.main-searchbar').toggleClass('open');
         });
+    },
+    componentWillUnmount: function() {
+        $('body').removeClass('locked');
     }
 };
 

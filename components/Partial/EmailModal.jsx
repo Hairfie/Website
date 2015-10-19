@@ -63,7 +63,7 @@ var EmailModal = React.createClass({
         return (
             <Modal show={this.state.showModal} onHide={this.close} className="email-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title>Newsletter</Modal.Title>
+                    <Modal.Title>Par ici le meilleur de la coiffure !​</Modal.Title>
                     {this.renderModalBody()}
                 </Modal.Header>
             </Modal>
@@ -73,16 +73,16 @@ var EmailModal = React.createClass({
         if(this.state.hasSubscribed) {
             return (
                 <Modal.Body>
-                    <p>Merci !</p>
+                    <p>Merci, votre inscription est bien enregistrée. Vous faites partie des privilégié(e)s qui recevront nos actualités, conseils et bonnes adresses coiffure.​</p>
                 </Modal.Body>
             );
         } else {
             return (
                 <Modal.Body>
-                    <p>Vous souhaitez être tenu(e) au courant de l'actualité de Hairfie, de nos conseils et bons plans coiffure du moment ?</p>
+                    <p>Retrouvez les bons plans, les plus belles inspirations et les meilleures adresses pour vos cheveux dans votre boite email.</p>
                     <p>
                         <Input type="email" ref="email" label={this.state.label} bsStyle={this.state.bsStyle} placeholder="julia@hairfie.com" onBlur={this.validateEmailInput} />
-                        <Button onClick={this.addSubscriber} className="btn btn-red">S'inscrire</Button>
+                        <Button onClick={this.addSubscriber} className="btn btn-red">Rejoignez la communauté</Button>
                     </p>
                     <p>Promis, on garde l'email pour nous et pas de spam.</p>
                 </Modal.Body>

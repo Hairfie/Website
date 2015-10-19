@@ -50,7 +50,7 @@ module.exports = {
         return context.hairfieApi
             .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
             .then(function () {
-                context.executeAction(NotificationActions.notifySuccess,
+                return context.executeAction(NotificationActions.notifySuccess,
                         {
                             title: "Modification des informations",
                             message: "Vos informations ont bien été éditées"
@@ -69,9 +69,7 @@ module.exports = {
         return context.hairfieApi
             .get('/users/' + id)
             .then(function (userInfo) {
-                return Promise.all ([
-                    context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
-                ]);
+                return context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
             }, function () {
                 return context.executeAction(
                     NotificationActions.notifyError,
@@ -90,9 +88,7 @@ module.exports = {
         return context.hairfieApi
             .get('/businessReviews', { query: query })
             .then(function (reviews) {
-                Promise.all([
-                    context.dispatch(Actions.RECEIVE_USER_REVIEWS, {userId: id, reviews: reviews})
-                ]);
+                return context.dispatch(Actions.RECEIVE_USER_REVIEWS, {userId: id, reviews: reviews})
             }, function () {
                 return context.executeAction(
                     NotificationActions.notifyError, {
