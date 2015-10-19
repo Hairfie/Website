@@ -140,6 +140,7 @@ module.exports = {
             })
     },
     disconnect: function(context, token) {
+        authStorage.clearToken(context);
         return context.hairfieApi
             .post('/users/logout', token, { query: { access_token: token.id }})
             .then(function () {
@@ -151,7 +152,6 @@ module.exports = {
                 }
             );
             return Promise.all([
-                authStorage.clearToken(context),
                 context.dispatch(Actions.DELETE_TOKEN),
                 context.dispatch(Actions.DELETE_USER_INFO)
                 ]);
