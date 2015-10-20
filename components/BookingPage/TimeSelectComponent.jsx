@@ -29,9 +29,11 @@ var TimeSelectComponent = React.createClass({
     },
 
     render: function() {
-        if(!this.props.daySelected) {
+        if (!this.props.timeslots) return null;
+        if (!this.props.daySelected) {
             return (<p>Commencez par choisir un jour</p>);
         }
+
         var daySelected = this.props.daySelected;
         var timeslots = this.props.timeslots[daySelected];
         return(
@@ -73,7 +75,7 @@ var TimeSelectComponent = connectToStores(TimeSelectComponent, [
 ], function (context, props) {
     return {
         timeslots : context.getStore('TimeslotStore').getById(props.businessId)
-    }
+    };
 });
 
 module.exports = TimeSelectComponent;
