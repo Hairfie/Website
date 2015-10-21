@@ -34,7 +34,7 @@ module.exports = React.createClass({
                             <li><a href="https://www.facebook.com/pages/Hairfie/1507026002849084" target="_blank" className='icon'>b</a></li>
                             <li><a href="https://twitter.com/HairfieApp" target="_blank" className='icon'>a</a></li>
                             <li><a href="https://plus.google.com/+Hairfie" target="_blank" className='icon'>c</a></li>
-                            <li><a href="https://instagram.com/HairfieApp" target="_blank" className='icon'>x</a></li>
+                            <li><a href="https://instagram.com/Hairfie" target="_blank" className='icon'>x</a></li>
                             <li><a href="https://www.pinterest.com/hairfie/" target="_blank" className='icon'>d</a></li>
                         </ul>
                     </div>
