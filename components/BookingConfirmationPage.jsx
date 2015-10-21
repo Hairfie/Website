@@ -40,6 +40,11 @@ var BookingConfirmationPage = React.createClass({
             </PublicLayout>
         );
     },
+    componentDidMount: function() {
+        if(this.props.booking && heap) {
+            heap.identify({email: this.props.booking.email});
+        }
+    },
     renderVerif: function(booking) {
         if (booking.status == BookingStatus.REQUEST) {
             return (
