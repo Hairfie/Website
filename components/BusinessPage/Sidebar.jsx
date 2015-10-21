@@ -5,6 +5,8 @@ var Calendar = require('../Form/BookingCalendarComponent.jsx');
 var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
+var ga = require('../../services/analytics');
+
 
 module.exports = React.createClass({
     mixins: [NavToLinkMixin],
@@ -53,19 +55,32 @@ module.exports = React.createClass({
         );
     },
     renderPhoneNumber: function() {
-    var business = this.props.business;
-    if (business.isBookable && !business.displayPhoneNumber)
-        return;
-        return (
+        var business = this.props.business;
+        if(business.accountType == 'PREMIUM' || business.displayPhoneNumber) {
+            return (
                 <div className="phone">
-                    <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-red">
+                    <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-red" onClick={this.trackCall}>
                         {business.phoneNumber}
                     </a>
                 </div>
             );
+        } else {
+            return;
+        }
+    },
+    trackCall: function() {
+        if(ga) {
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'Call Booking',
+              eventAction: 'call',
+              eventLabel: this.props.business.name
+            });
+        }
     },
     renderSimilarBusinesses: function () {
         if (!this.props.similarBusinesses) return;
+        if (this.props.business && this.props.business.accountType == 'PREMIUM') return;
 
         return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
