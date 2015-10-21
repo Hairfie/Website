@@ -11812,6 +11812,8 @@ section.home-footer .row > div {
       margin: 8px 0; }
       #content.search .main-content .tab-pane section .inline-promo .icon-promo {
         margin-right: 10px; }
+      #content.search .main-content .tab-pane section .inline-promo span.black {
+        margin-left: 3px; }
     #content.search .main-content .tab-pane section div.address-bloc h3 {
       font-size: 2.1em;
       margin: 0 0 3px; }
