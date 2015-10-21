@@ -119,7 +119,7 @@ var EmailModal = React.createClass({
         });
         this.setState({ hasSubscribed: true }, function () {
             this.context.executeAction(SubscriberActions.hasClosedPopup);
-            heap.identify({email: email});
+            if(heap) heap.identify({email: email});
             setTimeout(function() {
                modal.close();
             }, 2000);
