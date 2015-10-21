@@ -81,16 +81,20 @@ var Business = React.createClass({
                 </div>
                 <div className="col-xs-12 col-sm-8 info-bloc">
                     <div className="address-bloc">
-                        <h3>
-                            <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                                {this.props.business.name}
-                            </Link>
-                        </h3>
-                        <Link className="address" route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                            {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
-                        </Link>
+                        <div>
+                            <div className={this.props.business.numReviews && this.props.business.rating ? "col-xs-8 col-lg-9" : "col-xs-12"}>
+                                <h3>
+                                    <Link route="business" className="col-xs-12" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                                        {this.props.business.name}
+                                    </Link>
+                                </h3>
+                                <Link className="address col-xs-12" route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                                    {this.props.business.address.street}, {this.props.business.address.zipCode} {this.props.business.address.city}
+                                </Link>
+                            </div>
+                            {this.renderRating()}
+                        </div>
                     </div>
-                    {this.renderRating()}
                     {this.renderPricing()}
                     <Hairfies business={this.props.business} />
                     <div className="book">
@@ -106,11 +110,11 @@ var Business = React.createClass({
         var query  = this.props.date ? { date: this.props.date } : {};
 
         return (
-            <div className="rating">
-                <div className="note">
+            <div className="rating col-xs-4 col-lg-3">
+                <div className="note col-xs-12">
                     <Rating rating={this.props.business.rating} min={true} />
                 </div>
-                <Link className="small" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                <Link className="small pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                     {this.props.business.numReviews} avis
                 </Link>
             </div>

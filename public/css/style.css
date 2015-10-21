@@ -11809,14 +11809,20 @@ section.home-footer .row > div {
     #content.search .main-content .tab-pane section .inline-promo {
       text-align: left;
       width: 100%;
-      margin: 0; }
+      margin: 8px 0; }
       #content.search .main-content .tab-pane section .inline-promo .icon-promo {
         margin-right: 10px; }
+      #content.search .main-content .tab-pane section .inline-promo span.black {
+        margin-left: 3px; }
     #content.search .main-content .tab-pane section div.address-bloc h3 {
       font-size: 2.1em;
       margin: 0 0 3px; }
     #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
-      font-size: 1.4em; }
+      font-size: 1.4em;
+      margin-top: 3px; }
+    #content.search .main-content .tab-pane section div.address-bloc div {
+      overflow: auto;
+      padding: 0; }
     #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
       text-transform: uppercase;
       letter-spacing: 1px;
