@@ -208,9 +208,12 @@
 			.inline-promo {
 				text-align: left;
 				width: 100%;
-				margin: 0;
+				margin: 8px 0;
 				.icon-promo {
 					margin-right: 10px;
+				}
+				span.black {
+					margin-left: 3px;
 				}
 			}
 			div.address-bloc {
@@ -220,6 +223,11 @@
 				}
 				a:nth-child(2) {
 					font-size: 1.4em;
+					margin-top: 3px;
+				}
+				div {
+					overflow: auto;
+					padding: 0;
 				}
 			}
 
