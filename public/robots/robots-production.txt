@@ -7,3 +7,11 @@ Disallow: /pro/
 Allow: /fr/pro/$
 Disallow: /fr/deposer-un-avis
 Disallow: /fr/write-business-review/
+Disallow: /fr/ask-reset-password
+Disallow: /fr/deposer-un-avis
+Disallow: /fr/avis/
+Disallow: /fr/reservation/
+Disallow: /fr/connect
+Disallow: /fr/register
+Disallow: /fr/membre/
+Disallow: /fr/profil-coiffeur/
