@@ -8,6 +8,17 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 
 moment.locale('fr');
 
+function parseTimetable(timetable) {
+  var t = [];
+  _.forEach(timetable, function(timeslot) {
+    timetable = _.reject(timetable, function(t) {
+      return (timeslot != t && timeslot.startTime <= t.startTime && t.endTime <= timeslot.endTime);
+    });
+  });
+
+  return timetable;
+}
+
 var Rating = React.createClass({
     render: function () {
         var business = this.props.business || {};
@@ -69,7 +80,7 @@ module.exports = React.createClass({
         var open;
 
         if (!_.isEmpty(timetable)) {
-          if (!timetable[today])
+          if (!timetable[today] || _.isEmpty(timetable[today]))
             open = <h2>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></h2>;
           else
             open = <h2>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></h2>;
@@ -105,36 +116,7 @@ module.exports = React.createClass({
               <div className="row" style={{paddingBottom: '20px'}}>
                 <div className="prix col-xs-12 col-sm-12">
                 </div>
-                {/*
-                <div className="horraires col-xs-12 col-sm-6">
-                  <p>
-                    <span className="green glyphicon glyphicon-time"></span>
-                    <span className="green opened">Ouvert Aujourd'hui</span>
-                    <span className="red closed hide">Fermé Aujourd'hui</span>
-                    <span>&nbsp;-&nbsp;<a href="" className="small">voir les détails</a></span>
-                  </p>
-                </div>
-                */}
               </div>
-              {/*
-              <div className="row">
-                <div className="tags col-xs-12">
-                  <p>Spécialités :
-                  <a href="#" className="tag">Femme</a>
-                  <a href="#" className="tag">Femme</a>
-                  <a href="#" className="tag">Femme</a>
-                  <a href="#" className="tag">Femme</a></p>
-                </div>
-              </div>
-              <div className="row social">
-                <div className="twitter col-sm-4 col-xs-6">
-                  <a href="#" className="btn twitter"><span className="socicon">a</span> Partager sur Twitter</a>
-                </div>
-                <div className="facebook col-sm-4 col-xs-6">
-                  <a href="#" className="btn facebook"><span className="socicon">b</span> Partager sur Facebook</a>
-                </div>
-              </div>
-              */}
           </section>
         );
     },
@@ -167,7 +149,7 @@ module.exports = React.createClass({
             render.push(
                 <div className={this.state.displayTimetable ? '' : 'seo-hide'}>
                     <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>
-                    { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(timetable[val], function(t) {
+                    { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(parseTimetable(timetable[val]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") }
                 </div>
