@@ -142,9 +142,9 @@ module.exports = createStore({
         switch (routeName) {
             case 'business':
                 if(business.description) {
-                    description = business.description.businessTitle + ' - ' + business.description.businessText + ' - ' + business.description.geoTitle;
+                    description = 'Prendre RDV en ligne dans ce salon de coiffure. ' + business.description.businessTitle + ' - ' + business.description.businessText + ' - ' + business.description.geoTitle;
                 } else {
-                    description = 'Découvrez les hairfies du salon ' + title + ' et réservez en ligne';
+                    description = 'Découvrez les hairfies du salon ' + title + ' et Prenez RDV en ligne';
                 }
 
                 break;
@@ -161,7 +161,7 @@ module.exports = createStore({
                 break;
         }
 
-        title += ' | Hairfie';
+        title += ' | Prendre RDV en ligne sur Hairfie';
         var url = this._getUrl(routeName, { businessId: business.id, businessSlug: business.slug });
 
         var description = description ? description : 'Prenez RDV gratuitement en quelques clics sur Hairfie';

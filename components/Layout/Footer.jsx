@@ -32,7 +32,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <ul className="social-links col-md-3">
                             <li><a href="https://www.facebook.com/Hairfie" target="_blank" className='icon'>b</a></li>
-                            <li><a href="https://twitter.com/HairfieApp" target="_blank" className='icon'>a</a></li>
+                            <li><a href="https://twitter.com/Hairfie" target="_blank" className='icon'>a</a></li>
                             <li><a href="https://plus.google.com/+Hairfie" target="_blank" className='icon'>c</a></li>
                             <li><a href="https://instagram.com/Hairfie" target="_blank" className='icon'>x</a></li>
                             <li><a href="https://www.pinterest.com/hairfie/" target="_blank" className='icon'>d</a></li>
