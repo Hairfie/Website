@@ -39,6 +39,9 @@ var mobileHeader = React.createClass({
                             <Link className="logo col-md-4" route="home" />
                             <nav className='pull-right'>
                                 <ul>
+                                    <li>
+                                        <Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>
+                                    </li>
                                     <User />
                                 </ul>
                             </nav>
@@ -84,7 +87,11 @@ var mobileHeader = React.createClass({
                     <Link className="logo col-xs-4" route="home" />
                     <nav className='col-md-8 pull-right'>
                         <ul>
-                           <User mobile={true}/>
+                           <User mobile={true}>
+                                <li>
+                                    <Link route="home_pro">Gérez votre salon</Link>
+                                </li>
+                           </User>
                         </ul>
                     </nav>
                     *<a className="col-xs-4 menu-trigger pull-right" role="button"></a>*
