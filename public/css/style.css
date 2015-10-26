@@ -10808,7 +10808,8 @@ header {
   background-color: transparent;
   font-size: 1em; }
   header a.btn-red {
-    font-size: 1em; }
+    font-size: 1em;
+    letter-spacing: .5px; }
   header a.menu-trigger {
     background: url(../img/mobile-menu.png) no-repeat center center;
     background-size: 90%;
