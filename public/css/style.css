@@ -10807,6 +10807,9 @@ header {
   height: 60px;
   background-color: transparent;
   font-size: 1em; }
+  header a.btn-red {
+    font-size: 1em;
+    letter-spacing: .5px; }
   header a.menu-trigger {
     background: url(../img/mobile-menu.png) no-repeat center center;
     background-size: 90%;
@@ -10910,7 +10913,7 @@ header {
     header.white .logo {
       background: url(../img/logo-red.png) no-repeat center center;
       background-size: 100%; }
-    header.white nav ul li a {
+    header.white nav ul li a:not(.btn) {
       color: #c4c4c4; }
     header.white nav ul li span {
       color: #c4c4c4; }
@@ -11166,7 +11169,7 @@ footer.mobile {
       @media screen and (max-width: 767px) {
         .landing .headline p {
           display: none; } }
-  .landing .btn-red {
+  .landing .choice .btn-red {
     height: 58px;
     font-size: 1.4em;
     text-align: center;

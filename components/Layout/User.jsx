@@ -39,6 +39,7 @@ var User = React.createClass({
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        {this.props.children}
                         <li>
                             <Link route="registration_page">Inscription</Link>
                         </li>
