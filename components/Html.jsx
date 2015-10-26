@@ -64,6 +64,7 @@ var Html = React.createClass({
                 <div className="mailchimp" dangerouslySetInnerHTML={{__html: mailChimpHtml}} />
                 <div className="heap" dangerouslySetInnerHTML={{__html: this.getHeapHtml()}} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
+
             </body>
             </html>
 
