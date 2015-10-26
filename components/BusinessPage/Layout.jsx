@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react');
+var _ = require('lodash');
+
 var ParentLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
 var Carousel = require('./Carousel.jsx');
@@ -63,16 +65,43 @@ var Layout = React.createClass({
                         similarBusinesses={this.props.similarBusinesses}
                         />
                 </div>
+                <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
             </ParentLayout>
         );
+    },
+    getSchema: function() {
+        var business = this.props.business;
+        var metas = this.props.metas;
+        var description = _.find(metas, {property: 'description'}) || {};
+
+        var markup = {
+          "@context": "http://schema.org",
+          "@type": "HairSalon",
+          "name": business.name,
+          "url": this.props.canonicalUrl,
+          "description": description.content
+        };
+
+        if(business.numReviews > 0) {
+            markup["aggregateRating"] ={
+                "@type": "AggregateRating",
+                "ratingValue": business.rating/100*5,
+                "reviewCount": business.numReviews
+            }
+        }
+
+        return JSON.stringify(markup);
     }
 });
 
 Layout = connectToStores(Layout, [
-    'BusinessStore'
+    'BusinessStore',
+    'MetaStore'
 ], function (context, props) {
     return {
-        similarBusinesses: props.business && props.business.crossSell && context.getStore('BusinessStore').getSimilar(props.business.id)
+        similarBusinesses: props.business && props.business.crossSell && context.getStore('BusinessStore').getSimilar(props.business.id),
+        metas: context.getStore('MetaStore').getMetas(),
+        canonicalUrl: context.getStore('MetaStore').getCanonicalUrl()
     };
 });
 
