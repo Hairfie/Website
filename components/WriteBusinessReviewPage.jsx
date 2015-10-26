@@ -232,7 +232,7 @@ var ReviewForm = React.createClass({
             lastName    : this.refs.lastName.getValue().trim(),
             gender      : this.refs.gender.getDOMNode().value.trim(),
             email       : this.refs.email.getValue().trim(),
-            phoneNumber : this.refs.email.getValue().trim(),
+            phoneNumber : this.refs.phoneNumber.getValue().trim(),
             criteria    : {
                 welcome             : this.refs.welcome.getValue(),
                 discussion          : this.refs.discussion.getValue(),
