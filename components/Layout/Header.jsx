@@ -24,7 +24,7 @@ var Header = React.createClass({
                         <nav className='col-md-8 pull-right'>
                             <ul>
                                 <li>
-                                    <Link route="home_pro">Gérez votre salon</Link>
+                                    <Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>
                                 </li>
                                 <User />
                             </ul>

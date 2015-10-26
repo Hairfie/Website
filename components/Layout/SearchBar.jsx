@@ -40,7 +40,7 @@ var mobileHeader = React.createClass({
                             <nav className='pull-right'>
                                 <ul>
                                     <li>
-                                        <Link route="home_pro">Gérez votre salon</Link>
+                                        <Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>
                                     </li>
                                     <User />
                                 </ul>

@@ -1,4 +1,7 @@
 header {
+	a.btn-red {
+		font-size: 1em;
+	}
 	a.menu-trigger {
 		background: url(../img/mobile-menu.png) no-repeat center center;
 		background-size: 90%;
@@ -97,7 +100,6 @@ header {
 	}
 	&.white {
 		background-color: white;
-
 		.user {
 			display: inline-block;
 			visibility: visible;
@@ -116,7 +118,7 @@ header {
 			background-size: 100%;
 		}
 		nav ul li {
-			a {
+			a:not(.btn) {
 				color: $grey;
 			}
 			span {
