@@ -4,7 +4,6 @@ var React = require('react');
 var PublicLayout = require('./PublicLayout.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../actions/UserActions');
-var Carousel = require('./HairfiePage/Carousel.jsx');
 var RightColumn = require('./HairfiePage/RightColumn.jsx');
 var HairfieSingle = require('./HairfiePage/HairfieSingle.jsx');
 var SimilarHairfies = require('./HairfiePage/SimilarHairfies.jsx');

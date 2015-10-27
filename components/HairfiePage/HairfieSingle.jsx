@@ -1,14 +1,16 @@
 'use strict';
 
 var React = require('react');
-var Carousel = require('../BusinessPage/Carousel.jsx');
+var Carousel = require('../Partial/Carousel.jsx');
 var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
     render: function () {
         return (
             <div className="col-xs-12 col-sm-6">
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} />
+                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures}>
+                    {this.renderPrice()}
+                </Carousel>
                 {this.renderBookingButton()}
             </div>
        );
@@ -30,5 +32,14 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    renderPrice: function () {
+        if (!this.props.hairfie.price) return;
+        return (
+                <div className="pricetag">
+                    {this.props.hairfie.price.amount+'€'}
+                </div>
+            );
+
     }
 });
