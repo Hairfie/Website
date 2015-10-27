@@ -13,6 +13,8 @@ module.exports = React.createClass({
         }
     },
     render: function () {
+        var gallery = this.props.gallery ? <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} /> : '';
+
         var items = _.map(this.props.pictures, function (picture, i) {
             var cls = (i == this.state.displayIndex) ? "item active" : "item";
             return (
@@ -30,7 +32,8 @@ module.exports = React.createClass({
                 </div>
                 {this.renderControlLeft()}
                 {this.renderControlRight()}
-                <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} />
+                {this.renderIndice()}
+                {gallery}
             </div>
         );
     },
@@ -52,6 +55,21 @@ module.exports = React.createClass({
             </a>
         );
     },
+    renderIndice: function() {
+        if (!(this.props.pictures.length > 1))
+            return null;
+        return (
+        <div className="indice-control">
+            {_.map(this.props.pictures, function(picture, i) {
+                return (
+                    <a role="button" className={this.state.displayIndex == i ? "active" : ""}onClick={this.move.bind(null, i)}>
+                        <span className="arrow" />
+                    </a>
+                );
+            }, this)}
+        </div>
+        );
+    },
     previous: function(e) {
         e.preventDefault();
         if (this.state.displayIndex > 0) {
@@ -71,6 +89,10 @@ module.exports = React.createClass({
             var next = 0;
         }
         this.setState({displayIndex: next});
+    },
+    move: function(move, e) {
+        e.preventDefault();
+        this.setState({displayIndex: move});
     },
     openGallery: function(e) {
         e.preventDefault();
