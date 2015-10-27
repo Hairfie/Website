@@ -19,7 +19,7 @@ module.exports = React.createClass({
             var cls = (i == this.state.displayIndex) ? "item active" : "item";
             return (
                 <div className={cls}>
-                    <Picture picture={picture} role="button" backgroundStyle={this.props.backgroundStyle || false} onClick={this.openGallery} />
+                    <Picture picture={picture} role={this.props.gallery ? "button" : ''} backgroundStyle={this.props.backgroundStyle || false} onClick={this.props.gallery ? this.openGallery : ''} />
                     {this.props.children}
                 </div>
             );
