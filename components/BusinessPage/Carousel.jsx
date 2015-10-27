@@ -16,13 +16,15 @@ module.exports = React.createClass({
             var cls = (i == 0) ? "item active" : "item";
             return (
                 <div className={cls}>
-                    <Picture picture={picture} backgroundStyle={true} onClick={this.openGallery} />
+                    <div className="outer-img">
+                        <Picture picture={picture} role="button" backgroundStyle={true} onClick={this.openGallery} />
+                    </div>
                 </div>
             );
         }, this);
         if (items.length == 0) items.push(<div className="item active placeholder" />);
         return (
-            <div id="carousel-salon" className="carousel slide" data-ride="carousel" data-interval="false">
+            <div {...this.props} className="carousel slide" data-ride="carousel" data-interval="false">
                 <div className="carousel-inner" role="listbox">
                     {items}
                 </div>
@@ -35,7 +37,7 @@ module.exports = React.createClass({
     renderControlLeft: function() {
         if(!this.props.pictures) return;
         return (
-            <a onClick={this.openGallery} className="left carousel-control" href="#carousel-salon" role="button">
+            <a className="left carousel-control" href="#carousel-salon" role="button">
                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span className="sr-only">Précédent</span>
             </a>
@@ -44,7 +46,7 @@ module.exports = React.createClass({
     renderControlRight: function() {
         if(!this.props.pictures) return;
         return (
-            <a onClick={this.openGallery} className="right carousel-control" href="#carousel-salon" role="button">
+            <a className="right carousel-control" href="#carousel-salon" role="button">
                 <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span className="sr-only">Suivant</span>
             </a>
