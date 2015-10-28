@@ -10280,7 +10280,6 @@ ul {
       background-size: 75%;
       margin: 0px; }
   .stars a.avis {
-    padding-right: 15px;
     line-height: 3.3em;
     color: #595959;
     font-weight: 600;
@@ -10627,14 +10626,14 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       opacity: 0; }
       .hairfies .single-hairfie figure figcaption p {
         display: block;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         font-weight: 400;
         color: white;
         font-size: 1.2em; }
       .hairfies .single-hairfie figure figcaption p:first-child {
-        margin-top: 50%; }
-      .hairfies .single-hairfie figure figcaption p span {
-        font-weight: 600; }
+        margin-top: 40%; }
+      .hairfies .single-hairfie figure figcaption p span.underline {
+        text-decoration: underline; }
       .hairfies .single-hairfie figure figcaption p a {
         color: white; }
       .hairfies .single-hairfie figure figcaption .pricetag {
