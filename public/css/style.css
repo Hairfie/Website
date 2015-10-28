@@ -12492,7 +12492,7 @@ section.home-footer .row > div {
             opacity: 0.9; }
       .hairfie-singleView#content .single-view #carousel-hairfie .before, .hairfie-singleView#content .single-view #carousel-hairfie .after {
         position: absolute;
-        font-weight: bolder;
+        font-weight: 200;
         bottom: 0;
         color: white;
         font-size: 3em;

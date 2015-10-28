@@ -9,7 +9,7 @@ module.exports = React.createClass({
         console.log(this);
         return (
             <div className="col-xs-12 col-sm-6">
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={true}>
+                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter}>
                     {this.renderPrice()}
                 </Carousel>
                 {this.renderBookingButton()}
