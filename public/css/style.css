@@ -10633,8 +10633,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         font-size: 1.2em; }
       .hairfies .single-hairfie figure figcaption p:first-child {
         margin-top: 50%; }
-      .hairfies .single-hairfie figure figcaption p span {
-        font-weight: 600; }
+      .hairfies .single-hairfie figure figcaption p span.underline {
+        text-decoration: underline; }
       .hairfies .single-hairfie figure figcaption p a {
         color: white; }
       .hairfies .single-hairfie figure figcaption .pricetag {
@@ -10643,6 +10643,11 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         font-weight: 400;
         font-size: 1.2em;
         padding: 10px 8px; }
+      .hairfies .single-hairfie figure figcaption .miniature {
+        position: absolute;
+        width: 40%;
+        top: 0px;
+        right: 0px; }
     .hairfies .single-hairfie figure:hover figcaption {
       opacity: 1; }
 

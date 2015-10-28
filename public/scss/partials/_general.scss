@@ -564,8 +564,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 				p:first-child {
 					margin-top: 50%;
 				}
-				p span {
-					font-weight: $semiBold;
+				p span.underline {
+					text-decoration: underline;
 				}
 				p a {
 					color: white;
@@ -576,6 +576,12 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 					font-weight: $regular;
 					font-size: 1.2em;
 					padding: 10px 8px;
+				}
+				.miniature {
+					position: absolute;
+					width: 40%;
+					top: 0px;
+					right: 0px;
 				}
 			}
 
