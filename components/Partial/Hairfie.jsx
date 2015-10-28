@@ -36,7 +36,7 @@ module.exports = React.createClass({
                                 {hairdresser}
                                 {salon}
                                 {price}
-                                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} className="miniature" /> : null}
+                                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                             </figcaption>
                         </Link>
                     </figure>

@@ -577,12 +577,6 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 					font-size: 1.2em;
 					padding: 10px 8px;
 				}
-				.miniature {
-					position: absolute;
-					width: 40%;
-					top: 0px;
-					right: 0px;
-				}
 			}
 
 			&:hover {
