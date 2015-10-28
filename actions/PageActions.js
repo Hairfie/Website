@@ -122,10 +122,16 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_TOKEN, token);
             });
     },
+    userPage: function(context, route) {
+        var error = new Error('Invalid slug');
+        error.status = 302;
+        error.location = context.getStore('RouteStore').makePath('user_hairfies', {
+            userId: route.get('params').get('userId')
+        });
+        throw error;
+    },
     userHairfies: function (context, route) {
-        return Promise.all([
-            context.executeAction(UserActions.getUserById, route.get('params').get('userId'))
-        ]);
+        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
     },
     userReviews: function (context, route) {
         return Promise.all([
