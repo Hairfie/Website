@@ -6,9 +6,10 @@ var Link = require('../Link.jsx');
 
 module.exports = React.createClass({
     render: function () {
+        console.log(this);
         return (
             <div className="col-xs-12 col-sm-6">
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures}>
+                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={true}>
                     {this.renderPrice()}
                 </Carousel>
                 {this.renderBookingButton()}

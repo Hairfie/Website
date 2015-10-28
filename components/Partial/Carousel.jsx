@@ -33,12 +33,13 @@ module.exports = React.createClass({
                 {this.renderControlLeft()}
                 {this.renderControlRight()}
                 {this.renderIndice()}
+                {this.renderBeforeAfter()}
                 {gallery}
             </div>
         );
     },
     renderControlLeft: function() {
-        if(!this.props.pictures && this.props.pictures.length > 1) return;
+        if(!this.props.pictures || this.props.pictures.length < 2) return null;
         return (
             <a className="left carousel-control" href="#carousel-salon" role="button" onClick={this.previous}>
                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -47,7 +48,7 @@ module.exports = React.createClass({
         );
     },
     renderControlRight: function() {
-        if(!this.props.pictures && this.props.pictures.length > 1) return;
+        if (!this.props.pictures || this.props.pictures.length < 2) return null;
         return (
             <a className="right carousel-control" href="#carousel-salon" role="button" onClick={this.next}>
                 <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -56,8 +57,7 @@ module.exports = React.createClass({
         );
     },
     renderIndice: function() {
-        if (!(this.props.pictures.length > 1))
-            return null;
+        if (!this.props.pictures || this.props.pictures.length < 2 || !this.props.indice) return null;
         return (
         <div className="indice-control">
             {_.map(this.props.pictures, function(picture, i) {
@@ -69,6 +69,15 @@ module.exports = React.createClass({
             }, this)}
         </div>
         );
+    },
+    renderBeforeAfter: function() {
+        if (!this.props.pictures || this.props.pictures.length < 2 || !this.props.beforeAfter) return null;
+        else if (this.state.displayIndex == 0) {
+            return <p className="before">Avant</p>;
+        }
+        else {
+            return <p className="after">Après</p>;
+        }
     },
     previous: function(e) {
         e.preventDefault();

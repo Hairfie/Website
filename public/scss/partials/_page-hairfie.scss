@@ -67,6 +67,14 @@
 					}
 				}
 			}
+			.before,.after {
+				position: absolute;
+				font-weight: bolder;
+			    bottom: 0;
+			    color: white;
+			    font-size: 3em;
+			    right: 20px;
+			}
 		}
 		> div:nth-child(2) {
 			padding: 20px;

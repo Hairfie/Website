@@ -12490,6 +12490,13 @@ section.home-footer .row > div {
             margin: 10px auto; }
           .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a:hover, .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a:active, .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a.active {
             opacity: 0.9; }
+      .hairfie-singleView#content .single-view #carousel-hairfie .before, .hairfie-singleView#content .single-view #carousel-hairfie .after {
+        position: absolute;
+        font-weight: bolder;
+        bottom: 0;
+        color: white;
+        font-size: 3em;
+        right: 20px; }
     .hairfie-singleView#content .single-view > div:nth-child(2) {
       padding: 20px; }
       .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos {
