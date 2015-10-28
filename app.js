@@ -26,7 +26,6 @@ app.plug({
                             return actionContext.executeAction(action[0], action[1]);
                         }))
                         .then(function () {
-                            console.Log('toto');
                             if (done) done();
                         });
                 };
