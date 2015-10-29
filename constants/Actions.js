@@ -44,5 +44,6 @@ module.exports = define([
     'ADD_SUBSCRIBER_SUCCESS',
     'HAS_CLOSED_POPUP',
     'CLOSED_POPUP_STATUS',
+    'CLOSED_BANNER_STATUS',
     'RECEIVE_BLOG_POSTS'
 ]);

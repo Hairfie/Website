@@ -32,6 +32,7 @@ var Layout = React.createClass({
     render: function () {
         return (
             <PublicLayout withSearchBar={true}>
+            {this.props.children}
                 <div className="mobile-screen hidden-md hidden-lg">
                     <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>
