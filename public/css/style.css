@@ -9769,8 +9769,7 @@ div.pagination {
   padding: 7px;
   background-color: white;
   overflow: auto;
-  width: 100%;
-  margin-top: 5px; }
+  width: 100%; }
   @media screen and (max-width: 767px) {
     .newsletter-banner {
       margin-top: 90px; } }
@@ -11366,13 +11365,16 @@ section.home-footer .row > div {
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
+.container.hairfie-newsletter {
+  margin-top: 40px; }
+  @media screen and (max-width: 767px) {
+    .container.hairfie-newsletter {
+      margin-top: 100px; } }
+
 .hairfie-singleView#content {
   min-height: calc(100vh - 60px);
   height: 100%;
   position: relative; }
-  @media screen and (max-width: 767px) {
-    .hairfie-singleView#content {
-      margin-top: 100px; } }
   .hairfie-singleView#content > a span.arrow {
     position: absolute;
     top: 283px; }
@@ -11381,7 +11383,7 @@ section.home-footer .row > div {
   .hairfie-singleView#content > a span.arrow-left {
     left: -50px !important; }
   .hairfie-singleView#content .single-view {
-    margin: 40px auto;
+    margin: 5px auto;
     background-color: white; }
     .hairfie-singleView#content .single-view > .col-sm-6:first-child {
       padding-right: 0; }

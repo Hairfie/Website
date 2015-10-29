@@ -5,6 +5,7 @@ var _ = require('lodash');
 var Pagination = require('./Pagination.jsx');
 var SearchUtils = require('../../lib/search-utils');
 var Hairfie = require('../Partial/Hairfie.jsx');
+var Newsletter = require('../Partial/Newsletter.jsx');
 
 var HairfieResult = React.createClass({
     render: function () {
@@ -13,6 +14,7 @@ var HairfieResult = React.createClass({
 
         return (
             <div className="tab-pane active">
+            <Newsletter />
                 <section>
                     <div className="salon-hairfies hairfies">
                         <div className="row">

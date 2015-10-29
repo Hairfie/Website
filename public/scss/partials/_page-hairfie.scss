@@ -1,10 +1,13 @@
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
-.hairfie-singleView#content {
+.container.hairfie-newsletter {
+	margin-top: 40px;
 	@media screen and (max-width: $screen-xs-max) {
 	   margin-top: 100px;
  	}
+}
+.hairfie-singleView#content {
 	min-height: #{"calc(100vh - 60px)"};
 	height: 100%;
 	position: relative;
@@ -21,7 +24,7 @@
 	}
 
 	.single-view {
-		margin: 40px auto;
+		margin: 5px auto;
 		background-color: white;
 		> .col-sm-6:first-child {
 			padding-right: 0;

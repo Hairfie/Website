@@ -14,18 +14,15 @@ var Newsletter = React.createClass({
         if (!this.props.open) return null;
         return (
             <div className="newsletter-banner">
-                <p className="col-xs-12 col-sm-5 col-md-4 col-lg-3">
-                    Ne manquez rien, abonnez-vous à la Newsletter :
+                <p className="col-xs-12 col-sm-6 col-offset-md-1 col-md-4">
+                    Ne manquez rien, inscrivez-vous à la Newsletter :
                 </p>
-                <div className="col-xs-6 col-sm-4 col-md-5 col-lg-6">
+                <div className="col-xs-offset-2 col-sm-offset-0 col-xs-6 col-sm-4">
                     <Input type="email" ref="email" placeholder="Adresse Email *"/>
                 </div>
-                <a role="button" className='btn btn-red col-xs-4 col-sm-2' onClick={this.submit} >
-                    Valider
+                <a role="button" className='btn btn-red col-xs-2 col-sm-1' onClick={this.submit} >
+                    OK
                 </a>
-                <div className="col-xs-2 col-sm-1">
-                    <a role="button" className="close-newsletter" onClick={this.close}/>
-                </div>
             </div>
         );
     },

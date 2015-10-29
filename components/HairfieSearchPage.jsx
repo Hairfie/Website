@@ -17,16 +17,14 @@ var HairfieSearchPage = React.createClass({
         query.tags = this.props.search.tags || [];
         query.categories = _.map(this.props.categories, 'slug') || [];
 
-        return (<Search.Layout
+        return <Search.Layout
             query={query}
             search={this.props.search}
             tab="hairfie"
             address={this.props.address}
             place={this.props.place}
             filters={this.renderFilters()}
-            results={this.renderResults()}>
-                <Newsletter />
-            </Search.Layout>);
+            results={this.renderResults()} />
     },
     renderFilters: function () {
         var result = _.keys((this.props.result || {}).tags);
