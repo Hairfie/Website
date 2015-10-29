@@ -3,8 +3,8 @@
 var React = require('react');
 var Input = require('react-bootstrap').Input;
 var connectToStores = require('fluxible-addons-react/connectToStores');
-var SubscriberActions = require('../../Actions/SubscriberActions');
-var NotificationActions = require('../../Actions/NotificationActions');
+var SubscriberActions = require('../../actions/SubscriberActions');
+var NotificationActions = require('../../actions/NotificationActions');
 
 var Newsletter = React.createClass({
     contextTypes: {
