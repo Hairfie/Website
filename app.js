@@ -1,4 +1,4 @@
-a'use strict';
+'use strict';
 
 var React = require('react');
 var Fluxible = require('fluxible');
