@@ -24,5 +24,11 @@ module.exports = {
     getClosedPopupStatus: function (context) {
         var status = authStorage.getClosedPopup(context);
         return context.dispatch(Actions.CLOSED_POPUP_STATUS, status)
+    },
+    hasClosedBanner: function (context) {
+
+    },
+    getClosedBanner: function (context) {
+
     }
 };

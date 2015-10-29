@@ -10801,6 +10801,32 @@ div.pagination {
 .breadcrumb > li + li:before {
   content: " / "; }
 
+.newsletter-banner {
+  padding: 7px;
+  background-color: white;
+  overflow: auto;
+  width: 100%;
+  margin-top: 5px; }
+  @media screen and (max-width: 767px) {
+    .newsletter-banner {
+      margin-top: 90px; } }
+  .newsletter-banner p {
+    float: left;
+    line-height: 30px;
+    font-size: 1.3em;
+    font-weight: bolder;
+    margin: 0;
+    text-align: center; }
+  .newsletter-banner .form-group {
+    margin: 0; }
+  .newsletter-banner a.close-newsletter {
+    float: left;
+    height: 28px;
+    width: 28px;
+    background: url(../img/mobile-menu-close.png) no-repeat center center;
+    background-size: 90%;
+    opacity: 1; }
+
 header {
   width: 100%;
   height: 60px;
