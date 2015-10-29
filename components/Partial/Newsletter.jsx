@@ -4,6 +4,7 @@ var React = require('react');
 var Input = require('react-bootstrap').Input;
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var SubscriberActions = require('../../Actions/SubscriberActions');
+var NotificationActions = require('../../Actions/NotificationActions');
 
 var Newsletter = React.createClass({
     contextTypes: {
@@ -33,14 +34,26 @@ var Newsletter = React.createClass({
     },
     submit: function() {
         var email = this.refs.email.getValue();
-
-        this.context.executeAction(SubscriberActions.submit, {
-            subscriber        : {
-                email       : email
-            }
-        });
+        if (validateEmail(email)) {
+            this.context.executeAction(SubscriberActions.submit, {
+                subscriber        : {
+                    email       : email
+                }
+            });
+        }
+        else {
+            this.context.executeAction(NotificationActions.notifyError, {
+                title       : "Erreur",
+                message     : "L'email entré semble incorrect."
+            });
+        }
     }
 });
+
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
 
 Newsletter = connectToStores(Newsletter, [
     'AuthStore'
