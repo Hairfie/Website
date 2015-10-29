@@ -5,6 +5,7 @@ var NavigationActions = require('./NavigationActions');
 var NotificationActions = require('./NotificationActions');
 var authStorage = require('../services/auth-storage');
 var q = require('q');
+var ga = require('../services/analytics');
 
 module.exports = {
     submit: function (context, payload) {
@@ -21,6 +22,7 @@ module.exports = {
                         message: 'Vous vous êtes bien abonné à la Newsletter'
                     }
                 );
+                ga('send', 'event', 'Newsletter', 'Submit');
                 return q.all([
                     context.dispatch(Actions.CLOSED_POPUP_STATUS, true),
                     context.dispatch(Actions.CLOSED_BANNER_STATUS, true)
