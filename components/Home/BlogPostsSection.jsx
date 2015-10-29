@@ -29,19 +29,19 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-4 col-xs-12 post" key={post.id} >
                 <div className='picture-container'>
-                    <a href={post.link} >
+                    <a href={post.link} target="_blank">
                         <Picture picture={{url: post.featured_image_thumbnail_url}} style={{width: '100%'}} placeholder="/img/placeholder-640.png" alt={post.title.rendered}/>
                     </a>
                 </div>
                 <div className='picture-caption'>
-                    <a href={post.link}>
-                        <h4>{post.title.rendered}</h4>
+                    <a href={post.link} target="_blank">
+                        <h4 dangerouslySetInnerHTML={{__html:post.title.rendered}} />
                     </a>
-                    <a href={post.link} className="address">
+                    <a href={post.link} target="_blank" className="address">
                         <p>
                             <span dangerouslySetInnerHTML={{__html:content + ' [...]'}} />
                         </p>
-                        <a href={post.link} className="readmore">Lire la suite</a>
+                        <a href={post.link} target="_blank" className="readmore">Lire la suite</a>
                     </a>
                 </div>
             </div>
