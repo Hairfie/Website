@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 var ParentLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
-var Carousel = require('./Carousel.jsx');
+var Carousel = require('../Partial/Carousel.jsx');
 var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
@@ -22,7 +22,7 @@ var Layout = React.createClass({
         return (
             <ParentLayout>
                 <Breadcrumb business={business} />
-                <Carousel pictures={business.pictures} />
+                <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} />
                 <div className="container salon" id="content">
                     <div className="main-content col-md-8 col-sm-12">
                         <ShortInfos business={business} />

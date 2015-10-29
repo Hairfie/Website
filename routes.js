@@ -120,6 +120,11 @@ module.exports = {
         method: 'get',
         handler: require('./components/RegistrationPage.jsx')
     },
+    user_page: {
+        path: '/fr/membre/:userId',
+        method: 'get',
+        action: PageActions.userPage
+    },
     user_hairfies: {
         path: '/fr/membre/:userId/hairfies',
         method: 'get',

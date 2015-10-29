@@ -106,6 +106,7 @@ module.exports = createStore({
         if (_.isUndefined(this.userLikes[payload.userId]))
             this.userLikes[payload.userId] = new Array();
         _.map(payload.hairfies, function (obj) {
+            if (!obj.hairfie) return;
             this.userLikes[payload.userId].push(obj.hairfie.id);
             if (_.isUndefined(this.hairfies[obj.hairfie.id]))
                 this.hairfies[obj.hairfie.id] = obj.hairfie;

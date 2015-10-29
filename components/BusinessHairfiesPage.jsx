@@ -3,16 +3,9 @@
 var React = require('react');
 var _ = require('lodash');
 var Layout = require('./BusinessPage/Layout.jsx');
-var Link = require('./Link.jsx');
-var Picture = require('./Partial/Picture.jsx');
 var HairfieActions = require('../actions/HairfieActions');
 var connectToStores = require('fluxible-addons-react/connectToStores');
-
-var moment = require('moment');
-require('moment/locale/fr');
-moment.locale('fr');
-
-function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
+var Hairfie = require('./Partial/Hairfie.jsx');
 
 var PAGE_SIZE = 12;
 
@@ -47,35 +40,8 @@ var BusinessHairfiesPage = React.createClass({
                     <div className="hairfies">
                         <div className="row">
                             {_.map(hairfies, function (hairfie) {
-                                var hairdresser = <p>&nbsp;</p>;
-                                if (hairfie.hairdresser) {
-                                    hairdresser = <p>Coiffé par <span>{displayName(hairfie.hairdresser)}</span></p>;
-                                }
-
-                                var price;
-                                if (hairfie.price) {
-                                    price = <div className="pricetag">{hairfie.price.amount}€</div>;
-                                }
-
-                                return (
-                                    <div key={hairfie.id} className="col-md-3 single-hairfie">
-                                        <figure>
-                                            <Link route="hairfie" params={{ hairfieId: hairfie.id }}>
-                                                <Picture picture={_.last(hairfie.pictures)}
-                                                      resolution={{width: 640, height: 640}}
-                                                     placeholder="/img/placeholder-640.png"
-                                                             alt="" />
-
-                                                <figcaption>
-                                                    {hairdresser}
-                                                    <p><span>Le {moment(hairfie.createdAt).format('L')}</span></p>
-                                                    {price}
-                                                </figcaption>
-                                            </Link>
-                                        </figure>
-                                    </div>
-                                );
-                            }, this)}
+                                return <Hairfie hairfie={hairfie} className="col-md-3 single-hairfie" />;
+                            })}
                         </div>
                         {this.renderMoreButton()}
                     </div>
