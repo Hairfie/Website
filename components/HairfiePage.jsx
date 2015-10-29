@@ -18,6 +18,7 @@ var HairfiePage = React.createClass({
         return {};
     },
     render: function () {
+        console.log(this.props.hairfieLiked);
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
