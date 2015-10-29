@@ -11221,8 +11221,6 @@ section.home-section {
     overflow: hidden;
     background-color: #595959; }
     section.home-section figure img {
-      min-width: 100%;
-      height: auto;
       -webkit-transition: all 0.25s ease-out;
       -moz-transition: all 0.25s ease-out;
       -ms-transition: all 0.25s ease-out;
@@ -11492,72 +11490,16 @@ section.home-section {
   text-decoration: underline;
   font-size: 14px; }
 
-#home section.hairfies .small-hairfies > div {
-  margin-left: -15px;
-  margin-right: -15px; }
-  #home section.hairfies .small-hairfies > div > div {
-    padding: 0; }
-    #home section.hairfies .small-hairfies > div > div figure {
-      margin: 0 10px 10px 0; }
-    #home section.hairfies .small-hairfies > div > div figcaption a:first-child {
-      margin-top: 80%; }
-      @media screen and (max-width: 991px) {
-        #home section.hairfies .small-hairfies > div > div figcaption a:first-child {
-          margin-top: 50%; } }
+#home section.hairfies .row {
+  margin-left: -12px;
+  margin-right: -12px; }
 
 #home section.hairfies .big {
-  padding-left: 0; }
+  padding-left: 0;
+  padding-right: 15px; }
   @media screen and (max-width: 767px) {
     #home section.hairfies .big {
       padding-right: 0; } }
-  #home section.hairfies .big figure {
-    height: 100%;
-    height: 100%;
-    width: 100%;
-    padding: 0; }
-    #home section.hairfies .big figure figcaption {
-      font-size: 2.1em; }
-      #home section.hairfies .big figure figcaption p {
-        margin-left: 20px;
-        font-weight: 400; }
-        #home section.hairfies .big figure figcaption p a {
-          display: inline-block;
-          margin-top: 0 !important;
-          margin-left: 0 !important;
-          text-transform: none;
-          text-decoration: underline; }
-      #home section.hairfies .big figure figcaption a:first-child {
-        margin-top: 80%; }
-        @media screen and (max-width: 991px) {
-          #home section.hairfies .big figure figcaption a:first-child {
-            margin-top: 50%; } }
-      #home section.hairfies .big figure figcaption a {
-        margin-left: 20px; }
-      #home section.hairfies .big figure figcaption .pricetag {
-        width: 85px;
-        height: 85px;
-        line-height: 55px; }
-
-#home section.hairfies figure {
-  cursor: pointer; }
-  #home section.hairfies figure img {
-    height: auto; }
-  #home section.hairfies figure figcaption {
-    background-color: rgba(0, 0, 0, 0.35);
-    opacity: 0;
-    padding: 15px; }
-    #home section.hairfies figure figcaption a:first-child, #home section.hairfies figure figcaption a:nth-child(2) {
-      display: block;
-      letter-spacing: 2px; }
-    #home section.hairfies figure figcaption a:first-child {
-      margin-top: 70%;
-      text-transform: uppercase; }
-      #home section.hairfies figure figcaption a:first-child:hover {
-        text-decoration: none; }
-    #home section.hairfies figure figcaption a:nth-child(2) {
-      font-weight: 400; }
-  #home section.hairfies figure:hover figcaption {
-    opacity: 1; }
 
 #home section:nth-child(odd) {
   background-color: #f0f0f1;

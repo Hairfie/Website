@@ -78,15 +78,11 @@ section.home-section {
         font-size: 2.4em;
         color: $darkgrey;
     }
-    // .row + .row {
-    //  margin-top:20px;
-    // }
     figure {
         overflow: hidden;
         background-color: $darkgrey;
 
         img {
-            min-width: 100%; height: auto;
             @include transition(all 0.25s ease-out);
         }
 
@@ -253,7 +249,6 @@ section.home-section {
             padding-right: 0;
         }
         @media screen and (max-width: $screen-sm-max) {
-            // margin-top: 20px !important;
             &:nth-child(2) {
                 padding-left: 7px;
                 padding-right: 7px;
@@ -421,125 +416,15 @@ section.home-section {
 }
 
 #home section.hairfies {
-    // .row + .row {
-    //  margin:0px;
-    //  padding: 0;
-    // }
-    // .col-sm-3 {
-    //  padding: 0;
-    // }
-
-    .small-hairfies {
-
-        > div { // .row
-            margin-left: -15px;
-            margin-right: -15px;
-
-            > div { // .col-xs-6
-                // max-width: 265px;max-height: 265px;
-                padding: 0;
-                // @media screen and (max-width: $screen-xs-max) {
-                //  margin-right: 0;
-                //  width: 100%;
-                //  min-width: 100%;
-                //  max-height: 325px;
-                // }
-                figure {
-                    margin: 0 10px 10px 0;
-                }
-                figcaption{
-                    a:first-child {
-                        margin-top: 80%;
-                        @media screen and (max-width: $screen-sm-max) {
-                            margin-top: 50%;
-                        }
-                    }
-                }
-            }
-        }
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
     }
     .big {
         padding-left: 0;
-        // height: 540px;
-
+        padding-right: 15px;
         @media screen and (max-width: $screen-xs-max) {
-            // height: 325px;
             padding-right: 0;
-        }
-
-        figure {
-            height: 100%;
-            // max-height: 540px;
-            height: 100%;
-            width: 100%;
-            padding: 0;
-
-            // @media screen and (max-width: $screen-xs-max) {
-            //  height: 325px;
-            // }
-
-            figcaption{
-                font-size: 2.1em;
-                p{
-                    margin-left: 20px;
-                    font-weight: $regular;
-                    a {
-                        display: inline-block;
-                        margin-top: 0 !important;
-                        margin-left: 0 !important;
-                        text-transform: none;
-                        text-decoration: underline;
-                    }
-                }
-                a:first-child {
-                    margin-top: 80%;
-                    @media screen and (max-width: $screen-sm-max) {
-                        margin-top: 50%;
-                    }
-
-                }
-                a {margin-left: 20px;}
-
-                .pricetag {
-                  width: 85px;
-                  height: 85px;
-                  line-height: 55px;
-                }
-            }
-        }
-    }
-
-    figure {
-        cursor: pointer;
-
-        img {
-            height: auto;
-        }
-
-        figcaption {
-            background-color: rgba(0,0,0,0.35);
-            opacity:0;
-            padding: 15px;
-
-            a:first-child, a:nth-child(2) {
-                display: block;
-                letter-spacing: 2px;
-            }
-            a:first-child {
-                margin-top: 70%;
-                text-transform: uppercase;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-            a:nth-child(2) {
-                font-weight: $regular;
-            }
-        }
-        &:hover {
-            figcaption {
-                opacity: 1;
-            }
         }
     }
 }
