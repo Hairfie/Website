@@ -419,7 +419,8 @@
 						&:after {
 							content: " ";
 							position: absolute;
-							width: #{"calc(100% + 4px)";height: ~"calc(100% + 4px)"};
+							width: #{"calc(100% + 4px)"};
+							height: #{"calc(100% + 4px)"};
 							border-radius: 100%;
 							border: 2px solid $font-color;
 							left: -2px;top: -2px;
