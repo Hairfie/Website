@@ -26,9 +26,11 @@ module.exports = {
         return context.dispatch(Actions.CLOSED_POPUP_STATUS, status)
     },
     hasClosedBanner: function (context) {
-
+        authStorage.setHasClosedBanner(context);
+        return context.dispatch(Actions.CLOSED_BANNER_STATUS, true);
     },
     getClosedBanner: function (context) {
-
+        var status = authStorage.getClosedBanner(context);
+        return context.dispatch(Actions.CLOSED_BANNER_STATUS, status)
     }
 };
