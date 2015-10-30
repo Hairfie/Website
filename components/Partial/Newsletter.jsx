@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Input = require('react-bootstrap').Input;
+var Button = require('react-bootstrap').Button;
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var SubscriberActions = require('../../actions/SubscriberActions');
 var NotificationActions = require('../../actions/NotificationActions');
@@ -12,17 +13,21 @@ var Newsletter = React.createClass({
     },
     render: function () {
         if (!this.props.open || this.props.currentUser) return null;
+
+        var button = (
+            <Button onClick={this.submit} className="btn-addon">
+                OK
+            </Button>
+        );
+
         return (
             <div className="newsletter-banner">
-                <p>
-                    Ne manquez rien, inscrivez-vous à la Newsletter :
+                <p className="newsletter-legend">
+                    Ne manquez rien, inscrivez-vous à la Newsletter !
                 </p>
-                <div className="col-xs-offset-2 col-sm-offset-0 col-xs-6 col-sm-4">
-                    <Input type="email" ref="email" placeholder="Adresse Email *"/>
+                <div className="col-xs-12 col-sm-6">
+                    <Input type="email" ref="email" placeholder="Adresse Email" buttonAfter={button}/>
                 </div>
-                <a role="button" className='btn btn-red col-xs-2 col-sm-1' onClick={this.submit} >
-                    OK
-                </a>
             </div>
         );
     },
