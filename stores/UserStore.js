@@ -9,7 +9,8 @@ module.exports = createStore({
     storeName: 'UserStore',
     handlers: makeHandlers({
         onReceiveUserInfo: Actions.RECEIVE_USER_INFO,
-        onDeleteUserInfo: Actions.DELETE_USER_INFO
+        onDeleteUserInfo: Actions.DELETE_USER_INFO,
+        onReceiveUserLikeHairfie: Actions.RECEIVE_USER_LIKE_HAIRFIE
     }),
     initialize: function () {
         this.userInfo = {};
@@ -26,6 +27,13 @@ module.exports = createStore({
     },
     onDeleteUserInfo: function() {
         this.userInfo = {};
+        this.emitChange();
+    },
+    onReceiveUserLikeHairfie: function(payload) {
+        if (!this.userInfo[payload.userId]) return;
+        if(_.isUndefined(this.userInfo[payload.userId].likedHairfie))
+            this.userInfo[payload.userId].likedHairfie = [];
+        this.userInfo[payload.userId].likedHairfie[payload.hairfieId] = payload.isLiked;
         this.emitChange();
     },
     onReceiveUserReview: function(payload) {

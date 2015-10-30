@@ -109,7 +109,7 @@ module.exports = {
             .then (function () {
                 return Promise.all([
                         context.executeAction(HairfieActions.loadHairfie, payload.id),
-                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: true})
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfieId: payload.id, isLiked: true})
                         ]);
             }, function() {
                 return context.executeAction(
@@ -131,7 +131,7 @@ module.exports = {
             .then (function () {
                 return Promise.all([
                         context.executeAction(HairfieActions.loadHairfie, payload.id),
-                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: false})
+                        context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfieId: payload.id, isLiked: false})
                         ]);
             }, function() {
                 return context.executeAction(
@@ -157,7 +157,7 @@ module.exports = {
                 }
             })
             .then(function(isLiked) {
-                return context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfie: payload, isLiked: isLiked});
+                return context.dispatch('RECEIVE_USER_LIKE_HAIRFIE', {userId:token.userId, hairfieId: payload.id, isLiked: isLiked});
             })
     }
 };
