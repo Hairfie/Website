@@ -14,7 +14,6 @@ module.exports = React.createClass({
     render: function() {
         if (_.isUndefined(this.props.page) || this.props.page < 0)
             return this.renderLoader();
-
         return (
             <div className="hairfies">
                 <div className="row">
