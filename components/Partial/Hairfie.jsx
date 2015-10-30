@@ -10,6 +10,7 @@ function displayName(u) { var u = u || {}; return u.firstName; }
 module.exports = React.createClass({
     render: function () {
         var hairfie = this.props.hairfie;
+        if (!hairfie) return null;
 
         if(!hairfie) return <div />;
 
