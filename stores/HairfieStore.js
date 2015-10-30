@@ -129,6 +129,7 @@ module.exports = createStore({
                 }.bind(this)); }
             else
                 this.hairfies[payload.hairfieId].similarHairfies = arr;
+            this.hairfies[payload.hairfieId].similarHairfies = _.uniq(this.hairfies[payload.hairfieId].similarHairfies);
             this.hairfies[payload.hairfieId].similarHairfiesPage = payload.hairfiePage;
         }
         this.emitChange();
