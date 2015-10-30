@@ -57,7 +57,6 @@ var Layout = React.createClass({
                                         <div className="row">
                                             {this.renderTabs()}
                                         </div>
-                                        <div className="row"><p>&nbsp;</p></div>
                                         <div className="tab-content">
                                             {this.props.results}
                                         </div>

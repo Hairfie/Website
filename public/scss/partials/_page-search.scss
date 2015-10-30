@@ -49,6 +49,11 @@
 
 		.search-content {
 			@include fullWidthBg($bg3);
+			/*.tabpanel {
+				div.row {
+					margin-bottom: 15px;
+				}
+			}*/
 		}
 
 		.header-part {

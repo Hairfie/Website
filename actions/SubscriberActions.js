@@ -24,6 +24,8 @@ module.exports = {
                 );
                 ga('send', 'event', 'Newsletter', 'Submit');
                 return q.all([
+                    authStorage.setHasClosedPopup(context),
+                    authStorage.setHasClosedBanner(context),
                     context.dispatch(Actions.CLOSED_POPUP_STATUS, true),
                     context.dispatch(Actions.CLOSED_BANNER_STATUS, true)
                     ]);
