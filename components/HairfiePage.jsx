@@ -60,16 +60,17 @@ HairfiePage = connectToStores(HairfiePage, [
     var hairfie = context.getStore('HairfieStore').getById(props.route.params.hairfieId);
     var token = context.getStore('AuthStore').getToken();
     var user = context.getStore('UserStore').getById(token.userId);
-    if (user && user.likeHairfie && user.likeHairfie[hairfie.id] && user.likeHairfie[hairfie.id].isLiked)
-        user = user.likeHairfie[hairfie.id].isLiked;
+    if (user && user.likedHairfie)
+        var liked = user.likedHairfie[hairfie.id] || false;
     else
-        user = false;
+        var liked = false;
 
     return {
         hairfie: hairfie,
         similarHairfies: context.getStore('HairfieStore').getSimilarHairfies(hairfie.id),
         similarHairfiesPage: context.getStore('HairfieStore').getSimilarHairfiesPage(hairfie.id),
-        hairfieLiked: user
+        hairfieLiked: liked,
+        user: user
     };
 });
 
