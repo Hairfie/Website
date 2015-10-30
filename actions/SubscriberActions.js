@@ -23,6 +23,6 @@ module.exports = {
     },
     getClosedPopupStatus: function (context) {
         var status = authStorage.getClosedPopup(context);
-        return context.dispatch(Actions.CLOSED_POPUP_STATUS, status)
+        return context.dispatch(Actions.CLOSED_POPUP_STATUS, status);
     }
 };
