@@ -6,6 +6,11 @@
 	@media screen and (max-width: $screen-xs-max) {
 	   margin-top: 100px;
  	}
+ 	.newsletter-banner {
+ 		p {
+ 			@extend .col-xs-12 .col-sm-6 .col-offset-md-1 .col-md-4;
+ 		}
+ 	}
 }
 .hairfie-singleView#content {
 	min-height: #{"calc(100vh - 60px)"};

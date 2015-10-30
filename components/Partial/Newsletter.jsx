@@ -14,7 +14,7 @@ var Newsletter = React.createClass({
         if (!this.props.open) return null;
         return (
             <div className="newsletter-banner">
-                <p className="col-xs-12 col-sm-6 col-offset-md-1 col-md-4">
+                <p>
                     Ne manquez rien, inscrivez-vous à la Newsletter :
                 </p>
                 <div className="col-xs-offset-2 col-sm-offset-0 col-xs-6 col-sm-4">

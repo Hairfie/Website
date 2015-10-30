@@ -7,6 +7,7 @@ var UserActions = require('../actions/UserActions');
 var RightColumn = require('./HairfiePage/RightColumn.jsx');
 var HairfieSingle = require('./HairfiePage/HairfieSingle.jsx');
 var SimilarHairfies = require('./HairfiePage/SimilarHairfies.jsx');
+var Newsletter = require('./Partial/Newsletter.jsx');
 
 var HairfiePage = React.createClass({
     contextTypes: {
