@@ -11,6 +11,8 @@ module.exports = React.createClass({
     render: function () {
         var hairfie = this.props.hairfie;
 
+        if(!hairfie) return <div />;
+
         var hairdresser = <p></p>;
         if (hairfie.hairdresser) {
             hairdresser = <p><span className="underline">Coiffeur</span> : {displayName(hairfie.hairdresser)}</p>;
