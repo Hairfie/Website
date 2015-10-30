@@ -14,7 +14,9 @@ var HairfieResult = React.createClass({
 
         return (
             <div className="tab-pane active">
-            <Newsletter />
+                <div className="hairfie-search-newsletter">
+                    <Newsletter />
+                </div>
                 <section>
                     <div className="salon-hairfies hairfies">
                         <div className="row">

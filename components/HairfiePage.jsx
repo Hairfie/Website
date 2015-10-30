@@ -22,10 +22,10 @@ var HairfiePage = React.createClass({
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
-                <div className="container hairfie-newsletter">
+                <div className="container hairfie-singleView" id="content">
+                <div className="hairfie-newsletter">
                     <Newsletter />
                 </div>
-                <div className="container hairfie-singleView" id="content">
                     <div className="single-view row">
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                         <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>

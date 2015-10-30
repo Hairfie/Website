@@ -2,6 +2,16 @@
 	   P A G E  S E A R C H
 ////////////////////////////////*/
 #content.search {
+	.hairfie-search-newsletter {
+		margin-bottom: 10px;
+ 		padding-left: 5px;
+ 		padding-right: 5px;
+ 		.newsletter-banner {
+ 			p {
+ 				@extend .col-xs-12,.col-sm-6;
+ 			}
+ 		}
+	}
 	@media screen and (max-width: $screen-sm-max) {
 		margin-top: 85px;
 		padding-bottom: 85px;

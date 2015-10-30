@@ -11,7 +11,7 @@ var Newsletter = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function () {
-        if (!this.props.open) return null;
+        if (!this.props.open || this.props.currentUser) return null;
         return (
             <div className="newsletter-banner">
                 <p>
@@ -53,10 +53,13 @@ function validateEmail(email) {
 }
 
 Newsletter = connectToStores(Newsletter, [
-    'AuthStore'
+    'AuthStore',
+    'UserStore'
 ], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
     return {
-        open: context.getStore('AuthStore').shouldOpenBanner()
+        open: context.getStore('AuthStore').shouldOpenBanner(),
+        currentUser: context.getStore('UserStore').getById(token.userId)
     };
 });
 

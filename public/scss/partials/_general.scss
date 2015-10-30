@@ -774,9 +774,6 @@ div.pagination {
 	background-color: white;
 	overflow: auto;
 	width: 100%;
-	@media screen and (max-width: $screen-xs-max) {
-		margin-top: 90px;
-	}
 	p {
 		line-height: 30px;
 		font-size: 1.3em;
@@ -787,13 +784,5 @@ div.pagination {
 	}
 	.form-group {
 		margin: 0;
-	}
-	a.close-newsletter {
-		float: left;
-		height: 28px;
-		width: 28px;
-		background: url(../img/mobile-menu-close.png) no-repeat center center;
-    	background-size: 90%;
-    	opacity: 1;
 	}
 }
