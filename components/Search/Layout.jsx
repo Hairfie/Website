@@ -54,7 +54,7 @@ var Layout = React.createClass({
                                 {this.renderHeader()}
                                 <div className="row">
                                     <div role="tabpanel" className="col-xs-12">
-                                        <div className="row">
+                                        <div className="row" style={{marginBottom: '15px'}}>
                                             {this.renderTabs()}
                                         </div>
                                         <div className="tab-content">

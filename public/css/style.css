@@ -10593,7 +10593,12 @@ section.home-footer .row > div {
 #content.search .main-content {
   padding-top: 20px; }
   #content.search .main-content .search-content {
-    position: relative; }
+    position: relative;
+    /*.tabpanel {
+				div.row {
+					margin-bottom: 15px;
+				}
+			}*/ }
     #content.search .main-content .search-content:before {
       content: " ";
       width: 200vw;
@@ -10612,8 +10617,6 @@ section.home-footer .row > div {
       top: 0;
       background: #f4f4f4;
       z-index: -1; }
-    #content.search .main-content .search-content .tabpanel div.row {
-      margin-bottom: 15px; }
   #content.search .main-content .header-part .cover {
     border-radius: 3px;
     display: block;
