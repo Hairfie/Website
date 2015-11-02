@@ -89,7 +89,6 @@ UserLayout = connectToStores(UserLayout, [
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
     return {
-        token: token,
         user: props.user,
         currentUser: context.getStore('UserStore').getById(token.userId)
     };
