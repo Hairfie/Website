@@ -14,7 +14,10 @@ var UserEditPage = React.createClass({
         executeAction: React.PropTypes.func
     },
     getInitialState: function() {
-    return {userGender: this.props.user.gender || ""};
+        return { userGender: this.props.user ? (this.props.user.gender || "") : "" };
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState({ userGender: nextProps.user ? (nextProps.user.gender || "") : "" });
     },
     render: function () {
         return(

@@ -10,6 +10,8 @@ var SubscriberActions = require('./SubscriberActions');
 
 var _storeTokenAndGetUser = function(context, token) {
     return Promise.all([
+        authStorage.setToken(context, token),
+        context.dispatch(Actions.RECEIVE_TOKEN, token),
         context.executeAction(UserActions.userConnect, token)
     ]);
 };
@@ -201,10 +203,12 @@ module.exports = {
     loginWithCookie: function(context) {
         var token = authStorage.getToken(context) || {};
 
-        return Promise.all([
-            context.dispatch(Actions.RECEIVE_TOKEN, token),
-            context.executeAction(UserActions.userConnect, token),
-            context.executeAction(SubscriberActions.getClosedPopup)
-        ]);
+        return context.executeAction(UserActions.userConnect, token)
+            .then(function () {
+                return Promise.all([
+                    context.dispatch(Actions.RECEIVE_TOKEN, token),
+                    context.executeAction(SubscriberActions.getClosedPopup)
+                ])
+            });
     }
 };
