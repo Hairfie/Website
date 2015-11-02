@@ -15,7 +15,7 @@ var ShareButton = React.createClass({
     },
     render: function () {
         return (
-                <div style={{display: 'inline-block'}}>
+                <div style={{display: 'inline-block'}} {...this.props}>
                     <div className="share-hairfie">
                     </div>
                 </div>
@@ -29,13 +29,16 @@ module.exports = React.createClass({
         var hairdresserNode;
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
-                <p>Réalisé par :
+                <p>Réalisé par : 
                     <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         {this.props.hairfie.hairdresser.firstName}
                     </Link>
                 </p>
             );
         }
+
+        var shareButtonNode =  null; //<ShareButton hairfie={this.props.hairfie} className="share-button" />
+        var address = this.props.hairfie.business.address || {};
 
         return (
             <div className="col-xs-12 col-sm-6">
@@ -56,18 +59,12 @@ module.exports = React.createClass({
                                     {this.props.hairfie.business.name}
                                 </Link>
                             </h2>
+                            <p>{address.street} {address.zipCode} {address.city}</p>
                             {hairdresserNode}
-                        </div>
-                        <div className="col-xs-9 tags">
-                            { _.map(this.props.hairfie.tags, function(tag) {
-                                return (<span className="tag" key={tag.id}><Link route="hairfie_search" params={{ address: 'Paris--France'}} query={{tags: tag.name}}>{tag.name}</Link></span>)
-                            }) }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-xs-3">
-                        </div>
-                        <div className="col-xs-9 likes">
+                        <div className="col-xs-9 col-xs-offset-3 likes">
                           <p>
                             <a className="col-xs-3" role="button" onClick={this.props.likeHairfie.func}>{this.props.likeHairfie.state ? "Je n'aime plus" : "J'aime"}</a>
                             -
@@ -76,8 +73,13 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
-                <div className="salon-description" style={{paddingTop: '20px'}}>
-                    <ShareButton hairfie={this.props.hairfie} />
+                <div className="description" style={{paddingTop: '20px'}}>
+                     <div className="col-xs-12 tags">
+                        { _.map(this.props.hairfie.tags, function(tag) {
+                            return (<span className="tag" key={tag.id}><Link route="hairfie_search" params={{ address: 'Paris--France'}} query={{tags: tag.name}}>{tag.name}</Link></span>)
+                        }) }
+                    </div>
+                    {shareButtonNode}
                 </div>
             </div>
         );

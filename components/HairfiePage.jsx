@@ -7,6 +7,7 @@ var UserActions = require('../actions/UserActions');
 var RightColumn = require('./HairfiePage/RightColumn.jsx');
 var HairfieSingle = require('./HairfiePage/HairfieSingle.jsx');
 var SimilarHairfies = require('./HairfiePage/SimilarHairfies.jsx');
+var Newsletter = require('./Partial/Newsletter.jsx');
 
 var HairfiePage = React.createClass({
     contextTypes: {
@@ -21,7 +22,10 @@ var HairfiePage = React.createClass({
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
-                <div className="container hairfie-singleView" id="content" >
+                <div className="container hairfie-singleView" id="content">
+                <div className="hairfie-newsletter">
+                    <Newsletter />
+                </div>
                     <div className="single-view row">
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                         <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
