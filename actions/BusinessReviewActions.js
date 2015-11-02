@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Actions = require('../constants/Actions');
 var NavigationActions = require('./NavigationActions');
 var NotificationActions = require('./NotificationActions');
+var SubscriberActions = require('./SubscriberActions');
 var ga = require('../services/analytics');
 
 module.exports = {
@@ -41,6 +42,7 @@ module.exports = {
             .post('/businessReviews', payload.review, {token: payload.token || null})
             .then(function (businessReview) {
                 ga('send', 'event', 'Business Reviews', 'Submit');
+                context.executeAction(SubscriberActions.hasClosedBanner());
 
                 return context.executeAction(
                     NotificationActions.notifySuccess,

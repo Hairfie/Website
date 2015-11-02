@@ -6,6 +6,7 @@ var Search = require('./Search');
 var SearchUtils = require('../lib/search-utils');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var HairfieActions = require('../actions/HairfieActions');
+var Newsletter = require('./Partial/Newsletter.jsx');
 
 var HairfieSearchPage = React.createClass({
     contextTypes: {
@@ -23,7 +24,7 @@ var HairfieSearchPage = React.createClass({
             address={this.props.address}
             place={this.props.place}
             filters={this.renderFilters()}
-            results={this.renderResults()} />;
+            results={this.renderResults()} />
     },
     renderFilters: function () {
         var result = _.keys((this.props.result || {}).tags);
