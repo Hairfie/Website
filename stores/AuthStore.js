@@ -13,11 +13,12 @@ module.exports = createStore({
         onReceiveToken: Actions.RECEIVE_TOKEN,
         onDeleteToken: Actions.DELETE_TOKEN,
         onClosedPopupStatusChange: Actions.CLOSED_POPUP_STATUS,
+        onClosedBannerStatusChange: Actions.CLOSED_BANNER_STATUS,
         onNavigateSuccess: Actions.NAVIGATE_SUCCESS
     }),
     initialize: function () {
         this.tokens = {};
-        this.closesPopupStatus, this.hasNavigated;
+        this.closesPopupStatus, this.hasNavigated, this.closedBannerStatus;
     },
     dehydrate: function () {
         return { tokens: this.tokens };
@@ -57,4 +58,16 @@ module.exports = createStore({
 
         return shouldOpenPopup;
     },
+    onClosedBannerStatusChange: function(status) {
+        this.closedBannerStatus = status;
+        this.emitChange();
+    },
+    shouldOpenBanner: function() {
+        if(_.isUndefined(this.closedBannerStatus)) {
+            this.getContext().executeAction(SubscriberActions.getClosedBannerStatus);
+            return false;
+        } else {
+            return !this.closedBannerStatus;
+        }
+    }
 });

@@ -32,6 +32,7 @@ var Layout = React.createClass({
     render: function () {
         return (
             <PublicLayout withSearchBar={true}>
+            {this.props.children}
                 <div className="mobile-screen hidden-md hidden-lg">
                     <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>
@@ -53,10 +54,9 @@ var Layout = React.createClass({
                                 {this.renderHeader()}
                                 <div className="row">
                                     <div role="tabpanel" className="col-xs-12">
-                                        <div className="row">
+                                        <div className="row" style={{marginBottom: '15px'}}>
                                             {this.renderTabs()}
                                         </div>
-                                        <div className="row"><p>&nbsp;</p></div>
                                         <div className="tab-content">
                                             {this.props.results}
                                         </div>

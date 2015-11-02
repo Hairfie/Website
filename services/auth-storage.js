@@ -22,10 +22,20 @@ function getClosedPopup(context) {
     return context.getCookie("HAS_CLOSED_POPUP") || false;
 }
 
+function setHasClosedBanner(context) {
+    context.setCookie("HAS_CLOSED_BANNER", true);
+}
+
+function getClosedBanner(context) {
+    return context.getCookie("HAS_CLOSED_BANNER") || false;
+}
+
 module.exports = {
     setToken: setToken,
     clearToken: clearToken,
     getToken: getToken,
     setHasClosedPopup: setHasClosedPopup,
-    getClosedPopup: getClosedPopup
+    getClosedPopup: getClosedPopup,
+    setHasClosedBanner: setHasClosedBanner,
+    getClosedBanner: getClosedBanner
 };

@@ -16,7 +16,7 @@ var EmailModal = React.createClass({
         getStore: React.PropTypes.func.isRequired
     },
     getInitialState: function() {
-        return { 
+        return {
             showModal: false,
             hasSubscribed: false,
             isValid: null,
@@ -25,7 +25,6 @@ var EmailModal = React.createClass({
         };
     },
     componentWillMount: function () {
-        //this.context.executeAction(SubscriberActions.getClosedPopupStatus);
         this.context.getStore('AuthStore').addChangeListener(this.onStoreChange);
         this.setState(this.getStateFromStores());
     },
@@ -51,12 +50,12 @@ var EmailModal = React.createClass({
         this.setState({ showModal: false });
     },
     open: function() {
-        this.setState({ 
-            showModal: true, 
-            hasSubscribed: false,  
+        this.setState({
+            showModal: true,
+            hasSubscribed: false,
             isValid: null,
             bsStyle: null,
-            label: 'Email'  
+            label: 'Email'
         });
     },
     render: function() {

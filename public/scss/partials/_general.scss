@@ -768,3 +768,24 @@ div.pagination {
 .breadcrumb > li + li:before {
   content: " / ";
 }
+
+.newsletter-banner {
+	padding: 7px;
+	background-color: white;
+	overflow: auto;
+	width: 100%;
+	p.newsletter-legend {
+		line-height: 34px;
+		font-weight: 400;
+		margin-bottom: 0;
+		text-align: center;
+
+	}
+	.form-group {
+		margin: 0;
+	}
+	.btn-addon {
+		color: white;
+		background-color: $book !important;
+	}
+}
