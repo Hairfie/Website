@@ -31,6 +31,7 @@ module.exports = {
             .then(function (userInfo) {
                 return Promise.all ([
                     authStorage.setToken(context, token),
+                    context.dispatch(Actions.RECEIVE_TOKEN, token),
                     context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
                 ]);
             }, function () {
