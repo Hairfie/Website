@@ -199,10 +199,10 @@ module.exports = {
             })
     },
     loginWithCookie: function(context) {
-        var token;
+        var token = authStorage.getToken(context) || {};
 
         return Promise.all([
-            token = authStorage.getToken(context),
+            context.dispatch(Actions.RECEIVE_TOKEN, token),
             context.executeAction(UserActions.userConnect, token),
             context.executeAction(SubscriberActions.getClosedPopup)
         ]);

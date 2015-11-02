@@ -4,7 +4,6 @@ var React = require('react');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout = require('./PublicLayout.jsx');
-var Link = require('./Link.jsx');
 var ImageField = require('./Partial/ImageField.jsx');
 var Input = require('react-bootstrap').Input;
 var UserConstants = require('../constants/UserConstants');

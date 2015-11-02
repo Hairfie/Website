@@ -59,7 +59,6 @@ server.use(function (req, res, next) {
         req: req,
         res: res
     });
-
     context.executeAction(ServerActions.initialize, req.url)
         .then(function () {
             var AppComponent = app.getComponent();

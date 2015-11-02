@@ -261,7 +261,7 @@ module.exports = createStore({
         return metas;
     },
     _getUserMetas: function(id, routeName) {
-        var user = this.dispatcher.getStore('UserStore').getById(id);
+        var user = this.dispatcher.getStore('UserStore').getById(id) || {};
 
         var title, description;
         switch(routeName) {

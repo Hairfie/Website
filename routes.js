@@ -120,11 +120,7 @@ module.exports = {
         method: 'get',
         handler: require('./components/RegistrationPage.jsx')
     },
-    user_page: {
-        path: '/fr/membre/:userId',
-        method: 'get',
-        action: PageActions.userPage
-    },
+
     user_hairfies: {
         path: '/fr/membre/:userId/hairfies',
         method: 'get',
@@ -144,9 +140,15 @@ module.exports = {
         handler: require('./components/UserLikesPage.jsx')
     },
     user_edit: {
+        title: 'Edition du profil',
         path: '/fr/membre/edition',
         method: 'get',
         handler: require('./components/UserEditPage.jsx')
+    },
+    user_page: {
+        path: '/fr/membre/:userId',
+        method: 'get',
+        action: PageActions.userPage
     },
     hairdresser: {
         path: '/fr/profil-coiffeur/:id',
