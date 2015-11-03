@@ -8,15 +8,24 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 
 moment.locale('fr');
 
-function parseTimetable(timetable) {
-  var t = [];
-  _.forEach(timetable, function(timeslot) {
-    timetable = _.reject(timetable, function(t) {
-      return (timeslot != t && timeslot.startTime <= t.startTime && t.endTime <= timeslot.endTime);
-    });
-  });
+function parseTimetable(t) { //RESOLVE INTERVAL CONFLICT
+  var i, i2;
+  for (i = 0; i < t.length; i++) {
+    for (i2 = i + 1; i2 < t.length; i2++) {
+      if ((t[i].startTime <= t[i2].startTime && t[i2].startTime <= t[i].endTime) || (t[i].startTime <= t[i2].endTime && t[i2].endTime <= t[i].endTime)) {
+        if (t[i2].startTime <= t[i].startTime && t[i].startTime <= t[i2].endTime) {
+          t[i].startTime = t[i2].startTime;
+        }
+        if (t[i2].startTime <= t[i].endTime && t[i].endTime <= t[i2].endTime) {
+          t[i].endTime = t[i2].endTime;
+        }
+        t.splice(i2, 1);
+        i2--;
+      }
+    }
+  }
 
-  return timetable;
+  return t;
 }
 
 var Rating = React.createClass({

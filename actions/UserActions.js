@@ -29,7 +29,6 @@ module.exports = {
         return context.hairfieApi
             .get('/users/' + token.userId, { query: { access_token: token.id }})
             .then(function (userInfo) {
-                console.log("HERE !!!");
                 return Promise.all ([
                     context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
                 ]);
