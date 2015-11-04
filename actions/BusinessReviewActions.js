@@ -42,7 +42,7 @@ module.exports = {
             .post('/businessReviews', payload.review, {token: payload.token || null})
             .then(function (businessReview) {
                 ga('send', 'event', 'Business Reviews', 'Submit');
-                context.executeAction(SubscriberActions.hasClosedBanner());
+                context.executeAction(SubscriberActions.hasClosedBanner);
 
                 return context.executeAction(
                     NotificationActions.notifySuccess,
