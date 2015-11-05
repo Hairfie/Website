@@ -41,7 +41,7 @@ var BookingConfirmationPage = React.createClass({
         );
     },
     componentDidMount: function() {
-        if(this.props.booking && heap) {
+        if(this.props.booking && typeof heap !== "undefined") {
             heap.identify({email: this.props.booking.email});
         }
     },

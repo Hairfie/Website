@@ -18,7 +18,7 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
         this.props.review = newProps.review;
     },
     componentDidMount: function() {
-        if(this.props.review && this.props.review.email  && heap) {
+        if(this.props.review && this.props.review.email  && typeof heap !== "undefined") {
             heap.identify({email: this.props.review.email});
         }
     },
