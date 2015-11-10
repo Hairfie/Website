@@ -10795,6 +10795,9 @@ section.home-footer .row > div {
         top: -85%; }
         #content.search .main-content .tab-pane#adom section .rating a {
           color: #595959; } }
+  #content.search .main-content .tab-pane#salons a.extend-search, #content.search .main-content .tab-pane#adom a.extend-search {
+    font-weight: 400;
+    font-size: 1.5em; }
   #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
     overflow: hidden; }
   @media (min-width: 768px) {
