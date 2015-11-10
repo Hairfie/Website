@@ -112,7 +112,9 @@ var Business = React.createClass({
         return (
             <div className="rating col-xs-4 col-lg-3">
                 <div className="note col-xs-12">
-                    <Rating rating={this.props.business.rating} min={true} />
+                    <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                        <Rating rating={this.props.business.rating} min={true} />
+                    </Link>
                 </div>
                 <Link className="small pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                     {this.props.business.numReviews} avis
@@ -169,9 +171,29 @@ var BusinessResult = React.createClass({
                         return <Business key={business.id} business={business} date={date} />
                     }, this)}
                 </div>
+                {this.renderExtendSearch()}
                 {this.renderPagination()}
             </div>
         );
+    },
+    renderExtendSearch: function() {
+        console.log(this);
+        if (this.props.search.page < this.props.result.nbPages) {
+            return null;
+        }
+        return (
+            <a role="button" onClick={this.submit} className="green text-center center-block extend-search">
+                Autres salon de coiffure à {this.props.search.address}
+            </a>
+            );
+    },
+    submit: function () {
+        var search = {
+            address : this.props.search.address,
+            q       : this.props.search.address.q
+        };
+
+        this.context.executeAction(BusinessActions.submitSearch, search);
     },
     renderPagination: function () {
         var params = SearchUtils.searchToRouteParams(this.props.search);
