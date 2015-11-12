@@ -111,7 +111,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-4" style={{padding: '0', paddingRight: '15px'}}>
                   <Rating business={business} />
-                  <div className="text-center" style={{marginTop: '10px'}}>
+                  <div style={{overflow: 'auto'}}>
                     <Link route="write_business_review" className="pull-right request-review"
                       query={{businessId: this.props.business.id}}>
                       {business.numReviews > 0 ? 'Déposez un avis' : 'Soyez le 1er à déposer un avis'}
