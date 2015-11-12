@@ -9,10 +9,11 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 moment.locale('fr');
 
 function parseTimetable(t) { //RESOLVE INTERVAL CONFLICT
+  console.log(t);
   var i, i2;
   for (i = 0; i < t.length; i++) {
     for (i2 = i + 1; i2 < t.length; i2++) {
-      if ((t[i].startTime <= t[i2].startTime && t[i2].startTime <= t[i].endTime) || (t[i].startTime <= t[i2].endTime && t[i2].endTime <= t[i].endTime)) {
+      if (((t[i].startTime <= t[i2].startTime && t[i2].startTime <= t[i].endTime) || (t[i].startTime <= t[i2].endTime && t[i2].endTime <= t[i].endTime)) && i != i2) {
         if (t[i2].startTime <= t[i].startTime && t[i].startTime <= t[i2].endTime) {
           t[i].startTime = t[i2].startTime;
         }
