@@ -11,6 +11,7 @@ var weekDaysNumber = DateTimeConstants.weekDaysNumber;
 var weekDayLabelFromInt = DateTimeConstants.weekDayLabelFromInt;
 
 var Button = require('react-bootstrap').Button;
+var parseTimeslots = require('../../lib/time').parseTimeslots;
 
 var TimeSelectComponent = React.createClass({
     propTypes: {
@@ -33,9 +34,9 @@ var TimeSelectComponent = React.createClass({
         if (!this.props.daySelected) {
             return (<p>Commencez par choisir un jour</p>);
         }
-
         var daySelected = this.props.daySelected;
-        var timeslots = this.props.timeslots[daySelected];
+        var timeslots = parseTimeslots(this.props.timeslots[daySelected]);
+
         return(
             <div className="time-table">
                 <table className="cal">
