@@ -177,7 +177,6 @@ var BusinessResult = React.createClass({
         );
     },
     renderExtendSearch: function() {
-        console.log(this);
         if (this.props.search.page < this.props.result.nbPages) {
             return null;
         }
