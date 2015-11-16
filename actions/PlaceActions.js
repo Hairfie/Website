@@ -2,7 +2,6 @@
 
 var _ = require('lodash');
 var Actions = require('../constants/Actions');
-var getGoogleMapsScript = require('fluxible-plugin-google-maps');
 var q = require('q');
 var request = require('superagent');
 
