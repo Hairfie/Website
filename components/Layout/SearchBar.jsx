@@ -13,8 +13,7 @@ var PlaceActions = require('../../actions/PlaceActions');
 
 var mobileHeader = React.createClass({
     contextTypes: {
-        executeAction: React.PropTypes.func.isRequired,
-        getGoogleMapsScript: React.PropTypes.func
+        executeAction: React.PropTypes.func.isRequired
     },
     getInitialState: function () {
         return {
