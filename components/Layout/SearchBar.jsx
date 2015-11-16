@@ -9,10 +9,12 @@ var User = require('./User.jsx');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Select = require('react-select');
+var PlaceActions = require('../../actions/PlaceActions');
 
 var mobileHeader = React.createClass({
     contextTypes: {
-        executeAction: React.PropTypes.func.isRequired
+        executeAction: React.PropTypes.func.isRequired,
+        getGoogleMapsScript: React.PropTypes.func
     },
     getInitialState: function () {
         return {
