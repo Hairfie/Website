@@ -13,7 +13,7 @@ module.exports = React.createClass({
     render: function() {
         return (
         <form className="form">
-            <Input type="email" ref="email" placeholder="Adresse Email *" defaultValue={this.props.email}/>
+            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email}/>
             <a role="button" onClick={this.submit} className="btn btn-red full">Récupérer son mot de passe</a>
         </form>
         );
@@ -29,5 +29,11 @@ module.exports = React.createClass({
                     message: "Vous devez entrer une adresse email"
                 }
             );
+    },
+    handleKey: function(e) {
+        if(event.keyCode == 13){
+            e.preventDefault();
+            this.submit();
+        }
     }
 });

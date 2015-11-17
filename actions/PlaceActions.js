@@ -28,23 +28,39 @@ module.exports = {
                     })
                     .end(function (error, response) {
                         if (!error && response.body.results[0] && response.body.results[0].formatted_address) {
-                            deferred.resolve(response.body.results[0].formatted_address);
                             context.dispatch(Actions.RECEIVE_CURRENT_POSITION, response.body.results[0].formatted_address)
                         }
                         else {
                             if (error) {
-                                return deferred.reject(error);
+                                context.executeAction(
+                                    NotificationActions.notifyError,
+                                    {
+                                        title: 'Erreur durant la localisation',
+                                        message: "Message d'erreur : " + error
+                                    }
+                                );
                             }
                             else {
-                                return deferred.reject("Une erreur est survenu");
+                                context.executeAction(
+                                    NotificationActions.notifyError,
+                                    {
+                                        title: 'Erreur durant la localisation',
+                                        message: "Une erreur est survenu"
+                                    }
+                                );
                             }
                         }
                     });
             });
         }
         else {
-            deffered.reject("Geolocation is not supported by this browser.");
+            context.executeAction(
+                NotificationActions.notifyWarning,
+                {
+                    title: 'Erreur durant la localisation',
+                    message: "Votre navigateur n'est apparemment pas compatible avec la géolocalisation"
+                }
+            );
         }
-        return null;
     }
 };

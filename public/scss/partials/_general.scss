@@ -264,6 +264,26 @@ ul {
 .main-searchbar {
 	background-color: rgba(255,255,255,0.9);
 	position: relative;
+		div.input-group {
+			float: left;
+			background: white;
+			input {
+				width: calc(100% + 5px);
+				margin-right: 0;
+				border-right: 0;
+			}
+			.input-group-addon {
+			    border: none;
+			    border-radius: 0;
+			    background: transparent;
+				border: 1px solid #e2e3e6;
+				background: url(../img/icon-location.png) no-repeat center center;
+				width: 60px;
+				background-size: 40%;
+				border-right: 1px solid #e2e3e6;
+				border-right: 0;
+			}
+		}
 	&.open {
 		overflow: visible;
 		.search-bar-extra {
