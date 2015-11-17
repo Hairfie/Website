@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Actions = require('../constants/Actions');
 var q = require('q');
 var request = require('superagent');
+var NotificationActions = require('./NotificationActions');
 
 module.exports = {
     loadAddressPlace: function (context, address) {
@@ -17,8 +18,6 @@ module.exports = {
             });
     },
     getPlaceByGeolocation: function (context) {
-        var deferred = q.defer();
-
         if (navigator.geolocation) {
             return navigator.geolocation.getCurrentPosition(function(position) {
                 request
@@ -30,6 +29,7 @@ module.exports = {
                     .end(function (error, response) {
                         if (!error && response.body.results[0] && response.body.results[0].formatted_address) {
                             deferred.resolve(response.body.results[0].formatted_address);
+                            context.dispatch(Actions.RECEIVE_CURRENT_POSITION, response.body.results[0].formatted_address)
                         }
                         else {
                             if (error) {
@@ -45,6 +45,6 @@ module.exports = {
         else {
             deffered.reject("Geolocation is not supported by this browser.");
         }
-        return deferred.promise;
+        return null;
     }
 };

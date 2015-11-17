@@ -7,21 +7,25 @@ var Actions = require('../constants/Actions');
 module.exports = createStore({
     storeName: 'PlaceStore',
     handlers: makeHandlers({
-        onReceiveAddressPlace: Actions.RECEIVE_ADDRESS_PLACE
+        onReceiveAddressPlace: Actions.RECEIVE_ADDRESS_PLACE,
+        onReceiveCurrentPosition: Actions.RECEIVE_CURRENT_POSITION
     }),
     initialize: function () {
         this.places = {};
         this.addresses = {};
+        this.currentPosition = "";
     },
     dehydrate: function () {
         return {
             places: this.places,
-            addresses: this.addresses
+            addresses: this.addresses,
+            currentPosition: this.currentPosition
         };
     },
     rehydrate: function (state) {
         this.places = state.places;
         this.addresses = state.addresses;
+        this.currentPosition = state.currentPosition;
     },
     onReceiveAddressPlace: function (payload) {
         var address = payload.address;
@@ -36,9 +40,16 @@ module.exports = createStore({
 
         this.emitChange();
     },
+    onReceiveCurrentPosition: function(address) {
+        this.currentPosition = address;
+        this.emitChange();
+    },
     getByAddress: function (address) {
         var id = this.addresses[address];
 
         return id && this.places[id];
+    },
+    getCurrentPosition: function() {
+        return this.currentPosition;
     }
 });
