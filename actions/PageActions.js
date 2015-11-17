@@ -30,8 +30,8 @@ module.exports = {
             context.executeAction(DealActions.loadTopDeals),
             context.executeAction(HairfieActions.loadTopHairfies),
             context.executeAction(TagActions.loadAll),
-            context.executeAction(CategoryActions.loadAll)/*,
-            context.executeAction(BlogPostActions.getRecent)*/
+            context.executeAction(CategoryActions.loadAll),
+            context.executeAction(BlogPostActions.getRecent)
         ]);
     },
     hairfie: function (context, route) {
