@@ -181,8 +181,8 @@ var BusinessResult = React.createClass({
             return null;
         }
         return (
-            <a role="button" onClick={this.submit} className="green text-center center-block extend-search">
-                Autres salon de coiffure à {this.props.search.address}
+            <a role="button" onClick={this.submit} className="text-center center-block extend-search">
+                Voir d’autres salons de coiffure à {this.props.search.address}
             </a>
             );
     },
