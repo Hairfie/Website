@@ -258,6 +258,24 @@ header:not(.white) {
 				font-size: 1.6em;
 				text-transform: uppercase;
 			}
+			div.input-group {
+				float: left;
+				margin-bottom: 20px;
+				input {
+					width: 100%;
+					margin: 0;
+					padding-left: 15px;
+					border-right: 0;
+				}
+				.input-group-addon {
+					background: url(../img/icon-location.png) no-repeat center center;
+					background-color: white;
+					width: 60px;
+					background-size: 40%;
+				    border: 2px solid #e6e6e6;
+				    border-left-width: 1px;
+				}
+			}
 			.mobile-categories {
 				padding: 0;
 				select {

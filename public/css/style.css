@@ -9303,15 +9303,12 @@ ul {
       margin-right: 0;
       border-right: 0; }
     .main-searchbar div.input-group .input-group-addon {
-      border: none;
-      border-radius: 0;
       background: transparent;
-      border: 1px solid #e2e3e6;
       background: url(../img/icon-location.png) no-repeat center center;
       width: 60px;
       background-size: 40%;
-      border-right: 1px solid #e2e3e6;
-      border-right: 0; }
+      border: 2px solid #e6e6e6;
+      border-left-width: 1px; }
   .main-searchbar.open {
     overflow: visible; }
     .main-searchbar.open .search-bar-extra {
@@ -10020,6 +10017,21 @@ header:not(.white) .dropdown-menu {
         border-radius: 0;
         font-size: 1.6em;
         text-transform: uppercase; }
+      .mobile-nav .mobile-menu .searchbar div.input-group {
+        float: left;
+        margin-bottom: 20px; }
+        .mobile-nav .mobile-menu .searchbar div.input-group input {
+          width: 100%;
+          margin: 0;
+          padding-left: 15px;
+          border-right: 0; }
+        .mobile-nav .mobile-menu .searchbar div.input-group .input-group-addon {
+          background: url(../img/icon-location.png) no-repeat center center;
+          background-color: white;
+          width: 60px;
+          background-size: 40%;
+          border: 2px solid #e6e6e6;
+          border-left-width: 1px; }
       .mobile-nav .mobile-menu .searchbar .mobile-categories {
         padding: 0; }
         .mobile-nav .mobile-menu .searchbar .mobile-categories select {

@@ -61,7 +61,10 @@ var mobileHeader = React.createClass({
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         {this.renderSelect()}
                     </div>
-                    <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
+                    <div className="col-xs-3 input-group">
+                        <GeoInput ref="address" placeholder="Où ?" />
+                        <div className="input-group-addon" role="button" onClick={this.findMe} alt="Trouvez moi"></div>
+                    </div>
                     <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
                     <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
                 </div>
@@ -77,7 +80,7 @@ var mobileHeader = React.createClass({
                 </div>
                 <div className="col-xs-3 input-group">
                     <GeoInput ref="address" placeholder="Où ?" />
-                    <div className="input-group-addon"></div>
+                    <div className="input-group-addon" role="button" onClick={this.findMe} alt="Trouvez moi"></div>
                 </div>
                 <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur (facultatif)" />
                 <Button onClick={this.submit} className='btn btn-red col-xs-3'>Trouvez votre coiffeur</Button>
@@ -115,7 +118,10 @@ var mobileHeader = React.createClass({
                                     </optgroup>
                                 </select>
                             </div>
-                            <GeoInput ref="address" placeholder="Où ?" className="col-xs-12" />
+                            <div className="col-xs-12 input-group">
+                                <GeoInput ref="address" placeholder="Où ?" />
+                                <div className="input-group-addon" role="button" onClick={this.findMe} alt="Trouvez moi"></div>
+                            </div>
                             <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
                             <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                         </div>
@@ -157,6 +163,9 @@ var mobileHeader = React.createClass({
     handleMobileCategoriesChange: function (e) {
         e.preventDefault();
         this.setState({selectedCategories: this.refs.mobileCategories.getDOMNode().value});
+    },
+    findMe: function (e) {
+
     },
     submit: function () {
         var search = {
