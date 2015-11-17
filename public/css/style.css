@@ -9296,15 +9296,14 @@ ul {
   background-color: rgba(255, 255, 255, 0.9);
   position: relative; }
   .main-searchbar div.input-group {
-    float: left;
-    background: white; }
+    float: left; }
     .main-searchbar div.input-group input {
       width: calc(100% + 5px);
       margin-right: 0;
       border-right: 0; }
     .main-searchbar div.input-group .input-group-addon {
-      background: transparent;
       background: url(../img/icon-location.png) no-repeat center center;
+      background-color: white;
       width: 60px;
       background-size: 40%;
       border: 2px solid #e6e6e6;
@@ -9408,6 +9407,19 @@ ul {
     height: 40px;
     line-height: 40px;
     border-width: 1px; }
+  .searchbar.small-search div.input-group {
+    float: left; }
+    .searchbar.small-search div.input-group input {
+      width: calc(100% + 5px);
+      margin-right: 0;
+      border-right: 0; }
+    .searchbar.small-search div.input-group .input-group-addon {
+      background: url(../img/icon-location.png) no-repeat center center;
+      background-color: white;
+      width: 60px;
+      background-size: 40%;
+      border: 2px solid #e6e6e6;
+      border-left-width: 1px; }
   .searchbar.small-search .btn-red {
     height: 40px;
     line-height: 25px;
