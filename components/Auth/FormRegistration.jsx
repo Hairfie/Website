@@ -9,7 +9,7 @@ var AuthActions = require('../../actions/AuthActions');
 var ImageField = require('../Partial/ImageField.jsx');
 
 module.exports = React.createClass({
-	contextTypes: {
+  contextTypes: {
         executeAction: React.PropTypes.func
   },
   getInitialState: function() {
@@ -28,11 +28,11 @@ module.exports = React.createClass({
             Femme
             </label>
           </Input>
-  				<Input type="text" ref="firstName" placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
-  				<Input type="text" ref="lastName" placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
-  				<Input type="email" ref="email" placeholder="Adresse Email *" defaultValue={this.props.email || ""}/>
-  				<Input type="password" ref="password" placeholder="Mot de Passe *" />
-  				<Input type="text" ref="phoneNumber" placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
+  				<Input type="text" ref="firstName" onKeyPress={this.handleKey} placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
+  				<Input type="text" ref="lastName" onKeyPress={this.handleKey} placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
+  				<Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email || ""}/>
+  				<Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
+  				<Input type="text" ref="phoneNumber" onKeyPress={this.handleKey} placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
           <div className="form-group">
             <ImageField ref="picture" container="users" text="(facultatif)"/>
           </div>
@@ -50,7 +50,12 @@ module.exports = React.createClass({
       userGender: e.currentTarget.value
     });
   },
-
+  handleKey: function(e) {
+    if(event.keyCode == 13){
+      e.preventDefault();
+      this.submit();
+      }
+  },
   handleNewsletterChanged: function (e) {
   	this.setState({
   		newsletter: e.currentTarget.checked

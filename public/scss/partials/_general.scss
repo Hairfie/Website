@@ -264,6 +264,22 @@ ul {
 .main-searchbar {
 	background-color: rgba(255,255,255,0.9);
 	position: relative;
+		div.input-group {
+			float: left;
+			input {
+				width: calc(100% + 5px);
+				margin-right: 0;
+				border-right: 0;
+			}
+			.input-group-addon {
+				background: url(../img/icon-location.png) no-repeat center center;
+				background-color: white;
+				width: 60px;
+				background-size: 40%;
+			    border: 2px solid #e6e6e6;
+			    border-left-width: 1px;
+			}
+		}
 	&.open {
 		overflow: visible;
 		.search-bar-extra {
@@ -362,6 +378,20 @@ ul {
 		height: 40px;line-height: 40px;
 		border-width: 1px;
 
+	}
+	div.input-group {
+		float: left;
+		padding-right: 15px;
+		input {
+			width: 100%;
+			padding-left: 15px;
+		}
+		.input-group-addon {
+			background: url(../img/icon-location.png) no-repeat center center;
+			background-color: white;
+			width: 50px;
+			background-size: 40%;
+		}
 	}
 	.btn-red {
 		height:40px;

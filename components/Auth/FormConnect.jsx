@@ -14,13 +14,19 @@ module.exports = React.createClass({
 	render: function() {
 		return (
         <form className="form">
-            <Input type="email" ref="email" placeholder="Adresse Email *"/>
-            <Input type="password" ref="password" placeholder="Mot de Passe *" />
+            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *"/>
+            <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
             <a role="button" onClick={this.resetPassword} className="green">Mot de passe oublié ?</a>
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
         </form>
 		);
 	},
+    handleKey: function(e) {
+        if(event.keyCode == 13) {
+            e.preventDefault();
+            this.submit();
+        }
+    },
     resetPassword: function(e) {
         e.preventDefault();
         return this.context.executeAction(NavigationActions.navigate, {

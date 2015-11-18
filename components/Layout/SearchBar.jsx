@@ -9,6 +9,7 @@ var User = require('./User.jsx');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Select = require('react-select');
+var PlaceActions = require('../../actions/PlaceActions');
 
 var mobileHeader = React.createClass({
     contextTypes: {
@@ -17,7 +18,9 @@ var mobileHeader = React.createClass({
     getInitialState: function () {
         return {
             displaySearchBar: false,
-            selectedCategories: ""
+            selectedCategories: "",
+            location: "",
+            activeLocation: false
         };
     },
     render: function () {
@@ -60,7 +63,10 @@ var mobileHeader = React.createClass({
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         {this.renderSelect()}
                     </div>
-                    <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
+                    <div className="col-xs-3 input-group">
+                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                    </div>
                     <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
                     <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>
                 </div>
@@ -74,7 +80,10 @@ var mobileHeader = React.createClass({
                 <div className="col-xs-3 homeSearch" style={{padding: '0'}}>
                     {this.renderSelect()}
                 </div>
-                <GeoInput ref="address" placeholder="Où ?" className="col-xs-3" />
+                <div className="col-xs-3 input-group">
+                    <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                    <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                </div>
                 <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur (facultatif)" />
                 <Button onClick={this.submit} className='btn btn-red col-xs-3'>Trouvez votre coiffeur</Button>
             </div>
@@ -111,7 +120,10 @@ var mobileHeader = React.createClass({
                                     </optgroup>
                                 </select>
                             </div>
-                            <GeoInput ref="address" placeholder="Où ?" className="col-xs-12" />
+                            <div className="col-xs-12 input-group">
+                                <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                                <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                            </div>
                             <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
                             <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                         </div>
@@ -137,6 +149,11 @@ var mobileHeader = React.createClass({
             />
         );
     },
+    handleLocationChange: function(e) {
+        this.setState({
+            location: e.currentTarget.value
+        });
+    },
     handleKey: function(e) {
         if(event.keyCode == 13){
             e.preventDefault();
@@ -153,6 +170,19 @@ var mobileHeader = React.createClass({
     handleMobileCategoriesChange: function (e) {
         e.preventDefault();
         this.setState({selectedCategories: this.refs.mobileCategories.getDOMNode().value});
+    },
+    findMe: function (e) {
+        this.setState({
+            activeLocation: true
+        });
+        if (this.props.location) {
+            this.setState({
+                location: this.props.location
+            });
+        }
+        else {
+            this.context.executeAction(PlaceActions.getPlaceByGeolocation);
+        }
     },
     submit: function () {
         var search = {
@@ -180,14 +210,23 @@ var mobileHeader = React.createClass({
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');
+    },
+    componentWillReceiveProps: function(newProps) {
+        if (newProps.location && this.state.activeLocation) {
+            this.setState({
+                location: newProps.location
+            });
+        }
     }
 });
 
 mobileHeader = connectToStores(mobileHeader, [
-    'CategoryStore'
+    'CategoryStore',
+    'PlaceStore'
 ], function (context, props) {
     return _.assign({}, {
-        categories: context.getStore('CategoryStore').getAllCategories()
+        categories: context.getStore('CategoryStore').getAllCategories(),
+        location: context.getStore('PlaceStore').getCurrentPosition()
     }, props);
 });
 
