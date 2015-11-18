@@ -28,11 +28,11 @@ module.exports = {
                     })
                     .end(function (error, response) {
                         if (!error && response.body.results[0] && response.body.results[0].formatted_address) {
-                            context.dispatch(Actions.RECEIVE_CURRENT_POSITION, response.body.results[0].formatted_address)
+                            return context.dispatch(Actions.RECEIVE_CURRENT_POSITION, response.body.results[0].formatted_address)
                         }
                         else {
                             if (error) {
-                                context.executeAction(
+                                return context.executeAction(
                                     NotificationActions.notifyError,
                                     {
                                         title: 'Erreur durant la localisation',
@@ -41,7 +41,7 @@ module.exports = {
                                 );
                             }
                             else {
-                                context.executeAction(
+                                return context.executeAction(
                                     NotificationActions.notifyError,
                                     {
                                         title: 'Erreur durant la localisation',
@@ -54,7 +54,7 @@ module.exports = {
             });
         }
         else {
-            context.executeAction(
+            return context.executeAction(
                 NotificationActions.notifyWarning,
                 {
                     title: 'Erreur durant la localisation',

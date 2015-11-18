@@ -5,9 +5,27 @@ var _ = require('lodash');
 var PriceFilter = require('./PriceFilter.jsx');
 var RadiusFilter = require('./RadiusFilter.jsx');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
+var connectToStores = require('fluxible-addons-react/connectToStores');
+var PlaceActions = require('../../actions/PlaceActions');
 
 
 var Filters = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
+    },
+    getInitialState: function () {
+        return {
+            location: "",
+            activeLocation: false
+        };
+    },
+    componentWillReceiveProps: function(newProps) {
+        if (newProps.location && this.state.activeLocation) {
+            this.setState({
+                location: newProps.location
+            });
+        }
+    },
     render: function () {
         return (
             <div className="sidebar">
@@ -99,8 +117,9 @@ var Filters = React.createClass({
             <div>
                 <h2>Où ?</h2>
                 <div className="input-group">
-                    <div className="input-group-addon"></div>
+                    <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     <GeoInput className="form-control" ref="address" type="text" defaultValue={this.props.address}
+                    value={this.state.location} onChange={this.handleLocationChange}
                     />
                     <div className="input-group-addon" onClick={this.handleAddressChange}><a role="button"></a></div>
                 </div>
@@ -182,6 +201,24 @@ var Filters = React.createClass({
         );
 
     },
+    handleLocationChange: function(e) {
+        this.setState({
+            location: e.currentTarget.value
+        });
+    },
+    findMe: function (e) {
+        this.setState({
+            activeLocation: true
+        });
+        if (this.props.location) {
+            this.setState({
+                location: this.props.location
+            });
+        }
+        else {
+            this.context.executeAction(PlaceActions.getPlaceByGeolocation);
+        }
+    },
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
     },
@@ -224,6 +261,14 @@ var Filters = React.createClass({
     handlePriceChange: function (nextPrice) {
         this.props.onChange({price: nextPrice});
     }
+});
+
+Filters = connectToStores(Filters, [
+    'PlaceStore'
+], function (context, props) {
+    return _.assign({}, {
+        location: context.getStore('PlaceStore').getCurrentPosition()
+    }, props);
 });
 
 module.exports = Filters;

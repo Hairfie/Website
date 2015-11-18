@@ -6653,7 +6653,7 @@ button.close {
   .btn-reddit:hover, .btn-reddit:focus, .btn-reddit.focus, .btn-reddit:active, .btn-reddit.active,
   .open > .btn-reddit.dropdown-toggle {
     color: #000;
-    background-color: #bcddff;
+    background-color: #bcdeff;
     border-color: rgba(0, 0, 0, 0.2); }
   .btn-reddit:active, .btn-reddit.active,
   .open > .btn-reddit.dropdown-toggle {
@@ -6705,7 +6705,7 @@ button.close {
   .btn-tumblr:hover, .btn-tumblr:focus, .btn-tumblr.focus, .btn-tumblr:active, .btn-tumblr.active,
   .open > .btn-tumblr.dropdown-toggle {
     color: #fff;
-    background-color: #1c2d3f;
+    background-color: #1c2e3f;
     border-color: rgba(0, 0, 0, 0.2); }
   .btn-tumblr:active, .btn-tumblr.active,
   .open > .btn-tumblr.dropdown-toggle {
@@ -9408,18 +9408,16 @@ ul {
     line-height: 40px;
     border-width: 1px; }
   .searchbar.small-search div.input-group {
-    float: left; }
+    float: left;
+    padding-right: 15px; }
     .searchbar.small-search div.input-group input {
-      width: calc(100% + 5px);
-      margin-right: 0;
-      border-right: 0; }
+      width: 100%;
+      padding-left: 15px; }
     .searchbar.small-search div.input-group .input-group-addon {
       background: url(../img/icon-location.png) no-repeat center center;
       background-color: white;
-      width: 60px;
-      background-size: 40%;
-      border: 2px solid #e6e6e6;
-      border-left-width: 1px; }
+      width: 50px;
+      background-size: 40%; }
   .searchbar.small-search .btn-red {
     height: 40px;
     line-height: 25px;
@@ -9469,7 +9467,7 @@ figure {
   .tag:hover {
     color: white;
     text-decoration: none;
-    background-color: #3f3f3f; }
+    background-color: #404040; }
   @media screen and (max-width: 767px) {
     .tag {
       margin-top: 5px; } }
@@ -11129,7 +11127,7 @@ section.home-footer .row > div {
       width: 100%;
       display: block; }
       .salon#content section.salon-content section .coiffeur p > a:hover {
-        color: #1a1a1a;
+        color: #1b1b1b;
         text-decoration: underline; }
     .salon#content section.salon-content section .table-price {
       border: 1px solid #f9f9f9;

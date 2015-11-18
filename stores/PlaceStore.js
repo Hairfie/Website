@@ -50,6 +50,6 @@ module.exports = createStore({
         return id && this.places[id];
     },
     getCurrentPosition: function() {
-        return this.currentPosition;
+        return this.currentPosition || "";
     }
 });
