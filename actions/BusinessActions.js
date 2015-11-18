@@ -42,11 +42,16 @@ module.exports = {
     loadSearchResult: function (context, search) {
         var query = {};
         query.pageSize = 10;
+        console.log(search);
         if (search.bounds) {
+            query['location[lat]'] = (search.bounds.northEast.lat + search.bounds.southWest.lat) / 2;
+            query['location[lng]'] = (search.bounds.northEast.lng + search.bounds.southWest.lng) / 2;
+            /*
             query['bounds[northEast][lat]'] = search.bounds.northEast.lat;
             query['bounds[northEast][lng]'] = search.bounds.northEast.lng;
             query['bounds[southWest][lat]'] = search.bounds.southWest.lat;
             query['bounds[southWest][lng]'] = search.bounds.southWest.lng;
+            */
         }
         if (search.location) {
             query['location[lat]'] = search.location.lat;
