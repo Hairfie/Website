@@ -172,20 +172,9 @@ var BusinessResult = React.createClass({
                         return <Business key={business.id} business={business} date={date} />
                     }, this)}
                 </div>
-                {this.renderExtendSearch()}
                 {this.renderPagination()}
             </div>
         );
-    },
-    renderExtendSearch: function() {
-        if (this.props.search.page < this.props.result.nbPages) {
-            return null;
-        }
-        return (
-            <a role="button" onClick={this.submit} className="text-center center-block extend-search">
-                Etendre la recherche
-            </a>
-            );
     },
     submit: function () {
         var search = {
