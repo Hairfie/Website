@@ -37,6 +37,7 @@ var BusinessSearchPage = React.createClass({
 
         return <Search.Filters
             address={this.props.address}
+            place={this.props.place}
             search={this.props.search}
             categories={categories}
             withQ={true}

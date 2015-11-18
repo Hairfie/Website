@@ -19,7 +19,7 @@ module.exports = React.createClass({
     },
     getInitialState: function () {
         return {
-            displayValue: this.props.defaultValue
+            displayValue: this.props.defaultValue || 1000
         };
     },
     componentDidMount: function () {
@@ -47,8 +47,7 @@ module.exports = React.createClass({
                 <h2>Rayon autour de l'adresse</h2>
                 <div className="selectRange">
                     <div ref="slider" className="rangeslider" />
-                    <p className="col-xs-6">De 0km</p>
-                    <p className="col-xs-6">à {this.state.displayValue / 1000}km</p>
+                    <p className="col-xs-6">{this.state.displayValue / 1000}km</p>
                 </div>
             </div>
         );

@@ -25,6 +25,11 @@ var Filters = React.createClass({
                 location: newProps.location
             });
         }
+        else if (newProps.place && newProps.place.name) {
+            this.setState({
+                location: newProps.place.name
+            });
+        }
     },
     render: function () {
         return (
@@ -33,9 +38,9 @@ var Filters = React.createClass({
                 <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
                 <section>
                     <form>
-                    {this.renderRadius()}
                     {this.renderQ()}
                     {this.renderAddress()}
+                    {this.renderRadius()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderPrice()}
@@ -101,10 +106,8 @@ var Filters = React.createClass({
                 <h2>Qui ?</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
-                        onChange={this.handleQueryChange}
-                        onKeyDown={this.handleQueryKey}
-                        onKeyUp={this.handleQueryKey}
-                        onKeyPress={this.handleQueryKey}/>
+                        onChange={this.handleChange}
+                        onKeyPress={this.handleKey}/>
                     <div className="input-group-addon"><a role="button"></a></div>
                 </div>
             </div>
@@ -118,10 +121,10 @@ var Filters = React.createClass({
                 <h2>Où ?</h2>
                 <div className="input-group">
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
-                    <GeoInput className="form-control" ref="address" type="text" defaultValue={this.props.address}
+                    <GeoInput className="form-control" ref="address" type="text"
                     value={this.state.location} onChange={this.handleLocationChange}
                     />
-                    <div className="input-group-addon" onClick={this.handleAddressChange}><a role="button"></a></div>
+                    <div className="input-group-addon" onClick={this.handleChange} onKeyPress={this.handleKey}><a role="button"></a></div>
                 </div>
             </div>
         );
@@ -243,18 +246,21 @@ var Filters = React.createClass({
     removeWithDiscount: function () {
         this.props.onChange({withDiscount: false});
     },
-    handleQueryChange: _.debounce(function () {
-        this.props.onChange({q: this.refs.query.getDOMNode().value});
+    handleChange: _.debounce(function () {
+        this.props.onChange({
+            q: this.refs.query.getDOMNode().value,
+            address: this.refs.address.getDOMNode().value
+        });
     }, 500),
-    handleQueryKey: function (e) {
+    handleKey: function (e) {
         if(event.keyCode == 13){
             e.preventDefault();
-            this.props.onChange({q: this.refs.query.getDOMNode().value});
+            this.props.onChange({
+                q: this.refs.query.getDOMNode().value,
+                address: this.refs.address.getDOMNode().value
+            });
          }
     },
-    handleAddressChange: _.debounce(function () {
-        this.props.onChange({address: this.refs.address.getDOMNode().value});
-    }, 500),
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
     },

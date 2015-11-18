@@ -5,6 +5,7 @@ var _ = require('lodash');
 var Link = require('../Link.jsx');
 var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var BusinessActions = require('../../actions/BusinessActions');
 var HairfieActions = require('../../actions/HairfieActions');
 var SearchUtils = require('../../lib/search-utils');
 var Rating = require('../Partial/Rating.jsx');
@@ -182,7 +183,7 @@ var BusinessResult = React.createClass({
         }
         return (
             <a role="button" onClick={this.submit} className="text-center center-block extend-search">
-                Voir d’autres salons de coiffure à {this.props.search.address}
+                Etendre la recherche
             </a>
             );
     },
