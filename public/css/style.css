@@ -11854,7 +11854,6 @@ section.home-footer .row > div {
       text-align: center;
       line-height: 45px; }
     #content.reservation.bookingForm .confirm-bloc-form form input, .bookingForm.review-confirmation .confirm-bloc-form form input, #content.reservation.bookingForm .confirm-bloc-form form select, .bookingForm.review-confirmation .confirm-bloc-form form select {
-      height: 30px;
       background-color: white;
       border: 1px solid #eeeeee;
       line-height: 30px;

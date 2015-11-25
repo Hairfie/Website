@@ -58,7 +58,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <div className="legend conf">
-                    <p className="green">{"Finalisez votre réservation chez  " + this.props.business.name}</p>
+                    <p className="green">{"Finalisez votre demande de RDV chez  " + this.props.business.name}</p>
                     <p dangerouslySetInnerHTML={{__html:this.props.timeslotSelected.format("[pour le <u>] dddd D MMMM YYYY [</u> à <u>] HH:mm [</u>]")}} />
                     {promoNode}
                 </div>
@@ -84,7 +84,31 @@ module.exports = React.createClass({
                                 <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} />
                                 <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} />
                                 <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged}/>
-                                <Input ref="userComment" name="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
+                                <p>Longueur de vos cheveux : </p>
+                                <Input className="radio">
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.SHORT} onChange={this.handleHairChanged} value={UserConstants.Hairs.SHORT} />
+                                      <br />
+                                      <p>Courts</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairChanged} value={UserConstants.Hairs.MID_SHORT} />
+                                      <br />
+                                      <p>Mi-Longs</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.LONG} onChange={this.handleHairChanged} value={UserConstants.Hairs.LONG} />
+                                      <br />
+                                      <p>Longs</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairChanged} value={UserConstants.Hairs.VERY_LONG} />
+                                      <br />
+                                      <p>Très longs</p>
+                                    </div>
+                                </Input>
+                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, brushing, lissage, couleur, extension…)  ? *" />
+                                <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière" />
                             </form>
                         </div>
                     </div>
@@ -94,7 +118,7 @@ module.exports = React.createClass({
                     <label for="cgu" style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu' onChange={this.handleCGUChanged}/>
                         <span></span>
-                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>
@@ -158,6 +182,11 @@ module.exports = React.createClass({
             userGender: e.currentTarget.value
         });
     },
+    handleHairChanged: function (e) {
+        this.setState({
+            hair: e.currentTarget.value
+        });
+    },
     handleCGUChanged: function (e) {
         this.setState({
             cgu: e.currentTarget.checked
@@ -190,6 +219,8 @@ module.exports = React.createClass({
             lastName    : this.refs.userLastName.getValue(),
             email       : this.refs.userEmail.getValue(),
             phoneNumber : this.refs.userPhoneNumber.getValue(),
+            hair        : this.state.hair,
+            service     : this.refs.service.getValue(),
             comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount,
