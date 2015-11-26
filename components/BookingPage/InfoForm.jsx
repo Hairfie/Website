@@ -2,6 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var NotificationActions = require('../../actions/NotificationActions');
 
 var UserConstants = require('../../constants/UserConstants');
 
@@ -12,6 +13,9 @@ var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');
 
 module.exports = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     propTypes: {
         modifyTimeslot: React.PropTypes.func,
         onSubmit: React.PropTypes.func
@@ -231,6 +235,31 @@ module.exports = React.createClass({
         return this.state.cgu;
     },
     submit: function (e) {
+        if (
+            !this.refs.userFirstName.getValue() ||
+            !this.refs.userLastName.getValue() ||
+            !this.refs.userEmail.getValue() ||
+            !this.refs.userPhoneNumber.getValue() ||
+            !this.state.hair ||
+            !this.refs.service.getValue()
+            ) {
+            return this.context.executeAction(
+                NotificationActions.notifyWarning,
+                {
+                    title: 'Information',
+                    message: "Certains champs obligatoires n'ont pas été rempli"
+                }
+            );
+        }
+        else if (!this.state.cgu) {
+            return this.context.executeAction(
+                NotificationActions.notifyWarning,
+                {
+                    title: "Conditions Générales D'utilisation",
+                    message: "Vous devez accepter les conditions générales d'utilisation"
+                }
+            );
+        }
         e.preventDefault();
         this.props.onSubmit();
     }
