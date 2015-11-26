@@ -91,22 +91,22 @@ module.exports = React.createClass({
                                 <p>Longueur de vos cheveux : </p>
                                 <Input className="radio">
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.SHORT} onChange={this.handleHairChanged} value={UserConstants.Hairs.SHORT} />
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
                                       <br />
                                       <p>Courts</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairChanged} value={UserConstants.Hairs.MID_SHORT} />
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
                                       <br />
                                       <p>Mi-Longs</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.LONG} onChange={this.handleHairChanged} value={UserConstants.Hairs.LONG} />
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.LONG} />
                                       <br />
                                       <p>Longs</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hair" checked={this.state.hair === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairChanged} value={UserConstants.Hairs.VERY_LONG} />
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.VERY_LONG} />
                                       <br />
                                       <p>Très longs</p>
                                     </div>
@@ -186,9 +186,9 @@ module.exports = React.createClass({
             userGender: e.currentTarget.value
         });
     },
-    handleHairChanged: function (e) {
+    handleHairLengthChanged: function (e) {
         this.setState({
-            hair: e.currentTarget.value
+            hairLength: e.currentTarget.value
         });
     },
     handleCGUChanged: function (e) {
@@ -223,7 +223,7 @@ module.exports = React.createClass({
             lastName    : this.refs.userLastName.getValue(),
             email       : this.refs.userEmail.getValue(),
             phoneNumber : this.refs.userPhoneNumber.getValue(),
-            hair        : this.state.hair,
+            hairLength  : this.state.hairLength,
             service     : this.refs.service.getValue(),
             comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
@@ -240,7 +240,7 @@ module.exports = React.createClass({
             !this.refs.userLastName.getValue() ||
             !this.refs.userEmail.getValue() ||
             !this.refs.userPhoneNumber.getValue() ||
-            !this.state.hair ||
+            !this.state.hairLength ||
             !this.refs.service.getValue()
             ) {
             return this.context.executeAction(
