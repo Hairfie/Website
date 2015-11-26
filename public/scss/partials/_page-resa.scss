@@ -215,6 +215,9 @@
 		}
 	}
 	.confirm-bloc-form {
+		p {
+			font-weight: normal;
+		}
 		float: none;
 		margin: 0 auto;
 		a:first-child {
@@ -242,7 +245,6 @@
 		}
 		form {
 			input, select {
-				height: 30px;
 				background-color: white;
 				border: 1px solid #eeeeee;
 				line-height: 30px; margin-bottom: 10px;

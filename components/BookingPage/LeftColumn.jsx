@@ -38,10 +38,10 @@ module.exports = React.createClass({
                 <div>
                     {this.renderDiscountsConditions()}
                     <div>
-                        <h3>Réserver en ligne n'a que des avantages </h3>
+                        <h3>Prendre RDV en ligne n'a que des avantages </h3>
                         <ul>
                             <li>- Rapide</li>
-                            <li>- Gratuit</li>
+                            <li>- Gratuit (sans carte bancaire)</li>
                             <li>- Pratique</li>
                         </ul>
                     </div>

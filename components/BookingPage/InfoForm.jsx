@@ -2,6 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var NotificationActions = require('../../actions/NotificationActions');
 
 var UserConstants = require('../../constants/UserConstants');
 
@@ -12,6 +13,9 @@ var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');
 
 module.exports = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     propTypes: {
         modifyTimeslot: React.PropTypes.func,
         onSubmit: React.PropTypes.func
@@ -58,7 +62,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <div className="legend conf">
-                    <p className="green">{"Finalisez votre réservation chez  " + this.props.business.name}</p>
+                    <p className="green">{"Finalisez votre demande de RDV chez  " + this.props.business.name}</p>
                     <p dangerouslySetInnerHTML={{__html:this.props.timeslotSelected.format("[pour le <u>] dddd D MMMM YYYY [</u> à <u>] HH:mm [</u>]")}} />
                     {promoNode}
                 </div>
@@ -84,7 +88,31 @@ module.exports = React.createClass({
                                 <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} />
                                 <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} />
                                 <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged}/>
-                                <Input ref="userComment" name="userComment" type="text" placeholder="Quelle prestation désirez-vous ? Une demande particulière ?" />
+                                <p>Longueur de vos cheveux : </p>
+                                <Input className="radio">
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
+                                      <br />
+                                      <p>Courts</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
+                                      <br />
+                                      <p>Mi-Longs</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.LONG} />
+                                      <br />
+                                      <p>Longs</p>
+                                    </div>
+                                    <div className="col-xs-3 text-center">
+                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.VERY_LONG} />
+                                      <br />
+                                      <p>Très longs</p>
+                                    </div>
+                                </Input>
+                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, brushing, lissage, couleur, extension…)  ? *" />
+                                <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière" />
                             </form>
                         </div>
                     </div>
@@ -94,7 +122,7 @@ module.exports = React.createClass({
                     <label for="cgu" style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu' onChange={this.handleCGUChanged}/>
                         <span></span>
-                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>
@@ -158,6 +186,11 @@ module.exports = React.createClass({
             userGender: e.currentTarget.value
         });
     },
+    handleHairLengthChanged: function (e) {
+        this.setState({
+            hairLength: e.currentTarget.value
+        });
+    },
     handleCGUChanged: function (e) {
         this.setState({
             cgu: e.currentTarget.checked
@@ -190,6 +223,8 @@ module.exports = React.createClass({
             lastName    : this.refs.userLastName.getValue(),
             email       : this.refs.userEmail.getValue(),
             phoneNumber : this.refs.userPhoneNumber.getValue(),
+            hairLength  : this.state.hairLength,
+            service     : this.refs.service.getValue(),
             comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount,
@@ -200,6 +235,31 @@ module.exports = React.createClass({
         return this.state.cgu;
     },
     submit: function (e) {
+        if (
+            !this.refs.userFirstName.getValue() ||
+            !this.refs.userLastName.getValue() ||
+            !this.refs.userEmail.getValue() ||
+            !this.refs.userPhoneNumber.getValue() ||
+            !this.state.hairLength ||
+            !this.refs.service.getValue()
+            ) {
+            return this.context.executeAction(
+                NotificationActions.notifyWarning,
+                {
+                    title: 'Information',
+                    message: "Certains champs obligatoires n'ont pas été rempli"
+                }
+            );
+        }
+        else if (!this.state.cgu) {
+            return this.context.executeAction(
+                NotificationActions.notifyWarning,
+                {
+                    title: "Conditions Générales D'utilisation",
+                    message: "Vous devez accepter les conditions générales d'utilisation"
+                }
+            );
+        }
         e.preventDefault();
         this.props.onSubmit();
     }

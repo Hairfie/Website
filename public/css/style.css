@@ -11829,6 +11829,8 @@ section.home-footer .row > div {
   #content.reservation.bookingForm .confirm-bloc-form, .bookingForm.review-confirmation .confirm-bloc-form {
     float: none;
     margin: 0 auto; }
+    #content.reservation.bookingForm .confirm-bloc-form p, .bookingForm.review-confirmation .confirm-bloc-form p {
+      font-weight: normal; }
     #content.reservation.bookingForm .confirm-bloc-form a:first-child, .bookingForm.review-confirmation .confirm-bloc-form a:first-child {
       text-decoration: underline; }
       #content.reservation.bookingForm .confirm-bloc-form a:first-child:hover, .bookingForm.review-confirmation .confirm-bloc-form a:first-child:hover, #content.reservation.bookingForm .confirm-bloc-form a:first-child:active, .bookingForm.review-confirmation .confirm-bloc-form a:first-child:active {
@@ -11854,7 +11856,6 @@ section.home-footer .row > div {
       text-align: center;
       line-height: 45px; }
     #content.reservation.bookingForm .confirm-bloc-form form input, .bookingForm.review-confirmation .confirm-bloc-form form input, #content.reservation.bookingForm .confirm-bloc-form form select, .bookingForm.review-confirmation .confirm-bloc-form form select {
-      height: 30px;
       background-color: white;
       border: 1px solid #eeeeee;
       line-height: 30px;

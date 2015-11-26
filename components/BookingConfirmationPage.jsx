@@ -114,7 +114,8 @@ var BookingConfirmationPage = React.createClass({
                 {status}
                 <ul>
                     <li>Le {moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</li>
-                    <li>{booking.comment}</li>
+                    <li>{booking.service}</li>
+                    {booking.comment ? <li>{booking.comment}</li> : ""}
                     {discount}
                 </ul>
             </div>

@@ -51,7 +51,7 @@ var BusinessBookingPage = React.createClass({
 
         return (
             <div className="main-content col-md-9 col-sm-12 pull-right">
-                <h3>Demande de réservation</h3>
+                <h3>Demande de RDV</h3>
                 {this.renderIsBookable()}
                 <div className="row">
                     <div className="col-xs-6">
