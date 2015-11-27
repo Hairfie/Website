@@ -222,7 +222,7 @@ var ReviewForm = React.createClass({
     },
     handleGender: function (e) {
         e.preventDefault();
-        this.setState({gender: this.refs.gender.getDOMNode().value});
+        this.setState({gender: this.refs.gender.value});
     },
     getReview: function () {
         return {
@@ -230,7 +230,7 @@ var ReviewForm = React.createClass({
             authorId    : this.props.currentUser ? this.props.currentUser.id : undefined,
             firstName   : this.refs.firstName.getValue().trim(),
             lastName    : this.refs.lastName.getValue().trim(),
-            gender      : this.refs.gender.getDOMNode().value.trim(),
+            gender      : this.refs.gender.value.trim(),
             email       : this.refs.email.getValue().trim(),
             phoneNumber : this.refs.phoneNumber.getValue().trim(),
             criteria    : {

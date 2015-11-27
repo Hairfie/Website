@@ -72,7 +72,7 @@ var HomePage = React.createClass({
         $('body').removeClass('locked');
     },
     scrollTo: function(toRef) {
-        var target = this.refs[toRef].getDOMNode();
+        var target = this.refs[toRef];
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     }
 });

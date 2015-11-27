@@ -32,7 +32,7 @@ var Map = React.createClass({
         );
     },
     _setupMap: function (google, props) {
-        this.map = new google.maps.Map(this.refs.map.getDOMNode(), {
+        this.map = new google.maps.Map(this.refs.map, {
             zoom    : props.defaultZoom,
             center  : this._getLatLng(google, props)
         });

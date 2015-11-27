@@ -169,7 +169,7 @@ var mobileHeader = React.createClass({
     },
     handleMobileCategoriesChange: function (e) {
         e.preventDefault();
-        this.setState({selectedCategories: this.refs.mobileCategories.getDOMNode().value});
+        this.setState({selectedCategories: this.refs.mobileCategories.value});
     },
     findMe: function (e) {
         this.setState({
@@ -187,7 +187,7 @@ var mobileHeader = React.createClass({
     submit: function () {
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
-            q       : this.refs.query.getDOMNode().value
+            q       : this.refs.query.value
         };
         if (this.state.selectedCategories) {
             search['categories'] = this.state.selectedCategories.split(',');

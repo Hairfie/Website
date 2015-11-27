@@ -18,7 +18,7 @@ module.exports = React.createClass({
     },
     componentDidMount: function () {
         this.context.getGoogleMapsScript().then(function (google) {
-            var input = this.refs.input.getDOMNode();
+            var input = this.refs.input;
 
             var options = {};
             options.types = this.props.types;
@@ -39,7 +39,7 @@ module.exports = React.createClass({
     },
     getFormattedAddress: function () {
         var place = this.autocomplete.getPlace();
-        if(!place) return this.refs.input.getDOMNode().value;
+        if(!place) return this.refs.input.value;
         return place.formatted_address;
     },
     getPlace: function () {

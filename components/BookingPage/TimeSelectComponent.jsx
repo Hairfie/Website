@@ -40,9 +40,11 @@ var TimeSelectComponent = React.createClass({
         return(
             <div className="time-table">
                 <table className="cal">
-                    <tr>
-                        { _.map(timeslots, this.renderTimeButton, this) }
-                    </tr>
+                    <tbody>
+                        <tr>
+                            { _.map(timeslots, this.renderTimeButton, this) }
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         );
