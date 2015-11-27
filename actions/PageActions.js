@@ -78,7 +78,6 @@ module.exports = {
         });
     },
     businessSearch: function (context, route) {
-        console.log("ICI", route.params);
         var address = SearchUtils.addressFromUrlParameter(route.params.address);
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)

@@ -34,7 +34,6 @@ module.exports = createStore({
         this.metas = state.metas;
     },
     onNavigateSuccess: function (route) {
-        console.log("Route : ", route);
         switch (route.name) {
             case 'home':
                 this._setMetas(this._getHomeMetas());
