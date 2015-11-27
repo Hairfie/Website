@@ -18,6 +18,7 @@ var robots          = require('robots.txt');
 var sitemap         = require('./sitemap');
 
 var React           = require('react');
+var ReactDOMServer  = require('react-dom/server');
 var app             = require('./app');
 var ServerActions   = require('./actions/ServerActions');
 var RouteStore      = require('./stores/RouteStore');
@@ -62,11 +63,11 @@ server.use(function (req, res, next) {
     context.executeAction(ServerActions.initialize, req.url)
         .then(function () {
             var AppComponent = app.getComponent();
-            var markup = React.renderToString(React.createFactory(AppComponent)({
+            var markup = ReactDOMServer.renderToString(React.createFactory(AppComponent)({
                 context: context.getComponentContext()
             }));
 
-            var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(Html)({
+            var html = '<!doctype html>'+ReactDOMServer.renderToStaticMarkup(React.createFactory(Html)({
                 context : context.getComponentContext(),
                 state   : app.dehydrate(context),
                 markup  : markup
@@ -109,12 +110,12 @@ server.use(function (err, req, res, next) { // error page
 
     var state = app.dehydrate(context);
 
-    var markup = React.renderToStaticMarkup(React.createFactory(ErrorPage)({
+    var markup = ReactDOMServer.renderToStaticMarkup(React.createFactory(ErrorPage)({
         context: context.getComponentContext(),
         error  : err
     }));
 
-    var html = '<!doctype html>'+React.renderToStaticMarkup(React.createFactory(Html)({
+    var html = '<!doctype html>'+ReactDOMServer.renderToStaticMarkup(React.createFactory(Html)({
         context : context.getComponentContext(),
         state   : state,
         markup  : markup

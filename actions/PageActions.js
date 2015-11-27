@@ -35,11 +35,11 @@ module.exports = {
         ]);
     },
     hairfie: function (context, route) {
-        var id = route.get('params').get('hairfieId');
+        var id = route.params.hairfieId;
         return context.executeAction(HairfieActions.loadHairfie, id);
     },
     hairfieSearch: function (context, route) {
-        var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
+        var address = SearchUtils.addressFromUrlParameter(route.params.address);
         var hairfiePath = oldHairfiePath(context, route);
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)
@@ -73,12 +73,13 @@ module.exports = {
         return businessWithSlug(context, route).then(function (business) {
             return context.executeAction(HairfieActions.loadBusinessHairfies, {
                 businessId: business.id,
-                page: route.get('query').get('page')
+                page: route.query.page
             });
         });
     },
     businessSearch: function (context, route) {
-        var address = SearchUtils.addressFromUrlParameter(route.get('params').get('address'));
+        console.log("ICI", route.params);
+        var address = SearchUtils.addressFromUrlParameter(route.params.address);
 
         return context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
@@ -90,7 +91,7 @@ module.exports = {
     },
     businessBooking: businessWithSlug,
     bookingConfirmation: function (context, route) {
-        var bookingId  = route.get('params').get('bookingId');
+        var bookingId  = route.params.bookingId;
 
         return context.hairfieApi
             .get('/bookings/'+bookingId)
@@ -100,10 +101,10 @@ module.exports = {
     },
     resetPassword: function (context, route) {
         return context.hairfieApi
-            .get('/accessTokens/'+route.get('params').get('tokenId'))
+            .get('/accessTokens/'+route.params.tokenId)
             .catch(function (e) { if (e.status !== 404) throw e; })
             .then(function (token) {
-                if (!token || token.userId != route.get('params').get('userId')) { // invalid URL or token has expired
+                if (!token || token.userId != route.params.userId) { // invalid URL or token has expired
                     var body = [
                         'Le jeton de réinitialisation est expiré.',
                         'Si vous êtes toujours à la recherche de votre mot de passe,',
@@ -126,38 +127,38 @@ module.exports = {
         var error = new Error('Invalid slug');
         error.status = 302;
         error.location = context.getStore('RouteStore').makePath('user_hairfies', {
-            userId: route.get('params').get('userId')
+            userId: route.params.userId
         });
         throw error;
     },
     userHairfies: function (context, route) {
-        return context.executeAction(UserActions.getUserById, route.get('params').get('userId'));
+        return context.executeAction(UserActions.getUserById, route.params.userId);
     },
     userReviews: function (context, route) {
         return Promise.all([
-            context.executeAction(UserActions.getUserById, route.get('params').get('userId')),
-            context.executeAction(UserActions.getUserReviews, route.get('params').get('userId'))
+            context.executeAction(UserActions.getUserById, route.params.userId),
+            context.executeAction(UserActions.getUserReviews, route.params.userId)
         ]);
     },
     userLikes: function (context, route) {
         return Promise.all([
-            context.executeAction(UserActions.getUserById, route.get('params').get('userId'))
+            context.executeAction(UserActions.getUserById, route.params.userId)
         ]);
     },
     hairdresser: function(context, route) {
         return Promise.all([
-            context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
+            context.executeAction(HairdresserActions.loadHairdresser, route.params.id)
         ]);
     },
     hairdresserHairfies: function(context, route) {
         return Promise.all([
-            context.executeAction(HairdresserActions.loadHairdresser, route.get('params').get('id'))
+            context.executeAction(HairdresserActions.loadHairdresser, route.params.id)
         ]);
     },
     writeBusinessReview: function(context, route) {
         //if OLD PATH
-        if (!route.get('query').get('businessId') && route.get('params').get('businessReviewRequestId')) {
-            return context.executeAction(BusinessReviewActions.loadRequest, route.get('params').get('businessReviewRequestId'))
+        if (!route.query.get('businessId') && route.params.businessReviewRequestId) {
+            return context.executeAction(BusinessReviewActions.loadRequest, route.params.businessReviewRequestId)
                 .then(function (brr) {
                     var error = new Error('Invalid URL');
                     error.status = 301;
@@ -166,8 +167,8 @@ module.exports = {
             });
         }
 
-        var businessId = route.get('query').get('businessId');
-        var requestId = route.get('query').get('requestId');
+        var businessId = route.query.businessId;
+        var requestId = route.query.requestId;
         if (!businessId) return;
         return Promise.all([
             requestId ? context.executeAction(BusinessReviewActions.loadRequest, requestId) : '',
@@ -176,16 +177,16 @@ module.exports = {
     },
     writeBusinessReviewConfirmation: function(context, route) {
         return Promise.all([
-            context.executeAction(BusinessReviewActions.loadReview, route.get('params').get('reviewId'))
+            context.executeAction(BusinessReviewActions.loadReview, route.params.reviewId)
         ]);
     }
 };
 
 function businessWithSlug(context, route) {
     return context.hairfieApi
-        .get('/businesses/'+route.get('params').get('businessId'))
+        .get('/businesses/'+route.params.businessId)
         .then(function (business) {
-            if (business.slug != route.get('params').get('businessSlug')) { // redirect to canonical URL
+            if (business.slug != route.params.businessSlug) { // redirect to canonical URL
                 var error = new Error('Invalid slug');
                 error.status = 301;
                 error.location = context.getStore('RouteStore').makePath('business', {
@@ -202,14 +203,14 @@ function businessWithSlug(context, route) {
 
 function oldHairfiePath(context, route) {
     return context.getStore('RouteStore').makePath('hairfie', {
-        hairfieId  : route.get('params').get('address')
+        hairfieId  : route.params.address
     });
 }
 
 function oldBusinessRequestReviewPath(context, route, businessId) {
     return context.getStore('RouteStore').makeUrl('write_business_review', {},
         {
-            requestId: route.get('params').get('businessReviewRequestId'),
+            requestId: route.params.businessReviewRequestId,
             businessId: businessId
         }
     );

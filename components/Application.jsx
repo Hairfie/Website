@@ -16,16 +16,14 @@ var Application = React.createClass({
     },
     render: function () {
         ga('send', 'pageview', {
-            'page': this.props.currentRoute.get('url')
+            'page': this.props.currentRoute.url
         });
 
         setTitle(this.props.title);
 
-        var Handler = this.props.currentRoute.get('handler');
+        var Handler = this.props.currentRoute.handler;
 
-        return React.createElement(Handler, {
-            route: this.props.currentRoute.toJS()
-        });
+        return <Handler route={this.props.currentRoute} />
     }
 });
 
