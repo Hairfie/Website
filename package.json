@@ -48,7 +48,7 @@
     "intl": "^1.0.0",
     "load-grunt-tasks": "~3.2.0",
     "lodash": "^3.6.0",
-    "lodash-contrib": "^393.0.1",
+    "lodash-contrib": "^31001.1.0",
     "moment": "^2.8.4",
     "moment-range": "^2.0.3",
     "morgan": "~1.6.1",

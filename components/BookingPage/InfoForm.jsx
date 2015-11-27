@@ -93,7 +93,7 @@ module.exports = React.createClass({
                                     <div className="col-xs-3 text-center">
                                       <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
                                       <br />
-                                      <p>Courts</p>
+                                        <p>Courts</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
                                       <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
