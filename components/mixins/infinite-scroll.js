@@ -37,7 +37,7 @@ var InfiniteScrollMixin = {
   },
 
   scrollListener: function () {
-    var el = this.getDOMNode();
+    var el = this;
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     if (topOfElement(el) + el.offsetHeight - scrollTop - window.innerHeight < this.props.offset) {
       this.detachScrollListener();

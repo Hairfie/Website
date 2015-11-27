@@ -23,7 +23,7 @@ module.exports = React.createClass({
 
         if (!this.placeholder) return;
 
-        var $image = jQuery(this.refs.image.getDOMNode());
+        var $image = jQuery(this.refs.image);
         $image.attr('src', this.context.getAssetUrl(this.props.placeholder));
         $image.one('load', function () {
             $image.attr('src', this.getSrc());

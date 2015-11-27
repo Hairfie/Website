@@ -40,7 +40,7 @@ var RadioChoice = React.createClass({
     getValue: function () {
         var value = null;
         _.map(this.props.choices, function (choice) {
-            if (this.refs[choice.value].getDOMNode().checked) value = choice.value;
+            if (this.refs[choice.value].checked) value = choice.value;
         }, this);
         return value;
     }

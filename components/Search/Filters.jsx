@@ -248,16 +248,16 @@ var Filters = React.createClass({
     },
     handleChange: _.debounce(function () {
         this.props.onChange({
-            q: this.refs.query.getDOMNode().value,
-            address: this.refs.address.getDOMNode().value
+            q: this.refs.query.value,
+            address: this.refs.address.value
         });
     }, 500),
     handleKey: function (e) {
         if(event.keyCode == 13){
             e.preventDefault();
             this.props.onChange({
-                q: this.refs.query.getDOMNode().value,
-                address: this.refs.address.getDOMNode().value
+                q: this.refs.query.value,
+                address: this.refs.address.value
             });
          }
     },

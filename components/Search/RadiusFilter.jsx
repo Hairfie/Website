@@ -23,7 +23,7 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function () {
-        this.slider = jQuery(this.refs.slider.getDOMNode()).slider({
+        this.slider = jQuery(this.refs.slider).slider({
             min: this.props.min,
             max: this.props.max,
             step: this.props.step,
