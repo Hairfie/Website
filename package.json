@@ -2,7 +2,7 @@
   "name": "Website",
   "version": "0.2.2",
   "engines": {
-    "node": "0.12.x"
+    "node": "5.1.x"
   },
   "private": true,
   "scripts": {
