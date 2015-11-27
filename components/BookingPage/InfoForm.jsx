@@ -3,6 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var NotificationActions = require('../../actions/NotificationActions');
+var ReactTooltip = require('react-tooltip');
 
 var UserConstants = require('../../constants/UserConstants');
 
@@ -88,27 +89,27 @@ module.exports = React.createClass({
                                 <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} />
                                 <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} />
                                 <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged}/>
-                                <p>Longueur de vos cheveux : </p>
+                                <p>Longueur de vos cheveux * </p>
                                 <Input className="radio">
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
+                                      <input data-tip="Au-dessus des épaules" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
                                       <br />
-                                        <p>Courts</p>
+                                        <p data-tip="Au-dessus des épaules">Courts</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
+                                      <input data-tip="Au niveau des épaules" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
                                       <br />
-                                      <p>Mi-Longs</p>
+                                      <p data-tip="Au niveau des épaules">Mi-Longs</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.LONG} />
+                                      <input data-tip="Au niveau des omoplates" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.LONG} />
                                       <br />
-                                      <p>Longs</p>
+                                      <p data-tip="Au niveau des omoplates">Longs</p>
                                     </div>
                                     <div className="col-xs-3 text-center">
-                                      <input type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.VERY_LONG} />
+                                      <input data-tip="Au niveau du bas du dos" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.VERY_LONG} />
                                       <br />
-                                      <p>Très longs</p>
+                                      <p data-tip="Au niveau du bas du dos">Très longs</p>
                                     </div>
                                 </Input>
                                 <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, brushing, lissage, couleur, extension…)  ? *" />
@@ -126,6 +127,7 @@ module.exports = React.createClass({
                     </label>
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>
+                <ReactTooltip />
             </div>
         );
     },
