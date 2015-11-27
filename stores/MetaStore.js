@@ -34,7 +34,7 @@ module.exports = createStore({
         this.metas = state.metas;
     },
     onNavigateSuccess: function (route) {
-        switch (route.get('name')) {
+        switch (route.name) {
             case 'home':
                 this._setMetas(this._getHomeMetas());
                 break;
@@ -43,11 +43,11 @@ module.exports = createStore({
             case 'business_reviews':
             case 'business_hairfies':
             case 'business_booking':
-                this._setMetas(this._getBusinessMetas(route.get('params').get('businessId'), route.get('name')));
+                this._setMetas(this._getBusinessMetas(route.params.businessId, route.name));
                 break;
 
             case 'hairfie':
-                this._setMetas(this._getHairfieMetas(route.get('params').get('hairfieId')));
+                this._setMetas(this._getHairfieMetas(route.params.hairfieId));
                 break;
 
             case 'business_search':
@@ -60,11 +60,11 @@ module.exports = createStore({
             case 'user_hairfies':
             case 'user_likes':
             case 'user_reviews':
-                this._setMetas(this._getUserMetas(route.get('params').get('userId'), route.get('name')));
+                this._setMetas(this._getUserMetas(route.params.userId, route.name));
                 break;
             case 'hairdresser':
             case 'hairdresser_hairfies':
-                this._setMetas(this._getHairdresserMetas(route.get('params').get('id'), route.get('name')));
+                this._setMetas(this._getHairdresserMetas(route.params.id, route.name));
                 break
             default:
                 this._setMetas(this._getDefaultMetas(route));
@@ -203,9 +203,8 @@ module.exports = createStore({
         return metas;
     },
     _getBusinessSearchMetas: function(route) {
-        var route = route.toJS(),
-            query   = route.query,
-            params  = route.params;
+        var query   = route.query;
+        var params  = route.params;
 
         var categories        = query.categories;
 
@@ -233,9 +232,8 @@ module.exports = createStore({
         return metas;
     },
     _getHairfieSearchMetas: function(route) {
-        var route = route.toJS(),
-            query   = route.query,
-            params  = route.params;
+        var query   = route.query;
+        var params  = route.params;
 
         var tags        = query.tags;
 
@@ -314,7 +312,7 @@ module.exports = createStore({
         return metas;
     },
     _getDefaultMetas: function (route) {
-        var title = route.get('title') || 'Hairfie, trouvez et réservez votre coiffeur';
+        var title = route.title || 'Hairfie, trouvez et réservez votre coiffeur';
 
         return _.union(this._getBaseMetas(), [
             { property: 'og:title', content: title }

@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Layout = require('./PublicLayout.jsx');
 var Input = require('react-bootstrap').Input;
