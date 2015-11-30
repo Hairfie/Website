@@ -74,7 +74,6 @@ var HomePage = React.createClass({
     },
     scrollTo: function(toRef) {
         var target = ReactDOM.findDOMNode(this.refs[toRef]);
-        console.log(target);
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     }
 });
