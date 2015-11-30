@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Header = require('./Layout/Header.jsx');
 var Footer = require('./Layout/Footer.jsx');
 var Notifications = require('./Notifications.jsx');
@@ -72,7 +73,7 @@ var HomePage = React.createClass({
         $('body').removeClass('locked');
     },
     scrollTo: function(toRef) {
-        var target = this.refs[toRef];
+        var target = ReactDOM.findDOMNode(this.refs[toRef]);
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     }
 });
