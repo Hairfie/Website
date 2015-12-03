@@ -11,6 +11,7 @@ var Col = require('react-bootstrap').Col;
 var BusinessReviewActions = require('../actions/BusinessReviewActions');
 var _ = require('lodash');
 var moment = require('moment');
+var classNames = require('classnames');
 
 var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormConnect = require('./Auth/FormConnect.jsx');
@@ -42,7 +43,7 @@ var RatingInput = React.createClass({
         var value = null == this.state.mouseValue ? this.state.value : this.state.mouseValue,
             on    = value > this._starLowerBound(n);
 
-        var className = React.addons.classSet({
+        var className = classNames({
             star: true,
             full: on,
             on  : on,
