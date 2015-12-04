@@ -156,7 +156,7 @@ module.exports = {
     },
     writeBusinessReview: function(context, route) {
         //if OLD PATH
-        if (!route.query.get('businessId') && route.params.businessReviewRequestId) {
+        if (!route.query.businessId && route.params.businessReviewRequestId) {
             return context.executeAction(BusinessReviewActions.loadRequest, route.params.businessReviewRequestId)
                 .then(function (brr) {
                     var error = new Error('Invalid URL');
