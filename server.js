@@ -1,7 +1,13 @@
 require('node-jsx').install({extension:'.jsx'});
 
 if (process.env.NEW_RELIC_LICENSE_KEY) {
-    // require('newrelic');
+    try {
+        require('newrelic');
+    }
+    catch (e) {
+        console.log('NEWRELIC Error')
+        console.log(e)
+    }
 }
 
 var express         = require('express');
