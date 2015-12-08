@@ -14,11 +14,21 @@ var Application = React.createClass({
     contextTypes: {
         getStore: React.PropTypes.func
     },
-    render: function () {
-        ga('send', 'pageview', {
-            'page': this.props.currentRoute.url
-        });
+    componentDidUpdate: function(prevProps) {
 
+        if(this.props.currentRoute != prevProps.currentRoute) {
+            if (!window.ga) {
+                return;
+            }
+            ga('set', 'page',  this.props.currentRoute.url);
+            ga('send', 'pageview');
+
+            // ga('send', 'pageview', {
+            //     'page': this.props.currentRoute.url
+            // });
+        }
+    },
+    render: function () {
         setTitle(this.props.title);
 
         var Handler = this.props.currentRoute.handler;

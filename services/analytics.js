@@ -26,6 +26,8 @@ if(typeof window !== 'undefined' && typeof config.GA_TRACKING_CODE !== 'undefine
 
     ga('create', config.GA_TRACKING_CODE, 'auto');
 
+    ga('send', 'pageview');
+
     module.exports = function() {
         return window.ga.apply(window.ga, arguments);
     };
