@@ -15,10 +15,11 @@ module.exports = createStore({
     }),
     initialize: function () {
         this.categories;
+        this.loading = false;
     },
     dehydrate: function () {
         return {
-            categories: this.categories
+            categories: this.categories,
         };
     },
     rehydrate: function (data) {
@@ -26,16 +27,20 @@ module.exports = createStore({
     },
     onReceiveCategories: function (categories) {
         this.categories = _.sortBy(categories, 'position');
+        this.loading = false;
         this.emitChange();
     },
     getAllCategories: function () {
-        if (!this.categories || _.isEmpty(this.categories))
+        if ((!this.categories || _.isEmpty(this.categories)) && !this.loading) {
             this.getContext().executeAction(CategoryActions.loadAll);
+            this.loading = true;
+            this.emitChange();
+        }
         return this.categories;
     },
     getCategoriesByTagsId: function (tagsId) {
         if (!this.categories || _.isEmpty(this.categories)) {
-            this.getContext().executeAction(CategoryActions.loadAll);
+            this.getAllCategories();
             return;
         }
         return _.compact(_.map(this.categories, function(category) {
@@ -51,7 +56,7 @@ module.exports = createStore({
     },
     getCategoriesByName: function(categoriesName) {
         if (!this.categories || _.isEmpty(this.categories)) {
-            this.getContext().executeAction(CategoryActions.loadAll);
+            this.getAllCategories();
             return;
         }
 
@@ -63,7 +68,7 @@ module.exports = createStore({
     },
     getCategoriesBySlug: function(categoriesName) {
         if (!this.categories || _.isEmpty(this.categories)) {
-            this.getContext().executeAction(CategoryActions.loadAll);
+            this.getAllCategories();
             return;
         }
 
@@ -75,7 +80,7 @@ module.exports = createStore({
     },
     getCategoriesById: function(categoriesId) {
         if (!this.categories || _.isEmpty(this.categories)) {
-            this.getContext().executeAction(CategoryActions.loadAll);
+            this.getAllCategories();
             return;
         }
 

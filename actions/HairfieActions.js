@@ -25,13 +25,11 @@ module.exports = {
     },
     loadBusinessTopHairfies: function (context, businessId) {
         var query = {
-            'filter[where][businessId]': businessId,
-            'filter[order]': 'createdAt DESC',
-            'filter[limit]': 10
+            'limit': 10
         };
 
         return context.hairfieApi
-            .get('/hairfies', { query: query })
+            .get('/tops/hairfies/'+ businessId, { query: query })
             .then(function (hairfies) {
                 context.dispatch(Actions.RECEIVE_BUSINESS_TOP_HAIRFIES, {
                     businessId: businessId,
