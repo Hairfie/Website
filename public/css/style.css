@@ -8500,12 +8500,6 @@ body {
   height: 100%;
   overflow-x: hidden; }
 
-.landing header.hidden-xs, .headline, .searchbar.hidden-xs {
-  opacity: 0; }
-
-.no-js .landing header.hidden-xs, .no-js .headline, .no-js .searchbar.hidden-xs {
-  opacity: 1; }
-
 .label-red {
   background-color: #fe5b5f; }
 
