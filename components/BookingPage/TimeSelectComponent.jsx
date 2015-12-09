@@ -62,7 +62,7 @@ var TimeSelectComponent = React.createClass({
             discountNode = (<span className="promo-day">{discount}%</span>);
         }
 
-        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)}><a role="button"><p>{label}</p>{discountNode}</a>
+        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)} key={hour + '-' + discount}><a role="button"><p>{label}</p>{discountNode}</a>
             </td>;
     },
     timeSlotCallback: function(timeslot, discount, e) {
