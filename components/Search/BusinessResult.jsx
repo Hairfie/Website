@@ -16,7 +16,8 @@ var Hairfies = React.createClass({
     },
     componentDidMount: function () {
         if (!this.props.business.topHairfies && typeof window != 'undefined') {
-            this.context.executeAction(HairfieActions.loadBusinessTopHairfies, this.props.business.id);
+            // FIXME LATER
+            // this.context.executeAction(HairfieActions.loadBusinessTopHairfies, this.props.business.id);
         }
     },
     render: function () {
