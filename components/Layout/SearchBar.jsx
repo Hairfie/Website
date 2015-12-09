@@ -111,11 +111,11 @@ var mobileHeader = React.createClass({
                         <span className="hr"></span>
                         <div className="searchbar col-xs-10">
                             <div className="col-xs-12 mobile-categories" style={{marginBottom: '20px', textAlign: 'start'}}>
-                                <select ref="mobileCategories" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
+                                <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
                                     <optgroup label="Catégories">
-                                        <option value="" disabled selected>Sélectionnez une catégorie</option>
+                                        <option value="" disabled>Sélectionnez une catégorie</option>
                                         {_.map(this.props.categories, function(cat) {
-                                            return <option value={cat.slug}>{cat.label}</option>;
+                                            return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
                                         })}
                                     </optgroup>
                                 </select>

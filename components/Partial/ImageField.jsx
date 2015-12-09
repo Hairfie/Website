@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require ('react');
+var ReactDOM = require('react-dom');
 var _ = require ('lodash');
 var UploadActions = require ('../../actions/UploadActions');
 var Uuid = require ('uuid');
@@ -116,7 +117,7 @@ var ImageField = React.createClass ({
     },
     chooseFile: function(e) {
         e.preventDefault();
-        React.findDOMNode(this.refs.input).click();
+        ReactDOM.findDOMNode(this.refs.input).click();
     },
     upload: function(e) {
         var uploadId = Uuid.v4();

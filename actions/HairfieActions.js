@@ -25,7 +25,7 @@ module.exports = {
     },
     loadBusinessTopHairfies: function (context, businessId) {
         var query = {
-            'limit': 10
+            'limit': 6
         };
 
         return context.hairfieApi

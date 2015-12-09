@@ -21,7 +21,7 @@ var HairfieResult = React.createClass({
                     <div className="salon-hairfies hairfies">
                         <div className="row">
                             {_.map(this.props.result.hits, function (hairfie) {
-                                return <Hairfie className="col-xs-6 col-md-3 single-hairfie" hairfie={hairfie} />;
+                                return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                             })}
                         </div>
                     </div>
