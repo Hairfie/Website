@@ -47,15 +47,19 @@ module.exports = createStore({
         return this.tags;
     },
     getTagCategories: function() {
-        if (!this.tagCategory || _.isEmpty(this.tagCategory))
+        if (!this.tagCategory || _.isEmpty(this.tagCategory)) {
             this.getAllTags();
             return;
+        }
+
         return this.tagCategory;
     },
     getTagsById: function(tagsId) {
-        if (!this.tags || _.isEmpty(this.tags))
+        if (!this.tags || _.isEmpty(this.tags)) {
             this.getAllTags();
             return;
+        }
+            
 
         return _.compact(_.map(this.tags, function(tag) {
             if (_.isEmpty(_.intersection([tag.id], tagsId)))
@@ -64,9 +68,10 @@ module.exports = createStore({
         }));
     },
     getTagsByName: function(tagsName) {
-        if (!this.tags || _.isEmpty(this.tags))
+        if (!this.tags || _.isEmpty(this.tags)) {
             this.getAllTags();
             return;
+        }
 
         return _.compact(_.map(this.tags, function(tag) {
             if (_.isEmpty(_.intersection([tag.name], tagsName)))
