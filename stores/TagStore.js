@@ -16,6 +16,7 @@ module.exports = createStore({
     initialize: function () {
         this.tags;
         this.tagCategory;
+        this.loading = false;
     },
     dehydrate: function () {
         return {
@@ -33,22 +34,28 @@ module.exports = createStore({
         this.tagCategory = _.uniq(_.sortBy(_.map(tags, function (tag) {
             return tag.category;
         }), 'position'), 'id');
+        this.loading = false;
 
         this.emitChange();
     },
     getAllTags: function () {
-        if (!this.tags || _.isEmpty(this.tags))
+        if ((!this.tags || _.isEmpty(this.tags)) && !this.loading) {
             this.getContext().executeAction(TagActions.loadAll);
+            this.loading = true;
+            this.emitChange();
+        }
         return this.tags;
     },
     getTagCategories: function() {
         if (!this.tagCategory || _.isEmpty(this.tagCategory))
-            this.getContext().executeAction(TagActions.loadAll);
+            this.getAllTags();
+            return;
         return this.tagCategory;
     },
     getTagsById: function(tagsId) {
         if (!this.tags || _.isEmpty(this.tags))
-            this.getContext().executeAction(TagActions.loadAll);
+            this.getAllTags();
+            return;
 
         return _.compact(_.map(this.tags, function(tag) {
             if (_.isEmpty(_.intersection([tag.id], tagsId)))
@@ -58,7 +65,8 @@ module.exports = createStore({
     },
     getTagsByName: function(tagsName) {
         if (!this.tags || _.isEmpty(this.tags))
-            this.getContext().executeAction(TagActions.loadAll);
+            this.getAllTags();
+            return;
 
         return _.compact(_.map(this.tags, function(tag) {
             if (_.isEmpty(_.intersection([tag.name], tagsName)))
