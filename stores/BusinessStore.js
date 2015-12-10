@@ -14,21 +14,18 @@ module.exports = createStore({
     handlers: makeHandlers({
         onReceiveBusiness: Actions.RECEIVE_BUSINESS,
         onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES,
-        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT,
-        onReceiveTimeslots: Actions.RECEIVE_BUSINESS_TIMESLOTS
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
     }),
     initialize: function () {
         this.businesses = {};
         this.similarIds = {};
         this.searchResults = {};
-        this.timeslots = {};
     },
     dehydrate: function () {
         return {
             businesses: this.businesses,
             similarIds: this.similarIds,
-            searchResults: this.searchResults,
-            timeslots: this.timeslots
+            searchResults: this.searchResults
         };
     },
     rehydrate: function (state) {
@@ -51,14 +48,6 @@ module.exports = createStore({
         this.searchResults[searchKey(payload.search)] = _.assign({}, payload.result, {
             hits: _.pluck(payload.result.hits, 'id')
         });
-        this.emitChange();
-    },
-    onReceiveTimeslots: function(payload) {
-        if (!this.timeslots[payload.id])
-            this.timeslots[payload.id] = {};
-        _.forEach(payload.timeslots, function(timeslots, date) {
-            this.timeslots[payload.id][date] = timeslots;
-        }.bind(this));
         this.emitChange();
     },
     // TODO: move discount code into a discount store
@@ -96,15 +85,6 @@ module.exports = createStore({
     },
     getSimilar: function (businessId, limit) {
         return _.map(this.similarIds[businessId], this.getById, this);
-    },
-    getTimeslotsById: function (businessId) {
-        if (!this.timeslots[businessId])
-            this.getContext().executeAction(BusinessActions.loadBusinessTimeslots, {
-                from: moment().startOf("month").startOf("week").format('YYYY-MM-DD'),
-                until: moment().endOf("month").endOf("week").format('YYYY-MM-DD'),
-                id: businessId
-            });
-        return this.timeslots[businessId];
     },
     getSearchResult: function (search) {
         var result = this.searchResults[searchKey(search)];
