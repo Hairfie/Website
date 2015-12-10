@@ -14,8 +14,7 @@ module.exports = createStore({
     handlers: makeHandlers({
         onReceiveBusiness: Actions.RECEIVE_BUSINESS,
         onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES,
-        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT,
-        onReceiveTimeslots: Actions.RECEIVE_BUSINESS_TIMESLOTS
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
     }),
     initialize: function () {
         this.businesses = {};

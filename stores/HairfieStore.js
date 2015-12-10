@@ -159,6 +159,8 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            this.hairdresserHairfies[hairdresserId] = new Array();
+            this.emitChange();
             return -1;
         }
         else
@@ -171,6 +173,8 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            this.userHairfies[userId] = new Array();
+            this.emitChange();
             return -1;
         }
         else
@@ -183,6 +187,8 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
+            this.userLikes[userId] = new Array();
+            this.emitChange();
             return -1;
         }
         else
