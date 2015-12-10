@@ -34,13 +34,6 @@ module.exports = createStore({
         this.emitChange();
     },
     getById: function (businessId) {
-        if (!this.timeslots[businessId]) {
-            this.getContext().executeAction(TimeslotActions.loadBusinessTimeslots, {
-                from: moment().startOf("month").startOf("week").format('YYYY-MM-DD'),
-                until: moment().endOf("month").endOf("week").format('YYYY-MM-DD'),
-                id: businessId
-            });
-        }
         return this.timeslots[businessId];
     }
 });

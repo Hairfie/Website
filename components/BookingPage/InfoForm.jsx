@@ -42,13 +42,13 @@ module.exports = React.createClass({
         if (!this.props.currentUser) {
             return {
                 formConnect: false,
-                cgu: false,
+                cgu: true,
                 newsletter: true
                 };
         }
         return {
             formConnect: false,
-            cgu: false,
+            cgu: true,
             firstName: this.props.currentUser.firstName ? this.props.currentUser.firstName : "",
             lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "",
             email: this.props.currentUser.email ? this.props.currentUser.email : "",
@@ -120,8 +120,8 @@ module.exports = React.createClass({
                     <div className="clearfix"></div>
                     <hr />
                     {this.renderNewsletter()}
-                    <label for="cgu" style={{paddingLeft: '15px'}}>
-                        <input type="checkbox" name='cgu' onChange={this.handleCGUChanged}/>
+                    <label htmlFor="cgu" style={{paddingLeft: '15px'}}>
+                        <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
                         <span></span>
                         Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
@@ -146,7 +146,7 @@ module.exports = React.createClass({
     renderNewsletter: function () {
         if (!this.props.currentUser)
             return (
-                    <label for="newsletter" style={{paddingLeft: '15px'}}>
+                    <label htmlFor="newsletter" style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged}/>
                         <span></span>
                         J'accepte de recevoir les newsletters.
