@@ -20,10 +20,18 @@ module.exports = createStore({
         this.hairdressers = state.hairdressers;
     },
     onReceiveHairdresser: function (payload) {
-        this.hairdressers[payload.hairdresser.id] = payload.hairdresser;
+        if (_.isArray(payload.hairdresser)) {
+            _.map(payload.hairdresser, function(hairdresser) {
+                this.hairdressers[hairdresser.id] = hairdresser;
+            }.bind(this));
+        }
+        else this.hairdressers[payload.hairdresser.id] = payload.hairdresser;
         this.emitChange();
     },
     getById: function(hairdresserId) {
         return this.hairdressers[hairdresserId];
+    },
+    getByBusiness: function(businessId) {
+        return _.where(this.hairdressers, {businessId: businessId, active: true});
     }
 });

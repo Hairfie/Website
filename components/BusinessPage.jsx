@@ -27,8 +27,7 @@ var BusinessPage = React.createClass({
         );
     },
     renderHairdressers: function () {
-        var business     = this.props.business || {};
-        var hairdressers = business.activeHairdressers || [];
+        var hairdressers = this.props.hairdressers || [];
 
         if (hairdressers.length == 0) return;
 
@@ -147,10 +146,12 @@ BusinessPage = connectToStores(BusinessPage, [
     'BusinessStore',
     'BusinessServiceStore',
     'StationStore',
+    'HairdresserStore'
 ], function (context, props) {
     var business = context.getStore('BusinessStore').getById(props.route.params.businessId);
     return {
         business: business,
+        hairdressers: context.getStore('HairdresserStore').getByBusiness(props.route.params.businessId),
         services: context.getStore('BusinessServiceStore').getByBusiness(props.route.params.businessId),
         discounts: context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
         stations: business && context.getStore('StationStore').getNearby(business.gps)

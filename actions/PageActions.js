@@ -57,6 +57,7 @@ module.exports = {
     business: function (context, route) {
         return businessWithSlug(context, route).then(function (business) {
             return Promise.all([
+                context.executeAction(HairdresserActions.loadHairdresserByBusiness, business.id),
                 context.executeAction(StationActions.loadStationsNearby, { location: business.gps }),
                 context.executeAction(BusinessServiceActions.loadBusinessServices, { businessId: business.id }),
                 context.executeAction(BusinessActions.loadSimilarBusinesses, { businessId: business.id, limit: 3 })
