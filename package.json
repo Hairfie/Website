@@ -1,6 +1,6 @@
 {
   "name": "Website",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "engines": {
     "node": "5.1.x",
     "npm": "3.3.x"
