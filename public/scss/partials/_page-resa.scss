@@ -2,11 +2,14 @@
 	    P A G E  R E S A
 ////////////////////////////////*/
 #content.reservation {
-	padding-top: 50px;
 	padding-bottom: 50px;
 	@media screen and (max-width: $screen-sm-max) {
-		padding-top: 130px;
+		padding-top: 75px;
 	}
+	@media screen and (min-width: $screen-lg-min) {
+		padding-top: 0px;
+	}
+
 	.sidebar {
 		background: white;
 		padding: 20px;
