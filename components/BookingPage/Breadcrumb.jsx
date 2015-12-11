@@ -47,7 +47,7 @@ module.exports = React.createClass({
         ];
 
         return (
-            <div className="col-xs-12">
+            <div className="col-xs-12 visible-md visible-lg">
                 <ol className="breadcrumb">
                     {_.map(crumbs, function (crumb) {
                         if (crumb.last) {

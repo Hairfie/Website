@@ -120,7 +120,7 @@ module.exports = React.createClass({
                     <div className="clearfix"></div>
                     <hr />
                     {this.renderNewsletter()}
-                    <label htmlFor="cgu" style={{paddingLeft: '15px'}}>
+                    <label style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
                         <span></span>
                         Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
@@ -146,7 +146,7 @@ module.exports = React.createClass({
     renderNewsletter: function () {
         if (!this.props.currentUser)
             return (
-                    <label htmlFor="newsletter" style={{paddingLeft: '15px'}}>
+                    <label style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged}/>
                         <span></span>
                         J'accepte de recevoir les newsletters.
