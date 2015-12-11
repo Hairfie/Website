@@ -40,7 +40,12 @@ module.exports = React.createClass({
 
         if (this.props.tags) {
             query = _.compact(_.map(cat.tags, function(tagId) {
-                return _.find(this.props.tags, {id: tagId}).name;
+                try {
+                    return _.find(this.props.tags, {id: tagId}).name;
+                } catch(e) {
+                    console.log("error in renderCategory", e);
+                    return;
+                }
             }.bind(this)));
         }
 
