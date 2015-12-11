@@ -59,7 +59,6 @@ module.exports = createStore({
             this.getAllTags();
             return;
         }
-            
 
         return _.compact(_.map(this.tags, function(tag) {
             if (_.isEmpty(_.intersection([tag.id], tagsId)))
