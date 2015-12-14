@@ -18,7 +18,7 @@ var Rating = React.createClass({
         return (
             <div className="stars">
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
-                    return <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
+                    return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
                 <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis  hidden-md">
                     {business.numReviews+' avis'}
