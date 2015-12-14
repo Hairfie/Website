@@ -16,7 +16,9 @@ module.exports = {
     },
     loadHairdresserByBusiness: function(context, businessId) {
         var query = {
-            'filter[where][businessId]': businessId
+            'filter[where][businessId]': businessId,
+            'filter[where][hidden]': false,
+            'filter[where][active]': true
         };
         return context.hairfieApi
             .get('/businessMembers', { query: query })

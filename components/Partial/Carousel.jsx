@@ -18,7 +18,7 @@ module.exports = React.createClass({
         var items = _.map(this.props.pictures, function (picture, i) {
             var cls = (i == this.state.displayIndex) ? "item active" : "item";
             return (
-                <div className={cls}>
+                <div className={cls} key={picture.id}>
                     <Picture picture={picture} role={this.props.gallery ? "button" : ''} backgroundStyle={this.props.backgroundStyle || false} onClick={this.props.gallery ? this.openGallery : ''} />
                     {this.props.children}
                 </div>
@@ -62,7 +62,7 @@ module.exports = React.createClass({
         <div className="indice-control">
             {_.map(this.props.pictures, function(picture, i) {
                 return (
-                    <a role="button" className={this.state.displayIndex == i ? "active" : ""}onClick={this.move.bind(null, i)}>
+                    <a role="button" className={this.state.displayIndex == i ? "active" : ""} onClick={this.move.bind(null, i)} key={picture.id}>
                         <span className="arrow" />
                     </a>
                 );

@@ -36,7 +36,7 @@ module.exports = React.createClass({
           <div className="form-group">
             <ImageField ref="picture" container="users" text="(facultatif)"/>
           </div>
-  				<label for="newsletter" className="register-checkbox">
+  				<label className="register-checkbox">
             <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged} />
             <span></span>
             Je souhaite recevoir les Newsletters.

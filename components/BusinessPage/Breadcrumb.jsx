@@ -40,16 +40,16 @@ module.exports = React.createClass({
         return (
             <div className="col-xs-12" style={{height: 0}}>
                 <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb) {
+                    {_.map(crumbs, function (crumb, i) {
                         if (crumb.last) {
                             return (
-                                <li className="active">
+                                <li className="active" key={i}>
                                     {crumb.label}
                                 </li>
                             );
                         } else {
                             return (
-                                <li>
+                                <li key={i}>
                                     <Link route={crumb.route} params={crumb.params}>
                                         {crumb.label}
                                     </Link>

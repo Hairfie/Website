@@ -182,8 +182,7 @@ var Filters = React.createClass({
                         if (tag.category.id != category.id) return;
                         var active   = this.props.search && (this.props.search.tags || []).indexOf(tag.name) > -1;
                         var onChange = active ? this.removeTag.bind(this, tag.name) : this.addTag.bind(this, tag.name);
-
-                        return (
+                                                return (
                             <label key={tag.name} className="checkbox-inline">
                                 <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
                                 <span />
@@ -195,7 +194,7 @@ var Filters = React.createClass({
                     if (_.isEmpty(tagsInCategory)) return;
 
                     return (
-                        <div>
+                        <div key={category.name}>
                             {title}
                             {tagsInCategory}
                         </div>);
