@@ -99,17 +99,17 @@ var BusinessPage = React.createClass({
         return (
             <div>
                 <h4>RER / Métro</h4>
-                {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station) {
-                    return (<p>
+                {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station, i) {
+                    return (<p key={i}>
                         {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginRight: 7}}/> : ""}
-                        {_.map(station.lines, function(line) {
+                        {_.map(station.lines, function(line, i) {
                             var name = "";
                             if (line.type == "metro")
                                 name = "M_";
                             else if (line.type == "rer")
                                 name = "RER_";
                             name += line.number.toUpperCase();
-                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}}/>);
+                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}} key={i} />);
                         })}
                             {station.name}
                         </p>);
