@@ -62,7 +62,7 @@ module.exports = React.createClass({
         <div className="indice-control">
             {_.map(this.props.pictures, function(picture, i) {
                 return (
-                    <a role="button" className={this.state.displayIndex == i ? "active" : ""}onClick={this.move.bind(null, i)}>
+                    <a role="button" className={this.state.displayIndex == i ? "active" : ""} onClick={this.move.bind(null, i)} key={picture.id}>
                         <span className="arrow" />
                     </a>
                 );

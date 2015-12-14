@@ -134,9 +134,9 @@ module.exports = React.createClass({
 
         var timetable = this.props.business.timetable;
         var render = [];
-        _.forEach(DateTimeConstants.weekDaysNumberFR, function(val) {
-            render.push(
-                <div className={this.state.displayTimetable ? '' : 'seo-hide'}>
+        render = _.map(DateTimeConstants.weekDaysNumberFR, function(val, i) {
+            return (
+                <div className={this.state.displayTimetable ? '' : 'seo-hide'} key={i}>
                     <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val)} : </span>
                     { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(parseTimetable(timetable[val]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
