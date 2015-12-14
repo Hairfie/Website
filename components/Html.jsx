@@ -42,6 +42,28 @@ var Html = React.createClass({
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
                 <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
+
+                <link rel="apple-touch-icon" sizes="57x57" href={this.getAssetSrc("/icons/apple-touch-icon-57x57.png")} />
+                <link rel="apple-touch-icon" sizes="60x60" href={this.getAssetSrc("/icons/apple-touch-icon-60x60.png")} />
+                <link rel="apple-touch-icon" sizes="72x72" href={this.getAssetSrc("/icons/apple-touch-icon-72x72.png")} />
+                <link rel="apple-touch-icon" sizes="76x76" href={this.getAssetSrc("/icons/apple-touch-icon-76x76.png")} />
+                <link rel="apple-touch-icon" sizes="114x114" href={this.getAssetSrc("/icons/apple-touch-icon-114x114.png")} />
+                <link rel="apple-touch-icon" sizes="120x120" href={this.getAssetSrc("/icons/apple-touch-icon-120x120.png")} />
+                <link rel="apple-touch-icon" sizes="144x144" href={this.getAssetSrc("/icons/apple-touch-icon-144x144.png")} />
+                <link rel="apple-touch-icon" sizes="152x152" href={this.getAssetSrc("/icons/apple-touch-icon-152x152.png")} />
+                <link rel="apple-touch-icon" sizes="180x180" href={this.getAssetSrc("/icons/apple-touch-icon-180x180.png")} />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-32x32.png")} sizes="32x32" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-194x194.png")} sizes="194x194" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-96x96.png")} sizes="96x96" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/android-chrome-192x192.png")} sizes="192x192" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-16x16.png")} sizes="16x16" />
+                <link rel="manifest" href={this.getAssetSrc("/icons/manifest.json")} />
+                <link rel="mask-icon" href={this.getAssetSrc("/icons/safari-pinned-tab.svg")} color="#fe5b5f" />
+                <link rel="shortcut icon" href={this.getAssetSrc("/icons/favicon.ico")} />
+                <meta name="msapplication-TileColor" content="#ffffff" />
+                <meta name="msapplication-TileImage" content={this.getAssetSrc("/icons/mstile-144x144.png")} />
+                <meta name="msapplication-config" content={this.getAssetSrc("/icons/browserconfig.xml")} />
+                <meta name="theme-color" content="#ffffff" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
