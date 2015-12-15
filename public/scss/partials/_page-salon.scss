@@ -3,6 +3,7 @@
 ////////////////////////////////*/
 
 .salon#content {
+	background-color: white;
 	#carousel-salon .carousel-inner .item {
 		height: 470px;
 		background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
@@ -34,12 +35,10 @@
 	}
 	.main-content {
 		position: relative;
-		min-height: 100vh;
 		@include fullWidthBg($bg3);
 
 		section.salon-info	{
 			position: relative;
-			background-color: white;
 			width: 100%;
   			padding-top: 16px;
 
@@ -56,10 +55,12 @@
   				}
   			}
 			.row {
-				background-color: white;
 				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
+				}
+				h1 {
+					color: white;
 				}
 			}
 			.row:first-child {
