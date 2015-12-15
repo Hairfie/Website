@@ -82,7 +82,7 @@ module.exports = React.createClass({
         if (!this.props.similarBusinesses) return;
         if (this.props.business && this.props.business.accountType == 'PREMIUM') return;
 
-        return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
+        return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
     },
     book: function (date) {
         var business = this.props.business || {};

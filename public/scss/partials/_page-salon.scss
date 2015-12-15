@@ -52,6 +52,7 @@
 	}
 	.main-content {
 		position: relative;
+		background-color: white;
 		@include fullWidthBg($bg3);
 
 		section.salon-info	{
@@ -72,12 +73,10 @@
   				}
   			}
 			.row {
+				background-color: white;
 				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
-				}
-				h1 {
-					color: white;
 				}
 			}
 			.row:first-child {
@@ -179,6 +178,13 @@
 				}
 				p {
 					letter-spacing: 1px;
+				}
+			}
+			.similar {
+				.row {
+					padding-top: 15px;
+					padding-bottom: 15px;
+					background-color: $bg4;
 				}
 			}
 			.coiffeur {

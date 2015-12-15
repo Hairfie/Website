@@ -11015,6 +11015,7 @@ section.home-footer .row > div {
       height: 100%; }
   .salon#content .main-content {
     position: relative;
+    background-color: white;
     position: relative; }
     .salon#content .main-content:before {
       content: " ";
@@ -11047,12 +11048,11 @@ section.home-footer .row > div {
           .salon#content .main-content section.salon-info div.timetable span.extra-small {
             width: 20%; } }
       .salon#content .main-content section.salon-info .row {
+        background-color: white;
         padding-left: 35px; }
         @media screen and (max-width: 767px) {
           .salon#content .main-content section.salon-info .row {
             padding-left: 15px; } }
-        .salon#content .main-content section.salon-info .row h1 {
-          color: white; }
       .salon#content .main-content section.salon-info .row:first-child {
         margin-top: -105px;
         width: auto;
@@ -11120,6 +11120,10 @@ section.home-footer .row > div {
         letter-spacing: 2px; }
       .salon#content section.salon-content section:nth-child(4) p {
         letter-spacing: 1px; }
+      .salon#content section.salon-content section .similar .row {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #f8f8f8; }
       .salon#content section.salon-content section .coiffeur img {
         display: block;
         width: 14em;

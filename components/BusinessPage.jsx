@@ -7,6 +7,8 @@ var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
 var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
+var SimilarBusinesses = require('./BusinessPage/SimilarBusinesses.jsx');
+var businessAccountTypes = require('../constants/BusinessAccountTypes');
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
 var dayPositions = {MON: 0, TUE: 1, WED: 2, THU: 3, FRI: 4, SAT: 5, SUN: 6};
@@ -18,6 +20,7 @@ var BusinessPage = React.createClass({
     render: function () {
         return (
             <Layout business={this.props.business} tab="infos">
+                {this.renderSimilar()}
                 {this.renderHairdressers()}
                 {this.renderServices()}
                 {this.renderDescription()}
@@ -25,6 +28,10 @@ var BusinessPage = React.createClass({
                 {this.renderLocation()}
             </Layout>
         );
+    },
+    renderSimilar: function() {
+        if (!this.props.business || (this.props.business.accountType != businessAccountTypes.FREE)) return null;
+        return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
     renderHairdressers: function () {
         var hairdressers = this.props.hairdressers || [];
@@ -151,6 +158,7 @@ BusinessPage = connectToStores(BusinessPage, [
     var business = context.getStore('BusinessStore').getById(props.route.params.businessId);
     return {
         business: business,
+        similarBusinesses: context.getStore('BusinessStore').getSimilar(props.route.params.businessId),
         hairdressers: context.getStore('HairdresserStore').getByBusiness(props.route.params.businessId),
         services: context.getStore('BusinessServiceStore').getByBusiness(props.route.params.businessId),
         discounts: context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),
