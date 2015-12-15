@@ -10985,11 +10985,16 @@ section.home-footer .row > div {
 /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/
+.salon#content.free #carousel-salon .carousel-inner .item {
+  height: 255px; }
+  .salon#content.free #carousel-salon .carousel-inner .item.placeholder {
+    height: 255px; }
+
 .salon#content {
   background-color: white; }
   .salon#content #carousel-salon .carousel-inner .item {
     height: 470px;
-    background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
+    background: url(../img/placeholder-salon.png) no-repeat center center;
     background-size: cover;
     background: none; }
     @media screen and (max-width: 767px) {
@@ -10999,7 +11004,7 @@ section.home-footer .row > div {
       margin: auto; }
     .salon#content #carousel-salon .carousel-inner .item.placeholder {
       height: 470px;
-      background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
+      background: url(../img/placeholder-salon.png) no-repeat center center;
       background-size: cover; }
     .salon#content #carousel-salon .carousel-inner .item img {
       background-repeat: no-repeat;

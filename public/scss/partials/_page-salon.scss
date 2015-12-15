@@ -2,11 +2,28 @@
 	   P A G E  S A L O N
 ////////////////////////////////*/
 
+.salon#content.free {
+	#carousel-salon .carousel-inner .item {
+		height: 255px;
+		&.placeholder {
+			height: 255px;
+		}
+	}
+}
+
+.salon#content.basic {
+
+}
+
+.salon#content.premium {
+
+}
+
 .salon#content {
 	background-color: white;
 	#carousel-salon .carousel-inner .item {
 		height: 470px;
-		background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
+		background: url(../img/placeholder-salon.png) no-repeat center center;
 		background-size: cover;
 		background: none;
 
@@ -20,7 +37,7 @@
 
 		&.placeholder {
 			height: 470px;
-			background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
+			background: url(../img/placeholder-salon.png) no-repeat center center;
 			background-size: cover;
 		}
 
@@ -453,16 +470,4 @@
 			}
 		}
 	}
-}
-
-.salon#content.free {
-
-}
-
-.salon#content.basic {
-
-}
-
-.salon#content.premium {
-
 }
