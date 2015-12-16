@@ -54,7 +54,9 @@
 		position: relative;
 		background-color: white;
 		@include fullWidthBg($bg3);
-
+		h3 {
+			color: $hairfie;
+		}
 		section.salon-info	{
 			position: relative;
 			width: 100%;
@@ -181,11 +183,18 @@
 				}
 			}
 			.similar {
-				.row {
-					padding-top: 15px;
-					padding-bottom: 15px;
-					background-color: $bg4;
+				h4 {
+					color: $hairfie;
 				}
+				a {
+					text-decoration: none;
+					p {
+						color: black;
+					}
+				}
+				padding-top: 15px;
+				padding-bottom: 15px;
+				background-color: $bg3;
 			}
 			.coiffeur {
 				img {

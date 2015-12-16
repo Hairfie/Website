@@ -26,7 +26,7 @@ module.exports = React.createClass({
                                              alt={business.name}
                                     />
                                 </Link>
-                                <Link className="col-xs-12" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                                     <h4>{business.name}</h4>
                                     <p>
                                         {_.values(_.pick(business.address, ['street', 'zipCode', 'city'])).join(', ')}

@@ -11035,6 +11035,8 @@ section.home-footer .row > div {
       top: 0;
       background: #f4f4f4;
       z-index: -1; }
+    .salon#content .main-content h3 {
+      color: #fe5b5f; }
     .salon#content .main-content section.salon-info {
       position: relative;
       width: 100%;
@@ -11120,10 +11122,16 @@ section.home-footer .row > div {
         letter-spacing: 2px; }
       .salon#content section.salon-content section:nth-child(4) p {
         letter-spacing: 1px; }
-      .salon#content section.salon-content section .similar .row {
+      .salon#content section.salon-content section .similar {
         padding-top: 15px;
         padding-bottom: 15px;
-        background-color: #f8f8f8; }
+        background-color: #f4f4f4; }
+        .salon#content section.salon-content section .similar h4 {
+          color: #fe5b5f; }
+        .salon#content section.salon-content section .similar a {
+          text-decoration: none; }
+          .salon#content section.salon-content section .similar a p {
+            color: black; }
       .salon#content section.salon-content section .coiffeur img {
         display: block;
         width: 14em;
