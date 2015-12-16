@@ -11224,55 +11224,42 @@ section.home-footer .row > div {
       @media screen and (max-width: 991px) {
         .salon#content .sidebar .calendar {
           display: none; } }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .phone {
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 9000; } }
-    .salon#content .sidebar .phone .btn-red, .salon#content .sidebar .phone .btn-book {
-      position: relative;
-      display: block;
-      width: 100%;
-      padding: 20px 0 20px 0;
-      font-size: 2.1em;
-      font-weight: 600;
-      margin-bottom: 10px;
-      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      background-image: -webkit-linear-gradient(top, #fc5b62 0%, #d7474d 100%);
-      background-image: -o-linear-gradient(top, #fc5b62 0%, #d7474d 100%);
-      background-image: linear-gradient(to bottom, #fc5b62 0%, #d7474d 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFC5B62', endColorstr='#FFD7474D', GradientType=0); }
+    .salon#content .sidebar .phone {
+      margin-top: 95px; }
       @media screen and (max-width: 991px) {
-        .salon#content .sidebar .phone .btn-red, .salon#content .sidebar .phone .btn-book {
-          margin-bottom: 0px; } }
-      .salon#content .sidebar .phone .btn-red:active, .salon#content .sidebar .phone .btn-book:active {
-        background-image: -webkit-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
-        background-image: -o-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
-        background-image: linear-gradient(to bottom, #d7474d 0%, #fc5b62 100%);
-        background-repeat: repeat-x;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD7474D', endColorstr='#FFFC5B62', GradientType=0); }
-      .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-        content: " ";
-        background: url(../img/icon-phone.png) no-repeat center center;
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        left: 20px;
-        top: 21px; }
-        @media screen and (min-width: 991px) and (max-width: 1199px) {
-          .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-            left: 20px; } }
-        @media screen and (max-width: 768px) {
-          .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-            left: 20%; } }
-        @media screen and (max-width: 767px) {
-          .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-            left: 25px; } }
+        .salon#content .sidebar .phone {
+          bottom: 0;
+          left: 0;
+          position: fixed;
+          width: 100%;
+          z-index: 9000; } }
+      .salon#content .sidebar .phone .btn-phone {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #fe5b5f;
+        font-size: 2em;
+        border: #fe5b5f;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 2px; }
+        .salon#content .sidebar .phone .btn-phone:after {
+          content: " ";
+          background: url(../img/phone-red.png) no-repeat center center;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          left: 50px;
+          top: 10px; }
+          @media screen and (min-width: 991px) and (max-width: 1199px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 20px; } }
+          @media screen and (max-width: 768px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 20%; } }
+          @media screen and (max-width: 767px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 25px; } }
     .salon#content .sidebar .promo-sidebar {
       position: relative; }
       .salon#content .sidebar .promo-sidebar img {

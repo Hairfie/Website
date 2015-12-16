@@ -288,39 +288,32 @@
 			}
 		}
 		.phone {
-				@media screen and (max-width: $screen-sm-max) {
-    				bottom: 0;
-    				left: 0;
-    				position: fixed;
-    				width:100%;
-    				z-index: 9000;
-				}
-			.btn-red, .btn-book {
+			margin-top: 95px;
+			@media screen and (max-width: $screen-sm-max) {
+    			bottom: 0;
+    			left: 0;
+   				position: fixed;
+    			width:100%;
+    			z-index: 9000;
+			}
+			.btn-phone {
 				position: relative;
-				display: block;
 				width: 100%;
-				padding: 20px 0 20px 0;
-				font-size: 2.1em;
-				font-weight: $semiBold;
-				margin-bottom: 10px;
-				@media screen and (max-width: $screen-sm-max) {
-					margin-bottom: 0px;
-				}
-				@include box-shadow(0 1px 3px rgba(0,0,0,0.1));
-				//#gradient@include vertical(#fc5b62;#d7474d;);
-				@include gradient-vertical(#fc5b62, #d7474d);
-				&:active {
-					//#gradient@include vertical(#d7474d; #fc5b62;);
-					@include gradient-vertical(#d7474d, #fc5b62);
-				}
+				height: 50px;
+				color: $hairfie;
+				font-size: 2em;
+    			border: $hairfie;
+			    border-width: 3px;
+			    border-style: solid;
+			    border-radius: 2px;
 				&:after {
 					content: " ";
-					background: url(../img/icon-phone.png) no-repeat center center;
+					background: url(../img/phone-red.png) no-repeat center center;
 					position: absolute;
 					width: 25px;
 					height: 25px;
-					left: 20px;
-					top: 21px;
+					left: 50px;
+					top: 10px;
 
 					@media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
 						left: 20px;

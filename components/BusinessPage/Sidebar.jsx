@@ -17,7 +17,7 @@ module.exports = React.createClass({
             <div className="sidebar col-sm-4">
                 {this.renderBookNow()}
                 {this.renderBestDiscount()}
-                {/*this.renderPhoneNumber()*/}
+                {this.renderPhoneNumber()}
                 {this.renderSimilarBusinesses()}
             </div>
         );
@@ -35,7 +35,7 @@ module.exports = React.createClass({
         if (this.props.business.accountType == businessAccountTypes.FREE) return null;
         var discount = this.props.business && this.props.business.bestDiscount;
 
-        if (!discount) return;
+        if (!discount) return null;
 
         return (
             <div className="promo-sidebar">
@@ -57,17 +57,14 @@ module.exports = React.createClass({
     },
     renderPhoneNumber: function() {
         var business = this.props.business;
-        if(business.accountType == 'PREMIUM' || business.displayPhoneNumber) {
-            return (
-                <div className="phone">
-                    <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-red" onClick={this.trackCall}>
-                        {business.phoneNumber}
-                    </a>
-                </div>
-            );
-        } else {
-            return;
-        }
+        if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
+        return (
+            <div className="phone">
+                <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-phone" onClick={this.trackCall}>
+                    Afficher le numéro
+                </a>
+            </div>
+        );
     },
     trackCall: function() {
         if(ga) {
