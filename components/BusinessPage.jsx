@@ -30,7 +30,7 @@ var BusinessPage = React.createClass({
         );
     },
     renderSimilar: function() {
-        if (!this.props.business/* || (this.props.business.accountType != businessAccountTypes.FREE)*/) return null;
+        if (!this.props.business || (this.props.business.accountType != businessAccountTypes.FREE)) return null;
         return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
     renderHairdressers: function () {
