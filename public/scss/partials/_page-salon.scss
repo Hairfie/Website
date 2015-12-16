@@ -256,7 +256,27 @@
 		}
 	}
 	.sidebar {
-		margin-top: 15px;
+		.btn-red, .btn-book {
+			height: 46px;
+			display: block;
+			font-weight: $semiBold;
+			font-size: 1.9em;
+			width: 100%;
+			margin-bottom: 150px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding-top: 10px;
+			@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+			@media screen and (max-width: $screen-sm-max) {
+				bottom: 0;
+				left: 0;
+				position: fixed;
+				width:100%;
+				z-index: 10000;
+				margin-bottom: 0px;
+			}
+		}
+		margin-top: 12px;
 		@include fullWidthBg($bg3);
 		@media screen and (max-width: $screen-sm-max) {
 			width: 100%;
@@ -316,17 +336,31 @@
 		}
 
 		.promo-sidebar {
+			position: relative;
+			img {
+				border-radius: 5px;
+			}
 			.inline-promo {
-				background-color: white;
+				top: 0;
+				position: absolute;
 				font-size: 2.1em !important;
-				padding: 20px;
-				margin: 10px auto;
-				text-align: left;
+				text-align: center;
+				color: white;
 				width: 100%;
-				border-radius: 3px;
-				padding-left: 35px;
-				border: 1px solid $border-color;
-				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+				margin-top: 30px;
+				p {
+					font-weight: bold;
+					margin-top: 0;
+					&:first-child {
+						font-size: 3.1em;
+					}
+					&:nth-child(2) {
+						margin-top: -30px;
+					}
+				}
+				img {
+					margin-top: 35px;
+				}
 				.icon-promo {
 					float:none;margin-right: 10px;
 				}
@@ -335,25 +369,6 @@
 				}
 				@media screen and (max-width: $screen-sm-max) {
   					text-align: center;
-				}
-			}
-			.btn-red, .btn-book {
-				display: block;
-				font-weight: $semiBold;
-				font-size: 1.9em;
-				width: 100%;
-				margin-bottom: 10px;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				padding-top: 20px;padding-bottom: 20px;
-				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
-				@media screen and (max-width: $screen-sm-max) {
-    				bottom: 0;
-    				left: 0;
-    				position: fixed;
-    				width:100%;
-    				z-index: 10000;
-    				margin-bottom: 0px;
 				}
 			}
 		}

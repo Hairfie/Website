@@ -5,6 +5,9 @@ var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
 var ga = require('../../services/analytics');
+var businessAccountTypes = require('../../constants/BusinessAccountTypes');
+var Picture = require('../Partial/Picture.jsx');
+var _ = require('lodash');
 
 
 module.exports = React.createClass({
@@ -13,7 +16,8 @@ module.exports = React.createClass({
         return (
             <div className="sidebar col-sm-4">
                 {this.renderBookNow()}
-                {this.renderPhoneNumber()}
+                {this.renderBestDiscount()}
+                {/*this.renderPhoneNumber()*/}
                 {this.renderSimilarBusinesses()}
             </div>
         );
@@ -21,25 +25,34 @@ module.exports = React.createClass({
     renderBookNow: function () {
         var business = this.props.business;
         if (!business || !business.isBookable) return;
-        return (
-                <div className="promo-sidebar">
-                    {this.renderBestDiscount()}
-                    <Link className="btn btn-book" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
-                        Prendre RDV
-                    </Link>
-                </div>
+        return (                
+            <Link className="btn btn-book" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                Prendre RDV
+            </Link>
         );
     },
     renderBestDiscount: function () {
+        if (this.props.business.accountType == businessAccountTypes.FREE) return null;
         var discount = this.props.business && this.props.business.bestDiscount;
 
         if (!discount) return;
 
         return (
-            <p className="inline-promo">
-                <span className="icon-promo">%</span>
-                &nbsp;{discount}% dans tout le salon*
-            </p>
+            <div className="promo-sidebar">
+                <Picture picture={_.last(this.props.business.pictures)}
+                    options={{effect: 'brightness:-50'}}
+                    style={{width: '100%'}}
+                    placeholder="/img/placeholder-640.png" />
+                <div className="inline-promo">
+                    <p>
+                        {discount + '%'}
+                    </p>
+                    <p>
+                        Dans tout le salon
+                    </p>
+                    <Picture picture={{url: '/img/business-promo.png'}} />
+                </div>
+            </div>
         );
     },
     renderPhoneNumber: function() {

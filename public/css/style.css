@@ -11175,8 +11175,29 @@ section.home-footer .row > div {
       border: 0;
       padding-bottom: 0; }
   .salon#content .sidebar {
-    margin-top: 15px;
+    margin-top: 12px;
     position: relative; }
+    .salon#content .sidebar .btn-red, .salon#content .sidebar .btn-book {
+      height: 46px;
+      display: block;
+      font-weight: 600;
+      font-size: 1.9em;
+      width: 100%;
+      margin-bottom: 150px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-top: 10px;
+      -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
+      @media screen and (max-width: 991px) {
+        .salon#content .sidebar .btn-red, .salon#content .sidebar .btn-book {
+          bottom: 0;
+          left: 0;
+          position: fixed;
+          width: 100%;
+          z-index: 10000;
+          margin-bottom: 0px; } }
     .salon#content .sidebar:before {
       content: " ";
       width: 200vw;
@@ -11252,49 +11273,36 @@ section.home-footer .row > div {
         @media screen and (max-width: 767px) {
           .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
             left: 25px; } }
-    .salon#content .sidebar .promo-sidebar .inline-promo {
-      background-color: white;
-      font-size: 2.1em !important;
-      padding: 20px;
-      margin: 10px auto;
-      text-align: left;
-      width: 100%;
-      border-radius: 3px;
-      padding-left: 35px;
-      border: 1px solid #f9f9f9;
-      -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
-      .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
-        float: none;
-        margin-right: 10px; }
-      @media screen and (max-width: 767px) {
-        .salon#content .sidebar .promo-sidebar .inline-promo {
-          font-size: 1.6em !important; } }
-      @media screen and (max-width: 991px) {
-        .salon#content .sidebar .promo-sidebar .inline-promo {
-          text-align: center; } }
-    .salon#content .sidebar .promo-sidebar .btn-red, .salon#content .sidebar .promo-sidebar .btn-book {
-      display: block;
-      font-weight: 600;
-      font-size: 1.9em;
-      width: 100%;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
-      @media screen and (max-width: 991px) {
-        .salon#content .sidebar .promo-sidebar .btn-red, .salon#content .sidebar .promo-sidebar .btn-book {
-          bottom: 0;
-          left: 0;
-          position: fixed;
-          width: 100%;
-          z-index: 10000;
-          margin-bottom: 0px; } }
+    .salon#content .sidebar .promo-sidebar {
+      position: relative; }
+      .salon#content .sidebar .promo-sidebar img {
+        border-radius: 5px; }
+      .salon#content .sidebar .promo-sidebar .inline-promo {
+        top: 0;
+        position: absolute;
+        font-size: 2.1em !important;
+        text-align: center;
+        color: white;
+        width: 100%;
+        margin-top: 30px; }
+        .salon#content .sidebar .promo-sidebar .inline-promo p {
+          font-weight: bold;
+          margin-top: 0; }
+          .salon#content .sidebar .promo-sidebar .inline-promo p:first-child {
+            font-size: 3.1em; }
+          .salon#content .sidebar .promo-sidebar .inline-promo p:nth-child(2) {
+            margin-top: -30px; }
+        .salon#content .sidebar .promo-sidebar .inline-promo img {
+          margin-top: 35px; }
+        .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
+          float: none;
+          margin-right: 10px; }
+        @media screen and (max-width: 767px) {
+          .salon#content .sidebar .promo-sidebar .inline-promo {
+            font-size: 1.6em !important; } }
+        @media screen and (max-width: 991px) {
+          .salon#content .sidebar .promo-sidebar .inline-promo {
+            text-align: center; } }
     .salon#content .sidebar .related-content {
       background: white;
       border-radius: 3px;
