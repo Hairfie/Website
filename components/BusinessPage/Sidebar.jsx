@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var Calendar = require('../Form/BookingCalendarComponent.jsx');
 var Link = require('../Link.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
@@ -13,20 +12,9 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="sidebar col-sm-4">
-                {this.renderCalendar()}
                 {this.renderBookNow()}
                 {this.renderPhoneNumber()}
                 {this.renderSimilarBusinesses()}
-            </div>
-        );
-    },
-    renderCalendar: function () {
-        var business = this.props.business || {};
-        if (!business.isBookable) return;
-
-        return (
-            <div className="calendar">
-                <Calendar ref="calendar" businessId={business.id} onDayChange={this.book} />
             </div>
         );
     },

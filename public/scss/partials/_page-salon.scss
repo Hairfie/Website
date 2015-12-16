@@ -23,7 +23,7 @@
 	background-color: white;
 	#carousel-salon .carousel-inner .item {
 		height: 470px;
-		background: url(../img/placeholder-salon.png) no-repeat center center;
+		background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
 		background-size: cover;
 		background: none;
 
@@ -37,7 +37,7 @@
 
 		&.placeholder {
 			height: 470px;
-			background: url(../img/placeholder-salon.png) no-repeat center center;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
 			background-size: cover;
 		}
 
@@ -75,7 +75,6 @@
   				}
   			}
 			.row {
-				background-color: white;
 				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
@@ -93,7 +92,11 @@
 					padding-left: 15px;
 					border-radius: 0px;
 				}
-				h1 {margin-top: 0;}
+				h1 {
+					margin-top: 0;
+					color: white;
+					margin-bottom: 35px;
+				}
 			}
 
 			.prix, .horraires, .tags {
@@ -120,7 +123,7 @@
 			.request-review {
 				font-weight: 400;
 				font-size: 1.6em;
-				color: $font-color;
+				color: white;
 				margin-right: 5px;
 				text-decoration: underline;
 
@@ -253,7 +256,6 @@
 		}
 	}
 	.sidebar {
-		margin-top: -90px;
 		@include fullWidthBg($bg3);
 		@media screen and (max-width: $screen-sm-max) {
 			width: 100%;

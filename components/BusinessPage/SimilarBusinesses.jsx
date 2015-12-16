@@ -20,7 +20,7 @@ module.exports = React.createClass({
                             <div className="col-xs-4" key={business.id}>
                                 <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                                     <Picture picture={business.pictures[0]}
-                                             resolution={{width: 55, height: 55}}
+                                             resolution={{width: 200, height: 200}}
                                              style={{width: '100%', height: '115px'}}
                                              placeholder="/img/placeholder-90.png"
                                              alt={business.name}

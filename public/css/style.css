@@ -10994,7 +10994,7 @@ section.home-footer .row > div {
   background-color: white; }
   .salon#content #carousel-salon .carousel-inner .item {
     height: 470px;
-    background: url(../img/placeholder-salon.png) no-repeat center center;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
     background-size: cover;
     background: none; }
     @media screen and (max-width: 767px) {
@@ -11004,7 +11004,7 @@ section.home-footer .row > div {
       margin: auto; }
     .salon#content #carousel-salon .carousel-inner .item.placeholder {
       height: 470px;
-      background: url(../img/placeholder-salon.png) no-repeat center center;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
       background-size: cover; }
     .salon#content #carousel-salon .carousel-inner .item img {
       background-repeat: no-repeat;
@@ -11050,7 +11050,6 @@ section.home-footer .row > div {
           .salon#content .main-content section.salon-info div.timetable span.extra-small {
             width: 20%; } }
       .salon#content .main-content section.salon-info .row {
-        background-color: white;
         padding-left: 35px; }
         @media screen and (max-width: 767px) {
           .salon#content .main-content section.salon-info .row {
@@ -11068,7 +11067,9 @@ section.home-footer .row > div {
             padding-left: 15px;
             border-radius: 0px; } }
         .salon#content .main-content section.salon-info .row:first-child h1 {
-          margin-top: 0; }
+          margin-top: 0;
+          color: white;
+          margin-bottom: 35px; }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .horraires, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
@@ -11085,7 +11086,7 @@ section.home-footer .row > div {
       .salon#content .main-content section.salon-info .request-review {
         font-weight: 400;
         font-size: 1.6em;
-        color: #595959;
+        color: white;
         margin-right: 5px;
         text-decoration: underline; }
         @media screen and (max-width: 1199px) {
@@ -11174,7 +11175,6 @@ section.home-footer .row > div {
       border: 0;
       padding-bottom: 0; }
   .salon#content .sidebar {
-    margin-top: -90px;
     position: relative; }
     .salon#content .sidebar:before {
       content: " ";

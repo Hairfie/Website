@@ -23,7 +23,7 @@ var Layout = React.createClass({
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <Breadcrumb business={business} />
-                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} />
+                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4))," pictures={business.pictures} />
                     <div className="container">
                         <div className="main-content col-md-8 col-sm-12">
                             <ShortInfos business={business} />
