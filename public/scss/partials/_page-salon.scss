@@ -256,6 +256,7 @@
 		}
 	}
 	.sidebar {
+		margin-top: 15px;
 		@include fullWidthBg($bg3);
 		@media screen and (max-width: $screen-sm-max) {
 			width: 100%;

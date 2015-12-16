@@ -11175,6 +11175,7 @@ section.home-footer .row > div {
       border: 0;
       padding-bottom: 0; }
   .salon#content .sidebar {
+    margin-top: 15px;
     position: relative; }
     .salon#content .sidebar:before {
       content: " ";
