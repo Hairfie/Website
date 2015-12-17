@@ -54,19 +54,21 @@ var Filters = React.createClass({
         if (this.props.categories)
             var search = _.compact(_.map(this.props.search.categories, function (cat) {
                 var category = _.find(this.props.categories, {slug: cat});
-                return category ? category.label : undefined;
+                return category ? { label: category.label, slug: cat } : undefined;
             }.bind(this)));
         else
             var search = this.props.search.tags;
 
         var filters = _.map(search, function (selection) {
+                var selectionLabel = selection.label ? selection.label : selection;
+                var selectionSlug = selection.slug ? selection.slug : selection;
                 return {
-                    label   : selection,
-                    onChange: this.removeSelection.bind(this, selection)
+                    label   : selectionLabel,
+                    onChange: this.removeSelection.bind(this, selectionSlug)
                 }
         }, this);
 
-        if (filters.length == 0) return;
+        if (filters.length == 0) return null;
 
         return (
             <section className="filter-recap">
@@ -227,8 +229,10 @@ var Filters = React.createClass({
     removeSelection: function(selection) {
         if (this.props.search.tags)
             this.props.onChange({tags: _.without(this.props.search.tags, selection)});
-        else if (this.props.search.categories)
+        else if (this.props.search.categories) {
+
             this.props.onChange({categories: _.without(this.props.search.categories, selection)});
+        }
     },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});

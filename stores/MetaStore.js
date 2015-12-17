@@ -85,7 +85,7 @@ module.exports = createStore({
         var ogDescription = _.find(metas, {property: 'og:description'});
         var description = _.find(metas, {property: 'description'});
 
-        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content })
+        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content });
 
         this.metas = metas;
 

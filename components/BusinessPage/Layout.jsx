@@ -72,7 +72,7 @@ var Layout = React.createClass({
     getSchema: function() {
         var business = this.props.business;
         var metas = this.props.metas;
-        var description = _.find(metas, {property: 'description'}) || {};
+        var description = _.find(metas, {property: 'description'}) || _.find(metas, {name: 'description'}) || {};
 
         var markup = {
           "@context": "http://schema.org",

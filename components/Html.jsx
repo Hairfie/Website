@@ -28,7 +28,7 @@ var Html = React.createClass({
                 <title>{title}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
                 {metas.map(function(metaObj) {
-                    return <meta property={metaObj.property} content={metaObj.content} />;
+                    return <meta property={metaObj.property} name={metaObj.property} content={metaObj.content} />;
                 })}
                 <meta name="p:domain_verify" content="7da9f1142d3698eff48e81bdc3e77ad6" />
                 <meta name="apple-itunes-app" content="app-id=853590611" />
