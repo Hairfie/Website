@@ -10,6 +10,8 @@ var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Breadcrumb = require('./Breadcrumb.jsx');
+var Picture = require('../Partial/Picture.jsx');
+var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 
 var Rating = React.createClass({
     render: function () {
@@ -54,6 +56,18 @@ var Layout = React.createClass({
                                     <Rating business={business} />
                                 </div>
                             </div>
+                            {
+                                business.profilePicture && business.accountType != businessAccountTypes.FREE ?
+                                    <Picture picture={business.profilePicture} 
+                                         options={{
+                                            width: 340,
+                                            height: 340,
+                                            crop: 'thumb',
+                                            gravity: 'faces'
+                                         }}
+                                        placeholder="/img/placeholder-640.png" />
+                                    : null
+                            }
                         </div>
                     </div>
                     <div className="container">
