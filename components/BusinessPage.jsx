@@ -53,7 +53,7 @@ var BusinessPage = React.createClass({
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
-                <div className="row"}>
+                <div className="row">
                     <div className="row table-price">
                         {_.map(services, function (service) {
                             return (
