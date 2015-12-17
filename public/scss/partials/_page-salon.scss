@@ -21,6 +21,36 @@
 
 .salon#content {
 	background-color: white;
+	#carousel-salon {
+		position: relative;
+		.carousel-info {
+			left: 0;
+			right: 0;
+			position: absolute;
+			bottom: 0px;
+			div {
+				&:nth-child(2) {
+					position: absolute;
+    				right: 0;
+    				bottom: 0;
+				}
+			}
+			h1, a {
+				color: white;
+			}
+		}
+		.request-review {
+			font-weight: 400;
+			font-size: 1.6em;
+			color: white;
+			margin-right: 5px;
+			text-decoration: underline;
+
+			@media screen and (max-width: $screen-md-max)  {
+				float: left !important;
+			}
+		}
+	}
 	#carousel-salon .carousel-inner .item {
 		height: 470px;
 		background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
@@ -81,9 +111,7 @@
 				}
 			}
 			.row:first-child {
-				margin-top: -105px; // for -90 offset
 				width: auto;
-				padding-top: 30px;
 				padding-left: 35px;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
@@ -121,17 +149,6 @@
 			.horraires {
 				.opened, .closed {
 					font-weight: $semiBold;
-				}
-			}
-			.request-review {
-				font-weight: 400;
-				font-size: 1.6em;
-				color: white;
-				margin-right: 5px;
-				text-decoration: underline;
-
-				@media screen and (max-width: $screen-md-max)  {
-					float: left !important;
 				}
 			}
 		}

@@ -11,6 +11,26 @@ var Sidebar = require('./Sidebar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Breadcrumb = require('./Breadcrumb.jsx');
 
+var Rating = React.createClass({
+    render: function () {
+        var business = this.props.business || {};
+        if (!business.numReviews) return <span />;
+
+        var rating = Math.round(business.rating / 100 * 5);
+
+        return (
+            <div className="stars">
+                {_.map([1, 2, 3, 4, 5], function (starValue) {
+                    return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
+                })}
+                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis  hidden-md">
+                    {business.numReviews+' avis'}
+                </Link>
+            </div>
+        );
+    }
+});
+
 var Layout = React.createClass({
     render: function () {
         if (!this.props.business) {
@@ -23,7 +43,19 @@ var Layout = React.createClass({
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <Breadcrumb business={business} />
-                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4))," pictures={business.pictures} />
+                    <div id="carousel-salon">
+                        <Carousel backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4))," pictures={business.pictures} />
+                        <div className="carousel-info container">
+                            <div className="col-sm-12 col-md-8">
+                                <div className="col-xs-8">
+                                    <h1>{business.name}</h1>
+                                </div>
+                                <div className="col-xs-4">
+                                    <Rating business={business} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="container">
                         <div className="main-content col-md-8 col-sm-12">
                             <ShortInfos business={business} />

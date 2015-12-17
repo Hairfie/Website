@@ -10992,6 +10992,28 @@ section.home-footer .row > div {
 
 .salon#content {
   background-color: white; }
+  .salon#content #carousel-salon {
+    position: relative; }
+    .salon#content #carousel-salon .carousel-info {
+      left: 0;
+      right: 0;
+      position: absolute;
+      bottom: 0px; }
+      .salon#content #carousel-salon .carousel-info div:nth-child(2) {
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+      .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+        color: white; }
+    .salon#content #carousel-salon .request-review {
+      font-weight: 400;
+      font-size: 1.6em;
+      color: white;
+      margin-right: 5px;
+      text-decoration: underline; }
+      @media screen and (max-width: 1199px) {
+        .salon#content #carousel-salon .request-review {
+          float: left !important; } }
   .salon#content #carousel-salon .carousel-inner .item {
     height: 470px;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
@@ -11055,9 +11077,7 @@ section.home-footer .row > div {
           .salon#content .main-content section.salon-info .row {
             padding-left: 15px; } }
       .salon#content .main-content section.salon-info .row:first-child {
-        margin-top: -105px;
         width: auto;
-        padding-top: 30px;
         padding-left: 35px;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px; }
@@ -11086,15 +11106,6 @@ section.home-footer .row > div {
           width: 1.4em; }
       .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
         font-weight: 600; }
-      .salon#content .main-content section.salon-info .request-review {
-        font-weight: 400;
-        font-size: 1.6em;
-        color: white;
-        margin-right: 5px;
-        text-decoration: underline; }
-        @media screen and (max-width: 1199px) {
-          .salon#content .main-content section.salon-info .request-review {
-            float: left !important; } }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
