@@ -27,6 +27,7 @@ module.exports = React.createClass({
         if (hairfie.price) {
             price = <div className="pricetag">{hairfie.price.amount}€</div>;
         }
+
         return (
             <div key={hairfie.id} {...this.props}>
                 <figure>
@@ -34,7 +35,8 @@ module.exports = React.createClass({
                         <Picture picture={_.last(hairfie.pictures)}
                                 resolution={{width: 640, height: 640}}
                                 placeholder="/img/placeholder-640.png"
-                                alt="" />
+                                alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
+                        />
                             <figcaption>
                                 {salon}
                                 {hairdresser}

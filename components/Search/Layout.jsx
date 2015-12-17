@@ -82,7 +82,7 @@ var Layout = React.createClass({
             <div className="row">
                 <div className="col-xs-12 header-part">
                     {coverImage}
-                    <h3>{SearchUtils.searchToTitle(search, place, this.props.tab)}</h3>
+                    <h1>{SearchUtils.searchToTitle(search, place, this.props.tab)}</h1>
                     <p>{SearchUtils.searchToDescription(search, place)}</p>
                 </div>
             </div>

@@ -10654,10 +10654,13 @@ section.home-footer .row > div {
     border-radius: 3px;
     display: block;
     width: 100%; }
-  #content.search .main-content .header-part h3 {
+  #content.search .main-content .header-part h1 {
     margin: 20px 0;
     letter-spacing: 2px;
-    font-weight: 600; }
+    font-weight: 600;
+    font-size: 21px;
+    margin-top: 25px;
+    margin-bottom: 25px; }
   #content.search .main-content .header-part p {
     font-weight: 200;
     font-size: 1.4em;

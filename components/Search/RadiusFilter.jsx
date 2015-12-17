@@ -42,6 +42,7 @@ module.exports = React.createClass({
         this.slider.slider('option', 'step', nextProps.step);
     },
     render: function () {
+        console.log("render");
         return (
             <div className="price">
                 <h2>Rayon autour de l'adresse</h2>

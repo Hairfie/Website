@@ -46,7 +46,7 @@ var Layout = React.createClass({
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <Breadcrumb business={business} />
                     <div id="carousel-salon">
-                        <Carousel backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4))," pictures={business.pictures} />
+                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
                             <div className="col-sm-12 col-md-8" style={{overflow: 'auto'}}>
                                 <div className="col-xs-8">
@@ -120,7 +120,7 @@ var Layout = React.createClass({
     getSchema: function() {
         var business = this.props.business;
         var metas = this.props.metas;
-        var description = _.find(metas, {property: 'description'}) || {};
+        var description = _.find(metas, {property: 'description'}) || _.find(metas, {name: 'description'}) || {};
 
         var markup = {
           "@context": "http://schema.org",

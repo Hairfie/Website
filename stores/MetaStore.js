@@ -85,7 +85,7 @@ module.exports = createStore({
         var ogDescription = _.find(metas, {property: 'og:description'});
         var description = _.find(metas, {property: 'description'});
 
-        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content })
+        if(!description && ogDescription) metas.push({ property: 'description', content: ogDescription.content });
 
         this.metas = metas;
 
@@ -212,7 +212,7 @@ module.exports = createStore({
         var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
 
         var search = {
-            categories: [categories]
+            categories: _.isUndefined(categories) ? categories : [categories]
         };
 
         var title = SearchUtils.searchToTitle(search, place, "business");
@@ -220,6 +220,8 @@ module.exports = createStore({
         if(query.withDiscount) title = 'Promotions à ' + address;
 
         if(query.page) title += ' - page ' + query.page;
+
+        title += ' | Prendre RDV en ligne sur Hairfie';
 
         var metas = _.union(
             this._getBaseMetas(),
@@ -241,12 +243,14 @@ module.exports = createStore({
         var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
 
         var search = {
-            tags: [tags]
+            tags: _.isUndefined(tags) ? tags : [tags]
         };
         var title = SearchUtils.searchToTitle(search, place, "hairfie");
         var description = SearchUtils.searchToDescription(search, place);
 
         if(query.page) title += ' - page ' + query.page;
+
+        title += ' | Prendre RDV en ligne sur Hairfie';
 
         var metas = _.union(
             this._getBaseMetas(),
@@ -312,7 +316,7 @@ module.exports = createStore({
         return metas;
     },
     _getDefaultMetas: function (route) {
-        var title = route.title || 'Hairfie, trouvez et réservez votre coiffeur';
+        var title = route.title || 'Hairfie, trouvez votre coupe et prenez RDV avec votre coiffeur';
 
         return _.union(this._getBaseMetas(), [
             { property: 'og:title', content: title }
