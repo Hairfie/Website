@@ -20,6 +20,7 @@ var Application = React.createClass({
             if (!window.ga) {
                 return;
             }
+
             ga('set', 'page',  this.props.currentRoute.url);
             ga('send', 'pageview');
 
