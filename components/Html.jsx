@@ -11,8 +11,6 @@ var oldBrowserHtml = '<!--[if lt IE 9]> \
         </p> \
     <![endif]-->';
 
-var mailChimpHtml = '';//'<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"900dbe8a5a2b32c27605ee8e4","lid":"8b547e358f"}) })</script>';
-
 var Html = React.createClass({
     render: function() {
         var title = this.props.context.getStore('MetaStore').getTitle();
@@ -42,8 +40,33 @@ var Html = React.createClass({
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
                 <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
+
+                <link rel="apple-touch-icon" sizes="57x57" href={this.getAssetSrc("/icons/apple-touch-icon-57x57.png")} />
+                <link rel="apple-touch-icon" sizes="60x60" href={this.getAssetSrc("/icons/apple-touch-icon-60x60.png")} />
+                <link rel="apple-touch-icon" sizes="72x72" href={this.getAssetSrc("/icons/apple-touch-icon-72x72.png")} />
+                <link rel="apple-touch-icon" sizes="76x76" href={this.getAssetSrc("/icons/apple-touch-icon-76x76.png")} />
+                <link rel="apple-touch-icon" sizes="114x114" href={this.getAssetSrc("/icons/apple-touch-icon-114x114.png")} />
+                <link rel="apple-touch-icon" sizes="120x120" href={this.getAssetSrc("/icons/apple-touch-icon-120x120.png")} />
+                <link rel="apple-touch-icon" sizes="144x144" href={this.getAssetSrc("/icons/apple-touch-icon-144x144.png")} />
+                <link rel="apple-touch-icon" sizes="152x152" href={this.getAssetSrc("/icons/apple-touch-icon-152x152.png")} />
+                <link rel="apple-touch-icon" sizes="180x180" href={this.getAssetSrc("/icons/apple-touch-icon-180x180.png")} />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-32x32.png")} sizes="32x32" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-194x194.png")} sizes="194x194" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-96x96.png")} sizes="96x96" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/android-chrome-192x192.png")} sizes="192x192" />
+                <link rel="icon" type="image/png" href={this.getAssetSrc("/icons/favicon-16x16.png")} sizes="16x16" />
+                <link rel="manifest" href={this.getAssetSrc("/icons/manifest.json")} />
+                <link rel="mask-icon" href={this.getAssetSrc("/icons/safari-pinned-tab.svg")} color="#fe5b5f" />
+                <link rel="shortcut icon" href={this.getAssetSrc("/icons/favicon.ico")} />
+                <meta name="msapplication-TileColor" content="#ffffff" />
+                <meta name="msapplication-TileImage" content={this.getAssetSrc("/icons/mstile-144x144.png")} />
+                <meta name="msapplication-config" content={this.getAssetSrc("/icons/browserconfig.xml")} />
+                <meta name="theme-color" content="#ffffff" />
+
+                <script type="text/javascript" dangerouslySetInnerHTML={{__html: this.getGaHtml()}} />
             </head>
             <body>
+
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
                 <div className="oldBrowser" dangerouslySetInnerHTML={{__html: oldBrowserHtml}} />
 
@@ -61,7 +84,6 @@ var Html = React.createClass({
                 <script src={this.getAssetSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
                 <script src={this.getAssetSrc(this.getAppAsset())}></script>
 
-                <div className="mailchimp" dangerouslySetInnerHTML={{__html: mailChimpHtml}} />
                 <div className="heap" dangerouslySetInnerHTML={{__html: this.getHeapHtml()}} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
 
@@ -78,6 +100,9 @@ var Html = React.createClass({
     },
     getStateScript: function () {
         return 'window.App = '+JSON.stringify(this.props.state)+';';
+    },
+    getGaHtml: function() {
+        return "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', '"+ process.env.GOOGLE_ANALYTICS_TRACKING_CODE + "', 'auto');ga('send', 'pageview');"
     },
     getHeapHtml: function() {
         return '<script type="text/javascript"> window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var n=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(n?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(a,o);for(var r=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=r(p[c])}; heap.load("'+ process.env.HEAP_ANALYTICS +'");</script>';
