@@ -46,7 +46,7 @@ var Layout = React.createClass({
                     <div id="carousel-salon">
                         <Carousel backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4))," pictures={business.pictures} />
                         <div className="carousel-info container">
-                            <div className="col-sm-12 col-md-8">
+                            <div className="col-sm-12 col-md-8" style={{overflow: 'auto'}}>
                                 <div className="col-xs-8">
                                     <h1>{business.name}</h1>
                                 </div>
