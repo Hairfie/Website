@@ -11,6 +11,8 @@ var oldBrowserHtml = '<!--[if lt IE 9]> \
         </p> \
     <![endif]-->';
 
+var crispHtml = 'CRISP_WEBSITE_ID = "-K5jTtCeVWuGrLefccLq";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.im/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();';
+
 var Html = React.createClass({
     render: function() {
         var title = this.props.context.getStore('MetaStore').getTitle();
@@ -86,6 +88,7 @@ var Html = React.createClass({
 
                 <div className="heap" dangerouslySetInnerHTML={{__html: this.getHeapHtml()}} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
+                <script type="text/javascript" dangerouslySetInnerHTML={{__html: crispHtml}} />
 
             </body>
             </html>
