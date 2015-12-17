@@ -46,7 +46,7 @@ var Layout = React.createClass({
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <Breadcrumb business={business} />
                     <div id="carousel-salon">
-                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
+                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
                             <div className="col-sm-12 col-md-8" style={{overflow: 'auto'}}>
                                 <div className="col-xs-8">
