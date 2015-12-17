@@ -245,8 +245,13 @@ module.exports = createStore({
         var search = {
             tags: _.isUndefined(tags) ? tags : [tags]
         };
+
         var title = SearchUtils.searchToTitle(search, place, "hairfie");
         var description = SearchUtils.searchToDescription(search, place);
+
+        if(!description) {
+            description = "Les meilleurs Hairfies de " + title;
+        }
 
         if(query.page) title += ' - page ' + query.page;
 
