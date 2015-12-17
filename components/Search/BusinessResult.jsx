@@ -78,6 +78,7 @@ var Business = React.createClass({
                             picture={_.first(this.props.business.pictures)}
                             options={{ width: 400, height: 400, crop: 'thumb' }}
                             placeholder="/img/placeholder-640.png"
+                            alt={this.props.business.pictures.length > 0 ? this.props.business.name : ""}
                             />
                      </Link>
                 </div>

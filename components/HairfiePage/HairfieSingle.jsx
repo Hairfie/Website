@@ -3,12 +3,14 @@
 var React = require('react');
 var Carousel = require('../Partial/Carousel.jsx');
 var Link = require('../Link.jsx');
+var _ = require('lodash');
 
 module.exports = React.createClass({
     render: function () {
         return (
             <div className="col-xs-12 col-sm-6">
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter}>
+                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}
+>
                     {this.renderPrice()}
                 </Carousel>
                 {this.renderBookingButton()}
