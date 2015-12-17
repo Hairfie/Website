@@ -22,7 +22,7 @@ module.exports = React.createClass({
                                     <Picture picture={business.pictures[0]}
                                              resolution={{width: 200, height: 200}}
                                              style={{width: '100%', height: '115px'}}
-                                             placeholder="/img/placeholder-90.png"
+                                             placeholder="/img/placeholder-640.png"
                                              alt={business.name}
                                     />
                                 </Link>
