@@ -22,7 +22,7 @@ var Layout = React.createClass({
         return (
             <ParentLayout>
                 <Breadcrumb business={business} />
-                <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} alt={business.name}/>
+                <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                 <div className="container salon" id="content">
                     <div className="main-content col-md-8 col-sm-12">
                         <ShortInfos business={business} />
