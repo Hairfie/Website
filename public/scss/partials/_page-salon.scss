@@ -96,6 +96,9 @@
 					margin-top: 0;
 					color: white;
 					margin-bottom: 35px;
+					@media screen and (max-width: $screen-sm-max) {
+						color: black;
+					}
 				}
 			}
 
@@ -165,8 +168,6 @@
 			}
 		}
 		section {
-			padding-left: 50px;
-			padding-right: 50px;
 			@media screen and (max-width: $screen-xs-max) {
 				padding-left: 15px;
 				padding-right: 15px;
@@ -175,6 +176,15 @@
 			border-bottom: 2px solid $border-color;
 			h4 {
 				color: #343434;
+			}
+			h3 {
+				margin-left: -15px;
+			}
+			.row {
+				border-left-style: solid;
+				border-color: $bg2;
+				border-width: 5px;
+				padding-left: 15px;
 			}
 			&:nth-child(4) {
 				h4 {
@@ -262,7 +272,7 @@
 			font-weight: $semiBold;
 			font-size: 1.9em;
 			width: 100%;
-			margin-bottom: 150px;
+			margin-bottom: 20px;
 			text-transform: uppercase;
 			letter-spacing: 2px;
 			padding-top: 10px;

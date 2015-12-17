@@ -53,17 +53,19 @@ var BusinessPage = React.createClass({
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
-                <div className="row table-price">
-                    {_.map(services, function (service) {
-                        return (
-                            <div key={service.id}>
-                                <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
-                            </div>
-                        );
-                    })}
+                <div className="row"}>
+                    <div className="row table-price">
+                        {_.map(services, function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <br />
+                    <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
                 </div>
-                <br />
-                <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
             </section>
         );
     },
@@ -138,12 +140,14 @@ var BusinessPage = React.createClass({
         return (
             <section>
                 <h3>Description du salon</h3>
-                <h4>{description.geoTitle}</h4>
-                <p>{description.geoText}</p>
-                <h4>{description.proTitle}</h4>
-                <p>{description.proText}</p>
-                <h4>{description.businessTitle}</h4>
-                <p>{description.businessText}</p>
+                <div className="row">
+                    <h4>{description.geoTitle}</h4>
+                    <p>{description.geoText}</p>
+                    <h4>{description.proTitle}</h4>
+                    <p>{description.proText}</p>
+                    <h4>{description.businessTitle}</h4>
+                    <p>{description.businessText}</p>
+                </div>
             </section>
         );
     }

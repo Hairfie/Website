@@ -11070,6 +11070,9 @@ section.home-footer .row > div {
           margin-top: 0;
           color: white;
           margin-bottom: 35px; }
+          @media screen and (max-width: 991px) {
+            .salon#content .main-content section.salon-info .row:first-child h1 {
+              color: black; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .horraires, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
@@ -11108,8 +11111,6 @@ section.home-footer .row > div {
       .salon#content section.salon-content ul.nav li:last-child .icon-nav {
         background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
     .salon#content section.salon-content section {
-      padding-left: 50px;
-      padding-right: 50px;
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
       @media screen and (max-width: 767px) {
@@ -11118,6 +11119,13 @@ section.home-footer .row > div {
           padding-right: 15px; } }
       .salon#content section.salon-content section h4 {
         color: #343434; }
+      .salon#content section.salon-content section h3 {
+        margin-left: -15px; }
+      .salon#content section.salon-content section .row {
+        border-left-style: solid;
+        border-color: #f0f0f1;
+        border-width: 5px;
+        padding-left: 15px; }
       .salon#content section.salon-content section:nth-child(4) h4 {
         text-transform: uppercase;
         letter-spacing: 2px; }
@@ -11183,7 +11191,7 @@ section.home-footer .row > div {
       font-weight: 600;
       font-size: 1.9em;
       width: 100%;
-      margin-bottom: 150px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 2px;
       padding-top: 10px;

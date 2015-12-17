@@ -12,6 +12,11 @@ var _ = require('lodash');
 
 module.exports = React.createClass({
     mixins: [NavToLinkMixin],
+    getInitialState: function () {
+        return {
+            displayPhone: false
+        };
+    },
     render: function () {
         return (
             <div className="sidebar col-sm-4">
@@ -60,8 +65,8 @@ module.exports = React.createClass({
         if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
         return (
             <div className="phone">
-                <a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-phone" onClick={this.trackCall}>
-                    Afficher le numéro
+                <a role="button" className="btn btn-phone" onClick={this.trackCall}>
+                    {this.state.displayPhone ? business.phoneNumber : "Afficher le numéro"}
                 </a>
             </div>
         );
@@ -75,6 +80,7 @@ module.exports = React.createClass({
               eventLabel: this.props.business.name
             });
         }
+        this.setState({displayPhone: true});
     },
     renderSimilarBusinesses: function () {
         if (!this.props.similarBusinesses) return;
