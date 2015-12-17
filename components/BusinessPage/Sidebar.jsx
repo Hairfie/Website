@@ -22,8 +22,8 @@ module.exports = React.createClass({
             <div className="sidebar col-sm-4">
                 {this.renderBookNow()}
                 {this.renderBestDiscount()}
-                {this.renderPhoneNumber()}
                 {this.renderSimilarBusinesses()}
+                {this.renderPhoneNumber()}
             </div>
         );
     },
@@ -83,8 +83,8 @@ module.exports = React.createClass({
         this.setState({displayPhone: true});
     },
     renderSimilarBusinesses: function () {
-        if (!this.props.similarBusinesses) return;
-        if (this.props.business && this.props.business.accountType == 'PREMIUM') return;
+        if (!this.props.similarBusinesses) return null;
+        if (this.props.business && this.props.business.accountType != businessAccountTypes.BASIC) return null;
 
         return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
     },
