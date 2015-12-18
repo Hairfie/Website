@@ -59,6 +59,7 @@
 		.carousel-inner .item {
 			height: 470px;
 			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
+			background-size: cover;
 			background: none;
 
 			@media screen and (max-width: $screen-xs-max) {
@@ -76,6 +77,7 @@
 
 			img {
 				background-repeat: no-repeat;
+			    background-size: cover;
 			    background-position: 50% 50%;
 			    background-color: #838B95;
 			    width: 100%;
