@@ -45,7 +45,6 @@ module.exports = React.createClass({
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
-        var linkToMap = _.isEmpty(address) ? null : <div onClick={function() {$('html,body').animate({ scrollTop: $("#location").offset().top}, 'slow');}}><Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link></div>;
         var open;
 
         if (!_.isEmpty(timetable)) {
@@ -61,14 +60,15 @@ module.exports = React.createClass({
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
+                  <h2>{displayAddress}</h2>
                   {open}
                   <div className="visible-xs">
                     {this.renderTimetable()}
                   </div>
-                  <h2>{displayAddress} {linkToMap}</h2>
                   {this.renderAveragePrice()}
                 </div>
                 <div className="col-sm-4" style={{padding: '0', paddingRight: '15px', marginTop: '-5px'}}>
+                  <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
                   <div className="hidden-xs">
                     {this.renderTimetable()}
                   </div>

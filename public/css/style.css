@@ -11070,6 +11070,12 @@ section.home-footer .row > div {
       position: relative;
       width: 100%;
       padding-top: 16px; }
+      .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
+        color: red;
+        border: solid;
+        border-width: 3px;
+        width: 100%;
+        border-radius: 20px; }
       .salon#content .main-content section.salon-info div.timetable {
         font-size: small;
         margin-top: 15px; }
@@ -11100,19 +11106,17 @@ section.home-footer .row > div {
           @media screen and (max-width: 991px) {
             .salon#content .main-content section.salon-info .row:first-child h1 {
               color: black; } }
-      .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .horraires, .salon#content .main-content section.salon-info .tags {
+      .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
-        .salon#content .main-content section.salon-info .prix .small, .salon#content .main-content section.salon-info .horraires .small, .salon#content .main-content section.salon-info .tags .small {
+        .salon#content .main-content section.salon-info .prix .small, .salon#content .main-content section.salon-info .tags .small {
           font-size: 0.9em;
           color: #595959; }
-          .salon#content .main-content section.salon-info .prix .small:hover, .salon#content .main-content section.salon-info .horraires .small:hover, .salon#content .main-content section.salon-info .tags .small:hover {
+          .salon#content .main-content section.salon-info .prix .small:hover, .salon#content .main-content section.salon-info .tags .small:hover {
             color: #595959; }
-        .salon#content .main-content section.salon-info .prix span.glyphicon, .salon#content .main-content section.salon-info .horraires span.glyphicon, .salon#content .main-content section.salon-info .tags span.glyphicon {
+        .salon#content .main-content section.salon-info .prix span.glyphicon, .salon#content .main-content section.salon-info .tags span.glyphicon {
           color: #595959;
           width: 1.4em; }
-      .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
-        font-weight: 600; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }

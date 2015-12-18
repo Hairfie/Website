@@ -95,6 +95,13 @@
 			width: 100%;
   			padding-top: 16px;
 
+			a.btn {
+				color: red;
+    			border: solid;
+    			border-width: 3px;
+    			width: 100%;
+   				border-radius: 20px;
+			}
   			div.timetable {
   				font-size: small;
   				margin-top: 15px;
@@ -133,7 +140,7 @@
 				}
 			}
 
-			.prix, .horraires, .tags {
+			.prix, .tags {
 				font-size: 1.077em;
 				letter-spacing: 1px;
 
@@ -147,11 +154,6 @@
 
 				span.glyphicon {
 					color: $font-color; width: 1.4em;
-				}
-			}
-			.horraires {
-				.opened, .closed {
-					font-weight: $semiBold;
 				}
 			}
 		}
