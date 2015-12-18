@@ -14,9 +14,10 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     concurrent: {
-      dev: ['sass', 'watchify', 'nodemon', 'watch'],
+      dev: ['sass', 'watchify', 'watch', 'nodemon'],
       options: {
-        logConcurrentOutput: true
+        logConcurrentOutput: true,
+        limit: 4
       }
     },
 
