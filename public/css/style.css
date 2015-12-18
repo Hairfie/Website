@@ -10995,6 +10995,8 @@ section.home-footer .row > div {
 
 .salon#content {
   background-color: white; }
+  .salon#content h3 {
+    color: #fe5b5f; }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
@@ -11064,8 +11066,6 @@ section.home-footer .row > div {
       top: 0;
       background: #f4f4f4;
       z-index: -1; }
-    .salon#content .main-content h3 {
-      color: #fe5b5f; }
     .salon#content .main-content section.salon-info {
       position: relative;
       width: 100%;
@@ -11150,6 +11150,7 @@ section.home-footer .row > div {
       .salon#content section.salon-content section:nth-child(4) p {
         letter-spacing: 1px; }
       .salon#content section.salon-content section .similar {
+        margin-right: 0px;
         padding-top: 15px;
         padding-bottom: 15px;
         background-color: #f4f4f4; }
@@ -11189,12 +11190,6 @@ section.home-footer .row > div {
             font-size: 1.4em; }
             .salon#content section.salon-content section .table-price div p span {
               text-decoration: underline; }
-      .salon#content section.salon-content section .map {
-        height: 247px;
-        width: auto;
-        background: url(../img/placeholder-map.jpg) no-repeat center center;
-        margin: 30px -50px 0;
-        background-size: cover; }
     .salon#content section.salon-content #avis .row {
       padding-left: 15px;
       padding-right: 15px;
@@ -11224,6 +11219,12 @@ section.home-footer .row > div {
           width: 100%;
           z-index: 10000;
           margin-bottom: 0px; } }
+    .salon#content .sidebar section#location {
+      margin-top: 50px; }
+      .salon#content .sidebar section#location .map {
+        height: 247px;
+        background: url(../img/placeholder-map.jpg) no-repeat center center;
+        background-size: cover; }
     .salon#content .sidebar:before {
       content: " ";
       width: 200vw;

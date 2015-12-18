@@ -20,6 +20,9 @@
 }
 
 .salon#content {
+	h3 {
+		color: $hairfie;
+	}
 	background-color: white;
 	#carousel-salon {
 		position: relative;
@@ -87,9 +90,6 @@
 		position: relative;
 		background-color: white;
 		@include fullWidthBg($bg3);
-		h3 {
-			color: $hairfie;
-		}
 		section.salon-info	{
 			position: relative;
 			width: 100%;
@@ -216,6 +216,7 @@
 				}
 			}
 			.similar {
+				margin-right: 0px;
 				h4 {
 					color: $hairfie;
 				}
@@ -268,15 +269,6 @@
 					}
 				}
 			}
-
-			.map {
-				height: 247px;
-				width: auto;
-				background: url(../img/placeholder-map.jpg) no-repeat center center;
-				margin: 30px -50px 0;
-				background-size:cover;
-			}
-
 		}
 		#avis .row {
 			padding-left: 15px;
@@ -304,6 +296,14 @@
 				width:100%;
 				z-index: 10000;
 				margin-bottom: 0px;
+			}
+		}
+		section#location {
+			margin-top: 50px;
+			.map {
+				height: 247px;
+				background: url(../img/placeholder-map.jpg) no-repeat center center;
+				background-size:cover;
 			}
 		}
 		margin-top: 12px;

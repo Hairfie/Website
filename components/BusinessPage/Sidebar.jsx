@@ -1,7 +1,9 @@
 'use strict';
 
 var React = require('react');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Link = require('../Link.jsx');
+var Map = require('./Map.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var SimilarBusinesses = require('./SimilarBusinesses.jsx');
 var ga = require('../../services/analytics');
@@ -10,7 +12,7 @@ var Picture = require('../Partial/Picture.jsx');
 var _ = require('lodash');
 
 
-module.exports = React.createClass({
+var Sidebar = React.createClass({
     mixins: [NavToLinkMixin],
     getInitialState: function () {
         return {
@@ -24,6 +26,7 @@ module.exports = React.createClass({
                 {this.renderBestDiscount()}
                 {this.renderSimilarBusinesses()}
                 {this.renderPhoneNumber()}
+                {this.renderLocation()}
             </div>
         );
     },
@@ -88,6 +91,45 @@ module.exports = React.createClass({
 
         return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
     },
+    renderLocation: function () {
+        return (
+            <section id="location">
+                <h3>Comment s'y rendre ?</h3>
+                {this.renderStations()}
+                {this.renderMap()}
+            </section>
+        );
+    },
+    renderStations: function () {
+        var stations = _.groupBy(this.props.stations || [], 'type')
+
+        if (!stations.rer && !stations.metro) return;
+        return (
+            <div>
+                <h4>RER / Métro</h4>
+                {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station, i) {
+                    return (<p key={i}>
+                        {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginRight: 7}}/> : ""}
+                        {_.map(station.lines, function(line, i) {
+                            var name = "";
+                            if (line.type == "metro")
+                                name = "M_";
+                            else if (line.type == "rer")
+                                name = "RER_";
+                            name += line.number.toUpperCase();
+                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}} key={i} />);
+                        })}
+                            {station.name}
+                        </p>);
+                }))}
+            </div>
+        );
+    },
+    renderMap: function () {
+        var business = this.props.business || {};
+
+        return <Map location={business.gps} className="map container-fluid" />;
+    },
     book: function (date) {
         var business = this.props.business || {};
         var pathParams = {businessId: business.id, businessSlug: business.slug};
@@ -96,3 +138,14 @@ module.exports = React.createClass({
         this.navToLink('business_booking', pathParams, queryParams);
     }
 });
+
+Sidebar = connectToStores(Sidebar, [
+    'StationStore'
+], function (context, props) {
+    var business = props.business;
+    return {
+        stations: business && context.getStore('StationStore').getNearby(business.gps)
+    };
+});
+
+module.exports = Sidebar;

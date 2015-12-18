@@ -25,7 +25,6 @@ var BusinessPage = React.createClass({
                 {this.renderServices()}
                 {this.renderDescription()}
                 {this.renderDiscounts()}
-                {this.renderLocation()}
             </Layout>
         );
     },
