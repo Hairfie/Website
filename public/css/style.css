@@ -11026,7 +11026,6 @@ section.home-footer .row > div {
     .salon#content #carousel-salon .carousel-inner .item {
       height: 470px;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
-      background-size: cover;
       background: none; }
       @media screen and (max-width: 767px) {
         .salon#content #carousel-salon .carousel-inner .item {
@@ -11035,11 +11034,9 @@ section.home-footer .row > div {
         margin: auto; }
       .salon#content #carousel-salon .carousel-inner .item.placeholder {
         height: 470px;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
-        background-size: cover; }
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x; }
       .salon#content #carousel-salon .carousel-inner .item img {
         background-repeat: no-repeat;
-        background-size: cover;
         background-position: 50% 50%;
         background-color: #838B95;
         width: 100%;
