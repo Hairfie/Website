@@ -45,33 +45,30 @@ module.exports = React.createClass({
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
-        var open;
-
-        if (!_.isEmpty(timetable)) {
-          if (!timetable[today] || _.isEmpty(timetable[today]))
-            open = <h2>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></h2>;
-          else
-            open = <h2>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></h2>;
-        } else {
-            open = null;
-        }
 
         return (
             <section className="salon-info">
               <div className="row">
                 <div className="col-sm-8">
                   <h2>{displayAddress}</h2>
-                  {open}
-                  <div className="visible-xs">
-                    {this.renderTimetable()}
+                  <div className="horaires">
+                    <a role="button" onClick={this.handleDisplayTimetable}>
+                      <h3>
+                        {timetable[today] && !_.isEmpty(timetable[today]) ? 'OUVERT' : 'FERMÉ'}
+                      </h3>
+                      <span className="today">
+                      {DateTimeConstants.weekDayLabel(today)}
+                        { _.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
+                            return t.startTime + ' - ' + t.endTime;
+                        }).join(" / ") + ' >'}
+                      </span>
+                      {this.renderTimetable()}
+                    </a>
                   </div>
                   {this.renderAveragePrice()}
                 </div>
                 <div className="col-sm-4" style={{padding: '0', paddingRight: '15px', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
-                  <div className="hidden-xs">
-                    {this.renderTimetable()}
-                  </div>
                 </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>

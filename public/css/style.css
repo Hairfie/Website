@@ -11117,6 +11117,35 @@ section.home-footer .row > div {
         .salon#content .main-content section.salon-info .prix span.glyphicon, .salon#content .main-content section.salon-info .tags span.glyphicon {
           color: #595959;
           width: 1.4em; }
+      .salon#content .main-content section.salon-info .horaires {
+        margin-bottom: 15px;
+        padding: 10px; }
+        .salon#content .main-content section.salon-info .horaires * {
+          display: inline-block;
+          margin: 0; }
+        .salon#content .main-content section.salon-info .horaires a {
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+          position: relative; }
+          .salon#content .main-content section.salon-info .horaires a h3 {
+            color: #fe5b5f;
+            font-weight: bold;
+            border: solid black;
+            padding: 10px;
+            border-radius: 5px;
+            padding-right: 20px; }
+          .salon#content .main-content section.salon-info .horaires a .today {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            margin-left: -10px;
+            height: 100%;
+            width: 100%;
+            position: absolute; }
+            .salon#content .main-content section.salon-info .horaires a .today span {
+              height: 100%;
+              vertical-align: middle;
+              margin-top: 15%; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }

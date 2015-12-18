@@ -156,6 +156,41 @@
 					color: $font-color; width: 1.4em;
 				}
 			}
+			.horaires {
+    			margin-bottom: 15px;
+    			padding: 10px;
+    				* { 
+    					display: inline-block;
+    					margin: 0;
+    				}
+					a { 
+						text-decoration: none;
+						color: black;
+						font-weight: bold;
+						position: relative;
+					h3 {
+						color: $hairfie;
+						font-weight: bold;
+						border: solid black;
+    					padding: 10px;
+    					border-radius: 5px;
+    					padding-right: 20px;
+					}
+					.today {
+						background-color: $bg3;
+						border-radius: 5px;
+						margin-left: -10px;
+						height: 100%;
+    					width: 100%;
+    					position: absolute;
+    					span {	
+    					    height: 100%;
+   							vertical-align: middle;
+   							margin-top: 15%;
+    					}
+					}
+				}
+			}
 		}
 	}
 	section.salon-content {
