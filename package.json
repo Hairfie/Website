@@ -3,7 +3,7 @@
   "version": "0.6.0",
   "engines": {
     "node": "5.3.x",
-    "npm": "3.3.x"
+    "npm": "3.5.x"
   },
   "private": true,
   "scripts": {
