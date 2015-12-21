@@ -50,9 +50,9 @@ module.exports = React.createClass({
 
         if (!_.isEmpty(timetable)) {
           if (!timetable[today] || _.isEmpty(timetable[today]))
-            open = <h2>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></h2>;
+            open = <p>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></p>;
           else
-            open = <h2>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></h2>;
+            open = <p>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></p>;
         } else {
             open = null;
         }
@@ -60,15 +60,15 @@ module.exports = React.createClass({
         return (
             <section className="salon-info">
               <div className="row">
-                <div className="col-sm-8" style={displayProfilePicture ? {paddingLeft: '70px'} : {'paddingLeft': '0px'}}>
-                  <h2>{displayAddress}</h2>
+                <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
+                  <p>{displayAddress}</p>
                   {open}
                   <div className="visible-xs">
                     {this.renderTimetable()}
                   </div>
                   {this.renderAveragePrice()}
                 </div>
-                <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3" style={{padding: '0', paddingRight: '15px', marginTop: '-5px'}}>
+                <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', paddingRight: '15px', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
                   <div className="hidden-xs">
                     {this.renderTimetable()}

@@ -47,7 +47,7 @@ var Layout = React.createClass({
                     <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
                             <div className="col-sm-12 col-md-8" style={{overflow: 'auto', padding: '0'}}>
-                                <div className={"col-xs-8" + (displayProfilePicture ? " col-lg-offset-1" : "")} style={displayProfilePicture ? {paddingLeft: '20px'} : {}}>
+                                <div className={"col-xs-8" + (displayProfilePicture ? " profilePicture" : "")}>
                                     <h1>{business.name}</h1>
                                 </div>
                                 <div className="col-xs-4 col-lg-3">

@@ -11016,26 +11016,30 @@ section.home-footer .row > div {
           .salon#content #carousel-salon .carousel-info .star {
             width: 10px;
             margin: 1px; } }
-      .salon#content #carousel-salon .carousel-info div:first-child {
+      .salon#content #carousel-salon .carousel-info div div:first-child {
         padding-left: 0; }
         @media screen and (max-width: 767px) {
-          .salon#content #carousel-salon .carousel-info div:first-child {
+          .salon#content #carousel-salon .carousel-info div div:first-child {
             padding-left: 15px; } }
-      .salon#content #carousel-salon .carousel-info div:nth-child(2) {
+        @media screen and (min-width: 1200px) {
+          .salon#content #carousel-salon .carousel-info div div:first-child.profilePicture {
+            padding-left: 120px; } }
+      .salon#content #carousel-salon .carousel-info div div:nth-child(2) {
         position: absolute;
         right: 0;
         bottom: 0; }
       .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
-        color: white; }
+        color: white;
+        letter-spacing: 0px; }
         @media screen and (max-width: 767px) {
           .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
             font-size: 2.1em; } }
       .salon#content #carousel-salon .carousel-info img {
         z-index: 1;
         position: absolute;
-        width: 140px;
+        width: 120px;
         bottom: -60px;
-        left: -70px;
+        left: 0px;
         border-style: solid;
         border-width: 5px;
         border-color: white;
@@ -11090,6 +11094,9 @@ section.home-footer .row > div {
       position: relative;
       width: 100%;
       padding-top: 16px; }
+      .salon#content .main-content section.salon-info p {
+        font-size: 1.6em;
+        font-weight: 200; }
       .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
         color: #fe5b5f;
         border: solid;
@@ -11108,21 +11115,13 @@ section.home-footer .row > div {
         .salon#content .main-content section.salon-info .row {
           padding-left: 15px; } }
       .salon#content .main-content section.salon-info .row:first-child {
-        width: auto;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px; }
-        @media screen and (max-width: 991px) {
-          .salon#content .main-content section.salon-info .row:first-child {
-            margin-top: 0;
-            padding-left: 15px;
-            border-radius: 0px; } }
-        .salon#content .main-content section.salon-info .row:first-child h1 {
-          margin-top: 0;
-          color: white;
-          margin-bottom: 35px; }
-          @media screen and (max-width: 991px) {
-            .salon#content .main-content section.salon-info .row:first-child h1 {
-              color: black; } }
+        padding-left: 0px; }
+        @media screen and (min-width: 1200px) {
+          .salon#content .main-content section.salon-info .row:first-child .profilePicture {
+            padding-left: 120px; } }
+      @media screen and (min-width: 768px) {
+        .salon#content .main-content section.salon-info .avis {
+          float: right; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }

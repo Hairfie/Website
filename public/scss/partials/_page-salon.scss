@@ -46,12 +46,17 @@
 				}
 				margin: 2px;
 			}
-			div {
+			div div {
 				&:first-child {
 					@media screen and (max-width: $screen-xs-max) {
 						padding-left: 15px;
 					}
 					padding-left: 0;
+					&.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 120px;
+		   				}
+					}
 				}
 				&:nth-child(2) {
 					position: absolute;
@@ -61,6 +66,7 @@
 			}
 			h1, a {
 				color: white;
+				letter-spacing: 0px;
 				@media screen and (max-width: $screen-xs-max) {
 					font-size: 2.1em;
 				}
@@ -71,9 +77,9 @@
 				}
 				z-index: 1;
 				position: absolute;
-				width: 140px;
+				width: 120px;
 				bottom: -60px;
-				left: -70px;
+				left: 0px;
 				border-style: solid;
 				border-width: 5px;
 				border-color: white;
@@ -114,6 +120,10 @@
 		background-color: white;
 		@include fullWidthBg($bg3);
 		section.salon-info	{
+			p {
+				font-size: 1.6em;
+    			font-weight: 200;
+			}
 			margin-left: -15px;
 			position: relative;
 			width: 100%;
@@ -142,24 +152,19 @@
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
 				}
-			}
-			.row:first-child {
-				width: auto;
-				border-top-left-radius: 4px;
-				border-top-right-radius: 4px;
-				@media screen and (max-width: $screen-sm-max) {
-					margin-top: 0;
-					padding-left: 15px;
-					border-radius: 0px;
-				}
-				h1 {
-					margin-top: 0;
-					color: white;
-					margin-bottom: 35px;
-					@media screen and (max-width: $screen-sm-max) {
-						color: black;
+				&:first-child {
+					padding-left: 0px;
+					.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 120px;
+		   				}
 					}
 				}
+			}
+			.avis {
+				@media screen and (min-width: $screen-sm-min) {
+   					float: right;
+   				}
 			}
 
 			.prix, .tags {
