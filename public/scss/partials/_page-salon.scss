@@ -1,47 +1,148 @@
 /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/
-#carousel-salon .carousel-inner .item {
-	height: 470px;
-	background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
-	background-size: cover;
-	background: none;
 
-	@media screen and (max-width: $screen-xs-max) {
-		height: 320px;
-	}
-
-	img, a > img {
-  		margin: auto;
-	}
-
-	&.placeholder {
-		height: 470px;
-		background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
-		background-size: cover;
-	}
-
-	img {
-		background-repeat: no-repeat;
-	    background-size: cover;
-	    background-position: 50% 50%;
-	    background-color: #838B95;
-	    width: 100%;
-	    height: 100%;
+.salon#content.free {
+	#carousel-salon .carousel-inner .item {
+		height: 255px;
+		&.placeholder {
+			height: 255px;
+		}
 	}
 }
+
+.salon#content.basic {
+
+}
+
+.salon#content.premium {
+
+}
+
 .salon#content {
+	#carousel-salon.noPicture .carousel-inner .item {
+		height: 255px;
+		&.placeholder {
+			height: 255px;
+		}
+	}
+	h3 {
+		color: $hairfie;
+	}
+	.nav {
+		margin: 0;
+		li a {
+			padding: 0;
+			padding-top: 40px;
+		}
+	}
+	background-color: white;
+	#carousel-salon {
+		position: relative;
+		.carousel-info {
+			padding: 0;
+			left: 0;
+			right: 0;
+			position: absolute;
+			bottom: 0px;
+			.star {
+				@media screen and (max-width: $screen-xs-max) {
+					width: 10px;
+					margin: 1px;
+				}
+				margin: 2px;
+			}
+			div div {
+				&:first-child {
+					@media screen and (max-width: $screen-xs-max) {
+						padding-left: 15px;
+					}
+					padding-left: 0;
+					&.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 125px;
+		   				}
+					}
+				}
+				&:nth-child(2) {
+					position: absolute;
+    				right: 0;
+    				bottom: 0;
+				}
+			}
+			h1, a {
+				color: white;
+				letter-spacing: 0px;
+				@media screen and (max-width: $screen-xs-max) {
+					font-size: 2.1em;
+				}
+			}
+			img {
+				@media screen and (max-width: $screen-md-max) {
+					display: none;
+				}
+				z-index: 1;
+				position: absolute;
+				width: 120px;
+				bottom: -60px;
+				left: 0px;
+				border-style: solid;
+				border-width: 5px;
+				border-color: white;
+				border-radius: 100%;
+			}
+		}
+		.carousel-inner .item {
+			height: 470px;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
+			background-size: cover;
+			background: none;
+
+			@media screen and (max-width: $screen-xs-max) {
+				height: 320px;
+			}
+
+			img, a > img {
+		  		margin: auto;
+			}
+
+			&.placeholder {
+				height: 470px;
+				background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
+			}
+
+			img {
+				background-repeat: no-repeat;
+			    background-size: cover;
+			    background-position: 50% 50%;
+			    background-color: #838B95;
+			    width: 100%;
+			    height: 100%;
+			}
+		}
+	}
 	.main-content {
 		position: relative;
-		min-height: 100vh;
+		background-color: white;
 		@include fullWidthBg($bg3);
-
 		section.salon-info	{
+			p {
+				font-size: 1.6em;
+    			font-weight: 200;
+    			margin-bottom: 5px;
+			}
+			margin-left: -15px;
 			position: relative;
-			background-color: white;
 			width: 100%;
   			padding-top: 16px;
 
+			a.btn {
+				color: $hairfie;
+    			border: solid;
+    			border-width: 3px;
+    			width: 100%;
+   				border-radius: 20px;
+			}
   			div.timetable {
   				font-size: small;
   				margin-top: 15px;
@@ -55,28 +156,25 @@
   				}
   			}
 			.row {
-				background-color: white;
-				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
 				}
-			}
-			.row:first-child {
-				margin-top: -105px; // for -90 offset
-				width: auto;
-				padding-top: 30px;
-				padding-left: 35px;
-				border-top-left-radius: 4px;
-				border-top-right-radius: 4px;
-				@media screen and (max-width: $screen-sm-max) {
-					margin-top: 0;
-					padding-left: 15px;
-					border-radius: 0px;
+				&:first-child {
+					padding-left: 0px;
+					.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 125px;
+		   				}
+					}
 				}
-				h1 {margin-top: 0;}
+			}
+			.avis {
+				@media screen and (min-width: $screen-sm-min) {
+   					float: right;
+   				}
 			}
 
-			.prix, .horraires, .tags {
+			.prix, .tags {
 				font-size: 1.077em;
 				letter-spacing: 1px;
 
@@ -90,11 +188,6 @@
 
 				span.glyphicon {
 					color: $font-color; width: 1.4em;
-				}
-			}
-			.horraires {
-				.opened, .closed {
-					font-weight: $semiBold;
 				}
 			}
 		}
@@ -131,8 +224,6 @@
 			}
 		}
 		section {
-			padding-left: 50px;
-			padding-right: 50px;
 			@media screen and (max-width: $screen-xs-max) {
 				padding-left: 15px;
 				padding-right: 15px;
@@ -142,6 +233,15 @@
 			h4 {
 				color: #343434;
 			}
+			h3 {
+				margin-left: -15px;
+			}
+			.row {
+				border-left-style: solid;
+				border-color: $bg2;
+				border-width: 5px;
+				padding-left: 15px;
+			}
 			&:nth-child(4) {
 				h4 {
 					text-transform: uppercase;
@@ -150,6 +250,21 @@
 				p {
 					letter-spacing: 1px;
 				}
+			}
+			.similar {
+				margin-right: 0px;
+				h4 {
+					color: $hairfie;
+				}
+				a {
+					text-decoration: none;
+					p {
+						color: black;
+					}
+				}
+				padding-top: 15px;
+				padding-bottom: 15px;
+				background-color: $bg3;
 			}
 			.coiffeur {
 				img {
@@ -190,15 +305,6 @@
 					}
 				}
 			}
-
-			.map {
-				height: 247px;
-				width: auto;
-				background: url(../img/placeholder-map.jpg) no-repeat center center;
-				margin: 30px -50px 0;
-				background-size:cover;
-			}
-
 		}
 		#avis .row {
 			padding-left: 15px;
@@ -208,7 +314,35 @@
 		}
 	}
 	.sidebar {
-		margin-top: -90px;
+		.btn-red, .btn-book {
+			height: 46px;
+			display: block;
+			font-weight: $semiBold;
+			font-size: 1.9em;
+			width: 100%;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding-top: 10px;
+			@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+			@media screen and (max-width: $screen-sm-max) {
+				bottom: 0;
+				left: 0;
+				position: fixed;
+				width:100%;
+				z-index: 10000;
+				margin-bottom: 0px;
+			}
+		}
+		section#location {
+			margin-top: 50px;
+			.map {
+				height: 247px;
+				background: url(../img/placeholder-map.jpg) no-repeat center center;
+				background-size:cover;
+			}
+		}
+		margin-top: 12px;
 		@include fullWidthBg($bg3);
 		@media screen and (max-width: $screen-sm-max) {
 			width: 100%;
@@ -220,39 +354,25 @@
 			}
 		}
 		.phone {
-				@media screen and (max-width: $screen-sm-max) {
-    				bottom: 0;
-    				left: 0;
-    				position: fixed;
-    				width:100%;
-    				z-index: 9000;
-				}
-			.btn-red, .btn-book {
+			margin-top: 95px;
+			.btn-phone {
 				position: relative;
-				display: block;
 				width: 100%;
-				padding: 20px 0 20px 0;
-				font-size: 2.1em;
-				font-weight: $semiBold;
-				margin-bottom: 10px;
-				@media screen and (max-width: $screen-sm-max) {
-					margin-bottom: 0px;
-				}
-				@include box-shadow(0 1px 3px rgba(0,0,0,0.1));
-				//#gradient@include vertical(#fc5b62;#d7474d;);
-				@include gradient-vertical(#fc5b62, #d7474d);
-				&:active {
-					//#gradient@include vertical(#d7474d; #fc5b62;);
-					@include gradient-vertical(#d7474d, #fc5b62);
-				}
+				height: 50px;
+				color: $hairfie;
+				font-size: 2em;
+    			border: $hairfie;
+			    border-width: 3px;
+			    border-style: solid;
+			    border-radius: 2px;
 				&:after {
 					content: " ";
-					background: url(../img/icon-phone.png) no-repeat center center;
+					background: url(../img/phone-red.png) no-repeat center center;
 					position: absolute;
 					width: 25px;
 					height: 25px;
-					left: 20px;
-					top: 21px;
+					left: 50px;
+					top: 10px;
 
 					@media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
 						left: 20px;
@@ -268,17 +388,35 @@
 		}
 
 		.promo-sidebar {
+			position: relative;
+			img {
+				border-radius: 5px;
+				@include filter(brightness(50%));
+			}
 			.inline-promo {
-				background-color: white;
+				top: 0;
+				position: absolute;
 				font-size: 2.1em !important;
-				padding: 20px;
-				margin: 10px auto;
-				text-align: left;
+				text-align: center;
+				color: white;
 				width: 100%;
-				border-radius: 3px;
-				padding-left: 35px;
-				border: 1px solid $border-color;
-				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+				margin-top: 30px;
+				p {
+					font-weight: bold;
+					margin-top: 0;
+					&:first-child {
+						font-size: 3.1em;
+					}
+					&:nth-child(2) {
+						margin-top: -30px;
+					}
+				}
+				img {
+					margin-top: -10px;
+					@include filter(none);
+					border-radius: 0;
+
+				}
 				.icon-promo {
 					float:none;margin-right: 10px;
 				}
@@ -287,25 +425,6 @@
 				}
 				@media screen and (max-width: $screen-sm-max) {
   					text-align: center;
-				}
-			}
-			.btn-red, .btn-book {
-				display: block;
-				font-weight: $semiBold;
-				font-size: 1.9em;
-				width: 100%;
-				margin-bottom: 10px;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				padding-top: 20px;padding-bottom: 20px;
-				@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
-				@media screen and (max-width: $screen-sm-max) {
-    				bottom: 0;
-    				left: 0;
-    				position: fixed;
-    				width:100%;
-    				z-index: 10000;
-    				margin-bottom: 0px;
 				}
 			}
 		}
@@ -439,17 +558,5 @@
 				}
 			}
 		}
-	}
-}
-
-.request-review {
-	font-weight: 400;
-	font-size: 1.6em;
-	color: $font-color;
-	margin-right: 5px;
-	text-decoration: underline;
-
-	@media screen and (max-width: $screen-md-max)  {
-		float: left !important;
 	}
 }

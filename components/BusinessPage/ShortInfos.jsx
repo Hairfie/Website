@@ -6,27 +6,8 @@ var Link = require('../Link.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
+var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 moment.locale('fr');
-
-var Rating = React.createClass({
-    render: function () {
-        var business = this.props.business || {};
-        if (!business.numReviews) return <span />;
-
-        var rating = Math.round(business.rating / 100 * 5);
-
-        return (
-            <div className="stars">
-                {_.map([1, 2, 3, 4, 5], function (starValue) {
-                    return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
-                })}
-                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis  hidden-md">
-                    {business.numReviews+' avis'}
-                </Link>
-            </div>
-        );
-    }
-});
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -65,38 +46,30 @@ module.exports = React.createClass({
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
-        var linkToMap = _.isEmpty(address) ? null : <div onClick={function() {$('html,body').animate({ scrollTop: $("#location").offset().top}, 'slow');}}><Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} fragment="location" className="linkToMap" preserveScrollPosition={true}>(Voir la carte)</Link></div>;
         var open;
 
         if (!_.isEmpty(timetable)) {
           if (!timetable[today] || _.isEmpty(timetable[today]))
-            open = <h2>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></h2>;
+            open = <p>Horaires d'ouverture: <a className="red" role="button" onClick={this.handleDisplayTimetable}>Fermé aujourd'hui</a></p>;
           else
-            open = <h2>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></h2>;
+            open = <p>Horaires d'ouverture: <a className="green" role="button" onClick={this.handleDisplayTimetable}>Ouvert aujourd'hui</a></p>;
         } else {
             open = null;
         }
-
+        var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         return (
             <section className="salon-info">
               <div className="row">
-                <div className="col-sm-8">
-                  <h1>{business.name}</h1>
+                <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
+                  <p>{displayAddress}</p>
                   {open}
                   <div className="visible-xs">
                     {this.renderTimetable()}
                   </div>
-                  <h2>{displayAddress} {linkToMap}</h2>
                   {this.renderAveragePrice()}
                 </div>
-                <div className="col-sm-4" style={{padding: '0', paddingRight: '15px'}}>
-                  <Rating business={business} />
-                  <div style={{overflow: 'auto'}}>
-                    <Link route="write_business_review" className="pull-right request-review"
-                      query={{businessId: this.props.business.id}}>
-                      {business.numReviews > 0 ? 'Déposez un avis' : 'Soyez le 1er à déposer un avis'}
-                    </Link>
-                  </div>
+                <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
+                  <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
                   <div className="hidden-xs">
                     {this.renderTimetable()}
                   </div>
