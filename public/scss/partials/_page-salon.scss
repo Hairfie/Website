@@ -34,6 +34,7 @@
 	#carousel-salon {
 		position: relative;
 		.carousel-info {
+			padding: 0;
 			left: 0;
 			right: 0;
 			position: absolute;
@@ -45,10 +46,18 @@
 				}
 			}
 			div {
+				&:first-child {
+					padding-left: 0;
+				}
 				&:nth-child(2) {
 					position: absolute;
     				right: 0;
     				bottom: 0;
+				}
+			}
+			div.profilePicture {
+				&:first-child {
+					padding-left: 30px;
 				}
 			}
 			h1, a {

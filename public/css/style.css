@@ -11005,6 +11005,7 @@ section.home-footer .row > div {
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
+      padding: 0;
       left: 0;
       right: 0;
       position: absolute;
@@ -11013,10 +11014,14 @@ section.home-footer .row > div {
         .salon#content #carousel-salon .carousel-info .star {
           width: 10px;
           margin: 1px; } }
+      .salon#content #carousel-salon .carousel-info div:first-child {
+        padding-left: 0; }
       .salon#content #carousel-salon .carousel-info div:nth-child(2) {
         position: absolute;
         right: 0;
         bottom: 0; }
+      .salon#content #carousel-salon .carousel-info div.profilePicture:first-child {
+        padding-left: 30px; }
       .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
         color: white; }
         @media screen and (max-width: 767px) {

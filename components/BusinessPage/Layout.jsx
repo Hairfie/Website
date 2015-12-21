@@ -40,6 +40,7 @@ var Layout = React.createClass({
         }
 
         var business = this.props.business;
+        var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
 
         return (
             <ParentLayout>
@@ -48,7 +49,7 @@ var Layout = React.createClass({
                     <div id="carousel-salon">
                     <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
-                            <div className="col-sm-12 col-md-8" style={{overflow: 'auto'}}>
+                            <div className={"col-sm-12 col-md-8" + (displayProfilePicture ? " profilePicture" : "")} style={{overflow: 'auto', padding: '0'}}>
                                 <div className="col-xs-8">
                                     <h1>{business.name}</h1>
                                 </div>
@@ -57,7 +58,7 @@ var Layout = React.createClass({
                                 </div>
                             </div>
                             {
-                                business.profilePicture && business.accountType != businessAccountTypes.FREE ?
+                                displayProfilePicture ?
                                     <Picture picture={business.profilePicture} 
                                          options={{
                                             width: 340,
