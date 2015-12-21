@@ -39,6 +39,7 @@ var Layout = React.createClass({
         var business = this.props.business;
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
 
+        console.log(displayProfilePicture);
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
