@@ -389,6 +389,7 @@
 
 		.promo-sidebar {
 			position: relative;
+			margin-bottom: 80px;
 			img {
 				border-radius: 5px;
 				@include filter(brightness(50%));

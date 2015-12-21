@@ -11306,7 +11306,8 @@ section.home-footer .row > div {
             .salon#content .sidebar .phone .btn-phone:after {
               left: 25px; } }
     .salon#content .sidebar .promo-sidebar {
-      position: relative; }
+      position: relative;
+      margin-bottom: 80px; }
       .salon#content .sidebar .promo-sidebar img {
         border-radius: 5px;
         -webkit-filter: brightness(50%);
