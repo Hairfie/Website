@@ -26,7 +26,7 @@ module.exports = React.createClass({
         }, this);
         if (items.length == 0) items.push(<div className="item active placeholder" />);
         return (
-            <div {...this.props} className={"carousel slide" + (this.props.addClass ? (" " + this.props.addClass) : "")} data-ride="carousel" data-interval="false">
+            <div {...this.props} className={"carousel slide" + (this.props.className ? (" " + this.props.className) : "")} data-ride="carousel" data-interval="false">
                 <div className="carousel-inner" role="listbox">
                     {items}
                 </div>
