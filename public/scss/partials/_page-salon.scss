@@ -44,6 +44,7 @@
 					width: 10px;
 					margin: 1px;
 				}
+				margin: 2px;
 			}
 			div {
 				&:first-child {
@@ -65,14 +66,14 @@
 				}
 			}
 			img {
-				@media screen and (max-width: 1450px) {
+				@media screen and (max-width: $screen-md-max) {
 					display: none;
 				}
 				z-index: 1;
 				position: absolute;
-				width: 14em;
+				width: 140px;
 				bottom: -60px;
-				left: -120px;
+				left: -70px;
 				border-style: solid;
 				border-width: 5px;
 				border-color: white;
@@ -113,6 +114,7 @@
 		background-color: white;
 		@include fullWidthBg($bg3);
 		section.salon-info	{
+			margin-left: -15px;
 			position: relative;
 			width: 100%;
   			padding-top: 16px;
@@ -137,14 +139,12 @@
   				}
   			}
 			.row {
-				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
 				}
 			}
 			.row:first-child {
 				width: auto;
-				padding-left: 35px;
 				border-top-left-radius: 4px;
 				border-top-right-radius: 4px;
 				@media screen and (max-width: $screen-sm-max) {

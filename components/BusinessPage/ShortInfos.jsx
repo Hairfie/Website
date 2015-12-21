@@ -6,6 +6,7 @@ var Link = require('../Link.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
+var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 moment.locale('fr');
 
 var ShareButton = React.createClass({
@@ -55,11 +56,11 @@ module.exports = React.createClass({
         } else {
             open = null;
         }
-
+        var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         return (
             <section className="salon-info">
               <div className="row">
-                <div className="col-sm-8">
+                <div className="col-sm-8" style={displayProfilePicture ? {paddingLeft: '70px'} : {'paddingLeft': '0px'}}>
                   <h2>{displayAddress}</h2>
                   {open}
                   <div className="visible-xs">

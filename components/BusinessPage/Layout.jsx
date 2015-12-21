@@ -25,9 +25,6 @@ var Rating = React.createClass({
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
-                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis hidden-xs hidden-md">
-                    {business.numReviews+' avis'}
-                </Link>
             </div>
         );
     }
@@ -50,10 +47,10 @@ var Layout = React.createClass({
                     <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
                             <div className="col-sm-12 col-md-8" style={{overflow: 'auto', padding: '0'}}>
-                                <div className="col-xs-8" style={displayProfilePicture ? {paddingLeft: '30px'} : {}}>
+                                <div className={"col-xs-8" + (displayProfilePicture ? " col-lg-offset-1" : "")} style={displayProfilePicture ? {paddingLeft: '20px'} : {}}>
                                     <h1>{business.name}</h1>
                                 </div>
-                                <div className="col-xs-4">
+                                <div className="col-xs-4 col-lg-3">
                                     <Rating business={business} />
                                 </div>
                             </div>
