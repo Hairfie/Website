@@ -11203,7 +11203,8 @@ section.home-footer .row > div {
           text-decoration: underline; }
       .salon#content section.salon-content section .table-price {
         border: 1px solid #f9f9f9;
-        margin-left: 0; }
+        margin-left: 0;
+        margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
           border: 1px solid #f9f9f9;
           padding: 12px 0 12px 24px;
