@@ -20,6 +20,12 @@
 }
 
 .salon#content {
+	#carousel-salon.noPicture .carousel-inner .item {
+		height: 255px;
+		&.placeholder {
+			height: 255px;
+		}
+	}
 	h3 {
 		color: $hairfie;
 	}
@@ -54,7 +60,7 @@
 					padding-left: 0;
 					&.profilePicture {
 						@media screen and (min-width: $screen-lg-min) {
-		   					padding-left: 120px;
+		   					padding-left: 125px;
 		   				}
 					}
 				}
@@ -123,6 +129,7 @@
 			p {
 				font-size: 1.6em;
     			font-weight: 200;
+    			margin-bottom: 5px;
 			}
 			margin-left: -15px;
 			position: relative;
@@ -156,7 +163,7 @@
 					padding-left: 0px;
 					.profilePicture {
 						@media screen and (min-width: $screen-lg-min) {
-		   					padding-left: 120px;
+		   					padding-left: 125px;
 		   				}
 					}
 				}

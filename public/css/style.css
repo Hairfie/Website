@@ -10995,6 +10995,10 @@ section.home-footer .row > div {
 
 .salon#content {
   background-color: white; }
+  .salon#content #carousel-salon.noPicture .carousel-inner .item {
+    height: 255px; }
+    .salon#content #carousel-salon.noPicture .carousel-inner .item.placeholder {
+      height: 255px; }
   .salon#content h3 {
     color: #fe5b5f; }
   .salon#content .nav {
@@ -11023,7 +11027,7 @@ section.home-footer .row > div {
             padding-left: 15px; } }
         @media screen and (min-width: 1200px) {
           .salon#content #carousel-salon .carousel-info div div:first-child.profilePicture {
-            padding-left: 120px; } }
+            padding-left: 125px; } }
       .salon#content #carousel-salon .carousel-info div div:nth-child(2) {
         position: absolute;
         right: 0;
@@ -11096,7 +11100,8 @@ section.home-footer .row > div {
       padding-top: 16px; }
       .salon#content .main-content section.salon-info p {
         font-size: 1.6em;
-        font-weight: 200; }
+        font-weight: 200;
+        margin-bottom: 5px; }
       .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
         color: #fe5b5f;
         border: solid;
@@ -11118,7 +11123,7 @@ section.home-footer .row > div {
         padding-left: 0px; }
         @media screen and (min-width: 1200px) {
           .salon#content .main-content section.salon-info .row:first-child .profilePicture {
-            padding-left: 120px; } }
+            padding-left: 125px; } }
       @media screen and (min-width: 768px) {
         .salon#content .main-content section.salon-info .avis {
           float: right; } }
