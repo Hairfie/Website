@@ -58,11 +58,6 @@
     				bottom: 0;
 				}
 			}
-			div.profilePicture {
-				&:first-child {
-					padding-left: 30px;
-				}
-			}
 			h1, a {
 				color: white;
 				@media screen and (max-width: $screen-xs-max) {
@@ -384,6 +379,7 @@
 			position: relative;
 			img {
 				border-radius: 5px;
+				@include filter(brightness(50%));
 			}
 			.inline-promo {
 				top: 0;
@@ -404,7 +400,10 @@
 					}
 				}
 				img {
-					margin-top: 35px;
+					margin-top: -10px;
+					@include filter(none);
+					border-radius: 0;
+
 				}
 				.icon-promo {
 					float:none;margin-right: 10px;

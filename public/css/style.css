@@ -11023,8 +11023,6 @@ section.home-footer .row > div {
         position: absolute;
         right: 0;
         bottom: 0; }
-      .salon#content #carousel-salon .carousel-info div.profilePicture:first-child {
-        padding-left: 30px; }
       .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
         color: white; }
         @media screen and (max-width: 767px) {
@@ -11306,7 +11304,12 @@ section.home-footer .row > div {
     .salon#content .sidebar .promo-sidebar {
       position: relative; }
       .salon#content .sidebar .promo-sidebar img {
-        border-radius: 5px; }
+        border-radius: 5px;
+        -webkit-filter: brightness(50%);
+        -moz-filter: brightness(50%);
+        -ms-filter: brightness(50%);
+        -o-filter: brightness(50%);
+        filter: brightness(50%); }
       .salon#content .sidebar .promo-sidebar .inline-promo {
         top: 0;
         position: absolute;
@@ -11323,7 +11326,13 @@ section.home-footer .row > div {
           .salon#content .sidebar .promo-sidebar .inline-promo p:nth-child(2) {
             margin-top: -30px; }
         .salon#content .sidebar .promo-sidebar .inline-promo img {
-          margin-top: 35px; }
+          margin-top: -10px;
+          -webkit-filter: none;
+          -moz-filter: none;
+          -ms-filter: none;
+          -o-filter: none;
+          filter: none;
+          border-radius: 0; }
         .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
           float: none;
           margin-right: 10px; }

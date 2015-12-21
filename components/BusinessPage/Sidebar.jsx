@@ -47,8 +47,7 @@ var Sidebar = React.createClass({
 
         return (
             <div className="promo-sidebar">
-                <Picture picture={_.last(this.props.business.pictures)}
-                    options={{effect: 'brightness:-50'}}
+                <Picture picture={{url: '/img/promo-bg.jpg'}}
                     style={{width: '100%'}}
                     placeholder="/img/placeholder-640.png" />
                 <div className="inline-promo">
