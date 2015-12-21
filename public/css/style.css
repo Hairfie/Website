@@ -10997,6 +10997,8 @@ section.home-footer .row > div {
   background-color: white; }
   .salon#content h3 {
     color: #fe5b5f; }
+  .salon#content .nav li a {
+    padding: 0; }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
@@ -11004,6 +11006,10 @@ section.home-footer .row > div {
       right: 0;
       position: absolute;
       bottom: 0px; }
+      @media screen and (max-width: 767px) {
+        .salon#content #carousel-salon .carousel-info .star {
+          width: 10px;
+          margin: 1px; } }
       .salon#content #carousel-salon .carousel-info div:nth-child(2) {
         position: absolute;
         right: 0;
@@ -11070,7 +11076,7 @@ section.home-footer .row > div {
       width: 100%;
       padding-top: 16px; }
       .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
-        color: red;
+        color: #fe5b5f;
         border: solid;
         border-width: 3px;
         width: 100%;
