@@ -345,13 +345,6 @@
 		}
 		.phone {
 			margin-top: 95px;
-			@media screen and (max-width: $screen-sm-max) {
-    			bottom: 0;
-    			left: 0;
-   				position: fixed;
-    			width:100%;
-    			z-index: 9000;
-			}
 			.btn-phone {
 				position: relative;
 				width: 100%;

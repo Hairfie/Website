@@ -11273,13 +11273,6 @@ section.home-footer .row > div {
           display: none; } }
     .salon#content .sidebar .phone {
       margin-top: 95px; }
-      @media screen and (max-width: 991px) {
-        .salon#content .sidebar .phone {
-          bottom: 0;
-          left: 0;
-          position: fixed;
-          width: 100%;
-          z-index: 9000; } }
       .salon#content .sidebar .phone .btn-phone {
         position: relative;
         width: 100%;
