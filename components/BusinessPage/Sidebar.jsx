@@ -66,15 +66,27 @@ var Sidebar = React.createClass({
     renderPhoneNumber: function() {
         var business = this.props.business;
         if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
+
+        var link = null;
+        if (this.state.displayPhone) {
+            link = (<a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-phone">
+                {business.phoneNumber}
+            </a>);
+        }
+        else {
+            link = (<a role="button" className="btn btn-phone" onClick={this.trackCall}>
+                {this.state.displayPhone ? business.phoneNumber : "Afficher le numéro"}
+            </a>);
+        }
+
         return (
             <div className="phone">
-                <a role="button" className="btn btn-phone" onClick={this.trackCall}>
-                    {this.state.displayPhone ? business.phoneNumber : "Afficher le numéro"}
-                </a>
+                {link}
             </div>
         );
     },
-    trackCall: function() {
+    trackCall: function(e) {
+        e.preventDefault();
         if(ga) {
             ga('send', {
               hitType: 'event',
