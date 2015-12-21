@@ -11016,6 +11016,9 @@ section.home-footer .row > div {
           margin: 1px; } }
       .salon#content #carousel-salon .carousel-info div:first-child {
         padding-left: 0; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info div:first-child {
+            padding-left: 15px; } }
       .salon#content #carousel-salon .carousel-info div:nth-child(2) {
         position: absolute;
         right: 0;

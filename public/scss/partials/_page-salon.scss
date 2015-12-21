@@ -47,6 +47,9 @@
 			}
 			div {
 				&:first-child {
+					@media screen and (max-width: $screen-xs-max) {
+						padding-left: 15px;
+					}
 					padding-left: 0;
 				}
 				&:nth-child(2) {
