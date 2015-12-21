@@ -11016,6 +11016,9 @@ section.home-footer .row > div {
         bottom: 0; }
       .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
         color: white; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+            font-size: 2.1em; } }
       .salon#content #carousel-salon .carousel-info img {
         z-index: 1;
         position: absolute;
