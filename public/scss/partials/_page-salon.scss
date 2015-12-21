@@ -23,8 +23,12 @@
 	h3 {
 		color: $hairfie;
 	}
-	.nav li a {
-		padding: 0;
+	.nav {
+		margin: 0;
+		li a {
+			padding: 0;
+			padding-top: 40px;
+		}
 	}
 	background-color: white;
 	#carousel-salon {

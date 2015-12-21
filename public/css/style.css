@@ -10997,8 +10997,11 @@ section.home-footer .row > div {
   background-color: white; }
   .salon#content h3 {
     color: #fe5b5f; }
-  .salon#content .nav li a {
-    padding: 0; }
+  .salon#content .nav {
+    margin: 0; }
+    .salon#content .nav li a {
+      padding: 0;
+      padding-top: 40px; }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
