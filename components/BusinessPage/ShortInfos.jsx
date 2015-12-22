@@ -83,18 +83,24 @@ module.exports = React.createClass({
         );
     },
     renderAveragePrice: function () {
-        var price = this.props.business && this.props.business.averagePrice || {};
+        var business = this.props.business || {};
 
-        if (!price.men && !price.women) return;
+        if (!business) return null;
+
+        var i = 0;
+        var price = [];
+        for (i = 0; i < 4; i++) {
+          if (i < business.priceLevel) {
+            price.push(<span className="glyphicon glyphicon-euro"></span>);
+          }
+          else {
+            price.push(<span className="glyphicon glyphicon-euro" style={{opacity: 0.5}}></span>);
+          }
+        }
 
         return (
             <p>
-                <span className="glyphicon glyphicon-euro"></span>
-                {price.men ? 'Homme ' : ''}
-                {price.men ? <span>&nbsp;{Math.round(price.men)}€</span> : ''}
-                {price.men && price.women ? <span>&nbsp;-&nbsp;</span> : ''}
-                {price.women ? 'Femme' : ''}
-                {price.women ? <span>&nbsp;{Math.round(price.women)}€</span> : ''}
+                {price}
             </p>
         );
     },
