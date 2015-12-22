@@ -1,9 +1,9 @@
 {
   "name": "Website",
-  "version": "0.6.0",
+  "version": "0.7.2",
   "engines": {
-    "node": "5.1.x",
-    "npm": "3.3.x"
+    "node": "5.3.x",
+    "npm": "3.5.x"
   },
   "private": true,
   "scripts": {

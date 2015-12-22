@@ -7,6 +7,8 @@ var Picture = require('./Partial/Picture.jsx');
 var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
 var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
+var SimilarBusinesses = require('./BusinessPage/SimilarBusinesses.jsx');
+var businessAccountTypes = require('../constants/BusinessAccountTypes');
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
 var dayPositions = {MON: 0, TUE: 1, WED: 2, THU: 3, FRI: 4, SAT: 5, SUN: 6};
@@ -18,13 +20,17 @@ var BusinessPage = React.createClass({
     render: function () {
         return (
             <Layout business={this.props.business} tab="infos">
+                {this.renderSimilar()}
                 {this.renderHairdressers()}
-                {this.renderServices()}
                 {this.renderDescription()}
+                {this.renderServices()}
                 {this.renderDiscounts()}
-                {this.renderLocation()}
             </Layout>
         );
+    },
+    renderSimilar: function() {
+        if (!this.props.business || (this.props.business.accountType != businessAccountTypes.FREE)) return null;
+        return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
     },
     renderHairdressers: function () {
         var hairdressers = this.props.hairdressers || [];
@@ -46,17 +52,41 @@ var BusinessPage = React.createClass({
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
-                <div className="row table-price">
-                    {_.map(services, function (service) {
-                        return (
-                            <div key={service.id}>
-                                <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
-                            </div>
-                        );
-                    })}
+                <div className="row">
+                    <div className="row table-price">
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: "FEMALE"})) ? ' hidden' : '')}>
+                            <p>POUR ELLE</p>
+                        </div>
+                        {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: "MALE"})) ? ' hidden' : '')}>
+                            <p>POUR LUI</p>
+                        </div>
+                        {_.map(_.where(services, {gender: "MALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: ""})) ? ' hidden' : '')}>
+                        </div>
+                        {_.map(_.where(services, {gender: ""}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <br />
+                    <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
                 </div>
-                <br />
-                <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
             </section>
         );
     },
@@ -131,12 +161,14 @@ var BusinessPage = React.createClass({
         return (
             <section>
                 <h3>Description du salon</h3>
-                <h4>{description.geoTitle}</h4>
-                <p>{description.geoText}</p>
-                <h4>{description.proTitle}</h4>
-                <p>{description.proText}</p>
-                <h4>{description.businessTitle}</h4>
-                <p>{description.businessText}</p>
+                <div className="row">
+                    <h4>{description.geoTitle}</h4>
+                    <p>{description.geoText}</p>
+                    <h4>{description.proTitle}</h4>
+                    <p>{description.proText}</p>
+                    <h4>{description.businessTitle}</h4>
+                    <p>{description.businessText}</p>
+                </div>
             </section>
         );
     }
@@ -151,6 +183,7 @@ BusinessPage = connectToStores(BusinessPage, [
     var business = context.getStore('BusinessStore').getById(props.route.params.businessId);
     return {
         business: business,
+        similarBusinesses: context.getStore('BusinessStore').getSimilar(props.route.params.businessId),
         hairdressers: context.getStore('HairdresserStore').getByBusiness(props.route.params.businessId),
         services: context.getStore('BusinessServiceStore').getByBusiness(props.route.params.businessId),
         discounts: context.getStore('BusinessStore').getDiscountForBusiness(props.route.params.businessId),

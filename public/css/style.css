@@ -10988,422 +10988,495 @@ section.home-footer .row > div {
 /*////////////////////////////////
 	   P A G E  S A L O N
 ////////////////////////////////*/
-#carousel-salon .carousel-inner .item {
-  height: 470px;
-  background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
-  background-size: cover;
-  background: none; }
-  @media screen and (max-width: 767px) {
-    #carousel-salon .carousel-inner .item {
-      height: 320px; } }
-  #carousel-salon .carousel-inner .item img, #carousel-salon .carousel-inner .item a > img {
-    margin: auto; }
-  #carousel-salon .carousel-inner .item.placeholder {
-    height: 470px;
-    background: url(../img/placeholder-salon-img.jpg) no-repeat center center;
-    background-size: cover; }
-  #carousel-salon .carousel-inner .item img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-color: #838B95;
-    width: 100%;
-    height: 100%; }
+.salon#content.free #carousel-salon .carousel-inner .item {
+  height: 255px; }
+  .salon#content.free #carousel-salon .carousel-inner .item.placeholder {
+    height: 255px; }
 
-.salon#content .main-content {
-  position: relative;
-  min-height: 100vh;
-  position: relative; }
-  .salon#content .main-content:before {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    left: -100vw;
-    top: 0;
-    background: #f4f4f4;
-    z-index: -1; }
-  .salon#content .main-content:after {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    right: -100vw;
-    top: 0;
-    background: #f4f4f4;
-    z-index: -1; }
-  .salon#content .main-content section.salon-info {
+.salon#content {
+  background-color: white; }
+  .salon#content #carousel-salon.noPicture .carousel-inner .item {
+    height: 255px; }
+    .salon#content #carousel-salon.noPicture .carousel-inner .item.placeholder {
+      height: 255px; }
+  .salon#content h3 {
+    color: #fe5b5f; }
+  .salon#content .nav {
+    margin: 0; }
+    .salon#content .nav li a {
+      padding: 0;
+      padding-top: 40px; }
+  .salon#content #carousel-salon {
+    position: relative; }
+    .salon#content #carousel-salon .carousel-info {
+      padding: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      bottom: 0px; }
+      .salon#content #carousel-salon .carousel-info .star {
+        margin: 2px; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info .star {
+            width: 10px;
+            margin: 1px; } }
+      .salon#content #carousel-salon .carousel-info div div:first-child {
+        padding-left: 0; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info div div:first-child {
+            padding-left: 15px; } }
+        @media screen and (min-width: 1200px) {
+          .salon#content #carousel-salon .carousel-info div div:first-child.profilePicture {
+            padding-left: 125px; } }
+      .salon#content #carousel-salon .carousel-info div div:nth-child(2) {
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+      .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+        color: white;
+        letter-spacing: 0px; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+            font-size: 2.1em; } }
+      .salon#content #carousel-salon .carousel-info img {
+        z-index: 1;
+        position: absolute;
+        width: 120px;
+        bottom: -60px;
+        left: 0px;
+        border-style: solid;
+        border-width: 5px;
+        border-color: white;
+        border-radius: 100%; }
+        @media screen and (max-width: 1199px) {
+          .salon#content #carousel-salon .carousel-info img {
+            display: none; } }
+    .salon#content #carousel-salon .carousel-inner .item {
+      height: 470px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
+      background-size: cover;
+      background: none; }
+      @media screen and (max-width: 767px) {
+        .salon#content #carousel-salon .carousel-inner .item {
+          height: 320px; } }
+      .salon#content #carousel-salon .carousel-inner .item img, .salon#content #carousel-salon .carousel-inner .item a > img {
+        margin: auto; }
+      .salon#content #carousel-salon .carousel-inner .item.placeholder {
+        height: 470px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x; }
+      .salon#content #carousel-salon .carousel-inner .item img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-color: #838B95;
+        width: 100%;
+        height: 100%; }
+  .salon#content .main-content {
     position: relative;
     background-color: white;
-    width: 100%;
-    padding-top: 16px; }
-    .salon#content .main-content section.salon-info div.timetable {
-      font-size: small;
-      margin-top: 15px; }
-      .salon#content .main-content section.salon-info div.timetable span {
-        padding: 0; }
-      @media screen and (max-width: 480px) {
-        .salon#content .main-content section.salon-info div.timetable span.extra-small {
-          width: 20%; } }
-    .salon#content .main-content section.salon-info .row {
-      background-color: white;
-      padding-left: 35px; }
+    position: relative; }
+    .salon#content .main-content:before {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      left: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    .salon#content .main-content:after {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      right: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    .salon#content .main-content section.salon-info {
+      margin-left: -15px;
+      position: relative;
+      width: 100%;
+      padding-top: 16px; }
+      .salon#content .main-content section.salon-info p {
+        font-size: 1.6em;
+        font-weight: 200;
+        margin-bottom: 5px; }
+      .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
+        color: #fe5b5f;
+        border: solid;
+        border-width: 3px;
+        width: 100%;
+        border-radius: 20px; }
+      .salon#content .main-content section.salon-info div.timetable {
+        font-size: small;
+        margin-top: 15px; }
+        .salon#content .main-content section.salon-info div.timetable span {
+          padding: 0; }
+        @media screen and (max-width: 480px) {
+          .salon#content .main-content section.salon-info div.timetable span.extra-small {
+            width: 20%; } }
       @media screen and (max-width: 767px) {
         .salon#content .main-content section.salon-info .row {
           padding-left: 15px; } }
-    .salon#content .main-content section.salon-info .row:first-child {
-      margin-top: -105px;
-      width: auto;
-      padding-top: 30px;
-      padding-left: 35px;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px; }
-      @media screen and (max-width: 991px) {
-        .salon#content .main-content section.salon-info .row:first-child {
-          margin-top: 0;
-          padding-left: 15px;
-          border-radius: 0px; } }
-      .salon#content .main-content section.salon-info .row:first-child h1 {
-        margin-top: 0; }
-    .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .horraires, .salon#content .main-content section.salon-info .tags {
-      font-size: 1.077em;
-      letter-spacing: 1px; }
-      .salon#content .main-content section.salon-info .prix .small, .salon#content .main-content section.salon-info .horraires .small, .salon#content .main-content section.salon-info .tags .small {
-        font-size: 0.9em;
-        color: #595959; }
-        .salon#content .main-content section.salon-info .prix .small:hover, .salon#content .main-content section.salon-info .horraires .small:hover, .salon#content .main-content section.salon-info .tags .small:hover {
+      .salon#content .main-content section.salon-info .row:first-child {
+        padding-left: 0px; }
+        @media screen and (min-width: 1200px) {
+          .salon#content .main-content section.salon-info .row:first-child .profilePicture {
+            padding-left: 125px; } }
+      @media screen and (min-width: 768px) {
+        .salon#content .main-content section.salon-info .avis {
+          float: right; } }
+      .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
+        font-size: 1.077em;
+        letter-spacing: 1px; }
+        .salon#content .main-content section.salon-info .prix .small, .salon#content .main-content section.salon-info .tags .small {
+          font-size: 0.9em;
           color: #595959; }
-      .salon#content .main-content section.salon-info .prix span.glyphicon, .salon#content .main-content section.salon-info .horraires span.glyphicon, .salon#content .main-content section.salon-info .tags span.glyphicon {
-        color: #595959;
-        width: 1.4em; }
-    .salon#content .main-content section.salon-info .horraires .opened, .salon#content .main-content section.salon-info .horraires .closed {
-      font-weight: 600; }
-
-.salon#content section.salon-content {
-  margin-top: 20px;
-  margin-bottom: 70px; }
-  .salon#content section.salon-content h5 {
-    font-family: "Source Sans Pro", sans-serif; }
-  .salon#content section.salon-content > .row {
-    background-color: white; }
-  .salon#content section.salon-content ul.nav li:first-child .icon-nav {
-    background: url(../img/icon-salon-nav1.jpg) no-repeat center center; }
-  .salon#content section.salon-content ul.nav li:nth-child(2) .icon-nav {
-    background: url(../img/icon-salon-nav2.jpg) no-repeat center center; }
-  .salon#content section.salon-content ul.nav li:last-child {
-    border-right: none; }
-    .salon#content section.salon-content ul.nav li:last-child .icon-nav {
-      background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
-  .salon#content section.salon-content section {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 35px;
-    border-bottom: 2px solid #f9f9f9; }
-    @media screen and (max-width: 767px) {
-      .salon#content section.salon-content section {
-        padding-left: 15px;
-        padding-right: 15px; } }
-    .salon#content section.salon-content section h4 {
-      color: #343434; }
-    .salon#content section.salon-content section:nth-child(4) h4 {
-      text-transform: uppercase;
-      letter-spacing: 2px; }
-    .salon#content section.salon-content section:nth-child(4) p {
-      letter-spacing: 1px; }
-    .salon#content section.salon-content section .coiffeur img {
-      display: block;
-      width: 14em;
-      border-radius: 100%;
-      margin: 0 auto 20px;
-      border: 10px solid #f0f0f1; }
-    .salon#content section.salon-content section .coiffeur p > a {
-      font-size: 1em;
-      color: #343434;
-      text-align: center;
-      letter-spacing: 1px;
-      width: 100%;
-      display: block; }
-      .salon#content section.salon-content section .coiffeur p > a:hover {
-        color: #1b1b1b;
-        text-decoration: underline; }
-    .salon#content section.salon-content section .table-price {
-      border: 1px solid #f9f9f9;
-      margin-left: 0; }
-      .salon#content section.salon-content section .table-price div {
-        border: 1px solid #f9f9f9;
-        padding: 12px 0 12px 24px;
-        text-align: center; }
-        .salon#content section.salon-content section .table-price div p {
-          margin-bottom: 2px;
-          text-align: left;
-          color: #343434;
-          font-size: 1.4em; }
-          .salon#content section.salon-content section .table-price div p span {
-            text-decoration: underline; }
-    .salon#content section.salon-content section .map {
-      height: 247px;
-      width: auto;
-      background: url(../img/placeholder-map.jpg) no-repeat center center;
-      margin: 30px -50px 0;
-      background-size: cover; }
-  .salon#content section.salon-content #avis .row {
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 0;
-    padding-bottom: 0; }
-
-.salon#content .sidebar {
-  margin-top: -90px;
-  position: relative; }
-  .salon#content .sidebar:before {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    left: -100vw;
-    top: 0;
-    background: #f4f4f4;
-    z-index: -1; }
-  .salon#content .sidebar:after {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    right: -100vw;
-    top: 0;
-    background: #f4f4f4;
-    z-index: -1; }
-  @media screen and (max-width: 991px) {
-    .salon#content .sidebar {
-      width: 100%; } }
-  .salon#content .sidebar .calendar {
-    margin-bottom: 10px; }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .calendar {
-        display: none; } }
-  @media screen and (max-width: 991px) {
-    .salon#content .sidebar .phone {
-      bottom: 0;
-      left: 0;
-      position: fixed;
-      width: 100%;
-      z-index: 9000; } }
-  .salon#content .sidebar .phone .btn-red, .salon#content .sidebar .phone .btn-book {
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 20px 0 20px 0;
-    font-size: 2.1em;
-    font-weight: 600;
-    margin-bottom: 10px;
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    background-image: -webkit-linear-gradient(top, #fc5b62 0%, #d7474d 100%);
-    background-image: -o-linear-gradient(top, #fc5b62 0%, #d7474d 100%);
-    background-image: linear-gradient(to bottom, #fc5b62 0%, #d7474d 100%);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFC5B62', endColorstr='#FFD7474D', GradientType=0); }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .phone .btn-red, .salon#content .sidebar .phone .btn-book {
-        margin-bottom: 0px; } }
-    .salon#content .sidebar .phone .btn-red:active, .salon#content .sidebar .phone .btn-book:active {
-      background-image: -webkit-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
-      background-image: -o-linear-gradient(top, #d7474d 0%, #fc5b62 100%);
-      background-image: linear-gradient(to bottom, #d7474d 0%, #fc5b62 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD7474D', endColorstr='#FFFC5B62', GradientType=0); }
-    .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-      content: " ";
-      background: url(../img/icon-phone.png) no-repeat center center;
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      left: 20px;
-      top: 21px; }
-      @media screen and (min-width: 991px) and (max-width: 1199px) {
-        .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-          left: 20px; } }
-      @media screen and (max-width: 768px) {
-        .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-          left: 20%; } }
-      @media screen and (max-width: 767px) {
-        .salon#content .sidebar .phone .btn-red:after, .salon#content .sidebar .phone .btn-book:after {
-          left: 25px; } }
-  .salon#content .sidebar .promo-sidebar .inline-promo {
-    background-color: white;
-    font-size: 2.1em !important;
-    padding: 20px;
-    margin: 10px auto;
-    text-align: left;
-    width: 100%;
-    border-radius: 3px;
-    padding-left: 35px;
-    border: 1px solid #f9f9f9;
-    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
-    .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
-      float: none;
-      margin-right: 10px; }
-    @media screen and (max-width: 767px) {
-      .salon#content .sidebar .promo-sidebar .inline-promo {
-        font-size: 1.6em !important; } }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .promo-sidebar .inline-promo {
-        text-align: center; } }
-  .salon#content .sidebar .promo-sidebar .btn-red, .salon#content .sidebar .promo-sidebar .btn-book {
-    display: block;
-    font-weight: 600;
-    font-size: 1.9em;
-    width: 100%;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .promo-sidebar .btn-red, .salon#content .sidebar .promo-sidebar .btn-book {
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 10000;
-        margin-bottom: 0px; } }
-  .salon#content .sidebar .related-content {
-    background: white;
-    border-radius: 3px;
-    border: 1px solid #f9f9f9;
-    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 5px 20px 0px 20px;
-    margin-top: 15px;
-    margin-bottom: 20px; }
-    @media screen and (max-width: 991px) {
-      .salon#content .sidebar .related-content {
-        margin-top: 0; } }
-    @media screen and (max-width: 767px) {
-      .salon#content .sidebar .related-content {
-        padding-left: 30px; } }
-    .salon#content .sidebar .related-content h5 {
-      color: #595959;
-      font-size: 1.6em;
-      border-bottom: 1px solid #f9f9f9;
-      padding-bottom: 15px;
-      letter-spacing: 1px; }
-    .salon#content .sidebar .related-content .rival {
-      padding: 20px 0;
-      border-bottom: 1px solid #f9f9f9; }
-      .salon#content .sidebar .related-content .rival:last-child {
-        border: none; }
-      .salon#content .sidebar .related-content .rival a:first-child {
-        padding-left: 15px;
-        padding-right: 15px;
-        width: initial;
-        float: left;
-        overflow: hidden; }
-        @media screen and (max-width: 767px) {
-          .salon#content .sidebar .related-content .rival a:first-child {
-            padding-left: 0; } }
-      .salon#content .sidebar .related-content .rival a:nth-child(2) {
-        font-size: 1.4em;
-        color: #595959;
-        font-weight: 200;
-        padding-left: 0; }
-        .salon#content .sidebar .related-content .rival a:nth-child(2) span:first-child {
-          display: block;
-          font-weight: 600;
-          letter-spacing: .5px;
-          text-transform: uppercase; }
-      .salon#content .sidebar .related-content .rival p:nth-child(3) {
-        line-height: 26px;
-        font-weight: 400;
-        color: #f39c12;
-        text-align: left;
-        padding-top: 45px;
-        margin-bottom: 0px; }
-        .salon#content .sidebar .related-content .rival p:nth-child(3) .icon-promo {
-          width: 26px;
-          height: 26px;
-          line-height: 26px;
-          background-size: 100%;
-          margin-right: 10px; }
-      .salon#content .sidebar .related-content .rival p:nth-child(4) {
-        padding-left: 38px;
-        letter-spacing: .5px;
-        display: inline-block;
-        margin-bottom: 0; }
-  .salon#content .sidebar .networks {
-    margin-bottom: 60px; }
-    @media screen and (max-width: 767px) {
-      .salon#content .sidebar .networks {
-        padding-left: 0;
-        padding-right: 0; } }
-    .salon#content .sidebar .networks p {
-      text-align: center;
-      color: #595959;
-      font-size: 2.1em;
-      font-weight: 400;
-      letter-spacing: 2px;
-      margin-bottom: 0;
-      margin-top: 0; }
-    .salon#content .sidebar .networks .social-links {
-      padding: 20px;
-      margin: 10px auto;
-      width: 280px;
-      margin-left: 8%;
-      margin-left: calc(50% - 140px); }
-      .salon#content .sidebar .networks .social-links li {
-        margin-right: 10px; }
-        .salon#content .sidebar .networks .social-links li:last-child {
-          margin-right: 0; }
-        .salon#content .sidebar .networks .social-links li a {
-          width: 38px;
-          box-sizing: border-box;
+          .salon#content .main-content section.salon-info .prix .small:hover, .salon#content .main-content section.salon-info .tags .small:hover {
+            color: #595959; }
+        .salon#content .main-content section.salon-info .prix span.glyphicon, .salon#content .main-content section.salon-info .tags span.glyphicon {
           color: #595959;
-          border-color: #595959;
-          position: relative;
-          -webkit-transition: all 0.25s ease;
-          -moz-transition: all 0.25s ease;
-          -ms-transition: all 0.25s ease;
-          -o-transition: all 0.25s ease; }
-          .salon#content .sidebar .networks .social-links li a:after {
-            content: " ";
-            position: absolute;
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
-            border-radius: 100%;
-            border: 2px solid #595959;
-            left: -2px;
-            top: -2px;
-            opacity: 0;
+          width: 1.4em; }
+  .salon#content section.salon-content {
+    margin-top: 20px;
+    margin-bottom: 70px; }
+    .salon#content section.salon-content h5 {
+      font-family: "Source Sans Pro", sans-serif; }
+    .salon#content section.salon-content > .row {
+      background-color: white; }
+    .salon#content section.salon-content ul.nav li:first-child .icon-nav {
+      background: url(../img/icon-salon-nav1.jpg) no-repeat center center; }
+    .salon#content section.salon-content ul.nav li:nth-child(2) .icon-nav {
+      background: url(../img/icon-salon-nav2.jpg) no-repeat center center; }
+    .salon#content section.salon-content ul.nav li:last-child {
+      border-right: none; }
+      .salon#content section.salon-content ul.nav li:last-child .icon-nav {
+        background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
+    .salon#content section.salon-content section {
+      padding-bottom: 35px;
+      border-bottom: 2px solid #f9f9f9; }
+      @media screen and (max-width: 767px) {
+        .salon#content section.salon-content section {
+          padding-left: 15px;
+          padding-right: 15px; } }
+      .salon#content section.salon-content section h4 {
+        color: #343434;
+        margin-bottom: 3px; }
+      .salon#content section.salon-content section h3 {
+        margin-left: -15px; }
+      .salon#content section.salon-content section .row {
+        border-left-style: solid;
+        border-color: #f0f0f1;
+        border-width: 5px;
+        padding-left: 15px; }
+      .salon#content section.salon-content section:nth-child(4) h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px; }
+      .salon#content section.salon-content section:nth-child(4) p {
+        letter-spacing: 1px; }
+      .salon#content section.salon-content section .similar {
+        margin-right: 0px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #f4f4f4; }
+        .salon#content section.salon-content section .similar h4 {
+          color: #fe5b5f; }
+        .salon#content section.salon-content section .similar a {
+          text-decoration: none; }
+          .salon#content section.salon-content section .similar a p {
+            color: black; }
+      .salon#content section.salon-content section .coiffeur img {
+        display: block;
+        width: 14em;
+        border-radius: 100%;
+        margin: 0 auto 20px;
+        border: 10px solid #f0f0f1; }
+      .salon#content section.salon-content section .coiffeur p > a {
+        font-size: 1em;
+        color: #343434;
+        text-align: center;
+        letter-spacing: 1px;
+        width: 100%;
+        display: block; }
+        .salon#content section.salon-content section .coiffeur p > a:hover {
+          color: #1b1b1b;
+          text-decoration: underline; }
+      .salon#content section.salon-content section .table-price {
+        border: 0px;
+        padding-left: 0;
+        margin-left: -16px;
+        margin-right: 15px; }
+        .salon#content section.salon-content section .table-price div {
+          padding-left: 24px;
+          height: 20px; }
+          .salon#content section.salon-content section .table-price div.title {
+            height: 35px; }
+            .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
+              line-height: 35px; }
+          .salon#content section.salon-content section .table-price div:nth-child(2n) {
+            background-color: #f4f4f4; }
+          .salon#content section.salon-content section .table-price div p {
+            margin-bottom: 2px;
+            text-align: left;
+            color: #343434;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            font-weight: bolder;
+            color: #898989; }
+    .salon#content section.salon-content #avis .row {
+      padding-left: 15px;
+      padding-right: 15px;
+      border: 0;
+      padding-bottom: 0; }
+  .salon#content .sidebar {
+    margin-top: 12px;
+    position: relative; }
+    .salon#content .sidebar .btn-red, .salon#content .sidebar .btn-book {
+      height: 46px;
+      display: block;
+      font-weight: 600;
+      font-size: 1.9em;
+      width: 100%;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-top: 10px;
+      -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); }
+      @media screen and (max-width: 991px) {
+        .salon#content .sidebar .btn-red, .salon#content .sidebar .btn-book {
+          bottom: 0;
+          left: 0;
+          position: fixed;
+          width: 100%;
+          z-index: 10000;
+          margin-bottom: 0px; } }
+    .salon#content .sidebar section#location {
+      margin-bottom: 20px; }
+      .salon#content .sidebar section#location .map {
+        height: 247px;
+        background: url(../img/placeholder-map.jpg) no-repeat center center;
+        background-size: cover; }
+    .salon#content .sidebar:before {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      left: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    .salon#content .sidebar:after {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      right: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    @media screen and (max-width: 991px) {
+      .salon#content .sidebar {
+        width: 100%; } }
+    .salon#content .sidebar .calendar {
+      margin-bottom: 10px; }
+      @media screen and (max-width: 991px) {
+        .salon#content .sidebar .calendar {
+          display: none; } }
+    .salon#content .sidebar .phone {
+      margin-bottom: 20px; }
+      .salon#content .sidebar .phone .btn-phone {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #fe5b5f;
+        font-size: 2em;
+        border: #fe5b5f;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 2px; }
+        .salon#content .sidebar .phone .btn-phone:after {
+          content: " ";
+          background: url(../img/phone-red.png) no-repeat center center;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          left: 50px;
+          top: 10px; }
+          @media screen and (min-width: 991px) and (max-width: 1199px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 20px; } }
+          @media screen and (max-width: 768px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 20%; } }
+          @media screen and (max-width: 767px) {
+            .salon#content .sidebar .phone .btn-phone:after {
+              left: 25px; } }
+    .salon#content .sidebar .promo-sidebar {
+      position: relative;
+      margin-bottom: 80px; }
+      .salon#content .sidebar .promo-sidebar img {
+        border-radius: 4px;
+        -webkit-filter: brightness(50%);
+        -moz-filter: brightness(50%);
+        -ms-filter: brightness(50%);
+        -o-filter: brightness(50%);
+        filter: brightness(50%); }
+      .salon#content .sidebar .promo-sidebar .inline-promo {
+        top: 0;
+        position: absolute;
+        font-size: 2.1em !important;
+        text-align: center;
+        color: white;
+        width: 100%;
+        margin-top: 30px; }
+        .salon#content .sidebar .promo-sidebar .inline-promo p {
+          font-weight: bold;
+          margin-top: 0; }
+          .salon#content .sidebar .promo-sidebar .inline-promo p:first-child {
+            font-size: 3.1em; }
+          .salon#content .sidebar .promo-sidebar .inline-promo p:nth-child(2) {
+            margin-top: -30px; }
+        .salon#content .sidebar .promo-sidebar .inline-promo img {
+          margin-top: -10px;
+          -webkit-filter: none;
+          -moz-filter: none;
+          -ms-filter: none;
+          -o-filter: none;
+          filter: none;
+          border-radius: 0; }
+        .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
+          float: none;
+          margin-right: 10px; }
+        @media screen and (max-width: 767px) {
+          .salon#content .sidebar .promo-sidebar .inline-promo {
+            font-size: 1.6em !important; } }
+        @media screen and (max-width: 991px) {
+          .salon#content .sidebar .promo-sidebar .inline-promo {
+            text-align: center; } }
+    .salon#content .sidebar .related-content {
+      background: white;
+      border-radius: 3px;
+      border: 1px solid #f9f9f9;
+      -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 5px 20px 0px 20px;
+      margin-top: 15px;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 991px) {
+        .salon#content .sidebar .related-content {
+          margin-top: 0; } }
+      @media screen and (max-width: 767px) {
+        .salon#content .sidebar .related-content {
+          padding-left: 30px; } }
+      .salon#content .sidebar .related-content h5 {
+        color: #595959;
+        font-size: 1.6em;
+        border-bottom: 1px solid #f9f9f9;
+        padding-bottom: 15px;
+        letter-spacing: 1px; }
+      .salon#content .sidebar .related-content .rival {
+        padding: 20px 0;
+        border-bottom: 1px solid #f9f9f9; }
+        .salon#content .sidebar .related-content .rival:last-child {
+          border: none; }
+        .salon#content .sidebar .related-content .rival a:first-child {
+          padding-left: 15px;
+          padding-right: 15px;
+          width: initial;
+          float: left;
+          overflow: hidden; }
+          @media screen and (max-width: 767px) {
+            .salon#content .sidebar .related-content .rival a:first-child {
+              padding-left: 0; } }
+        .salon#content .sidebar .related-content .rival a:nth-child(2) {
+          font-size: 1.4em;
+          color: #595959;
+          font-weight: 200;
+          padding-left: 0; }
+          .salon#content .sidebar .related-content .rival a:nth-child(2) span:first-child {
+            display: block;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-transform: uppercase; }
+        .salon#content .sidebar .related-content .rival p:nth-child(3) {
+          line-height: 26px;
+          font-weight: 400;
+          color: #f39c12;
+          text-align: left;
+          padding-top: 45px;
+          margin-bottom: 0px; }
+          .salon#content .sidebar .related-content .rival p:nth-child(3) .icon-promo {
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            background-size: 100%;
+            margin-right: 10px; }
+        .salon#content .sidebar .related-content .rival p:nth-child(4) {
+          padding-left: 38px;
+          letter-spacing: .5px;
+          display: inline-block;
+          margin-bottom: 0; }
+    .salon#content .sidebar .networks {
+      margin-bottom: 60px; }
+      @media screen and (max-width: 767px) {
+        .salon#content .sidebar .networks {
+          padding-left: 0;
+          padding-right: 0; } }
+      .salon#content .sidebar .networks p {
+        text-align: center;
+        color: #595959;
+        font-size: 2.1em;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin-bottom: 0;
+        margin-top: 0; }
+      .salon#content .sidebar .networks .social-links {
+        padding: 20px;
+        margin: 10px auto;
+        width: 280px;
+        margin-left: 8%;
+        margin-left: calc(50% - 140px); }
+        .salon#content .sidebar .networks .social-links li {
+          margin-right: 10px; }
+          .salon#content .sidebar .networks .social-links li:last-child {
+            margin-right: 0; }
+          .salon#content .sidebar .networks .social-links li a {
+            width: 38px;
+            box-sizing: border-box;
+            color: #595959;
+            border-color: #595959;
+            position: relative;
             -webkit-transition: all 0.25s ease;
             -moz-transition: all 0.25s ease;
             -ms-transition: all 0.25s ease;
             -o-transition: all 0.25s ease; }
-          .salon#content .sidebar .networks .social-links li a:hover {
-            -webkit-transition: all 0.25s ease;
-            -moz-transition: all 0.25s ease;
-            -ms-transition: all 0.25s ease;
-            -o-transition: all 0.25s ease;
-            color: #595959 !important;
-            background-color: transparent !important; }
-            .salon#content .sidebar .networks .social-links li a:hover:after {
-              opacity: 1; }
-
-.request-review {
-  font-weight: 400;
-  font-size: 1.6em;
-  color: #595959;
-  margin-right: 5px;
-  text-decoration: underline; }
-  @media screen and (max-width: 1199px) {
-    .request-review {
-      float: left !important; } }
+            .salon#content .sidebar .networks .social-links li a:after {
+              content: " ";
+              position: absolute;
+              width: calc(100% + 4px);
+              height: calc(100% + 4px);
+              border-radius: 100%;
+              border: 2px solid #595959;
+              left: -2px;
+              top: -2px;
+              opacity: 0;
+              -webkit-transition: all 0.25s ease;
+              -moz-transition: all 0.25s ease;
+              -ms-transition: all 0.25s ease;
+              -o-transition: all 0.25s ease; }
+            .salon#content .sidebar .networks .social-links li a:hover {
+              -webkit-transition: all 0.25s ease;
+              -moz-transition: all 0.25s ease;
+              -ms-transition: all 0.25s ease;
+              -o-transition: all 0.25s ease;
+              color: #595959 !important;
+              background-color: transparent !important; }
+              .salon#content .sidebar .networks .social-links li a:hover:after {
+                opacity: 1; }
 
 /*////////////////////////////////
       P A G E  H A I R F I E
