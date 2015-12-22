@@ -11161,7 +11161,8 @@ section.home-footer .row > div {
           padding-left: 15px;
           padding-right: 15px; } }
       .salon#content section.salon-content section h4 {
-        color: #343434; }
+        color: #343434;
+        margin-bottom: 3px; }
       .salon#content section.salon-content section h3 {
         margin-left: -15px; }
       .salon#content section.salon-content section .row {
