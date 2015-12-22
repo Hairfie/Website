@@ -22,8 +22,8 @@ var BusinessPage = React.createClass({
             <Layout business={this.props.business} tab="infos">
                 {this.renderSimilar()}
                 {this.renderHairdressers()}
-                {this.renderServices()}
                 {this.renderDescription()}
+                {this.renderServices()}
                 {this.renderDiscounts()}
             </Layout>
         );
