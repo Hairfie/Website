@@ -90,7 +90,7 @@ module.exports = React.createClass({
         var i = 0;
         var price = [];
         for (i = 0; i < 4; i++) {
-          if (i < business.priceLevel) {
+          if (i < (business.priceLevel || 0)) {
             price.push(<span className="glyphicon glyphicon-euro"></span>);
           }
           else {
