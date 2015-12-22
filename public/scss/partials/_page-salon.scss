@@ -288,20 +288,27 @@
 				}
 			}
 			.table-price {
-				border: 1px solid $border-color;
-				margin-left: 0;
+				border: 1px solid $bg3;
+				padding-left: 0;
+				margin-left: -16px;
 				margin-right: 15px;
 				div {
+					&:nth-child(2n + 1) {
+						background-color: $bg3;
+					}
 					border: 1px solid $border-color;
-					padding: 12px 0 12px 24px;
+					padding-left: 24px;
 					text-align: center;
+					height: 20px;
 					p {
 						margin-bottom: 2px;
 						text-align: left;
 						color: #343434;
 						font-size: 1.4em;
 						span {
-							text-decoration: underline;
+							text-transform: uppercase;
+							font-weight: bolder;
+							color: $lightgrey;
 						}
 					}
 				}
@@ -336,7 +343,7 @@
 			}
 		}
 		section#location {
-			margin-top: 50px;
+			margin-bottom: 20px;
 			.map {
 				height: 247px;
 				background: url(../img/placeholder-map.jpg) no-repeat center center;
@@ -355,7 +362,7 @@
 			}
 		}
 		.phone {
-			margin-top: 95px;
+			margin-bottom: 20px;
 			.btn-phone {
 				position: relative;
 				width: 100%;
@@ -392,7 +399,7 @@
 			position: relative;
 			margin-bottom: 80px;
 			img {
-				border-radius: 5px;
+				border-radius: 4px;
 				@include filter(brightness(50%));
 			}
 			.inline-promo {
