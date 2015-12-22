@@ -22,8 +22,8 @@ var BusinessPage = React.createClass({
             <Layout business={this.props.business} tab="infos">
                 {this.renderSimilar()}
                 {this.renderHairdressers()}
-                {this.renderServices()}
                 {this.renderDescription()}
+                {this.renderServices()}
                 {this.renderDiscounts()}
             </Layout>
         );
@@ -54,7 +54,29 @@ var BusinessPage = React.createClass({
                 <h3>Extrait des tarifs</h3>
                 <div className="row">
                     <div className="row table-price">
-                        {_.map(services, function (service) {
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: "FEMALE"})) ? ' hidden' : '')}>
+                            <p>POUR ELLE</p>
+                        </div>
+                        {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: "MALE"})) ? ' hidden' : '')}>
+                            <p>POUR LUI</p>
+                        </div>
+                        {_.map(_.where(services, {gender: "MALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        <div className={'title' + (_.isEmpty(_.where(services, {gender: ""})) ? ' hidden' : '')}>
+                        </div>
+                        {_.map(_.where(services, {gender: ""}), function (service) {
                             return (
                                 <div key={service.id}>
                                     <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
