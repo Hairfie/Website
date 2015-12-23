@@ -348,9 +348,14 @@
 		section#location {
 			margin-bottom: 20px;
 			.map {
-				height: 247px;
+				width: 100%;
 				background: url(../img/placeholder-map.jpg) no-repeat center center;
 				background-size:cover;
+				&:before{
+					content: "";
+					display: block;
+					padding-top: 100%; 	/* initial ratio of 1:1*/
+				}
 			}
 		}
 		margin-top: 12px;
