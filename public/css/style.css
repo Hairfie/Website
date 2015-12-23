@@ -11161,7 +11161,8 @@ section.home-footer .row > div {
           padding-left: 15px;
           padding-right: 15px; } }
       .salon#content section.salon-content section h4 {
-        color: #343434; }
+        color: #343434;
+        margin-bottom: 3px; }
       .salon#content section.salon-content section h3 {
         margin-left: -15px; }
       .salon#content section.salon-content section .row {
@@ -11202,20 +11203,27 @@ section.home-footer .row > div {
           color: #1b1b1b;
           text-decoration: underline; }
       .salon#content section.salon-content section .table-price {
-        border: 1px solid #f9f9f9;
-        margin-left: 0;
+        border: 0px;
+        padding-left: 0;
+        margin-left: -16px;
         margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
-          border: 1px solid #f9f9f9;
-          padding: 12px 0 12px 24px;
-          text-align: center; }
+          padding-left: 24px;
+          height: 20px; }
+          .salon#content section.salon-content section .table-price div.title {
+            height: 35px; }
+            .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
+              line-height: 35px; }
+          .salon#content section.salon-content section .table-price div:nth-child(2n) {
+            background-color: #f4f4f4; }
           .salon#content section.salon-content section .table-price div p {
             margin-bottom: 2px;
             text-align: left;
             color: #343434;
-            font-size: 1.4em; }
-            .salon#content section.salon-content section .table-price div p span {
-              text-decoration: underline; }
+            font-size: 1.4em;
+            text-transform: uppercase;
+            font-weight: bolder;
+            color: #898989; }
     .salon#content section.salon-content #avis .row {
       padding-left: 15px;
       padding-right: 15px;
@@ -11246,11 +11254,16 @@ section.home-footer .row > div {
           z-index: 10000;
           margin-bottom: 0px; } }
     .salon#content .sidebar section#location {
-      margin-top: 50px; }
+      margin-bottom: 20px; }
       .salon#content .sidebar section#location .map {
-        height: 247px;
+        width: 100%;
         background: url(../img/placeholder-map.jpg) no-repeat center center;
         background-size: cover; }
+        .salon#content .sidebar section#location .map:before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+          /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
       content: " ";
       width: 200vw;
@@ -11278,7 +11291,7 @@ section.home-footer .row > div {
         .salon#content .sidebar .calendar {
           display: none; } }
     .salon#content .sidebar .phone {
-      margin-top: 95px; }
+      margin-bottom: 20px; }
       .salon#content .sidebar .phone .btn-phone {
         position: relative;
         width: 100%;
@@ -11310,7 +11323,7 @@ section.home-footer .row > div {
       position: relative;
       margin-bottom: 80px; }
       .salon#content .sidebar .promo-sidebar img {
-        border-radius: 5px;
+        border-radius: 4px;
         -webkit-filter: brightness(50%);
         -moz-filter: brightness(50%);
         -ms-filter: brightness(50%);
