@@ -85,7 +85,7 @@ module.exports = React.createClass({
     renderAveragePrice: function () {
         var business = this.props.business || {};
 
-        if (!business) return null;
+        if (!business || !business.priceLevel) return null;
 
         var i = 0;
         var price = [];
