@@ -48,7 +48,7 @@ var BusinessPage = React.createClass({
     },
     renderServices: function () {
         var services = this.props.services || [];
-
+        if (!services || _.isEmpty(services)) return null;
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
