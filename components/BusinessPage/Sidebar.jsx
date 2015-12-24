@@ -97,10 +97,13 @@ var Sidebar = React.createClass({
         this.setState({displayPhone: true});
     },
     renderSimilarBusinesses: function () {
-        if (!this.props.similarBusinesses) return null;
-        if (this.props.business && this.props.business.accountType != businessAccountTypes.BASIC) return null;
+        if (!this.props.business || !this.props.similarBusinesses) return null;
 
-        return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
+        if ((this.props.business.accountType == businessAccountTypes.BASIC) 
+            || (this.props.business.accountType == businessAccountTypes.FREE && this.props.tab != 'infos')) {
+            return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
+        }
+        return null;
     },
     renderLocation: function () {
         return (

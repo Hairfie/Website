@@ -108,6 +108,7 @@ var Layout = React.createClass({
                         <Sidebar
                             business={this.props.business}
                             similarBusinesses={this.props.similarBusinesses}
+                            tab={this.props.tab}
                             />
                     </div>
                 </div>
