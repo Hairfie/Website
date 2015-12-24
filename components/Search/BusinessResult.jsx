@@ -3,6 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
+var PriceRating = require('../Partial/PriceRating.jsx');
 var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
@@ -131,30 +132,14 @@ var Business = React.createClass({
                 <p className="inline-promo">
                     <span className="icon-promo">%</span>
                     -{this.props.business.bestDiscount}% dans tout le salon*
-                    {this.renderAveragePrice()}
+                    <PriceRating business={this.props.business} style={{paddingLeft: '15px'}}/>
                 </p>
             );
         }
 
         return (
-            <p className="inline-promo">
-                &nbsp;
-                {this.renderAveragePrice()}
-            </p>
+            <PriceRating business={this.props.business} style={{paddingLeft: '15px', marginTop: '10px'}}/>
         );
-    },
-    renderAveragePrice: function () {
-        var price = this.props.business.averagePrice || {},
-            men   = price.men && Math.round(price.men),
-            women = price.women && Math.round(price.women);
-
-        if (men && women) {
-            return <span className="black">Prix moyen homme {men}€ / femme {women}€</span>;
-        } else if (men) {
-            return <span className="black">Prix moyen homme {men}€</span>;
-        } else if (women) {
-            return <span className="black">Prix moyen femme {women}€</span>;
-        }
     }
 });
 
