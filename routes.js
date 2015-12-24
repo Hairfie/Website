@@ -162,4 +162,9 @@ module.exports = {
         action: PageActions.hairdresserHairfies,
         handler: require('./components/HairdresserHairfiesPage.jsx')
     },
+    howitworks_page: {
+        path: '/fr/comment-ca-marche',
+        method: 'get',
+        handler: require('./components/HowItWorksPage.jsx')
+    }
 };
