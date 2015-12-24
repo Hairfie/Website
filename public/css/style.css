@@ -11256,9 +11256,14 @@ section.home-footer .row > div {
     .salon#content .sidebar section#location {
       margin-bottom: 20px; }
       .salon#content .sidebar section#location .map {
-        height: 247px;
+        width: 100%;
         background: url(../img/placeholder-map.jpg) no-repeat center center;
         background-size: cover; }
+        .salon#content .sidebar section#location .map:before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+          /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
       content: " ";
       width: 200vw;

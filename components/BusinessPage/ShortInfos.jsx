@@ -3,6 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
+var PriceRating = require('../Partial/PriceRating.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
@@ -66,7 +67,7 @@ module.exports = React.createClass({
                   <div className="visible-xs">
                     {this.renderTimetable()}
                   </div>
-                  {this.renderAveragePrice()}
+                  <PriceRating business={business} />
                 </div>
                 <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
@@ -80,28 +81,6 @@ module.exports = React.createClass({
                 </div>
               </div>
           </section>
-        );
-    },
-    renderAveragePrice: function () {
-        var business = this.props.business || {};
-
-        if (!business) return null;
-
-        var i = 0;
-        var price = [];
-        for (i = 0; i < 4; i++) {
-          if (i < (business.priceLevel || 0)) {
-            price.push(<span className="glyphicon glyphicon-euro"></span>);
-          }
-          else {
-            price.push(<span className="glyphicon glyphicon-euro" style={{opacity: 0.5}}></span>);
-          }
-        }
-
-        return (
-            <p>
-                {price}
-            </p>
         );
     },
     handleDisplayTimetable: function() {
