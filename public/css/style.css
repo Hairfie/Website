@@ -11301,7 +11301,7 @@ section.home-footer .row > div {
         border: #fe5b5f;
         border-width: 3px;
         border-style: solid;
-        border-radius: 2px; }
+        border-radius: 4px; }
         .salon#content .sidebar .phone .btn-phone:after {
           content: " ";
           background: url(../img/phone-red.png) no-repeat center center;
