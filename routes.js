@@ -163,6 +163,7 @@ module.exports = {
         handler: require('./components/HairdresserHairfiesPage.jsx')
     },
     howitworks_page: {
+        title: 'Comment ça marche ?',
         path: '/fr/comment-ca-marche',
         method: 'get',
         handler: require('./components/HowItWorksPage.jsx')

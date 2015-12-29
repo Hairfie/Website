@@ -29,7 +29,7 @@ module.exports = React.createClass({
         var hairdresserNode;
         if (this.props.hairfie.hairdresser) {
             hairdresserNode = (
-                <p>Réalisé par : 
+                <p>Réalisé par :&nbsp;
                     <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                         {this.props.hairfie.hairdresser.firstName}
                     </Link>
@@ -44,7 +44,7 @@ module.exports = React.createClass({
             <div className="col-xs-12 col-sm-6">
                 <div className="salon-infos">
                     <div className="row">
-                        <div className="col-xs-3">
+                        <div className="col-xs-3 col-sm-3">
                             <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                 <Picture
                                     picture={_.first(this.props.hairfie.business.pictures)}
@@ -53,14 +53,24 @@ module.exports = React.createClass({
                                 />
                             </Link>
                         </div>
-                        <div className="col-xs-9 address-bloc">
+                        <div className="col-xs-9 col-sm-6 address-bloc">
                             <h2>
                                 <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                     {this.props.hairfie.business.name}
                                 </Link>
                             </h2>
-                            <p>{address.street} {address.zipCode} {address.city}</p>
+                            <p className="address">{address.street} {address.zipCode} {address.city}</p>
                             {hairdresserNode}
+                            <p>
+                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                                    {"+ d'infos sur le salon"}
+                                </Link>
+                            </p>
+                        </div>
+                        <div className="hidden-xs col-sm-3">
+                            <Link className="btn btn-book pull-right" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                                Prendre RDV
+                            </Link>
                         </div>
                     </div>
                     <div className="row">

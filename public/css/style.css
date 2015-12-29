@@ -11580,8 +11580,10 @@ section.home-footer .row > div {
           font-size: 1.5em; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p {
           letter-spacing: 1px;
-          margin-top: 4px;
-          font-size: 1.3em; }
+          font-size: 1.3em;
+          margin-bottom: 5px; }
+          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p.address {
+            margin-top: 4px; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a {
           text-decoration: underline; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a:hover {
@@ -11612,6 +11614,10 @@ section.home-footer .row > div {
               left: 0; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
             width: calc(100% - 30px); }
+        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .btn-book {
+          text-transform: uppercase;
+          border-radius: 0;
+          font-size: 1.3em; }
     .hairfie-singleView#content .single-view .tags {
       margin-left: -3px; }
       .hairfie-singleView#content .single-view .tags .tag {
@@ -12659,5 +12665,75 @@ section.home-footer .row > div {
   .connect-form form.form .uploadFile {
     display: block;
     font-size: 1.4em; }
+
+.howitworks section:nth-child(odd) {
+  background-color: #f0f0f1;
+  position: relative; }
+  .howitworks section:nth-child(odd):before {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+  .howitworks section:nth-child(odd):after {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    right: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+
+.howitworks section.title {
+  left: calc(-50vw + 50%);
+  background: url(../img/howitworks/section-bg.jpg) no-repeat center center;
+  background-size: cover;
+  margin: 0; }
+  @media screen and (min-width: 767px) {
+    .howitworks section.title {
+      height: 400px;
+      width: 100vw; } }
+  @media screen and (max-width: 767px) {
+    .howitworks section.title {
+      height: 300px;
+      width: 100vw; } }
+  .howitworks section.title div.container {
+    text-align: center;
+    color: white; }
+  .howitworks section.title h1 {
+    margin-top: 150px; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title h1 {
+        font-size: 20px; } }
+  .howitworks section.title a.arrow {
+    font-size: 200px;
+    line-height: 100px;
+    color: white;
+    text-decoration: none; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title a.arrow {
+        font-size: 100px;
+        line-height: 50px; } }
+    .howitworks section.title a.arrow:hover {
+      cursor: pointer;
+      color: white;
+      text-decoration: none; }
+
+.howitworks section.second {
+  padding: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center; }
+  .howitworks section.second .container {
+    margin: 0; }
+  .howitworks section.second h2 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    height: 30px; }
+  .howitworks section.second p {
+    font-size: 1.5em; }
 
 /*# sourceMappingURL=style.css.map */
