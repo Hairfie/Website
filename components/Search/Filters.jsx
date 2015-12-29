@@ -86,9 +86,8 @@ var Filters = React.createClass({
         );
     },
     renderRadius: function () {
-        if (!this.props.search.location) return;
-
-        return <RadiusFilter min={1000} max={50000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />;
+        if (!this.props.search.address) return;
+        return <RadiusFilter min={500} max={10000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />;
     },
     renderPrice: function () {
         var min = 0, max = 1000;

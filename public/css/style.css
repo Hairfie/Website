@@ -10939,27 +10939,27 @@ section.home-footer .row > div {
         height: 40px;
         background-size: 40%;
         display: inline-block; }
-  #content.search .sidebar .price .selectRange {
+  #content.search .sidebar .price .selectRange, #content.search .sidebar .radius .selectRange {
     padding: 30px 12px;
     background: white; }
-  #content.search .sidebar .price p {
+  #content.search .sidebar .price p, #content.search .sidebar .radius p {
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1em;
     margin: 0;
     padding: 0;
     text-align: left; }
-    #content.search .sidebar .price p:nth-child(3) {
+    #content.search .sidebar .price p:nth-child(3), #content.search .sidebar .radius p:nth-child(3) {
       text-align: right; }
-  #content.search .sidebar .price .rangeslider {
+  #content.search .sidebar .price .rangeslider, #content.search .sidebar .radius .rangeslider {
     height: 11px;
     background: #e2e3e6;
     border: 0;
     margin-bottom: 15px; }
-    #content.search .sidebar .price .rangeslider .ui-slider-range {
+    #content.search .sidebar .price .rangeslider .ui-slider-range, #content.search .sidebar .radius .rangeslider .ui-slider-range {
       height: 11px;
       background: #fc5a5f; }
-    #content.search .sidebar .price .rangeslider .ui-slider-handle {
+    #content.search .sidebar .price .rangeslider .ui-slider-handle, #content.search .sidebar .radius .rangeslider .ui-slider-handle {
       top: -.55em;
       cursor: pointer;
       width: 22px;

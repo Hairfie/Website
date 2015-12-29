@@ -13,7 +13,7 @@ module.exports = React.createClass({
     },
     getDefaultProps: function () {
         return {
-            step: 1000, // step by km by default
+            step: 500, // step by km by default
             onChange: _.noop
         }
     },
@@ -42,13 +42,12 @@ module.exports = React.createClass({
         this.slider.slider('option', 'step', nextProps.step);
     },
     render: function () {
-        console.log("render");
         return (
-            <div className="price">
+            <div className="radius">
                 <h2>Rayon autour de l'adresse</h2>
                 <div className="selectRange">
                     <div ref="slider" className="rangeslider" />
-                    <p className="col-xs-6">{this.state.displayValue / 1000}km</p>
+                    <p className="col-xs-6">{this.state.displayValue / 1000} km</p>
                 </div>
             </div>
         );
