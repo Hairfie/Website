@@ -124,8 +124,8 @@ var Filters = React.createClass({
                 <div className="input-group">
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     <GeoInput className="form-control" ref="address" type="text"
-                    value={this.state.location} onChange={this.handleLocationChange}
-                    />
+                        value={this.state.location} onChange={this.handleLocationChange}
+                        />
                     <div className="input-group-addon" onClick={this.handleChange} onKeyPress={this.handleKey}><a role="button"></a></div>
                 </div>
             </div>
@@ -252,7 +252,7 @@ var Filters = React.createClass({
     handleChange: _.debounce(function () {
         this.props.onChange({
             q: this.refs.query.value,
-            address: this.refs.address.value
+            address: this.refs.address.getFormattedAddress()
         });
     }, 500),
     handleKey: function (e) {
@@ -260,7 +260,7 @@ var Filters = React.createClass({
             e.preventDefault();
             this.props.onChange({
                 q: this.refs.query.value,
-                address: this.refs.address.value
+                address: this.refs.address.getFormattedAddress()
             });
          }
     },
