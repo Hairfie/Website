@@ -32,7 +32,7 @@ var HomePage = React.createClass({
                             </div>
                         </div>
                         <div className="row choice">
-                            <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Je cherche une coupe</a>
+                            <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Je m'inspire</a>
                             <a onClick={this.searchHairdresser} className="btn btn-red">Je cherche un coiffeur</a>
                         </div>
                     </div>
