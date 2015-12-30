@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
         return (
             <section className="home-section categories" id="categories" ref="categories">
-                <h2>Vous cherchez une coupe ?</h2>
+                <h2>Vous cherchez de l'inspiration ?</h2>
                 <div className="section-content-1">
                     {_.map(_.chunk(categories, 4), this.renderCategoriesRow)}
                 </div>

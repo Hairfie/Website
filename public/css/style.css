@@ -11188,10 +11188,10 @@ section.home-footer .row > div {
             color: black; }
       .salon#content section.salon-content section .coiffeur img {
         display: block;
-        width: 14em;
+        width: 10em;
         border-radius: 100%;
         margin: 0 auto 20px;
-        border: 10px solid #f0f0f1; }
+        border: 6px solid #f0f0f1; }
       .salon#content section.salon-content section .coiffeur p > a {
         font-size: 1em;
         color: #343434;
@@ -11224,6 +11224,10 @@ section.home-footer .row > div {
             text-transform: uppercase;
             font-weight: bolder;
             color: #898989; }
+          .salon#content section.salon-content section .table-price div span.price {
+            float: right; }
+        .salon#content section.salon-content section .table-price:not(:first-child) div.title {
+          margin-top: 15px; }
     .salon#content section.salon-content #avis .row {
       padding-left: 15px;
       padding-right: 15px;
