@@ -11,7 +11,8 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section deals">
-                <h2>Nos offres actuelles</h2>
+                <h2>Les bons plans en salon</h2>
+                <p className="subtitle">Dealées rien que pour vous : des promotions pour donner le sourire à vos cheveux. Cadeau bonus : certaines offres sont valables dans tout le salon de coiffure (produits compris) ! Elle est pas belle la vie ?</p>
                 {_.map(_.chunk(this.props.deals, 3), this.renderDealsRow)}
                 <Link className="btn btn-red home-cta col-md-3 col-xs-10" route="business_search" params={{address: 'Paris--France'}} query={{withDiscount: true}}>Plus de promotions</Link>
             </section>
