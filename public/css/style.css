@@ -10169,7 +10169,7 @@ footer.mobile {
     font-size: 1.6em;
     font-weight: 400; }
   .landing .headline {
-    margin: 100px auto 0;
+    margin: 70px auto 0;
     height: 132px;
     float: none !important; }
     @media screen and (max-width: 767px) {
@@ -10182,7 +10182,8 @@ footer.mobile {
         .landing .headline p {
           display: none; } }
   .landing .choice .search-word {
-    font-size: 2.6em; }
+    font-size: 2.3em;
+    text-transform: uppercase; }
   .landing .choice .btn-red {
     height: 58px;
     font-size: 1.4em;

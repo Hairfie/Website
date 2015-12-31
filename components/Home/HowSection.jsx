@@ -22,7 +22,7 @@ module.exports = React.createClass({
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <Picture picture={{url: "/img/share.png"}} alt="Partagez votre #Hairfie" />
-                        <h3>Partagez</h3>
+                        <h3>Partager</h3>
                         <p>son expérience.<br />Poster un hairfie et un avis.</p>
                     </div>
                 </div>

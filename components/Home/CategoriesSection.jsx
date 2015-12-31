@@ -19,7 +19,7 @@ module.exports = React.createClass({
         return (
             <section className="home-section categories" id="categories" ref="categories">
                 <h2>Choisissez votre style</h2>
-                <p className="subtitle">Pas encore décidé(e) ? Venez trouver votre style parmis des milliers de photos de coupes, couleurs et coiffures. Sombré, broux, carré wavy, coupe pixie… Faites défiler les hairfies et suivez les tendances.</p>
+                <p className="subtitle">Pas encore décidé(e) ? Venez trouver votre style parmis des milliers de photos de coupes, couleurs et coiffures. Sombré, broux, carré wavy, coupe pixie, barbe… Faites défiler les hairfies et suivez les tendances.</p>
                 <div className="section-content-1">
                     {_.map(_.chunk(categories, 4), this.renderCategoriesRow)}
                 </div>
