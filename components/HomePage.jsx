@@ -27,13 +27,14 @@ var HomePage = React.createClass({
                         <SearchBar mobile={true} {...this.props}/>
                         <div className="row">
                             <div className="headline col-md-12">
-                                <h1>Trouvez votre coupe<br />Réservez votre coiffeur</h1>
-                                <p>Des photos valent mieux qu'{/* ' */}un long discours. <br />Prenez gratuitement RDV avec le coiffeur qui vous correspond.</p>
+                                <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
+                                <p> Ici, pas de blabla mais des milliers de photos de vrais clients pour faire son choix et prendre RDV gratuitement en ligne 24/7 dans le salon de coiffure qui vous correspond.</p>
                             </div>
                         </div>
                         <div className="row choice">
-                            <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Je m'inspire</a>
-                            <a onClick={this.searchHairdresser} className="btn btn-red">Je cherche un coiffeur</a>
+                            <p className="search-word">Je cherche&nbsp;:</p>
+                            <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Des coiffures stylées</a>
+                            <a onClick={this.searchHairdresser} className="btn btn-red">Des coiffeurs au top</a>
                         </div>
                     </div>
                 </section>

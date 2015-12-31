@@ -81,10 +81,10 @@ var mobileHeader = React.createClass({
                     {this.renderSelect()}
                 </div>
                 <div className="col-xs-3 input-group">
-                    <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                    <GeoInput ref="address" placeholder="Où ? *" value={this.state.location} onChange={this.handleLocationChange} />
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                 </div>
-                <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur (facultatif)" />
+                <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur *" />
                 <Button onClick={this.submit} className='btn btn-red col-xs-3'>Trouvez votre coiffeur</Button>
             </div>
        );
@@ -138,7 +138,7 @@ var mobileHeader = React.createClass({
                 name="Catégories"
                 value={this.state.selectedCategories}
                 onChange={this.handleSelectCategoriesChange}
-                placeholder="Catégories"
+                placeholder="Catégories *"
                 allowCreate={false}
                 options={_.map(this.props.categories, function(cat) {
                             return {value:cat.slug, label:cat.label};

@@ -43,6 +43,9 @@
         }
     }
     .choice {
+        .search-word {
+            font-size: 2.6em;
+        }
         .btn-red {
             height: 58px;
             font-size: 1.4em;
@@ -73,10 +76,14 @@ section.home-section {
         font-family: $font-second;
         font-weight: $regular;
         letter-spacing: 3px;
-        padding:50px 0;
+        padding: 30px 0 10px;
         margin: 0;
         font-size: 2.4em;
         color: $darkgrey;
+    }
+    p.subtitle {
+        font-size: 1.6em;
+        margin-bottom: 15px;
     }
     figure {
         overflow: hidden;
@@ -117,12 +124,13 @@ section.home-section {
     .btn.home-cta {
         display: block;
         margin: 40px auto 0;
+        text-transform: uppercase; 
         @include nofloat;
     }
 }
 
 .choice {
-    margin-top: 90px;
+    margin-top: 60px;
 
 }
 
