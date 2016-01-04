@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 module.exports = React.createClass({
     render: function () {
+        if (!this.props.businesses || _.isEmpty(this.props.businesses)) return null;
         if (this.props.slidebar) return this.renderSlidebar();
         return this.renderSimilar();
     },

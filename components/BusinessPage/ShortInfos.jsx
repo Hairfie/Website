@@ -3,6 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
+var PriceRating = require('../Partial/PriceRating.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
@@ -66,7 +67,7 @@ module.exports = React.createClass({
                   <div className="visible-xs">
                     {this.renderTimetable()}
                   </div>
-                  {this.renderAveragePrice()}
+                  <PriceRating business={business} />
                 </div>
                 <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
@@ -80,22 +81,6 @@ module.exports = React.createClass({
                 </div>
               </div>
           </section>
-        );
-    },
-    renderAveragePrice: function () {
-        var price = this.props.business && this.props.business.averagePrice || {};
-
-        if (!price.men && !price.women) return;
-
-        return (
-            <p>
-                <span className="glyphicon glyphicon-euro"></span>
-                {price.men ? 'Homme ' : ''}
-                {price.men ? <span>&nbsp;{Math.round(price.men)}€</span> : ''}
-                {price.men && price.women ? <span>&nbsp;-&nbsp;</span> : ''}
-                {price.women ? 'Femme' : ''}
-                {price.women ? <span>&nbsp;{Math.round(price.women)}€</span> : ''}
-            </p>
         );
     },
     handleDisplayTimetable: function() {

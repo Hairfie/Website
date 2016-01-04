@@ -22,8 +22,8 @@ var BusinessPage = React.createClass({
             <Layout business={this.props.business} tab="infos">
                 {this.renderSimilar()}
                 {this.renderHairdressers()}
-                {this.renderServices()}
                 {this.renderDescription()}
+                {this.renderServices()}
                 {this.renderDiscounts()}
             </Layout>
         );
@@ -48,13 +48,46 @@ var BusinessPage = React.createClass({
     },
     renderServices: function () {
         var services = this.props.services || [];
-
+        if (!services || _.isEmpty(services)) return null;
         return (
             <section>
                 <h3>Extrait des tarifs</h3>
                 <div className="row">
                     <div className="row table-price">
-                        {_.map(services, function (service) {
+                        {
+                        !_.isEmpty(_.where(services, {gender: "FEMALE"})) ?
+                            <div className='title'>
+                                <p>POUR ELLE</p>
+                            </div>
+                        : null
+                        }
+                        {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        {
+                        !_.isEmpty(_.where(services, {gender: "MALE"})) ?
+                            <div className='title'>
+                                <p>POUR LUI</p>
+                            </div>
+                        : null
+                        }
+                        {_.map(_.where(services, {gender: "MALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                        {
+                        !_.isEmpty(_.where(services, {gender: ""})) && (!_.isEmpty(_.where(services, {gender: "MALE"})) || !_.isEmpty(_.where(services, {gender: "FEMALE"}))) ?
+                            <div className='title' />
+                        : null
+                        }
+                        {_.map(_.where(services, {gender: ""}), function (service) {
                             return (
                                 <div key={service.id}>
                                     <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
