@@ -11212,7 +11212,8 @@ section.home-footer .row > div {
         margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
           padding-left: 24px;
-          height: 20px; }
+          min-height: 20px;
+          overflow: auto; }
           .salon#content section.salon-content section .table-price div.title {
             height: 35px; }
             .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
