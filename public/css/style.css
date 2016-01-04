@@ -10170,7 +10170,6 @@ footer.mobile {
     font-weight: 400; }
   .landing .headline {
     margin: 70px auto 0;
-    height: 132px;
     float: none !important; }
     @media screen and (max-width: 767px) {
       .landing .headline h1 {
@@ -10267,9 +10266,6 @@ section.home-section {
     margin: 40px auto 0;
     text-transform: uppercase;
     float: none !important; }
-
-.choice {
-  margin-top: 60px; }
 
 .landing .main-searchbar, .home-search .main-searchbar {
   padding: 20px;
