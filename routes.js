@@ -120,7 +120,6 @@ module.exports = {
         method: 'get',
         handler: require('./components/RegistrationPage.jsx')
     },
-
     user_hairfies: {
         path: '/fr/membre/:userId/hairfies',
         method: 'get',
@@ -162,4 +161,15 @@ module.exports = {
         action: PageActions.hairdresserHairfies,
         handler: require('./components/HairdresserHairfiesPage.jsx')
     },
+    howitworks_page: {
+        title: 'Comment ça marche ?',
+        path: '/fr/comment-ca-marche',
+        method: 'get',
+        handler: require('./components/HowItWorksPage.jsx')
+    },
+    badPage: {
+        path: '/bad/',
+        method: 'get',
+        action: PageActions.redirectToHome
+    }
 };

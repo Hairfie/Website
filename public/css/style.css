@@ -10169,8 +10169,7 @@ footer.mobile {
     font-size: 1.6em;
     font-weight: 400; }
   .landing .headline {
-    margin: 100px auto 0;
-    height: 132px;
+    margin: 70px auto 0;
     float: none !important; }
     @media screen and (max-width: 767px) {
       .landing .headline h1 {
@@ -10181,6 +10180,9 @@ footer.mobile {
       @media screen and (max-width: 767px) {
         .landing .headline p {
           display: none; } }
+  .landing .choice .search-word {
+    font-size: 2.3em;
+    text-transform: uppercase; }
   .landing .choice .btn-red {
     height: 58px;
     font-size: 1.4em;
@@ -10226,10 +10228,13 @@ section.home-section {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     letter-spacing: 3px;
-    padding: 50px 0;
+    padding: 30px 0 10px;
     margin: 0;
     font-size: 2.4em;
     color: #595959; }
+  section.home-section p.subtitle {
+    font-size: 1.6em;
+    margin-bottom: 15px; }
   section.home-section figure {
     overflow: hidden;
     background-color: #595959; }
@@ -10259,10 +10264,8 @@ section.home-section {
   section.home-section .btn.home-cta, section.home-section .home-cta.btn-red, section.home-section .home-cta.btn-blue, section.home-section .home-cta.btn-orange, section.home-section .home-cta.btn-green, section.home-section .home-cta.btn-white, section.home-section .home-cta.btn-book, section.home-section .home-cta.btn-frame, section.home-section .home-cta.btn-frame-blue, section.home-section .home-cta.btn-frame-red, section.home-section .home-cta.btn-frame-yellow, section.home-section .home-cta.btn-frame-green, section.home-section .home-cta.btn-frame-orange, section.home-section .home-cta.btn-frame-darkgrey {
     display: block;
     margin: 40px auto 0;
+    text-transform: uppercase;
     float: none !important; }
-
-.choice {
-  margin-top: 90px; }
 
 .landing .main-searchbar, .home-search .main-searchbar {
   padding: 20px;
@@ -10939,27 +10942,27 @@ section.home-footer .row > div {
         height: 40px;
         background-size: 40%;
         display: inline-block; }
-  #content.search .sidebar .price .selectRange {
+  #content.search .sidebar .price .selectRange, #content.search .sidebar .radius .selectRange {
     padding: 30px 12px;
     background: white; }
-  #content.search .sidebar .price p {
+  #content.search .sidebar .price p, #content.search .sidebar .radius p {
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1em;
     margin: 0;
     padding: 0;
     text-align: left; }
-    #content.search .sidebar .price p:nth-child(3) {
+    #content.search .sidebar .price p:nth-child(3), #content.search .sidebar .radius p:nth-child(3) {
       text-align: right; }
-  #content.search .sidebar .price .rangeslider {
+  #content.search .sidebar .price .rangeslider, #content.search .sidebar .radius .rangeslider {
     height: 11px;
     background: #e2e3e6;
     border: 0;
     margin-bottom: 15px; }
-    #content.search .sidebar .price .rangeslider .ui-slider-range {
+    #content.search .sidebar .price .rangeslider .ui-slider-range, #content.search .sidebar .radius .rangeslider .ui-slider-range {
       height: 11px;
       background: #fc5a5f; }
-    #content.search .sidebar .price .rangeslider .ui-slider-handle {
+    #content.search .sidebar .price .rangeslider .ui-slider-handle, #content.search .sidebar .radius .rangeslider .ui-slider-handle {
       top: -.55em;
       cursor: pointer;
       width: 22px;
@@ -11188,10 +11191,10 @@ section.home-footer .row > div {
             color: black; }
       .salon#content section.salon-content section .coiffeur img {
         display: block;
-        width: 14em;
+        width: 10em;
         border-radius: 100%;
         margin: 0 auto 20px;
-        border: 10px solid #f0f0f1; }
+        border: 6px solid #f0f0f1; }
       .salon#content section.salon-content section .coiffeur p > a {
         font-size: 1em;
         color: #343434;
@@ -11209,7 +11212,8 @@ section.home-footer .row > div {
         margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
           padding-left: 24px;
-          height: 20px; }
+          min-height: 20px;
+          overflow: auto; }
           .salon#content section.salon-content section .table-price div.title {
             height: 35px; }
             .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
@@ -11224,6 +11228,10 @@ section.home-footer .row > div {
             text-transform: uppercase;
             font-weight: bolder;
             color: #898989; }
+          .salon#content section.salon-content section .table-price div span.price {
+            float: right; }
+        .salon#content section.salon-content section .table-price:not(:first-child) div.title {
+          margin-top: 15px; }
     .salon#content section.salon-content #avis .row {
       padding-left: 15px;
       padding-right: 15px;
@@ -11580,8 +11588,10 @@ section.home-footer .row > div {
           font-size: 1.5em; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p {
           letter-spacing: 1px;
-          margin-top: 4px;
-          font-size: 1.3em; }
+          font-size: 1.3em;
+          margin-bottom: 5px; }
+          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p.address {
+            margin-top: 4px; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a {
           text-decoration: underline; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a:hover {
@@ -11612,6 +11622,10 @@ section.home-footer .row > div {
               left: 0; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
             width: calc(100% - 30px); }
+        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .btn-book {
+          text-transform: uppercase;
+          border-radius: 0;
+          font-size: 1.3em; }
     .hairfie-singleView#content .single-view .tags {
       margin-left: -3px; }
       .hairfie-singleView#content .single-view .tags .tag {
@@ -12659,5 +12673,75 @@ section.home-footer .row > div {
   .connect-form form.form .uploadFile {
     display: block;
     font-size: 1.4em; }
+
+.howitworks section:nth-child(odd) {
+  background-color: #f0f0f1;
+  position: relative; }
+  .howitworks section:nth-child(odd):before {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+  .howitworks section:nth-child(odd):after {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    right: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+
+.howitworks section.title {
+  left: calc(-50vw + 50%);
+  background: url(../img/howitworks/section-bg.jpg) no-repeat center center;
+  background-size: cover;
+  margin: 0; }
+  @media screen and (min-width: 767px) {
+    .howitworks section.title {
+      height: 400px;
+      width: 100vw; } }
+  @media screen and (max-width: 767px) {
+    .howitworks section.title {
+      height: 300px;
+      width: 100vw; } }
+  .howitworks section.title div.container {
+    text-align: center;
+    color: white; }
+  .howitworks section.title h1 {
+    margin-top: 150px; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title h1 {
+        font-size: 20px; } }
+  .howitworks section.title a.arrow {
+    font-size: 200px;
+    line-height: 100px;
+    color: white;
+    text-decoration: none; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title a.arrow {
+        font-size: 100px;
+        line-height: 50px; } }
+    .howitworks section.title a.arrow:hover {
+      cursor: pointer;
+      color: white;
+      text-decoration: none; }
+
+.howitworks section.second {
+  padding: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center; }
+  .howitworks section.second .container {
+    margin: 0; }
+  .howitworks section.second h2 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    height: 30px; }
+  .howitworks section.second p {
+    font-size: 1.5em; }
 
 /*# sourceMappingURL=style.css.map */

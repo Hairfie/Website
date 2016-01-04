@@ -8,7 +8,8 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section home-search" id="search">
-                <h2>Vous cherchez un coiffeur ?</h2>
+                <h2>Trouvez le (bon) coiffeur</h2>
+                <p className="subtitle">Une bonne adresse de salon de coiffure, ça ne tombe pas du ciel. Un conseil : faites confiance au bouche à oreille 2.0 avant de prendre RDV. Pour trouver des avis et choisir son coiffeur, c’est bien ici !</p>
                 <div className="row">
                     <SearchBar homepage={true} {...this.props} />
                 </div>

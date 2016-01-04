@@ -15,6 +15,7 @@ function getToken(context) {
 }
 
 function setHasClosedPopup(context) {
+    console.log("setHasClosedPopup");
     context.setCookie("HAS_CLOSED_POPUP", true);
 }
 

@@ -270,10 +270,10 @@
 			.coiffeur {
 				img {
 					display: block;
-					width: 14em;
+					width: 10em;
 					border-radius: 100%;
 					margin: 0 auto 20px;
-					border: 10px solid $bg2;
+					border: 6px solid $bg2;
 				}
 				p > a {
 					font-size: 1em;
@@ -303,8 +303,12 @@
 					&:nth-child(2n) {
 						background-color: $bg3;
 					}
+					&:last-child {
+						//margin-bottom: 15px;
+					}
 					padding-left: 24px;
-					height: 20px;
+					min-height: 20px;
+					overflow: auto;
 					p {
 						margin-bottom: 2px;
 						text-align: left;
@@ -313,6 +317,16 @@
 						text-transform: uppercase;
 						font-weight: bolder;
 						color: $lightgrey;
+					}
+
+					span.price {
+						float: right;
+					}
+				}
+
+				&:not(:first-child) {
+					div.title {
+						margin-top: 15px;
 					}
 				}
 			}

@@ -147,6 +147,8 @@ module.exports = createStore({
                     description = 'Découvrez les hairfies du salon ' + title + ' et Prenez RDV en ligne';
                 }
 
+                description = description.substring(0, 190) +  ' | Photos, Hairfies, Avis, Horaires & réservation chez ce coiffeur';
+
                 break;
             case 'business_reviews':
                 title = 'Les avis sur ' + title;

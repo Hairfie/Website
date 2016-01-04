@@ -21,8 +21,8 @@ var BusinessPage = React.createClass({
         return (
             <Layout business={this.props.business} tab="infos">
                 {this.renderSimilar()}
-                {this.renderHairdressers()}
                 {this.renderDescription()}
+                {this.renderHairdressers()}
                 {this.renderServices()}
                 {this.renderDiscounts()}
             </Layout>
@@ -51,23 +51,25 @@ var BusinessPage = React.createClass({
         if (!services || _.isEmpty(services)) return null;
         return (
             <section>
-                <h3>Extrait des tarifs</h3>
+                <h3>Tarifs du salon</h3>
                 <div className="row">
                     <div className="row table-price">
                         {
-                        !_.isEmpty(_.where(services, {gender: "FEMALE"})) ?
-                            <div className='title'>
-                                <p>POUR ELLE</p>
-                            </div>
-                        : null
+                            !_.isEmpty(_.where(services, {gender: "FEMALE"})) ?
+                                <div className='title'>
+                                    <p>POUR ELLE</p>
+                                </div>
+                            : null
                         }
                         {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
                             return (
                                 <div key={service.id}>
-                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
                                 </div>
                             );
                         })}
+                    </div>
+                    <div className="row table-price">
                         {
                         !_.isEmpty(_.where(services, {gender: "MALE"})) ?
                             <div className='title'>
@@ -78,26 +80,30 @@ var BusinessPage = React.createClass({
                         {_.map(_.where(services, {gender: "MALE"}), function (service) {
                             return (
                                 <div key={service.id}>
-                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
                                 </div>
                             );
                         })}
+                    </div>
+                    <div className="row table-price">
                         {
                         !_.isEmpty(_.where(services, {gender: ""})) && (!_.isEmpty(_.where(services, {gender: "MALE"})) || !_.isEmpty(_.where(services, {gender: "FEMALE"}))) ?
-                            <div className='title' />
+                            <div className='title'>
+                                <p>POUR TOUS</p>
+                            </div>
                         : null
                         }
                         {_.map(_.where(services, {gender: ""}), function (service) {
                             return (
                                 <div key={service.id}>
-                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
                                 </div>
                             );
                         })}
                     </div>
-                    <br />
-                    <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
                 </div>
+                <br />
+                    <p>Ces tarifs sont indicatifs et ne prennent pas en compte les éventuelles promotions sur ces prestations.</p>
             </section>
         );
     },
