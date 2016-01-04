@@ -7,6 +7,7 @@ var Layout = require('./BusinessPage/Layout.jsx');
 var Link = require('./Link.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Rating = require('./Partial/Rating.jsx');
+var Review = require('./Partial/Review.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -52,19 +53,7 @@ var BusinessReviewPage = React.createClass({
                 <div className="comments">
                     {_.map(reviews, function (review) {
                         return (
-                            <div key={review.id} className="single-comment col-xs-12">
-                                <span className="user-profil col-xs-1">
-                                    <UserProfilePicture className="ProfilePicture" picture={review && review.author ? review.author.picture : ''} options={options} gender={review && review.author ? review.author.gender : ''}/>
-                                </span>
-                                {this.verified(review)}
-                                <div className="col-xs-8">
-                                    <p><Rating rating={review.rating} min={true} /></p>
-                                    <p>{review.comment}</p>
-                                    <div className="by-when">
-                                        {displayName(review)} - {moment(review.createdAt).format('LL')}
-                                    </div>
-                                </div>
-                            </div>
+                            <Review review={review} />
                         );
                     }, this)}
                     <p className="text-center">

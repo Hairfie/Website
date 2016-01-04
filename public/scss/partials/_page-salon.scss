@@ -205,20 +205,48 @@
 		}
 		ul.nav {
 			li {
+				a {
+					padding-top: 55px;
+				}
+				.icon-nav {
+					width: 40px;
+					height: 35px;
+					left: calc(50% - 15px);
+				}
+			}
+			li:not(.active) {
 				&:first-child {
 					.icon-nav {
-						background: url(../img/icon-salon-nav1.jpg) no-repeat center center;
+						background: url(../img/icons/info.png) no-repeat center center;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../img/icon-salon-nav2.jpg) no-repeat center center;
+						background: url(../img/icons/avis.png) no-repeat center center;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background: url(../img/icon-salon-nav3.jpg) no-repeat center center;
+						background: url(../img/icons/hairfie.png) no-repeat center center;
+					}
+				}
+			}
+			li.active {
+				&:first-child {
+					.icon-nav {
+						background: url(../img/icons/info-selected.png) no-repeat center center;
+					}
+				}
+				&:nth-child(2) {
+					.icon-nav {
+						background: url(../img/icons/avis-selected.png) no-repeat center center;
+					}
+				}
+				&:last-child {
+					border-right: none;
+					.icon-nav {
+						background: url(../img/icons/hairfie-selected.png) no-repeat center center;
 					}
 				}
 			}

@@ -4,8 +4,8 @@ var React = require('react');
 var Picture = require('./Picture.jsx');
 var UserGenders = require('../../constants/UserConstants').Genders;
 
-var SRC_DEFAULT_MAN = '/img/profile-picture/default-man.png';
-var SRC_DEFAULT_WOMAN = '/img/profile-picture/default-woman.png';
+var SRC_DEFAULT_MAN = '/img/profile-picture/default-man.jpg';
+var SRC_DEFAULT_WOMAN = '/img/profile-picture/default-woman.jpg';
 
 module.exports = React.createClass({
     render: function () {

@@ -12,7 +12,7 @@ module.exports = React.createClass({
         rating = Math.round(rating / 100 * 5);
 
         return (
-            <div className={"stars"+(this.props.min ? ' min' : '')}>
+            <div className={"stars"+(this.props.min ? ' min' : '') + ' ' + this.props.className}>
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <span key={starValue} className={'star'+(starValue <= rating ? ' full' : '')+(this.props.min ? ' min' : '')} />
                 }, this)}

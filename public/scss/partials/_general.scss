@@ -682,21 +682,35 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		padding: 20px;
 
 		.user-profil {
-			width: 35px;height: 35px;
 			margin: 0 auto;
+			float: left;
+			height: 80px;
 			position: relative;
 			border-radius: 2px;
 			overflow: hidden;
-			margin-right: 13px;
 			img{
-				width: 35px;height: 35px;
+				&.placeholder {
+					padding: 10px;
+					border-color: #CDC4C4;
+					border-width: 3px;
+					border-style: solid;
+				}
+				width: 80px;height: 80px;
+				border-radius: 100%;
 				position: absolute;
 				top: 0;left: 0;bottom: 0;right: 0;
 				margin: auto;
 			}
 		}
 		div {
-
+			div.title {
+				overflow: auto;
+				p {
+					font-size: 1.6em;
+					font-weight: bold;
+					display: inline;
+				}
+			}
 			p {
 				margin-bottom: 0;
 				letter-spacing: 1px;
