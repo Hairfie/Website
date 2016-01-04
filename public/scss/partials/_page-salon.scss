@@ -307,7 +307,8 @@
 						//margin-bottom: 15px;
 					}
 					padding-left: 24px;
-					height: 20px;
+					min-height: 20px;
+					overflow: auto;
 					p {
 						margin-bottom: 2px;
 						text-align: left;

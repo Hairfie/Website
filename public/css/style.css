@@ -10170,7 +10170,6 @@ footer.mobile {
     font-weight: 400; }
   .landing .headline {
     margin: 70px auto 0;
-    height: 132px;
     float: none !important; }
     @media screen and (max-width: 767px) {
       .landing .headline h1 {
@@ -10267,9 +10266,6 @@ section.home-section {
     margin: 40px auto 0;
     text-transform: uppercase;
     float: none !important; }
-
-.choice {
-  margin-top: 60px; }
 
 .landing .main-searchbar, .home-search .main-searchbar {
   padding: 20px;
@@ -11216,7 +11212,8 @@ section.home-footer .row > div {
         margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
           padding-left: 24px;
-          height: 20px; }
+          min-height: 20px;
+          overflow: auto; }
           .salon#content section.salon-content section .table-price div.title {
             height: 35px; }
             .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
