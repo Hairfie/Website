@@ -65,8 +65,8 @@ module.exports = React.createClass({
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") + ' >'}
                       </span>
-                      {this.renderTimetable()}
                     </a>
+                    {this.renderTimetable()}
                   </div>
                   <PriceRating business={business} />
                 </div>
