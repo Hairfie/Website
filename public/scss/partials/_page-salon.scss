@@ -237,42 +237,42 @@
 			li:not(.active) {
 				&:first-child {
 					.icon-nav {
-						background: url(../img/icons/info.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
+						background-color: #666b74;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../img/icons/avis.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
+						background-color: #666b74;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background: url(../img/icons/hairfie.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
+						background-color: #666b74;
 					}
 				}
 			}
 			li.active {
 				&:first-child {
 					.icon-nav {
-						background: url(../img/icons/info-selected.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
+						background-color: $hairfie;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../img/icons/avis-selected.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
+						background-color: $hairfie;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background: url(../img/icons/hairfie-selected.png) no-repeat center center;
-						background-size: contain;
+						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
+						background-color: $hairfie;
 					}
 				}
 			}
