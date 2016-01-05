@@ -693,7 +693,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 			position: relative;
 			border-radius: 2px;
 			overflow: hidden;
-			img {
+			.ProfilePicture {
 				&.placeholder {
 					padding: 10px;
 					border-color: #CDC4C4;

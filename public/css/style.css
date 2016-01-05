@@ -9699,7 +9699,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     @media screen and (max-width: 767px) {
       .comments .single-comment .user-profil {
         height: 50px; } }
-    .comments .single-comment .user-profil img {
+    .comments .single-comment .user-profil .ProfilePicture {
       width: 80px;
       height: 80px;
       border-radius: 100%;
@@ -9709,13 +9709,13 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       bottom: 0;
       right: 0;
       margin: auto; }
-      .comments .single-comment .user-profil img.placeholder {
+      .comments .single-comment .user-profil .ProfilePicture.placeholder {
         padding: 10px;
         border-color: #CDC4C4;
         border-width: 3px;
         border-style: solid; }
       @media screen and (max-width: 767px) {
-        .comments .single-comment .user-profil img {
+        .comments .single-comment .user-profil .ProfilePicture {
           width: 50px;
           height: 50px; } }
   .comments .single-comment div div.title {
