@@ -50,6 +50,10 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews" className="reviews">
+                <div className="reviews-title">
+                    <p>Vous êtes déjà allé dans ce salon ?</p>
+                    <Link route="write_business_review" query={{businessId: this.props.business.id}}>Donnez votre avis et aidez la communauté.</Link>
+                </div>
                 <div className="comments">
                     {_.map(reviews, function (review) {
                         return (

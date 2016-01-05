@@ -11162,6 +11162,19 @@ section.home-footer .row > div {
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
+    .salon#content section.salon-content div.reviews-title {
+      margin-top: 20px;
+      margin-bottom: 30px; }
+      .salon#content section.salon-content div.reviews-title a {
+        color: #fe5b5f;
+        font-size: 2.3em;
+        font-weight: bolder;
+        text-decoration: underline; }
+      .salon#content section.salon-content div.reviews-title p {
+        margin: 0;
+        color: #595959;
+        font-size: 2.3em;
+        font-weight: bolder; }
     .salon#content section.salon-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
     .salon#content section.salon-content > .row {
