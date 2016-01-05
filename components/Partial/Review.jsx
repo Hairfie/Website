@@ -22,17 +22,25 @@ module.exports = React.createClass({
             gravity: 'faces'
         };
 
+        var symbol = '';
+        if (review.gender == 'FEMALE' || (!review.gender && review.author && review.author.gender == 'FEMALE')) {
+            symbol = <span className="gender-symbol">&#9792;</span>
+        }
+        else if (review.gender == 'MALE' || (!review.gender && review.author && review.author.gender == 'MALE')) {
+            symbol = <span className="gender-symbol">&#9794;</span>
+        }
+
         return (
             <div key={review.id} className="single-comment col-xs-12">
                 <div className="user-profil col-xs-4 col-sm-2">
                     <UserProfilePicture className={"ProfilePicture" + (review && review.author && review.author.picture ? '' : ' placeholder')}
                     picture={review && review.author ? review.author.picture : ''}
                     options={options} 
-                    gender={review && review.author ? review.author.gender : ''}/>
+                    gender={review ? review.gender : ''}/>
                 </div>
                 <div className="col-xs-8 col-sm-10">
                     <div className="title">
-                        <p>{displayName(review)}</p>
+                        <p>{symbol}{displayName(review)}</p>
                         <Rating rating={review.rating} min={true} className="pull-right" />
                     </div>
                     <p>{review.comment}</p>

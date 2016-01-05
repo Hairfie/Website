@@ -9208,10 +9208,11 @@ ul {
     background: url(../img/star.png) no-repeat center center;
     background-size: 100%;
     margin: 6px;
-    cursor: pointer;
     display: block;
     position: relative;
     float: left; }
+    .stars .star.interactive {
+      cursor: pointer; }
     .stars .star:after {
       content: " ";
       opacity: 0;
@@ -9229,7 +9230,7 @@ ul {
       bottom: 0;
       right: 0;
       margin: auto; }
-    .stars .star:hover:after {
+    .stars .star:hover.interactive:after {
       opacity: 1;
       -webkit-transition: all 0.15s ease-out;
       -moz-transition: all 0.15s ease-out;
@@ -9712,6 +9713,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         border-style: solid; }
   .comments .single-comment div div.title {
     overflow: auto; }
+    .comments .single-comment div div.title .gender-symbol {
+      font-size: 1.5em;
+      color: #343434; }
     .comments .single-comment div div.title p {
       font-size: 1.6em;
       font-weight: bold;
@@ -11167,23 +11171,32 @@ section.home-footer .row > div {
     .salon#content section.salon-content ul.nav li .icon-nav {
       width: 40px;
       height: 35px;
-      left: calc(50% - 15px); }
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto; }
     .salon#content section.salon-content ul.nav li:not(.active):first-child .icon-nav {
-      background: url(../img/icons/info.png) no-repeat center center; }
+      background: url(../img/icons/info.png) no-repeat center center;
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
-      background: url(../img/icons/avis.png) no-repeat center center; }
+      background: url(../img/icons/avis.png) no-repeat center center;
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
-        background: url(../img/icons/hairfie.png) no-repeat center center; }
+        background: url(../img/icons/hairfie.png) no-repeat center center;
+        background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
-      background: url(../img/icons/info-selected.png) no-repeat center center; }
+      background: url(../img/icons/info-selected.png) no-repeat center center;
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
-      background: url(../img/icons/avis-selected.png) no-repeat center center; }
+      background: url(../img/icons/avis-selected.png) no-repeat center center;
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
-        background: url(../img/icons/hairfie-selected.png) no-repeat center center; }
+        background: url(../img/icons/hairfie-selected.png) no-repeat center center;
+        background-size: contain; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }

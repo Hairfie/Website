@@ -117,7 +117,7 @@ var Business = React.createClass({
             <div className="rating col-xs-4 col-lg-3">
                 <div className="note col-xs-12">
                     <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                        <Rating rating={this.props.business.rating} min={true} />
+                        <Rating rating={this.props.business.rating} min={true} className="interactive" />
                     </Link>
                 </div>
                 <Link className="small pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
