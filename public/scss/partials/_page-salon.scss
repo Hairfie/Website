@@ -232,47 +232,51 @@
 					right: 0;
 					margin-left: auto;
 					margin-right: auto;
+					background-repeat: no-repeat;
 				}
 			}
 			li:not(.active) {
 				&:first-child {
 					.icon-nav {
-						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
+						/* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
 						background-color: #666b74;
-					}
+						*/
+						background-image: url(../img/icons/info.png);
+						background-size: contain;					
+    				}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
-						background-color: #666b74;
+						background-image: url(../img/icons/avis.png);
+						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
-						background-color: #666b74;
+						background-image: url(../img/icons/hairfie.png);
+						background-size: contain;
 					}
 				}
 			}
 			li.active {
 				&:first-child {
 					.icon-nav {
-						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/info-selected.png);
+						background-size: contain;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/avis-selected.png);
+						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/hairfie-selected.png);
+						background-size: contain;
 					}
 				}
 			}
