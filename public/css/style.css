@@ -9731,6 +9731,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     margin-bottom: 0;
     letter-spacing: 1px;
     color: #343434; }
+  .comments .single-comment div strong {
+    margin-top: 5px; }
   .comments .single-comment div .by-when {
     font-size: 1.2em; }
     .comments .single-comment div .by-when a {
