@@ -9719,7 +9719,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
           width: 50px;
           height: 50px; } }
   .comments .single-comment div div.title {
-    overflow: auto; }
+    overflow: auto;
+    font-size: 1.3em; }
     .comments .single-comment div div.title .gender-symbol {
       font-size: 1.3em;
       color: #343434; }
@@ -9731,6 +9732,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     margin-bottom: 5px;
     letter-spacing: 1px;
     color: #343434; }
+  .comments .single-comment div strong {
+    font-size: 1.2em; }
   .comments .single-comment div .by-when {
     font-size: 1.2em; }
     .comments .single-comment div .by-when a {
@@ -11174,13 +11177,13 @@ section.home-footer .row > div {
       margin-bottom: 30px; }
       .salon#content section.salon-content div.reviews-title a {
         color: #fe5b5f;
-        font-size: 2em;
+        font-size: 1.8em;
         font-weight: bolder;
         text-decoration: underline; }
       .salon#content section.salon-content div.reviews-title p {
         margin: 0;
         color: #595959;
-        font-size: 2em;
+        font-size: 1.8em;
         font-weight: bolder; }
     .salon#content section.salon-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
