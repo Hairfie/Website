@@ -11227,27 +11227,33 @@ section.home-footer .row > div {
       margin-left: auto;
       margin-right: auto; }
     .salon#content section.salon-content ul.nav li:not(.active):first-child .icon-nav {
-      background: url(../img/icons/info.png) no-repeat center center;
-      background-size: contain; }
+      -webkit-mask: url(../img/icons/info.svg) no-repeat 100% 100%;
+      mask: url(../img/icons/info.svg) no-repeat 100% 100%;
+      background-color: #666b74; }
     .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
-      background: url(../img/icons/avis.png) no-repeat center center;
-      background-size: contain; }
+      -webkit-mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
+      mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
+      background-color: #666b74; }
     .salon#content section.salon-content ul.nav li:not(.active):last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
-        background: url(../img/icons/hairfie.png) no-repeat center center;
-        background-size: contain; }
+        -webkit-mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
+        mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
+        background-color: #666b74; }
     .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
-      background: url(../img/icons/info-selected.png) no-repeat center center;
-      background-size: contain; }
+      -webkit-mask: url(../img/icons/info.svg) no-repeat 100% 100%;
+      mask: url(../img/icons/info.svg) no-repeat 100% 100%;
+      background-color: #fe5b5f; }
     .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
-      background: url(../img/icons/avis-selected.png) no-repeat center center;
-      background-size: contain; }
+      -webkit-mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
+      mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
+      background-color: #fe5b5f; }
     .salon#content section.salon-content ul.nav li.active:last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
-        background: url(../img/icons/hairfie-selected.png) no-repeat center center;
-        background-size: contain; }
+        -webkit-mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
+        mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
+        background-color: #fe5b5f; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }

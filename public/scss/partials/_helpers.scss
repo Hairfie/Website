@@ -22,6 +22,16 @@
 .color-hairfie {
 	color: $hairfie !important;
 }
+@mixin mask($params)
+{
+	-webkit-mask: $params;
+	mask: $params;
+}
+@mixin mask-size($params)
+{
+	-webkit-mask-size: $params;
+	mask-size: $params;
+}
 @mixin transition($transition)
 {
 	-webkit-transition: $transition;
