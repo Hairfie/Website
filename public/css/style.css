@@ -11167,8 +11167,7 @@ section.home-footer .row > div {
           color: #595959;
           width: 1.4em; }
       .salon#content .main-content section.salon-info .horaires {
-        margin-bottom: 15px;
-        padding: 10px; }
+        margin: 15px 0 15px 0; }
         .salon#content .main-content section.salon-info .horaires * {
           display: inline-block;
           margin: 0; }
@@ -11190,17 +11189,14 @@ section.home-footer .row > div {
             border-radius: 5px;
             padding-right: 20px; }
           .salon#content .main-content section.salon-info .horaires a .today {
+            min-height: 100%;
             background-color: #f8f8f8;
             border-radius: 5px;
             margin-left: -10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 2px;
-            height: 100%;
-            position: absolute; }
-            .salon#content .main-content section.salon-info .horaires a .today span {
-              font-size: 2em;
-              color: #666b74; }
+            padding: 2px 20px 0 20px;
+            position: absolute;
+            font-size: 2em;
+            color: #666b74; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }

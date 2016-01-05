@@ -60,10 +60,9 @@ module.exports = React.createClass({
                         {timetable[today] && !_.isEmpty(timetable[today]) ? 'OUVERT' : 'FERMÉ'}
                       </p>
                       <span className="today">
-                      {DateTimeConstants.weekDayLabel(today)}
-                        { _.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
+                        {DateTimeConstants.weekDayLabel(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
-                        }).join(" / ") + ' >'}
+                        }).join(" / ") + ' >')}
                       </span>
                     </a>
                     <div className="visible-xs">
