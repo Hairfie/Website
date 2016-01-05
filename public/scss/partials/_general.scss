@@ -687,6 +687,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 			margin: 0 auto;
 			float: left;
 			height: 80px;
+			@media screen and (max-width: $screen-xs-max) {
+				height: 50px;
+			}
 			position: relative;
 			border-radius: 2px;
 			overflow: hidden;
@@ -698,6 +701,10 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 					border-style: solid;
 				}
 				width: 80px;height: 80px;
+				@media screen and (max-width: $screen-xs-max) {
+					width: 50px;
+					height: 50px;
+				}
 				border-radius: 100%;
 				position: absolute;
 				top: 0;left: 0;bottom: 0;right: 0;
@@ -708,7 +715,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 			div.title {
 				overflow: auto;
 				.gender-symbol {
-					font-size: 1.5em;
+					font-size: 1.3em;
 					color: #343434;
 				}
 				p {
