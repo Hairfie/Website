@@ -198,29 +198,34 @@
     					margin: 0;
     				}
 					a { 
+						width: 100%;
 						text-decoration: none;
 						color: black;
 						font-weight: bold;
 						position: relative;
-					h3 {
+					.title {
 						color: $hairfie;
+						padding-left: 10px;
+						font-size: 2em;
 						font-weight: bold;
-						border: solid black;
-    					padding: 10px;
+						border: solid #f8f8f8;
+						border-width: 2px;
+    					padding-top: 2px;
+    					padding-bottom: 2px;
     					border-radius: 5px;
     					padding-right: 20px;
 					}
 					.today {
-						background-color: $bg3;
+						background-color: #f8f8f8;
 						border-radius: 5px;
 						margin-left: -10px;
+						padding-left: 20px; padding-right: 20px;
+						padding-top: 2px;
 						height: 100%;
-    					width: 100%;
     					position: absolute;
-    					span {	
-    					    height: 100%;
-   							vertical-align: middle;
-   							margin-top: 15%;
+    					span {
+    						font-size: 2em;
+    						color: #666b74;
     					}
 					}
 				}
@@ -234,14 +239,14 @@
 		div.reviews-title {
 			a {
 				color: $hairfie;
-				font-size: 2.3em;
+				font-size: 2em;
     			font-weight: bolder;
     			text-decoration: underline;
 			}
 			p {
 				margin: 0;
 				color: $darkgrey;
-				font-size: 2.3em;
+				font-size: 2em;
     			font-weight: bolder;
 			}
 			margin-top: 20px;

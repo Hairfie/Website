@@ -46,18 +46,19 @@ module.exports = React.createClass({
 
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
-        var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
 
+        var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
+        var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         return (
             <section className="salon-info">
               <div className="row">
-                <div className="col-sm-8">
+                <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
                   <h2>{displayAddress}</h2>
                   <div className="horaires">
                     <a role="button" onClick={this.handleDisplayTimetable}>
-                      <h3>
+                      <p className="title">
                         {timetable[today] && !_.isEmpty(timetable[today]) ? 'OUVERT' : 'FERMÉ'}
-                      </h3>
+                      </p>
                       <span className="today">
                       {DateTimeConstants.weekDayLabel(today)}
                         { _.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {

@@ -32,15 +32,15 @@ module.exports = React.createClass({
 
         return (
             <div key={review.id} className="single-comment col-xs-12">
-                <div className="user-profil col-xs-4 col-sm-2">
+                <div className="user-profil col-xs-3 col-sm-2">
                     <UserProfilePicture className={"ProfilePicture" + (review && review.author && review.author.picture ? '' : ' placeholder')}
                     picture={review && review.author ? review.author.picture : ''}
                     options={options} 
                     gender={review ? review.gender : ''}/>
                 </div>
-                <div className="col-xs-8 col-sm-10">
+                <div className="col-xs-9 col-sm-10">
                     <div className="title">
-                        <p>{symbol}{displayName(review)}</p>
+                        <p>{displayName(review)}{symbol}</p>
                         <Rating rating={review.rating} min={true} className="pull-right" />
                     </div>
                     <p>{review.comment}</p>
@@ -50,7 +50,7 @@ module.exports = React.createClass({
         );
     },
     verified: function(review) {
-        if (review && !review.verified) return (<strong className="pull-right darkgrey">Avis libre déposé le {moment(review.createdAt).format('LL')}</strong>);;
-        return (<strong className="pull-right red">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</strong>);
+        if (review && !review.verified) return (<strong className="darkgrey">Avis libre déposé le {moment(review.createdAt).format('LL')}</strong>);;
+        return (<strong className="red">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</strong>);
     }
 });
