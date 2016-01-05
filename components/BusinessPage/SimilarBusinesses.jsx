@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 module.exports = React.createClass({
     render: function () {
+        if (!this.props.businesses || _.isEmpty(this.props.businesses)) return null;
         if (this.props.slidebar) return this.renderSlidebar();
         return this.renderSimilar();
     },
@@ -21,7 +22,7 @@ module.exports = React.createClass({
                                 <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                                     <Picture picture={business.pictures[0]}
                                              resolution={{width: 200, height: 200}}
-                                             style={{width: '100%', height: '115px'}}
+                                             style={{width: '100%'}}
                                              placeholder="/img/placeholder-640.png"
                                              alt={business.name}
                                     />

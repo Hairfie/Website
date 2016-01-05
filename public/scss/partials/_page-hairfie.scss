@@ -117,7 +117,14 @@
 				h2 {
 					font-size: 1.5em;
 				}
-				p {letter-spacing: 1px; margin-top: 4px;font-size: 1.3em;}
+				p {
+					letter-spacing: 1px; 
+					font-size: 1.3em;
+					margin-bottom: 5px;
+					&.address {
+						margin-top: 4px;
+					}
+				}
 				p a {text-decoration: underline;&:hover {color: #343434;}}
 				.likes {
 					padding: 0;
@@ -155,6 +162,12 @@
 							width: calc(100% - 30px);
 						}
 					}
+				}
+
+				.btn-book {
+					text-transform: uppercase;
+					border-radius: 0;
+					font-size: 1.3em;
 				}
 			}
 		}

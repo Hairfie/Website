@@ -8,21 +8,22 @@ module.exports = React.createClass({
         return (
             <section className="home-section home-footer">
                 <h2>Comment ça marche ?</h2>
+                <p className="subtitle" />
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
                         <Picture picture={{url: "/img/search.png"}} alt="Trouvez votre coupe" />
-                        <h3>Découvrez</h3>
-                        <p>Parcourez nos #Hairfies pour trouver la coiffure qui vous correspond</p>
+                        <h3>S’inspirer</h3>
+                        <p>des hairfies postés et trouver son coiffeur</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <Picture picture={{url: "/img/book.png"}} alt="Prenez RDV avec votre coiffeur" />
-                        <h3>Prenez RDV</h3>
-                        <p>Réservez votre coiffeur gratuitement en 3 clics, 24/7</p>
+                        <h3>Prendre RDV</h3>
+                        <p>24/7 gratuitement sans paiement en ligne</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
                         <Picture picture={{url: "/img/share.png"}} alt="Partagez votre #Hairfie" />
-                        <h3>Partagez</h3>
-                        <p>Partagez votre #Hairfie <br />et donnez votre avis</p>
+                        <h3>Partager</h3>
+                        <p>son expérience.<br />Poster un hairfie et un avis.</p>
                     </div>
                 </div>
             </section>

@@ -8695,6 +8695,9 @@ div#app {
 .green {
   color: #20af69 !important; }
 
+.darkgrey {
+  color: #595959 !important; }
+
 .red {
   color: #fc5a5f !important; }
 
@@ -9205,10 +9208,11 @@ ul {
     background: url(../img/star.png) no-repeat center center;
     background-size: 100%;
     margin: 6px;
-    cursor: pointer;
     display: block;
     position: relative;
     float: left; }
+    .stars .star.interactive {
+      cursor: pointer; }
     .stars .star:after {
       content: " ";
       opacity: 0;
@@ -9226,7 +9230,7 @@ ul {
       bottom: 0;
       right: 0;
       margin: auto; }
-    .stars .star:hover:after {
+    .stars .star:hover.interactive:after {
       opacity: 1;
       -webkit-transition: all 0.15s ease-out;
       -moz-transition: all 0.15s ease-out;
@@ -9686,22 +9690,36 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   border-bottom: 1px solid #f9f9f9;
   padding: 20px; }
   .comments .single-comment .user-profil {
-    width: 35px;
-    height: 35px;
     margin: 0 auto;
+    float: left;
+    height: 80px;
     position: relative;
     border-radius: 2px;
-    overflow: hidden;
-    margin-right: 13px; }
+    overflow: hidden; }
     .comments .single-comment .user-profil img {
-      width: 35px;
-      height: 35px;
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
       margin: auto; }
+      .comments .single-comment .user-profil img.placeholder {
+        padding: 10px;
+        border-color: #CDC4C4;
+        border-width: 3px;
+        border-style: solid; }
+  .comments .single-comment div div.title {
+    overflow: auto; }
+    .comments .single-comment div div.title .gender-symbol {
+      font-size: 1.5em;
+      color: #343434; }
+    .comments .single-comment div div.title p {
+      font-size: 1.6em;
+      font-weight: bold;
+      display: inline; }
   .comments .single-comment div p {
     margin-bottom: 0;
     letter-spacing: 1px;
@@ -10169,8 +10187,7 @@ footer.mobile {
     font-size: 1.6em;
     font-weight: 400; }
   .landing .headline {
-    margin: 100px auto 0;
-    height: 132px;
+    margin: 70px auto 0;
     float: none !important; }
     @media screen and (max-width: 767px) {
       .landing .headline h1 {
@@ -10181,6 +10198,9 @@ footer.mobile {
       @media screen and (max-width: 767px) {
         .landing .headline p {
           display: none; } }
+  .landing .choice .search-word {
+    font-size: 2.3em;
+    text-transform: uppercase; }
   .landing .choice .btn-red {
     height: 58px;
     font-size: 1.4em;
@@ -10226,10 +10246,13 @@ section.home-section {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     letter-spacing: 3px;
-    padding: 50px 0;
+    padding: 30px 0 10px;
     margin: 0;
     font-size: 2.4em;
     color: #595959; }
+  section.home-section p.subtitle {
+    font-size: 1.6em;
+    margin-bottom: 15px; }
   section.home-section figure {
     overflow: hidden;
     background-color: #595959; }
@@ -10259,10 +10282,8 @@ section.home-section {
   section.home-section .btn.home-cta, section.home-section .home-cta.btn-red, section.home-section .home-cta.btn-blue, section.home-section .home-cta.btn-orange, section.home-section .home-cta.btn-green, section.home-section .home-cta.btn-white, section.home-section .home-cta.btn-book, section.home-section .home-cta.btn-frame, section.home-section .home-cta.btn-frame-blue, section.home-section .home-cta.btn-frame-red, section.home-section .home-cta.btn-frame-yellow, section.home-section .home-cta.btn-frame-green, section.home-section .home-cta.btn-frame-orange, section.home-section .home-cta.btn-frame-darkgrey {
     display: block;
     margin: 40px auto 0;
+    text-transform: uppercase;
     float: none !important; }
-
-.choice {
-  margin-top: 90px; }
 
 .landing .main-searchbar, .home-search .main-searchbar {
   padding: 20px;
@@ -10939,27 +10960,27 @@ section.home-footer .row > div {
         height: 40px;
         background-size: 40%;
         display: inline-block; }
-  #content.search .sidebar .price .selectRange {
+  #content.search .sidebar .price .selectRange, #content.search .sidebar .radius .selectRange {
     padding: 30px 12px;
     background: white; }
-  #content.search .sidebar .price p {
+  #content.search .sidebar .price p, #content.search .sidebar .radius p {
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1em;
     margin: 0;
     padding: 0;
     text-align: left; }
-    #content.search .sidebar .price p:nth-child(3) {
+    #content.search .sidebar .price p:nth-child(3), #content.search .sidebar .radius p:nth-child(3) {
       text-align: right; }
-  #content.search .sidebar .price .rangeslider {
+  #content.search .sidebar .price .rangeslider, #content.search .sidebar .radius .rangeslider {
     height: 11px;
     background: #e2e3e6;
     border: 0;
     margin-bottom: 15px; }
-    #content.search .sidebar .price .rangeslider .ui-slider-range {
+    #content.search .sidebar .price .rangeslider .ui-slider-range, #content.search .sidebar .radius .rangeslider .ui-slider-range {
       height: 11px;
       background: #fc5a5f; }
-    #content.search .sidebar .price .rangeslider .ui-slider-handle {
+    #content.search .sidebar .price .rangeslider .ui-slider-handle, #content.search .sidebar .radius .rangeslider .ui-slider-handle {
       top: -.55em;
       cursor: pointer;
       width: 22px;
@@ -10995,32 +11016,60 @@ section.home-footer .row > div {
 
 .salon#content {
   background-color: white; }
+  .salon#content #carousel-salon.noPicture .carousel-inner .item {
+    height: 255px; }
+    .salon#content #carousel-salon.noPicture .carousel-inner .item.placeholder {
+      height: 255px; }
   .salon#content h3 {
     color: #fe5b5f; }
+  .salon#content .nav {
+    margin: 0; }
+    .salon#content .nav li a {
+      padding: 0;
+      padding-top: 40px; }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
+      padding: 0;
       left: 0;
       right: 0;
       position: absolute;
       bottom: 0px; }
-      .salon#content #carousel-salon .carousel-info div:nth-child(2) {
+      .salon#content #carousel-salon .carousel-info .star {
+        margin: 2px; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info .star {
+            width: 10px;
+            margin: 1px; } }
+      .salon#content #carousel-salon .carousel-info div div:first-child {
+        padding-left: 0; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info div div:first-child {
+            padding-left: 15px; } }
+        @media screen and (min-width: 1200px) {
+          .salon#content #carousel-salon .carousel-info div div:first-child.profilePicture {
+            padding-left: 125px; } }
+      .salon#content #carousel-salon .carousel-info div div:nth-child(2) {
         position: absolute;
         right: 0;
         bottom: 0; }
       .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
-        color: white; }
+        color: white;
+        letter-spacing: 0px; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+            font-size: 2.1em; } }
       .salon#content #carousel-salon .carousel-info img {
         z-index: 1;
         position: absolute;
-        width: 14em;
+        width: 120px;
         bottom: -60px;
-        left: -120px;
+        left: 0px;
         border-style: solid;
         border-width: 5px;
         border-color: white;
         border-radius: 100%; }
-        @media screen and (max-width: 1450px) {
+        @media screen and (max-width: 1199px) {
           .salon#content #carousel-salon .carousel-info img {
             display: none; } }
     .salon#content #carousel-salon .carousel-inner .item {
@@ -11035,8 +11084,7 @@ section.home-footer .row > div {
         margin: auto; }
       .salon#content #carousel-salon .carousel-inner .item.placeholder {
         height: 470px;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
-        background-size: cover; }
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x; }
       .salon#content #carousel-salon .carousel-inner .item img {
         background-repeat: no-repeat;
         background-size: cover;
@@ -11067,11 +11115,16 @@ section.home-footer .row > div {
       background: #f4f4f4;
       z-index: -1; }
     .salon#content .main-content section.salon-info {
+      margin-left: -15px;
       position: relative;
       width: 100%;
       padding-top: 16px; }
+      .salon#content .main-content section.salon-info p {
+        font-size: 1.6em;
+        font-weight: 200;
+        margin-bottom: 5px; }
       .salon#content .main-content section.salon-info a.btn, .salon#content .main-content section.salon-info a.btn-red, .salon#content .main-content section.salon-info a.btn-blue, .salon#content .main-content section.salon-info a.btn-orange, .salon#content .main-content section.salon-info a.btn-green, .salon#content .main-content section.salon-info a.btn-white, .salon#content .main-content section.salon-info a.btn-book, .salon#content .main-content section.salon-info a.btn-frame, .salon#content .main-content section.salon-info a.btn-frame-blue, .salon#content .main-content section.salon-info a.btn-frame-red, .salon#content .main-content section.salon-info a.btn-frame-yellow, .salon#content .main-content section.salon-info a.btn-frame-green, .salon#content .main-content section.salon-info a.btn-frame-orange, .salon#content .main-content section.salon-info a.btn-frame-darkgrey {
-        color: red;
+        color: #fe5b5f;
         border: solid;
         border-width: 3px;
         width: 100%;
@@ -11084,28 +11137,17 @@ section.home-footer .row > div {
         @media screen and (max-width: 480px) {
           .salon#content .main-content section.salon-info div.timetable span.extra-small {
             width: 20%; } }
-      .salon#content .main-content section.salon-info .row {
-        padding-left: 35px; }
-        @media screen and (max-width: 767px) {
-          .salon#content .main-content section.salon-info .row {
-            padding-left: 15px; } }
+      @media screen and (max-width: 767px) {
+        .salon#content .main-content section.salon-info .row {
+          padding-left: 15px; } }
       .salon#content .main-content section.salon-info .row:first-child {
-        width: auto;
-        padding-left: 35px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px; }
-        @media screen and (max-width: 991px) {
-          .salon#content .main-content section.salon-info .row:first-child {
-            margin-top: 0;
-            padding-left: 15px;
-            border-radius: 0px; } }
-        .salon#content .main-content section.salon-info .row:first-child h1 {
-          margin-top: 0;
-          color: white;
-          margin-bottom: 35px; }
-          @media screen and (max-width: 991px) {
-            .salon#content .main-content section.salon-info .row:first-child h1 {
-              color: black; } }
+        padding-left: 0px; }
+        @media screen and (min-width: 1200px) {
+          .salon#content .main-content section.salon-info .row:first-child .profilePicture {
+            padding-left: 125px; } }
+      @media screen and (min-width: 768px) {
+        .salon#content .main-content section.salon-info .avis {
+          float: right; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
@@ -11149,18 +11191,54 @@ section.home-footer .row > div {
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
+    .salon#content section.salon-content div.reviews-title {
+      margin-top: 20px;
+      margin-bottom: 30px; }
+      .salon#content section.salon-content div.reviews-title a {
+        color: #fe5b5f;
+        font-size: 2.3em;
+        font-weight: bolder;
+        text-decoration: underline; }
+      .salon#content section.salon-content div.reviews-title p {
+        margin: 0;
+        color: #595959;
+        font-size: 2.3em;
+        font-weight: bolder; }
     .salon#content section.salon-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
     .salon#content section.salon-content > .row {
       background-color: white; }
-    .salon#content section.salon-content ul.nav li:first-child .icon-nav {
-      background: url(../img/icon-salon-nav1.jpg) no-repeat center center; }
-    .salon#content section.salon-content ul.nav li:nth-child(2) .icon-nav {
-      background: url(../img/icon-salon-nav2.jpg) no-repeat center center; }
-    .salon#content section.salon-content ul.nav li:last-child {
+    .salon#content section.salon-content ul.nav li a {
+      padding-top: 55px; }
+    .salon#content section.salon-content ul.nav li .icon-nav {
+      width: 40px;
+      height: 35px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto; }
+    .salon#content section.salon-content ul.nav li:not(.active):first-child .icon-nav {
+      background: url(../img/icons/info.png) no-repeat center center;
+      background-size: contain; }
+    .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
+      background: url(../img/icons/avis.png) no-repeat center center;
+      background-size: contain; }
+    .salon#content section.salon-content ul.nav li:not(.active):last-child {
       border-right: none; }
-      .salon#content section.salon-content ul.nav li:last-child .icon-nav {
-        background: url(../img/icon-salon-nav3.jpg) no-repeat center center; }
+      .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
+        background: url(../img/icons/hairfie.png) no-repeat center center;
+        background-size: contain; }
+    .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
+      background: url(../img/icons/info-selected.png) no-repeat center center;
+      background-size: contain; }
+    .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
+      background: url(../img/icons/avis-selected.png) no-repeat center center;
+      background-size: contain; }
+    .salon#content section.salon-content ul.nav li.active:last-child {
+      border-right: none; }
+      .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
+        background: url(../img/icons/hairfie-selected.png) no-repeat center center;
+        background-size: contain; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
@@ -11169,7 +11247,8 @@ section.home-footer .row > div {
           padding-left: 15px;
           padding-right: 15px; } }
       .salon#content section.salon-content section h4 {
-        color: #343434; }
+        color: #343434;
+        margin-bottom: 3px; }
       .salon#content section.salon-content section h3 {
         margin-left: -15px; }
       .salon#content section.salon-content section .row {
@@ -11195,10 +11274,10 @@ section.home-footer .row > div {
             color: black; }
       .salon#content section.salon-content section .coiffeur img {
         display: block;
-        width: 14em;
+        width: 10em;
         border-radius: 100%;
         margin: 0 auto 20px;
-        border: 10px solid #f0f0f1; }
+        border: 6px solid #f0f0f1; }
       .salon#content section.salon-content section .coiffeur p > a {
         font-size: 1em;
         color: #343434;
@@ -11210,19 +11289,32 @@ section.home-footer .row > div {
           color: #1b1b1b;
           text-decoration: underline; }
       .salon#content section.salon-content section .table-price {
-        border: 1px solid #f9f9f9;
-        margin-left: 0; }
+        border: 0px;
+        padding-left: 0;
+        margin-left: -16px;
+        margin-right: 15px; }
         .salon#content section.salon-content section .table-price div {
-          border: 1px solid #f9f9f9;
-          padding: 12px 0 12px 24px;
-          text-align: center; }
+          padding-left: 24px;
+          min-height: 20px;
+          overflow: auto; }
+          .salon#content section.salon-content section .table-price div.title {
+            height: 35px; }
+            .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
+              line-height: 35px; }
+          .salon#content section.salon-content section .table-price div:nth-child(2n) {
+            background-color: #f4f4f4; }
           .salon#content section.salon-content section .table-price div p {
             margin-bottom: 2px;
             text-align: left;
             color: #343434;
-            font-size: 1.4em; }
-            .salon#content section.salon-content section .table-price div p span {
-              text-decoration: underline; }
+            font-size: 1.4em;
+            text-transform: uppercase;
+            font-weight: bolder;
+            color: #898989; }
+          .salon#content section.salon-content section .table-price div span.price {
+            float: right; }
+        .salon#content section.salon-content section .table-price:not(:first-child) div.title {
+          margin-top: 15px; }
     .salon#content section.salon-content #avis .row {
       padding-left: 15px;
       padding-right: 15px;
@@ -11253,11 +11345,17 @@ section.home-footer .row > div {
           z-index: 10000;
           margin-bottom: 0px; } }
     .salon#content .sidebar section#location {
-      margin-top: 50px; }
+      margin-bottom: 20px; }
       .salon#content .sidebar section#location .map {
-        height: 247px;
+        width: 100%;
+        height: 100%;
         background: url(../img/placeholder-map.jpg) no-repeat center center;
         background-size: cover; }
+        .salon#content .sidebar section#location .map:before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+          /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
       content: " ";
       width: 200vw;
@@ -11285,14 +11383,7 @@ section.home-footer .row > div {
         .salon#content .sidebar .calendar {
           display: none; } }
     .salon#content .sidebar .phone {
-      margin-top: 95px; }
-      @media screen and (max-width: 991px) {
-        .salon#content .sidebar .phone {
-          bottom: 0;
-          left: 0;
-          position: fixed;
-          width: 100%;
-          z-index: 9000; } }
+      margin-bottom: 20px; }
       .salon#content .sidebar .phone .btn-phone {
         position: relative;
         width: 100%;
@@ -11302,7 +11393,7 @@ section.home-footer .row > div {
         border: #fe5b5f;
         border-width: 3px;
         border-style: solid;
-        border-radius: 2px; }
+        border-radius: 4px; }
         .salon#content .sidebar .phone .btn-phone:after {
           content: " ";
           background: url(../img/phone-red.png) no-repeat center center;
@@ -11321,9 +11412,15 @@ section.home-footer .row > div {
             .salon#content .sidebar .phone .btn-phone:after {
               left: 25px; } }
     .salon#content .sidebar .promo-sidebar {
-      position: relative; }
+      position: relative;
+      margin-bottom: 80px; }
       .salon#content .sidebar .promo-sidebar img {
-        border-radius: 5px; }
+        border-radius: 4px;
+        -webkit-filter: brightness(50%);
+        -moz-filter: brightness(50%);
+        -ms-filter: brightness(50%);
+        -o-filter: brightness(50%);
+        filter: brightness(50%); }
       .salon#content .sidebar .promo-sidebar .inline-promo {
         top: 0;
         position: absolute;
@@ -11340,7 +11437,13 @@ section.home-footer .row > div {
           .salon#content .sidebar .promo-sidebar .inline-promo p:nth-child(2) {
             margin-top: -30px; }
         .salon#content .sidebar .promo-sidebar .inline-promo img {
-          margin-top: 35px; }
+          margin-top: -10px;
+          -webkit-filter: none;
+          -moz-filter: none;
+          -ms-filter: none;
+          -o-filter: none;
+          filter: none;
+          border-radius: 0; }
         .salon#content .sidebar .promo-sidebar .inline-promo .icon-promo {
           float: none;
           margin-right: 10px; }
@@ -11569,8 +11672,10 @@ section.home-footer .row > div {
           font-size: 1.5em; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p {
           letter-spacing: 1px;
-          margin-top: 4px;
-          font-size: 1.3em; }
+          font-size: 1.3em;
+          margin-bottom: 5px; }
+          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p.address {
+            margin-top: 4px; }
         .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a {
           text-decoration: underline; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a:hover {
@@ -11601,6 +11706,10 @@ section.home-footer .row > div {
               left: 0; }
           .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
             width: calc(100% - 30px); }
+        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .btn-book {
+          text-transform: uppercase;
+          border-radius: 0;
+          font-size: 1.3em; }
     .hairfie-singleView#content .single-view .tags {
       margin-left: -3px; }
       .hairfie-singleView#content .single-view .tags .tag {
@@ -12648,5 +12757,75 @@ section.home-footer .row > div {
   .connect-form form.form .uploadFile {
     display: block;
     font-size: 1.4em; }
+
+.howitworks section:nth-child(odd) {
+  background-color: #f0f0f1;
+  position: relative; }
+  .howitworks section:nth-child(odd):before {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+  .howitworks section:nth-child(odd):after {
+    content: " ";
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    right: -100vw;
+    top: 0;
+    background: #f0f0f1;
+    z-index: -1; }
+
+.howitworks section.title {
+  left: calc(-50vw + 50%);
+  background: url(../img/howitworks/section-bg.jpg) no-repeat center center;
+  background-size: cover;
+  margin: 0; }
+  @media screen and (min-width: 767px) {
+    .howitworks section.title {
+      height: 400px;
+      width: 100vw; } }
+  @media screen and (max-width: 767px) {
+    .howitworks section.title {
+      height: 300px;
+      width: 100vw; } }
+  .howitworks section.title div.container {
+    text-align: center;
+    color: white; }
+  .howitworks section.title h1 {
+    margin-top: 150px; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title h1 {
+        font-size: 20px; } }
+  .howitworks section.title a.arrow {
+    font-size: 200px;
+    line-height: 100px;
+    color: white;
+    text-decoration: none; }
+    @media screen and (max-width: 767px) {
+      .howitworks section.title a.arrow {
+        font-size: 100px;
+        line-height: 50px; } }
+    .howitworks section.title a.arrow:hover {
+      cursor: pointer;
+      color: white;
+      text-decoration: none; }
+
+.howitworks section.second {
+  padding: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center; }
+  .howitworks section.second .container {
+    margin: 0; }
+  .howitworks section.second h2 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    height: 30px; }
+  .howitworks section.second p {
+    font-size: 1.5em; }
 
 /*# sourceMappingURL=style.css.map */

@@ -15,8 +15,8 @@ var HairdresserPicture = React.createClass({
 
         return <Picture role="button" picture={this.props.hairdresser.picture}
                      options={{
-                        width: 340,
-                        height: 340,
+                        width: 220,
+                        height: 220,
                         crop: 'thumb',
                         gravity: 'faces'
                      }}
@@ -51,7 +51,7 @@ module.exports = React.createClass({
             if (hairdresser.picture)
                 index++;
             return (
-                <div key={hairdresser.id} className="col-sm-3 col-xs-6 coiffeur">
+                <div key={hairdresser.id} className="col-sm-2 col-xs-4 coiffeur">
                     <HairdresserPicture hairdresser={hairdresser} onClick={this.openGallery.bind(null, index)} />
                     <Link route="hairdresser" params={{id: hairdresser.id}} className="black"><p className="text-center">{hairdresser.firstName} {(hairdresser.lastName || '').substr(0, 1)}.</p></Link>
                 </div>

@@ -84,7 +84,7 @@ var mobileHeader = React.createClass({
                     <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                 </div>
-                <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur (facultatif)" />
+                <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
                 <Button onClick={this.submit} className='btn btn-red col-xs-3'>Trouvez votre coiffeur</Button>
             </div>
        );

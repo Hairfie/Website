@@ -169,7 +169,9 @@ ul {
 		background: url(../img/star.png) no-repeat center center;
 		background-size:100%;
 		margin: 6px;
-		cursor: pointer;
+		&.interactive {
+			cursor: pointer;
+		}
 
 		display: block;
 		position: relative;
@@ -184,7 +186,7 @@ ul {
 			background-size:100%;
 			position: absolute; top: 0;left: 0;bottom: 0;right: 0;margin: auto;
 		}
-		&:hover {
+		&:hover.interactive {
 			&:after {
 				opacity: 1;
 				@include transition(all 0.15s ease-out);
@@ -682,21 +684,39 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		padding: 20px;
 
 		.user-profil {
-			width: 35px;height: 35px;
 			margin: 0 auto;
+			float: left;
+			height: 80px;
 			position: relative;
 			border-radius: 2px;
 			overflow: hidden;
-			margin-right: 13px;
-			img{
-				width: 35px;height: 35px;
+			img {
+				&.placeholder {
+					padding: 10px;
+					border-color: #CDC4C4;
+					border-width: 3px;
+					border-style: solid;
+				}
+				width: 80px;height: 80px;
+				border-radius: 100%;
 				position: absolute;
 				top: 0;left: 0;bottom: 0;right: 0;
 				margin: auto;
 			}
 		}
 		div {
-
+			div.title {
+				overflow: auto;
+				.gender-symbol {
+					font-size: 1.5em;
+					color: #343434;
+				}
+				p {
+					font-size: 1.6em;
+					font-weight: bold;
+					display: inline;
+				}
+			}
 			p {
 				margin-bottom: 0;
 				letter-spacing: 1px;

@@ -1,5 +1,7 @@
 'use strict';
 
+require("babel-polyfill");
+
 var React = require('react');
 var Fluxible = require('fluxible');
 var _ = require('lodash');

@@ -28,6 +28,11 @@ module.exports = React.createClass({
             price = <div className="pricetag">{hairfie.price.amount}€</div>;
         }
 
+        var tags;
+        if (hairfie.tags) {
+            tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
+        }
+
         return (
             <div key={hairfie.id} {...this.props}>
                 <figure>
@@ -40,6 +45,7 @@ module.exports = React.createClass({
                             <figcaption>
                                 {salon}
                                 {hairdresser}
+                                {tags}
                                 {price}
                                 {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                             </figcaption>

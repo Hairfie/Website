@@ -1,0 +1,88 @@
+.howitworks section:nth-child(odd) {
+    background-color: $bg2;
+    @include fullWidthBg($bg2);
+}
+
+.howitworks section.title {
+    @media screen and (min-width: $screen-xs-max) {
+        height: 400px; width: 100vw;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        height: 300px; width: 100vw;
+    }
+    left: calc(-50vw + 50%);
+    background: url(../img/howitworks/section-bg.jpg) no-repeat center center;
+    background-size: cover;
+    margin: 0;
+    div.container {
+        text-align: center;
+            color: white;
+    }
+    h1 {
+        margin-top: 150px;
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 20px;
+        }
+    }
+    a.arrow {
+        font-size: 200px;
+        line-height: 100px;
+        color: white;
+        text-decoration: none;
+
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 100px;
+            line-height: 50px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+.howitworks section.second {
+    padding: 20px;
+    font-family: $font-main;
+    text-align: center;
+    .container {
+        margin: 0;
+    }
+    h2 {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        height: 30px;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+}
+
+// #home section.download {
+//     @media screen and (min-width: $screen-xs-max) {
+//         height: 400px; width: 100vw;
+//         left: calc(-50vw + 50%);
+//         background: url(../img/bg-download-lite.jpg) no-repeat center center;
+//         background-size: cover;
+//         margin: 0;
+//     }
+
+//     p {
+//         font-size: 1.6em;
+//         font-family: $font-second;
+//         font-weight: $latoLight;
+//         color: $font-color;
+
+//         &.buttons {
+//             margin-top: 50px;
+//             text-align: center;
+//         }
+//     }
+
+//     .btn-apple {
+//         //width: 204px;
+//     }
+// }

@@ -21,9 +21,9 @@ var BusinessPage = React.createClass({
         return (
             <Layout business={this.props.business} tab="infos">
                 {this.renderSimilar()}
+                {this.renderDescription()}
                 {this.renderHairdressers()}
                 {this.renderServices()}
-                {this.renderDescription()}
                 {this.renderDiscounts()}
             </Layout>
         );
@@ -48,23 +48,62 @@ var BusinessPage = React.createClass({
     },
     renderServices: function () {
         var services = this.props.services || [];
-
+        if (!services || _.isEmpty(services)) return null;
         return (
             <section>
-                <h3>Extrait des tarifs</h3>
+                <h3>Tarifs du salon</h3>
                 <div className="row">
                     <div className="row table-price">
-                        {_.map(services, function (service) {
+                        {
+                            !_.isEmpty(_.where(services, {gender: "FEMALE"})) ?
+                                <div className='title'>
+                                    <p>POUR ELLE</p>
+                                </div>
+                            : null
+                        }
+                        {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
                             return (
                                 <div key={service.id}>
-                                    <p>{service.label}:&nbsp;<span>{service.price.amount}€</span></p>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
                                 </div>
                             );
                         })}
                     </div>
-                    <br />
-                    <p>Ces prix ne prennent pas en comptes des éventuelles promotions sur ces prestations</p>
+                    <div className="row table-price">
+                        {
+                        !_.isEmpty(_.where(services, {gender: "MALE"})) ?
+                            <div className='title'>
+                                <p>POUR LUI</p>
+                            </div>
+                        : null
+                        }
+                        {_.map(_.where(services, {gender: "MALE"}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className="row table-price">
+                        {
+                        !_.isEmpty(_.where(services, {gender: ""})) && (!_.isEmpty(_.where(services, {gender: "MALE"})) || !_.isEmpty(_.where(services, {gender: "FEMALE"}))) ?
+                            <div className='title'>
+                                <p>POUR TOUS</p>
+                            </div>
+                        : null
+                        }
+                        {_.map(_.where(services, {gender: ""}), function (service) {
+                            return (
+                                <div key={service.id}>
+                                    <p>{service.label}<span className="price">{service.price.amount}€</span></p>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
+                <br />
+                    <p>Ces tarifs sont indicatifs et ne prennent pas en compte les éventuelles promotions sur ces prestations.</p>
             </section>
         );
     },
@@ -90,45 +129,6 @@ var BusinessPage = React.createClass({
                 </div>
             </section>
         );
-    },
-    renderLocation: function () {
-        return (
-            <section id="location">
-                <h3>Comment s'y rendre ?</h3>
-                {this.renderStations()}
-                {this.renderMap()}
-            </section>
-        );
-    },
-    renderStations: function () {
-        var stations = _.groupBy(this.props.stations || [], 'type')
-
-        if (!stations.rer && !stations.metro) return;
-        return (
-            <div>
-                <h4>RER / Métro</h4>
-                {_.uniq(_.map(_.flatten([stations.rer || [], stations.metro || []]), function(station, i) {
-                    return (<p key={i}>
-                        {station.type == "metro" ? <Picture picture={{url: '/img/icons/RATP/M.png'}} style={{width: 25, height: 25, marginRight: 7}}/> : ""}
-                        {_.map(station.lines, function(line, i) {
-                            var name = "";
-                            if (line.type == "metro")
-                                name = "M_";
-                            else if (line.type == "rer")
-                                name = "RER_";
-                            name += line.number.toUpperCase();
-                            return (<Picture picture={{url: '/img/icons/RATP/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}} key={i} />);
-                        })}
-                            {station.name}
-                        </p>);
-                }))}
-            </div>
-        );
-    },
-    renderMap: function () {
-        var business = this.props.business || {};
-
-        return <Map location={business.gps} className="map container-fluid" />;
     },
     renderDescription: function () {
         var business = this.props.business || {};

@@ -11,6 +11,7 @@ module.exports = React.createClass({
         return (
             <section className="home-section seo">
                 <h2>Nos suggestions</h2>
+                <p className="subtitle" />
                 <div className="row">
                     {_.map(_.chunk(this.props.links, colSize), this.renderColumn)}
                 </div>

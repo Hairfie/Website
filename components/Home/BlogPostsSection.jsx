@@ -11,7 +11,8 @@ module.exports = React.createClass({
 
         return (
             <section className="home-section blog-posts" id="blog-posts" ref="blog-posts">
-                <h2>Les dernières tendances coiffures</h2>
+                <h2>Les actus et tendances coiffures</h2>
+                <p className="subtitle">Pour rester branché(e) cheveux, capillairement connecté(e), furieusement coiffé(e)... Rien de tel qu’une petite dose d’actu chevelue !</p>
                 <div className="section-content-1">
                     <div className="row">
                         {_.map(posts, this.renderPost)}

@@ -121,7 +121,7 @@ server.use(function (err, req, res, next) { // error page
         error  : err
     }));
 
-    var html = '<!doctype html>'+ReactDOMServer.renderToStaticMarkup(React.createFactory(Html)({
+    var html = '<!doctype html>' + ReactDOMServer.renderToStaticMarkup(React.createFactory(Html)({
         context : context.getComponentContext(),
         state   : state,
         markup  : markup

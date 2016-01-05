@@ -24,6 +24,13 @@ var SearchUtils = require('../lib/search-utils');
 var RouteStore = require('../stores/RouteStore');
 
 module.exports = {
+    redirectToHome: function(context) {
+        var error = new Error('Invalid URL');
+        error.status = 301;
+        error.location = context.getStore('RouteStore').makeUrl('home');
+
+        throw error;
+    },
     home: function (context) {
         return Promise.all([
             context.executeAction(DealActions.loadTopDeals),

@@ -172,25 +172,25 @@ var ReviewForm = React.createClass({
                 <br />
                 <Row>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="welcome" label="Accueil" />
+                        <RatingInput ref="welcome" label="Accueil" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="discussion" label="Discussions" />
+                        <RatingInput ref="discussion" label="Discussions" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="decoration" label="Décoration" />
+                        <RatingInput ref="decoration" label="Décoration" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="hygiene" label="Hygiène" />
+                        <RatingInput ref="hygiene" label="Hygiène" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="treatment" label="Soins" />
+                        <RatingInput ref="treatment" label="Soins" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="resultQuality" label="Qualité du résultat" />
+                        <RatingInput ref="resultQuality" label="Qualité du résultat" className="interactive" />
                     </Col>
                     <Col xs={6} md={4}>
-                        <RatingInput ref="availability" label="Disponibilité" />
+                        <RatingInput ref="availability" label="Disponibilité" className="interactive" />
                     </Col>
                 </Row>
                 <hr />

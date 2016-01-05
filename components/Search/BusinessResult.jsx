@@ -3,6 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
+var PriceRating = require('../Partial/PriceRating.jsx');
 var Pagination = require('./Pagination.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var BusinessActions = require('../../actions/BusinessActions');
@@ -116,7 +117,7 @@ var Business = React.createClass({
             <div className="rating col-xs-4 col-lg-3">
                 <div className="note col-xs-12">
                     <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                        <Rating rating={this.props.business.rating} min={true} />
+                        <Rating rating={this.props.business.rating} min={true} className="interactive" />
                     </Link>
                 </div>
                 <Link className="small pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
@@ -131,30 +132,14 @@ var Business = React.createClass({
                 <p className="inline-promo">
                     <span className="icon-promo">%</span>
                     -{this.props.business.bestDiscount}% dans tout le salon*
-                    {this.renderAveragePrice()}
+                    <PriceRating business={this.props.business} style={{paddingLeft: '15px'}}/>
                 </p>
             );
         }
 
         return (
-            <p className="inline-promo">
-                &nbsp;
-                {this.renderAveragePrice()}
-            </p>
+            <PriceRating business={this.props.business} style={{paddingLeft: '15px', marginTop: '10px'}}/>
         );
-    },
-    renderAveragePrice: function () {
-        var price = this.props.business.averagePrice || {},
-            men   = price.men && Math.round(price.men),
-            women = price.women && Math.round(price.women);
-
-        if (men && women) {
-            return <span className="black">Prix moyen homme {men}€ / femme {women}€</span>;
-        } else if (men) {
-            return <span className="black">Prix moyen homme {men}€</span>;
-        } else if (women) {
-            return <span className="black">Prix moyen femme {women}€</span>;
-        }
     }
 });
 

@@ -25,9 +25,6 @@ var Rating = React.createClass({
                 {_.map([1, 2, 3, 4, 5], function (starValue) {
                     return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
                 })}
-                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="avis  hidden-md">
-                    {business.numReviews+' avis'}
-                </Link>
             </div>
         );
     }
@@ -40,24 +37,25 @@ var Layout = React.createClass({
         }
 
         var business = this.props.business;
+        var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
 
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <Breadcrumb business={business} />
                     <div id="carousel-salon">
-                    <Carousel id="carousel-salon" backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
+                    <Carousel id="carousel-salon" className={_.isEmpty(business.pictures) ? "noPicture" : ""} backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
-                            <div className="col-sm-12 col-md-8" style={{overflow: 'auto'}}>
-                                <div className="col-xs-8">
+                            <div className="col-sm-12 col-md-8" style={{overflow: 'auto', padding: '0'}}>
+                                <div className={"col-xs-8" + (displayProfilePicture ? " profilePicture" : "")}>
                                     <h1>{business.name}</h1>
                                 </div>
-                                <div className="col-xs-4">
+                                <div className="col-xs-4 col-lg-3">
                                     <Rating business={business} />
                                 </div>
                             </div>
                             {
-                                business.profilePicture && business.accountType != businessAccountTypes.FREE ?
+                                displayProfilePicture ?
                                     <Picture picture={business.profilePicture} 
                                          options={{
                                             width: 340,
@@ -110,6 +108,7 @@ var Layout = React.createClass({
                         <Sidebar
                             business={this.props.business}
                             similarBusinesses={this.props.similarBusinesses}
+                            tab={this.props.tab}
                             />
                     </div>
                 </div>

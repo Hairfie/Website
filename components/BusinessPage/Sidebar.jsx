@@ -47,8 +47,7 @@ var Sidebar = React.createClass({
 
         return (
             <div className="promo-sidebar">
-                <Picture picture={_.last(this.props.business.pictures)}
-                    options={{effect: 'brightness:-50'}}
+                <Picture picture={{url: '/img/promo-bg.jpg'}}
                     style={{width: '100%'}}
                     placeholder="/img/placeholder-640.png" />
                 <div className="inline-promo">
@@ -66,15 +65,27 @@ var Sidebar = React.createClass({
     renderPhoneNumber: function() {
         var business = this.props.business;
         if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
+
+        var link = null;
+        if (this.state.displayPhone) {
+            link = (<a href={"tel:" + business.phoneNumber.replace(/ /g,"")} className="btn btn-phone">
+                {business.phoneNumber}
+            </a>);
+        }
+        else {
+            link = (<a role="button" className="btn btn-phone" onClick={this.trackCall}>
+                {this.state.displayPhone ? business.phoneNumber : "Afficher le numéro"}
+            </a>);
+        }
+
         return (
             <div className="phone">
-                <a role="button" className="btn btn-phone" onClick={this.trackCall}>
-                    {this.state.displayPhone ? business.phoneNumber : "Afficher le numéro"}
-                </a>
+                {link}
             </div>
         );
     },
-    trackCall: function() {
+    trackCall: function(e) {
+        e.preventDefault();
         if(ga) {
             ga('send', {
               hitType: 'event',
@@ -86,10 +97,13 @@ var Sidebar = React.createClass({
         this.setState({displayPhone: true});
     },
     renderSimilarBusinesses: function () {
-        if (!this.props.similarBusinesses) return null;
-        if (this.props.business && this.props.business.accountType != businessAccountTypes.BASIC) return null;
+        if (!this.props.business || !this.props.similarBusinesses) return null;
 
-        return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
+        if ((this.props.business.accountType == businessAccountTypes.BASIC) 
+            || (this.props.business.accountType == businessAccountTypes.FREE && this.props.tab != 'infos')) {
+            return <SimilarBusinesses businesses={this.props.similarBusinesses} slidebar={true} />;
+        }
+        return null;
     },
     renderLocation: function () {
         return (

@@ -20,18 +20,50 @@
 }
 
 .salon#content {
+	#carousel-salon.noPicture .carousel-inner .item {
+		height: 255px;
+		&.placeholder {
+			height: 255px;
+		}
+	}
 	h3 {
 		color: $hairfie;
+	}
+	.nav {
+		margin: 0;
+		li a {
+			padding: 0;
+			padding-top: 40px;
+		}
 	}
 	background-color: white;
 	#carousel-salon {
 		position: relative;
 		.carousel-info {
+			padding: 0;
 			left: 0;
 			right: 0;
 			position: absolute;
 			bottom: 0px;
-			div {
+			.star {
+				@media screen and (max-width: $screen-xs-max) {
+					width: 10px;
+					margin: 1px;
+				}
+				margin: 2px;
+			}
+			div div {
+				&:first-child {
+					@media screen and (max-width: $screen-xs-max) {
+						padding-left: 15px;
+					}
+					padding-left: 0;
+					&.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 125px;
+		   				}
+					}
+				}
 				&:nth-child(2) {
 					position: absolute;
     				right: 0;
@@ -40,16 +72,20 @@
 			}
 			h1, a {
 				color: white;
+				letter-spacing: 0px;
+				@media screen and (max-width: $screen-xs-max) {
+					font-size: 2.1em;
+				}
 			}
 			img {
-				@media screen and (max-width: 1450px) {
+				@media screen and (max-width: $screen-md-max) {
 					display: none;
 				}
 				z-index: 1;
 				position: absolute;
-				width: 14em;
+				width: 120px;
 				bottom: -60px;
-				left: -120px;
+				left: 0px;
 				border-style: solid;
 				border-width: 5px;
 				border-color: white;
@@ -73,7 +109,6 @@
 			&.placeholder {
 				height: 470px;
 				background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
-				background-size: cover;
 			}
 
 			img {
@@ -91,12 +126,18 @@
 		background-color: white;
 		@include fullWidthBg($bg3);
 		section.salon-info	{
+			p {
+				font-size: 1.6em;
+    			font-weight: 200;
+    			margin-bottom: 5px;
+			}
+			margin-left: -15px;
 			position: relative;
 			width: 100%;
   			padding-top: 16px;
 
 			a.btn {
-				color: red;
+				color: $hairfie;
     			border: solid;
     			border-width: 3px;
     			width: 100%;
@@ -115,29 +156,22 @@
   				}
   			}
 			.row {
-				padding-left: 35px;
 				@media screen and (max-width: $screen-xs-max) {
 					padding-left: 15px;
 				}
-			}
-			.row:first-child {
-				width: auto;
-				padding-left: 35px;
-				border-top-left-radius: 4px;
-				border-top-right-radius: 4px;
-				@media screen and (max-width: $screen-sm-max) {
-					margin-top: 0;
-					padding-left: 15px;
-					border-radius: 0px;
-				}
-				h1 {
-					margin-top: 0;
-					color: white;
-					margin-bottom: 35px;
-					@media screen and (max-width: $screen-sm-max) {
-						color: black;
+				&:first-child {
+					padding-left: 0px;
+					.profilePicture {
+						@media screen and (min-width: $screen-lg-min) {
+		   					padding-left: 125px;
+		   				}
 					}
 				}
+			}
+			.avis {
+				@media screen and (min-width: $screen-sm-min) {
+   					float: right;
+   				}
 			}
 
 			.prix, .tags {
@@ -197,6 +231,23 @@
 		margin-top: 20px;
 		margin-bottom: 70px;
 
+		div.reviews-title {
+			a {
+				color: $hairfie;
+				font-size: 2.3em;
+    			font-weight: bolder;
+    			text-decoration: underline;
+			}
+			p {
+				margin: 0;
+				color: $darkgrey;
+				font-size: 2.3em;
+    			font-weight: bolder;
+			}
+			margin-top: 20px;
+			margin-bottom: 30px;
+		}
+
 		h5 {
 			font-family: $font-main;
 		}
@@ -206,20 +257,57 @@
 		}
 		ul.nav {
 			li {
+				a {
+					padding-top: 55px;
+				}
+				.icon-nav {
+					width: 40px;
+					height: 35px;
+					left: 0;
+					right: 0;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+			li:not(.active) {
 				&:first-child {
 					.icon-nav {
-						background: url(../img/icon-salon-nav1.jpg) no-repeat center center;
+						background: url(../img/icons/info.png) no-repeat center center;
+						background-size: contain;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background: url(../img/icon-salon-nav2.jpg) no-repeat center center;
+						background: url(../img/icons/avis.png) no-repeat center center;
+						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background: url(../img/icon-salon-nav3.jpg) no-repeat center center;
+						background: url(../img/icons/hairfie.png) no-repeat center center;
+						background-size: contain;
+					}
+				}
+			}
+			li.active {
+				&:first-child {
+					.icon-nav {
+						background: url(../img/icons/info-selected.png) no-repeat center center;
+						background-size: contain;
+					}
+				}
+				&:nth-child(2) {
+					.icon-nav {
+						background: url(../img/icons/avis-selected.png) no-repeat center center;
+						background-size: contain;
+					}
+				}
+				&:last-child {
+					border-right: none;
+					.icon-nav {
+						background: url(../img/icons/hairfie-selected.png) no-repeat center center;
+						background-size: contain;
 					}
 				}
 			}
@@ -233,6 +321,7 @@
 			border-bottom: 2px solid $border-color;
 			h4 {
 				color: #343434;
+				margin-bottom: 3px;
 			}
 			h3 {
 				margin-left: -15px;
@@ -270,10 +359,10 @@
 			.coiffeur {
 				img {
 					display: block;
-					width: 14em;
+					width: 10em;
 					border-radius: 100%;
 					margin: 0 auto 20px;
-					border: 10px solid $bg2;
+					border: 6px solid $bg2;
 				}
 				p > a {
 					font-size: 1em;
@@ -289,20 +378,44 @@
 				}
 			}
 			.table-price {
-				border: 1px solid $border-color;
-				margin-left: 0;
+				border: 0px;
+				padding-left: 0;
+				margin-left: -16px;
+				margin-right: 15px;
 				div {
-					border: 1px solid $border-color;
-					padding: 12px 0 12px 24px;
-					text-align: center;
+					&.title {
+						height: 35px;
+						&:nth-child(1n + 2) {
+							line-height: 35px;
+						}
+					}
+					&:nth-child(2n) {
+						background-color: $bg3;
+					}
+					&:last-child {
+						//margin-bottom: 15px;
+					}
+					padding-left: 24px;
+					min-height: 20px;
+					overflow: auto;
 					p {
 						margin-bottom: 2px;
 						text-align: left;
 						color: #343434;
 						font-size: 1.4em;
-						span {
-							text-decoration: underline;
-						}
+						text-transform: uppercase;
+						font-weight: bolder;
+						color: $lightgrey;
+					}
+
+					span.price {
+						float: right;
+					}
+				}
+
+				&:not(:first-child) {
+					div.title {
+						margin-top: 15px;
 					}
 				}
 			}
@@ -336,11 +449,17 @@
 			}
 		}
 		section#location {
-			margin-top: 50px;
+			margin-bottom: 20px;
 			.map {
-				height: 247px;
+				width: 100%;
+				height: 100%;
 				background: url(../img/placeholder-map.jpg) no-repeat center center;
 				background-size:cover;
+				&:before{
+					content: "";
+					display: block;
+					padding-top: 100%; 	/* initial ratio of 1:1*/
+				}
 			}
 		}
 		margin-top: 12px;
@@ -355,14 +474,7 @@
 			}
 		}
 		.phone {
-			margin-top: 95px;
-			@media screen and (max-width: $screen-sm-max) {
-    			bottom: 0;
-    			left: 0;
-   				position: fixed;
-    			width:100%;
-    			z-index: 9000;
-			}
+			margin-bottom: 20px;
 			.btn-phone {
 				position: relative;
 				width: 100%;
@@ -372,7 +484,7 @@
     			border: $hairfie;
 			    border-width: 3px;
 			    border-style: solid;
-			    border-radius: 2px;
+			    border-radius: 4px;
 				&:after {
 					content: " ";
 					background: url(../img/phone-red.png) no-repeat center center;
@@ -397,8 +509,10 @@
 
 		.promo-sidebar {
 			position: relative;
+			margin-bottom: 80px;
 			img {
-				border-radius: 5px;
+				border-radius: 4px;
+				@include filter(brightness(50%));
 			}
 			.inline-promo {
 				top: 0;
@@ -419,7 +533,10 @@
 					}
 				}
 				img {
-					margin-top: 35px;
+					margin-top: -10px;
+					@include filter(none);
+					border-radius: 0;
+
 				}
 				.icon-promo {
 					float:none;margin-right: 10px;
