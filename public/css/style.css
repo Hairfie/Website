@@ -9728,11 +9728,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       font-weight: bold;
       display: inline; }
   .comments .single-comment div p {
-    margin-bottom: 0;
+    margin-bottom: 5px;
     letter-spacing: 1px;
     color: #343434; }
-  .comments .single-comment div strong {
-    margin-top: 5px; }
   .comments .single-comment div .by-when {
     font-size: 1.2em; }
     .comments .single-comment div .by-when a {
