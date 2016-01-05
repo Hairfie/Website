@@ -50,7 +50,7 @@ module.exports = React.createClass({
         );
     },
     verified: function(review) {
-        if (review && !review.verified) return (<strong className="darkgrey">Avis libre déposé le {moment(review.createdAt).format('LL')}</strong>);;
-        return (<strong className="red">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</strong>);
+        if (review && !review.verified) return (<strong className="pull-right darkgrey">Avis libre déposé le {moment(review.createdAt).format('LL')}</strong>);;
+        return (<strong className="pull-right ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</strong>);
     }
 });

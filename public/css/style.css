@@ -9723,7 +9723,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     font-size: 1.3em; }
     .comments .single-comment div div.title .gender-symbol {
       font-size: 1.3em;
-      color: #343434; }
+      color: #343434;
+      font-family: Arial;
+      margin-left: 10px; }
     .comments .single-comment div div.title p {
       font-size: 1.6em;
       font-weight: bold;
