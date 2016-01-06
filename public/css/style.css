@@ -11149,7 +11149,8 @@ section.home-footer .row > div {
         background-color: #f8f8f8;
         font-size: small;
         margin-top: 20px;
-        font-weight: normal; }
+        font-weight: normal;
+        z-index: 1; }
         .salon#content .main-content section.salon-info div.timetable span {
           padding: 0; }
         @media screen and (max-width: 480px) {
@@ -11178,7 +11179,8 @@ section.home-footer .row > div {
           color: #595959;
           width: 1.4em; }
       .salon#content .main-content section.salon-info .horaires {
-        margin: 20px 0 20px 0; }
+        margin: 20px 0 20px 0;
+        width: 100vw; }
         .salon#content .main-content section.salon-info .horaires a {
           display: inline-block;
           text-decoration: none;
