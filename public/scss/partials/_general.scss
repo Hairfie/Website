@@ -693,7 +693,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 			position: relative;
 			border-radius: 2px;
 			overflow: hidden;
-			img {
+			.ProfilePicture {
 				&.placeholder {
 					padding: 10px;
 					border-color: #CDC4C4;
@@ -714,6 +714,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		div {
 			div.title {
 				overflow: auto;
+				font-size: 1.3em;
 				.gender-symbol {
 					font-size: 1.3em;
 					color: #343434;
@@ -728,6 +729,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 				margin-bottom: 5px;
 				letter-spacing: 1px;
 				color: #343434;
+			}
+			strong {
+				font-size: 1.2em;
 			}
 			.by-when {
 				font-size: 1.2em;

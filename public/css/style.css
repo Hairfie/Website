@@ -9699,7 +9699,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     @media screen and (max-width: 767px) {
       .comments .single-comment .user-profil {
         height: 50px; } }
-    .comments .single-comment .user-profil img {
+    .comments .single-comment .user-profil .ProfilePicture {
       width: 80px;
       height: 80px;
       border-radius: 100%;
@@ -9709,17 +9709,18 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       bottom: 0;
       right: 0;
       margin: auto; }
-      .comments .single-comment .user-profil img.placeholder {
+      .comments .single-comment .user-profil .ProfilePicture.placeholder {
         padding: 10px;
         border-color: #CDC4C4;
         border-width: 3px;
         border-style: solid; }
       @media screen and (max-width: 767px) {
-        .comments .single-comment .user-profil img {
+        .comments .single-comment .user-profil .ProfilePicture {
           width: 50px;
           height: 50px; } }
   .comments .single-comment div div.title {
-    overflow: auto; }
+    overflow: auto;
+    font-size: 1.3em; }
     .comments .single-comment div div.title .gender-symbol {
       font-size: 1.3em;
       color: #343434; }
@@ -9731,6 +9732,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     margin-bottom: 5px;
     letter-spacing: 1px;
     color: #343434; }
+  .comments .single-comment div strong {
+    font-size: 1.2em; }
   .comments .single-comment div .by-when {
     font-size: 1.2em; }
     .comments .single-comment div .by-when a {
@@ -11143,7 +11146,7 @@ section.home-footer .row > div {
           padding: 0; }
         @media screen and (max-width: 480px) {
           .salon#content .main-content section.salon-info div.timetable span.extra-small {
-            width: 20%; } }
+            width: 25%; } }
       @media screen and (max-width: 767px) {
         .salon#content .main-content section.salon-info .row {
           padding-left: 15px; } }
@@ -11168,19 +11171,19 @@ section.home-footer .row > div {
           width: 1.4em; }
       .salon#content .main-content section.salon-info .horaires {
         margin: 15px 0 15px 0; }
-        .salon#content .main-content section.salon-info .horaires * {
-          display: inline-block;
-          margin: 0; }
         .salon#content .main-content section.salon-info .horaires a {
+          display: inline-block;
           width: 100%;
           text-decoration: none;
           color: black;
           font-weight: bold;
           position: relative; }
           .salon#content .main-content section.salon-info .horaires a .title {
+            margin: 0;
+            display: inline-block;
             color: #fe5b5f;
             padding-left: 10px;
-            font-size: 2em;
+            font-size: 1.8em;
             font-weight: bold;
             border: solid #f8f8f8;
             border-width: 2px;
@@ -11195,7 +11198,7 @@ section.home-footer .row > div {
             margin-left: -10px;
             padding: 2px 20px 0 20px;
             position: absolute;
-            font-size: 2em;
+            font-size: 1.8em;
             color: #666b74; }
   .salon#content section.salon-content {
     margin-top: 20px;
@@ -11205,13 +11208,13 @@ section.home-footer .row > div {
       margin-bottom: 30px; }
       .salon#content section.salon-content div.reviews-title a {
         color: #fe5b5f;
-        font-size: 2em;
+        font-size: 1.8em;
         font-weight: bolder;
         text-decoration: underline; }
       .salon#content section.salon-content div.reviews-title p {
         margin: 0;
         color: #595959;
-        font-size: 2em;
+        font-size: 1.8em;
         font-weight: bolder; }
     .salon#content section.salon-content h5 {
       font-family: "Source Sans Pro", sans-serif; }
@@ -11220,40 +11223,38 @@ section.home-footer .row > div {
     .salon#content section.salon-content ul.nav li a {
       padding-top: 55px; }
     .salon#content section.salon-content ul.nav li .icon-nav {
-      width: 40px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
       left: 0;
       right: 0;
       margin-left: auto;
-      margin-right: auto; }
+      margin-right: auto;
+      background-repeat: no-repeat; }
     .salon#content section.salon-content ul.nav li:not(.active):first-child .icon-nav {
-      -webkit-mask: url(../img/icons/info.svg) no-repeat 100% 100%;
-      mask: url(../img/icons/info.svg) no-repeat 100% 100%;
-      background-color: #666b74; }
+      /* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
+						background-color: #666b74;
+						*/
+      background-image: url(../img/icons/info.png);
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
-      -webkit-mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
-      mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
-      background-color: #666b74; }
+      background-image: url(../img/icons/avis.png);
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
-        -webkit-mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
-        mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
-        background-color: #666b74; }
+        background-image: url(../img/icons/hairfie.png);
+        background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
-      -webkit-mask: url(../img/icons/info.svg) no-repeat 100% 100%;
-      mask: url(../img/icons/info.svg) no-repeat 100% 100%;
-      background-color: #fe5b5f; }
+      background-image: url(../img/icons/info-selected.png);
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
-      -webkit-mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
-      mask: url(../img/icons/avis.svg) no-repeat 100% 100%;
-      background-color: #fe5b5f; }
+      background-image: url(../img/icons/avis-selected.png);
+      background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
-        -webkit-mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
-        mask: url(../img/icons/hairfie.svg) no-repeat 100% 100%;
-        background-color: #fe5b5f; }
+        background-image: url(../img/icons/hairfie-selected.png);
+        background-size: contain; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }

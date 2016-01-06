@@ -33,6 +33,9 @@ module.exports = React.createClass({
         if(this.props.backgroundStyle) {
             return <img ref="image" {...this.props} style={this.getBackgroundStyle()} />
         }
+        if (this.props.svg) {
+            return <object ref="image" {...this.props} data={this.getSrc()} />
+        }
         return <img ref="image" {...this.props} src={this.getSrc()} />
     },
     getBackgroundStyle: function() {

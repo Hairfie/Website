@@ -151,7 +151,7 @@
   				}
   				span.extra-small {
   					@media screen and (max-width: 480px) {
-  						width: 20%;
+  						width: 25%;
   					}
   				}
   			}
@@ -192,20 +192,19 @@
 			}
 			.horaires {
     			margin: 15px 0 15px 0;
-    				* { 
-    					display: inline-block;
-    					margin: 0;
-    				}
 					a { 
+						display: inline-block;
 						width: 100%;
 						text-decoration: none;
 						color: black;
 						font-weight: bold;
 						position: relative;
 					.title {
+						margin: 0;
+						display: inline-block;
 						color: $hairfie;
 						padding-left: 10px;
-						font-size: 2em;
+						font-size: 1.8em;
 						font-weight: bold;
 						border: solid #f8f8f8;
 						border-width: 2px;
@@ -221,7 +220,7 @@
 						margin-left: -10px;
 						padding: 2px 20px 0 20px;
     					position: absolute;
-    					font-size: 2em;
+    					font-size: 1.8em;
     					color: #666b74;
 					}
 				}
@@ -235,14 +234,14 @@
 		div.reviews-title {
 			a {
 				color: $hairfie;
-				font-size: 2em;
+				font-size: 1.8em;
     			font-weight: bolder;
     			text-decoration: underline;
 			}
 			p {
 				margin: 0;
 				color: $darkgrey;
-				font-size: 2em;
+				font-size: 1.8em;
     			font-weight: bolder;
 			}
 			margin-top: 20px;
@@ -262,53 +261,57 @@
 					padding-top: 55px;
 				}
 				.icon-nav {
-					width: 40px;
-					height: 35px;
+					width: 30px;
+					height: 30px;
 					left: 0;
 					right: 0;
 					margin-left: auto;
 					margin-right: auto;
+					background-repeat: no-repeat;
 				}
 			}
 			li:not(.active) {
 				&:first-child {
 					.icon-nav {
-						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
+						/* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
 						background-color: #666b74;
-					}
+						*/
+						background-image: url(../img/icons/info.png);
+						background-size: contain;					
+    				}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
-						background-color: #666b74;
+						background-image: url(../img/icons/avis.png);
+						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
-						background-color: #666b74;
+						background-image: url(../img/icons/hairfie.png);
+						background-size: contain;
 					}
 				}
 			}
 			li.active {
 				&:first-child {
 					.icon-nav {
-						@include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/info-selected.png);
+						background-size: contain;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						@include mask(url(../img/icons/avis.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/avis-selected.png);
+						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						@include mask(url(../img/icons/hairfie.svg) no-repeat 100% 100%);
-						background-color: $hairfie;
+						background-image: url(../img/icons/hairfie-selected.png);
+						background-size: contain;
 					}
 				}
 			}
