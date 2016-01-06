@@ -111,7 +111,11 @@ module.exports = createStore({
             title = 'Hairfie réalisé chez ' + hairfie.business.name;
             description = 'Prenez rdv pour la même prestation réalisée au salon ' + hairfie.business.name + ' sur Hairfie';
         } else {
-            title = 'Hairfie posté par ' + hairfie.author.firstName;
+            try {
+                title = 'Hairfie posté par ' + hairfie.author.firstName;
+            } catch(e) {
+                console.log("error in metastore", e);
+            }
             description = 'Prenez rdv avec votre coiffeur sur Hairfie'
         }
 
