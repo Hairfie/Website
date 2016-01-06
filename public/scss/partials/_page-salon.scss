@@ -154,6 +154,7 @@
   				font-size: small;
   				margin-top: 20px;
   				font-weight: normal;
+  				z-index: 1;
   				span {
   					padding: 0;
   				}
@@ -200,6 +201,7 @@
 			}
 			.horaires {
     			margin: 20px 0 20px 0;
+    			width: 100vw;
 					a { 
 						display: inline-block;
 						text-decoration: none;
