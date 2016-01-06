@@ -50,7 +50,7 @@ module.exports = React.createClass({
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         return (
-            <section className="salon-info">
+            <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
               <div className="row">
                 <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
                   <h2>{displayAddress}</h2>
@@ -64,6 +64,9 @@ module.exports = React.createClass({
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") + ' >')}
                       </span>
+                      <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
+                        {this.renderTimetable()}
+                      </div>
                     </a>
                     <div className={"visible-xs" + (this.state.displayTimetable ? '' : ' hide')}>
                       {this.renderTimetable()}
@@ -73,9 +76,6 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
-                  <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
-                    {this.renderTimetable()}
-                  </div>
                 </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>

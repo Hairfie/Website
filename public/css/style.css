@@ -11129,6 +11129,9 @@ section.home-footer .row > div {
       position: relative;
       width: 100%;
       padding-top: 16px; }
+      @media screen and (min-width: 768px) {
+        .salon#content .main-content section.salon-info.open-timetable {
+          margin-bottom: 75px; } }
       .salon#content .main-content section.salon-info p {
         font-size: 1.6em;
         font-weight: 200;
@@ -11143,7 +11146,8 @@ section.home-footer .row > div {
         padding: 10px 15px 15px 15px;
         background-color: #f8f8f8;
         font-size: small;
-        margin-top: 20px; }
+        margin-top: 20px;
+        font-weight: normal; }
         .salon#content .main-content section.salon-info div.timetable span {
           padding: 0; }
         @media screen and (max-width: 480px) {
@@ -11172,10 +11176,9 @@ section.home-footer .row > div {
           color: #595959;
           width: 1.4em; }
       .salon#content .main-content section.salon-info .horaires {
-        margin: 15px 0 15px 0; }
+        margin: 20px 0 20px 0; }
         .salon#content .main-content section.salon-info .horaires a {
           display: inline-block;
-          width: 100%;
           text-decoration: none;
           color: black;
           font-weight: bold;
@@ -11197,12 +11200,13 @@ section.home-footer .row > div {
               .salon#content .main-content section.salon-info .horaires a .title {
                 font-size: 1.3em; } }
           .salon#content .main-content section.salon-info .horaires a .today {
+            border: 2px #f8f8f8 solid;
+            display: inline-block;
             min-height: 100%;
             background-color: #f8f8f8;
             border-radius: 5px;
             margin-left: -10px;
-            padding: 2px 20px 0 20px;
-            position: absolute;
+            padding: 2px 20px 2px 20px;
             font-size: 1.8em;
             color: #666b74; }
             @media screen and (max-width: 767px) {
@@ -11211,6 +11215,12 @@ section.home-footer .row > div {
             @media screen and (max-width: 350px) {
               .salon#content .main-content section.salon-info .horaires a .today {
                 font-size: 1.3em; } }
+          .salon#content .main-content section.salon-info .horaires a .timetable {
+            position: absolute;
+            width: 200px;
+            top: -20px;
+            right: -195px;
+            border-radius: 5px; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }

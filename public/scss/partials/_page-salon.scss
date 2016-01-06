@@ -126,6 +126,11 @@
 		background-color: white;
 		@include fullWidthBg($bg3);
 		section.salon-info	{
+			&.open-timetable {
+				@media screen and (min-width: $screen-sm-min) {
+					margin-bottom: 75px;
+				}
+			}
 			p {
 				font-size: 1.6em;
     			font-weight: 200;
@@ -148,6 +153,7 @@
     			background-color: #f8f8f8;
   				font-size: small;
   				margin-top: 20px;
+  				font-weight: normal;
   				span {
   					padding: 0;
   				}
@@ -193,10 +199,9 @@
 				}
 			}
 			.horaires {
-    			margin: 15px 0 15px 0;
+    			margin: 20px 0 20px 0;
 					a { 
 						display: inline-block;
-						width: 100%;
 						text-decoration: none;
 						color: black;
 						font-weight: bold;
@@ -225,14 +230,22 @@
 						@media screen and (max-width: 350px) {
 							font-size: 1.3em;
 						}
+						border: 2px #f8f8f8 solid;
+						display: inline-block;
 						min-height: 100%;
 						background-color: #f8f8f8;
 						border-radius: 5px;
 						margin-left: -10px;
-						padding: 2px 20px 0 20px;
-    					position: absolute;
+						padding: 2px 20px 2px 20px;
     					font-size: 1.8em;
     					color: #666b74;
+					}
+					.timetable {
+						position: absolute;
+					    width: 200px;
+					    top: -20px;
+					    right: -195px;
+					    border-radius: 5px;
 					}
 				}
 			}
