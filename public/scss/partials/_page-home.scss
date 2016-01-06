@@ -245,6 +245,11 @@ section.home-section {
 }
 #home section.deals {
     .row > div {
+        @include transition(opacity 0.5s);
+        opacity: 1;
+        &:hover {
+            opacity: 0.85;
+        }
         &:first-child {
             padding-left: 0;
         }
