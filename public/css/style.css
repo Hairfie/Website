@@ -11296,7 +11296,9 @@ section.home-footer .row > div {
         border-left-style: solid;
         border-color: #f0f0f1;
         border-width: 5px;
-        padding-left: 15px; }
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-right: 0; }
       .salon#content section.salon-content section:nth-child(4) h4 {
         text-transform: uppercase;
         letter-spacing: 2px; }
