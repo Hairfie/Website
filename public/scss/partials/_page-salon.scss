@@ -145,7 +145,7 @@
 			}
   			div.timetable {
   				font-size: small;
-  				margin-top: 15px;
+  				margin-top: 20px;
   				span {
   					padding: 0;
   				}
@@ -203,17 +203,26 @@
 						margin: 0;
 						display: inline-block;
 						color: $hairfie;
-						padding-left: 10px;
 						font-size: 1.8em;
+						@media screen and (max-width: $screen-xs-max) {
+							font-size: 1.4em;
+						}
+						@media screen and (max-width: 350px) {
+							font-size: 1.3em;
+						}
 						font-weight: bold;
 						border: solid #f8f8f8;
 						border-width: 2px;
-    					padding-top: 2px;
-    					padding-bottom: 2px;
+    					padding: 2px 20px 2px 10px;;
     					border-radius: 5px;
-    					padding-right: 20px;
 					}
 					.today {
+						@media screen and (max-width: $screen-xs-max) {
+							font-size: 1.4em;
+						}
+						@media screen and (max-width: 350px) {
+							font-size: 1.3em;
+						}
 						min-height: 100%;
 						background-color: #f8f8f8;
 						border-radius: 5px;
