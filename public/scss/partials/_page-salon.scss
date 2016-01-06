@@ -256,6 +256,9 @@
 	section.salon-content {
 		margin-top: 20px;
 		margin-bottom: 70px;
+		.row {
+			margin-right: 0px;
+		}
 
 		div.reviews-title {
 			a {
@@ -302,20 +305,20 @@
 						/* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
 						background-color: #666b74;
 						*/
-						background-image: url(../img/icons/info.png);
+						background-image: url(../img/icons/info.svg);
 						background-size: contain;					
     				}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background-image: url(../img/icons/avis.png);
+						background-image: url(../img/icons/avis.svg);
 						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background-image: url(../img/icons/hairfie.png);
+						background-image: url(../img/icons/hairfie.svg);
 						background-size: contain;
 					}
 				}
@@ -323,20 +326,20 @@
 			li.active {
 				&:first-child {
 					.icon-nav {
-						background-image: url(../img/icons/info-selected.png);
+						background-image: url(../img/icons/info-selected.svg);
 						background-size: contain;
 					}
 				}
 				&:nth-child(2) {
 					.icon-nav {
-						background-image: url(../img/icons/avis-selected.png);
+						background-image: url(../img/icons/avis-selected.svg);
 						background-size: contain;
 					}
 				}
 				&:last-child {
 					border-right: none;
 					.icon-nav {
-						background-image: url(../img/icons/hairfie-selected.png);
+						background-image: url(../img/icons/hairfie-selected.svg);
 						background-size: contain;
 					}
 				}
@@ -361,6 +364,7 @@
 				border-color: $bg2;
 				border-width: 5px;
 				padding-left: 15px;
+				margin-right: 0;
 			}
 			&:nth-child(4) {
 				h4 {
@@ -411,7 +415,6 @@
 				border: 0px;
 				padding-left: 0;
 				margin-left: -16px;
-				margin-right: 15px;
 				div {
 					&.title {
 						height: 35px;

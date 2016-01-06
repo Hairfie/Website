@@ -11232,6 +11232,8 @@ section.home-footer .row > div {
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
+    .salon#content section.salon-content .row {
+      margin-right: 0px; }
     .salon#content section.salon-content div.reviews-title {
       margin-top: 20px;
       margin-bottom: 30px; }
@@ -11263,26 +11265,26 @@ section.home-footer .row > div {
       /* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
 						background-color: #666b74;
 						*/
-      background-image: url(../img/icons/info.png);
+      background-image: url(../img/icons/info.svg);
       background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
-      background-image: url(../img/icons/avis.png);
+      background-image: url(../img/icons/avis.svg);
       background-size: contain; }
     .salon#content section.salon-content ul.nav li:not(.active):last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
-        background-image: url(../img/icons/hairfie.png);
+        background-image: url(../img/icons/hairfie.svg);
         background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
-      background-image: url(../img/icons/info-selected.png);
+      background-image: url(../img/icons/info-selected.svg);
       background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
-      background-image: url(../img/icons/avis-selected.png);
+      background-image: url(../img/icons/avis-selected.svg);
       background-size: contain; }
     .salon#content section.salon-content ul.nav li.active:last-child {
       border-right: none; }
       .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
-        background-image: url(../img/icons/hairfie-selected.png);
+        background-image: url(../img/icons/hairfie-selected.svg);
         background-size: contain; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;
@@ -11300,7 +11302,8 @@ section.home-footer .row > div {
         border-left-style: solid;
         border-color: #f0f0f1;
         border-width: 5px;
-        padding-left: 15px; }
+        padding-left: 15px;
+        margin-right: 0; }
       .salon#content section.salon-content section:nth-child(4) h4 {
         text-transform: uppercase;
         letter-spacing: 2px; }
@@ -11336,8 +11339,7 @@ section.home-footer .row > div {
       .salon#content section.salon-content section .table-price {
         border: 0px;
         padding-left: 0;
-        margin-left: -16px;
-        margin-right: 15px; }
+        margin-left: -16px; }
         .salon#content section.salon-content section .table-price div {
           padding-left: 24px;
           min-height: 20px;
