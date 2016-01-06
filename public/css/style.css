@@ -11228,6 +11228,8 @@ section.home-footer .row > div {
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
+    .salon#content section.salon-content .row {
+      margin-right: 0px; }
     .salon#content section.salon-content div.reviews-title {
       margin-top: 20px;
       margin-bottom: 30px; }
@@ -11297,7 +11299,6 @@ section.home-footer .row > div {
         border-color: #f0f0f1;
         border-width: 5px;
         padding-left: 15px;
-        padding-right: 15px;
         margin-right: 0; }
       .salon#content section.salon-content section:nth-child(4) h4 {
         text-transform: uppercase;
@@ -11334,8 +11335,7 @@ section.home-footer .row > div {
       .salon#content section.salon-content section .table-price {
         border: 0px;
         padding-left: 0;
-        margin-left: -16px;
-        margin-right: 15px; }
+        margin-left: -16px; }
         .salon#content section.salon-content section .table-price div {
           padding-left: 24px;
           min-height: 20px;

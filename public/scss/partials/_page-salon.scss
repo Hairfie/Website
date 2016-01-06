@@ -256,6 +256,9 @@
 	section.salon-content {
 		margin-top: 20px;
 		margin-bottom: 70px;
+		.row {
+			margin-right: 0px;
+		}
 
 		div.reviews-title {
 			a {
@@ -361,7 +364,6 @@
 				border-color: $bg2;
 				border-width: 5px;
 				padding-left: 15px;
-				padding-right: 15px;
 				margin-right: 0;
 			}
 			&:nth-child(4) {
@@ -413,7 +415,6 @@
 				border: 0px;
 				padding-left: 0;
 				margin-left: -16px;
-				margin-right: 15px;
 				div {
 					&.title {
 						height: 35px;
