@@ -65,7 +65,7 @@ module.exports = React.createClass({
                         }).join(" / ") + ' >')}
                       </span>
                     </a>
-                    <div className="visible-xs">
+                    <div className={"visible-xs" + (this.state.displayTimetable ? '' : ' hide')}>
                       {this.renderTimetable()}
                     </div>
                   </div>
@@ -73,7 +73,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
-                  <div className="hidden-xs">
+                  <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
                     {this.renderTimetable()}
                   </div>
                 </div>
@@ -97,7 +97,7 @@ module.exports = React.createClass({
         render = _.map(DateTimeConstants.weekDaysNumberFR, function(val, i) {
             return (
                 <div className={this.state.displayTimetable ? '' : 'seo-hide'} key={i}>
-                    <span className="extra-small col-xs-2 col-sm-4">{DateTimeConstants.weekDayLabel(val) + " :"}</span>
+                    <span className="extra-small col-xs-2 col-sm-5">{DateTimeConstants.weekDayLabel(val) + " :"}</span>
                     { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(parseTimetable(timetable[val]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") }

@@ -11140,6 +11140,8 @@ section.home-footer .row > div {
         width: 100%;
         border-radius: 20px; }
       .salon#content .main-content section.salon-info div.timetable {
+        padding: 10px 15px 15px 15px;
+        background-color: #f8f8f8;
         font-size: small;
         margin-top: 20px; }
         .salon#content .main-content section.salon-info div.timetable span {
