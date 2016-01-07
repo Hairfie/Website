@@ -45,12 +45,33 @@
 			right: 0;
 			position: absolute;
 			bottom: 0px;
-			.star {
-				@media screen and (max-width: $screen-xs-max) {
-					width: 10px;
-					margin: 1px;
+			.stars {
+				display: inline-block;
+				.star {
+					@media screen and (max-width: $screen-xs-max) {
+						width: 10px;
+						margin: 1px;
+					}
+					margin: 2px;
 				}
-				margin: 2px;
+			}
+			.num-reviews {
+				color: $hairfie;
+				font-size: 1.4em;
+				font-weight: bold;
+				text-decoration: underline;
+				@media screen and (min-width: $screen-md-min) {
+					position: absolute;
+					left: 100%;
+					top: 8px;
+					width: inherit;
+				}
+				@media screen and (min-width: 480px) and (max-width: $screen-sm-max) {
+					float: right;
+				}
+				@media screen and (max-width: 480px) {
+					display: none;
+				}
 			}
 			div div {
 				&:first-child {
