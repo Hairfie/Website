@@ -11407,6 +11407,7 @@ section.home-footer .row > div {
           min-height: 20px;
           overflow: auto; }
           .salon#content section.salon-content section .table-price div.title {
+            font-weight: bold;
             height: 35px; }
             .salon#content section.salon-content section .table-price div.title:nth-child(1n + 2) {
               line-height: 35px; }
