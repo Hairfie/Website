@@ -48,7 +48,7 @@ var BusinessHairfiesPage = React.createClass({
         return (
             <section>
                 <h3>Prix moyen constaté</h3>
-                <p>Sur les hairfies du salon</p>
+                <p className="title">Sur les hairfies du salon</p>
                 <div className="row average-price">
                     <div className={"col-xs-6 col-sm-5" + (averagePrice.women ? '' : ' hide')}>
                         <div className="gender">

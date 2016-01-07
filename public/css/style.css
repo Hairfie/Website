@@ -9116,7 +9116,7 @@ ul {
     letter-spacing: 2px;
     margin-top: 0; }
   #content h3 {
-    font-size: 2.4;
+    font-size: 2.4em;
     margin-top: 25px;
     margin-bottom: 25px;
     letter-spacing: 2px; }
@@ -11308,6 +11308,14 @@ section.home-footer .row > div {
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
+      .salon#content section.salon-content section p.title {
+        margin-left: -15px;
+        color: #fe5b5f;
+        margin-top: -20px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-size: 1.8em; }
       .salon#content section.salon-content section div.average-price {
         font-weight: bold;
         font-size: 1.5em;
