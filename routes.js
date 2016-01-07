@@ -171,5 +171,11 @@ module.exports = {
         path: '/bad/',
         method: 'get',
         action: PageActions.redirectToHome
+    },
+    contest: {
+        title: 'Gagne un relooking pour 2',
+        path: '/fr/gagne-un-relooking-pour-2',
+        method: 'get',
+        handler: require('./components/ContestPage.jsx')
     }
 };

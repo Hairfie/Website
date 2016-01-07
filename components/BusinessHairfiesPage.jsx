@@ -19,6 +19,7 @@ var BusinessHairfiesPage = React.createClass({
         };
     },
     render: function () {
+        console.log(this);
         if ((this.props.hairfies || []).length == 0) {
             return (
                 <Layout business={this.props.business} tab="hairfies">
@@ -31,22 +32,58 @@ var BusinessHairfiesPage = React.createClass({
             );
         }
 
+        return (
+            <Layout business={this.props.business} tab="hairfies">
+                {this.renderHairfie()}
+                {this.renderAveragePrice()}
+            </Layout>
+        );
+    },
+    renderAveragePrice: function() {
+        var averagePrice = this.props.business && this.props.business.averagePrice;
+        if (!averagePrice || (!averagePrice.men && !averagePrice.women)) return null;
+
+        return (
+            <section>
+                <h3>Prix moyen constaté</h3>
+                <p className="title">Sur les hairfies du salon</p>
+                <div className="row average-price">
+                    <div className={"col-xs-6 col-sm-5" + (averagePrice.women ? '' : ' hide')}>
+                        <div className="gender">
+                            FEMME
+                        </div>
+                        <div className="price">
+                            <span>{parseInt(averagePrice.women) + '€'}</span>
+                        </div>
+                    </div>
+                    <div className={"col-xs-6 col-sm-5" + (averagePrice.men ? '' : ' hide')}>
+                        <div className="gender">
+                            HOMME
+                        </div>
+                        <div className="price">
+                            <span>{parseInt(averagePrice.men) + '€'}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+    },
+    renderHairfie: function() {
         var hairfies = _.take(this.props.hairfies, this.state.page * PAGE_SIZE);
 
         return (
-            <Layout business={this.props.business} tab="hairfies">
-                <section>
-                    <h3>Nos Hairfies</h3>
-                    <div className="hairfies">
-                        <div className="row">
-                            {_.map(hairfies, function (hairfie) {
-                                return <Hairfie hairfie={hairfie} className="col-md-3 single-hairfie" />;
-                            })}
-                        </div>
-                        {this.renderMoreButton()}
+            <section>
+                <h3>Nos Hairfies</h3>
+                <div className="hairfies">
+                    <div className="row">
+                        {_.map(hairfies, function (hairfie) {
+                            return <Hairfie hairfie={hairfie} className="col-md-3 single-hairfie" />;
+                        })}
                     </div>
-                </section>
-            </Layout>
+                    {this.renderMoreButton()}
+                </div>
+            </section>
         );
     },
     renderMoreButton: function () {
