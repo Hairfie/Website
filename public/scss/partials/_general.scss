@@ -852,3 +852,15 @@ div.pagination {
 		background-color: $book !important;
 	}
 }
+
+.contest {
+	margin-left: -30px;
+	margin-right: -30px;
+	.woobox-offer {
+		display: block !important;
+		margin: auto;
+		@media screen and (max-width: 768px) {
+			margin-top: 100px;
+		}
+	}
+}
