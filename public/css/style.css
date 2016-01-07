@@ -9873,7 +9873,8 @@ header {
     height: inherit; }
   header .user {
     color: white; }
-    header .user img {
+    header .user img, header .user object {
+      background-color: white;
       height: 40px;
       width: 40px;
       border-radius: 100%;
@@ -12370,7 +12371,7 @@ section.home-footer .row > div {
 .container.user#content .main-content {
   margin-top: 20px;
   margin-bottom: 70px; }
-  .container.user#content .main-content img.ProfilePicture {
+  .container.user#content .main-content .ProfilePicture {
     display: block;
     width: 14em;
     border-radius: 100%;
