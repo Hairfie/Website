@@ -36,7 +36,8 @@ header {
 		color: white;
 		// display: none;
 		// visibility: hidden;
-		img {
+		img, object {
+			background-color: white;
 			height: 40px;width: 40px;
 			border-radius: 100%;
 			display: inline-block;

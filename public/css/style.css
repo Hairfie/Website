@@ -9873,7 +9873,8 @@ header {
     height: inherit; }
   header .user {
     color: white; }
-    header .user img {
+    header .user img, header .user object {
+      background-color: white;
       height: 40px;
       width: 40px;
       border-radius: 100%;
