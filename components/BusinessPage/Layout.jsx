@@ -52,7 +52,7 @@ var Layout = React.createClass({
                                 </div>
                                 <div className="col-xs-4 col-lg-3">
                                     <Rating business={business} />
-                                    <span className="num-reviews">{business.numReviews ? (business.numReviews + ' avis') : ''}</span>
+                                    <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{business.numReviews ? (business.numReviews + ' avis') : ''}</Link>
                                 </div>
                             </div>
                             {
