@@ -43,8 +43,6 @@ var BusinessHairfiesPage = React.createClass({
         var averagePrice = this.props.business && this.props.business.averagePrice;
         if (!averagePrice || (!averagePrice.men && !averagePrice.women)) return null;
 
-
-        averagePrice.women = 50;
         return (
             <section>
                 <h3>Prix moyen constaté</h3>

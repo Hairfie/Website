@@ -56,7 +56,7 @@
 				}
 			}
 			.num-reviews {
-				color: $hairfie;
+				color: white;
 				font-size: 1.4em;
 				font-weight: bold;
 				text-decoration: underline;
@@ -149,7 +149,7 @@
 		section.salon-info	{
 			&.open-timetable {
 				@media screen and (min-width: $screen-sm-min) {
-					margin-bottom: 75px;
+					margin-bottom: 100px;
 				}
 			}
 			p {
