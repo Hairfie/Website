@@ -11853,7 +11853,7 @@ section.home-footer .row > div {
           position: fixed;
           left: 0;
           bottom: 0;
-          z-index: 100000; } }
+          z-index: 90; } }
       .hairfie-singleView#content .single-view .like-group .like-btn {
         border-top: 1px solid #f9f9f9;
         float: left;
