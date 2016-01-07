@@ -11308,6 +11308,41 @@ section.home-footer .row > div {
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
+      .salon#content section.salon-content section div.average-price {
+        font-weight: bold;
+        font-size: 1.5em;
+        background-color: #f4f4f4;
+        height: 70px;
+        border: none; }
+        @media screen and (max-width: 767px) {
+          .salon#content section.salon-content section div.average-price {
+            height: 35px;
+            font-size: 1.3em; } }
+        .salon#content section.salon-content section div.average-price div.gender {
+          margin-top: 25px; }
+          @media screen and (max-width: 767px) {
+            .salon#content section.salon-content section div.average-price div.gender {
+              margin-top: 12px; } }
+        .salon#content section.salon-content section div.average-price div.price {
+          background-color: white;
+          font-size: 1.6em;
+          color: #fe5b5f;
+          padding: 31px;
+          position: absolute;
+          right: 0;
+          top: -15px;
+          width: 100px;
+          height: 100px;
+          display: inline-block;
+          border: 2px solid #fe5b5f;
+          border-radius: 100%; }
+          @media screen and (max-width: 767px) {
+            .salon#content section.salon-content section div.average-price div.price {
+              width: 50px;
+              height: 50px;
+              font-size: 1.4em;
+              padding: 10px;
+              top: -7px; } }
       @media screen and (max-width: 767px) {
         .salon#content section.salon-content section {
           padding-left: 15px;
