@@ -10094,7 +10094,7 @@ header:not(.white) .dropdown-menu {
 	   F O O T E R
 ////////////////////////////////*/
 footer {
-  background-color: #474747;
+  background-color: #353535;
   padding-top: 55px;
   position: relative; }
   footer:before {
@@ -10119,11 +10119,11 @@ footer {
     footer {
       display: none !important; } }
   footer p, footer h4 {
+    font-size: 1.6em;
     font-weight: 400;
     color: white;
     text-align: center;
-    letter-spacing: .5px;
-    position: relative; }
+    letter-spacing: .5px; }
   footer p:last-child {
     margin-bottom: 0; }
   footer .hr {
@@ -10139,18 +10139,6 @@ footer {
     background-size: 100%;
     top: 50%;
     right: 5%; }
-  footer .footer-bg {
-    background-color: #353535;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; }
-    @media screen and (min-width: 1200px) {
-      footer .footer-bg {
-        height: 480px; } }
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
-      footer .footer-bg {
-        height: 500px; } }
   footer .footer-links {
     list-style-type: none;
     margin: 0 auto;
@@ -10180,29 +10168,8 @@ footer {
       font-weight: 400;
       color: white;
       letter-spacing: .5px; }
-  footer .suggestion {
-    margin-bottom: 40px; }
-    footer .suggestion p, footer .suggestion a {
-      text-align: initial;
-      color: #898989; }
-    footer .suggestion p:not(.title) {
-      padding-bottom: 5px; }
   footer p {
-    font-size: 1.6em;
-    padding-bottom: 30px; }
-  footer h4 {
-    font-size: 3em;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px; }
-  footer object {
-    height: 75px;
-    width: 75px;
-    display: block;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto; }
+    padding: 20px 0 30px; }
 
 footer.mobile {
   padding-left: 10px;
