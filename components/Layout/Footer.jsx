@@ -24,7 +24,7 @@ var Footer = React.createClass({
                 <div className="container">
                     <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
                     <h4>
-                        Rejoignez-nous !
+                        Suivez-nous !
                     </h4>
                     <div className="col-xs-10 col-xs-offset-1">
                         <p>
@@ -72,7 +72,7 @@ var Footer = React.createClass({
                 <div className="row">
                     <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
                     <h4>
-                        Rejoignez-nous !
+                        Suivez-nous !
                     </h4>
                     <div className="col-xs-10 col-xs-offset-1">
                         <p>
