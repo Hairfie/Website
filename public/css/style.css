@@ -9573,7 +9573,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       font-size: 1.6em;
       text-align: center;
       color: #fff;
-      color: black;
+      color: black !important;
       background-color: white;
       border: 1px solid #353535;
       border-collapse: separate;
@@ -9585,8 +9585,6 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         outline: none;
         text-decoration: none;
         color: #fff; }
-      .social-links li a:hover {
-        color: black !important; }
 
 .hairfies > div:first-child {
   margin-left: 0;

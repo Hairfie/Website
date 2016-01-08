@@ -549,7 +549,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		}
 		a {
 			@include socicon(1.6em,#fff);
-			color: black;
+			color: black !important;
 			background-color: white;
 			border: 1px solid $bgfooter;
     		border-collapse: separate;
@@ -557,9 +557,6 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     		box-shadow: 0px 0px 0px 2px white;
 			border-radius: 100%;
 			padding: 10px;
-			&:hover {
-				color: black !important;
-			}
 		}
 	}
 }
