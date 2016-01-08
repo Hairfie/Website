@@ -549,13 +549,11 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 		}
 		a {
 			@include socicon(1.6em,#fff);
+			color: black;
+			background-color: white;
 			border: 1px solid white;
 			border-radius: 100%;
-				padding: 10px;
-				&:hover {
-					color: black !important;
-					background-color: white !important;
-				}
+			padding: 10px;
 		}
 	}
 }
@@ -842,7 +840,6 @@ div.pagination {
 		font-weight: 400;
 		margin-bottom: 0;
 		text-align: center;
-
 	}
 	.form-group {
 		margin: 0;

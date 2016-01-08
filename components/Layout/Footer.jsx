@@ -3,8 +3,13 @@
 var React = require('react');
 var Link = require('../Link.jsx');
 var EmailModal = require('../Partial/EmailModal.jsx');
+var LinksSection = require('./LinksSection.jsx');
+var Picture = require('../Partial/Picture.jsx');
 
-module.exports = React.createClass({
+var connectToStores = require('fluxible-addons-react/connectToStores');
+var _ = require('lodash');
+
+var Footer = React.createClass({
     render: function() {
         if(this.props.mobile) {
             return this.renderMobile();
@@ -16,22 +21,9 @@ module.exports = React.createClass({
         return (
             <footer className="visible-md visible-lg">
                 <div className="container">
-                    <div className="row">
-                        <ul className="footer-links col-md-7">
-                            <li className="col-sm-2" target="_blank"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
-                            <li className="col-sm-2">
-                                <Link route="howitworks_page">Comment ça marche ?</Link>
-                            </li>
-                            <li className="col-sm-2"><a onClick={this.openEmailModal}>Newsletter</a></li>
-                            <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
-                            <li className="col-sm-2"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">CGU</a></li>
-                            <li className="col-sm-2"><Link route="home_pro" className="btn btn-red">Gérez votre salon</Link></li>
-                        </ul>
-                    </div>
-                    <div className="row">
-                        <div className="hr col-sm-10 col-xs-10"></div>
-                    </div>
-                    <h4>Rejoignez-nous sur :</h4>
+                    <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
+                    et aux clients de trouver et réserver leur coiffeur !</p>
+                    <h4>Rejoignez-nous !</h4>
                     <div className="row">
                         <ul className="social-links col-md-3">
                             <li><a href="https://www.facebook.com/Hairfie" target="_blank" className='icon'>b</a></li>
@@ -41,7 +33,23 @@ module.exports = React.createClass({
                             <li><a href="https://www.pinterest.com/hairfie/" target="_blank" className='icon'>d</a></li>
                         </ul>
                     </div>
+                    <div className="row">
+                        <ul className="footer-links col-md-9">
+                            <li className="col-sm-2" target="_blank"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
+                            <li className="col-sm-2">
+                                <Link route="howitworks_page">Comment ça marche ?</Link>
+                            </li>
+                            <li className="col-sm-2"><a onClick={this.openEmailModal}>Newsletter</a></li>
+                            <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
+                            <li className="col-sm-2"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
+                            <li className="col-sm-2"><Link route="home_pro">Gérez votre salon</Link></li>
+                        </ul>
+                    </div>
+                    <div className="row">
+                        <div className="hr col-sm-10 col-xs-10"></div>
+                    </div>
                     <p>© Hairfie 2015</p>
+                    <LinksSection links={this.props.links}/>
                 </div>
                 <EmailModal ref="emailModal" />
             </footer>
@@ -65,3 +73,13 @@ module.exports = React.createClass({
         this.refs.emailModal.open();
     }
 });
+
+Footer = connectToStores(Footer, [
+    'FooterLinkStore'
+], function (context, props) {
+    return _.assign({}, {
+        links       : context.getStore('FooterLinkStore').all()
+    }, props);
+});
+
+module.exports = Footer;

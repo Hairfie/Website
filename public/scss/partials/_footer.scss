@@ -9,7 +9,6 @@ footer {
 		@include hide;
 	}
 	p, h4 {
-		font-size: 1.6em;
 		font-weight: $regular;
 		color: white; text-align: center;
 		letter-spacing: .5px;
@@ -62,9 +61,25 @@ footer {
 			letter-spacing: .5px;
 		}
 	}
+	.suggestion {
+		margin-bottom: 40px;
+		p, a {
+			text-align: initial;
+			color: $lightgrey;
+		}
+		p:not(.title) {
+			padding-bottom: 5px;
+		}
+		div.row {
 
+		}
+	}
 	p {
-		padding: 20px 0 30px;
+		font-size: 1.6em;
+		padding-bottom: 30px;
+	}
+	h4 {
+		font-size: 3em;
 	}
 }
 footer.mobile {

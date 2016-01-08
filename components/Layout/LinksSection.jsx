@@ -9,13 +9,13 @@ module.exports = React.createClass({
         var colSize = Math.ceil(this.props.links / 3);
 
         return (
-            <section className="home-section seo">
-                <h2>Nos suggestions</h2>
+            <div className="suggestion">
+                <p className="title">NOS SUGGESTIONS</p>
                 <p className="subtitle" />
                 <div className="row">
                     {_.map(_.chunk(this.props.links, colSize), this.renderColumn)}
                 </div>
-            </section>
+            </div>
        );
     },
     renderColumn: function (links, i) {
