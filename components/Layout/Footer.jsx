@@ -22,12 +22,15 @@ var Footer = React.createClass({
             <footer className="visible-md visible-lg">
                 <div className="footer-bg" />
                 <div className="container">
+                    <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
                     <h4>
-                        <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
                         Rejoignez-nous !
                     </h4>
-                    <div className="row">
-                        <div className="hr col-sm-5"></div>
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <p>
+                            Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
+                            mais aussi aux clients de trouver et prendre rendez-vous avec le coiffeur qui correspond !
+                        </p>
                     </div>
                     <div className="row">
                         <ul className="social-links col-md-3">
@@ -37,6 +40,9 @@ var Footer = React.createClass({
                             <li><a href="https://instagram.com/Hairfie" target="_blank" className='icon'>x</a></li>
                             <li><a href="https://www.pinterest.com/hairfie/" target="_blank" className='icon'>d</a></li>
                         </ul>
+                    </div>
+                    <div className="row">
+                        <div className="hr col-sm-10 col-xs-10"></div>
                     </div>
                     <div className="row">
                         <ul className="footer-links col-md-9">
@@ -52,10 +58,6 @@ var Footer = React.createClass({
                     </div>
                     <div className="row">
                         <div className="hr col-sm-10 col-xs-10"></div>
-                    </div>
-                    <div className="col-xs-10">
-                        <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
-                            mais aussi aux clients de trouver et prendre rendez-vous avec le coiffeur qui correspond !</p>
                     </div>
                     <p>© Hairfie 2016</p>
                     <LinksSection links={this.props.links}/>

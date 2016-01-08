@@ -12,6 +12,7 @@ footer {
 		font-weight: $regular;
 		color: white; text-align: center;
 		letter-spacing: .5px;
+		position: relative;
 	}
 	p:last-child {
 		margin-bottom: 0;
@@ -33,7 +34,7 @@ footer {
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 400px;
+		height: 480px;
 
 	}
 	.footer-links {
@@ -89,18 +90,18 @@ footer {
 	}
 	h4 {
 		font-size: 3em;
-		position: relative;
 		width: 400px;
     	margin-left: auto;
     	margin-right: auto;
     	margin-bottom: 20px;
-		object {
-			height: 75px;
-		    width: 75px;
-		    position: absolute;
-		    left: 0;
-		    top: -20px
-		}
+	}
+	object {
+		height: 75px;
+		width: 75px;
+		display: block;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 footer.mobile {
