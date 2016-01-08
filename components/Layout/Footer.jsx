@@ -70,12 +70,29 @@ var Footer = React.createClass({
         return (
             <footer className="visible-xs visible-sm mobile">
                 <div className="row">
-                    <div className="col-xs-6 pull-left">
-                        <Link route="home_pro" className="btn btn-red">Déclarez votre salon</Link>
+                    <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
+                    <h4>
+                        Rejoignez-nous !
+                    </h4>
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <p>
+                            Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
+                            mais aussi aux clients de trouver et prendre rendez-vous avec le coiffeur qui correspond !
+                        </p>
                     </div>
-                    <div className="col-xs-6 pull-right">
-                        <a href="https://itunes.apple.com/fr/app/hairfie/id853590611?mt=8" className="app-dl" target="_blank"></a>
+                    <div className="row">
+                        <ul className="social-links col-md-3">
+                            <li><a href="https://www.facebook.com/Hairfie" target="_blank" className='icon'>b</a></li>
+                            <li><a href="https://twitter.com/Hairfie" target="_blank" className='icon'>a</a></li>
+                            <li><a href="https://plus.google.com/+Hairfie" target="_blank" className='icon'>c</a></li>
+                            <li><a href="https://instagram.com/Hairfie" target="_blank" className='icon'>x</a></li>
+                            <li><a href="https://www.pinterest.com/hairfie/" target="_blank" className='icon'>d</a></li>
+                        </ul>
                     </div>
+                    <div className="row">
+                        <div className="hr col-sm-10 col-xs-10"></div>
+                    </div>
+                    <p>© Hairfie 2016</p>
                 </div>
             </footer>
         )

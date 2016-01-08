@@ -68,7 +68,7 @@ module.exports = React.createClass({
                         {this.renderTimetable()}
                       </div>
                     </a>
-                    <div className={"visible-xs" + (this.state.displayTimetable ? '' : ' hide')}>
+                    <div className={(this.state.displayTimetable ? 'visible-xs' : 'hide')}>
                       {this.renderTimetable()}
                     </div>
                   </div>
