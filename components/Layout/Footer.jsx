@@ -45,7 +45,7 @@ var Footer = React.createClass({
                         <div className="hr col-sm-10 col-xs-10"></div>
                     </div>
                     <div className="row">
-                        <ul className="footer-links col-md-9">
+                        <ul className="footer-links col-md-11 col-lg-10">
                             <li className="col-sm-2" target="_blank"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
                             <li className="col-sm-2">
                                 <Link route="howitworks_page">Comment ça marche ?</Link>
