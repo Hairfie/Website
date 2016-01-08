@@ -9,7 +9,6 @@ footer {
 		@include hide;
 	}
 	p, h4 {
-		font-size: 1.6em;
 		font-weight: $regular;
 		color: white; text-align: center;
 		letter-spacing: .5px;
@@ -62,9 +61,37 @@ footer {
 			letter-spacing: .5px;
 		}
 	}
+	.suggestion {
+		margin-bottom: 40px;
+		p, a {
+			text-align: initial;
+			color: $lightgrey;
+		}
+		p:not(.title) {
+			padding-bottom: 5px;
+		}
+		div.row {
 
+		}
+	}
 	p {
-		padding: 20px 0 30px;
+		font-size: 1.6em;
+		padding-bottom: 30px;
+	}
+	h4 {
+		font-size: 3em;
+		position: relative;
+		width: 400px;
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-bottom: 20px;
+		object {
+			height: 75px;
+		    width: 75px;
+		    position: absolute;
+		    left: 0;
+		    top: -20px
+		}
 	}
 }
 footer.mobile {

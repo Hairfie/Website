@@ -7,10 +7,10 @@ var categories = require('./links/categories.json');
 var quartiers = require('./links/quartiers.json');
 var hairfies = require('./links/hairfies.json');
 
-var homeLinks = [].concat.apply([], [quartiers, categories, arrondissements]);
+var footerLinks = [].concat.apply([], [quartiers, categories, arrondissements]);
 var xmlLinks = [].concat.apply([], [quartiers, categories, arrondissements, hairfies]);
 
 module.exports = {
-    homeLinks: homeLinks,
+    footerLinks: footerLinks,
     xmlLinks: xmlLinks
 }

@@ -1,5 +1,4 @@
 'use strict';
-
 var React = require('react');
 var Picture = require('../Partial/Picture.jsx');
 

@@ -5,9 +5,8 @@ module.exports = {
     Deals: require('./DealsSection.jsx'),
     Mixin: require('./HomePageMixin.jsx'),
     TopHairfies: require('./TopHairfiesSection.jsx'),
-    LinksSection: require('./LinksSection.jsx'),
     HowSection: require('./HowSection.jsx'),
-    DownloadSection: require('./DownloadSection.jsx'),
+	DownloadSection: require('./DownloadSection.jsx'),
     SearchSection: require('./SearchSection.jsx'),
     BlogPosts: require('./BlogPostsSection.jsx')
 };

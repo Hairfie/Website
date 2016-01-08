@@ -1,11 +1,11 @@
 'use strict';
 
 var createStore = require('fluxible/addons/createStore');
-var homeLinks = require('../constants/Links').homeLinks;
+var footerLinks = require('../constants/Links').footerLinks;
 
 module.exports = createStore({
-    storeName: 'HomeLinkStore',
+    storeName: 'FooterLinkStore',
     all: function () {
-        return homeLinks;
+        return footerLinks;
     }
 });

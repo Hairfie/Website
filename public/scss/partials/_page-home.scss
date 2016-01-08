@@ -455,7 +455,7 @@ section.home-section {
         font-family: $font-second;
         font-weight: $latoLight;
         color: $font-color;
-
+ 
         &.buttons {
             margin-top: 50px;
             text-align: center;
@@ -463,10 +463,9 @@ section.home-section {
     }
 
     .btn-apple {
-        //width: 204px;
+     //width: 204px;
     }
 }
-
 #home section.seo {
     a {
         font-size: 1.6em;

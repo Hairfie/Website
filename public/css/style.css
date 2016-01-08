@@ -9573,16 +9573,18 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       font-size: 1.6em;
       text-align: center;
       color: #fff;
-      border: 1px solid white;
+      color: black !important;
+      background-color: white;
+      border: 1px solid #353535;
+      border-collapse: separate;
+      border-spacing: 10px;
+      box-shadow: 0px 0px 0px 2px white;
       border-radius: 100%;
       padding: 10px; }
       .social-links li a:hover, .social-links li a:focus, .social-links li a:active, .social-links li a:visited {
         outline: none;
         text-decoration: none;
         color: #fff; }
-      .social-links li a:hover {
-        color: black !important;
-        background-color: white !important; }
 
 .hairfies > div:first-child {
   margin-left: 0;
@@ -10119,7 +10121,6 @@ footer {
     footer {
       display: none !important; } }
   footer p, footer h4 {
-    font-size: 1.6em;
     font-weight: 400;
     color: white;
     text-align: center;
@@ -10168,8 +10169,29 @@ footer {
       font-weight: 400;
       color: white;
       letter-spacing: .5px; }
+  footer .suggestion {
+    margin-bottom: 40px; }
+    footer .suggestion p, footer .suggestion a {
+      text-align: initial;
+      color: #898989; }
+    footer .suggestion p:not(.title) {
+      padding-bottom: 5px; }
   footer p {
-    padding: 20px 0 30px; }
+    font-size: 1.6em;
+    padding-bottom: 30px; }
+  footer h4 {
+    font-size: 3em;
+    position: relative;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; }
+    footer h4 object {
+      height: 75px;
+      width: 75px;
+      position: absolute;
+      left: 0;
+      top: -20px; }
 
 footer.mobile {
   padding-left: 10px;
