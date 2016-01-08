@@ -20,10 +20,11 @@ var Footer = React.createClass({
     renderDesktop: function () {
         return (
             <footer className="visible-md visible-lg">
+            <div className="footer-background" />
                 <div className="container">
-                    <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
-                    et aux clients de trouver et réserver leur coiffeur !</p>
-                    <h4>Rejoignez-nous !</h4>
+                        <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
+                        et aux clients de trouver et réserver leur coiffeur !</p>
+                        <h4>Rejoignez-nous !</h4>
                     <div className="row">
                         <ul className="social-links col-md-3">
                             <li><a href="https://www.facebook.com/Hairfie" target="_blank" className='icon'>b</a></li>
@@ -40,7 +41,7 @@ var Footer = React.createClass({
                                 <Link route="howitworks_page">Comment ça marche ?</Link>
                             </li>
                             <li className="col-sm-2"><a onClick={this.openEmailModal}>Newsletter</a></li>
-                            <li className="col-sm-2"><a href="http://blog.hairfie.com/">Blog</a></li>
+                            <li className="col-sm-2"><a href="http://blog.hairfie.com/" target="_blank"a>Blog</a></li>
                             <li className="col-sm-2"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
                             <li className="col-sm-2"><Link route="home_pro">Gérez votre salon</Link></li>
                         </ul>

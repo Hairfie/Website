@@ -10173,6 +10173,17 @@ footer {
       color: #898989; }
     footer .suggestion p:not(.title) {
       padding-bottom: 5px; }
+  @media screen and (min-width: 768px) {
+    footer .footer-background {
+      height: 340px;
+      width: 100vw;
+      left: calc(-50vw + 50%);
+      background: url(../img/bg-download-lite.jpg) no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      opacity: 0.2; } }
   footer p {
     font-size: 1.6em;
     padding-bottom: 30px; }
@@ -10591,24 +10602,6 @@ section.home-section {
     top: 0;
     background: #f0f0f1;
     z-index: -1; }
-
-@media screen and (min-width: 767px) {
-  #home section.download {
-    height: 400px;
-    width: 100vw;
-    left: calc(-50vw + 50%);
-    background: url(../img/bg-download-lite.jpg) no-repeat center center;
-    background-size: cover;
-    margin: 0; } }
-
-#home section.download p {
-  font-size: 1.6em;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  color: #595959; }
-  #home section.download p.buttons {
-    margin-top: 50px;
-    text-align: center; }
 
 #home section.seo a {
   font-size: 1.6em;
