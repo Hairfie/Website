@@ -20,13 +20,14 @@ var Footer = React.createClass({
     renderDesktop: function () {
         return (
             <footer className="visible-md visible-lg">
+                <div className="footer-bg" />
                 <div className="container">
                     <h4>
                         <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
                         Rejoignez-nous !
                     </h4>
                     <div className="row">
-                        <div className="hr col-sm-10"></div>
+                        <div className="hr col-sm-5"></div>
                     </div>
                     <div className="row">
                         <ul className="social-links col-md-3">
@@ -52,9 +53,11 @@ var Footer = React.createClass({
                     <div className="row">
                         <div className="hr col-sm-10 col-xs-10"></div>
                     </div>
-                    <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
-                        mais aussi aux clients de trouver et prendre rendez-vous avec le coiffeur qui correspond !</p>
-                    <p>© Hairfie 2015</p>
+                    <div className="col-xs-10">
+                        <p>Hairfie, c'est la plateforme Web et mobile qui permet aux coiffeurs de diffuser leur talent
+                            mais aussi aux clients de trouver et prendre rendez-vous avec le coiffeur qui correspond !</p>
+                    </div>
+                    <p>© Hairfie 2016</p>
                     <LinksSection links={this.props.links}/>
                 </div>
                 <EmailModal ref="emailModal" />
