@@ -9575,13 +9575,18 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       color: #fff;
       color: black;
       background-color: white;
-      border: 1px solid white;
+      border: 1px solid #353535;
+      border-collapse: separate;
+      border-spacing: 10px;
+      box-shadow: 0px 0px 0px 2px white;
       border-radius: 100%;
       padding: 10px; }
       .social-links li a:hover, .social-links li a:focus, .social-links li a:active, .social-links li a:visited {
         outline: none;
         text-decoration: none;
         color: #fff; }
+      .social-links li a:hover {
+        color: black !important; }
 
 .hairfies > div:first-child {
   margin-left: 0;
@@ -10175,7 +10180,7 @@ footer {
       padding-bottom: 5px; }
   @media screen and (min-width: 768px) {
     footer .footer-background {
-      height: 340px;
+      height: 360px;
       width: 100vw;
       left: calc(-50vw + 50%);
       background: url(../img/bg-download-lite.jpg) no-repeat center center;

@@ -76,7 +76,7 @@ footer {
 	}
 	.footer-background {
 	    @media screen and (min-width: $screen-sm-min) {
-	        height: 340px; width: 100vw;
+	        height: 360px; width: 100vw;
 	        left: calc(-50vw + 50%);
 	        background: url(../img/bg-download-lite.jpg) no-repeat center center;
 	        background-size: cover;
