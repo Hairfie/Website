@@ -21,8 +21,13 @@ var Footer = React.createClass({
         return (
             <footer className="visible-md visible-lg">
                 <div className="container">
-                    <Picture picture={{url: '/img/loader/' + name + '.png'}} style={{width: 25, height: 25, marginRight: 7}} />
-                    <h4>Rejoignez-nous !</h4>
+                    <h4>
+                        <Picture picture={{url: '/img/icons/logo-Hairfie.svg'}} svg={true} />
+                        Rejoignez-nous !
+                    </h4>
+                    <div className="row">
+                        <div className="hr col-sm-10"></div>
+                    </div>
                     <div className="row">
                         <ul className="social-links col-md-3">
                             <li><a href="https://www.facebook.com/Hairfie" target="_blank" className='icon'>b</a></li>

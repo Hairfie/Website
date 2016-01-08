@@ -46,6 +46,7 @@ var HomePage = React.createClass({
                         <Home.Deals deals={this.props.deals} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
+                        <Home.DownloadSection />
                     </div>
                 </div>
                 <Footer />

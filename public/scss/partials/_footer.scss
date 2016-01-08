@@ -74,24 +74,24 @@ footer {
 
 		}
 	}
-	.footer-background {
-	    @media screen and (min-width: $screen-sm-min) {
-	        height: 360px; width: 100vw;
-	        left: calc(-50vw + 50%);
-	        background: url(../img/bg-download-lite.jpg) no-repeat center center;
-	        background-size: cover;
-	        margin: 0;
-	        position: absolute;
-    		top: 0;
-    		opacity: 0.2;
-	    }
-	}
 	p {
 		font-size: 1.6em;
 		padding-bottom: 30px;
 	}
 	h4 {
 		font-size: 3em;
+		position: relative;
+		width: 400px;
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-bottom: 20px;
+		object {
+			height: 75px;
+		    width: 75px;
+		    position: absolute;
+		    left: 0;
+		    top: -20px
+		}
 	}
 }
 footer.mobile {
