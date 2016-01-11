@@ -10,7 +10,7 @@ var Promise = require('q');
 module.exports = {
     loadTopHairfies: function (context, params) {
         return context.hairfieApi
-            .get('/tops/hairfies', { query: { limit: 5 } })
+            .get('/tops/hairfies', { query: { limit: params.limit || 5 } })
             .then(function (hairfies) {
                 context.dispatch(Actions.RECEIVE_TOP_HAIRFIES, hairfies);
             });
@@ -23,16 +23,16 @@ module.exports = {
                 return hairfie;
             });
     },
-    loadBusinessTopHairfies: function (context, businessId) {
+    loadBusinessTopHairfies: function (context, params) {
         var query = {
-            'limit': 6
+            'limit': params.limit || 6
         };
 
         return context.hairfieApi
-            .get('/tops/hairfies/'+ businessId, { query: query })
+            .get('/tops/hairfies/'+ params.businessId, { query: query })
             .then(function (hairfies) {
                 context.dispatch(Actions.RECEIVE_BUSINESS_TOP_HAIRFIES, {
-                    businessId: businessId,
+                    businessId: params.businessId,
                     hairfies: hairfies
                 });
             });
