@@ -10655,14 +10655,14 @@ section.home-footer .row > div {
   section.home-footer .row > div h3 {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
-    color: #848b95;
+    color: #FE5B5F;
     text-transform: uppercase;
-    font-size: 1.6em; }
+    font-size: 3em; }
   section.home-footer .row > div p {
     font-weight: 200;
     color: #595959;
     font-size: 1.4em;
-    line-height: 2em;
+    line-height: 1.2em;
     letter-spacing: 1px;
     width: 78%;
     margin: 10px auto; }

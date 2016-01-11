@@ -11,17 +11,17 @@ module.exports = React.createClass({
                 <p className="subtitle" />
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
-                        <Picture picture={{url: "/img/search.png"}} alt="Trouvez votre coupe" />
+                        <Picture picture={{url: "/img/search.svg"}} alt="Trouvez votre coupe" />
                         <h3>S’inspirer</h3>
                         <p>des hairfies postés et trouver son coiffeur</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        <Picture picture={{url: "/img/book.png"}} alt="Prenez RDV avec votre coiffeur" />
+                        <Picture picture={{url: "/img/calendar.svg"}} alt="Prenez RDV avec votre coiffeur" />
                         <h3>Prendre RDV</h3>
                         <p>24/7 gratuitement sans paiement en ligne</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        <Picture picture={{url: "/img/share.png"}} alt="Partagez votre #Hairfie" />
+                        <Picture picture={{url: "/img/heart.svg"}} alt="Partagez votre #Hairfie" />
                         <h3>Partager</h3>
                         <p>son expérience.<br />Poster un hairfie et un avis.</p>
                     </div>
