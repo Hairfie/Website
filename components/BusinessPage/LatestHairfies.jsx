@@ -16,7 +16,6 @@ var LatestHairfies = React.createClass({
         executeAction: React.PropTypes.func
     },
     render: function () {
-        console.log(this);
         if (!this.props.business || (_.isArray(this.props.hairfies) && _.isEmpty(this.props.hairfies))) return null;
         else if (this.props.business.accountType == businessAccountTypes.FREE) return this.renderLatestHairfies();
         else return this.renderLatestBusinessHairfies();
