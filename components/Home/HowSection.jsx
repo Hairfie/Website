@@ -11,12 +11,12 @@ module.exports = React.createClass({
                 <p className="subtitle" />
                 <div className="row">
                     <div className="col-sm-4 col-xs-12">
-                        <Picture picture={{url: "/img/icons/search.svg"}} alt="Trouvez votre coupe" />
+                        <Picture picture={{url: "/img/icons/search.svg"}} svg={true} alt="Trouvez votre coupe" />
                         <h3>S’inspirer</h3>
                         <p>des hairfies postés et trouver son coiffeur</p>
                     </div>
                     <div className="col-sm-4 col-xs-12">
-                        <Picture picture={{url: "/img/icons/calendar.svg"}} alt="Prenez RDV avec votre coiffeur" />
+                        <Picture picture={{url: "/img/icons/calendar.svg"}} svg={true} alt="Prenez RDV avec votre coiffeur" />
                         <h3>Prendre RDV</h3>
                         <p>24/7 gratuitement sans paiement en ligne</p>
                     </div>
