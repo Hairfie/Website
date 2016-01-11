@@ -8,6 +8,7 @@ var Link = require('./Link.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Rating = require('./Partial/Rating.jsx');
 var Review = require('./Partial/Review.jsx');
+var LatestHairfies = require('./BusinessPage/LatestHairfies.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -44,6 +45,7 @@ var BusinessReviewPage = React.createClass({
                         <br /><br />
                         <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Soyez le premier à déposer un avis</Link>
                     </p>
+                    <LatestHairfies business={this.props.business} />
                 </Layout>
             );
         }
