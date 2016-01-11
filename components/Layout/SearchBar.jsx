@@ -11,7 +11,7 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var Select = require('react-select');
 var PlaceActions = require('../../actions/PlaceActions');
 
-var mobileHeader = React.createClass({
+var SearchBar = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
@@ -23,38 +23,10 @@ var mobileHeader = React.createClass({
             activeLocation: false
         };
     },
-    render: function () {
-        if(this.props.mobile) {
-            return this.renderMobile();
-        } else if(this.props.homepage) {
-            return this.renderHomePage();
-        } else {
-            return this.renderLayout();
-        }
-        return <div></div>;
-    },
-    renderLayout: function () {
-        return (
-            <div>
-                <header className='white hidden-xs'>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <Link className="logo col-md-4" route="home" />
-                            <nav className='pull-right'>
-                                <ul>
-                                    <li>
-                                        <Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>
-                                    </li>
-                                    <User />
-                                </ul>
-                            </nav>
-                            *<a className={"col-xs-4 menu-trigger pull-right hidden-sm" + (this.state.displaySearchBar ? ' close' : '')} role="button" onClick={this.handleDisplaySearchBar}></a>*
-                        </div>
-                    </div>
-                </header>
-                {this.renderSearchBar()}
-            </div>
-        );
+    render: function() {
+        if (this.props.mobile) return this.renderMobile();
+        else if (this.props.home) return this.renderHomePage();
+        else return this.renderSearchBar();
     },
     renderSearchBar: function() {
         if (this.state.displaySearchBar) {
@@ -91,42 +63,27 @@ var mobileHeader = React.createClass({
     },
     renderMobile: function() {
         return (
-            <div className="mobile-nav visible-xs">
-                <header className="container white">
-                    <Link className="logo col-xs-4" route="home" />
-                    <nav className='col-md-8 pull-right'>
-                        <ul>
-                           <User mobile={true}>
-                                <li>
-                                    <Link route="home_pro">Gérez votre salon</Link>
-                                </li>
-                           </User>
-                        </ul>
-                    </nav>
-                    *<a className="col-xs-4 menu-trigger pull-right" role="button"></a>*
-                </header>
-                <div className="mobile-menu">
-                    <div className="container">
-                        <h2>Recherche</h2>
-                        <span className="hr"></span>
-                        <div className="searchbar col-xs-10">
-                            <div className="col-xs-12 mobile-categories" style={{marginBottom: '20px', textAlign: 'start'}}>
-                                <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
-                                    <optgroup label="Catégories">
-                                        <option value="" disabled>Sélectionnez une catégorie</option>
-                                        {_.map(this.props.categories, function(cat) {
-                                            return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
-                                        })}
-                                    </optgroup>
-                                </select>
-                            </div>
-                            <div className="col-xs-12 input-group">
-                                <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
-                                <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
-                            </div>
-                            <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
-                            <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
+            <div className="mobile-menu">
+                <div className="container">
+                    <h2>Recherche</h2>
+                    <span className="hr"></span>
+                    <div className="searchbar col-xs-10">
+                        <div className="col-xs-12 mobile-categories" style={{marginBottom: '20px', textAlign: 'start'}}>
+                            <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
+                                <optgroup label="Catégories">
+                                    <option value="" disabled>Sélectionnez une catégorie</option>
+                                    {_.map(this.props.categories, function(cat) {
+                                        return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
+                                    })}
+                                </optgroup>
+                            </select>
                         </div>
+                        <div className="col-xs-12 input-group">
+                            <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                            <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                        </div>
+                        <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
+                        <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                     </div>
                 </div>
             </div>
@@ -220,7 +177,7 @@ var mobileHeader = React.createClass({
     }
 });
 
-mobileHeader = connectToStores(mobileHeader, [
+SearchBar = connectToStores(SearchBar, [
     'CategoryStore',
     'PlaceStore'
 ], function (context, props) {
@@ -231,4 +188,4 @@ mobileHeader = connectToStores(mobileHeader, [
 });
 
 
-module.exports = mobileHeader;
+module.exports = SearchBar;
