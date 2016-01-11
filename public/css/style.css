@@ -11352,6 +11352,27 @@ section.home-footer .row > div {
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
+      .salon#content section.salon-content section.latestHairfie .more {
+        display: block;
+        position: relative;
+        font-size: 1.6em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 5px 40px 5px 40px;
+        font-size: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        color: #fe5b5f;
+        border: solid;
+        border-width: 3px;
+        border-radius: 20px;
+        margin-right: calc(100% / 3); }
+        @media screen and (max-width: 767px) {
+          .salon#content section.salon-content section.latestHairfie .more {
+            margin-right: calc(100% / 6); } }
+        .salon#content section.salon-content section.latestHairfie .more:hover {
+          background-color: white;
+          text-decoration: none; }
       .salon#content section.salon-content section p.title {
         margin-left: -15px;
         color: #fe5b5f;

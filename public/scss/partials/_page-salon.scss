@@ -367,6 +367,31 @@
 			}
 		}
 		section {
+			&.latestHairfie {
+				.more {
+					display: block;
+					position: relative;
+					font-size: 1.6em;
+					margin-top: 20px;
+					margin-bottom: 20px;
+					padding: 5px 40px 5px 40px;
+					font-size: 1.6em;
+					text-align: center;
+					font-weight: bold;
+					color: #fe5b5f;
+				    border: solid;
+				    border-width: 3px;
+				    border-radius: 20px;
+				    margin-right: calc(100% / 3);
+				    @media screen and (max-width: $screen-xs-max) {
+				    	margin-right: calc(100% / 6);
+				    }
+    				&:hover {
+    					background-color: white;
+    					text-decoration: none;
+    				}
+				}
+			}
 			p.title {
 			    margin-left: -15px;
 			    color: $hairfie;
