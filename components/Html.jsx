@@ -68,7 +68,6 @@ var Html = React.createClass({
                 <script type="text/javascript" dangerouslySetInnerHTML={{__html: this.getGaHtml()}} />
             </head>
             <body>
-
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}} />
                 <div className="oldBrowser" dangerouslySetInnerHTML={{__html: oldBrowserHtml}} />
 
