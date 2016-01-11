@@ -18,7 +18,7 @@ var Hairfies = React.createClass({
     componentDidMount: function () {
         if (!this.props.business.topHairfies && typeof window != 'undefined') {
             // FIXME LATER
-            // this.context.executeAction(HairfieActions.loadBusinessTopHairfies, this.props.business.id);
+            // this.context.executeAction(HairfieActions.loadBusinessTopHairfies, { businessId: this.props.business.id });
         }
     },
     render: function () {
@@ -100,7 +100,6 @@ var Business = React.createClass({
                         </div>
                     </div>
                     {this.renderPricing()}
-                    <Hairfies business={this.props.business} />
                     <div className="book">
                         {booking_button}
                     </div>

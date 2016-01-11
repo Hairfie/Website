@@ -65,6 +65,9 @@ module.exports = createStore({
     onReceiveBusinessTopHairfies: function (payload) {
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(payload.hairfies, 'id'));
         this.businessTopIds[payload.businessId] = _.pluck(payload.hairfies, 'id');
+        if (_.isUndefined(this.businessTopIds[payload.businessId])) {
+            this.businessTopIds[payload.businessId] = [];
+        }
         this.emitChange();
     },
     onReceiveHairfieSearchResult: function (payload) {
@@ -195,9 +198,19 @@ module.exports = createStore({
             return this.userLikes[userId].page;
     },
     getTop: function () {
+        if (_.isEmpty(this.topIds)) {
+            this.getContext().executeAction(HairfieActions.loadTopHairfies, { limit: 4 });
+            this.emitChange();
+            return -1;
+        }
         return _.map(this.topIds, this.getById, this);
     },
     getBusinessTop: function (businessId) {
+        if (_.isUndefined(this.businessTopIds[businessId])) {
+            this.getContext().executeAction(HairfieActions.loadBusinessTopHairfies, { limit: 4, businessId: businessId });
+            this.emitChange();
+            return -1;
+        }
         return this.businessTopIds[businessId] && _.map(this.businessTopIds[businessId], this.getById, this);
     },
     getSearchResult: function (search) {

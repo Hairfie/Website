@@ -69,12 +69,6 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         result = context.getStore('BusinessStore').getSearchResult(search);
     }
 
-    if (result) { // add top hairfies to each business
-        result = _.assign({}, result, { hits: _.map(result.hits, function (hit) {
-            return _.assign({}, hit, { topHairfies: context.getStore('HairfieStore').getBusinessTop(hit.id) });
-        })});
-    }
-
     var cat = context.getStore('CategoryStore').getCategoriesBySlug(_.values(search.categories));
 
     var searchTagsId = [];
