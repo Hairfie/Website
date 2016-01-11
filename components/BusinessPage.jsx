@@ -8,6 +8,7 @@ var Layout = require('./BusinessPage/Layout.jsx');
 var Map = require('./BusinessPage/Map.jsx');
 var Hairdressers = require('./BusinessPage/Hairdressers.jsx');
 var SimilarBusinesses = require('./BusinessPage/SimilarBusinesses.jsx');
+var LatestHairfies = require('./BusinessPage/LatestHairfies.jsx');
 var businessAccountTypes = require('../constants/BusinessAccountTypes');
 
 var dayFrenchNames = {MON: 'lundi', TUE: 'mardi', WED: 'mercredi', THU: 'jeudi', FRI: 'vendredi', SAT: 'samedi', SUN: 'dimanche'};
@@ -23,6 +24,7 @@ var BusinessPage = React.createClass({
                 {this.renderSimilar()}
                 {this.renderDescription()}
                 {this.renderHairdressers()}
+                {this.renderLatestHairfies()}
                 {this.renderServices()}
                 {this.renderDiscounts()}
             </Layout>
@@ -31,6 +33,9 @@ var BusinessPage = React.createClass({
     renderSimilar: function() {
         if (!this.props.business || (this.props.business.accountType != businessAccountTypes.FREE)) return null;
         return <SimilarBusinesses businesses={this.props.similarBusinesses} />;
+    },
+    renderLatestHairfies: function() {
+        return <LatestHairfies business={this.props.business}/>;
     },
     renderHairdressers: function () {
         var hairdressers = this.props.hairdressers || [];
