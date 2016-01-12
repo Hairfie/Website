@@ -42,8 +42,8 @@ var HomePage = React.createClass({
                     <div className="main-content" id="home">
                         <Home.SearchSection {...this.props} ref="search" />
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
-                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.Deals deals={this.props.deals} />
+                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
                         <Home.DownloadSection />
