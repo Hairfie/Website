@@ -7,6 +7,11 @@ var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 
 var Header = React.createClass({
+    getInitialState: function() {
+        return {
+            displaySearch: false
+        };
+    },
     render: function() {
         return (
             <div>
@@ -21,23 +26,24 @@ var Header = React.createClass({
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
                         <nav className='col-md-8 pull-right'>
-                            *<a className="col-xs-4 menu-trigger pull-right" role="button"></a>*
+                            *<a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMobileMene}></a>*
                         </nav>
                     
                 </header>
-                <div className="mobile-menu">
-                    <div className="container">
-                        <ul>
-                            <li><Link route="connect_page">Me connecter</Link></li>
-                            <li><Link route="registration_page">M'inscrire</Link></li>
-                            <li>Recherche</li>
-                            <li><a href="http://blog.hairfie.com" target="_blank">Le blog d'Hairfie</a></li>
-                            <li><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Mentions légales</a></li>
-                            <li><Link route="home_pro">Gérez votre salon</Link></li>
-                        </ul>
-                    </div>
-                </div>
-                <SearchBar mobile={true} />
+                {this.state.displaySearch ? <SearchBar mobile={true} /> : this.renderMobileMenu()}
+            </div>
+        );
+    },
+    renderMobileMenu: function() {
+        return (
+            <div className="mobile-menu">
+                <ul>
+                    <li><Link route="connect_page">Me connecter</Link></li>
+                    <li onClick={this.handleDisplaySearch}>Recherche</li>
+                    <li><a href="http://blog.hairfie.com" target="_blank">Le blog d'Hairfie</a></li>
+                    <li><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Mentions légales</a></li>
+                    <li><Link route="home_pro">Gérez votre salon</Link></li>
+                </ul>
             </div>
         );
     },
@@ -70,16 +76,18 @@ var Header = React.createClass({
             </div>
         );
     },
+    handleDisplaySearch: function() {
+        console.log("test");
+        this.setState({displaySearch: !this.state.displaySearch});
+    },
     componentDidMount: function() {
         $('body').on("click",'.mobile-nav .menu-trigger',function(){
-            if( parseInt($('.mobile-menu').css('marginLeft')) > 0) {
-                $('body').toggleClass('locked');
+            if( $('.mobile-menu').height() == 0) {
                 $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {marginLeft:'0px',ease:Power2.easeInOut});
-            } else {
-                $('body').toggleClass('locked');
+                TweenMax.to('.mobile-menu', 0.4, {height:'100%',ease:Power2.easeInOut});
+            } else { 
                 $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {marginLeft: '100%',ease:Power2.easeOut});
+                TweenMax.to('.mobile-menu', 0.4, {height: '0',ease:Power2.easeOut});
             }
         });
     }

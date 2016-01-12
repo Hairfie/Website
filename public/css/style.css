@@ -9999,36 +9999,33 @@ header:not(.white) .dropdown-menu {
     border-bottom: 1px solid #dbdbdb;
     margin-left: -15px;
     margin-right: -15px;
-    width: 100vw;
-    max-width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 999; }
+    width: 100vw; }
     .mobile-nav header a.logo {
       background: url(../img/logo-red.png) no-repeat center left;
       background-size: 100%;
       margin-top: 20px; }
   .mobile-nav .mobile-menu {
     background-color: white;
-    position: fixed;
-    left: 0;
-    z-index: 99;
-    top: 85px;
-    margin-left: 100%;
-    height: 100vh !important;
+    margin-left: -15px;
     width: 100vw;
-    max-width: 100%;
+    height: 0;
     overflow-x: auto; }
-    .mobile-nav .mobile-menu > .container {
-      overflow-x: scroll;
-      padding-bottom: 180px; }
-    .mobile-nav .mobile-menu ul li {
-      height: 100px;
-      padding: 32px;
-      font-size: 3em; }
-      .mobile-nav .mobile-menu ul li a {
-        color: #c4c4c4; }
-    .mobile-nav .mobile-menu h2 {
+    .mobile-nav .mobile-menu ul {
+      margin: 0; }
+      .mobile-nav .mobile-menu ul li {
+        height: 100px;
+        padding: 32px;
+        text-align: start;
+        font-size: 2.4em; }
+        .mobile-nav .mobile-menu ul li a {
+          color: #c4c4c4; }
+  .mobile-nav .search-menu {
+    padding-bottom: 30px;
+    background-color: white;
+    margin-left: -15px;
+    width: 100vw;
+    overflow-x: auto; }
+    .mobile-nav .search-menu h2 {
       margin: 40px 0;
       font-family: "Lato", sans-serif;
       font-weight: 700;
@@ -10037,43 +10034,43 @@ header:not(.white) .dropdown-menu {
       text-transform: uppercase;
       color: #535353;
       text-align: center; }
-    .mobile-nav .mobile-menu .hr {
+    .mobile-nav .search-menu .hr {
       width: 96px;
       height: 1px;
       background: #535353;
       margin: 0 auto 40px;
       display: block; }
-    .mobile-nav .mobile-menu .searchbar {
+    .mobile-nav .search-menu .searchbar {
       float: none;
       margin: 0 auto; }
-      .mobile-nav .mobile-menu .searchbar input {
+      .mobile-nav .search-menu .searchbar input {
         width: 100%;
         height: 65px;
         margin-bottom: 20px; }
-      .mobile-nav .mobile-menu .searchbar .btn-red {
+      .mobile-nav .search-menu .searchbar .btn-red {
         height: 65px;
         line-height: 3em;
         border-radius: 0;
         font-size: 1.6em;
         text-transform: uppercase; }
-      .mobile-nav .mobile-menu .searchbar div.input-group {
+      .mobile-nav .search-menu .searchbar div.input-group {
         float: left;
         margin-bottom: 20px; }
-        .mobile-nav .mobile-menu .searchbar div.input-group input {
+        .mobile-nav .search-menu .searchbar div.input-group input {
           width: 100%;
           margin: 0;
           padding-left: 15px;
           border-right: 0; }
-        .mobile-nav .mobile-menu .searchbar div.input-group .input-group-addon {
+        .mobile-nav .search-menu .searchbar div.input-group .input-group-addon {
           background: url(../img/icon-location.png) no-repeat center center;
           background-color: white;
           width: 60px;
           background-size: 40%;
           border: 2px solid #e6e6e6;
           border-left-width: 1px; }
-      .mobile-nav .mobile-menu .searchbar .mobile-categories {
+      .mobile-nav .search-menu .searchbar .mobile-categories {
         padding: 0; }
-        .mobile-nav .mobile-menu .searchbar .mobile-categories select {
+        .mobile-nav .search-menu .searchbar .mobile-categories select {
           width: 100%;
           background-color: white;
           height: 65px;

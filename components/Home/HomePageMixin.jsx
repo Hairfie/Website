@@ -23,21 +23,6 @@ var HomePageMixin = {
         //     delay:0.65
         // });
 
-        // mobile
-        $('body').on("click",'.mobile-nav .menu-trigger',function(){
-            if( $('.mobile-menu').height() == 0 ) {
-                $('body').toggleClass('locked');
-                $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:'100vh',ease:Power2.easeInOut});
-            } else {
-                $('body').toggleClass('locked');
-                $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
-            }
-        });
-        $('body').on('click','.main-searchbar input', function(){
-            $('.main-searchbar').toggleClass('open');
-        });
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');

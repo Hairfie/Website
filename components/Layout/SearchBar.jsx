@@ -62,8 +62,8 @@ var SearchBar = React.createClass({
        );
     },
     renderMobile: function() {
-        return null/*(
-            <div className="mobile-menu">
+        return (
+            <div className="search-menu">
                 <div className="container">
                     <h2>Recherche</h2>
                     <span className="hr"></span>
@@ -87,7 +87,7 @@ var SearchBar = React.createClass({
                     </div>
                 </div>
             </div>
-        );*/
+        );
     },
     renderSelect: function() {
         return  (
@@ -151,22 +151,6 @@ var SearchBar = React.createClass({
         }
 
         this.context.executeAction(BusinessActions.submitSearch, search);
-    },
-    componentDidMount: function() {
-        $('body').on("click",'.mobile-nav .menu-trigger',function(){
-            if( parseInt($('.mobile-menu').css('marginLeft')) > 0) {
-                $('body').toggleClass('locked');
-                $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {marginLeft:'0px',ease:Power2.easeInOut});
-            } else {
-                $('body').toggleClass('locked');
-                $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {marginLeft: '100%',ease:Power2.easeOut});
-            }
-        });
-    },
-    componentWillUnmount: function() {
-        $('body').removeClass('locked');
     },
     componentWillReceiveProps: function(newProps) {
         if (newProps.location && this.state.activeLocation) {

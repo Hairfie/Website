@@ -170,8 +170,6 @@ header:not(.white) {
 		border-bottom: 1px solid #dbdbdb;
 		margin-left: -15px; margin-right: -15px;
 		width: 100vw;
-		max-width: 100%; // fix-mobile horizontal scroll
-		position: fixed; top: 0; z-index: 999;
 
 		a.logo {
 			background: url(../img/logo-red.png) no-repeat center left;
@@ -181,31 +179,30 @@ header:not(.white) {
 	}
 	.mobile-menu {
 		background-color: white;
-		position: fixed;
-		left: 0;
-		z-index: 99;
-		top: 85px;
-		margin-left: 100%;
-		height: 100vh !important;
+		margin-left: -15px;
 		width: 100vw;
-		max-width: 100%; // fix-mobile horizontal scroll
+		height: 0;
 		overflow-x: auto;
 
-		> .container {
-		    overflow-x: scroll;
-		    padding-bottom: 180px;
-		}
 		ul {
+			margin: 0;
 			li {
 				height: 100px;
 				padding: 32px;
-				font-size: 3em;
+				text-align: start;
+				font-size: 2.4em;
 				a {
 					color: $grey;
 				}
 			}
 		}
-
+	}
+	.search-menu {
+			padding-bottom: 30px;
+			background-color: white;
+			margin-left: -15px;
+			width: 100vw;
+			overflow-x: auto;
 		h2 {
 			margin: 40px 0;
 			font-family: $font-second;
