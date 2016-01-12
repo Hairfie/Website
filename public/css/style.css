@@ -10028,11 +10028,20 @@ header:not(.white) .dropdown-menu {
       margin: 0; }
       .mobile-nav .mobile-menu ul li {
         height: 100px;
+        border-top: 1px solid #c4c4c4;
         padding: 32px;
         text-align: start;
-        font-size: 2.4em; }
+        font-size: 2.4em;
+        color: #c4c4c4;
+        font-weight: bolder; }
         .mobile-nav .mobile-menu ul li a {
-          color: #c4c4c4; }
+          color: #c4c4c4;
+          text-decoration: none; }
+        .mobile-nav .mobile-menu ul li:hover {
+          background-color: #c4c4c4;
+          color: white; }
+          .mobile-nav .mobile-menu ul li:hover a {
+            color: white; }
   .mobile-nav .search-menu {
     padding-bottom: 30px;
     background-color: white;
