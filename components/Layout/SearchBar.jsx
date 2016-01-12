@@ -62,7 +62,7 @@ var SearchBar = React.createClass({
        );
     },
     renderMobile: function() {
-        return (
+        return null/*(
             <div className="mobile-menu">
                 <div className="container">
                     <h2>Recherche</h2>
@@ -87,7 +87,7 @@ var SearchBar = React.createClass({
                     </div>
                 </div>
             </div>
-        );
+        );*/
     },
     renderSelect: function() {
         return  (
@@ -154,14 +154,14 @@ var SearchBar = React.createClass({
     },
     componentDidMount: function() {
         $('body').on("click",'.mobile-nav .menu-trigger',function(){
-            if( $('.mobile-menu').height() == 0 ) {
+            if( parseInt($('.mobile-menu').css('marginLeft')) > 0) {
                 $('body').toggleClass('locked');
                 $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:'100vh',ease:Power2.easeInOut});
+                TweenMax.to('.mobile-menu', 0.4, {marginLeft:'0px',ease:Power2.easeInOut});
             } else {
                 $('body').toggleClass('locked');
                 $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
+                TweenMax.to('.mobile-menu', 0.4, {marginLeft: '100%',ease:Power2.easeOut});
             }
         });
     },

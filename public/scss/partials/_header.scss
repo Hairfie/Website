@@ -4,18 +4,18 @@ header {
 		letter-spacing: .5px;
 	}
 	a.menu-trigger {
-		background: url(../img/mobile-menu.png) no-repeat center center;
+		background: url(../img/icons/mobile-menu.svg) no-repeat center center;
 		background-size: 90%;
 
 		margin-top: 15px;
 		@media screen and (max-width: $screen-xs-max) {
 			margin-top: 25px;
 		}
-		width: 28px;
-		height: 28px;
+		width: 35px;
+		height: 25px;
 		margin-right: 15px;
 		&.close {
-			background: url(../img/mobile-menu-close.png) no-repeat center center;
+			background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
 			background-size: 90%;
 			opacity: 1;
 		}
@@ -180,12 +180,13 @@ header:not(.white) {
 		}
 	}
 	.mobile-menu {
-		background-color: $bg3;
+		background-color: white;
 		position: fixed;
 		left: 0;
 		z-index: 99;
 		top: 85px;
-		height: 0px;
+		margin-left: 100%;
+		height: 100vh !important;
 		width: 100vw;
 		max-width: 100%; // fix-mobile horizontal scroll
 		overflow-x: auto;
@@ -193,6 +194,16 @@ header:not(.white) {
 		> .container {
 		    overflow-x: scroll;
 		    padding-bottom: 180px;
+		}
+		ul {
+			li {
+				height: 100px;
+				padding: 32px;
+				font-size: 3em;
+				a {
+					color: $grey;
+				}
+			}
 		}
 
 		h2 {

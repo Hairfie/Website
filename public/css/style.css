@@ -9848,17 +9848,17 @@ header {
     font-size: 1em;
     letter-spacing: .5px; }
   header a.menu-trigger {
-    background: url(../img/mobile-menu.png) no-repeat center center;
+    background: url(../img/icons/mobile-menu.svg) no-repeat center center;
     background-size: 90%;
     margin-top: 15px;
-    width: 28px;
-    height: 28px;
+    width: 35px;
+    height: 25px;
     margin-right: 15px; }
     @media screen and (max-width: 767px) {
       header a.menu-trigger {
         margin-top: 25px; } }
     header a.menu-trigger.close {
-      background: url(../img/mobile-menu-close.png) no-repeat center center;
+      background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header .logo {
@@ -10009,18 +10009,25 @@ header:not(.white) .dropdown-menu {
       background-size: 100%;
       margin-top: 20px; }
   .mobile-nav .mobile-menu {
-    background-color: #f4f4f4;
+    background-color: white;
     position: fixed;
     left: 0;
     z-index: 99;
     top: 85px;
-    height: 0px;
+    margin-left: 100%;
+    height: 100vh !important;
     width: 100vw;
     max-width: 100%;
     overflow-x: auto; }
     .mobile-nav .mobile-menu > .container {
       overflow-x: scroll;
       padding-bottom: 180px; }
+    .mobile-nav .mobile-menu ul li {
+      height: 100px;
+      padding: 32px;
+      font-size: 3em; }
+      .mobile-nav .mobile-menu ul li a {
+        color: #c4c4c4; }
     .mobile-nav .mobile-menu h2 {
       margin: 40px 0;
       font-family: "Lato", sans-serif;
