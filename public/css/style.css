@@ -9846,6 +9846,11 @@ div.pagination {
     .contest .woobox-offer {
       margin-top: 100px; } }
 
+iframe {
+  min-width: 100% !important;
+  width: 100px !important;
+  *width: 100% !important; }
+
 header {
   width: 100%;
   height: 60px;

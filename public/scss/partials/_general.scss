@@ -874,3 +874,9 @@ div.pagination {
 		}
 	}
 }
+
+iframe {
+        min-width: 100% !important; 
+        width: 100px !important;
+        *width: 100% !important; 
+    }
