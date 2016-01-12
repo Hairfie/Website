@@ -26,7 +26,7 @@ var Header = React.createClass({
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
                         <nav className='col-md-8 pull-right'>
-                            *<a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMobileMene}></a>*
+                            *<a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>*
                         </nav>
                     
                 </header>
@@ -78,8 +78,10 @@ var Header = React.createClass({
         );
     },
     handleDisplaySearch: function() {
-        console.log("test");
         this.setState({displaySearch: !this.state.displaySearch});
+    },
+    handleDisplayMenu: function() {
+        this.setState({displaySearch: false});
     },
     componentDidMount: function() {
         $('body').on("click",'.mobile-nav .menu-trigger',function(){
