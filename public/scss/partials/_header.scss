@@ -203,6 +203,9 @@ header:not(.white) {
 
 		ul {
 			margin: 0;
+			a, a:hover, a:focus {
+				text-decoration: none;
+			}
 			li {
 				height: 100px;
 				border-top: 1px solid $grey;
@@ -218,9 +221,7 @@ header:not(.white) {
 				&:hover {
 					background-color: $grey;
 					color: white;
-					a {
-						color: white;
-					}
+					text-decoration: none;
 				}
 			}
 		}

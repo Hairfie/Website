@@ -10026,6 +10026,8 @@ header:not(.white) .dropdown-menu {
     overflow-x: auto; }
     .mobile-nav .mobile-menu ul {
       margin: 0; }
+      .mobile-nav .mobile-menu ul a, .mobile-nav .mobile-menu ul a:hover, .mobile-nav .mobile-menu ul a:focus {
+        text-decoration: none; }
       .mobile-nav .mobile-menu ul li {
         height: 100px;
         border-top: 1px solid #c4c4c4;
@@ -10039,9 +10041,8 @@ header:not(.white) .dropdown-menu {
           text-decoration: none; }
         .mobile-nav .mobile-menu ul li:hover {
           background-color: #c4c4c4;
-          color: white; }
-          .mobile-nav .mobile-menu ul li:hover a {
-            color: white; }
+          color: white;
+          text-decoration: none; }
   .mobile-nav .search-menu {
     padding-bottom: 30px;
     background-color: white;
