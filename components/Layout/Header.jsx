@@ -70,6 +70,7 @@ var Header = React.createClass({
                                 </ul>
                             </nav>
                         </div>
+                        *<a className={"col-xs-4 menu-trigger pull-right hidden-sm" + (this.state.displaySearchBar ? ' close' : '')} role="button" onClick={this.handleDisplaySearchBar}></a>*
                     </div>
                 </header>
                 {this.props.home ? null : <SearchBar />}
