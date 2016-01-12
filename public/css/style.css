@@ -9041,7 +9041,7 @@ div.connect-button .twitter {
     margin-bottom: 0; }
 
 /*////////////////////////////////
-	 G E N E R A L  S T Y L E
+     G E N E R A L  S T Y L E
 ////////////////////////////////*/
 body {
   font-size: 1em;
@@ -9448,8 +9448,26 @@ figure {
   left: 15px;
   padding: 15px 10px;
   text-align: center;
-  background-color: #fc5a5f;
-  border-radius: 100%; }
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  background-color: #fe5b5f;
+  border-radius: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 1.7em;
+  padding: 10px 8px; }
+  @media only screen and (max-width: 767px) {
+    .pricetag {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 30px;
+      height: 30px;
+      line-height: 20px;
+      font-size: 1em;
+      padding: 6px 5px; } }
 
 .tag {
   display: inline-block;
@@ -9619,7 +9637,10 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       .hairfies .single-hairfie figure figcaption p:first-child {
         margin-top: 40%; }
       .hairfies .single-hairfie figure figcaption p span.underline {
-        text-decoration: underline; }
+        text-transform: uppercase;
+        font-size: 0.8em;
+        color: #898989;
+        font-family: "Source Sans Pro", sans-serif; }
       .hairfies .single-hairfie figure figcaption p a {
         color: white; }
       .hairfies .single-hairfie figure figcaption .pricetag {
@@ -9628,6 +9649,26 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         font-weight: 400;
         font-size: 1.2em;
         padding: 10px 8px; }
+      .hairfies .single-hairfie figure figcaption p span.hf-tag {
+        font-size: 0.8em;
+        padding: 2px 2px;
+        color: white;
+        background-color: #fe5b5f;
+        border-radius: 2px;
+        bottom: 10;
+        margin: 3px;
+        word-wrap: break-word;
+        display: inline-block; }
+      .hairfies .single-hairfie figure figcaption hr {
+        opacity: 0.2;
+        margin-top: 5px;
+        margin-bottom: 10px; }
+      .hairfies .single-hairfie figure figcaption .fig-text {
+        position: absolute;
+        bottom: 0;
+        margin-left: -15px;
+        width: inherit;
+        padding: 5px; }
     .hairfies .single-hairfie figure:hover figcaption {
       opacity: 1; }
 

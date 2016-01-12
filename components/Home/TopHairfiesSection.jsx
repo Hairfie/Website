@@ -11,7 +11,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <section className="home-section hairfies">
-                <h2>Les coiffures stylées sur Hairfie</h2>
+                <h2>Top Hairfies de la semaine</h2>
                 <p className="subtitle">Ici, on s’inspire de photos de vrais clients pour choisir le bon coiffeur qui réalisera la coiffure de son choix. Coupes structurées, couleurs lumineuses, chignons de fête, lissages en souplesse... Il y en a pour toutes les envies !</p>
                 <div className="row">
                     <div className="col-md-6 col-xs-12 hairfies">
@@ -25,7 +25,7 @@ module.exports = React.createClass({
                     <Hairfie hairfie={_.first(this.props.hairfies)} className="col-md-6 col-xs-12 big single-hairfie" />
                 </div>
                 <Link route="hairfie_search" params={{ address: 'Paris--France' }} className="btn btn-red home-cta col-md-3 col-xs-10">
-                    Plus de hairfies
+                    Voir plus de hairfies
                 </Link>
             </section>
         );

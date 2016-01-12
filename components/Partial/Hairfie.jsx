@@ -13,24 +13,26 @@ module.exports = React.createClass({
         if (!hairfie) return null;
 
         if(!hairfie) return <div />;
-
+        //TODO: DELETE HAIRDRESSER ?
         var hairdresser = <p></p>;
         if (hairfie.hairdresser) {
             hairdresser = <p><span className="underline">Coiffeur</span> : {displayName(hairfie.hairdresser)}</p>;
         }
         var salon = <p></p>;
         if (hairfie.business && hairfie.business.name) {
-            salon = <p><span className="underline">Salon</span> : {hairfie.business.name}</p>;
+            salon = <p><span className="underline">Salon de coiffure :</span>  <br/> {hairfie.business.name}</p>;
         }
 
         var price;
         if (hairfie.price) {
-            price = <div className="pricetag">{hairfie.price.amount}€</div>;
+            price = <div className="pricetag"><span>{hairfie.price.amount}€</span></div>;
         }
 
         var tags;
         if (hairfie.tags) {
-            tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
+            tags = <p>{_.map(hairfie.tags, function(tag) {
+                return (<span className="hf-tag" key={tag.id}>{tag.name}</span> );
+            })}</p>
         }
 
         return (
@@ -42,12 +44,14 @@ module.exports = React.createClass({
                                 placeholder="/img/placeholder-640.png"
                                 alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
                         />
-                            <figcaption>
-                                {salon}
-                                {hairdresser}
-                                {tags}
                                 {price}
-                                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
+                            <figcaption>
+                                <div className="fig-text">
+                                    {salon}
+                                    <hr/>
+                                    {tags}
+                                </div>
+                                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'20%', top: '15px', right: '15px'}} /> : null}
                             </figcaption>
                         </Link>
                     </figure>
