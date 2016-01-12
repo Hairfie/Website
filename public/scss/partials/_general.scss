@@ -853,11 +853,14 @@ div.pagination {
 }
 
 .contest {
-	margin-left: -30px;
-	margin-right: -30px;
+	@media screen and (max-width: $screen-md-max) {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
 	.woobox-offer {
 		display: block !important;
 		margin: auto;
+		min-height: 800px;
 		@media screen and (max-width: 768px) {
 			margin-top: 100px;
 		}
