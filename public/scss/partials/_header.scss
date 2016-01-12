@@ -3,6 +3,23 @@ header {
 		font-size: 1em;
 		letter-spacing: .5px;
 	}
+	a.menu-search {
+		background: url(../img/icons/search.svg) no-repeat center center;
+		background-size: 90%;
+
+		margin-top: 15px;
+		@media screen and (max-width: $screen-xs-max) {
+			margin-top: 25px;
+		}
+		width: 28px;
+		height: 28px;
+		margin-right: 15px;
+		&.close {
+			background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
+			background-size: 90%;
+			opacity: 1;
+		}
+	}
 	a.menu-trigger {
 		background: url(../img/icons/mobile-menu.svg) no-repeat center center;
 		background-size: 90%;

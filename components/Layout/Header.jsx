@@ -61,7 +61,7 @@ var Header = React.createClass({
                     <div className="row">
                         <div className="col-md-12">
                             <Link className="logo col-md-4" route="home" />
-                            <nav className='col-md-8 pull-right'>
+                            <nav className='pull-right'>
                                 <ul>
                                     <li>
                                         {proLinkNode}
@@ -69,11 +69,11 @@ var Header = React.createClass({
                                     <User />
                                 </ul>
                             </nav>
+                            {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}
                         </div>
-                        *<a className={"col-xs-4 menu-trigger pull-right hidden-sm" + (this.state.displaySearchBar ? ' close' : '')} role="button" onClick={this.handleDisplaySearchBar}></a>*
                     </div>
                 </header>
-                {this.props.home ? null : <SearchBar />}
+                {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
             </div>
         );
     },

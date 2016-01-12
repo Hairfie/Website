@@ -29,7 +29,7 @@ var SearchBar = React.createClass({
         else return this.renderSearchBar();
     },
     renderSearchBar: function() {
-        if (this.state.displaySearchBar) {
+        if (this.props.displaySearch) {
             return (
                 <div className="searchbar small-search col-xs-12 hidden-sm">
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
