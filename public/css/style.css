@@ -9831,13 +9831,17 @@ div.pagination {
 
 @media screen and (max-width: 1199px) {
   .contest {
-    margin-left: -30px;
-    margin-right: -30px; } }
+    padding-right: 0;
+    padding-left: 0; }
+    .contest .container {
+      padding-right: 0;
+      padding-left: 0; } }
 
 .contest .woobox-offer {
   display: block !important;
   margin: auto;
-  min-height: 800px; }
+  min-height: 800px;
+  max-width: 100%; }
   @media screen and (max-width: 768px) {
     .contest .woobox-offer {
       margin-top: 100px; } }
