@@ -42,7 +42,6 @@ var Header = React.createClass({
                     <Link route="connect_page"><li className="users">Me connecter</li></Link>
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
-                    <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank"><li className="cgu">Mentions légales</li></a>
                     <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
                 </ul>
                 {/*<div className="download">
@@ -88,7 +87,7 @@ var Header = React.createClass({
         this.setState({displaySearch: false});
     },
     componentDidMount: function() {
-        $('body').on("click",'.mobile-nav .menu-trigger',function(){
+        $('.menu-trigger').on("click", function() {
             if( $('.mobile-menu').height() == 0) {
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100%', minHeight:'100vh',ease:Power2.easeInOut});
@@ -97,6 +96,9 @@ var Header = React.createClass({
                 TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
             }
         });
+    },
+    componentWillUnmount: function() {
+        $('.menu-trigger').off("click");
     }
 });
 
