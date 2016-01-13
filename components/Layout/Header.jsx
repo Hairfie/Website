@@ -5,6 +5,7 @@ var Link = require('../Link.jsx');
 var _ = require('lodash');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
+var Picture = require('../Partial/Picture.jsx');
 
 var Header = React.createClass({
     getInitialState: function() {
@@ -44,6 +45,9 @@ var Header = React.createClass({
                     <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank"><li className="cgu">Mentions légales</li></a>
                     <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
                 </ul>
+                {/*<div className="download">
+                    <p>Téléchargez l'application pour poster un Hairfie !</p>
+                </div>*/}
             </div>
         );
     },

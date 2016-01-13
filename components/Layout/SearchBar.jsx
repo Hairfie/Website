@@ -64,8 +64,7 @@ var SearchBar = React.createClass({
     renderMobile: function() {
         return (
             <div className="search-menu">
-                <h2>Recherche</h2>
-                <span className="hr"></span>
+                <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
                         <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
