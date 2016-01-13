@@ -1,13 +1,18 @@
 'use strict';
 
 var React = require('react');
+var connectToStores = require('fluxible-addons-react/connectToStores');
 var Link = require('../Link.jsx');
 var _ = require('lodash');
+var AuthActions = require('../../actions/AuthActions');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
 
 var Header = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
+    },
     getInitialState: function() {
         return {
             displaySearch: false
@@ -39,7 +44,7 @@ var Header = React.createClass({
         return (
             <div className="mobile-menu">
                 <ul>
-                    <Link route="connect_page"><li className="users">Me connecter</li></Link>
+                    {this.props.currentUser ? <a role="button" onClick={this.disconnect}><li className="users">Me déconnecter</li></a>: <Link route="connect_page"><li className="users">Me connecter</li></Link>}
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
                     <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
@@ -101,7 +106,21 @@ var Header = React.createClass({
     },
     componentWillUnmount: function() {
         $('.menu-trigger').off("click");
+    },
+    disconnect: function() {
+        this.context.executeAction(AuthActions.disconnect, this.props.token);
     }
+});
+
+Header = connectToStores(Header, [
+    'AuthStore',
+    'UserStore'
+], function (context, props) {
+    var token = context.getStore('AuthStore').getToken();
+    return {
+        token: token,
+        currentUser: context.getStore('UserStore').getById(token.userId)
+    };
 });
 
 module.exports = Header;
