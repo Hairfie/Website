@@ -11,11 +11,12 @@ var _ = require('lodash');
 
 var Footer = React.createClass({
     render: function() {
-        if(this.props.mobile) {
-            return this.renderMobile();
-        } else {
-            return this.renderDesktop();
-        }
+        return (
+            <div>
+                {this.renderDesktop()}
+                {this.renderMobile()}
+            </div>
+            );
     }, 
     renderDesktop: function () {
         return (

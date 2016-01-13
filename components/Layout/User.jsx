@@ -18,9 +18,9 @@ var User = React.createClass({
             return this.renderMobile();
         return (
                 <li>
-                    <Link route="registration_page">Inscription</Link>
+                    <Link route="registration_page" rel="nofollow">Inscription</Link>
                     <span> / </span>
-                    <Link route="connect_page">Connexion</Link>
+                    <Link route="connect_page" rel="nofollow">Connexion</Link>
                 </li>
                 );
     },

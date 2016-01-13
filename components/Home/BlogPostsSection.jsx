@@ -40,7 +40,11 @@ module.exports = React.createClass({
                     </a>
                     <a href={post.link} target="_blank" className="address">
                         <p>
-                            <span dangerouslySetInnerHTML={{__html:content + ' [...]'}} />
+                            <span dangerouslySetInnerHTML={{__html:_.trunc(content, {
+                                'length' : 150,
+                                'separator' : ' ',
+                                'omission' : ' [...]'
+                            })}} />
                         </p>
                         <a href={post.link} target="_blank" className="readmore">Lire la suite</a>
                     </a>
