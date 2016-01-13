@@ -89,9 +89,11 @@ var Header = React.createClass({
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
             if( $('.mobile-menu').height() == 0) {
+                $('body').addClass('locked');
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100%', minHeight:'100vh',ease:Power2.easeInOut});
-            } else { 
+            } else {
+                $('body').removeClass('locked');
                 $('.menu-trigger').removeClass('close');
                 TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
             }
