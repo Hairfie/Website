@@ -330,6 +330,7 @@ header:not(.white) {
 		.searchbar {
 			input, input:matches([type="password"], [type="search"]) {
 				@include appearance(none);
+				border-radius: 0px;
 			}
 			float: none;
 			margin: 0 auto;
@@ -344,13 +345,14 @@ header:not(.white) {
 					content: " ";
 				}
 				&:nth-child(2) {
+					padding: 0;
 					&:before {
-
 						background: url(../img/icons/localisation.svg) no-repeat center center;
 						background-size: contain;
 					}
 				}
 				&:nth-child(3) {
+					padding: 0;
 					&:before {
 						background: url(../img/icons/users.svg) no-repeat center center;
 						background-size: contain;
@@ -376,7 +378,6 @@ header:not(.white) {
 			}
 			div.input-group {
 				float: left;
-				padding-left: 15px;
 				input {
 					width: 100%;
 					margin: 0;

@@ -10129,7 +10129,8 @@ header:not(.white) .dropdown-menu {
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        -o-appearance: none; }
+        -o-appearance: none;
+        border-radius: 0px; }
       .mobile-nav .search-menu .searchbar div:before {
         z-index: 1;
         position: absolute;
@@ -10138,12 +10139,16 @@ header:not(.white) .dropdown-menu {
         top: 20px;
         left: 20px;
         content: " "; }
-      .mobile-nav .search-menu .searchbar div:nth-child(2):before {
-        background: url(../img/icons/localisation.svg) no-repeat center center;
-        background-size: contain; }
-      .mobile-nav .search-menu .searchbar div:nth-child(3):before {
-        background: url(../img/icons/users.svg) no-repeat center center;
-        background-size: contain; }
+      .mobile-nav .search-menu .searchbar div:nth-child(2) {
+        padding: 0; }
+        .mobile-nav .search-menu .searchbar div:nth-child(2):before {
+          background: url(../img/icons/localisation.svg) no-repeat center center;
+          background-size: contain; }
+      .mobile-nav .search-menu .searchbar div:nth-child(3) {
+        padding: 0; }
+        .mobile-nav .search-menu .searchbar div:nth-child(3):before {
+          background: url(../img/icons/users.svg) no-repeat center center;
+          background-size: contain; }
       .mobile-nav .search-menu .searchbar input {
         padding-left: 50px;
         width: 100%;
@@ -10160,8 +10165,7 @@ header:not(.white) .dropdown-menu {
         font-size: 1.6em;
         text-transform: uppercase; }
       .mobile-nav .search-menu .searchbar div.input-group {
-        float: left;
-        padding-left: 15px; }
+        float: left; }
         .mobile-nav .search-menu .searchbar div.input-group input {
           width: 100%;
           margin: 0;
