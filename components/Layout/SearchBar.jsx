@@ -88,7 +88,7 @@ var SearchBar = React.createClass({
                     </div>
                 </div>
             </div>
-        );
+            );
     },
     renderSelect: function() {
         return  (
