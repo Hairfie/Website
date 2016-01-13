@@ -38,11 +38,11 @@ var Header = React.createClass({
         return (
             <div className="mobile-menu">
                 <ul>
-                    <Link route="connect_page"><li>Me connecter</li></Link>
-                    <li onClick={this.handleDisplaySearch}>Recherche</li>
-                    <a href="http://blog.hairfie.com" target="_blank"><li>Le blog d'Hairfie</li></a>
-                    <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank"><li>Mentions légales</li></a>
-                    <Link route="home_pro"><li>Gérez votre salon</li></Link>
+                    <Link route="connect_page"><li className="users">Me connecter</li></Link>
+                    <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
+                    <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
+                    <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank"><li className="cgu">Mentions légales</li></a>
+                    <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
                 </ul>
             </div>
         );

@@ -10031,7 +10031,8 @@ header:not(.white) .dropdown-menu {
       .mobile-nav .mobile-menu ul li {
         height: 100px;
         border-top: 1px solid #c4c4c4;
-        padding: 32px;
+        padding: 32px 0px 0px 75px;
+        position: relative;
         text-align: start;
         font-size: 2.4em;
         color: #c4c4c4;
@@ -10039,10 +10040,37 @@ header:not(.white) .dropdown-menu {
         .mobile-nav .mobile-menu ul li a {
           color: #c4c4c4;
           text-decoration: none; }
+        .mobile-nav .mobile-menu ul li:before {
+          position: absolute;
+          width: 35px;
+          height: 35px;
+          top: 27px;
+          left: 20px;
+          content: " "; }
+        .mobile-nav .mobile-menu ul li.users:before {
+          background: url(../img/icons/users.svg) no-repeat center center; }
+        .mobile-nav .mobile-menu ul li.search-nav:before {
+          background: url(../img/icons/search-nav.svg) no-repeat center center; }
+        .mobile-nav .mobile-menu ul li.blog:before {
+          background: url(../img/icons/blog.svg) no-repeat center center; }
+        .mobile-nav .mobile-menu ul li.cgu:before {
+          background: url(../img/icons/mention-legales.svg) no-repeat center center; }
+        .mobile-nav .mobile-menu ul li.salon:before {
+          background: url(../img/icons/salon.svg) no-repeat center center; }
         .mobile-nav .mobile-menu ul li:hover {
           background-color: #c4c4c4;
           color: white;
           text-decoration: none; }
+          .mobile-nav .mobile-menu ul li:hover.users:before {
+            background: url(../img/icons/users-white.svg) no-repeat center center; }
+          .mobile-nav .mobile-menu ul li:hover.search-nav:before {
+            background: url(../img/icons/search-nav-white.svg) no-repeat center center; }
+          .mobile-nav .mobile-menu ul li:hover.blog:before {
+            background: url(../img/icons/blog-white.svg) no-repeat center center; }
+          .mobile-nav .mobile-menu ul li:hover.cgu:before {
+            background: url(../img/icons/mention-legales-white.svg) no-repeat center center; }
+          .mobile-nav .mobile-menu ul li:hover.salon:before {
+            background: url(../img/icons/salon-white.svg) no-repeat center center; }
   .mobile-nav .search-menu {
     padding-bottom: 30px;
     background-color: white;
