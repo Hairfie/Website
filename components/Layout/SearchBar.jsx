@@ -64,25 +64,27 @@ var SearchBar = React.createClass({
     renderMobile: function() {
         return (
             <div className="search-menu">
-                <div className="container">
-                    <h2>Recherche</h2>
-                    <span className="hr"></span>
-                    <div className="searchbar col-xs-10">
-                        <div className="col-xs-12 mobile-categories" style={{marginBottom: '20px', textAlign: 'start'}}>
-                            <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
-                                <optgroup label="Catégories">
-                                    <option value="" disabled>Sélectionnez une catégorie</option>
-                                    {_.map(this.props.categories, function(cat) {
-                                        return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
-                                    })}
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="col-xs-12 input-group">
-                            <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
-                            <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
-                        </div>
-                        <input className='col-xs-12' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
+                <h2>Recherche</h2>
+                <span className="hr"></span>
+                <div className="searchbar">
+                    <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
+                        <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
+                            <optgroup label="Catégories">
+                                <option value="" disabled>Sélectionnez une catégorie</option>
+                                {_.map(this.props.categories, function(cat) {
+                                    return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
+                                })}
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div className="col-xs-12 input-group">
+                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                    </div>
+                    <div className='col-xs-12'>
+                        <input onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom de votre coiffeur ?" />
+                    </div>
+                    <div className="col-xs-12">
                         <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                     </div>
                 </div>
