@@ -6,7 +6,7 @@ var Picture = require('../Partial/Picture.jsx');
 module.exports = React.createClass({
     render: function () {
         return (
-            <section className="home-section home-footer">
+            <section className="home-section home-footer how">
                 <h2>Comment ça marche ?</h2>
                 <p className="subtitle" />
                 <div className="row">
