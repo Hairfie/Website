@@ -9851,12 +9851,6 @@ iframe {
   width: 100px !important;
   *width: 100% !important; }
 
-input, input:matches([type="password"], [type="search"]) {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -o-appearance: none; }
-
 header {
   width: 100%;
   height: 60px;
@@ -10131,6 +10125,11 @@ header:not(.white) .dropdown-menu {
     .mobile-nav .search-menu .searchbar {
       float: none;
       margin: 0 auto; }
+      .mobile-nav .search-menu .searchbar input, .mobile-nav .search-menu .searchbar input:matches([type="password"], [type="search"]) {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -o-appearance: none; }
       .mobile-nav .search-menu .searchbar div:before {
         z-index: 1;
         position: absolute;
@@ -10774,6 +10773,9 @@ section.home-footer .row > div {
     letter-spacing: 1px;
     width: 78%;
     margin: 10px auto; }
+
+section.how .row > div {
+  margin-bottom: 0; }
 
 /*////////////////////////////////
 	   P A G E  S E A R C H

@@ -880,7 +880,3 @@ iframe {
     width: 100px !important;
     *width: 100% !important; 
 }
-
-input, input:matches([type="password"], [type="search"]) {
-	@include appearance(none);
-}

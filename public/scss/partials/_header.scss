@@ -328,6 +328,9 @@ header:not(.white) {
 			text-align: center;
 		}
 		.searchbar {
+			input, input:matches([type="password"], [type="search"]) {
+				@include appearance(none);
+			}
 			float: none;
 			margin: 0 auto;
 			div {
