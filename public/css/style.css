@@ -9855,12 +9855,12 @@ header {
   padding-bottom: 10px; }
   header div.dark-header {
     background-color: #343434;
-    height: 40px;
+    height: 35px;
     width: 100vw; }
     header div.dark-header div.container div {
       display: inline-block;
       text-align: start;
-      font-size: 1.6em;
+      font-size: 1.4em;
       font-weight: bold; }
       header div.dark-header div.container div a {
         color: white;
@@ -9868,14 +9868,15 @@ header {
         display: inline-block;
         padding-top: 8px;
         margin-right: 20px; }
-      header div.dark-header div.container div li.user {
+      header div.dark-header div.container div div.user {
+        height: initial;
         display: inline-block;
         color: white; }
-        header div.dark-header div.container div li.user div {
+        header div.dark-header div.container div div.user div {
           font-size: initial; }
-        header div.dark-header div.container div li.user .dropdown-menu {
+        header div.dark-header div.container div div.user .dropdown-menu {
           background-color: #343434; }
-        header div.dark-header div.container div li.user img, header div.dark-header div.container div li.user object {
+        header div.dark-header div.container div div.user img, header div.dark-header div.container div div.user object {
           background-color: white;
           height: 40px;
           width: 40px;
