@@ -367,6 +367,9 @@
 		}
 		section {
 			&.latestHairfie {
+				div.hairfies {
+					overflow: auto;
+				}
 				.more {
 					display: block;
 					position: relative;
