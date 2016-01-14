@@ -16,6 +16,25 @@ header {
 				padding-top: 8px;
 				margin-right: 20px;
 			}
+			li.user {
+				display: inline-block;
+				color: white;
+				div {
+					font-size: initial;
+				}
+				.dropdown-menu {
+					background-color: $dark-header;
+				}
+				img, object {
+					background-color: white;
+					height: 40px;width: 40px;
+					border-radius: 100%;
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 15px;
+					margin-top: -6px;
+				}
+			}
 		}
 	}
 	a.btn-red {
@@ -63,20 +82,6 @@ header {
 	}
 	div {
 		height: inherit;
-	}
-	.user {
-		color: white;
-		img, object {
-			background-color: white;
-			height: 40px;width: 40px;
-			border-radius: 100%;
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: 15px;
-			margin-top: -6px;
-		}
-
-
 	}
 	nav {
 		height: inherit;

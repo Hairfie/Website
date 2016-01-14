@@ -9868,6 +9868,22 @@ header {
         display: inline-block;
         padding-top: 8px;
         margin-right: 20px; }
+      header div.dark-header div.container div li.user {
+        display: inline-block;
+        color: white; }
+        header div.dark-header div.container div li.user div {
+          font-size: initial; }
+        header div.dark-header div.container div li.user .dropdown-menu {
+          background-color: #343434; }
+        header div.dark-header div.container div li.user img, header div.dark-header div.container div li.user object {
+          background-color: white;
+          height: 40px;
+          width: 40px;
+          border-radius: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 15px;
+          margin-top: -6px; }
   header a.btn-red {
     font-size: 1em;
     letter-spacing: .5px; }
@@ -9909,17 +9925,6 @@ header {
     background-size: 100%; }
   header div {
     height: inherit; }
-  header .user {
-    color: white; }
-    header .user img, header .user object {
-      background-color: white;
-      height: 40px;
-      width: 40px;
-      border-radius: 100%;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 15px;
-      margin-top: -6px; }
   header nav {
     height: inherit;
     padding-right: 0 !important; }

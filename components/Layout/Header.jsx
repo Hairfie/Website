@@ -80,12 +80,7 @@ var Header = React.createClass({
                             </div>
                             <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
                                 <Link  route="howitworks_page">Comment ça marche ?</Link>
-                                {this.props.currentUser ? "" : 
-                                    <span>
-                                        <Link route="connect_page">Connexion</Link>
-                                        <Link route="registration_page">Inscrivez-vous</Link>
-                                    </span>
-                                }
+                                <User />
                             </div>
                         </div>
                     </div>
@@ -97,7 +92,6 @@ var Header = React.createClass({
                                     <li>
                                         {proLinkNode}
                                     </li>
-                                    <User />
                                 </ul>
                             </nav>
                             {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}

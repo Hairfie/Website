@@ -17,12 +17,11 @@ var User = React.createClass({
         if (this.props.mobile == true)
             return this.renderMobile();
         return (
-                <li>
-                    <Link route="registration_page" rel="nofollow">Inscription</Link>
-                    <span> / </span>
-                    <Link route="connect_page" rel="nofollow">Connexion</Link>
-                </li>
-                );
+            <span>
+                <Link route="connect_page">Connexion</Link>
+                <Link route="registration_page">Inscrivez-vous</Link>
+            </span>
+        );
     },
     componentDidMount: function() {
         if(this.props.currentUser  && typeof heap !== "undefined") {
@@ -59,12 +58,12 @@ var User = React.createClass({
             gravity: 'faces'
         };
         var firstname = (!this.props.mobile ? this.props.currentUser.firstName : '');
+        var lastName = (!this.props.mobile ? this.props.currentUser.lastName : '');
         return (
             <li className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <UserProfilePicture picture={this.props.currentUser.picture} options={options} gender={this.props.currentUser.gender}/>
-                        {firstname}
+                        {firstname} {lastName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
