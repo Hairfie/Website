@@ -9041,7 +9041,7 @@ div.connect-button .twitter {
     margin-bottom: 0; }
 
 /*////////////////////////////////
-	 G E N E R A L  S T Y L E
+     G E N E R A L  S T Y L E
 ////////////////////////////////*/
 body {
   font-size: 1em;
@@ -9442,15 +9442,6 @@ figure {
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out; }
 
-.pricetag {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 15px 10px;
-  text-align: center;
-  background-color: #fc5a5f;
-  border-radius: 100%; }
-
 .tag {
   display: inline-block;
   padding: 2px 10px;
@@ -9630,6 +9621,38 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         padding: 10px 8px; }
     .hairfies .single-hairfie figure:hover figcaption {
       opacity: 1; }
+  .hairfies .single-hairfie .pricetag {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-image: url(../img/round.svg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 20%;
+    height: 20%; }
+  .hairfies .single-hairfie .price {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    top: 25%; }
+  .hairfies .single-hairfie.big .pricetag {
+    width: 15%;
+    height: 15%;
+    top: 15px;
+    left: 15px; }
+  .hairfies .single-hairfie.big .price {
+    font-size: 24px;
+    top: 30%; }
+  .hairfies .single-hairfie.medium .pricetag {
+    width: 17%;
+    height: 17%;
+    top: 10px;
+    left: 10px; }
+  .hairfies .single-hairfie.medium .price {
+    font-size: 16px;
+    top: 25%; }
 
 .hairfies .btn-red {
   display: block;
@@ -11932,12 +11955,21 @@ section.how .row > div {
         background-color: #838B95;
         width: 100%; }
       .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
-        font-size: 1.6em;
-        top: 20px;
-        left: 20px;
+        font-size: 32px;
         color: white;
-        font-weight: 600;
-        z-index: 99999; }
+        z-index: 99999;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-image: url(../img/round.svg);
+        background-repeat: no-repeat;
+        width: 14%;
+        height: 14%; }
+        .hairfie-singleView#content .single-view #carousel-hairfie .pricetag .price {
+          position: absolute;
+          top: 23%;
+          width: 100%;
+          text-align: center; }
       .hairfie-singleView#content .single-view #carousel-hairfie .indice-control {
         width: 100%;
         position: absolute;

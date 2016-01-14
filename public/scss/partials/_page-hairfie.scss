@@ -2,273 +2,283 @@
       P A G E  H A I R F I E
 ////////////////////////////////*/
 .hairfie-newsletter {
- 	margin-bottom: 10px;
- 	margin-left: -15px;
- 	margin-right: -15px;
- 	.newsletter-banner {
- 		p {
- 			@extend .col-xs-12,.col-sm-6;
- 			font-size: 1.7em !important;
- 		}
- 	}
+    margin-bottom: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    .newsletter-banner {
+        p {
+            @extend .col-xs-12,.col-sm-6;
+            font-size: 1.7em !important;
+        }
+    }
 }
 .hairfie-singleView#content {
-	margin: 40px auto;
-	@media screen and (max-width: $screen-xs-max) {
-	   	margin-top: 100px;
- 	}
-	min-height: #{"calc(100vh - 60px)"};
-	height: 100%;
-	position: relative;
+    margin: 40px auto;
+    @media screen and (max-width: $screen-xs-max) {
+        margin-top: 100px;
+    }
+    min-height: #{"calc(100vh - 60px)"};
+    height: 100%;
+    position: relative;
 
-	> a span.arrow {
-		position: absolute;
-		top: 283px;
-	}
-	> a span.arrow-right {
-		right: -50px !important;
-	}
-	> a span.arrow-left {
-		left: -50px !important;
-	}
+    > a span.arrow {
+        position: absolute;
+        top: 283px;
+    }
+    > a span.arrow-right {
+        right: -50px !important;
+    }
+    > a span.arrow-left {
+        left: -50px !important;
+    }
 
-	.single-view {
-		background-color: white;
-		> .col-sm-6:first-child {
-			padding-right: 0;
-		}
-		#carousel-hairfie {
-			height: 100%;
-			position: relative;
-			margin-left: -15px;
-			.item img {
-				background-repeat: no-repeat;
-			    background-size: cover;
-			    background-position: 50% 50%;
-			    background-color: #838B95;
-			    width: 100%;
-			}
-			.pricetag {
-				font-size: 1.6em;
-				top: 20px;left: 20px;
-				color: white;
-				font-weight: $semiBold;
-				z-index: 99999;
-			}
-			.indice-control {
-				width: 100%;
-				position: absolute;
-				bottom: 0;
-				text-align: center;
-				a {
-					opacity: 0.5;
-					display: inline-block;
-					height: 40px;
-					width: 40px;
-					span.arrow {
-						background-image: none;
-						width: 20px; height: 20px;
-						background-color: rgba(255,255,255,0.65);
-						border-radius: 100%;
-						position: static;
-						margin: 10px auto;
-					}
-					&:hover,&:active,&.active {
-				    	opacity: 0.9;
-					}
-				}
-			}
-			.before,.after {
-				position: absolute;
-				font-weight: 200;
-			    bottom: 0;
-			    color: white;
-			    font-size: 3em;
-			    right: 20px;
-			}
-		}
-		> div:nth-child(2) {
-			padding: 20px;
+    .single-view {
+        background-color: white;
+        > .col-sm-6:first-child {
+            padding-right: 0;
+        }
+        #carousel-hairfie {
+            height: 100%;
+            position: relative;
+            margin-left: -15px;
+            .item img {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50% 50%;
+                background-color: #838B95;
+                width: 100%;
+            }
+            .pricetag {
+                font-size: 32px;
+                color: white;
+                z-index: 99999;
+                position: absolute; top: 15px; left: 15px;
+                background-image:url(../img/round.svg);
+                background-repeat: no-repeat;
+                width: 14%;
+                height: 14%;
 
-			.salon-infos {
-				height: auto;
-				border-bottom: 1px solid $border-color;
+                .price{
+                    position: absolute;
+                    top: 23%;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            .indice-control {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                text-align: center;
+                a {
+                    opacity: 0.5;
+                    display: inline-block;
+                    height: 40px;
+                    width: 40px;
+                    span.arrow {
+                        background-image: none;
+                        width: 20px; height: 20px;
+                        background-color: rgba(255,255,255,0.65);
+                        border-radius: 100%;
+                        position: static;
+                        margin: 10px auto;
+                    }
+                    &:hover,&:active,&.active {
+                        opacity: 0.9;
+                    }
+                }
+            }
+            .before,.after {
+                position: absolute;
+                font-weight: 200;
+                bottom: 0;
+                color: white;
+                font-size: 3em;
+                right: 20px;
+            }
+        }
+        > div:nth-child(2) {
+            padding: 20px;
 
-				.col-xs-9 {
-					padding-left: 0;
-				}
-				> div:first-child {
-					padding-left: 0;
-					> div:first-child {
-						max-height: 95px;
-						a {
-							display: inline-block;
-							width: 100%;height: auto;
-							max-height: 95px;
-							overflow: hidden;
-							img {
-								width: 100%;
-								height: auto;
-							}
-						}
-					}
+            .salon-infos {
+                height: auto;
+                border-bottom: 1px solid $border-color;
 
-				}
-				h2 {
-					font-size: 1.5em;
-				}
-				p {
-					letter-spacing: 1px; 
-					font-size: 1.3em;
-					margin-bottom: 5px;
-					&.address {
-						margin-top: 4px;
-					}
-				}
-				p a {text-decoration: underline;&:hover {color: #343434;}}
-				.likes {
-					padding: 0;
-					padding-top: 5px;
+                .col-xs-9 {
+                    padding-left: 0;
+                }
+                > div:first-child {
+                    padding-left: 0;
+                    > div:first-child {
+                        max-height: 95px;
+                        a {
+                            display: inline-block;
+                            width: 100%;height: auto;
+                            max-height: 95px;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
 
-					span {
-						padding-left: 0;
-					}
+                }
+                h2 {
+                    font-size: 1.5em;
+                }
+                p {
+                    letter-spacing: 1px; 
+                    font-size: 1.3em;
+                    margin-bottom: 5px;
+                    &.address {
+                        margin-top: 4px;
+                    }
+                }
+                p a {text-decoration: underline;&:hover {color: #343434;}}
+                .likes {
+                    padding: 0;
+                    padding-top: 5px;
 
-					a {
-						float: none;
-						text-decoration: none;
-						font-size: 0.9em;
-						color: $font-color;
-						&:hover {
-							color: black;
-						}
-						&:after {
-							content: " ";
-							height: 1px;
-							background-color: $font-color;
-							position: absolute; bottom: -1px;
-							left: 15px;
-						}
-					}
-					a:first-child {
-						padding-left: 0;
-						&:after {
-							width: calc(100% - 15px);
-							left: 0;
-						}
-					}
-					a:last-child {
-						&:after {
-							width: calc(100% - 30px);
-						}
-					}
-				}
+                    span {
+                        padding-left: 0;
+                    }
 
-				.btn-book {
-					text-transform: uppercase;
-					border-radius: 0;
-					font-size: 1.3em;
-				}
-			}
-		}
-		.tags {
-			margin-left: -3px;
-			.tag {
-				margin-bottom: 6px;
-				a {
-				color: white !important;
-				font-size: 1.4em;
-				text-decoration: none;
-				&:hover{text-decoration: none;}}
-			}
-		}
-		.like-group {
-			@media (max-width: $screen-xs-max){
-			width:100%;
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			z-index: 90;
-			}
-			width: 100%;
-			height: 65px;
-			position: absolute;
-			bottom:0;
-			left: 100%;
-			.like-btn {
-				border-top: 1px solid $border-color;
-				float: left; display: inline-block;
-				background-color: white;
-				a {
-					cursor: pointer;
-					display: block;
-					text-align: center;
-					width: 65px;height: 65px;
-					position: relative;
-					border-right: 1px solid $border-color;
+                    a {
+                        float: none;
+                        text-decoration: none;
+                        font-size: 0.9em;
+                        color: $font-color;
+                        &:hover {
+                            color: black;
+                        }
+                        &:after {
+                            content: " ";
+                            height: 1px;
+                            background-color: $font-color;
+                            position: absolute; bottom: -1px;
+                            left: 15px;
+                        }
+                    }
+                    a:first-child {
+                        padding-left: 0;
+                        &:after {
+                            width: calc(100% - 15px);
+                            left: 0;
+                        }
+                    }
+                    a:last-child {
+                        &:after {
+                            width: calc(100% - 30px);
+                        }
+                    }
+                }
 
-					.glyphicon {
-						position: absolute;
-						top: 0;left: 0;right: 0;bottom: 0;
-						margin: auto;
-						font-size: 2.1em;
-						color: #b9b9b9;
-						height: 1.2em;
-						line-height: 1.2em;
-						@include transition(all 0.1s ease);
-						&:after {
-							content:"\e005";
-							font-family: glyphicon;
-							font-family: Glyphicons Halflings;
-							color: $red;
-							position: absolute;
-							top: 0; left: 0; z-index: 99;
-							opacity: 0;
-							@include scale(0.1);
-							@include transition(all 0.25s ease);
-						}
-						&.full {
-							&:after {
-								opacity: 1;
-								@include scale(1);
-							}
-						}
-					}
-				}
-			}
-			.cta {
-				float: none;
-				display: inline-block;
-				width: calc(100% - 65px);
-				height: 65px;
-				a {
-					text-transform: uppercase;
-					float: right;
-					margin: 14px;
-					letter-spacing: 0;
-					@include box-shadow(0px 1px 3px rgba(0,0,0,0.15));
-				}
-				a.full {
-					display: block;width: 100%;height: 65px;
-					text-transform: uppercase;
-					border-radius: 0; margin: 0;
-					font-weight: $semiBold;letter-spacing: 2px;
-					@include box-shadow(0 0 0 rgba(0,0,0,0.0));
-					line-height: 60px;
-				}
-			}
-		}
-	}
-	.related-hairfies {
-		margin-bottom: 60px;
-		h3 {
-			text-align: center;
-			margin: 0 auto 40px;
-		}
-		.single-hairfie {
-			padding: 3px;
-			padding-top: 0;
-			padding-left: 0;
-		}
-	}
+                .btn-book {
+                    text-transform: uppercase;
+                    border-radius: 0;
+                    font-size: 1.3em;
+                }
+            }
+        }
+        .tags {
+            margin-left: -3px;
+            .tag {
+                margin-bottom: 6px;
+                a {
+                color: white !important;
+                font-size: 1.4em;
+                text-decoration: none;
+                &:hover{text-decoration: none;}}
+            }
+        }
+        .like-group {
+            @media (max-width: $screen-xs-max){
+            width:100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 90;
+            }
+            width: 100%;
+            height: 65px;
+            position: absolute;
+            bottom:0;
+            left: 100%;
+            .like-btn {
+                border-top: 1px solid $border-color;
+                float: left; display: inline-block;
+                background-color: white;
+                a {
+                    cursor: pointer;
+                    display: block;
+                    text-align: center;
+                    width: 65px;height: 65px;
+                    position: relative;
+                    border-right: 1px solid $border-color;
+
+                    .glyphicon {
+                        position: absolute;
+                        top: 0;left: 0;right: 0;bottom: 0;
+                        margin: auto;
+                        font-size: 2.1em;
+                        color: #b9b9b9;
+                        height: 1.2em;
+                        line-height: 1.2em;
+                        @include transition(all 0.1s ease);
+                        &:after {
+                            content:"\e005";
+                            font-family: glyphicon;
+                            font-family: Glyphicons Halflings;
+                            color: $red;
+                            position: absolute;
+                            top: 0; left: 0; z-index: 99;
+                            opacity: 0;
+                            @include scale(0.1);
+                            @include transition(all 0.25s ease);
+                        }
+                        &.full {
+                            &:after {
+                                opacity: 1;
+                                @include scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+            .cta {
+                float: none;
+                display: inline-block;
+                width: calc(100% - 65px);
+                height: 65px;
+                a {
+                    text-transform: uppercase;
+                    float: right;
+                    margin: 14px;
+                    letter-spacing: 0;
+                    @include box-shadow(0px 1px 3px rgba(0,0,0,0.15));
+                }
+                a.full {
+                    display: block;width: 100%;height: 65px;
+                    text-transform: uppercase;
+                    border-radius: 0; margin: 0;
+                    font-weight: $semiBold;letter-spacing: 2px;
+                    @include box-shadow(0 0 0 rgba(0,0,0,0.0));
+                    line-height: 60px;
+                }
+            }
+        }
+    }
+    .related-hairfies {
+        margin-bottom: 60px;
+        h3 {
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+        .single-hairfie {
+            padding: 3px;
+            padding-top: 0;
+            padding-left: 0;
+        }
+    }
 }

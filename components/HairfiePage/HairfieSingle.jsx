@@ -39,7 +39,7 @@ module.exports = React.createClass({
         if (!this.props.hairfie.price) return;
         return (
                 <div className="pricetag">
-                    {this.props.hairfie.price.amount+'€'}
+                    <span className="price">{this.props.hairfie.price.amount+'€'}</span>
                 </div>
             );
 
