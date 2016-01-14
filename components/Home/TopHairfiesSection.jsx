@@ -17,7 +17,7 @@ module.exports = React.createClass({
                     <div className="col-md-6 col-xs-12 hairfies">
                             <div className="row">
                                 {_.map(_.rest(this.props.hairfies), function(hairfie) {
-                                    return <Hairfie hairfie={hairfie} className="col-xs-6 single-hairfie" />;
+                                    return <Hairfie hairfie={hairfie} className="col-xs-6 medium single-hairfie" />;
                                 })}
                             </div>
                     </div>
