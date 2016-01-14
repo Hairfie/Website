@@ -258,6 +258,12 @@ header:not(.white) {
             			background-size: contain;
         			}
 				}
+				&.hairfies {
+					&:before {
+            			background: url(../img/icons/mobile/hairfies.svg) no-repeat center center;
+            			background-size: contain;
+        			}
+				}
 				&:hover {
 					background-color: $grey;
 					color: white;

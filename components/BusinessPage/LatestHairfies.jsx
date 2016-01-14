@@ -28,14 +28,14 @@ var LatestHairfies = React.createClass({
 
         return (
             <section className="latestHairfie">
-                <h3>Les derniers Hairfies</h3>
+                <h3>Les derniers hairfies</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
                         return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                     })}
+                    <Link route="hairfie_search" params={{ address: 'Paris--France'}} 
+                    className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
                 </div>
-                <Link route="hairfie_search" params={{ address: 'Paris--France'}} 
-                className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
             </section>
         );
     },
@@ -49,14 +49,14 @@ var LatestHairfies = React.createClass({
 
         return (
             <section className="latestHairfie">
-                <h3>Les derniers Hairfies du salon</h3>
+                <h3>Les derniers hairfies de ce salon de coiffure</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
                         return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                     })}
+                    <Link Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} 
+                    className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
                 </div>
-                <Link Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} 
-                className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
             </section>
         );
     },
