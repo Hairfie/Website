@@ -87,6 +87,18 @@ module.exports = {
     businessSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.params.address);
 
+        var categories = (_.isString(route.query.categories) ? [route.query.categories] : route.query.categories) || [];
+
+        if(categories.length == 1 && _.isUndefined(route.params.category)) {
+            var error = new Error('1 category, change');
+            error.status = 301;
+            error.location = context.getStore('RouteStore').makePath('business_category', {
+                address  : route.params.address,
+                category : categories[0]
+            });
+            throw error;
+        }
+
         return context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
                 var place  = context.getStore('PlaceStore').getByAddress(address);

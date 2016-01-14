@@ -101,6 +101,12 @@ module.exports = {
         action: PageActions.businessSearch,
         handler: require('./components/BusinessSearchPage.jsx')
     },
+    business_category: {
+        path: '/fr/coiffeurs/:address/:category',
+        method: 'get',
+        action: PageActions.businessSearch,
+        handler: require('./components/BusinessSearchPage.jsx')
+    },
     hairfie_search: {
         title: 'Hairfies',
         path: '/fr/hairfies/:address',
