@@ -11469,6 +11469,8 @@ section.how .row > div {
     .salon#content section.salon-content section {
       padding-bottom: 35px;
       border-bottom: 2px solid #f9f9f9; }
+      .salon#content section.salon-content section.latestHairfie div.hairfies {
+        overflow: auto; }
       .salon#content section.salon-content section.latestHairfie .more {
         display: block;
         position: relative;

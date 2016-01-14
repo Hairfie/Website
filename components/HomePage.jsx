@@ -15,6 +15,11 @@ var _ = require('lodash');
 
 var HomePage = React.createClass({
     mixins: [Home.Mixin],
+    getInitialState: function() {
+        return {
+            displaySearch: false
+        };
+    },
     render: function () {
         return (
             <div className="front">
@@ -22,7 +27,7 @@ var HomePage = React.createClass({
                 <PageProgress />
                 <section className="landing">
                     <div className="container">
-                        <Header home={true} />
+                        <Header home={true} displaySearch={this.state.displaySearch}/>
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
@@ -54,13 +59,15 @@ var HomePage = React.createClass({
     searchHairdresser: function() {
         if($('.mobile-menu').is(':visible')) {
             if( $('.mobile-menu').height() == 0 ) {
+                this.setState({displaySearch: true});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:'100vh',ease:Power2.easeInOut});
+                TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
             } else {
+                this.setState({displaySearch: false});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
+                TweenMax.to('.mobile-menu', 0, {height:0,ease:Power2.easeOut});
             }
         } else {
             this.scrollTo("search");

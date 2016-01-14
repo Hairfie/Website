@@ -18,6 +18,11 @@ var Header = React.createClass({
             displaySearch: false
         };
     },
+    componentWillReceiveProps: function(props) {
+        if (props.displaySearch) {
+            this.setState({displaySearch: props.displaySearch });
+        }
+    },
     render: function() {
         return (
             <div>
@@ -44,13 +49,12 @@ var Header = React.createClass({
         return (
             <div className="mobile-menu">
                 <ul>
-                    {this.props.currentUser ? <a role="button" onClick={this.disconnect}><li className="users">Me déconnecter</li></a>: <Link route="connect_page"><li className="users">Me connecter</li></Link>}
+                    {this.props.currentUser ? <a role="button" onClick={this.disconnect}><li className="users">Me déconnecter</li></a>: <Link route="connect_page"><li className="users"  onClick={this.close}>Me connecter</li></Link>}
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
-                    <Link route="business_search" params={{address: 'France'}}><li className="salon">Tous les coiffeurs</li></Link>
-                    <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies">Tous les hairfies</li></Link>
+                    <Link route="business_search" params={{address: 'France'}}><li className="salon" onClick={this.close}>Tous les coiffeurs</li></Link>
+                    <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.close}>Tous les hairfies</li></Link>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
-                    <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
-
+                    <Link route="home_pro"><li className="salon" onClick={this.close}>Gérez votre salon</li></Link>
                 </ul>
                 {/*<div className="download">
                     <p>Téléchargez l'application pour poster un Hairfie !</p>
@@ -94,16 +98,21 @@ var Header = React.createClass({
     handleDisplayMenu: function() {
         this.setState({displaySearch: false});
     },
+    close: function() {
+        $('body').removeClass('locked');
+        $('.menu-trigger').removeClass('close');
+        TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
+    },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
             if( $('.mobile-menu').height() == 0) {
                 $('body').addClass('locked');
                 $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0, {height:'100%', minHeight:'100vh',ease:Power2.easeInOut});
+                TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
             } else {
                 $('body').removeClass('locked');
                 $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
+                TweenMax.to('.mobile-menu', 0, {height:'0', ease:Power2.easeOut});
             }
         });
     },
