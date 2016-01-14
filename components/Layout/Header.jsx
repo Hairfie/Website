@@ -73,7 +73,23 @@ var Header = React.createClass({
         return (
             <div>
                 <header className={headerClassName + ' hidden-xs'}>
-                    <div className="row">
+                    <div className="dark-header">
+                        <div className="container">
+                            <div className="col-sm-5 col-md-6 col-lg-7">
+                                <Link route="home_pro">Vous gérez un salon ?</Link>
+                            </div>
+                            <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
+                                <Link  route="howitworks_page">Comment ça marche ?</Link>
+                                {this.props.currentUser ? "" : 
+                                    <span>
+                                        <Link route="connect_page">Connexion</Link>
+                                        <Link route="registration_page">Inscrivez-vous</Link>
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
                         <div className="col-md-12">
                             <Link className="logo col-md-4" route="home" />
                             <nav className='pull-right'>

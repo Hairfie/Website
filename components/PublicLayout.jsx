@@ -14,9 +14,7 @@ module.exports = React.createClass({
             <div className="front">
                 <Notifications />
                 <PageProgress context={this.props.context} />
-                <div className="container">
-                    <Header context={this.props.context} withProLink={this.props.withProLink || true} />
-                </div>
+                <Header context={this.props.context} withProLink={this.props.withProLink || true} />
                 {this.props.children}
                 <div className="row" />
                 <Footer context={this.props.context} />
