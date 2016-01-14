@@ -62,12 +62,7 @@ var Header = React.createClass({
         );
     },
     renderDesktop: function (withProLink) {
-        var withProLink = _.isBoolean(this.props.withProLink) ? this.props.withProLink : true;
         var headerClassName = this.props.home ? 'home' : 'white';
-        var proLinkNode;
-        if(withProLink) {
-            proLinkNode = (<Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>);
-        }
 
         return (
             <div>
@@ -86,18 +81,13 @@ var Header = React.createClass({
                     <div className="container">
                         <div className="col-md-12">
                             <Link className="logo col-md-4" route="home" />
-                            <nav className='pull-right'>
-                                <ul>
-                                    <li>
-                                        {proLinkNode}
-                                    </li>
-                                </ul>
-                            </nav>
                             {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}
                         </div>
                     </div>
                 </header>
-                {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                <div className="container">
+                    {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                </div>
             </div>
         );
     },
