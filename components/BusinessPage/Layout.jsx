@@ -80,7 +80,7 @@ var Layout = React.createClass({
                                                 <li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                         <span className="icon-nav"></span>
-                                                        Informations
+                                                        Info
                                                     </Link>
                                                 </li>
                                                 <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>

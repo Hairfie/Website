@@ -93,8 +93,8 @@ module.exports = createStore({
     },
     _getHomeMetas: function () {
         return _.union(this._getBaseMetas(), [
-            { property: 'og:title', content: 'Hairfie' },
-            { property: 'og:description', content: 'Trouvez et réservez le coiffeur qui vous correspond grâce à nos #hairfies' },
+            { property: 'og:title', content: 'Hairfie | Trouvez et prenez RDV avec le coiffeur qui vous correspond' },
+            { property: 'og:description', content: 'Trouvez, choisissez et prenez RDV chez votre coiffeur en ligne 24/7 sans carte bleue. Avis, tarifs, hairfies, photos des salons et promotions.' },
             { property: 'og:image', content: this.getContext().getAssetUrl('/img/background-pro-trans.jpg') },
             { property: 'og:url', content: this._getUrl('home') },
             { property: 'url', content: this._getUrl('home') }
@@ -140,7 +140,7 @@ module.exports = createStore({
     },
     _getBusinessMetas: function (businessId, routeName) {
         var business = this.dispatcher.getStore('BusinessStore').getById(businessId);
-        var title = business.name + ' à ' + business.address.city;
+        var title = business.name + ' coiffeur à ' + business.address.city;
         var description;
 
         switch (routeName) {

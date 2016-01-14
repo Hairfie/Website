@@ -9,7 +9,6 @@ var PageProgress = require('./Layout/PageProgress.jsx');
 
 var Home = require('./Home');
 
-var SearchBar = require('./Layout/SearchBar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var _ = require('lodash');
@@ -23,8 +22,7 @@ var HomePage = React.createClass({
                 <PageProgress />
                 <section className="landing">
                     <div className="container">
-                        <Header withLogin={this.props.withLogin} headerClassName='normal' />
-                        <SearchBar mobile={true} {...this.props}/>
+                        <Header home={true} />
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
@@ -42,15 +40,14 @@ var HomePage = React.createClass({
                     <div className="main-content" id="home">
                         <Home.SearchSection {...this.props} ref="search" />
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
-                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.Deals deals={this.props.deals} />
+                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
                         <Home.DownloadSection />
                     </div>
                 </div>
                 <Footer />
-                <Footer mobile={true} />
             </div>
         );
     },

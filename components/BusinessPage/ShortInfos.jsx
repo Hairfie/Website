@@ -56,9 +56,7 @@ module.exports = React.createClass({
                   <h2>{displayAddress}</h2>
                   <div className="horaires">
                     <a role="button" onClick={this.handleDisplayTimetable}>
-                      <p className="title">
-                        {timetable[today] && !_.isEmpty(timetable[today]) ? 'OUVERT' : 'FERMÉ'}
-                      </p>
+                      {timetable[today] && !_.isEmpty(timetable[today]) ? <p className="title green">OUVERT</p> : <p className="title color-hairfie">FERMÉ</p>}
                       <span className="today">
                         {DateTimeConstants.weekDayLabel(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
                             return t.startTime + ' - ' + t.endTime;

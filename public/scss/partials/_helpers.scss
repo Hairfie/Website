@@ -32,6 +32,12 @@
 	-webkit-mask-size: $params;
 	mask-size: $params;
 }
+@mixin appearance($params) {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
+}
 @mixin transition($transition)
 {
 	-webkit-transition: $transition;
