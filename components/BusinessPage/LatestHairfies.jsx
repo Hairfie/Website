@@ -28,7 +28,7 @@ var LatestHairfies = React.createClass({
 
         return (
             <section className="latestHairfie">
-                <h3>Les derniers Hairfies</h3>
+                <h3>Les derniers hairfies</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
                         return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
@@ -49,7 +49,7 @@ var LatestHairfies = React.createClass({
 
         return (
             <section className="latestHairfie">
-                <h3>Les derniers Hairfies du salon</h3>
+                <h3>Les derniers hairfies de ce salon de coiffure</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
                         return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
