@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var connectToStores = require('fluxible-addons-react/connectToStores');
 var Link = require('../Link.jsx');
 var _ = require('lodash');
 var AuthActions = require('../../actions/AuthActions');
@@ -49,7 +48,7 @@ var Header = React.createClass({
         return (
             <div className="mobile-menu">
                 <ul>
-                    {this.props.currentUser ? <a role="button" onClick={this.disconnect}><li className="users">Me déconnecter</li></a>: <Link route="connect_page"><li className="users"  onClick={this.close}>Me connecter</li></Link>}
+                    <User mobile={true} />
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
                     <Link route="business_search" params={{address: 'France'}}><li className="salon" onClick={this.close}>Tous les coiffeurs</li></Link>
                     <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.close}>Tous les hairfies</li></Link>
@@ -63,32 +62,32 @@ var Header = React.createClass({
         );
     },
     renderDesktop: function (withProLink) {
-        var withProLink = _.isBoolean(this.props.withProLink) ? this.props.withProLink : true;
         var headerClassName = this.props.home ? 'home' : 'white';
-        var proLinkNode;
-        if(withProLink) {
-            proLinkNode = (<Link className="btn btn-red" route="home_pro">Gérez votre salon</Link>);
-        }
 
         return (
             <div>
                 <header className={headerClassName + ' hidden-xs'}>
-                    <div className="row">
+                    <div className="dark-header">
+                        <div className="container">
+                            <div className="col-sm-5 col-md-6 col-lg-7">
+                                <Link route="home_pro">Vous gérez un salon ?</Link>
+                            </div>
+                            <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
+                                <Link  route="howitworks_page">Comment ça marche ?</Link>
+                                <User />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
                         <div className="col-md-12">
                             <Link className="logo col-md-4" route="home" />
-                            <nav className='pull-right'>
-                                <ul>
-                                    <li>
-                                        {proLinkNode}
-                                    </li>
-                                    <User />
-                                </ul>
-                            </nav>
                             {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}
                         </div>
                     </div>
                 </header>
-                {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                <div className="container">
+                    {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                </div>
             </div>
         );
     },
@@ -122,17 +121,6 @@ var Header = React.createClass({
     disconnect: function() {
         this.context.executeAction(AuthActions.disconnect, this.props.token);
     }
-});
-
-Header = connectToStores(Header, [
-    'AuthStore',
-    'UserStore'
-], function (context, props) {
-    var token = context.getStore('AuthStore').getToken();
-    return {
-        token: token,
-        currentUser: context.getStore('UserStore').getById(token.userId)
-    };
 });
 
 module.exports = Header;
