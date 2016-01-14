@@ -12,17 +12,12 @@ var User = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     render: function() {
-        if (this.props.currentUser)
-            return this.isConnected();
-        if (this.props.mobile == true)
+        if (this.props.mobile == true) {
             return this.renderMobile();
-        return (
-                <li>
-                    <Link route="registration_page" rel="nofollow">Inscription</Link>
-                    <span> / </span>
-                    <Link route="connect_page" rel="nofollow">Connexion</Link>
-                </li>
-                );
+        }
+        else {
+            return this.renderDesktop();
+        }
     },
     componentDidMount: function() {
         if(this.props.currentUser  && typeof heap !== "undefined") {
@@ -31,27 +26,30 @@ var User = React.createClass({
         }
     },
     renderMobile: function() {
-        return (
-            <li className="user">
-                <div className="dropdown">
-                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <Picture picture={{url: '/img/profile-picture/icon-user.png'}} alt="Connexion" />
-                        <span className="caret" />
-                    </a>
-                    <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        {this.props.children}
-                        <li>
-                            <Link route="registration_page">Inscription</Link>
-                        </li>
-                        <li>
-                            <Link route="connect_page">Connexion</Link>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        );
+        if (this.props.currentUser) {
+            return (
+                <a role="button" onClick={this.disconnect}>
+                    <li className="users">Me déconnecter</li>
+                </a>
+            );
+        }
+        else {
+            return (
+                <Link route="connect_page">
+                    <li className="users"  onClick={this.close}>Me connecter</li>
+                </Link>
+            );
+        }
     },
-    isConnected: function() {
+    renderDesktop: function() {
+        if (!this.props.currentUser) {
+            return (
+                <span>
+                    <Link route="connect_page">Connexion</Link>
+                    <Link route="registration_page">Inscrivez-vous</Link>
+                </span>
+            );
+        }
         var options={
             width: 340,
             height: 340,
@@ -59,12 +57,12 @@ var User = React.createClass({
             gravity: 'faces'
         };
         var firstname = (!this.props.mobile ? this.props.currentUser.firstName : '');
+        var lastName = (!this.props.mobile ? this.props.currentUser.lastName : '');
         return (
-            <li className="user">
+            <div className="user">
                 <div className="dropdown">
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        <UserProfilePicture picture={this.props.currentUser.picture} options={options} gender={this.props.currentUser.gender}/>
-                        {firstname}
+                        {firstname} {lastName}
                         <span className="caret" />
                     </a>
                     <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -76,7 +74,7 @@ var User = React.createClass({
                         </li>
                     </ul>
                 </div>
-            </li>
+            </div>
         );
     },
     disconnect: function() {

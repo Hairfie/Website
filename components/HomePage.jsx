@@ -26,8 +26,8 @@ var HomePage = React.createClass({
                 <Notifications />
                 <PageProgress />
                 <section className="landing">
+                <Header home={true} displaySearch={this.state.displaySearch}/>
                     <div className="container">
-                        <Header home={true} displaySearch={this.state.displaySearch}/>
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
