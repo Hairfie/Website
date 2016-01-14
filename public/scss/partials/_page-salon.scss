@@ -202,6 +202,10 @@
 				@media screen and (min-width: $screen-sm-min) {
    					float: right;
    				}
+   				@media screen and (max-width: $screen-sm-max) {
+   					margin-top: 5px;
+    				margin-bottom: -15px;
+   				}
 			}
 
 			.prix, .tags {
@@ -277,7 +281,9 @@
 		margin-top: 20px;
 		margin-bottom: 70px;
 		.row {
-			margin-right: 0px;
+			@media screen and (min-width: $screen-xs-max) {
+		    	margin-right: 0px;
+		    }
 		}
 
 		div.reviews-title {
