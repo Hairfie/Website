@@ -39,6 +39,8 @@ var Layout = React.createClass({
         var business = this.props.business;
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
 
+        var numReviews = business.numReviews > 0 ? business.numReviews : null;
+        var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
@@ -80,19 +82,19 @@ var Layout = React.createClass({
                                                 <li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                         <span className="icon-nav"></span>
-                                                        Informations
+                                                        Info
                                                     </Link>
                                                 </li>
                                                 <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                         <span className="icon-nav"></span>
-                                                        Avis
+                                                        {numReviews} Avis
                                                     </Link>
                                                 </li>
                                                 <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                         <span className="icon-nav"></span>
-                                                        Hairfies
+                                                        {numHairfies} Hairfies
                                                     </Link>
                                                 </li>
                                             </ul>

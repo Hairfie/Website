@@ -9,13 +9,17 @@ var PageProgress = require('./Layout/PageProgress.jsx');
 
 var Home = require('./Home');
 
-var SearchBar = require('./Layout/SearchBar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var _ = require('lodash');
 
 var HomePage = React.createClass({
     mixins: [Home.Mixin],
+    getInitialState: function() {
+        return {
+            displaySearch: false
+        };
+    },
     render: function () {
         return (
             <div className="front">
@@ -23,8 +27,7 @@ var HomePage = React.createClass({
                 <PageProgress />
                 <section className="landing">
                     <div className="container">
-                        <Header withLogin={this.props.withLogin} headerClassName='normal' />
-                        <SearchBar mobile={true} {...this.props}/>
+                        <Header home={true} displaySearch={this.state.displaySearch}/>
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
@@ -42,28 +45,29 @@ var HomePage = React.createClass({
                     <div className="main-content" id="home">
                         <Home.SearchSection {...this.props} ref="search" />
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
-                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.Deals deals={this.props.deals} />
+                        <Home.BlogPosts posts={this.props.posts} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.HowSection />
                         <Home.DownloadSection />
                     </div>
                 </div>
                 <Footer />
-                <Footer mobile={true} />
             </div>
         );
     },
     searchHairdresser: function() {
         if($('.mobile-menu').is(':visible')) {
             if( $('.mobile-menu').height() == 0 ) {
+                this.setState({displaySearch: true});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:'100vh',ease:Power2.easeInOut});
+                TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
             } else {
+                this.setState({displaySearch: false});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0.4, {height:0,ease:Power2.easeOut});
+                TweenMax.to('.mobile-menu', 0, {height:0,ease:Power2.easeOut});
             }
         } else {
             this.scrollTo("search");

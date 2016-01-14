@@ -44,22 +44,25 @@ var Sidebar = React.createClass({
         var discount = this.props.business && this.props.business.bestDiscount;
 
         if (!discount) return null;
+        var business = this.props.business;
 
         return (
-            <div className="promo-sidebar">
-                <Picture picture={{url: '/img/promo-bg.jpg'}}
-                    style={{width: '100%'}}
-                    placeholder="/img/placeholder-640.png" />
-                <div className="inline-promo">
-                    <p>
-                        {discount + '%'}
-                    </p>
-                    <p>
-                        Dans tout le salon
-                    </p>
-                    <Picture picture={{url: '/img/business-promo.png'}} />
+            <Link route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <div className="promo-sidebar">
+                    <Picture picture={{url: '/img/promo-bg.jpg'}}
+                        style={{width: '100%'}}
+                        placeholder="/img/placeholder-640.png" />
+                    <div className="inline-promo">
+                        <p>
+                            {discount + '%'}
+                        </p>
+                        <p>
+                            Dans tout le salon
+                        </p>
+                        <Picture picture={{url: '/img/business-promo.png'}} />
+                    </div>
                 </div>
-            </div>
+            </Link>
         );
     },
     renderPhoneNumber: function() {
