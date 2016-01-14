@@ -9868,15 +9868,14 @@ header {
         display: inline-block;
         padding-top: 8px;
         margin-right: 20px; }
-      header div.dark-header div.container div div.user {
-        height: initial;
+      header div.dark-header div.container div li.user {
         display: inline-block;
         color: white; }
-        header div.dark-header div.container div div.user div {
+        header div.dark-header div.container div li.user div {
           font-size: initial; }
-        header div.dark-header div.container div div.user .dropdown-menu {
+        header div.dark-header div.container div li.user .dropdown-menu {
           background-color: #343434; }
-        header div.dark-header div.container div div.user img, header div.dark-header div.container div div.user object {
+        header div.dark-header div.container div li.user img, header div.dark-header div.container div li.user object {
           background-color: white;
           height: 40px;
           width: 40px;
