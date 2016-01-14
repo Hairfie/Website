@@ -112,8 +112,8 @@ module.exports = React.createClass({
                                       <p data-tip="Au niveau du bas du dos">Très longs</p>
                                     </div>
                                 </Input>
-                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, brushing, lissage, couleur, extension…)  ? *" />
-                                <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière" />
+                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, lissage, couleur, extension…)  ? *" />
+                                <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
                             </form>
                         </div>
                     </div>
