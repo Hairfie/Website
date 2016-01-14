@@ -44,8 +44,10 @@ var Sidebar = React.createClass({
         var discount = this.props.business && this.props.business.bestDiscount;
 
         if (!discount) return null;
+        var business = this.props.business;
 
         return (
+            <Link route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
             <div className="promo-sidebar">
                 <Picture picture={{url: '/img/promo-bg.jpg'}}
                     style={{width: '100%'}}
@@ -60,6 +62,7 @@ var Sidebar = React.createClass({
                     <Picture picture={{url: '/img/business-promo.png'}} />
                 </div>
             </div>
+            </Link>
         );
     },
     renderPhoneNumber: function() {
