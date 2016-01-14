@@ -9926,45 +9926,6 @@ header {
     background-size: 100%; }
   header div {
     height: inherit; }
-  header nav {
-    height: inherit;
-    padding-right: 0 !important; }
-    header nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      float: right;
-      height: inherit; }
-      header nav ul li {
-        padding-top: 17px;
-        padding-left: 20px;
-        display: inline-block;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 600;
-        font-size: 1.6em;
-        letter-spacing: 1px; }
-        @media screen and (max-width: 767px) {
-          header nav ul li {
-            padding-top: 25px; } }
-        header nav ul li:first-child {
-          padding-left: 0; }
-        @media screen and (min-width: 768px) {
-          header nav ul li {
-            color: white;
-            text-decoration: none; } }
-        @media screen and (min-width: 768px) {
-          header nav ul li a {
-            color: white; } }
-        header nav ul li a:visited, header nav ul li a:active, header nav ul li a:focus {
-          text-decoration: none; }
-          @media screen and (min-width: 768px) {
-            header nav ul li a:visited, header nav ul li a:active, header nav ul li a:focus {
-              color: white; } }
-        header nav ul li a:hover {
-          text-decoration: underline; }
-          @media screen and (min-width: 768px) {
-            header nav ul li a:hover {
-              color: white; } }
   header.white {
     background-color: white; }
     header.white .user {
@@ -9993,10 +9954,20 @@ header {
     header.white .logo {
       background: url(../img/logo-red.png) no-repeat center center;
       background-size: 100%; }
-    header.white nav ul li a:not(.btn) {
-      color: #c4c4c4; }
-    header.white nav ul li span {
-      color: #c4c4c4; }
+  header:not(.white) ul li {
+    padding: 20px 17px 20px 17px;
+    display: inline-block; }
+    header:not(.white) ul li a {
+      color: white;
+      font-size: 1.4em;
+      font-weight: bolder; }
+  header:not(.white) ul .separate {
+    color: white; }
+  header:not(.white) .dropdown-menu a {
+    color: white; }
+    header:not(.white) .dropdown-menu a:hover {
+      text-decoration: underline;
+      background: transparent; }
 
 .dropdown {
   font-weight: 400; }
@@ -10019,19 +9990,6 @@ header {
         letter-spacing: 1px;
         display: block;
         width: 100%; }
-
-header:not(.white) .dropdown-menu {
-  background: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none; }
-  header:not(.white) .dropdown-menu li {
-    background: transparent; }
-  header:not(.white) .dropdown-menu a {
-    color: white; }
-    header:not(.white) .dropdown-menu a:hover {
-      text-decoration: underline;
-      background: transparent; }
 
 .mobile-nav {
   position: fixed;

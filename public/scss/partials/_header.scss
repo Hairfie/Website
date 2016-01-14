@@ -84,70 +84,40 @@ header {
 	div {
 		height: inherit;
 	}
-	nav {
-		height: inherit;
-		padding-right: 0 !important;
-		ul {
-			list-style-type: none;
-			padding: 0;margin: 0;
-			float: right; height: inherit;
-			li {
-				@media screen and (max-width: $screen-xs-max) {
-					padding-top: 25px;
-				}
-				padding-top: 17px;padding-left: 20px;
-				display: inline-block;
-				&:first-child {
-					padding-left: 0;
-				}
-				font-family: $font-main;
-				font-weight: $semiBold;
-				@media screen and (min-width: $screen-sm-min) {
-					color: white; text-decoration: none;
-				}
-				font-size: 1.6em;
-				letter-spacing: 1px;
-				a {
-					@media screen and (min-width: $screen-sm-min) {
-						color: white;
-					}
-					&:visited,&:active,&:focus {
-						text-decoration: none;
-						@media screen and (min-width: $screen-sm-min) {
-							color: white;
-						}
-					}
-					&:hover {
-						text-decoration: underline;
-						@media screen and (min-width: $screen-sm-min) {
-							color: white;
-						}
-					}
-				}
-			}
-		}
-	}
 	&.white {
 		background-color: white;
 		.user {
 			display: inline-block;
 			visibility: visible;
 		}
-
 		> .row:first-child {
 			@include fullWidthBg(#fff);
 		}
-
 		.logo {
 			background: url(../img/logo-red.png) no-repeat center center;
 			background-size: 100%;
 		}
-		nav ul li {
-			a:not(.btn) {
-				color: $grey;
+	}
+	&:not(.white) {
+		ul {
+			li {
+				padding: 20px 17px 20px 17px;
+				display: inline-block;
+				a {
+					color: white;
+					font-size: 1.4em;
+					font-weight: bolder;
+				}
 			}
-			span {
-				color: $grey;
+			.separate {
+				color: white;
+			}
+		}
+		.dropdown-menu a {
+			color: white;
+			&:hover {
+				text-decoration: underline;
+				background: transparent;
 			}
 		}
 	}
@@ -175,22 +145,6 @@ header {
 				letter-spacing: 1px;
 				display: block;
 				width: 100%;
-			}
-		}
-	}
-}
-header:not(.white) {
-	.dropdown-menu {
-		background: transparent;
-		@include box-shadow(none);
-		li {
-			background: transparent;
-		}
-		a {
-			color: white;
-			&:hover {
-				text-decoration: underline;
-				background: transparent;
 			}
 		}
 	}
