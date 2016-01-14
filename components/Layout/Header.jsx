@@ -47,7 +47,7 @@ var Header = React.createClass({
                     {this.props.currentUser ? <a role="button" onClick={this.disconnect}><li className="users">Me déconnecter</li></a>: <Link route="connect_page"><li className="users">Me connecter</li></Link>}
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
-                    <Link route="home_pro"><li className="salon">Gérez votre salon</li></Link>
+                    <Link route="home_pro"><li className="salon"onClick={this.close}>Gérez votre salon</li></Link>
                 </ul>
                 {/*<div className="download">
                     <p>Téléchargez l'application pour poster un Hairfie !</p>
@@ -90,6 +90,11 @@ var Header = React.createClass({
     },
     handleDisplayMenu: function() {
         this.setState({displaySearch: false});
+    },
+    close: function() {
+        $('body').removeClass('locked');
+        $('.menu-trigger').removeClass('close');
+        TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
     },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
