@@ -429,6 +429,11 @@ figure {
 	background-color: $red;
 	border-radius: 100%;
 }
+.pricetag2 {
+	position: absolute;	top: 15px; left: 15px;
+	padding:15px 10px;
+	text-align: center;
+}
 // small inline tag:
 .tag {
 	display: inline-block;

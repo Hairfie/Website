@@ -25,7 +25,7 @@ module.exports = React.createClass({
 
         var price;
         if (hairfie.price) {
-            price = <div className="pricetag">{hairfie.price.amount}€</div>;
+            price = <div className="pricetag2"><Picture picture={{url: "/img/round.svg"}} svg={true} />{hairfie.price.amount}€</div>;
         }
 
         var tags;
