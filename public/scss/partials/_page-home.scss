@@ -60,6 +60,11 @@
         }
     }
 
+        .search-group {
+            width: 380px;
+            margin: auto;
+        }
+
         .btn-where {
             background-color: $bg1;
             width: 65%;
@@ -240,13 +245,13 @@ section.home-section {
     }
 
     .btn-red {
-        width: 104%;
+        width: 331px;
         height: 58px;
         font-size: 1.4em;
         text-align: center;
         padding: 0;
         //margin: 10px;
-        margin-left: -7px;
+        //margin-left: -7px;
         margin-top: 10px;
         line-height: 30px;
         text-transform: uppercase;

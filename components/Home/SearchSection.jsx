@@ -15,7 +15,7 @@ module.exports = React.createClass({
                         <SearchBar home={true} {...this.props} />
                     </div>
                 </div>
-                <div className="visible-xs home-search-mobile">
+                <div className="visible-xs home-search-mobile text-center">
                     <a className="btn btn-red">Rechercher votre coiffeur</a>
                 </div>
             </section>
