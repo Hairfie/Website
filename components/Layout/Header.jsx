@@ -7,6 +7,7 @@ var AuthActions = require('../../actions/AuthActions');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var Button = require('react-bootstrap').Button;
 
 var Header = React.createClass({
     contextTypes: {
@@ -79,22 +80,25 @@ var Header = React.createClass({
                         </div>
                     </div>
                     <div className="container">
-                        <div className="col-sm-3 col-md-4" style={{paddingLeft: 0}}>
+                        <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
                             <Link route="home" className="logo" />
                         </div>
-                            <ul className="col-sm-7 col-md-5">
-                                <li>
-                                    <Link route="business_search" params={{address: 'France'}}>LES COIFFEURS</Link>
-                                </li>
-                                <span className="separate"> &#9830;</span>
-                                <li>
-                                    <Link route="hairfie_search" params={{address: 'France'}}>LES HAIRFIES</Link>
-                                </li>
-                                <span className="separate"> &#9830;</span>
-                                <li>
-                                    <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
-                                </li>
-                            </ul>
+                        <ul className="col-sm-7 col-md-5">
+                            <li>
+                                <Link route="business_search" params={{address: 'France'}}>LES COIFFEURS</Link>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <Link route="hairfie_search" params={{address: 'France'}}>LES HAIRFIES</Link>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
+                            </li>
+                        </ul>
+                        <Button className="col-sm-3 btn-search" onClick={this.handleDisplaySearch}>
+                            Recherchez
+                        </Button>
                     </div>
                 </header>
                 <div className="container">

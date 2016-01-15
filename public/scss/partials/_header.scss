@@ -1,5 +1,4 @@
 header {
-	padding-bottom: 10px;
 	div.dark-header {
 		background-color: $dark-header;
 		height: 35px;
@@ -85,6 +84,40 @@ header {
 		height: inherit;
 	}
 	&.white {
+		ul {
+			li {
+				a {
+					color: $lightgrey;
+				}
+			}
+			.separate {
+				color: $lightgrey;
+			}
+		}
+		.btn-search {
+			margin-top: 12px;
+    		border-radius: 20px;
+    		color: $lightgrey;
+    		background-color: white;
+    		border-color: initial;
+
+			&.btn-default {
+				&:focus, &:focus, &:active {
+					background-color: initial;
+					border-color: initial;
+				}
+			}
+    		&:before {
+    			content: ' ';
+				background: url(../img/icons/search-header.svg) no-repeat center center;
+				background-size: contain;
+				position: absolute;
+				left: 19px;
+    			top: 6px;
+				width: 20px;
+				height: 20px;
+    		}
+		}
 		background-color: white;
 		.user {
 			display: inline-block;
@@ -99,14 +132,11 @@ header {
 		}
 	}
 	&:not(.white) {
+		background-color: rgba(255, 255, 255, 0.2);
 		ul {
 			li {
-				padding: 20px 17px 20px 17px;
-				display: inline-block;
 				a {
 					color: white;
-					font-size: 1.4em;
-					font-weight: bolder;
 				}
 			}
 			.separate {
@@ -118,6 +148,20 @@ header {
 			&:hover {
 				text-decoration: underline;
 				background: transparent;
+			}
+		}
+		.btn-search {
+			display: none;
+		}
+	}
+	ul {
+		margin: 0;
+		li {
+			padding: 20px 17px 20px 17px;
+			display: inline-block;
+			a {
+				font-size: 1.4em;
+				font-weight: bolder;
 			}
 		}
 	}
