@@ -40,7 +40,7 @@ var HomePage = React.createClass({
                             <a onClick={this.searchHairdresser} className="btn btn-red">Des coiffeurs au top</a>
                         </div>
                         <div className="row visible-xs">
-                            <div className="search-group">
+                            <div className="search-group text-center">
                                 <a onClick={this.searchHairdresser} className="btn btn-where">Où? (Ville, salon de coiffure...)</a>
                                 <span class="input-group-btn">
                                     <a className="btn btn-around">Autour<br/> de moi</a>

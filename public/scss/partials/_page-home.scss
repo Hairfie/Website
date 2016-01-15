@@ -61,7 +61,7 @@
     }
 
         .search-group {
-            width: 380px;
+            width: 100vw;
             margin: auto;
         }
 
@@ -127,7 +127,12 @@
     }
 }
 section.home-section {
-    margin: 0 15px;
+    @media screen and (min-width: $screen-sm-min) {
+        margin: 0 15px;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        margin-left: 10px;
+    }
     padding-bottom: 40px;
     background:white;
     @include fullWidthBg(white);
@@ -242,20 +247,21 @@ section.home-section {
 
     .home-search-mobile {
         height: 40px;
-    }
+        margin-left:-10px;
 
-    .btn-red {
-        width: 331px;
-        height: 58px;
-        font-size: 1.4em;
-        text-align: center;
-        padding: 0;
-        margin-top: 10px;
-        line-height: 30px;
-        text-transform: uppercase;
-        font-family: $font-main;
-        padding-top: 16px;
-        border-radius: 0 !important;
+        .btn-red {
+            width: 87vw;
+            height: 58px;
+            font-size: 1.4em;
+            text-align: center;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 30px;
+            text-transform: uppercase;
+            font-family: $font-main;
+            padding-top: 16px;
+            border-radius: 0 !important;
+        }
     }
 }
 
