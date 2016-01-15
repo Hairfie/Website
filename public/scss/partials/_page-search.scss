@@ -11,12 +11,15 @@
  			p {
  				@extend .col-xs-12,.col-sm-6;
  				font-size: 1.5em !important;
+ 				@media screen and (max-width: $screen-sm-max) {
+					font-size: 1.1em !important;
+ 				}
  			}
  		}
 	}
 	@media screen and (max-width: $screen-sm-max) {
-		margin-top: 85px;
-		padding-bottom: 85px;
+		margin-top: 60px;
+		padding-bottom: 60px;
 	}
 	.breadcrumb {
 		margin-top: 15px;
@@ -68,6 +71,10 @@
 				font-size: 21px;
 				margin-top:25px;
 				margin-bottom:25px;
+				@media screen and (max-width: $screen-xs-max) {
+					margin-top:0;
+					margin-bottom:20px;
+				}
 			}
 			p {
 				font-weight: $light;
@@ -75,9 +82,10 @@
 				letter-spacing: 1px;
 				margin-bottom: 30px;
    				@media screen and (max-width: $screen-xs-max) {
-					overflow: hidden;
-					white-space: nowrap; /* Don't forget this one */
-					text-overflow: ellipsis;
+					// overflow: hidden;
+					// white-space: nowrap; /* Don't forget this one */
+					// text-overflow: ellipsis;
+					display: none;
 				}
 			}
 		}
