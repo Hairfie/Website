@@ -7,6 +7,7 @@ var AuthActions = require('../../actions/AuthActions');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var Button = require('react-bootstrap').Button;
 
 var Header = React.createClass({
     contextTypes: {
@@ -61,7 +62,7 @@ var Header = React.createClass({
             </div>
         );
     },
-    renderDesktop: function (withProLink) {
+    renderDesktop: function () {
         var headerClassName = this.props.home ? 'home' : 'white';
 
         return (
@@ -69,7 +70,7 @@ var Header = React.createClass({
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
-                            <div className="col-sm-5 col-md-6 col-lg-7">
+                            <div className="col-sm-5 col-md-6 col-lg-7" style={{paddingLeft: 0}}>
                                 <Link route="home_pro">Vous gérez un salon ?</Link>
                             </div>
                             <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
@@ -79,10 +80,25 @@ var Header = React.createClass({
                         </div>
                     </div>
                     <div className="container">
-                        <div className="col-md-12">
-                            <Link className="logo col-md-4" route="home" />
-                            {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}
+                        <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
+                            <Link route="home" className="logo" />
                         </div>
+                        <ul className="col-sm-7 col-md-5">
+                            <li>
+                                <Link route="business_search" params={{address: 'France'}}>LES COIFFEURS</Link>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <Link route="hairfie_search" params={{address: 'France'}}>LES HAIRFIES</Link>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
+                            </li>
+                        </ul>
+                        <Button className="col-sm-3 btn-search" onClick={this.handleDisplaySearch}>
+                            Recherchez
+                        </Button>
                     </div>
                 </header>
                 <div className="container">
