@@ -9962,12 +9962,13 @@ header.white {
   header.white .btn-search {
     margin-top: 12px;
     border-radius: 20px;
-    color: #898989;
+    color: #bababa;
     background-color: white;
-    border-color: initial; }
+    border-color: #e6e6e6; }
     header.white .btn-search.btn-default:focus, header.white .btn-search.btn-default:focus, header.white .btn-search.btn-default:active {
       background-color: initial;
-      border-color: initial; }
+      border-color: #e6e6e6;
+      outline: none; }
     header.white .btn-search:before {
       content: ' ';
       background: url(../img/icons/search-header.svg) no-repeat center center;
@@ -10022,10 +10023,44 @@ header ul {
   margin: 0; }
   header ul li {
     padding: 20px 17px 20px 17px;
-    display: inline-block; }
+    display: inline-block;
+    position: relative; }
     header ul li a {
       font-size: 1.4em;
       font-weight: bolder; }
+    header ul li .active {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      color: #fe5b5f; }
+    header ul li .inactive {
+      display: none; }
+  header ul div.PopUp {
+    padding: 30px 50px;
+    z-index: 50;
+    width: 738px;
+    top: 100%;
+    left: -130px;
+    position: absolute;
+    background-color: #f4f4f4; }
+    header ul div.PopUp p, header ul div.PopUp a {
+      color: #595959;
+      font-size: 1.3em; }
+    header ul div.PopUp p.title {
+      color: #fe5b5f;
+      font-size: 1.5em; }
+    header ul div.PopUp div.link-list a, header ul div.PopUp div.link-list p {
+      display: block;
+      text-align: start; }
+    header ul div.PopUp a.picture {
+      display: block;
+      text-decoration: none;
+      font-size: 1em;
+      background-color: white;
+      padding: 0;
+      width: calc(33.3333333333% - 5px);
+      float: left;
+      box-shadow: 4px 4px 3px #dfdfdf; }
 
 .dropdown {
   font-weight: 400; }

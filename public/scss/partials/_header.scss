@@ -97,14 +97,15 @@ header {
 		.btn-search {
 			margin-top: 12px;
     		border-radius: 20px;
-    		color: $lightgrey;
+    		color: #bababa;
     		background-color: white;
-    		border-color: initial;
+    		border-color: #e6e6e6;
 
 			&.btn-default {
 				&:focus, &:focus, &:active {
 					background-color: initial;
-					border-color: initial;
+					border-color: #e6e6e6;
+					outline: none;
 				}
 			}
     		&:before {
@@ -159,11 +160,54 @@ header {
 		li {
 			padding: 20px 17px 20px 17px;
 			display: inline-block;
+			position: relative;
 			a {
 				font-size: 1.4em;
 				font-weight: bolder;
 			}
+			.active {
+				position: absolute;
+    			bottom: -4px;
+    			left: 50%;
+   				color: #fe5b5f;
+			}
+			.inactive {
+				display: none;
+			}
 		}
+			div.PopUp {
+				padding: 30px 50px;
+				z-index: 50;
+				width: 738px;
+    			top: 100%;
+    			left: -130px;
+				position: absolute;
+				background-color: $bg3;
+				p, a {
+					color: $darkgrey;
+					font-size: 1.3em;
+				}
+				p.title {
+					color: $hairfie;
+					font-size: 1.5em;
+				}
+				div.link-list {
+					a,  p {
+    					display: block;
+    					text-align: start;
+					}
+				}
+				a.picture {
+					display: block;
+					text-decoration: none;
+    				font-size: 1em;
+					background-color: white;
+					padding: 0;
+					width: calc(33.3333333333% - 5px);
+					float: left;
+					box-shadow: 4px 4px 3px #dfdfdf;
+				}
+			}
 	}
 }
 .dropdown {
