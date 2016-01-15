@@ -9784,21 +9784,21 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
 .mobile-screen {
   position: absolute;
-  z-index: 150;
+  z-index: 999;
   min-width: 100%;
   width: 100vw;
-  height: 65px;
+  height: 46px;
   bottom: 0; }
 
 .btn-mobile-fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 65px;
-  z-index: 150;
+  height: 46px;
+  z-index: 999;
   text-align: center;
   left: 0;
-  line-height: 60px;
+  line-height: 34px;
   letter-spacing: 2px;
   font-size: 2em; }
 
@@ -9931,8 +9931,7 @@ header a.menu-trigger {
   background-size: 90%;
   margin-top: 15px;
   width: 35px;
-  height: 25px;
-  margin-right: 15px; }
+  height: 25px; }
   @media screen and (max-width: 767px) {
     header a.menu-trigger {
       margin-top: 19px; } }
@@ -11191,6 +11190,9 @@ section.how .row > div {
   padding-top: 20px;
   padding-bottom: 60px;
   background: #f4f4f4; }
+  @media screen and (max-width: 767px) {
+    #content.search .sidebar {
+      padding-top: 0; } }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {

@@ -380,6 +380,9 @@
 		padding-bottom: 60px;
 		background: $bg3;
 		// @include fullWidthBg($bg3);
+		@media screen and (max-width: $screen-xs-max) {
+			padding-top: 0;
+		}
 
 		.filter-recap {
 			h2{line-height: 50px; }
