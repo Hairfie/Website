@@ -25,7 +25,7 @@ module.exports = React.createClass({
 
         var price;
         if (hairfie.price) {
-            price = <div className="pricetag">{hairfie.price.amount}€</div>;
+            price = <div className="pricetag"><span className="price">{hairfie.price.amount + '€'}</span></div>;
         }
 
         var tags;
@@ -42,11 +42,11 @@ module.exports = React.createClass({
                                 placeholder="/img/placeholder-640.png"
                                 alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
                         />
+                            {price}
                             <figcaption>
                                 {salon}
                                 {hairdresser}
-                                {tags}
-                                {price}
+                                {tags}    
                                 {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                             </figcaption>
                         </Link>

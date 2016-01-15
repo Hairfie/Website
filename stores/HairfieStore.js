@@ -25,6 +25,7 @@ module.exports = createStore({
         this.userLikes = {};
         this.hairdresserHairfies = {};
         this.topIds = [];
+        this.topIdsLoading = false;
         this.businessTopIds = {};
         this.searchResults = {};
     },
@@ -60,13 +61,14 @@ module.exports = createStore({
     onReceiveTopHairfies: function (hairfies) {
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(hairfies, 'id'));
         this.topIds = _.pluck(hairfies, 'id');
+        this.topIdsLoading = false;
         this.emitChange();
     },
     onReceiveBusinessTopHairfies: function (payload) {
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(payload.hairfies, 'id'));
         this.businessTopIds[payload.businessId] = _.pluck(payload.hairfies, 'id');
-        if (_.isUndefined(this.businessTopIds[payload.businessId])) {
-            this.businessTopIds[payload.businessId] = [];
+        if (_.isUndefined(this.businessTopIds[payload.businessId]) || _.isEmpty(this.businessTopIds[payload.businessId])) {
+            this.businessTopIds[payload.businessId] = new Array();
         }
         this.emitChange();
     },
@@ -198,8 +200,9 @@ module.exports = createStore({
             return this.userLikes[userId].page;
     },
     getTop: function () {
-        if (_.isEmpty(this.topIds)) {
+        if (_.isEmpty(this.topIds) && !this.topIdsLoading) {
             this.getContext().executeAction(HairfieActions.loadTopHairfies, { limit: 4 });
+            this.topIdsLoading = true;
             this.emitChange();
             return -1;
         }
@@ -208,6 +211,7 @@ module.exports = createStore({
     getBusinessTop: function (businessId) {
         if (_.isUndefined(this.businessTopIds[businessId])) {
             this.getContext().executeAction(HairfieActions.loadBusinessTopHairfies, { limit: 4, businessId: businessId });
+            this.businessTopIds[businessId] = new Array();
             this.emitChange();
             return -1;
         }
