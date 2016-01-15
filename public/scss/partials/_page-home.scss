@@ -267,11 +267,11 @@ section.home-section {
 
 #home section.categories {
     figure {
+        width: 100%;              
         img {
-                @media screen and (max-width: $screen-xs-max){
-                    max-height: 95px;
-                }
-            }
+            background-size: cover;
+            background-position: center;
+        }
         &:hover {
             @include transition(all 0.25s ease-out);
 
@@ -279,6 +279,12 @@ section.home-section {
                 @include scale(1.1);
             }
         }
+    }
+    figure, img {
+        height: 120px;
+        @media screen and (max-width: $screen-lg-min){
+            max-height: 95px;
+        }  
     }
     figcaption{
 
