@@ -30,14 +30,20 @@ var HomePage = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="headline col-md-12">
-                                <h1>Faites du bien à vos cheveux,<br />Trouvez leur le bon coiffeur !</h1>
+                                <h1>Faites du bien<br className="title-break-xs" /> à vos cheveux,<br className="title-break" />Trouvez<br className="title-break-xs" /> leur le bon coiffeur !</h1>
                                 <p> Ici, pas de blabla mais des milliers de photos de vrais clients pour faire son choix et prendre RDV gratuitement en ligne 24/7 dans le salon de coiffure qui vous correspond.</p>
                             </div>
                         </div>
-                        <div className="row choice">
+                        <div className="row choice-large">
                             <p className="search-word">Je cherche&nbsp;:</p>
                             <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Des coiffures stylées</a>
                             <a onClick={this.searchHairdresser} className="btn btn-red">Des coiffeurs au top</a>
+                        </div>
+                        <div className="row visible-xs">
+                            <a className="btn btn-where">Où? (Ville, salon de coiffure...)</a>
+                            <span class="input-group-btn">
+                                <a className="btn btn-around">Autour<br/> de moi</a>
+                            </span>
                         </div>
                     </div>
                 </section>
