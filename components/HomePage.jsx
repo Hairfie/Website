@@ -17,7 +17,8 @@ var HomePage = React.createClass({
     mixins: [Home.Mixin],
     getInitialState: function() {
         return {
-            displaySearch: false
+            displaySearch: false,
+            findMe: false
         };
     },
     render: function () {
@@ -26,7 +27,7 @@ var HomePage = React.createClass({
                 <Notifications />
                 <PageProgress />
                 <section className="landing">
-                <Header home={true} displaySearch={this.state.displaySearch}/>
+                    <Header home={true} displaySearch={this.state.displaySearch} findMe={this.state.findMe} />
                     <div className="container">
                         <div className="row">
                             <div className="headline col-md-12">
@@ -42,7 +43,7 @@ var HomePage = React.createClass({
                         <div className="row visible-xs">
                             <div className="search-group text-center">
                                 <a onClick={this.searchHairdresser} className="btn btn-where">Où? (Ville, salon de coiffure...)</a>
-                                <span class="input-group-btn">
+                                <span onClick={this.searchHairdresser.bind(this, true)} >
                                     <a className="btn btn-around">Autour<br/> de moi</a>
                                 </span>
                             </div>
@@ -51,7 +52,7 @@ var HomePage = React.createClass({
                 </section>
                 <div className="container">
                     <div className="main-content" id="home">
-                        <Home.SearchSection {...this.props} ref="search" />
+                        <Home.SearchSection {...this.props} ref="search" openSearchBar={this.searchHairdresser}/>
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
                         <Home.Deals deals={this.props.deals} />
                         <Home.BlogPosts posts={this.props.posts} />
@@ -64,15 +65,16 @@ var HomePage = React.createClass({
             </div>
         );
     },
-    searchHairdresser: function() {
+    searchHairdresser: function(withFindMe) {
+        var findMe = _.isBoolean(withFindMe) ? withFindMe : false;
         if($('.mobile-menu').is(':visible')) {
             if( $('.mobile-menu').height() == 0 ) {
-                this.setState({displaySearch: true});
+                this.setState({displaySearch: true, findMe: findMe});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
             } else {
-                this.setState({displaySearch: false});
+                this.setState({displaySearch: false, findMe: false});
                 $('body').toggleClass('locked');
                 $('.menu-trigger').removeClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:0,ease:Power2.easeOut});

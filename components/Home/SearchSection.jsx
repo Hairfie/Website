@@ -16,7 +16,7 @@ module.exports = React.createClass({
                     </div>
                 </div>
                 <div className="visible-xs home-search-mobile text-center">
-                    <a className="btn btn-red">Rechercher votre coiffeur</a>
+                    <a onClick={this.props.openSearchBar} className="btn btn-red">Rechercher votre coiffeur</a>
                 </div>
             </section>
        );
