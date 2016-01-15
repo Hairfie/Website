@@ -10969,6 +10969,12 @@ section.how .row > div {
     font-size: 1.4em;
     letter-spacing: 1px;
     margin-bottom: 30px; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .header-part p {
+        overflow: hidden;
+        white-space: nowrap;
+        /* Don't forget this one */
+        text-overflow: ellipsis; } }
   #content.search .main-content .nav li:first-child .icon-nav {
     background: url(../img/icon-search-nav1.png) no-repeat center center; }
   #content.search .main-content .nav li:nth-child(2) .icon-nav {
@@ -11456,6 +11462,10 @@ section.how .row > div {
       @media screen and (min-width: 768px) {
         .salon#content .main-content section.salon-info .avis {
           float: right; } }
+      @media screen and (max-width: 991px) {
+        .salon#content .main-content section.salon-info .avis {
+          margin-top: 5px;
+          margin-bottom: -15px; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
@@ -11516,8 +11526,9 @@ section.how .row > div {
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
-    .salon#content section.salon-content .row {
-      margin-right: 0px; }
+    @media screen and (min-width: 767px) {
+      .salon#content section.salon-content .row {
+        margin-right: 0px; } }
     .salon#content section.salon-content div.reviews-title {
       margin-top: 20px;
       margin-bottom: 30px; }

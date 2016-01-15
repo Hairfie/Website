@@ -74,6 +74,11 @@
 				font-size: 1.4em;
 				letter-spacing: 1px;
 				margin-bottom: 30px;
+   				@media screen and (max-width: $screen-xs-max) {
+					overflow: hidden;
+					white-space: nowrap; /* Don't forget this one */
+					text-overflow: ellipsis;
+				}
 			}
 		}
 		.nav {
