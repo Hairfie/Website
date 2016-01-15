@@ -175,39 +175,41 @@ header {
 				display: none;
 			}
 		}
-			div.PopUp {
-				padding: 30px 50px;
-				z-index: 50;
-				width: 738px;
-    			top: 100%;
-    			left: -130px;
-				position: absolute;
-				background-color: $bg3;
-				p, a {
-					color: $darkgrey;
-					font-size: 1.3em;
-				}
-				p.title {
-					color: $hairfie;
-					font-size: 1.5em;
-				}
-				div.link-list {
-					a,  p {
-    					display: block;
-    					text-align: start;
-					}
-				}
-				a.picture {
+		div.PopUp {
+			text-align: center;
+			font-weight: bolder;
+			padding: 30px 50px;
+			z-index: 50;
+			width: 738px;
+			top: 100%;
+			left: -130px;
+			position: absolute;
+			background-color: $bg3;
+			p, a {
+				color: $darkgrey;
+				font-size: 1.3em;
+			}
+			p.title {
+				color: $hairfie;
+				font-size: 1.5em;
+			}
+			div.link-list {
+				a,  p {
 					display: block;
-					text-decoration: none;
-    				font-size: 1em;
-					background-color: white;
-					padding: 0;
-					width: calc(33.3333333333% - 5px);
-					float: left;
-					box-shadow: 4px 4px 3px #dfdfdf;
+					text-align: start;
 				}
 			}
+			a.picture {
+				display: block;
+				text-decoration: none;
+				font-size: 1em;
+				background-color: white;
+				padding: 0;
+				width: calc(33.3333333333% - 5px);
+				float: left;
+				box-shadow: 4px 4px 3px #dfdfdf;
+			}
+		}
 	}
 }
 .dropdown {
