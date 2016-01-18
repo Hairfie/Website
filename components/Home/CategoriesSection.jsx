@@ -49,16 +49,14 @@ module.exports = React.createClass({
                 }
             }.bind(this)));
         }
-
         return (
             <div className="col-sm-3 col-xs-12" key={cat.id} >
                 <figure>
-                    <Picture picture={cat.picture} alt={cat.label} />
+                    <Picture picture={cat.picture} backgroundStyle={true} />
                     <figcaption>
                         <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: query }}>
                             <span className={/\s/.test(cat.label) ? '' : 'oneline'} dangerouslySetInnerHTML={{__html: cat.label.split(' ').join('<br />')}} />
                         </Link>
-                        <a href="#"><span>{cat.label}</span></a>
                     </figcaption>
                 </figure>
             </div>

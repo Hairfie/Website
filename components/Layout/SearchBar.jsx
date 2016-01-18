@@ -153,6 +153,11 @@ var SearchBar = React.createClass({
 
         this.context.executeAction(BusinessActions.submitSearch, search);
     },
+    componentWillMount: function() {
+        if(this.props.findMe) {
+            this.findMe();
+        }
+    },
     componentWillReceiveProps: function(newProps) {
         if (newProps.location && this.state.activeLocation) {
             this.setState({

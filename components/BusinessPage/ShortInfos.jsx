@@ -8,6 +8,7 @@ var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
+var Breadcrumb = require('../Partial/Breadcrumb.jsx');
 moment.locale('fr');
 
 var ShareButton = React.createClass({
@@ -77,8 +78,9 @@ module.exports = React.createClass({
                 </div>
               </div>
               <div className="row" style={{paddingBottom: '20px'}}>
-                <div className="prix col-xs-12 col-sm-12">
+                <div className="breadcrumb">
                 </div>
+                  <Breadcrumb business={business} />
               </div>
           </section>
         );

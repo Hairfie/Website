@@ -17,3 +17,5 @@ newrelic_agent.log
 Website.sublime-workspace
 
 ./**~
+
+public/css/style.css.map

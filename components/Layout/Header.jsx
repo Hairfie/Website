@@ -7,6 +7,8 @@ var AuthActions = require('../../actions/AuthActions');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var PopUp = require('./PopUp.jsx');
+var Button = require('react-bootstrap').Button;
 
 var Header = React.createClass({
     contextTypes: {
@@ -14,12 +16,13 @@ var Header = React.createClass({
     },
     getInitialState: function() {
         return {
-            displaySearch: false
+            displaySearch: false,
+            tab: ""
         };
     },
     componentWillReceiveProps: function(props) {
-        if (props.displaySearch) {
-            this.setState({displaySearch: props.displaySearch });
+        if (props.displaySearch) { 
+            this.setState({displaySearch: props.displaySearch}); 
         }
     },
     render: function() {
@@ -40,7 +43,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} /> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} /> : this.renderMobileMenu()}
             </div>
         );
     },
@@ -61,15 +64,16 @@ var Header = React.createClass({
             </div>
         );
     },
-    renderDesktop: function (withProLink) {
+    renderDesktop: function () {
         var headerClassName = this.props.home ? 'home' : 'white';
 
         return (
             <div>
+                <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} onClick={this.handleTabChange.bind(null, "")}/>
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
-                            <div className="col-sm-5 col-md-6 col-lg-7">
+                            <div className="col-sm-5 col-md-6 col-lg-7" style={{paddingLeft: 0}}>
                                 <Link route="home_pro">Vous gérez un salon ?</Link>
                             </div>
                             <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
@@ -79,17 +83,43 @@ var Header = React.createClass({
                         </div>
                     </div>
                     <div className="container">
-                        <div className="col-md-12">
-                            <Link className="logo col-md-4" route="home" />
-                            {this.props.home ? null : <a className={"col-xs-4 menu-search pull-right hidden-sm" + (this.state.displaySearch ? ' close' : '')} role="button" onClick={this.handleDisplaySearch}></a>}
+                        <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
+                            <Link route="home" className="logo" />
                         </div>
+                        <ul className="col-sm-7 col-md-5">
+                        {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
+                            <li>
+                                <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
+                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9650;</span>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <a role="button" onClick={this.handleTabChange.bind(null, "hairfie")}>LES HAIRFIES</a>
+                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9650;</span>
+                            </li>
+                            <span className="separate"> &#9830;</span>
+                            <li>
+                                <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
+                            </li>
+                        </ul>
+                        <Button className="col-sm-3 btn-search" onClick={this.handleDisplaySearch}>
+                            Recherchez
+                        </Button>
                     </div>
                 </header>
                 <div className="container">
-                    {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                    {this.props.home ? null : <SearchBar mobile={false} displaySearch={this.state.displaySearch} />}
                 </div>
             </div>
         );
+    },
+    handleTabChange: function(tab, e) {
+        if (tab != this.state.tab) {
+            this.setState({tab: tab});
+        }
+        else {
+            this.setState({tab: ""});
+        }
     },
     handleDisplaySearch: function() {
         this.setState({displaySearch: !this.state.displaySearch});
