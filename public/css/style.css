@@ -9834,7 +9834,7 @@ div.pagination {
       text-decoration: none; }
 
 .breadcrumb > li + li:before {
-  content: " / "; }
+  content: " > "; }
 
 .newsletter-banner {
   padding: 7px;
@@ -11536,6 +11536,13 @@ section.how .row > div {
             top: -20px;
             right: -195px;
             border-radius: 5px; }
+      .salon#content .main-content section.salon-info .breadcrumb {
+        background-color: #FFF;
+        color: #fe5b5f !important; }
+        .salon#content .main-content section.salon-info .breadcrumb .active {
+          text-decoration: underline; }
+        .salon#content .main-content section.salon-info .breadcrumb a {
+          color: #fe5b5f; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
