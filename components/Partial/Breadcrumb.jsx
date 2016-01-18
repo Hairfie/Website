@@ -13,17 +13,13 @@ var BreadCrumb = React.createClass({
         var place  = business.address.city + ', France';
         var currentRoute = this.props.currentRoute;
         var businessRoutes = ['business', 'business_reviews', 'business_hairfies'];
-        console.log(currentRoute);
-        console.log('route: ' + currentRoute.name + ' includes : ' + _.includes(businessRoutes, currentRoute.name));
         crumbs = [
             {
-                last: false,
                 label: 'Accueil',
                 route: 'home',
                 params: {}
             },
             {
-                last: false,
                 label: 'Coiffeurs ' + business.address.city,
                 route: 'business_search',
                 params: {
@@ -31,7 +27,6 @@ var BreadCrumb = React.createClass({
                 }
             },
             {
-                last: true,
                 label: business.name,
                 route: 'business',
                 params: {
@@ -39,22 +34,9 @@ var BreadCrumb = React.createClass({
                     businessSlug: business.slug
                 }
             }
-            /*,
-            {
-                last: true,
-                label: 'Réservation',
-                route: 'business_booking',
-                params: {
-                    businessId: business.id,
-                    businessSlug: business.slug
-                }
-            } */
         ];
-        if (!_.includes(businessRoutes, currentRoute.name))
-        {
-            _.last(crumbs).last = false;
+        if (!_.includes(businessRoutes, currentRoute.name)) {
             crumbs.push({
-                last: true,
                 label: 'Réservation',
                 route: 'business_booking',
                 params: {
@@ -63,12 +45,11 @@ var BreadCrumb = React.createClass({
                 }
             });
         }
-        console.log('last ' + _.last(crumbs).last);
         return (
             <div className="col-xs-12 visible-md visible-lg">
                 <ol className="breadcrumb">
-                    {_.map(crumbs, function (crumb) {
-                        if (crumb.last) {
+                    {_.map(crumbs, function (crumb, index) {
+                        if (index == crumbs.length - 1) {
                             return (
                                 <li>
                                     {crumb.label}
