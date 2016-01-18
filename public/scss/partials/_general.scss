@@ -865,9 +865,14 @@ div.pagination {
         }
     }
 }
-
+.breadcrumb {
+    font-size: 1.4em;
+    a {
+        color: $darkgrey;
+    }
+}
 .breadcrumb > li + li:before {
-  content: " / ";
+  content: " > ";
 }
 
 .newsletter-banner {
