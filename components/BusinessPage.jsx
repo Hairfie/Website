@@ -66,7 +66,7 @@ var BusinessPage = React.createClass({
                                 </div>
                             : null
                         }
-                        {_.map(_.where(services, {gender: "FEMALE"}), function (service) {
+                        {_.map(_.sortBy(_.where(services, {gender: "FEMALE"}), "position"), function (service) {
                             return (
                                 <div key={service.id}>
                                     <p>{service.label}<span className="price">{service.price.amount}€</span></p>
@@ -82,7 +82,7 @@ var BusinessPage = React.createClass({
                             </div>
                         : null
                         }
-                        {_.map(_.where(services, {gender: "MALE"}), function (service) {
+                        {_.map(_.sortBy(_.where(services, {gender: "MALE"}), "position"), function (service) {
                             return (
                                 <div key={service.id}>
                                     <p>{service.label}<span className="price">{service.price.amount}€</span></p>
@@ -98,7 +98,7 @@ var BusinessPage = React.createClass({
                             </div>
                         : null
                         }
-                        {_.map(_.where(services, {gender: ""}), function (service) {
+                        {_.map(_.sortBy(_.where(services, {gender: ""}), "position"), function (service) {
                             return (
                                 <div key={service.id}>
                                     <p>{service.label}<span className="price">{service.price.amount}€</span></p>
