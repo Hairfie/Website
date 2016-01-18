@@ -69,6 +69,7 @@ var Header = React.createClass({
 
         return (
             <div>
+                <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} />
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
@@ -85,7 +86,6 @@ var Header = React.createClass({
                         <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
                             <Link route="home" className="logo" />
                         </div>
-                        <div className={"shadow " + (this.state.tab ? ' active' : ' inactive')} />
                         <ul className="col-sm-7 col-md-5">
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
