@@ -11,8 +11,8 @@ var Picture = require('../Partial/Picture.jsx');
 var Layout = React.createClass({
     componentDidMount: function () {
         $('body').on("click",'.trigger-filters',function(){
-            if( jQuery('.mobile-filtres').css('top') != '85px' ) {
-                TweenMax.to('.mobile-filtres', 0.4, {top:85,ease:Power2.easeInOut,onComplete:function(){
+            if( jQuery('.mobile-filtres').css('top') != '65px' ) {
+                TweenMax.to('.mobile-filtres', 0.4, {top:65,ease:Power2.easeInOut,onComplete:function(){
                     jQuery('body').toggleClass('locked');
                     jQuery('.mobile-filtres').addClass('opened');
                     jQuery('.trigger-filters').html('Enregistrer les filtres');

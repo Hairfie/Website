@@ -21,8 +21,8 @@ var Header = React.createClass({
         };
     },
     componentWillReceiveProps: function(props) {
-        if (props.displaySearch) {
-            this.setState({displaySearch: props.displaySearch });
+        if (props.displaySearch) { 
+            this.setState({displaySearch: props.displaySearch}); 
         }
     },
     render: function() {
@@ -43,7 +43,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} /> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} /> : this.renderMobileMenu()}
             </div>
         );
     },
@@ -108,7 +108,7 @@ var Header = React.createClass({
                     </div>
                 </header>
                 <div className="container">
-                    {this.props.home ? null : <SearchBar displaySearch={this.state.displaySearch} />}
+                    {this.props.home ? null : <SearchBar mobile={false} displaySearch={this.state.displaySearch} />}
                 </div>
             </div>
         );

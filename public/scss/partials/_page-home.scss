@@ -4,12 +4,16 @@
 
 .landing {
     width: 100vw;
-    @media screen and (min-width: $screen-xs-max) {
+    @media screen and (min-width: $screen-sm-min) {
         height: 500px;
+        background: url(../img/bg-landing.jpg) no-repeat top center;
+        background-size: cover;
     }
-    max-width: 100%; // fix-mobile horizontal scroll
-    background: url(../img/bg-landing.jpg) no-repeat top center;
-    background-size: cover;
+    @media screen and (max-width: $screen-xs-max) {
+        background: url(../img/bg-landing-mobile.jpg) no-repeat bottom center;
+        background-size: cover;
+    }
+    max-width: 100%; // fix-mobile horizontal scroll    
     text-align: center;
     position: relative;
     h1, p {
@@ -31,6 +35,9 @@
         h1 {
             @media screen and (max-width: $screen-xs-max) {
                 margin-top: 150px;
+                font-size: 2.1em;
+                letter-spacing: 2px;
+                line-height: 1.3;
             }
         }
         p {
@@ -40,8 +47,58 @@
                 display: none;
             }
         }
+        .title-break {
+            @media screen and (max-width: $screen-xs-max){
+                display: none;
+            }
+        }
     }
-    .choice {
+
+        .search-group {
+            margin: auto;
+        }
+
+        .btn-where {
+            background-color: $bg1;
+            width: calc(100% - 90px);
+            height: 63px;
+            line-height: 49px;
+            border-radius: 0;
+            color: #d6d6d6;
+            font-size: 1.4em;
+            font-family: $font-second;
+            font-weight: $light;
+        }
+        .btn-around {
+            width: 90px;
+            height: 63px;
+            background-color: $bg3;
+            background-repeat: no-repeat;
+            background-position: left;
+            border-radius: 0;
+            line-height:  12px;
+            position: relative;
+            padding-left: 30px;
+            padding-top: 19px;
+            color: #bababa;
+            font-weight: $light;
+            &:before {
+                content: ' ';
+                width: 20px;
+                height: 20px;
+                top: 22px;
+                left: 4px;
+                position: absolute;
+                background: url(../img/icons/localisation-red.svg) no-repeat center center;
+                background-size: contain;
+                color: blue;
+            }
+        }
+
+    .choice-large {
+        @media screen and (max-width: $screen-xs-max){
+                display: none;
+        }
         .search-word {
             font-size: 2.3em;
             text-transform: uppercase;
@@ -54,7 +111,7 @@
             margin: 10px;
             line-height: 30px;
             text-transform: uppercase;
-            font-family: $font-second;
+            font-family: $font-main;
             font-weight: $latoBold;
             border-radius:0;
             padding: 16px 30px;
@@ -62,9 +119,15 @@
             letter-spacing: 2px;
         }
     }
+    .row.visible-xs {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }
 section.home-section {
-    margin: 0 15px;
+    @media screen and (min-width: $screen-sm-min) {
+        margin: 0 15px;
+    }
     padding-bottom: 40px;
     background:white;
     @include fullWidthBg(white);
@@ -174,12 +237,36 @@ section.home-section {
     }
 
     @media screen and (max-width: $screen-xs-max) {
-        display: none;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .home-search-mobile {
+        height: 40px;
+
+        .btn-red {
+            width: 100%;
+            height: 58px;
+            font-size: 1.4em;
+            text-align: center;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 30px;
+            text-transform: uppercase;
+            font-family: $font-main;
+            padding-top: 16px;
+            border-radius: 0 !important;
+        }
     }
 }
 
 #home section.categories {
     figure {
+        width: 100%;              
+        img {
+            background-size: cover;
+            background-position: center;
+        }
         &:hover {
             @include transition(all 0.25s ease-out);
 
@@ -187,6 +274,12 @@ section.home-section {
                 @include scale(1.1);
             }
         }
+    }
+    figure, img {
+        height: 120px;
+        @media screen and (max-width: $screen-lg-min){
+            max-height: 95px;
+        }  
     }
     figcaption{
 

@@ -40,7 +40,7 @@ module.exports = React.createClass({
     },
     getBackgroundStyle: function() {
         return {
-            backgroundImage: this.props.backgroundProps + ' url(' + this.getSrc() + ')'
+            backgroundImage: (this.props.backgroundProps || '') + ' url(' + this.getSrc() + ')'
         }
     },
     getSrc: function () {
