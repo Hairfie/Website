@@ -10408,25 +10408,20 @@ footer.mobile {
     @media screen and (max-width: 767px) {
       .landing .headline .title-break {
         display: none; } }
-    .landing .headline .title-break-xs {
-      display: none; }
-      @media screen and (max-width: 767px) {
-        .landing .headline .title-break-xs {
-          display: initial; } }
   .landing .search-group {
-    width: 100vw;
     margin: auto; }
   .landing .btn-where {
     background-color: #fff;
-    width: 65%;
+    width: calc(100% - 90px);
     height: 63px;
     line-height: 49px;
     border-radius: 0;
     color: #d6d6d6;
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-family: "Lato", sans-serif;
     font-weight: 200; }
   .landing .btn-around {
+    width: 90px;
     height: 63px;
     background-color: #f4f4f4;
     background-repeat: no-repeat;
@@ -10468,6 +10463,9 @@ footer.mobile {
     padding: 16px 30px;
     border-radius: 0 !important;
     letter-spacing: 2px; }
+  .landing .row.visible-xs {
+    padding-left: 40px;
+    padding-right: 40px; }
 
 section.home-section {
   padding-bottom: 40px;
@@ -10476,9 +10474,6 @@ section.home-section {
   @media screen and (min-width: 768px) {
     section.home-section {
       margin: 0 15px; } }
-  @media screen and (max-width: 767px) {
-    section.home-section {
-      margin-left: 10px; } }
   section.home-section:before {
     content: " ";
     width: 200vw;
@@ -10580,11 +10575,15 @@ section.home-section {
 #home section.home-search .main-searchbar {
   margin: 0; }
 
+@media screen and (max-width: 767px) {
+  #home section.home-search {
+    padding-left: 25px;
+    padding-right: 25px; } }
+
 #home section.home-search .home-search-mobile {
-  height: 40px;
-  margin-left: -10px; }
+  height: 40px; }
   #home section.home-search .home-search-mobile .btn-red {
-    width: 87vw;
+    width: 100%;
     height: 58px;
     font-size: 1.4em;
     text-align: center;
