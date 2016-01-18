@@ -10623,6 +10623,10 @@ section.home-section {
     margin-top: 1px;
     margin-left: -5px;
     line-height: 60px; }
+    @media screen and (max-width: 1199px) and (min-width: 992px) {
+      .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
+        letter-spacing: 1px;
+        font-size: 1.3em; } }
     @media screen and (max-width: 992px) and (min-width: 768px) {
       .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
         letter-spacing: 1px;
