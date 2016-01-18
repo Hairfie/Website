@@ -7,6 +7,7 @@ var AuthActions = require('../../actions/AuthActions');
 var User = require('./User.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var PopUp = require('./PopUp.jsx');
 var Button = require('react-bootstrap').Button;
 
 var Header = React.createClass({
@@ -15,7 +16,8 @@ var Header = React.createClass({
     },
     getInitialState: function() {
         return {
-            displaySearch: false
+            displaySearch: false,
+            tab: ""
         };
     },
     componentWillReceiveProps: function(props) {
@@ -67,6 +69,7 @@ var Header = React.createClass({
 
         return (
             <div>
+                <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} onClick={this.handleTabChange.bind(null, "")}/>
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
@@ -84,12 +87,15 @@ var Header = React.createClass({
                             <Link route="home" className="logo" />
                         </div>
                         <ul className="col-sm-7 col-md-5">
+                        {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
-                                <Link route="business_search" params={{address: 'France'}}>LES COIFFEURS</Link>
+                                <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
+                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9650;</span>
                             </li>
                             <span className="separate"> &#9830;</span>
                             <li>
-                                <Link route="hairfie_search" params={{address: 'France'}}>LES HAIRFIES</Link>
+                                <a role="button" onClick={this.handleTabChange.bind(null, "hairfie")}>LES HAIRFIES</a>
+                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9650;</span>
                             </li>
                             <span className="separate"> &#9830;</span>
                             <li>
@@ -106,6 +112,14 @@ var Header = React.createClass({
                 </div>
             </div>
         );
+    },
+    handleTabChange: function(tab, e) {
+        if (tab != this.state.tab) {
+            this.setState({tab: tab});
+        }
+        else {
+            this.setState({tab: ""});
+        }
     },
     handleDisplaySearch: function() {
         this.setState({displaySearch: !this.state.displaySearch});
