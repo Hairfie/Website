@@ -69,7 +69,7 @@ var Header = React.createClass({
 
         return (
             <div>
-                <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} />
+                <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} onClick={this.handleTabChange.bind(null, "")}/>
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
