@@ -10073,7 +10073,9 @@ header {
         float: left;
         box-shadow: 3px 3px 2px #dfdfdf; }
         header ul div.PopUp a.picture div {
-          padding: 5px 10px; }
+          padding: 10px; }
+          header ul div.PopUp a.picture div p:nth-child(2) {
+            margin: 0; }
 
 .dropdown {
   font-weight: 400; }
