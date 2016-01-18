@@ -10019,8 +10019,21 @@ header:not(.white) {
   header:not(.white) .btn-search {
     display: none; }
 
+header div.shadow.active {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+  z-index: 1; }
+
+header div.shadow.inactive {
+  display: none; }
+
 header ul {
-  margin: 0; }
+  margin: 0;
+  z-index: 1; }
   header ul li {
     padding: 20px 17px 20px 17px;
     display: inline-block;
@@ -10032,26 +10045,34 @@ header ul {
       position: absolute;
       bottom: -4px;
       left: 50%;
-      color: #fe5b5f; }
+      color: white; }
     header ul li .inactive {
       display: none; }
   header ul div.PopUp {
+    text-align: center;
+    font-weight: bolder;
     padding: 30px 50px;
     z-index: 50;
     width: 738px;
     top: 100%;
     left: -130px;
     position: absolute;
-    background-color: #f4f4f4; }
+    background-color: #f4f4f4;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2); }
     header ul div.PopUp p, header ul div.PopUp a {
-      color: #595959;
+      color: #aaaaaa;
       font-size: 1.3em; }
     header ul div.PopUp p.title {
       color: #fe5b5f;
       font-size: 1.5em; }
     header ul div.PopUp div.link-list a, header ul div.PopUp div.link-list p {
       display: block;
-      text-align: start; }
+      text-align: start;
+      margin-bottom: 1px;
+      font-size: 1.4em; }
+    header ul div.PopUp div.link-list p.title {
+      margin-bottom: 10px;
+      color: #595959; }
     header ul div.PopUp a.picture {
       display: block;
       text-decoration: none;
@@ -10060,7 +10081,9 @@ header ul {
       padding: 0;
       width: calc(33.3333333333% - 5px);
       float: left;
-      box-shadow: 4px 4px 3px #dfdfdf; }
+      box-shadow: 3px 3px 2px #dfdfdf; }
+      header ul div.PopUp a.picture div {
+        padding: 5px 15px; }
 
 .dropdown {
   font-weight: 400; }

@@ -155,8 +155,23 @@ header {
 			display: none;
 		}
 	}
+	div.shadow {
+		&.active {
+		    position: fixed;
+		    width: 100vw;
+		    height: 100vw;
+		    background-color: rgba(0, 0 ,0, 0.4);
+		    left: 0;
+		    top: 0;
+		    z-index: 1;
+		}
+		&.inactive {
+			display: none;
+		}
+	}
 	ul {
 		margin: 0;
+		z-index: 1;
 		li {
 			padding: 20px 17px 20px 17px;
 			display: inline-block;
@@ -169,7 +184,7 @@ header {
 				position: absolute;
     			bottom: -4px;
     			left: 50%;
-   				color: #fe5b5f;
+   				color: white;
 			}
 			.inactive {
 				display: none;
@@ -185,8 +200,9 @@ header {
 			left: -130px;
 			position: absolute;
 			background-color: $bg3;
+			box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
 			p, a {
-				color: $darkgrey;
+				color: $grey1;
 				font-size: 1.3em;
 			}
 			p.title {
@@ -194,9 +210,15 @@ header {
 				font-size: 1.5em;
 			}
 			div.link-list {
-				a,  p {
+				a,  p {;
 					display: block;
 					text-align: start;
+					margin-bottom: 1px;
+					font-size: 1.4em;
+				}
+				p.title {
+					margin-bottom: 10px;
+					color: $darkgrey;
 				}
 			}
 			a.picture {
@@ -207,7 +229,10 @@ header {
 				padding: 0;
 				width: calc(33.3333333333% - 5px);
 				float: left;
-				box-shadow: 4px 4px 3px #dfdfdf;
+				box-shadow: 3px 3px 2px #dfdfdf;
+				div {
+					padding: 5px 15px;
+				}
 			}
 		}
 	}

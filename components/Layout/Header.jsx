@@ -85,6 +85,7 @@ var Header = React.createClass({
                         <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
                             <Link route="home" className="logo" />
                         </div>
+                        <div className={"shadow " + (this.state.tab ? ' active' : ' inactive')} />
                         <ul className="col-sm-7 col-md-5">
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
@@ -113,7 +114,12 @@ var Header = React.createClass({
         );
     },
     handleTabChange: function(tab, e) {
-        this.setState({tab: tab});
+        if (tab != this.state.tab) {
+            this.setState({tab: tab});
+        }
+        else {
+            this.setState({tab: ""});
+        }
     },
     handleDisplaySearch: function() {
         this.setState({displaySearch: !this.state.displaySearch});
