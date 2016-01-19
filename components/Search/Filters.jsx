@@ -208,11 +208,12 @@ var Filters = React.createClass({
     renderOpenDays: function () {
         if (this.props.tab != "business") return null;
 
-        console.log(this.props.search);
+        var displayDays = ['MON', 'SUN'];
         return (
             <div>
-                <h2>Ouvert le</h2>
-                {_.map(DateTimeConstants.weekDaysNumberFR, function(day) {
+                <h2>Ouverture le</h2>
+                {_.map(DateTimeConstants.weekDaysNumber, function(day) {
+                    if (_.isEmpty(_.intersection([day], displayDays))) return null;
                     var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
                     var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
                     return (
