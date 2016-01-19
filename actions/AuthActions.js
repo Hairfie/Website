@@ -207,7 +207,7 @@ module.exports = {
             .then(function () {
                 return Promise.all([
                     context.dispatch(Actions.RECEIVE_TOKEN, token),
-                    context.executeAction(SubscriberActions.getClosedPopup)
+                    context.executeAction(SubscriberActions.hasClosedPopup)
                 ])
             });
     }
