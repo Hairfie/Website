@@ -31,6 +31,7 @@ var HairfieSearchPage = React.createClass({
         var tags = this.props.tags;
 
         return <Search.Filters
+            tab="hairfie"
             search={this.props.search}
             tags={tags}
             tagCategories={this.props.tagCategories}

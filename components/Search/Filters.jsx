@@ -7,6 +7,7 @@ var RadiusFilter = require('./RadiusFilter.jsx');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
+var DateTimeConstants = require('../../constants/DateTimeConstants');
 
 
 var Filters = React.createClass({
@@ -43,6 +44,7 @@ var Filters = React.createClass({
                     {this.renderRadius()}
                     {this.renderCategories()}
                     {this.renderTags()}
+                    {this.renderOpenDays()}
                     {this.renderPrice()}
                     {this.renderDiscount()}
                     </form>
@@ -202,7 +204,28 @@ var Filters = React.createClass({
                 }, this)}
             </div>
         );
+    },
+    renderOpenDays: function () {
+        if (this.props.tab != "business") return null;
 
+        console.log(this.props.search);
+        return (
+            <div>
+                <h2>Ouvert le</h2>
+                {_.map(DateTimeConstants.weekDaysNumberFR, function(day) {
+                    var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
+                    var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
+                    return (
+                        <label className="checkbox-inline">
+                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                            <span />
+                            {DateTimeConstants.weekDayLabelFR(day)}
+                        </label>
+                        );
+                    }, this)
+                }
+            </div>
+        );
     },
     handleLocationChange: function(e) {
         this.setState({
@@ -241,6 +264,12 @@ var Filters = React.createClass({
     },
     removeTag: function (tag) {
         this.props.onChange({tags: _.without(this.props.search.tags, tag)});
+    },
+    addDay: function (day) {
+        this.props.onChange({days: _.union(this.props.search.days || [], [day])});
+    },
+    removeDay: function (day) {
+        this.props.onChange({days: _.without(this.props.search.days, day)});
     },
     addWithDiscount: function () {
         this.props.onChange({withDiscount: true});
