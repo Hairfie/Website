@@ -1,9 +1,11 @@
 'use strict';
 var _ = require('lodash');
 var cookie = require('fluxible-plugin-cookie');
+var moment = require('moment');
+moment.locale('fr');
 
 function setToken(context, token) {
-    context.setCookie("AUTH_TOKEN", JSON.stringify(token));
+    context.setCookie("AUTH_TOKEN", JSON.stringify(token), {expires: moment().add(1, 'y').toDate()});
 }
 
 function clearToken(context) {
@@ -15,16 +17,15 @@ function getToken(context) {
 }
 
 function setHasClosedPopup(context) {
-    console.log("setHasClosedPopup");
-    context.setCookie("HAS_CLOSED_POPUP", true);
+    context.setCookie("_has_closed_popup", true, {expires: moment().add(2, 'w').toDate()}); 
 }
 
 function getClosedPopup(context) {
-    return context.getCookie("HAS_CLOSED_POPUP") || false;
+    return context.getCookie("_has_closed_popup") || false;
 }
 
 function setHasClosedBanner(context) {
-    context.setCookie("HAS_CLOSED_BANNER", true);
+    context.setCookie("HAS_CLOSED_BANNER", true, {expires: moment().add(2, 'w').toDate()});
 }
 
 function getClosedBanner(context) {
