@@ -9833,8 +9833,13 @@ div.pagination {
     div.pagination a:hover {
       text-decoration: none; }
 
+.breadcrumb {
+  font-size: 1.4em; }
+  .breadcrumb a {
+    color: #595959; }
+
 .breadcrumb > li + li:before {
-  content: " / "; }
+  content: " > "; }
 
 .newsletter-banner {
   padding: 7px;
@@ -10625,6 +10630,10 @@ section.home-section {
     margin-top: 1px;
     margin-left: -5px;
     line-height: 60px; }
+    @media screen and (max-width: 1199px) and (min-width: 992px) {
+      .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
+        letter-spacing: 1px;
+        font-size: 1.3em; } }
     @media screen and (max-width: 992px) and (min-width: 768px) {
       .landing .main-searchbar .btn-red, .landing .main-searchbar .btn-book, .home-search .main-searchbar .btn-red, .home-search .main-searchbar .btn-book {
         letter-spacing: 1px;
@@ -11593,6 +11602,8 @@ section.how .row > div {
             top: -20px;
             right: -195px;
             border-radius: 5px; }
+      .salon#content .main-content section.salon-info .breadcrumb {
+        background-color: #FFF; }
   .salon#content section.salon-content {
     margin-top: 20px;
     margin-bottom: 70px; }
