@@ -109,7 +109,6 @@ var Filters = React.createClass({
                 <h2>Qui ?</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
-                        onChange={this.handleChange}
                         onKeyPress={this.handleKey}/>
                     <div className="input-group-addon"><a role="button"></a></div>
                 </div>
@@ -125,9 +124,9 @@ var Filters = React.createClass({
                 <div className="input-group">
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     <GeoInput className="form-control" ref="address" type="text"
-                        value={this.state.location} onChange={this.handleLocationChange}
+                        value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
                         />
-                    <div className="input-group-addon" onClick={this.handleChange} onKeyPress={this.handleKey}><a role="button"></a></div>
+                    <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
             </div>
         );

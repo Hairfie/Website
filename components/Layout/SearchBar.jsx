@@ -53,7 +53,7 @@ var SearchBar = React.createClass({
                     {this.renderSelect()}
                 </div>
                 <div className="col-xs-3 input-group">
-                    <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                    <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} value={this.state.location} onChange={this.handleLocationChange} />
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                 </div>
                 <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
