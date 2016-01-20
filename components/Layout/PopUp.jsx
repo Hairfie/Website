@@ -49,7 +49,7 @@ var PopUp = React.createClass({
     renderHairfie: function() {
         return (
             <div className="PopUp">
-                <div className="col-sm-4 link-list">
+                <div className="link-list">
                     <p className="title">NOS HAIRFIES</p>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'coloration'}}>Carré plongeant</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Balayage'}}>Balayage</Link>
