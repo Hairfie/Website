@@ -90,12 +90,12 @@ var Header = React.createClass({
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
-                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9650;</span>
+                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9670;</span>
                             </li>
                             <span className="separate">&#9670;</span>
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "hairfie")}>LES HAIRFIES</a>
-                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9650;</span>
+                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9670;</span>
                             </li>
                             <span className="separate">&#9670;</span>
                             <li>

@@ -117,7 +117,7 @@ header {
 			}
     		&:before {
     			content: ' ';
-				background: url(../img/icons/search-header.svg) no-repeat center center;
+				background: url(../img/icons/search-slim.svg) no-repeat center center;
 				background-size: contain;
 				position: absolute;
 				left: 19px;
@@ -176,10 +176,17 @@ header {
 			a {
 				font-size: 1.4em;
 				font-weight: bolder;
+				text-decoration: none !important;
+				&:hover {
+					opacity: 0.8;
+				}
+				&:focus {
+					outline: none;
+				}
 			}
 			.active {
 				position: absolute;
-    			bottom: -4px;
+    			bottom: -7px;
     			left: 50%;
 			}
 			.inactive {
@@ -210,13 +217,22 @@ header {
 				font-size: 1.5em;
 			}
 			div.link-list {
-				width: 30%;
+				width: 27%;
 				float: left;
-				a,  p {;
+				a,  p {
 					display: block;
 					text-align: start;
 					margin-bottom: 1px;
 					font-size: 1.4em;
+				}
+				a {
+					text-decoration: none !important;
+					&:hover {
+						opacity: 0.8;
+					}
+					&:focus {
+						outline: none;
+					}
 				}
 				p.title {
 					margin-bottom: 10px;
@@ -229,12 +245,13 @@ header {
 				font-size: 1em;
 				background-color: white;
 				padding: 0;
-				width: calc(35% - 5px);
+				width: calc(36.5% - 5px);
 				float: left;
 				box-shadow: 3px 3px 2px #dfdfdf;
 				div {
 					padding: 10px;
 					p {
+						font-weight: lighter;
 						&:nth-child(2) {
 							margin: 0;
 						}
