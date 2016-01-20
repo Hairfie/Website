@@ -92,12 +92,12 @@ var Header = React.createClass({
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
                                 <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9650;</span>
                             </li>
-                            <span className="separate"> &#9830;</span>
+                            <span className="separate">&#9670;</span>
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "hairfie")}>LES HAIRFIES</a>
                                 <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9650;</span>
                             </li>
-                            <span className="separate"> &#9830;</span>
+                            <span className="separate">&#9670;</span>
                             <li>
                                 <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
                             </li>

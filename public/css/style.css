@@ -9881,7 +9881,8 @@ iframe {
 
 header {
   position: relative;
-  z-index: 20; }
+  z-index: 20;
+  letter-spacing: 1px; }
   header div.dark-header {
     background-color: #343434;
     height: 35px;
@@ -9967,7 +9968,9 @@ header {
       border-radius: 20px;
       color: #bababa;
       background-color: white;
-      border-color: #e6e6e6; }
+      border-color: #e6e6e6;
+      text-align: start;
+      padding-left: 50px; }
       header.white .btn-search.btn-default:focus, header.white .btn-search.btn-default:focus, header.white .btn-search.btn-default:active {
         background-color: initial;
         border-color: #e6e6e6;
@@ -10028,7 +10031,8 @@ header {
     header ul li {
       padding: 20px 17px 20px 17px;
       display: inline-block;
-      position: relative; }
+      position: relative;
+      float: left; }
       header ul li a {
         font-size: 1.4em;
         font-weight: bolder; }
@@ -10038,9 +10042,12 @@ header {
         left: 50%; }
       header ul li .inactive {
         display: none; }
+    header ul .separate {
+      font-size: 0.7em;
+      float: left;
+      margin-top: 25px; }
     header ul div.PopUp {
       text-align: center;
-      font-weight: bolder;
       padding: 30px 50px;
       z-index: 50;
       width: 738px;
@@ -10055,21 +10062,24 @@ header {
       header ul div.PopUp p.title {
         color: #fe5b5f;
         font-size: 1.5em; }
-      header ul div.PopUp div.link-list a, header ul div.PopUp div.link-list p {
-        display: block;
-        text-align: start;
-        margin-bottom: 1px;
-        font-size: 1.4em; }
-      header ul div.PopUp div.link-list p.title {
-        margin-bottom: 10px;
-        color: #595959; }
+      header ul div.PopUp div.link-list {
+        width: 30%;
+        float: left; }
+        header ul div.PopUp div.link-list a, header ul div.PopUp div.link-list p {
+          display: block;
+          text-align: start;
+          margin-bottom: 1px;
+          font-size: 1.4em; }
+        header ul div.PopUp div.link-list p.title {
+          margin-bottom: 10px;
+          color: #595959; }
       header ul div.PopUp a.picture {
         display: block;
         text-decoration: none;
         font-size: 1em;
         background-color: white;
         padding: 0;
-        width: calc(33.3333333333% - 5px);
+        width: calc(35% - 5px);
         float: left;
         box-shadow: 3px 3px 2px #dfdfdf; }
         header ul div.PopUp a.picture div {

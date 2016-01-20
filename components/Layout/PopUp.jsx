@@ -19,7 +19,7 @@ var PopUp = React.createClass({
     renderBusiness: function() {
         return (
             <div className="PopUp">
-                <div className="col-sm-4 link-list">
+                <div className="link-list">
                     <p className="title">NOS SPÉCIALISTES</p>
                     <Link route="business_search" params={{address: 'France'}} query={{categories: 'coloration'}}>Coloration à Paris</Link>
                     <Link route="business_search" params={{address: 'France'}} query={{categories: 'balayage-tie-and-dye'}}>Balayage à Paris</Link>
@@ -27,7 +27,7 @@ var PopUp = React.createClass({
                     <Link route="business_search" params={{address: 'France'}} query={{categories: 'ethnique'}}>Afro à Paris</Link>
                     <Link route="business_search" params={{address: 'France'}} query={{categories: 'mariage'}}>Coiffure de Mariage</Link>
                     <Link route="business_search" params={{address: 'France'}} query={{categories: 'homme'}}>Barbiers à Paris</Link>
-                    <Link className="color-hairfie" route="business_search" params={{address: 'France'}}>Tous nos coiffeurs</Link>
+                    <Link className="color-hairfie" route="business_search" params={{address: 'France'}}>Voir tous nos coiffeurs</Link>
                 </div>
                 <Link route="business_search" params={{address: 'France'}} query={{categories: 'coloration'}} className="picture" style={{marginRight: '10px'}}>
                     <Picture picture={{url: '/img/static-image/salon1.jpg'}} style={{width: '100%'}}/>
@@ -57,7 +57,7 @@ var PopUp = React.createClass({
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Court'}}>Coupe courte</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Lissage brésilien'}}>Lissage brésilien</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Avant / Après'}}>Avant / Après</Link>
-                    <Link className="color-hairfie" route="hairfie_search" params={{address: 'France'}}>Tous nos hairfies</Link>
+                    <Link className="color-hairfie" route="hairfie_search" params={{address: 'France'}}>Voir tous nos hairfies</Link>
                 </div>
                 <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Tie & Dye'}} className="picture" style={{marginRight: '10px'}}>
                         <Picture picture={{url: '/img/static-image/Hairfie1.jpg'}} style={{width: '100%'}}/>
