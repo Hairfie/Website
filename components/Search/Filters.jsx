@@ -88,7 +88,7 @@ var Filters = React.createClass({
         );
     },
     renderRadius: function () {
-        if (!this.props.search.address) return;
+        if (!this.props.search.address || this.props.tab == "hairfie") return null;
         return <RadiusFilter min={500} max={10000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />;
     },
     renderPrice: function () {
