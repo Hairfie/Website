@@ -923,3 +923,12 @@ iframe {
     width: 100px !important;
     *width: 100% !important; 
 }
+
+input:not(:focus) {
+    &.valid {
+        border: 2px solid #3c763d !important;
+    }
+    &.error {
+        border: 2px solid #a94442 !important;
+    }
+}
