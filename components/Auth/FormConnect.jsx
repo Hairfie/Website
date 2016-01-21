@@ -6,6 +6,7 @@ var AuthActions = require('../../actions/AuthActions');
 var NavigationActions = require('../../actions/NavigationActions');
 var Input = require('react-bootstrap').Input;
 var Link = require('../Link.jsx');
+var formValidation = require('../../lib/formValidation');
 
 module.exports = React.createClass({
 	contextTypes: {
@@ -14,8 +15,8 @@ module.exports = React.createClass({
 	render: function() {
 		return (
         <form className="form">
-            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *"/>
-            <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
+            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
+            <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={formValidation.password}/>
             <a role="button" onClick={this.resetPassword} className="green">Mot de passe oublié ?</a>
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
         </form>

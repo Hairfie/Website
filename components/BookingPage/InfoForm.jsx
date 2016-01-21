@@ -12,6 +12,7 @@ var Input = require('react-bootstrap').Input;
 
 var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');
+var formValidation = require('../../lib/formValidation');
 
 module.exports = React.createClass({
     contextTypes: {
@@ -85,10 +86,10 @@ module.exports = React.createClass({
                                       Femme
                                     </label>
                                 </Input>
-                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" value={this.state.firstName} onChange={this.handleFirstNameChanged} />
-                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} />
-                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} />
-                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged}/>
+                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" value={this.state.firstName} onChange={this.handleFirstNameChanged} onFocus={formValidation.required} />
+                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} onFocus={formValidation.required} />
+                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} onFocus={formValidation.email} />
+                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged} onFocus={formValidation.phoneNumber}/>
                                 <p>Longueur de vos cheveux * </p>
                                 <Input className="radio">
                                     <div className="col-xs-3 text-center">
@@ -112,7 +113,7 @@ module.exports = React.createClass({
                                       <p data-tip="Au niveau du bas du dos">Très longs</p>
                                     </div>
                                 </Input>
-                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, lissage, couleur, extension…)  ? *" />
+                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, lissage, couleur, extension…)  ? *" onChange={formValidation.required} onFocus={formValidation.required}/>
                                 <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
                             </form>
                         </div>
@@ -164,21 +165,25 @@ module.exports = React.createClass({
         );
     },
     handleFirstNameChanged: function (e) {
+        formValidation.required(e);
         this.setState({
             firstName: e.currentTarget.value
         });
     },
     handleLastNameChanged: function (e) {
+        formValidation.required(e);
         this.setState({
             lastName: e.currentTarget.value
         });
     },
     handleEmailChanged: function (e) {
+        formValidation.email(e);
         this.setState({
             email: e.currentTarget.value
         });
     },
     handlePhoneNumberChanged: function (e) {
+        formValidation.phoneNumber(e);
         this.setState({
             phoneNumber: e.currentTarget.value
         });
