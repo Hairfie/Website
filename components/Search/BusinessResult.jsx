@@ -10,6 +10,7 @@ var BusinessActions = require('../../actions/BusinessActions');
 var HairfieActions = require('../../actions/HairfieActions');
 var SearchUtils = require('../../lib/search-utils');
 var Rating = require('../Partial/Rating.jsx');
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -62,18 +63,19 @@ var Business = React.createClass({
     propTypes: {
         business: React.PropTypes.object.isRequired
     },
+    mixins: [NavToLinkMixin],
     render: function () {
         var booking_button = null;
         var business = this.props.business;
         if (business.isBookable)
             booking_button = (
-                <Link className="btn btn-book col-sm-12 full" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <Link className="btn btn-book col-sm-12 full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
             );
 
         return (
-            <section className="row business-result">
+            <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture

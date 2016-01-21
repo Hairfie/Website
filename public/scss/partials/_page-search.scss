@@ -419,7 +419,8 @@
                 margin-bottom: 20px;
                 background-color: white;
                 padding: 15px;
-                height: 250px; 
+                height: 250px;
+                cursor:pointer;
                 @media screen and (max-width: $screen-xs-max) {
                     padding: 16px 10px;
                     height: 156px;
