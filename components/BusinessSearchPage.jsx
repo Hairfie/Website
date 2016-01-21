@@ -36,6 +36,7 @@ var BusinessSearchPage = React.createClass({
         }.bind(this)));
 
         return <Search.Filters
+            tab="business"
             address={this.props.address}
             place={this.props.place}
             search={this.props.search}

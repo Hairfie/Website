@@ -7,6 +7,7 @@ var RadiusFilter = require('./RadiusFilter.jsx');
 var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
+var DateTimeConstants = require('../../constants/DateTimeConstants');
 
 
 var Filters = React.createClass({
@@ -43,6 +44,7 @@ var Filters = React.createClass({
                     {this.renderRadius()}
                     {this.renderCategories()}
                     {this.renderTags()}
+                    {this.renderOpenDays()}
                     {this.renderPrice()}
                     {this.renderDiscount()}
                     </form>
@@ -86,7 +88,7 @@ var Filters = React.createClass({
         );
     },
     renderRadius: function () {
-        if (!this.props.search.address) return;
+        if (!this.props.search.address || this.props.tab == "hairfie") return null;
         return <RadiusFilter min={500} max={10000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />;
     },
     renderPrice: function () {
@@ -107,7 +109,6 @@ var Filters = React.createClass({
                 <h2>Qui ?</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
-                        onChange={this.handleChange}
                         onKeyPress={this.handleKey}/>
                     <div className="input-group-addon"><a role="button"></a></div>
                 </div>
@@ -123,9 +124,9 @@ var Filters = React.createClass({
                 <div className="input-group">
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     <GeoInput className="form-control" ref="address" type="text"
-                        value={this.state.location} onChange={this.handleLocationChange}
+                        value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
                         />
-                    <div className="input-group-addon" onClick={this.handleChange} onKeyPress={this.handleKey}><a role="button"></a></div>
+                    <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
             </div>
         );
@@ -202,7 +203,29 @@ var Filters = React.createClass({
                 }, this)}
             </div>
         );
+    },
+    renderOpenDays: function () {
+        if (this.props.tab != "business") return null;
 
+        var displayDays = ['MON', 'SUN'];
+        return (
+            <div>
+                <h2>Ouverture le</h2>
+                {_.map(DateTimeConstants.weekDaysNumber, function(day) {
+                    if (_.isEmpty(_.intersection([day], displayDays))) return null;
+                    var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
+                    var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
+                    return (
+                        <label className="checkbox-inline">
+                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                            <span />
+                            {DateTimeConstants.weekDayLabelFR(day)}
+                        </label>
+                        );
+                    }, this)
+                }
+            </div>
+        );
     },
     handleLocationChange: function(e) {
         this.setState({
@@ -241,6 +264,12 @@ var Filters = React.createClass({
     },
     removeTag: function (tag) {
         this.props.onChange({tags: _.without(this.props.search.tags, tag)});
+    },
+    addDay: function (day) {
+        this.props.onChange({days: _.union(this.props.search.days || [], [day])});
+    },
+    removeDay: function (day) {
+        this.props.onChange({days: _.without(this.props.search.days, day)});
     },
     addWithDiscount: function () {
         this.props.onChange({withDiscount: true});

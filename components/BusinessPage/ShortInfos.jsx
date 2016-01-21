@@ -59,7 +59,7 @@ module.exports = React.createClass({
                     <a role="button" onClick={this.handleDisplayTimetable}>
                       {timetable[today] && !_.isEmpty(timetable[today]) ? <p className="title green">OUVERT</p> : <p className="title color-hairfie">FERMÉ</p>}
                       <span className="today">
-                        {DateTimeConstants.weekDayLabel(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
+                        {DateTimeConstants.weekDayLabelFR(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") + ' >')}
                       </span>
@@ -97,7 +97,7 @@ module.exports = React.createClass({
         render = _.map(DateTimeConstants.weekDaysNumberFR, function(val, i) {
             return (
                 <div className={this.state.displayTimetable ? '' : 'seo-hide'} key={i}>
-                    <span className="extra-small col-xs-2 col-sm-5">{DateTimeConstants.weekDayLabel(val) + " :"}</span>
+                    <span className="extra-small col-xs-2 col-sm-5">{DateTimeConstants.weekDayLabelFR(val) + " :"}</span>
                     { _.isEmpty(timetable[val]) ? <span className="red">Fermé</span> : _.map(parseTimetable(timetable[val]), function(t) {
                             return t.startTime + ' - ' + t.endTime;
                         }).join(" / ") }

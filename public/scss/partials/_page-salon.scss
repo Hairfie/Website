@@ -316,7 +316,14 @@
 		}
 		ul.nav {
 			li {
+				&:first-child {
+					border-left: 1px solid $grey2;
+				}
+				border-top: 1px solid $grey2;
+				border-right: 1px solid $grey2;
+				border-bottom: 1px solid $grey2;
 				a {
+					height: initial;
 					padding-top: 55px;
 				}
 				.icon-nav {
@@ -330,11 +337,13 @@
 				}
 			}
 			li:not(.active) {
+				background-color: $bg4;
+				a {
+					background-color: $bg4;
+				}
+
 				&:first-child {
 					.icon-nav {
-						/* @include mask(url(../img/icons/info.svg) no-repeat 100% 100%);
-						background-color: #666b74;
-						*/
 						background-image: url(../img/icons/info.svg);
 						background-size: contain;					
     				}
@@ -346,7 +355,6 @@
 					}
 				}
 				&:last-child {
-					border-right: none;
 					.icon-nav {
 						background-image: url(../img/icons/hairfie.svg);
 						background-size: contain;
@@ -354,6 +362,10 @@
 				}
 			}
 			li.active {
+				background-color: $bg5;
+				a {
+					background-color: $bg5;
+				}
 				&:first-child {
 					.icon-nav {
 						background-image: url(../img/icons/info-selected.svg);
@@ -367,7 +379,6 @@
 					}
 				}
 				&:last-child {
-					border-right: none;
 					.icon-nav {
 						background-image: url(../img/icons/hairfie-selected.svg);
 						background-size: contain;

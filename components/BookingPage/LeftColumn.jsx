@@ -8,7 +8,7 @@ var Picture = require('../Partial/Picture.jsx');
 
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var orderWeekDays = DateTimeConstants.orderWeekDays;
-var weekDayLabel = DateTimeConstants.weekDayLabel;
+var weekDayLabel = DateTimeConstants.weekDayLabelFR;
 
 module.exports = React.createClass({
     render: function () {

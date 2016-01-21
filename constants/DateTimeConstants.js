@@ -33,6 +33,17 @@ module.exports = {
     },
     weekDayLabel: function(wd) {
         return ({
+            MON: 'Monday',
+            TUE: 'Tuesday',
+            WED: 'Wednesday',
+            THU: 'Thursday',
+            FRI: 'Friday',
+            SAT: 'Saturday',
+            SUN: 'Sunday'
+        })[wd];
+    },
+    weekDayLabelFR: function(wd) {
+        return ({
             MON: 'Lundi',
             TUE: 'Mardi',
             WED: 'Mercredi',
@@ -43,7 +54,7 @@ module.exports = {
         })[wd];
     },
     weekDayLabelFromInt: function(i) {
-        return module.exports.weekDayLabel(module.exports.weekDaysNumber[i]);
+        return module.exports.weekDayLabelFR(module.exports.weekDaysNumber[i]);
     },
     orderWeekDays: function(days) {
         var sortedDays = [];

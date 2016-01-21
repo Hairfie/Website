@@ -43,7 +43,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} /> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} close={this.close}/> : this.renderMobileMenu()}
             </div>
         );
     },
@@ -90,14 +90,14 @@ var Header = React.createClass({
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
-                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9650;</span>
+                                <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9670;</span>
                             </li>
-                            <span className="separate"> &#9830;</span>
+                            <span className="separate">&#9670;</span>
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "hairfie")}>LES HAIRFIES</a>
-                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9650;</span>
+                                <span className={this.state.tab == "hairfie" ? "active" : "inactive"}>&#9670;</span>
                             </li>
-                            <span className="separate"> &#9830;</span>
+                            <span className="separate">&#9670;</span>
                             <li>
                                 <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
                             </li>
@@ -128,6 +128,7 @@ var Header = React.createClass({
         this.setState({displaySearch: false});
     },
     close: function() {
+        this.setState({displaySearch: false});
         $('body').removeClass('locked');
         $('.menu-trigger').removeClass('close');
         TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});

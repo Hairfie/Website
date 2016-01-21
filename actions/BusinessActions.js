@@ -4,6 +4,7 @@ var Actions = require('../constants/Actions');
 var NavigationActions = require('./NavigationActions');
 var SearchUtils = require('../lib/search-utils');
 var _ = require('lodash');
+var DateTimeConstants = require('../constants/DateTimeConstants');
 
 module.exports = {
     loadBusiness: function (context, id) {
@@ -61,6 +62,10 @@ module.exports = {
 
         _.forEach(search.categories, function (category, i) {
             query['facetFilters[categorySlugs]['+i+']'] = category;
+        });
+        
+        _.forEach(search.days, function (day) {
+            query['facetFilters[openOn' + DateTimeConstants.weekDayLabel(day) + ']'] = true;
         });
 
         return context.hairfieApi

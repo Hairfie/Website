@@ -1,6 +1,7 @@
 header {
 	position: relative;
 	z-index: 20;
+	letter-spacing: 1px;
 	div.dark-header {
 		background-color: $dark-header;
 		height: 35px;
@@ -105,7 +106,8 @@ header {
     		color: #bababa;
     		background-color: white;
     		border-color: #e6e6e6;
-
+			text-align: start;
+    		padding-left: 50px;
 			&.btn-default {
 				&:focus, &:focus, &:active {
 					background-color: initial;
@@ -115,7 +117,7 @@ header {
 			}
     		&:before {
     			content: ' ';
-				background: url(../img/icons/search-header.svg) no-repeat center center;
+				background: url(../img/icons/search-slim.svg) no-repeat center center;
 				background-size: contain;
 				position: absolute;
 				left: 19px;
@@ -170,22 +172,34 @@ header {
 			padding: 20px 17px 20px 17px;
 			display: inline-block;
 			position: relative;
+			float: left;
 			a {
 				font-size: 1.4em;
 				font-weight: bolder;
+				text-decoration: none !important;
+				&:hover {
+					opacity: 0.8;
+				}
+				&:focus {
+					outline: none;
+				}
 			}
 			.active {
 				position: absolute;
-    			bottom: -4px;
+    			bottom: -7px;
     			left: 50%;
 			}
 			.inactive {
 				display: none;
 			}
 		}
+		.separate {
+		    font-size: 0.7em;
+		    float: left;
+		    margin-top: 25px;
+		}
 		div.PopUp {
 			text-align: center;
-			font-weight: bolder;
 			padding: 30px 50px;
 			z-index: 50;
 			width: 738px;
@@ -203,11 +217,22 @@ header {
 				font-size: 1.5em;
 			}
 			div.link-list {
-				a,  p {;
+				width: 27%;
+				float: left;
+				a,  p {
 					display: block;
 					text-align: start;
 					margin-bottom: 1px;
 					font-size: 1.4em;
+				}
+				a {
+					text-decoration: none !important;
+					&:hover {
+						opacity: 0.8;
+					}
+					&:focus {
+						outline: none;
+					}
 				}
 				p.title {
 					margin-bottom: 10px;
@@ -220,12 +245,13 @@ header {
 				font-size: 1em;
 				background-color: white;
 				padding: 0;
-				width: calc(33.3333333333% - 5px);
+				width: calc(36.5% - 5px);
 				float: left;
 				box-shadow: 3px 3px 2px #dfdfdf;
 				div {
 					padding: 10px;
 					p {
+						font-weight: lighter;
 						&:nth-child(2) {
 							margin: 0;
 						}
