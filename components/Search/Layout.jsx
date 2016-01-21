@@ -53,8 +53,8 @@ var Layout = React.createClass({
                             <section className="search-content">
                                 {this.renderHeader()}
                                 <div className="row">
-                                    <div role="tabpanel" className="col-xs-12">
-                                        <div className="row" style={{marginBottom: '15px'}}>
+                                    <div role="tabpanel" className="bg-white-xs">
+                                        <div className="row">
                                             {this.renderTabs()}
                                         </div>
                                         <div className="tab-content">
