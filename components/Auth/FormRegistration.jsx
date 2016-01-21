@@ -7,6 +7,7 @@ var UserConstants = require('../../constants/UserConstants');
 var NotificationActions = require('../../actions/NotificationActions');
 var AuthActions = require('../../actions/AuthActions');
 var ImageField = require('../Partial/ImageField.jsx');
+var formValidation = require('../../lib/formValidation');
 
 module.exports = React.createClass({
   contextTypes: {
@@ -28,11 +29,11 @@ module.exports = React.createClass({
             Femme
             </label>
           </Input>
-  				<Input type="text" ref="firstName" onKeyPress={this.handleKey} placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
-  				<Input type="text" ref="lastName" onKeyPress={this.handleKey} placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
-  				<Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email || ""}/>
-  				<Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
-  				<Input type="text" ref="phoneNumber" onKeyPress={this.handleKey} placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
+  				<Input type="text" ref="firstName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
+  				<Input type="text" ref="lastName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
+  				<Input type="email" ref="email" onChange={formValidation.email} onFocus={formValidation.email} onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email || ""} />
+  				<Input type="password" ref="password"  onChange={formValidation.password} onFocus={formValidation.password} onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
+  				<Input type="text" ref="phoneNumber" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} onKeyPress={this.handleKey} placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
           <div className="form-group">
             <ImageField ref="picture" container="users" text="(facultatif)"/>
           </div>
