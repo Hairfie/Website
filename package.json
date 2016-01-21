@@ -1,6 +1,6 @@
 {
   "name": "Website",
-  "version": "0.13.5",
+  "version": "0.13.6",
   "engines": {
     "node": "5.3.x",
     "npm": "3.5.x"
@@ -31,10 +31,10 @@
     "fluxible-action-utils": "^0.2.1",
     "fluxible-addons-react": "^0.2.0",
     "fluxible-plugin-config": "^0.1.0",
-    "fluxible-plugin-cookie": "git://github.com/Hairfie/fluxible-plugin-cookie#master",
+    "fluxible-plugin-cookie": "Hairfie/fluxible-plugin-cookie",
     "fluxible-plugin-facebook": "^0.1.2",
     "fluxible-plugin-google-maps": "^0.1.1",
-    "fluxible-plugin-hairfie-api": "git://github.com/Hairfie/fluxible-plugin-hairfie-api#master",
+    "fluxible-plugin-hairfie-api": "Hairfie/fluxible-plugin-hairfie-api",
     "fluxible-router": "^0.4.0",
     "grunt": "~0.4.5",
     "grunt-browserify": "^4.0.0",
