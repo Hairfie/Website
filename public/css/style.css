@@ -11004,12 +11004,7 @@ section.how .row > div {
 #content.search .main-content {
   padding-top: 20px; }
   #content.search .main-content .search-content {
-    position: relative;
-    /*.tabpanel {
-                div.row {
-                    margin-bottom: 15px;
-                }
-            }*/ }
+    position: relative; }
     #content.search .main-content .search-content:before {
       content: " ";
       width: 200vw;
@@ -11172,24 +11167,21 @@ section.how .row > div {
           left: 0px; } }
     #content.search .main-content .tab-pane section img {
       display: block;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
       min-height: 0;
       max-height: none;
-      height: 220px;
-      width: 220px;
-      margin-left: 15px; }
-      @media screen and (max-width: 767px) {
-        #content.search .main-content .tab-pane section img {
-          width: 110px;
-          height: 124px; } }
+      width: 100%; }
     #content.search .main-content .tab-pane section .rating {
       font-size: 1.2em;
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      width: 120px; }
       #content.search .main-content .tab-pane section .rating .note {
         font-family: "Source Sans Pro", sans-serif;
         color: #fc5a5f;
         font-size: 1.4em;
-        font-weight: 600;
-        margin-left: 5px; }
+        font-weight: 600; }
         #content.search .main-content .tab-pane section .rating .note span {
           font-size: 1.43em; }
       #content.search .main-content .tab-pane section .rating a {
@@ -11197,14 +11189,25 @@ section.how .row > div {
         color: #595959;
         letter-spacing: 1px;
         float: left; }
+      @media screen and (min-width: 767px) {
+        #content.search .main-content .tab-pane section .rating {
+          float: right; } }
       @media screen and (max-width: 767px) {
         #content.search .main-content .tab-pane section .rating {
-          top: -120%;
-          right: 3%; }
+          width: 100%; }
           #content.search .main-content .tab-pane section .rating a {
-            color: white;
             font-weight: 600;
-            font-size: 1.2em; } }
+            font-size: 1.2em; }
+          #content.search .main-content .tab-pane section .rating .star {
+            background-size: 100%;
+            width: 16px;
+            height: 16px;
+            margin-right: 2px; }
+          #content.search .main-content .tab-pane section .rating .pull-right {
+            font-size: 1.3em !important;
+            float: none !important; }
+          #content.search .main-content .tab-pane section .rating .visible-xs {
+            display: inline-block !important; } }
     #content.search .main-content .tab-pane section .inline-promo {
       text-align: left;
       line-height: 34px;
@@ -11219,31 +11222,37 @@ section.how .row > div {
         margin-right: 10px; }
       #content.search .main-content .tab-pane section .inline-promo span.black {
         margin-left: 3px; }
-    #content.search .main-content .tab-pane section div.address-bloc {
-      /*@media screen and (min-width: $screen-sm-min) {
-                    min-height: 108px;
-                }*/ }
-      #content.search .main-content .tab-pane section div.address-bloc h3 {
-        font-size: 2.1em;
-        margin: 0 0 3px; }
-      #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
-        font-size: 1.4em;
-        margin-top: 3px; }
-      #content.search .main-content .tab-pane section div.address-bloc div {
-        padding: 0; }
+    #content.search .main-content .tab-pane section div.address-bloc .main-infos {
+      width: calc(100% - 120px);
+      float: left; }
       @media screen and (max-width: 767px) {
-        #content.search .main-content .tab-pane section div.address-bloc a {
-          letter-spacing: 0px;
-          padding-left: 0px;
-          padding-right: 0px;
-          font-size: 0.9em;
-          text-transform: none; }
-        #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
-          font-size: 1.6em; } }
+        #content.search .main-content .tab-pane section div.address-bloc .main-infos {
+          width: 100%; } }
+    #content.search .main-content .tab-pane section div.address-bloc h3 {
+      font-size: 2.1em;
+      margin: 0 0 3px; }
+    #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
+      font-size: 1.4em;
+      margin-top: 3px; }
+    #content.search .main-content .tab-pane section div.address-bloc div {
+      padding: 0; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane section div.address-bloc a {
+        letter-spacing: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 1em;
+        font-weight: 400;
+        text-transform: none; }
+      #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
+        font-size: 1.6em; }
+        #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2):not(.pull-right) {
+          line-height: 10px; } }
     #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 1.2em; }
+      font-weight: 200;
+      font-size: 1.9em; }
       @media screen and (max-width: 767px) {
         #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
           margin: 0; } }
@@ -11280,41 +11289,76 @@ section.how .row > div {
         top: -85%; }
         #content.search .main-content .tab-pane#adom section .rating a {
           color: #595959; } }
+  #content.search .main-content .tab-pane#salons .row, #content.search .main-content .tab-pane#adom .row {
+    margin: 0; }
+    @media screen and (min-width: 768px) {
+      #content.search .main-content .tab-pane#salons .row:first-child, #content.search .main-content .tab-pane#adom .row:first-child {
+        margin-top: 10px; } }
   #content.search .main-content .tab-pane#salons a.extend-search, #content.search .main-content .tab-pane#adom a.extend-search {
     font-weight: 400;
     font-size: 1.5em; }
+  #content.search .main-content .tab-pane#salons .business-result, #content.search .main-content .tab-pane#adom .business-result {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    height: 250px; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane#salons .business-result, #content.search .main-content .tab-pane#adom .business-result {
+        padding: 16px 10px;
+        height: 156px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid #c4c4c4; } }
   #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
     display: inline-block;
     float: left;
-    width: 230px;
+    width: 220px;
     overflow: hidden; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
         width: 110px; } }
+    #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
+      display: block;
+      min-height: 0;
+      max-height: none;
+      height: 220px;
+      width: 220px; }
+      @media screen and (max-width: 767px) {
+        #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
+          width: 110px;
+          height: 124px; } }
   #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
     display: inline-block;
+    position: relative;
     float: left;
-    margin-left: -15px;
     height: 220px;
-    width: calc(100% - 250px); }
+    width: calc(100% - 240px);
+    margin-left: 20px; }
+    #content.search .main-content .tab-pane#salons .info-bloc .book, #content.search .main-content .tab-pane#adom .info-bloc .book {
+      bottom: 0px;
+      position: absolute; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
-        height: 220px;
-        width: calc(100% - 100px);
-        /*position: absolute;
-                    left: 33.3%;
-                    height: 100%;*/ }
-        #content.search .main-content .tab-pane#salons .info-bloc .book, #content.search .main-content .tab-pane#adom .info-bloc .book {
-          bottom: 0px;
-          position: absolute; } }
-    @media screen and (max-width: 767px) {
-      #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
+        height: 124px;
+        width: calc(100% - 130px);
         padding-left: 0;
         padding-right: 0;
         font-size: 0.8em; }
         #content.search .main-content .tab-pane#salons .info-bloc .btn-red, #content.search .main-content .tab-pane#salons .info-bloc .btn-book, #content.search .main-content .tab-pane#adom .info-bloc .btn-red, #content.search .main-content .tab-pane#adom .info-bloc .btn-book {
-          display: block;
-          padding-right: 0; } }
+          display: block; }
+        #content.search .main-content .tab-pane#salons .info-bloc p, #content.search .main-content .tab-pane#adom .info-bloc p {
+          float: left;
+          font-size: 1.6em; }
+        #content.search .main-content .tab-pane#salons .info-bloc .numHairfies, #content.search .main-content .tab-pane#adom .info-bloc .numHairfies {
+          margin-left: 20px; }
+          #content.search .main-content .tab-pane#salons .info-bloc .numHairfies i:before, #content.search .main-content .tab-pane#adom .info-bloc .numHairfies i:before {
+            content: " ";
+            background: url(../img/icons/mobile/hairfie.svg) no-repeat center center;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            margin-left: -15px; } }
   #content.search .main-content .tab-pane#hairfies section:after {
     content: none; }
   #content.search .main-content .tab-pane#hairfies h3 {

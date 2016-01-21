@@ -67,55 +67,51 @@ var Business = React.createClass({
         var business = this.props.business;
         if (business.isBookable)
             booking_button = (
-                <Link className="btn btn-book col-xs-6 col-sm-12 full" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <Link className="btn btn-book col-sm-12 full" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
             );
 
         return (
-            <section>
-                <div className="row">
-                    <div className="image-bloc">
-                        <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                            <Picture
-                                picture={_.first(business.pictures)}
-                                className="hidden-xs"
-                                options={{ width: 220, height: 220, crop: 'thumb' }}
-                                placeholder="/img/placeholder-640.png"
-                                alt={business.pictures.length > 0 ? business.name : ""}
-                                />
-                             <Picture
-                                picture={_.first(business.pictures)}
-                                className="visible-xs"
-                                options={{ width: 100, height: 124, crop: 'thumb' }}
-                                placeholder="/img/placeholder-90.png"
-                                alt={business.pictures.length > 0 ? business.name : ""}
-                                />
-                         </Link>
-                    </div>
-                    <div className="info-bloc">
-                        <div className="address-bloc">
-                            <div>
-                                <div className={business.numReviews && business.rating ? "col-xs-12 col-lg-9" : "col-xs-12"}>
-                                    <h3>
-                                        <Link route="business" className="col-xs-12" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                            {business.name}
-                                        </Link>
-                                    </h3>
-                                    <Link className="address col-xs-12" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                        {business.address.street}, {business.address.zipCode} {business.address.city}
-                                    </Link>
-                                </div>
-                                {this.renderRating()}
-                            </div>
+            <section className="row business-result">
+                <div className="image-bloc">
+                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                        <Picture
+                            picture={_.first(business.pictures)}
+                            className="hidden-xs"
+                            options={{ width: 220, height: 220, crop: 'thumb' }}
+                            placeholder="/img/placeholder-640.png"
+                            alt={business.pictures.length > 0 ? business.name : ""}
+                            />
+                         <Picture
+                            picture={_.first(business.pictures)}
+                            className="visible-xs"
+                            options={{ width: 100, height: 124, crop: 'thumb' }}
+                            placeholder="/img/placeholder-90.png"
+                            alt={business.pictures.length > 0 ? business.name : ""}
+                            />
+                     </Link>
+                </div>
+                <div className="info-bloc">
+                    <div className="address-bloc">
+                        <div className="main-infos">
+                            <h3>
+                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                    {business.name}
+                                </Link>
+                            </h3>
+                            <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                                {business.address.street}, {business.address.zipCode} {business.address.city}
+                            </Link>
                         </div>
-                        {this.renderPricing()}
-                        <div className="book">
-                            {booking_button}
-                        </div>
+                        {this.renderRating()}
                         <div className="clearfix"></div>
                     </div>
-                    {/* <div className="clearfix" /> */}
+                    {this.renderPricing()}
+                    <div className="book">
+                        {booking_button}
+                    </div>
+                    <div className="clearfix"></div>
                 </div>
             </section>
         );
@@ -125,34 +121,43 @@ var Business = React.createClass({
         var query  = this.props.date ? { date: this.props.date } : {};
 
         return (
-            <div className="rating col-xs-12 col-lg-3">
-                <div className="note col-xs-12">
+            <div className="rating">
+                <div className="note">
                     <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
                         <Rating rating={this.props.business.rating} min={true} className="interactive" />
                     </Link>
                 </div>
-                <Link className="small pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                    {this.props.business.numReviews} avis
+                <Link className="pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                    <span className="visible-xs">-&nbsp;</span>{this.props.business.numReviews +' avis'}
                 </Link>
+                <div className="clearfix"></div>
             </div>
         );
     },
     renderPricing: function () {
+        var bestDiscountNode;
         if (this.props.business.bestDiscount) {
-            return (
-                <div>
-                    <div className="inline-promo">
+            bestDiscountNode = (<div className="inline-promo">
                         <span className="icon-promo">%</span>
                         {'-' + this.props.business.bestDiscount + '% dans tout le salon*'}
-                    </div>
-                    <PriceRating business={this.props.business} style={{paddingLeft: '15px'}}/>
+                    </div>);
+        }
+            return (
+                <div>
+                    {bestDiscountNode}
+                    <PriceRating business={this.props.business} />
+                    {this.renderNumHairfies()}
                 </div>
             );
+    },
+    renderNumHairfies: function () {
+        if (this.props.business.numHairfies) {
+            return (
+                <p>
+                    <span className="visible-xs numHairfies"><i className="hairfie-icon" />{this.props.business.numHairfies + ' Hairfies'}</span>
+                </p>
+            );
         }
-
-        return (
-            <PriceRating business={this.props.business} style={{paddingLeft: '15px', marginTop: '10px'}}/>
-        );
     }
 });
 
