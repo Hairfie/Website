@@ -77,7 +77,7 @@ var SearchBar = React.createClass({
                         </select>
                     </div>
                     <div className="col-xs-12 input-group">
-                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
+                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onKeyPress={this.handleKey} onChange={this.handleLocationChange} />
                         <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     </div>
                     <div className='col-xs-12'>
@@ -143,6 +143,9 @@ var SearchBar = React.createClass({
         }
     },
     submit: function () {
+        if (this.props.close) {
+            this.props.close();
+        }
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
             q       : this.refs.query.value

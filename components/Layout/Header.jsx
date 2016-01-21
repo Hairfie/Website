@@ -43,7 +43,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} /> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} close={this.close}/> : this.renderMobileMenu()}
             </div>
         );
     },
@@ -128,6 +128,7 @@ var Header = React.createClass({
         this.setState({displaySearch: false});
     },
     close: function() {
+        this.setState({displaySearch: false});
         $('body').removeClass('locked');
         $('.menu-trigger').removeClass('close');
         TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
