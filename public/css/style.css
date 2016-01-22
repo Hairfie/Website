@@ -11347,7 +11347,14 @@ section.how .row > div {
     overflow: hidden; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
-        width: 110px; } }
+        width: 110px;
+        position: relative; }
+        #content.search .main-content .tab-pane#salons .image-bloc .icon-promo, #content.search .main-content .tab-pane#adom .image-bloc .icon-promo {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-style: normal;
+          font-size: 1.2em; } }
     #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
       display: block;
       min-height: 0;
