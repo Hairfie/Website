@@ -13358,7 +13358,7 @@ section.how .row > div {
 //////////////////////////////////////////*/
 #content.newsletter {
   background-color: white;
-  margin-top: 10%;
+  margin-top: 5%;
   font-size: 1.2em;
   padding: 5% 5% 5% 10%;
   margin-bottom: 10%; }
@@ -13383,6 +13383,9 @@ section.how .row > div {
   #content.newsletter em {
     font-size: 1.5em;
     color: #fe5b5f; }
+  @media screen and (max-width: 767px) {
+    #content.newsletter {
+      margin-top: 10%; } }
 
 .connect-form {
   padding-top: 1px;

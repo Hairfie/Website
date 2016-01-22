@@ -3,11 +3,14 @@
 var React = require('react');
 var PublicLayout = require('./PublicLayout.jsx');
 var Newsletter = require('./Partial/Newsletter.jsx');
+var Breadcrumb = require('./Partial/Breadcrumb.jsx');
 
 var NewsletterPage = React.createClass({
     render: function () {
         return (
             <PublicLayout>
+                <Breadcrumb business={this.props.business} />
+                
                 <div className="container newsletter" id="content">
                     <div className="row">
                         <div className="col-xs-12">

@@ -10,7 +10,7 @@ var BreadCrumb = React.createClass({
     render: function () {
         var crumbs = [];
         var business = this.props.business;
-        var place  = business.address.city + ', France';
+        var place  = business ? business.address.city + ', France' : null;
         var currentRoute = this.props.currentRoute;
         var businessRoutes = ['business', 'business_reviews', 'business_hairfies'];
         crumbs = [
@@ -18,12 +18,15 @@ var BreadCrumb = React.createClass({
                 label: 'Accueil',
                 route: 'home',
                 params: {}
-            },
-            {
-                label: 'Coiffeurs ' + business.address.city,
-                route: 'business_search',
-                params: {
-                    address: SearchUtils.addressToUrlParameter(place)
+            }
+        ];
+        if (business) {
+            var businessCrumbs = [
+                {
+                    label: 'Coiffeurs ' + business.address.city,
+                    route: 'business_search',
+                    params: {
+                        address: SearchUtils.addressToUrlParameter(place)
                 }
             },
             {
@@ -33,18 +36,33 @@ var BreadCrumb = React.createClass({
                     businessId: business.id,
                     businessSlug: business.slug
                 }
-            }
-        ];
-        if (!_.includes(businessRoutes, currentRoute.name)) {
-            crumbs.push({
+            }];
+            
+            var businessBookingCrumb = {
                 label: 'Réservation',
                 route: 'business_booking',
                 params: {
                     businessId: business.id,
                     businessSlug: business.slug
                 }
-            });
+            };
         }
+        var newsletterCrumb = {
+            label: 'Newsletter',
+            route: 'newsletter'
+        };
+        switch(currentRoute.name) {
+            case 'business' || 'business_reviews' || 'business_hairfies':
+                crumbs = crumbs.concat(businessCrumbs);
+                break;
+            case 'business_booking':
+                crumbs = crumbs.concat(businessCrumbs).concat(businessBookingCrumb);
+                break;
+            case 'newsletter':
+                crumbs = crumbs.concat(newsletterCrumb);
+                break;
+        }
+
         return (
             <div className="col-xs-12 visible-md visible-lg">
                 <ol className="breadcrumb">

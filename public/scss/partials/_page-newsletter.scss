@@ -4,7 +4,7 @@
 
 #content.newsletter {
     background-color: white;
-    margin-top: 10%;
+    margin-top: 5%;
     font-size: 1.2em;
     padding: 5% 5% 5% 10%;
     margin-bottom: 10%;
@@ -34,5 +34,8 @@
     em {
         font-size: 1.5em;
         color: $hairfie;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        margin-top: 10%;
     }
 }
