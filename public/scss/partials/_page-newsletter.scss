@@ -1,0 +1,41 @@
+/*//////////////////////////////////////////
+       P A G E    N E W S L E T T E R
+//////////////////////////////////////////*/
+
+#content.newsletter {
+    background-color: white;
+    margin-top: 5%;
+    font-size: 1.2em;
+    padding: 5% 5% 5% 10%;
+    margin-bottom: 10%;
+    h3 {
+        color: $hairfie;
+    }
+    p {
+        font-size: 1.9em;
+        font-family: $font-second;
+    }
+    ul { 
+        font-size: 1.5em;
+        font-family: $font-second;
+        li {
+            margin-left: 40px;
+            &:before {
+                content: " ";
+                width: 15px;
+                height: 25px;
+                background: url(../img/sign-checkbox.png) no-repeat center center;
+                background-size: contain;
+                position: absolute;
+                left: 35px;
+            }
+        }
+    }
+    em {
+        font-size: 1.5em;
+        color: $hairfie;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        margin-top: 10%;
+    }
+}

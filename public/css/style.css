@@ -11285,6 +11285,11 @@ section.how .row > div {
         font-size: 1.6em; }
         #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2):not(.pull-right) {
           line-height: 10px; } }
+    @media screen and (max-width: 374px) {
+      #content.search .main-content .tab-pane section div.address-bloc a {
+        font-size: 0.8em; }
+      #content.search .main-content .tab-pane section div.address-bloc a:nth-child(2) {
+        font-size: 1.2em; } }
     #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -12828,6 +12833,10 @@ section.how .row > div {
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
+    @media screen and (max-width: 350px) {
+      #content.reservation.bookingForm .btn-red, .bookingForm.review-confirmation .btn-red, #content.reservation.bookingForm .btn-book, .bookingForm.review-confirmation .btn-book {
+        width: 90%;
+        font-size: 1.5em; } }
 
 #content.reservation.confirmation .row input.registration, .confirmation.review-confirmation .row input.registration {
   width: 60%;
@@ -13367,6 +13376,40 @@ section.how .row > div {
 
 .review-confirmation .row button.registration {
   width: 100%; }
+
+/*//////////////////////////////////////////
+       P A G E    N E W S L E T T E R
+//////////////////////////////////////////*/
+#content.newsletter {
+  background-color: white;
+  margin-top: 5%;
+  font-size: 1.2em;
+  padding: 5% 5% 5% 10%;
+  margin-bottom: 10%; }
+  #content.newsletter h3 {
+    color: #fe5b5f; }
+  #content.newsletter p {
+    font-size: 1.9em;
+    font-family: "Lato", sans-serif; }
+  #content.newsletter ul {
+    font-size: 1.5em;
+    font-family: "Lato", sans-serif; }
+    #content.newsletter ul li {
+      margin-left: 40px; }
+      #content.newsletter ul li:before {
+        content: " ";
+        width: 15px;
+        height: 25px;
+        background: url(../img/sign-checkbox.png) no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        left: 35px; }
+  #content.newsletter em {
+    font-size: 1.5em;
+    color: #fe5b5f; }
+  @media screen and (max-width: 767px) {
+    #content.newsletter {
+      margin-top: 10%; } }
 
 .connect-form {
   padding-top: 1px;
