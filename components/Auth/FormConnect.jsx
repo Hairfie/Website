@@ -15,10 +15,12 @@ module.exports = React.createClass({
 	render: function() {
 		return (
         <form className="form">
+            <p>* Adresse mail :</p>
             <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
+            <p>* Mot de passe :</p>
             <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={formValidation.password}/>
-            <a role="button" onClick={this.resetPassword} className="green">Mot de passe oublié ?</a>
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+            <a role="button" onClick={this.resetPassword} className="forgot-password">Mot de passe oublié ?</a>
         </form>
 		);
 	},

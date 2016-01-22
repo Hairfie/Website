@@ -27,7 +27,7 @@
 			display: inline-block;
 			text-align: center;
 			p {
-				font-size: 1.3em;
+				font-size: 1.5em;
     			font-weight: bolder;
 				&.link-style {
 					text-decoration: underline;
@@ -40,24 +40,32 @@
 			}
 		}
 	}
+	div.connect-button {
+		.facebook { margin: 0px 25px;}
+	}
 	h2, h4 {
 		text-align: center;
-		font-size: 1.3em;
+		font-size: 1.5em;
 		color: $grey3;
 		font-weight: bolder;
 	}
 	h2 {
-		margin: 35px 0px 20px 0px;
+		margin: 15px 0px 20px 0px;
 	}
 	h4 {
-		margin: 3px 0px 30px 0px;
+		margin: 5px 0px 30px 0px;
 	}
-	a.green, p.red {
-		text-align: center;
-		width: 100%;
-		display: block;
-		font-size: 1.5em;
-		margin-bottom: 10px;
+	a.forgot-password, p.red {
+	    text-align: center;
+	    width: 100%;
+	    display: block;
+	    font-size: 1.5em;
+	    margin-bottom: 40px;
+	}
+	a.forgot-password {
+		color: black;
+		text-decoration: underline;
+		outline: none;
 	}
 	padding-top: 1px;
 	margin-top: 15px;
@@ -68,26 +76,23 @@
 	background-color: #FFFFFF;
 	a.full {
 		display: block;
-		width: 100%;
-		height: 65px;
-		text-transform: uppercase;
-		border-radius: 0;
-		margin: 0;
-		font-weight: $semiBold;letter-spacing: 2px;
-		line-height: 50px;
-		left: 0px;
-		position: absolute;
+	    height: 50px;
+	    text-transform: uppercase;
+	    border-radius: 0;
+	    font-weight: 600;
+	    letter-spacing: 2px;
+	    line-height: 40px;
+	    margin: 0px 25px 20px;
 	}
 	form.form {
 		div.form-group {
-			margin: 10px;
-			margin-left: 25px;
-			margin-right: 25px;
+			margin: 10px 25px 15px;
 			input.form-control {
-				background-color: #E6E6E6;
-  				height: 60px;
+				background-color: white;
+  				height: 50px;
   				padding-left: 30px;
   				padding-right: 30px;
+  				border-radius: 0;
 			}
 			div.infos {
 				a {
@@ -96,26 +101,35 @@
 				}
 			}
 			label.radio-inline {
-				width: 100%;
-  				line-height: 30px;
+  				margin-right: 10px;
   				height: 30px;
   				font-size: 1.4em;
   				color: $font-color;
 				input	{
-					height: 30px;
   					background-color: white;
   					border: 1px solid #eeeeee;
-  					line-height: 30px;
   					margin-bottom: 10px
 				}
 			}
 		}
-		.register-checkbox {
+		p {
+			margin-left: 25px;
+    		font-size: 1.5em;
+    		font-weight: bolder;
+		}
+		label.register-checkbox {
+			margin-left: 4px;
 			font-weight: 400;
 			padding-left: 40px;
 			padding-bottom: 15px;
 			font-size: 1.4em;
-			label {color: $font-color;}
+			color: $grey4;
+			span {
+				&:before {
+					border: 1px solid $grey4;
+					box-shadow: none;
+				}
+			}
 			a {color: darkblue;}
 		}
 		.uploadFile {

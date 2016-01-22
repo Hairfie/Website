@@ -475,9 +475,7 @@ p.inline-promo {
 
 input[type="checkbox"]:not(:checked),
 input[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px;
-  z-index: 9999;
+    display: none;
 }
 input[type="checkbox"] + span {
     position: relative;

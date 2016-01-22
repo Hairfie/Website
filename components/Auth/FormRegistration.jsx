@@ -19,30 +19,33 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<form className="form">
-        <Input className="radio">
-          <label className="radio-inline">
-            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
-            Homme
-          </label>
-          <label className="radio-inline" style={{marginLeft: '0px'}}>
-            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
-            Femme
+        <p style={{display: "inline-block"}}>* Vous êtes : </p>
+          <div className="form-group" style={{display: "inline-block", marginTop: 0}}>
+            <label className="radio-inline">
+              <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
+              Homme
             </label>
-          </Input>
-  				<Input type="text" ref="firstName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
-  				<Input type="text" ref="lastName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
-  				<Input type="email" ref="email" onChange={formValidation.email} onFocus={formValidation.email} onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email || ""} />
-  				<Input type="password" ref="password"  onChange={formValidation.password} onFocus={formValidation.password} onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
-  				<Input type="text" ref="phoneNumber" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} onKeyPress={this.handleKey} placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
-          <div className="form-group">
-            <ImageField ref="picture" container="users" text="(facultatif)"/>
+            <label className="radio-inline" style={{marginLeft: '0px'}}>
+              <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
+              Femme
+            </label>
           </div>
+          <p>* Prénom : </p>
+  				<Input type="text" ref="firstName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Prénom *" defaultValue={this.props.firstName || ""} />
+  				<p>* Nom : </p>
+          <Input type="text" ref="lastName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} placeholder="Nom *" defaultValue={this.props.lastName || ""}/>
+  				<p>* Adresse mail : </p>
+          <Input type="email" ref="email" onChange={formValidation.email} onFocus={formValidation.email} onKeyPress={this.handleKey} placeholder="Adresse Email *" defaultValue={this.props.email || ""} />
+  				<p>* Mot de passe : </p>
+          <Input type="password" ref="password"  onChange={formValidation.password} onFocus={formValidation.password} onKeyPress={this.handleKey} placeholder="Mot de Passe *" />
+  				<p>Téléphone : </p>
+          <Input type="text" ref="phoneNumber" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} onKeyPress={this.handleKey} placeholder="Numéro de portable (Facultatif)" defaultValue={this.props.phoneNumber || ""} />
   				<label className="register-checkbox">
             <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged} />
             <span></span>
             Je souhaite recevoir les Newsletters.
           </label>
-  			<a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+  			<a role="button" onClick={this.submit} className="btn btn-red full">M'INSCRIRE</a>
 		</form>
 		);
 	},
@@ -73,8 +76,7 @@ module.exports = React.createClass({
 			gender: this.state.userGender,
 			newsletter: this.state.newsletter,
 			phoneNumber: this.refs.phoneNumber.getValue(),
-			withNavigate: this.props.withNavigate,
-      picture: this.refs.picture.getImage()
+			withNavigate: this.props.withNavigate
 		};
 		this.context.executeAction(AuthActions.register, userInfo);
 	}

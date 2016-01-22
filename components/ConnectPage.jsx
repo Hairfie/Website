@@ -26,7 +26,7 @@ var ConnectPage = React.createClass({
                             <p className="link-style">Inscrivez-vous</p>
                         </Link>
                     </div>
-                    <h2>Connexion</h2>
+                    <h2>Connexion via Facebook</h2>
                     <FacebookButton withNavigate={true} />
                     <h4>ou par mail</h4>
                     <FormConnect withNavigate={true} />
