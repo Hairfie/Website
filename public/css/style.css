@@ -13353,6 +13353,37 @@ section.how .row > div {
 .review-confirmation .row button.registration {
   width: 100%; }
 
+/*//////////////////////////////////////////
+       P A G E    N E W S L E T T E R
+//////////////////////////////////////////*/
+#content.newsletter {
+  background-color: white;
+  margin-top: 10%;
+  font-size: 1.2em;
+  padding: 5% 5% 5% 10%;
+  margin-bottom: 10%; }
+  #content.newsletter h3 {
+    color: #fe5b5f; }
+  #content.newsletter p {
+    font-size: 1.9em;
+    font-family: "Lato", sans-serif; }
+  #content.newsletter ul {
+    font-size: 1.5em;
+    font-family: "Lato", sans-serif; }
+    #content.newsletter ul li {
+      margin-left: 40px; }
+      #content.newsletter ul li:before {
+        content: " ";
+        width: 15px;
+        height: 25px;
+        background: url(../img/sign-checkbox.png) no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        left: 35px; }
+  #content.newsletter em {
+    font-size: 1.5em;
+    color: #fe5b5f; }
+
 .connect-form {
   padding-top: 1px;
   margin-top: 15px;
