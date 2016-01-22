@@ -8806,42 +8806,26 @@ span.arrow-right {
       margin-top: 20px; } }
 
 div.connect-button div span {
-  display: block;
-  text-align: center;
+  display: inline-block;
   color: white;
-  font-size: 1.8em;
-  padding-top: 14px;
-  padding-left: 60px; }
+  font-size: 1.8em; }
+  div.connect-button div span:not(.socicon) {
+    padding-top: 14px; }
+  div.connect-button div span.socicon {
+    font-size: 2.5em;
+    position: absolute;
+    left: 25px;
+    top: 12px; }
 
 div.connect-button .facebook {
+  position: relative;
+  text-align: center;
   cursor: pointer;
   border-radius: 5px;
   overflow: hidden;
   height: 60px;
   margin: 10px;
-  background-color: #6686D0; }
-  div.connect-button .facebook:before {
-    content: " ";
-    background: url(../img/facebook@2x.png) no-repeat center center;
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    margin-left: 5px; }
-
-div.connect-button .twitter {
-  cursor: pointer;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 60px;
-  margin: 10px;
-  background-color: #14C4F8; }
-  div.connect-button .twitter:before {
-    content: " ";
-    background: url(../img/twitter@2x.png) no-repeat center center;
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    margin-left: 5px; }
+  background-color: #6980B0; }
 
 .btn-frame, .btn-frame-blue, .btn-frame-red, .btn-frame-yellow, .btn-frame-green, .btn-frame-orange, .btn-frame-darkgrey {
   border-color: #c4c4c4;
