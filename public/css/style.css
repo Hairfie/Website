@@ -8809,12 +8809,15 @@ div.connect-button div span {
   display: inline-block;
   color: white;
   font-size: 1.8em; }
+  @media screen and (max-width: 767px) {
+    div.connect-button div span {
+      font-size: 1.6em; } }
   div.connect-button div span:not(.socicon) {
     padding-top: 10px; }
   div.connect-button div span.socicon {
     font-size: 2.5em;
     position: absolute;
-    left: 25px;
+    left: 5%;
     top: 7px; }
 
 div.connect-button .facebook {
@@ -8826,6 +8829,18 @@ div.connect-button .facebook {
   height: 50px;
   margin: 10px;
   background-color: #6980B0; }
+  @media screen and (max-width: 767px) {
+    div.connect-button .facebook:before {
+      left: 0;
+      content: ' ';
+      position: absolute;
+      background-color: #43609c;
+      top: 0;
+      width: 17%;
+      height: 100%; } }
+  @media screen and (max-width: 767px) {
+    div.connect-button .facebook {
+      padding-left: 17%; } }
 
 .btn-frame, .btn-frame-blue, .btn-frame-red, .btn-frame-yellow, .btn-frame-green, .btn-frame-orange, .btn-frame-darkgrey {
   border-color: #c4c4c4;
@@ -13341,36 +13356,40 @@ section.how .row > div {
   margin-top: 15px;
   margin-bottom: 75px;
   background-color: #FFFFFF; }
-  .connect-form div.nav {
-    margin: 0px -15px; }
-    .connect-form div.nav a {
-      border-bottom: 1px solid #dfdfdf;
-      padding: 20px 0px;
-      display: inline-block;
-      text-align: center;
-      color: #a9aeb1; }
-      .connect-form div.nav a:first-child {
-        border-right: 1px solid #dfdfdf; }
-      .connect-form div.nav a.active p.link-style {
-        color: #fe5b5f; }
-      .connect-form div.nav a.active:after {
-        content: " ";
-        height: 5px;
-        width: 100%;
-        background-color: #fc5a5f;
-        position: absolute;
-        top: -5px;
-        left: 0;
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px; }
-      .connect-form div.nav a p {
-        font-size: 1.5em;
-        font-weight: bolder; }
-        .connect-form div.nav a p.link-style {
-          text-decoration: underline; }
-      .connect-form div.nav a:focus, .connect-form div.nav a:hover {
-        color: #a9aeb1;
-        text-decoration: none; }
+  @media screen and (max-width: 767px) {
+    .connect-form {
+      padding: 0; } }
+  @media screen and (min-width: 991px) {
+    .connect-form div.nav {
+      margin: 0px -15px; } }
+  .connect-form div.nav a {
+    border-bottom: 1px solid #dfdfdf;
+    padding: 20px 0px;
+    display: inline-block;
+    text-align: center;
+    color: #a9aeb1; }
+    .connect-form div.nav a:first-child {
+      border-right: 1px solid #dfdfdf; }
+    .connect-form div.nav a.active p.link-style {
+      color: #fe5b5f; }
+    .connect-form div.nav a.active:after {
+      content: " ";
+      height: 5px;
+      width: 100%;
+      background-color: #fc5a5f;
+      position: absolute;
+      top: -5px;
+      left: 0;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px; }
+    .connect-form div.nav a p {
+      font-size: 1.5em;
+      font-weight: bolder; }
+      .connect-form div.nav a p.link-style {
+        text-decoration: underline; }
+    .connect-form div.nav a:focus, .connect-form div.nav a:hover {
+      color: #a9aeb1;
+      text-decoration: none; }
   .connect-form div.connect-button .facebook {
     margin: 0px 25px; }
   .connect-form h2, .connect-form h4 {
@@ -13392,11 +13411,18 @@ section.how .row > div {
     color: black;
     text-decoration: underline;
     outline: none; }
+    @media screen and (max-width: 767px) {
+      .connect-form a.forgot-password {
+        color: #9a9a9a;
+        text-decoration: none; }
+        .connect-form a.forgot-password:hover {
+          text-decoration: underline; } }
   @media screen and (max-width: 767px) {
     .connect-form {
       margin-top: 115px; } }
   .connect-form a.full {
     display: block;
+    clear: left;
     height: 50px;
     text-transform: uppercase;
     border-radius: 0;
@@ -13404,30 +13430,37 @@ section.how .row > div {
     letter-spacing: 2px;
     line-height: 40px;
     margin: 0px 25px 20px; }
-  .connect-form form.form div.form-group {
-    margin: 10px 25px 15px; }
-    .connect-form form.form div.form-group input.form-control {
+    @media screen and (max-width: 767px) {
+      .connect-form a.full {
+        margin-top: 20px;
+        border-radius: 4px; } }
+  @media screen and (min-width: 768px) {
+    .connect-form form.form div.form-group {
+      margin: 10px 25px 15px; } }
+  .connect-form form.form div.form-group input.form-control {
+    background-color: white;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 0; }
+  .connect-form form.form div.form-group div.infos a {
+    font-size: 1.2em;
+    font-weight: 400; }
+  .connect-form form.form div.form-group label.radio-inline {
+    margin-right: 10px;
+    height: 30px;
+    font-size: 1.4em;
+    color: #595959; }
+    .connect-form form.form div.form-group label.radio-inline input {
       background-color: white;
-      height: 50px;
-      padding-left: 30px;
-      padding-right: 30px;
-      border-radius: 0; }
-    .connect-form form.form div.form-group div.infos a {
-      font-size: 1.2em;
-      font-weight: 400; }
-    .connect-form form.form div.form-group label.radio-inline {
-      margin-right: 10px;
-      height: 30px;
-      font-size: 1.4em;
-      color: #595959; }
-      .connect-form form.form div.form-group label.radio-inline input {
-        background-color: white;
-        border: 1px solid #eeeeee;
-        margin-bottom: 10px; }
+      border: 1px solid #eeeeee;
+      margin-bottom: 10px; }
   .connect-form form.form p {
-    margin-left: 25px;
     font-size: 1.5em;
     font-weight: bolder; }
+    @media screen and (min-width: 768px) {
+      .connect-form form.form p {
+        margin-left: 25px; } }
   .connect-form form.form label.register-checkbox {
     margin-left: 4px;
     font-weight: 400;
@@ -13443,6 +13476,39 @@ section.how .row > div {
   .connect-form form.form .uploadFile {
     display: block;
     font-size: 1.4em; }
+  .connect-form form.form div.mobile-input {
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #e6e6e6; }
+    .connect-form form.form div.mobile-input:first-child {
+      border-top: 1px solid #e6e6e6; }
+    .connect-form form.form div.mobile-input p {
+      padding-left: 10px; }
+    .connect-form form.form div.mobile-input p, .connect-form form.form div.mobile-input div {
+      line-height: 45px;
+      color: #848b95;
+      font-size: 1.6em;
+      display: inline-block;
+      width: 50%;
+      float: left;
+      margin: 0;
+      height: 100%; }
+      .connect-form form.form div.mobile-input p.form-group, .connect-form form.form div.mobile-input div.form-group {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%; }
+    .connect-form form.form div.mobile-input input, .connect-form form.form div.mobile-input select {
+      outline: none;
+      width: 100%;
+      border: none !important;
+      height: 100%;
+      padding-left: 50%;
+      background: transparent;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -o-appearance: none; }
 
 .howitworks section:nth-child(odd) {
   background-color: #f0f0f1;

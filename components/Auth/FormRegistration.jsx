@@ -16,9 +16,17 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {newsletter: true, userGender: this.props.gender || ""};
   },
-	render: function() {
+  render: function() {
+      return (
+          <div>
+              {this.renderMobile()}
+              {this.renderDesktop()}
+          </div>
+      );
+  },
+	renderDesktop: function() {
 		return (
-			<form className="form">
+			<form className="form hidden-xs">
         <p style={{display: "inline-block"}}>* Vous êtes : </p>
           <div className="form-group" style={{display: "inline-block", marginTop: 0}}>
             <label className="radio-inline">
@@ -49,7 +57,60 @@ module.exports = React.createClass({
 		</form>
 		);
 	},
+  renderMobile: function () {
+    return (
+      <form className="form visible-xs">
+        <div className="mobile-input">
+          <p>Civilité*</p>
+          <div className="form-group">
+            <select ref="gender" defaultValue={this.state.userGender} placeholder="Catégories" className="col-sm-3" onChange={this.handleGenderChanged}>
+                <option value="" disable></option>
+                <option value={UserConstants.Genders.FEMALE}>Femme</option>
+                <option value={UserConstants.Genders.MALE}>Homme</option>
+            </select>
+          </div>
+        </div>
+        <div className="mobile-input">
+          <p>Prénom*</p>
+          <div className="form-group">
+            <input type="text" ref="firstName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} defaultValue={this.props.firstName || ""} />
+          </div>
+        </div>
+        <div className="mobile-input">
+          <p>Nom*</p>
+          <div className="form-group">
+            <input type="text" ref="lastName" onChange={formValidation.required} onFocus={formValidation.required} onKeyPress={this.handleKey} defaultValue={this.props.lastName || ""}/>
+          </div>
+        </div>
+        <div className="mobile-input">
+          <p>Adresse mail*</p>
+          <div className="form-group">
+            <input type="email" ref="email" onChange={formValidation.email} onFocus={formValidation.email} onKeyPress={this.handleKey} defaultValue={this.props.email || ""} />
+          </div>
+        </div>
+        <div className="mobile-input">
+          <p>Mot de passe*</p>
+          <div className="form-group">
+            <input type="password" ref="password"  onChange={formValidation.password} onFocus={formValidation.password} onKeyPress={this.handleKey} />
+          </div>
+        </div>
+        <div className="mobile-input">
+          <p>Téléphone</p>
+          <div className="form-group">
+            <input type="text" ref="phoneNumber" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} onKeyPress={this.handleKey} defaultValue={this.props.phoneNumber || ""} />
+          </div>
+        </div>
+        <label className="register-checkbox">
+          <input type="checkbox" name='newsletter' checked={this.state.newsletter === true} onChange={this.handleNewsletterChanged} />
+          <span></span>
+          Je souhaite recevoir les Newsletters.
+        </label>
+      <a role="button" onClick={this.submit} className="btn btn-red full">M'INSCRIRE</a>
+    </form>
+    );
+  },
 	handleGenderChanged: function (e) {
+    console.log(e.currentTarget.value);
     this.setState({
       userGender: e.currentTarget.value
     });

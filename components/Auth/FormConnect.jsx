@@ -12,9 +12,17 @@ module.exports = React.createClass({
 	contextTypes: {
         executeAction: React.PropTypes.func
     },
-	render: function() {
+    render: function() {
+        return (
+            <div>
+                {this.renderMobile()}
+                {this.renderDesktop()}
+            </div>
+        );
+    },
+	renderDesktop: function() {
 		return (
-        <form className="form">
+        <form className="form hidden-xs">
             <p>* Adresse mail :</p>
             <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
             <p>* Mot de passe :</p>
@@ -24,6 +32,26 @@ module.exports = React.createClass({
         </form>
 		);
 	},
+    renderMobile: function() {
+        return (
+        <form className="form visible-xs">
+            <div className="mobile-input">
+                <p>* Adresse mail :</p>
+                <div className="form-group">
+                    <input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
+                </div>
+            </div>
+            <div className="mobile-input">
+                <p>* Mot de passe :</p>
+                <div className="form-group">
+                    <input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={formValidation.password}/>
+                </div>
+            </div>
+            <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
+            <a role="button" onClick={this.resetPassword} className="forgot-password">Mot de passe oublié ?</a>
+        </form>
+        );
+    },
     handleKey: function(e) {
         if(event.keyCode == 13) {
             e.preventDefault();

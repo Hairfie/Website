@@ -99,17 +99,30 @@ div.connect-button {
         display: inline-block;
         color: white;
         font-size: 1.8em;
+        @media screen and (max-width: $screen-xs-max) {font-size: 1.6em;}
         &:not(.socicon) {
             padding-top: 10px;
         }
         &.socicon {
             font-size: 2.5em;
             position: absolute;
-            left: 25px;
+            left: 5%;
             top: 7px;
         }
     }
     .facebook {
+        &:before {
+            @media screen and (max-width: $screen-xs-max) {
+                left: 0;
+                content: ' ';
+                position: absolute;
+                background-color: #43609c;
+                top: 0;
+                width: 17%;
+                height: 100%;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {padding-left: 17%;}
         position: relative;
         text-align: center;
         cursor: pointer;

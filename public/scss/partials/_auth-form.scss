@@ -1,7 +1,12 @@
 .connect-form {
 	border: 1px solid $grey2;
+	@media screen and (max-width: $screen-xs-max) {
+		padding: 0;
+	}
 	div.nav {
-		margin: 0px -15px;
+		@media screen and (min-width: $screen-sm-max) {
+			margin: 0px -15px;
+		}
 		a {
 			border-bottom: 1px solid $grey2;
 			&:first-child {
@@ -66,6 +71,13 @@
 		color: black;
 		text-decoration: underline;
 		outline: none;
+		@media screen and (max-width: $screen-xs-max) {
+			color: $grey7;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 	padding-top: 1px;
 	margin-top: 15px;
@@ -76,6 +88,7 @@
 	background-color: #FFFFFF;
 	a.full {
 		display: block;
+		clear: left;
 	    height: 50px;
 	    text-transform: uppercase;
 	    border-radius: 0;
@@ -83,10 +96,16 @@
 	    letter-spacing: 2px;
 	    line-height: 40px;
 	    margin: 0px 25px 20px;
+		@media screen and (max-width: $screen-xs-max) {
+			margin-top: 20px;
+			border-radius: 4px;
+		}
 	}
 	form.form {
 		div.form-group {
-			margin: 10px 25px 15px;
+			@media screen and (min-width: $screen-sm-min) {
+				margin: 10px 25px 15px;
+			}
 			input.form-control {
 				background-color: white;
   				height: 50px;
@@ -113,7 +132,9 @@
 			}
 		}
 		p {
-			margin-left: 25px;
+			@media screen and (min-width: $screen-sm-min) {
+				margin-left: 25px;
+			}
     		font-size: 1.5em;
     		font-weight: bolder;
 		}
@@ -135,6 +156,42 @@
 		.uploadFile {
 			display: block;
 			font-size: 1.4em;
+		}
+		div.mobile-input {
+			position: relative;
+			height: 50px;
+			&:first-child {
+				border-top: 1px solid $grey5;
+			}
+			border-bottom: 1px solid $grey5;
+			p {
+				padding-left: 10px;
+			}
+			p, div {
+				line-height: 45px;  
+				color: $grey6;
+				font-size: 1.6em;
+				display: inline-block;
+				width: 50%;
+				float: left;
+				margin: 0;
+				height: 100%;
+				&.form-group {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+				}
+			}
+			input, select {
+				outline: none;
+				width: 100%;
+				border: none !important;
+				height: 100%;
+				padding-left: 50%;
+				background: transparent;
+				@include appearance(none);
+			}
 		}
 	}
 }
