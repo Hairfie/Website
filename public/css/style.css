@@ -10955,6 +10955,14 @@ section.home-section {
     margin-top: 50px;
     text-align: center; }
 
+#home section.download .container {
+  display: table-cell;
+  height: 400px;
+  vertical-align: middle;
+  padding-left: 134.5px; }
+  #home section.download .container h2 {
+    padding-top: 0; }
+
 #home section.seo a {
   font-size: 1.6em;
   font-family: "Lato", sans-serif;
