@@ -434,6 +434,14 @@
                 width: 220px;
                 @media screen and (max-width: $screen-xs-max) {
                     width: 110px;
+                    position: relative;
+                    .icon-promo {
+                        position: absolute;
+                        top: 5px;
+                        left: 5px;
+                        font-style: normal;
+                        font-size: 1.2em;
+                    }
                 }
                 overflow: hidden;
                 img {
