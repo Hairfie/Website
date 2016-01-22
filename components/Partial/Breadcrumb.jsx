@@ -12,7 +12,6 @@ var BreadCrumb = React.createClass({
         var business = this.props.business;
         var place  = business ? business.address.city + ', France' : null;
         var currentRoute = this.props.currentRoute;
-        var businessRoutes = ['business', 'business_reviews', 'business_hairfies'];
         crumbs = [
             {
                 label: 'Accueil',
@@ -27,16 +26,17 @@ var BreadCrumb = React.createClass({
                     route: 'business_search',
                     params: {
                         address: SearchUtils.addressToUrlParameter(place)
+                    }
+                },
+                {
+                    label: business.name,
+                    route: 'business',
+                    params: {
+                        businessId: business.id,
+                        businessSlug: business.slug
+                    }
                 }
-            },
-            {
-                label: business.name,
-                route: 'business',
-                params: {
-                    businessId: business.id,
-                    businessSlug: business.slug
-                }
-            }];
+            ];
             
             var businessBookingCrumb = {
                 label: 'Réservation',
@@ -47,10 +47,23 @@ var BreadCrumb = React.createClass({
                 }
             };
         }
+
         var newsletterCrumb = {
             label: 'Newsletter',
             route: 'newsletter'
         };
+        var hairfieCrumb = [
+            {
+                label: 'Tous les Hairfies',
+                route: 'hairfie_search',
+                params: {
+                    address: 'France'
+                }
+            },
+            {
+                label: 'Hairfie'
+            }
+        ];
         switch(currentRoute.name) {
             case 'business' || 'business_reviews' || 'business_hairfies':
                 crumbs = crumbs.concat(businessCrumbs);
@@ -60,6 +73,9 @@ var BreadCrumb = React.createClass({
                 break;
             case 'newsletter':
                 crumbs = crumbs.concat(newsletterCrumb);
+                break;
+            case 'hairfie':
+                crumbs = crumbs.concat(hairfieCrumb);
                 break;
         }
 

@@ -341,6 +341,14 @@
                         }
                     }
                 }
+                @media screen and (max-width: 374px) {
+                    a {
+                        font-size: 0.8em;
+                    }
+                    a:nth-child(2) {
+                        font-size: 1.2em;
+                    }
+                }
             }
 
             .btn-red, .btn-book {

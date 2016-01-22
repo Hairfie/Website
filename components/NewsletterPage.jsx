@@ -10,7 +10,6 @@ var NewsletterPage = React.createClass({
         return (
             <PublicLayout>
                 <Breadcrumb business={this.props.business} />
-                
                 <div className="container newsletter" id="content">
                     <div className="row">
                         <div className="col-xs-12">
