@@ -82,14 +82,14 @@ var Business = React.createClass({
                             picture={_.first(business.pictures)}
                             className="hidden-xs"
                             options={{ width: 220, height: 220, crop: 'thumb' }}
-                            placeholder="/img/placeholder-640.png"
+                            placeholder="/img/placeholder-220.png"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
                          <Picture
                             picture={_.first(business.pictures)}
                             className="visible-xs"
                             options={{ width: 100, height: 124, crop: 'thumb' }}
-                            placeholder="/img/placeholder-90.png"
+                            placeholder="/img/placeholder-124.png"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
                      </Link>
