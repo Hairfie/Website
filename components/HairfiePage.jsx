@@ -9,6 +9,7 @@ var HairfieSingle = require('./HairfiePage/HairfieSingle.jsx');
 var SimilarHairfies = require('./HairfiePage/SimilarHairfies.jsx');
 var Newsletter = require('./Partial/Newsletter.jsx');
 var Breadcrumb = require('./Partial/Breadcrumb.jsx');
+var PopUpHairfie = require('./Partial/PopUpHairfie.jsx');
 
 var HairfiePage = React.createClass({
     contextTypes: {
@@ -46,11 +47,8 @@ var HairfiePage = React.createClass({
             </PublicLayout>
         );
     },
-    likeHairfie: function() {
-        if (!this.props.hairfieLiked)
-            this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
-        else
-            this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
+    openPopup: function () {
+        
     }
 });
 

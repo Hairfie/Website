@@ -19,7 +19,6 @@ var BusinessHairfiesPage = React.createClass({
         };
     },
     render: function () {
-        console.log(this);
         if ((this.props.hairfies || []).length == 0) {
             return (
                 <Layout business={this.props.business} tab="hairfies">

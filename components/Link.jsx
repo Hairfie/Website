@@ -17,7 +17,24 @@ var Link = React.createClass({
         this.setState({ href: this._getHrefFromProps(nextProps) });
     },
     render: function () {
-        return <NavLink href={this.state.href} {...this.props}>{this.props.children}</NavLink>;
+        if (this.props.noNav) {
+            return <a role="button" {...this.props} onClick={this.changePath}>{this.props.children}</a>
+        }
+        else {
+            return <NavLink href={this.state.href} {...this.props}>{this.props.children}</NavLink>;
+        }
+    },
+    changePath: function (e) {
+        if (this.props.noNav.preNav) {
+            window.history.pushState("", "", this.state.href);
+        }
+        else if (this.props.noNav.changePreNav) {
+            window.history.back();
+            window.history.pushState("", "", this.state.href);
+        }
+        else {
+            window.history.back();
+        }
     },
     _getHrefFromProps: function (props) {
         var href = props.href || this.context.getStore('RouteStore').makeUrl(props.route, props.params, props.query);
