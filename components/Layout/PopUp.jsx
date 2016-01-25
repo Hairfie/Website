@@ -21,12 +21,12 @@ var PopUp = React.createClass({
             <div className="PopUp">
                 <div className="link-list">
                     <p className="title">NOS SPÉCIALISTES</p>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'coloration'}}>Coloration à Paris</Link>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'balayage-tie-and-dye'}}>Balayage à Paris</Link>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'lissage'}}>Lissage à Paris</Link>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'ethnique'}}>Afro à Paris</Link>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'mariage'}}>Coiffure de Mariage</Link>
-                    <Link route="business_search" params={{address: 'France'}} query={{categories: 'homme'}}>Barbiers à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'coloration'}}>Coloration à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'balayage-tie-and-dye'}}>Balayage à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'lissage'}}>Lissage à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'ethnique'}}>Afro à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'mariage'}}>Coiffure de Mariage</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'barbier'}}>Barbiers à Paris</Link>
                     <Link className="color-hairfie" route="business_search" params={{address: 'France'}}>Voir tous nos coiffeurs</Link>
                 </div>
                 <Link route="business_search" params={{address: 'France'}} query={{categories: 'coloration'}} className="picture" style={{marginRight: '10px'}}>
