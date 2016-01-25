@@ -13340,6 +13340,10 @@ section.how .row > div {
 .email-modal p {
   font-size: 18px; }
 
+.email-modal .btn-close {
+  margin-top: 30px;
+  margin-bottom: -20px; }
+
 .container.write-review {
   margin-top: 25px;
   font-size: 1.3em; }
