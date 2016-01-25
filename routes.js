@@ -177,5 +177,11 @@ module.exports = {
         path: '/fr/gagne-un-relooking-pour-2',
         method: 'get',
         handler: require('./components/ContestPage.jsx')
+    },
+    newsletter: {
+        title: 'Newsletter',
+        path: '/fr/newsletter',
+        method: 'get',
+        handler: require('./components/NewsletterPage.jsx')
     }
 };

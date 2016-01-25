@@ -368,6 +368,10 @@
 		font-weight: $semiBold;
 		color: white;
 		@include box-shadow(0 1px 5px rgba(0,0,0,0.2));
+		@media screen and (max-width: 350px) {
+			width: 90%;
+			font-size: 1.5em;
+		}
 	}
 }
 

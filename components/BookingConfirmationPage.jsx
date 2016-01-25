@@ -130,7 +130,7 @@ var BookingConfirmationPage = React.createClass({
                     <a href={"tel:" + business.phoneNumber}>{business.phoneNumber}</a>
                 </div>
                 <Link route="business" className="btn btn-red businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
-                <Link route="business_hairfies" className="btn btn-red pull-right businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>Ses Hairfies</Link>
+                <Link route="business_hairfies" className="btn btn-red pull-right businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>Hairfies</Link>
             </div>
         );
     },

@@ -67,6 +67,15 @@ var Business = React.createClass({
     render: function () {
         var booking_button = null;
         var business = this.props.business;
+        var promo_icon = null;
+        /**
+        * best discount over picture for mobile
+        */
+        if (business.bestDiscount) {
+            promo_icon = (
+                    <i className="visible-xs icon-promo">{business.bestDiscount + ' %'}</i>
+                );
+        }
         if (business.isBookable)
             booking_button = (
                 <Link className="btn btn-book col-sm-12 full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
@@ -77,7 +86,6 @@ var Business = React.createClass({
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
-                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture
                             picture={_.first(business.pictures)}
                             className="hidden-xs"
@@ -92,7 +100,7 @@ var Business = React.createClass({
                             placeholder="/img/placeholder-124.png"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
-                     </Link>
+                        {promo_icon}
                 </div>
                 <div className="info-bloc">
                     <div className="address-bloc">
