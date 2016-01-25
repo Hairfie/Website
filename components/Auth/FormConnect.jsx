@@ -12,6 +12,11 @@ module.exports = React.createClass({
 	contextTypes: {
         executeAction: React.PropTypes.func
     },
+    getInitialState: function() {
+        return {
+          email: this.props.email
+        };
+    },
     render: function() {
         return (
             <div>
@@ -24,9 +29,9 @@ module.exports = React.createClass({
 		return (
         <form className="form hidden-xs">
             <p>* Adresse mail :</p>
-            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
+            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={this.handleEmailChange} value={this.state.email} />
             <p>* Mot de passe :</p>
-            <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={formValidation.password}/>
+            <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={this.handlePasswordChange} value={this.state.password} />
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
             <a role="button" onClick={this.resetPassword} className="forgot-password">Mot de passe oublié ?</a>
         </form>
@@ -38,13 +43,13 @@ module.exports = React.createClass({
             <div className="mobile-input">
                 <p>* Adresse mail :</p>
                 <div className="form-group">
-                    <input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={formValidation.email} />
+                    <input type="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={this.handleEmailChange} value={this.state.email} />
                 </div>
             </div>
             <div className="mobile-input">
                 <p>* Mot de passe :</p>
                 <div className="form-group">
-                    <input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={formValidation.password}/>
+                    <input type="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={this.handlePasswordChange} value={this.state.password} />
                 </div>
             </div>
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
@@ -58,6 +63,18 @@ module.exports = React.createClass({
             this.submit();
         }
     },
+    handleEmailChange: function (e) {
+        formValidation.email(e);
+        this.setState({
+            email: e.currentTarget.value
+        });
+    },
+    handlePasswordChange: function (e) {
+        formValidation.password(e);
+        this.setState({
+            password: e.currentTarget.value
+        });
+    },
     resetPassword: function(e) {
         e.preventDefault();
         return this.context.executeAction(NavigationActions.navigate, {
@@ -66,11 +83,9 @@ module.exports = React.createClass({
         });
     },
 	submit: function() {
-        var email = this.refs.email.getValue();
-        var password = this.refs.password.getValue();
         this.context.executeAction(AuthActions.emailConnect, {
-            email: email,
-            password: password,
+            email: this.state.email,
+            password: this.state.password,
             withNavigate: this.props.withNavigate
         });
 	}
