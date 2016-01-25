@@ -13383,6 +13383,7 @@ section.how .row > div {
       border-top-left-radius: 2px;
       border-top-right-radius: 2px; }
     .connect-form div.nav a p {
+      margin-bottom: 3px;
       font-size: 1.5em;
       font-weight: bolder; }
       .connect-form div.nav a p.link-style {
@@ -13400,7 +13401,7 @@ section.how .row > div {
   .connect-form h2 {
     margin: 15px 0px 20px 0px; }
   .connect-form h4 {
-    margin: 5px 0px 30px 0px; }
+    margin: 18px 0px; }
   .connect-form a.forgot-password, .connect-form p.red {
     text-align: center;
     width: 100%;

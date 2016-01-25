@@ -32,6 +32,7 @@
 			display: inline-block;
 			text-align: center;
 			p {
+				margin-bottom: 3px;
 				font-size: 1.5em;
     			font-weight: bolder;
 				&.link-style {
@@ -58,7 +59,7 @@
 		margin: 15px 0px 20px 0px;
 	}
 	h4 {
-		margin: 5px 0px 30px 0px;
+		margin: 18px 0px;
 	}
 	a.forgot-password, p.red {
 	    text-align: center;
