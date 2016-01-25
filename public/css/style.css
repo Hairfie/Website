@@ -9818,7 +9818,8 @@ div.pagination {
       text-decoration: none; }
 
 .breadcrumb {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  padding-left: 0; }
   .breadcrumb a {
     color: #595959; }
 

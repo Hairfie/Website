@@ -16,7 +16,7 @@ var NewsletterPage = React.createClass({
                         <div className="row">
                             <div className="col-xs-12">
                                 {this.displayThankYouMessage()}
-                                <h3>Retrouvez le meilleur de la coiffure dans votre boite mail !​<br/><small>Envie d'être au top côté coiffure ?</small></h3>
+                                <h3>Retrouvez le meilleur de la coiffure dans votre boite mail&nbsp;!​<br/><small>Envie d'être au top côté coiffure ?</small></h3>
                                 <p>
                                     Chaque semaine, Hairfie vous réserve :
                                 </p>
