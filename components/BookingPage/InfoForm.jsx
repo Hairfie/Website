@@ -124,7 +124,7 @@ module.exports = React.createClass({
                     <label style={{paddingLeft: '15px'}}>
                         <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
                         <span></span>
-                        Je reconnais avoir prix connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
+                        Je reconnais avoir pris connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>

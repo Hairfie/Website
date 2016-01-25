@@ -29,7 +29,7 @@ module.exports = {
     submitSearch: function (context, search) {
         var search = search;
         if (!search.address) {
-            search = _.assign({}, search, { address: 'Paris, France' });
+            search = _.assign({}, search, { address: 'France' });
         }
 
         var params = SearchUtils.searchToRouteParams(search);

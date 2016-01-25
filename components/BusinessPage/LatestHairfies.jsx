@@ -33,7 +33,7 @@ var LatestHairfies = React.createClass({
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
                         return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                     })}
-                    <Link route="hairfie_search" params={{ address: 'Paris--France'}} 
+                    <Link route="hairfie_search" params={{ address: 'France'}} 
                     className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
                 </div>
             </section>
