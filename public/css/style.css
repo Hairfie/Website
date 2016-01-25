@@ -13395,21 +13395,37 @@ section.how .row > div {
     font-size: 1.5em;
     font-family: "Lato", sans-serif; }
     #content.newsletter ul li {
-      margin-left: 40px; }
-      #content.newsletter ul li:before {
-        content: " ";
-        width: 15px;
-        height: 25px;
-        background: url(../img/sign-checkbox.png) no-repeat center center;
-        background-size: contain;
-        position: absolute;
-        left: 35px; }
-  #content.newsletter em {
+      margin-left: 40px;
+      /*&:before {
+                content: " ";
+                width: 15px;
+                height: 25px;
+                background: url(../img/sign-checkbox.png) no-repeat center center;
+                background-size: contain;
+                position: absolute;
+                left: 35px;
+            }*/ }
+      #content.newsletter ul li .glyphicon {
+        font-size: 0.7em;
+        color: #fe5b5f; }
+  #content.newsletter .spam-note {
     font-size: 1.5em;
     color: #fe5b5f; }
   @media screen and (max-width: 767px) {
     #content.newsletter {
       margin-top: 10%; } }
+  #content.newsletter .success {
+    border: 1px solid #20af69;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 1.6em;
+    color: #20af69;
+    display: inline;
+    margin-left: 15px; }
+  #content.newsletter .btn-red {
+    text-transform: uppercase;
+    border-radius: 0;
+    font-size: 1em; }
 
 .connect-form {
   padding-top: 1px;

@@ -20,7 +20,7 @@
         font-family: $font-second;
         li {
             margin-left: 40px;
-            &:before {
+            /*&:before {
                 content: " ";
                 width: 15px;
                 height: 25px;
@@ -28,14 +28,32 @@
                 background-size: contain;
                 position: absolute;
                 left: 35px;
+            }*/
+            .glyphicon {
+                font-size: 0.7em;
+                color: $hairfie;
             }
         }
     }
-    em {
+    .spam-note {
         font-size: 1.5em;
         color: $hairfie;
     }
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 10%;
+    }
+    .success {
+        border: 1px solid $green;
+        border-radius: 2px;
+        padding: 10px;
+        font-size: 1.6em;
+        color: $green;
+        display: inline;
+        margin-left: 15px;
+    }
+    .btn-red {
+        text-transform: uppercase;
+        border-radius: 0;
+        font-size: 1em;
     }
 }
