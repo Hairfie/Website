@@ -14,14 +14,14 @@ module.exports = {
         return context.hairfieApi
             .post('/subscribers', subscriber, { token: null })
             .then(function (subscriber) {
-                context.dispatch(Actions.ADD_SUBSCRIBER_SUCCESS);
-                context.executeAction(
-                    NotificationActions.notifySuccess,
-                    {
-                        title: 'Newsletter',
-                        message: 'Vous vous êtes bien abonné à la Newsletter'
-                    }
-                );
+                context.dispatch(Actions.ADD_SUBSCRIBER_SUCCESS, subscriber);
+                // context.executeAction(
+                //     NotificationActions.notifySuccess,
+                //     {
+                //         title: 'Newsletter',
+                //         message: 'Vous vous êtes bien abonné à la Newsletter'
+                //     }
+                // );
                 ga('send', 'event', 'Newsletter', 'Submit');
                 return q.all([
                     authStorage.setHasClosedPopup(context),

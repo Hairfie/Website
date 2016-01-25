@@ -80,7 +80,7 @@ var BreadCrumb = React.createClass({
         }
 
         return (
-            <div className="col-xs-12 visible-md visible-lg">
+            <div className=" visible-md visible-lg">
                 <ol className="breadcrumb">
                     {_.map(crumbs, function (crumb, index) {
                         if (index == crumbs.length - 1) {

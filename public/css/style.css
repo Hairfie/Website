@@ -9818,7 +9818,8 @@ div.pagination {
       text-decoration: none; }
 
 .breadcrumb {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  padding-left: 0; }
   .breadcrumb a {
     color: #595959; }
 
@@ -13368,7 +13369,7 @@ section.how .row > div {
   background-color: white;
   margin-top: 5%;
   font-size: 1.2em;
-  padding: 5% 5% 5% 10%;
+  padding: 5% 10% 5% 10%;
   margin-bottom: 10%; }
   #content.newsletter h3 {
     color: #fe5b5f; }
@@ -13380,20 +13381,37 @@ section.how .row > div {
     font-family: "Lato", sans-serif; }
     #content.newsletter ul li {
       margin-left: 40px; }
-      #content.newsletter ul li:before {
-        content: " ";
-        width: 15px;
-        height: 25px;
-        background: url(../img/sign-checkbox.png) no-repeat center center;
-        background-size: contain;
-        position: absolute;
-        left: 35px; }
-  #content.newsletter em {
+      #content.newsletter ul li .glyphicon {
+        font-size: 0.7em;
+        color: #fe5b5f; }
+  #content.newsletter .spam-note {
     font-size: 1.5em;
     color: #fe5b5f; }
+  #content.newsletter .success {
+    border: 1px solid #20af69;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 1.6em;
+    color: #20af69;
+    display: inline-block;
+    margin-left: 15px; }
   @media screen and (max-width: 767px) {
     #content.newsletter {
-      margin-top: 10%; } }
+      margin-top: 10%; }
+      #content.newsletter .success {
+        margin-top: 30px; }
+      #content.newsletter h3 {
+        font-size: 1.8em;
+        letter-spacing: 0; }
+      #content.newsletter p {
+        font-size: 1.5em; }
+      #content.newsletter ul {
+        font-size: 1.2em; }
+      #content.newsletter .newsletter-legend {
+        font-size: 1.6em !important;
+        line-height: 25px; }
+      #content.newsletter .spam-note {
+        font-size: 1.3em; } }
 
 .connect-form {
   padding-top: 1px;
