@@ -13,11 +13,19 @@ var RegistrationPage = React.createClass({
 		return (
 			<PublicLayout>
 				<div className="connect-form col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+                    <div className="nav">
+                        <Link route="connect_page" className="col-xs-6">
+                            <p>Vous êtes déjà inscrit ?</p>
+                            <p className="link-style">Connectez-vous</p>
+                        </Link>
+                        <Link route="registration_page" className="col-xs-6">
+                            <p>Pas encore inscrit ?</p>
+                            <p className="link-style">Inscrivez-vous</p>
+                        </Link>
+                    </div>
 					<h2>Inscription</h2>
-					<Link route="connect_page" className="green">Déjà inscrit ? Connectez-vous</Link>
 					<FacebookButton withNavigate={true}/>
 					<h4>ou remplissez ce formulaire</h4>
-					<span className="separator"/>
 					<FormRegistration
 						withNavigate={true}
 						firstName={this.props.booking.firstName || ""}

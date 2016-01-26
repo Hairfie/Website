@@ -11,8 +11,18 @@ var Newsletter = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
     },
+    getInitialState: function () {
+        return {
+            email: null
+        };
+    },
+    getDefaultProps: function () {
+        return {
+            alwaysDisplayed: false
+        };
+    },
     render: function () {
-        if (!this.props.open || this.props.currentUser) return null;
+        if ((!this.props.open || this.props.currentUser) && !this.props.alwaysDisplayed) return null;
 
         var button = (
             <Button onClick={this.submit} className="btn-addon">
@@ -23,13 +33,22 @@ var Newsletter = React.createClass({
         return (
             <div className="newsletter-banner">
                 <p className="newsletter-legend">
-                    Ne manquez rien, inscrivez-vous à la Newsletter !
+                    Ne manquez rien, inscrivez-vous à la Newsletter&nbsp;!
                 </p>
                 <div className="col-xs-12 col-sm-6">
-                    <Input type="email" ref="email" placeholder="Adresse Email" buttonAfter={button}/>
+                    <Input type="email" ref="email" onKeyPress={this.handleKey} onChange={this.handleEmailChange} value={this.state.email} placeholder="Adresse Email" buttonAfter={button}/>
                 </div>
             </div>
         );
+    },
+    handleKey: function(e) {
+        if(e && e.charCode == 13) {
+            e.preventDefault();
+            this.submit();
+        }
+    },
+    handleEmailChange: function(e) {
+        this.setState({email: e.currentTarget.value});
     },
     close: function() {
         this.context.executeAction(SubscriberActions.hasClosedBanner);
@@ -42,6 +61,7 @@ var Newsletter = React.createClass({
                     email       : email
                 }
             });
+            this.setState({email: null});
         }
         else {
             this.context.executeAction(NotificationActions.notifyError, {

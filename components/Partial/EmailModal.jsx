@@ -84,6 +84,9 @@ var EmailModal = React.createClass({
                         <Button onClick={this.addSubscriber} className="btn btn-red">Rejoignez la communauté</Button>
                     </p>
                     <p>Promis, on garde l'email pour nous et pas de spam.</p>
+                    <div className="text-center">
+                        <button className="btn btn-red btn-close" onClick={this.close}>Accès direct au site</button>
+                    </div>
                 </Modal.Body>
             )
         }
