@@ -51,7 +51,7 @@ var Footer = React.createClass({
                             <li className="col-sm-2">
                                 <Link route="howitworks_page">Comment ça marche ?</Link>
                             </li>
-                            <li className="col-sm-2"><a onClick={this.openEmailModal}>Newsletter</a></li>
+                            <li className="col-sm-2"><Link route="newsletter">Newsletter</Link></li>
                             <li className="col-sm-2"><a href="http://blog.hairfie.com/" target="_blank"a>Blog</a></li>
                             <li className="col-sm-2"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
                             <li className="col-sm-2"><Link route="home_pro">Gérez votre salon</Link></li>

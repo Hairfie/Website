@@ -1,18 +1,84 @@
 .connect-form {
-	h2 {
+	border: 1px solid $grey2;
+	@media screen and (max-width: $screen-xs-max) {
+		padding: 0;
+	}
+	div.nav {
+		@media screen and (min-width: $screen-sm-max) {
+			margin: 0px -15px;
+		}
+		a {
+			border-bottom: 1px solid $grey2;
+			&:first-child {
+				border-right: 1px solid $grey2;
+			}
+			&.active {
+				p.link-style {
+					color: $hairfie;
+				}
+				&:after {
+					content: " ";
+				    height: 5px;
+				    width: 100%;
+				    background-color: #fc5a5f;
+				    position: absolute;
+				    top: -5px;
+				    left: 0;
+				    border-top-left-radius: 2px;
+				    border-top-right-radius: 2px;
+				}
+			}
+			padding: 20px 0px;
+			display: inline-block;
+			text-align: center;
+			p {
+				margin-bottom: 3px;
+				font-size: 1.5em;
+    			font-weight: bolder;
+				&.link-style {
+					text-decoration: underline;
+				}
+			}
+			color: $grey3;
+			&:focus, &:hover {
+				color: $grey3;
+				text-decoration: none;
+			}
+		}
+	}
+	div.connect-button {
+		.facebook { margin: 0px 25px;}
+	}
+	h2, h4 {
 		text-align: center;
-		font-size: 2.5em;
+		font-size: 1.5em;
+		color: $grey3;
+		font-weight: bolder;
+	}
+	h2 {
+		margin: 15px 0px 20px 0px;
 	}
 	h4 {
-		text-align: center;
-		color: #D8D8D8;
+		margin: 18px 0px;
 	}
-	a.green, p.red {
-		text-align: center;
-		width: 100%;
-		display: block;
-		font-size: 1.5em;
-		margin-bottom: 10px;
+	a.forgot-password, p.red {
+	    text-align: center;
+	    width: 100%;
+	    display: block;
+	    font-size: 1.5em;
+	    margin-bottom: 40px;
+	}
+	a.forgot-password {
+		color: black;
+		text-decoration: underline;
+		outline: none;
+		@media screen and (max-width: $screen-xs-max) {
+			color: $grey7;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 	padding-top: 1px;
 	margin-top: 15px;
@@ -21,38 +87,32 @@
 	}
 	margin-bottom: 75px;
 	background-color: #FFFFFF;
-	span.separator {
-		width: 100%;
-		height: 1px;
-		border-color: #D8D8D8;
-		border-width: 1px;
-		border-style: solid;
-		display: block;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
 	a.full {
 		display: block;
-		width: 100%;
-		height: 65px;
-		text-transform: uppercase;
-		border-radius: 0;
-		margin: 0;
-		font-weight: $semiBold;letter-spacing: 2px;
-		line-height: 50px;
-		left: 0px;
-		position: absolute;
+		clear: left;
+	    height: 50px;
+	    text-transform: uppercase;
+	    border-radius: 0;
+	    font-weight: 600;
+	    letter-spacing: 2px;
+	    line-height: 40px;
+	    margin: 0px 25px 20px;
+		@media screen and (max-width: $screen-xs-max) {
+			margin-top: 20px;
+			border-radius: 4px;
+		}
 	}
 	form.form {
 		div.form-group {
-			margin: 10px;
-			margin-left: 25px;
-			margin-right: 25px;
+			@media screen and (min-width: $screen-sm-min) {
+				margin: 10px 25px 15px;
+			}
 			input.form-control {
-				background-color: #E6E6E6;
-  				height: 60px;
+				background-color: white;
+  				height: 50px;
   				padding-left: 30px;
   				padding-right: 30px;
+  				border-radius: 0;
 			}
 			div.infos {
 				a {
@@ -61,31 +121,78 @@
 				}
 			}
 			label.radio-inline {
-				width: 100%;
-  				line-height: 30px;
+  				margin-right: 10px;
   				height: 30px;
   				font-size: 1.4em;
   				color: $font-color;
 				input	{
-					height: 30px;
   					background-color: white;
   					border: 1px solid #eeeeee;
-  					line-height: 30px;
   					margin-bottom: 10px
 				}
 			}
 		}
-		.register-checkbox {
+		p {
+			@media screen and (min-width: $screen-sm-min) {
+				margin-left: 25px;
+			}
+    		font-size: 1.5em;
+    		font-weight: bolder;
+		}
+		label.register-checkbox {
+			margin-left: 4px;
 			font-weight: 400;
 			padding-left: 40px;
 			padding-bottom: 15px;
 			font-size: 1.4em;
-			label {color: $font-color;}
+			color: $grey4;
+			span {
+				&:before {
+					border: 1px solid $grey4;
+					box-shadow: none;
+				}
+			}
 			a {color: darkblue;}
 		}
 		.uploadFile {
 			display: block;
 			font-size: 1.4em;
+		}
+		div.mobile-input {
+			position: relative;
+			height: 50px;
+			&:first-child {
+				border-top: 1px solid $grey5;
+			}
+			border-bottom: 1px solid $grey5;
+			p {
+				padding-left: 10px;
+			}
+			p, div {
+				line-height: 45px;  
+				color: $grey6;
+				font-size: 1.6em;
+				display: inline-block;
+				width: 50%;
+				float: left;
+				margin: 0;
+				height: 100%;
+				&.form-group {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+				}
+			}
+			input, select {
+				outline: none;
+				width: 100%;
+				border: none !important;
+				height: 100%;
+				padding-left: 50%;
+				background: transparent;
+				@include appearance(none);
+			}
 		}
 	}
 }
