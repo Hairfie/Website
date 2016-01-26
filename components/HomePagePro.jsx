@@ -92,7 +92,7 @@ module.exports = React.createClass({
                                 <Picture picture={{url: "/img/pro/icon-4.png"}} style={{width: 50, height: 50}}alt="Visibilité" />
                                 <h5>Service clientèle</h5>
                                 <p>
-                                    Gardez le contact, réduisez les rdv non honorés et développez une vraie relation avec vos clients. Vos clients reçoivent un sms de rappel quelques heures avant le rdv prévu. Grâce au hairfie que vous aurez pris, le client reçoit aussi la photo par email et intègre votre base de donnée clients. Vous gardez ainsi le contact avec lui et bénéficiez des outils marketing d’Hairfie pour donner envie à vos clients de revenir plus souvent dans votre salon.
+                                    Gardez le contact, réduisez les rendez-vous non honorés et développez une vraie relation avec vos clients. Vos clients reçoivent un sms de rappel quelques heures avant le rendez-vous prévu. Grâce au hairfie que vous aurez pris, le client reçoit aussi la photo par email et intègre votre base de donnée clients. Vous gardez ainsi le contact avec lui et bénéficiez des outils marketing d’Hairfie pour donner envie à vos clients de revenir plus souvent dans votre salon.
                                 </p>
                             </div>
                         </div>
