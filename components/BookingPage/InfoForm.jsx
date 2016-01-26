@@ -254,7 +254,7 @@ module.exports = React.createClass({
                 NotificationActions.notifyWarning,
                 {
                     title: 'Information',
-                    message: "Certains champs obligatoires n'ont pas été rempli"
+                    message: "Certains champs obligatoires n'ont pas été remplis"
                 }
             );
         }

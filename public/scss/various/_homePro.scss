@@ -1,18 +1,10 @@
 .home-pro {
-    margin-top: -120px;
-    //bottom: 0;
     width: 100%;
     min-height: 100%;
-    background: url(../img/background-pro-trans.jpg);
+    background: url(../img/bg-landing-pro.jpg);
     background-position: no-repeat center center fixed;
-    padding-top: 100px;
     background-size: cover;
     font-size: 14px;
-
-    @media screen and (min-width: $screen-sm-min) {
-        height: 100%;
-        margin-bottom: 0px;
-    }
 
     li {
         color: white;
@@ -21,45 +13,78 @@
         }
     }
 
-    .row.first {
-        margin-top: 40px;
-
+    .row {
         .claim {
-            background-color: rgba(255,255,255,0.8);
+            color: white;
             padding: 30px;
             margin-bottom: 100px;
-            //margin-top: 30px;
-
-            @media screen and (max-width: 768px) {
-                //margin: 30px;
-                //margin: auto;
-                margin-top: 150px;
-            }
 
             h3 {
-                margin-top: 0px;
-                font-size: 20px;
+                margin-top: 60px;
+                font-size: 2.1em;
+            }
+            p {
+                font-size: 1.2em;
+                font-weight: 200;
+            }
+            .form-horizontal {
+                .form-group {
+                    padding-right: 15px;
+                }
             }
 
             .form-group {
                 margin-bottom: 5px;
+                padding-left: 0;
+                .radio-label {
+                    float: left;
+                    padding-left: 15px;
+                    padding-right: 10px;
+                    line-height: 35px;
+                    text-align: left;
+                }
+                .radio-inline {
+                    margin-right: 5px;
+                }
+                .form-control {
+                    min-height: 50px;
+                    line-height: 20px;
+                    border-radius: 0;
+                }
             }
-
+            label {
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+            .second-form {
+                width: 65%;
+                margin-top: -25px;
+            }
             .btn-red {
                 font-weight: 200;
+                font-size: 1.2em;
+                letter-spacing: 0;
+                text-transform: uppercase;
+                height: 50px;
+                width: 48%;
+                margin-top: 20px;
+                border-radius: 0;
             }
 
             .contact {
                 margin-top: 40px;
 
                 a {
-                    color: black;
+                    color: white;
                     font-weight: bold;
                 }
             }
         }
-
-        @media screen and (max-width: $screen-sm-min) {
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        height: 100%;
+        margin-bottom: 0px;
+        .row {
             h1 {
                 font-size: 20px;
                 text-align: center;
@@ -68,7 +93,47 @@
             li {
                 font-size: 18px;
             }
+            .claim {
+                .form-group {
+                    .radio-label {
+                        width: 35%;
+                        line-height: 47px;
+                        margin-right: 10px;
+                    }
+                }
+                .second-form {
+                    width: 100%;
+                }
+                .btn-red {
+                    width: calc(100% - 15px);
+                }
+            }
         }
+    }
+    @media screen and (min-width: $screen-sm-min) {
+        height: 100%;
+        margin-bottom: 0px;
+    }
+}
+.advices {
+    padding-bottom: 125px;
+    h3 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+    h5 {
+        text-transform: uppercase;
+        font-size: 1.8em;
+        margin-top: 15px;
+        margin-bottom: 25px;
 
+    }
+    div .col-sm-6 {
+        margin-top: 30px;
+    }
+    p {
+        font-size: 1.5em;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
