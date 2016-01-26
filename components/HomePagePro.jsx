@@ -21,7 +21,6 @@ var _ = require('lodash');
 
 var HomePagePro = React.createClass({
     contextTypes: {
-        makePath: React.PropTypes.func.isRequired,
         executeAction: React.PropTypes.func.isRequired
     },
     getInitialState: function () {
@@ -135,6 +134,9 @@ var HomePagePro = React.createClass({
             );
         }
         e.preventDefault();
+        if(typeof heap !== "undefined") {
+            heap.identify({email: this.refs.email.getValue()});
+        }
         this.context.executeAction(BusinessLeadActions.submit, {
             businessLead        : {
                 kind        : this.state.businessKind,
