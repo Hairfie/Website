@@ -8524,10 +8524,6 @@ body {
   background-position: no-repeat center center fixed;
   background-size: cover;
   font-size: 14px; }
-  @media screen and (min-width: 768px) {
-    .home-pro {
-      height: 100%;
-      margin-bottom: 0px; } }
   .home-pro li {
     color: white; }
     .home-pro li span, .home-pro li strong {
@@ -8536,9 +8532,6 @@ body {
     color: white;
     padding: 30px;
     margin-bottom: 100px; }
-    @media screen and (max-width: 768px) {
-      .home-pro .row .claim {
-        margin-top: 150px; } }
     .home-pro .row .claim h3 {
       margin-top: 60px;
       font-size: 2.1em; }
@@ -8556,11 +8549,6 @@ body {
         padding-right: 10px;
         line-height: 35px;
         text-align: left; }
-        @media screen and (max-width: 767px) {
-          .home-pro .row .claim .form-group .radio-label {
-            width: 35%;
-            line-height: 47px;
-            margin-right: 10px; } }
       .home-pro .row .claim .form-group .radio-inline {
         margin-right: 5px; }
       .home-pro .row .claim .form-group .form-control {
@@ -8573,9 +8561,6 @@ body {
     .home-pro .row .claim .second-form {
       width: 65%;
       margin-top: -25px; }
-      @media screen and (max-width: 767px) {
-        .home-pro .row .claim .second-form {
-          width: 100%; } }
     .home-pro .row .claim .btn-red {
       font-weight: 200;
       font-size: 1.2em;
@@ -8585,20 +8570,32 @@ body {
       width: 48%;
       margin-top: 20px;
       border-radius: 0; }
-      @media screen and (max-width: 767px) {
-        .home-pro .row .claim .btn-red {
-          width: calc(100% - 15px); } }
     .home-pro .row .claim .contact {
       margin-top: 40px; }
       .home-pro .row .claim .contact a {
         color: white;
         font-weight: bold; }
-  @media screen and (max-width: 768px) {
-    .home-pro .row h1 {
-      font-size: 20px;
-      text-align: center; }
-    .home-pro .row li {
-      font-size: 18px; } }
+  @media screen and (max-width: 767px) {
+    .home-pro {
+      height: 100%;
+      margin-bottom: 0px; }
+      .home-pro .row h1 {
+        font-size: 20px;
+        text-align: center; }
+      .home-pro .row li {
+        font-size: 18px; }
+      .home-pro .row .claim .form-group .radio-label {
+        width: 35%;
+        line-height: 47px;
+        margin-right: 10px; }
+      .home-pro .row .claim .second-form {
+        width: 100%; }
+      .home-pro .row .claim .btn-red {
+        width: calc(100% - 15px); } }
+  @media screen and (min-width: 768px) {
+    .home-pro {
+      height: 100%;
+      margin-bottom: 0px; } }
 
 .advices {
   padding-bottom: 125px; }

@@ -7,56 +7,15 @@ var BusinessLeadActions = require('../actions/BusinessLeadActions');
 var PublicLayout = require('./PublicLayout.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var NotificationActions = require('../actions/NotificationActions');
+var formValidation = require('../lib/formValidation');
 
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
-
 var UUID = require('uuid');
-
 var _ = require('lodash');
 
-{/*var RadioChoice = React.createClass({
-    getInitialState: function () {
-        return {
-            name : UUID.v4()
-        };
-    },
-    render: function () {
-        var choiceNodes = _.map(this.props.choices, this.renderChoice);
-
-        return <Input className="radio">{choiceNodes}</Input>;
-    },
-    renderChoice: function (choice) {
-        return (
-            <label key={choice.value} className="radio-inline">
-              <input ref={choice.value} type="radio" name={this.state.name} value={choice.value} />
-              {choice.label}
-            </label>
-        );
-    },
-    getValue: function () {
-        var value = null;
-        _.map(this.props.choices, function (choice) {
-            if (this.refs[choice.value].checked) value = choice.value;
-        }, this);
-        return value;
-    }
-});
-
-var KindChoice = React.createClass({
-    render: function () {
-        var choices = [];
-        choices.push({label: 'Un Salon', value: BusinessKinds.SALON});
-        choices.push({label: 'À domicile', value: BusinessKinds.HOME});
-
-        return <RadioChoice ref="choice" choices={choices} />
-    },
-    getValue: function () {
-        return this.refs.choice.getValue();
-    }
-});*/}
 
 module.exports = React.createClass({
     contextTypes: {
@@ -87,26 +46,13 @@ module.exports = React.createClass({
                                         <Input name="businessKind" type="radio" ref="businessKind" value={BusinessKinds.SALON} label="Un salon" groupClassName="radio-inline"  onChange={this.onBusinessKindChange} />
                                         <Input name="businessKind" type="radio" ref="businessKind" value={BusinessKinds.HOME} label="À domicile" groupClassName="radio-inline"  onChange={this.onBusinessKindChange}/>
                                     </Input>
-                                    {/*<Input className="radio">
-                                        <label className="col-sm-4 control-label">Season</label>
-                                        <div className="col-sm-8">
-                                            <label className="radio-inline">
-                                                <input type="radio" name="gender"  />
-                                                Homme
-                                            </label>
-                                            <label className="radio-inline" style={{marginLeft: '0px'}}>
-                                                <input type="radio" name="gender" />
-                                                Femme
-                                            </label>
-                                        </div>
-                                    </Input>*/}
                                 </form>
                                 <form role="form" className="second-form">
                                     <br/>
-                                    <Input ref="businessName" type="text" placeholder="Nom de votre salon de coiffure" label="* Nom du salon:" groupClassName="col-sm-6 col-xs-12" isRequired/>
-                                    <Input ref="postalCode" type="text" placeholder="Code postal" label="* Code postal:"  groupClassName="col-sm-6 col-xs-12"/>
-                                    <Input ref="phoneNumber" type="text" placeholder="Numéro de téléphone" label="* Votre numéro de téléphone" groupClassName="col-sm-6 col-xs-12"/>
-                                    <Input ref="email" type="email" placeholder="Email" label="* Votre adresse email" groupClassName="col-sm-6 col-xs-12" />
+                                    <Input ref="businessName" type="text" placeholder="Nom de votre salon de coiffure" label="* Nom du salon:" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
+                                    <Input ref="postalCode" type="text" placeholder="Code postal" label="* Code postal:"  groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
+                                    <Input ref="phoneNumber" type="text" placeholder="Numéro de téléphone" label="* Votre numéro de téléphone" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} />
+                                    <Input ref="email" type="email" placeholder="Email" label="* Votre adresse email" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.email} onFocus={formValidation.email} />
                                     <Input ref="remarque" type="textarea" label="Une remarque, une question ?" groupClassName="col-sm-12" />
                                     <Button className="btn-red" onClick={this.submit}>Laisser mes coordonnées</Button>
                                 </form>
@@ -155,6 +101,9 @@ module.exports = React.createClass({
             </PublicLayout>
         );
     },
+    handleBusinessNameChanged: function (e) {
+        formValidation.required(e);
+    },
     submit: function (e) {
         if (
             !this.state.businessKind ||
@@ -172,18 +121,14 @@ module.exports = React.createClass({
             );
         }
         e.preventDefault();
-        console.log(this.state.businessKind);
-        console.log(this.refs.businessName.getValue());
-        console.log(this.refs.postalCode.getValue());
-        console.log(this.refs.phoneNumber.getValue());
-        console.log(this.refs.email.getValue());
-        console.log(this.refs.remarque.getValue());
         this.context.executeAction(BusinessLeadActions.submit, {
             businessLead        : {
-                kind        : this.refs.businessKind.getValue(),
+                kind        : this.state.businessKind,
                 name        : this.refs.businessName.getValue(),
+                postalCode  : this.refs.postalCode.getValue(),
                 phoneNumber : this.refs.phoneNumber.getValue(),
-                email       : this.refs.email.getValue()
+                email       : this.refs.email.getValue(),
+                note        : this.refs.remarque.getValue()
             }
         });
     }
