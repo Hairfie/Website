@@ -56,6 +56,9 @@ var Newsletter = React.createClass({
     submit: function() {
         var email = this.refs.email.getValue();
         if (validateEmail(email)) {
+            if(typeof heap !== "undefined") {
+                heap.identify({email: email});
+            }
             this.context.executeAction(SubscriberActions.submit, {
                 subscriber        : {
                     email       : email

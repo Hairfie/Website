@@ -49,7 +49,7 @@ var BookingConfirmationPage = React.createClass({
         if (booking.status == BookingStatus.REQUEST) {
             return (
                 <div className="legend conf">
-                    <h3 className="green">Réservation enregistrée !</h3>
+                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
                     <p>
                         Votre réservation a bien été bien prise en compte,
                         vous allez recevoir un email dans quelques instants vous confirmant votre demande.
@@ -61,7 +61,7 @@ var BookingConfirmationPage = React.createClass({
         } else if (booking.status == BookingStatus.NOT_CONFIRMED) {
             return (
                 <div className="legend conf">
-                    <h3 className="orange">Demande de vérification !</h3>
+                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
                     <p>
                         Votre demande a bien été prise en compte,
                         cependant, par mesure de sécurité,
@@ -73,12 +73,25 @@ var BookingConfirmationPage = React.createClass({
                     <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
                 </div>
             );
-        } else if (booking.status == BookingStatus.CANCELLED)
+        } else if (booking.status == BookingStatus.CANCELLED) {
             return (
                 <div className="legend conf">
-                    <h3 className="green">Réservation annulé</h3>
+                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
                 </div>
             );
+        } else if (booking.status == BookingStatus.IN_PROCESS) {
+            return (
+                <div className="legend conf">
+                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
+                </div>
+            );
+        } else if (booking.status == BookingStatus.CONFIRMED) {
+            return (
+                <div className="legend conf">
+                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
+                </div>
+            );
+        }
     },
     renderInfoFrame: function(booking, business, address) {
         if (booking.status == BookingStatus.NOT_CONFIRMED) return;
@@ -104,9 +117,9 @@ var BookingConfirmationPage = React.createClass({
     },
     renderBookingInfo: function(booking) {
         var discount;
-        var status = <h4 className="green">Réservation Confirmée</h4>;
+        var status = <h4 className="green">{bookingStatusMessage(booking)}</h4>;
         if (booking.status == BookingStatus.CANCELLED)
-            status = <h4 className="red">Réservation Annulée</h4>
+            status = <h4 className="red">{bookingStatusMessage(booking)}v</h4>
         if (booking.discount)
             discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
         return (
@@ -187,6 +200,31 @@ var BookingConfirmationPage = React.createClass({
         });
     }
 });
+
+function bookingStatusMessage(booking) {
+    var status = '';
+    switch (booking.status) {
+        case BookingStatus.CONFIRMED:
+            status = 'Rendez-vous confirmé !';
+            break;
+        case BookingStatus.NOT_CONFIRMED :
+            status = 'Demande de vérification !';
+            break;
+        case BookingStatus.REQUEST :
+            status = 'Demande de rendez-vous enregistrée !';
+            break;
+        case BookingStatus.IN_PROCESS :
+            status = 'Demande en cours de traitement';
+            break;
+        case BookingStatus.CANCELLED :
+            status = 'Réservation annulé';
+            break;
+        case BookingStatus.HONORED :
+            status = 'Rendez-vous terminé';
+            break;
+    }
+    return status;
+}
 
 BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     'BookingStore',
