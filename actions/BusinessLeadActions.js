@@ -12,19 +12,9 @@ module.exports = {
         return context.hairfieApi
             .post('/businessLeads', businessLead, { token: null })
             .then(function (businessLead) {
+                context.dispatch(Actions.HAIRDRESSER_REGISTRATION_SUCCESS);
                 ga('send', 'event', 'Business Lead', 'Submit');
-
-                return context.executeAction(
-                    NotificationActions.notifyInfo,
-                    {
-                        title: "Demande prise en compte",
-                        message: 'Votre demande a bien été prise en compte, merci !'
-                    }
-                ).then(function () {
-                    return context.executeAction(NavigationActions.navigate, {
-                        route: 'home_pro'
-                    });
-                });
+                return;
             });
     }
 };

@@ -8,6 +8,8 @@ var PublicLayout = require('./PublicLayout.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var NotificationActions = require('../actions/NotificationActions');
 var formValidation = require('../lib/formValidation');
+var connectToStores = require('fluxible-addons-react/connectToStores');
+var ReactDOM = require('react-dom');
 
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
@@ -17,7 +19,7 @@ var UUID = require('uuid');
 var _ = require('lodash');
 
 
-module.exports = React.createClass({
+var HomePagePro = React.createClass({
     contextTypes: {
         makePath: React.PropTypes.func.isRequired,
         executeAction: React.PropTypes.func.isRequired
@@ -47,7 +49,7 @@ module.exports = React.createClass({
                                         <Input name="businessKind" type="radio" ref="businessKind" value={BusinessKinds.HOME} label="À domicile" groupClassName="radio-inline"  onChange={this.onBusinessKindChange}/>
                                     </Input>
                                 </form>
-                                <form role="form" className="second-form">
+                                <form role="form" ref="form2" className="second-form">
                                     <br/>
                                     <Input ref="businessName" type="text" placeholder="Nom de votre salon de coiffure" label="* Nom du salon:" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
                                     <Input ref="zipCode" type="text" placeholder="Code postal" label="* Code postal:"  groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
@@ -56,6 +58,7 @@ module.exports = React.createClass({
                                     <Input ref="remarque" type="textarea" label="Une remarque, une question ?" groupClassName="col-sm-12" />
                                     <Button className="btn-red" onClick={this.submit}>Laisser mes coordonnées</Button>
                                 </form>
+                                {this.displayThankYouMessage()}
                                 <div className="contact">
                                     <h4>Contactez-nous au <a href="tel:+33185089169">+33 1 85 08 91 69</a> ou <a href="mailto:hello@hairfie.com">hello@hairfie.com</a></h4>
                                 </div>
@@ -104,6 +107,17 @@ module.exports = React.createClass({
     handleBusinessNameChanged: function (e) {
         formValidation.required(e);
     },
+    displayThankYouMessage: function() {
+        if(this.props.hasBeenRegistered) {
+            //vide le form après validation
+            ReactDOM.findDOMNode(this.refs.form2).reset();
+            return (<div className="row">
+                        <div className="success bg-success">
+                            <span className="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Merci, vos coordonnées sont enregistrées ! <br/>Nous vous recontacterons très prochainement.
+                        </div>
+                    </div>); 
+        }
+    },
     submit: function (e) {
         if (
             !this.state.businessKind ||
@@ -133,3 +147,12 @@ module.exports = React.createClass({
         });
     }
 });
+HomePagePro = connectToStores(HomePagePro, [
+    'BusinessLeadStore'
+], function (context, props) {
+    return {
+        hasBeenRegistered: context.getStore('BusinessLeadStore').getHairdresserRegistrationStatus()
+    };
+});
+
+module.exports = HomePagePro;
