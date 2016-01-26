@@ -8570,6 +8570,17 @@ body {
       width: 48%;
       margin-top: 20px;
       border-radius: 0; }
+      @media screen and (max-width: 991px) {
+        .home-pro .row .claim .btn-red {
+          font-size: 1.1em; } }
+    .home-pro .row .claim .success {
+      border: 1px solid #20af69;
+      border-radius: 2px;
+      padding: 10px;
+      font-size: 1.3em;
+      color: #20af69;
+      display: inline-block;
+      margin: 15px 30px 0px 15px; }
     .home-pro .row .claim .contact {
       margin-top: 40px; }
       .home-pro .row .claim .contact a {
