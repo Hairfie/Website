@@ -9,6 +9,9 @@ var PopUpHairfie = require('./PopUpHairfie.jsx');
 function displayName(u) { var u = u || {}; return u.firstName; }
 
 module.exports = React.createClass({
+    getInitialState: function() {
+        return {popup: false};
+    },
     render: function () {
         var hairfie = this.props.hairfie;
         if (!hairfie) return null;
@@ -36,9 +39,10 @@ module.exports = React.createClass({
 
         return (
             <div key={hairfie.id} {...this.props}>
-                <PopUpHairfie hairfie={hairfie} />
-                <figure onClick={this.openPopup.bind(null, hairfie)}>
-                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={{preNav: true}}>
+                <div className={"shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
+                {this.state.popup ? <PopUpHairfie hairfie={hairfie} /> : null}
+                <figure onClick={this.openPopup}>
+                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={true}>
                         <Picture picture={_.last(hairfie.pictures)}
                                 resolution={{width: 640, height: 640}}
                                 placeholder="/img/placeholder-640.png"
@@ -57,8 +61,6 @@ module.exports = React.createClass({
         );
     },
     openPopup: function (hairfie, e) {
-        console.log('test');
-        var b = document.getElementsByTagName('body')[0];
-        b.appendChild(<PopUpHairfie hairfie={hairfie} />);
+        this.setState({popup: !this.state.popup});
     }
 });

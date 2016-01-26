@@ -25,15 +25,15 @@ var Link = React.createClass({
         }
     },
     changePath: function (e) {
-        if (this.props.noNav.preNav) {
-            window.history.pushState("", "", this.state.href);
+        if (this.props.noNav.removeNav) {
+            window.history.back();
         }
-        else if (this.props.noNav.changePreNav) {
+        else if (this.props.noNav.changeNav) {
             window.history.back();
             window.history.pushState("", "", this.state.href);
         }
         else {
-            window.history.back();
+            window.history.pushState("", "", this.state.href);
         }
     },
     _getHrefFromProps: function (props) {

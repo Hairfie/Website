@@ -12,7 +12,20 @@
         }
     }
 }
-.hairfie-singleView#content {
+.hairfie-singleView {
+    &.PopUpHairfie {
+            position: fixed;
+            z-index: 10000;
+            margin: 0;
+            width: 70vw;
+            left: 15vw;
+            top: 15vh;
+        .row {
+            border: none !important;
+            padding: initial !important;
+            margin: initial !important;
+        }
+    }
     margin: 40px auto;
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 100px;
@@ -49,8 +62,6 @@
                 width: 100%;
             }
             .pricetag {
-                font-size: 32px;
-                color: white;
                 z-index: 99999;
                 position: absolute; top: 15px; left: 15px;
                 background-image:url(../img/round.svg);
@@ -58,7 +69,9 @@
                 width: 14%;
                 height: 14%;
 
-                .price{
+                .price {
+                    font-size: 32px;
+                    color: white;
                     position: absolute;
                     top: 23%;
                     width: 100%;
@@ -179,6 +192,29 @@
                     border-radius: 0;
                     font-size: 1.3em;
                 }
+                div.address-bloc {
+                    h2 {
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        margin-bottom: 0;
+                        color: $darkgrey;
+                        letter-spacing: 2px;
+                        font-size: 1.6em;
+                        a {
+                            letter-spacing: 2px;
+                            color: $darkgrey;
+                            text-decoration: none;
+                        }
+                    }
+                    a {
+                        color: #595959;
+                        text-decoration: none;
+                        letter-spacing: 1px;
+                    }
+                    p {
+                        font-size: 1.4em;
+                    }
+                }
             }
         }
         .tags {
@@ -213,7 +249,7 @@
                     cursor: pointer;
                     display: block;
                     text-align: center;
-                    width: 65px;height: 65px;
+                    width: 65px;height: 64px;
                     position: relative;
                     border-right: 1px solid $border-color;
 

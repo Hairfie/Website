@@ -417,7 +417,7 @@ figure {
     figcaption {
         position: absolute;
         width: 100%; height: 100%;
-        z-index: 9;
+        z-index: 1;
         @include transition(all 0.3s ease-out);
 
     }
@@ -426,7 +426,8 @@ figure {
 // small inline tag:
 .tag {
     display: inline-block;
-    padding: 2px 10px; background-color: $darkgrey;
+    padding: 2px 10px; background-color: $hairfie;
+    font-weight: bolder;
     color: white; border-radius: 2px;
     margin: 0 3px;
     @include transition(all 0.2s ease-out);

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var _ = require('lodash');
 var RightColumn = require('../HairfiePage/RightColumn.jsx');
 var HairfieSingle = require('../HairfiePage/HairfieSingle.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
@@ -18,17 +19,12 @@ var PopupHairfie = React.createClass({
     render: function () {
         if (!this.props.hairfie) return null;
         return (
-            <PublicLayout>
-                <div className="container hairfie-singleView" id="content">
-                    <div className="hairfie-newsletter">
-                        <Newsletter />
-                    </div>
-                    <div className="single-view row">
-                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
-                        <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
-                    </div>
+            <div className="PopUpHairfie hairfie-singleView">
+                <div className="single-view row">
+                    <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
-            </PublicLayout>
+            </div>
         );
     },
     likeHairfie: function() {
@@ -52,7 +48,7 @@ PopupHairfie = connectToStores(PopupHairfie, [
     else
         var liked = false;
 
-    _.assign({}, props, {
+    return _.assign({}, props, {
         hairfie: hairfie,
         hairfieLiked: liked
     });

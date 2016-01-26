@@ -4,6 +4,8 @@ var React = require('react');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
 var Link = require('../Link.jsx');
+var PriceRating = require('../Partial/PriceRating.jsx');
+var Rating = require('../Partial/Rating.jsx');
 
 var ShareButton = React.createClass({
     componentDidMount: function () {
@@ -36,15 +38,15 @@ module.exports = React.createClass({
                 </p>
             );
         }
-
-        var shareButtonNode =  null; //<ShareButton hairfie={this.props.hairfie} className="share-button" />
-        var address = this.props.hairfie.business.address || {};
+console.log(this.props.hairfie.business);
+        var business = this.props.hairfie.business;
+        var address = business.address || {};
 
         return (
             <div className="col-xs-12 col-sm-6">
                 <div className="salon-infos">
                     <div className="row">
-                        <div className="col-xs-3 col-sm-3">
+                        <div className="col-xs-3">
                             <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                 <Picture
                                     picture={_.first(this.props.hairfie.business.pictures)}
@@ -53,24 +55,26 @@ module.exports = React.createClass({
                                 />
                             </Link>
                         </div>
-                        <div className="col-xs-9 col-sm-6 address-bloc">
+                        <div className="col-xs-9 address-bloc">
                             <h2>
                                 <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                     {this.props.hairfie.business.name}
                                 </Link>
+                                <PriceRating className="pull-right hidden-xs" business={business} style={{fontSize: "1em"}}/>
                             </h2>
                             <p className="address">{address.street} {address.zipCode} {address.city}</p>
-                            {hairdresserNode}
+                            {hairdresserNode}          
+                            <Rating style={{display: "inline-block"}} rating={business.rating} min={true}/>
+                            { 
+                            business.numReviews ? 
+                                <p style={{display: "inline", verticalAlign: '8px'}}> - {business.numReviews} avis</p>
+                                : null
+                            }
                             <p>
-                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }} style={{textDecoration: 'underline'}}>
                                     {"+ d'infos sur le salon"}
                                 </Link>
                             </p>
-                        </div>
-                        <div className="hidden-xs col-sm-3">
-                            <Link className="btn btn-book pull-right" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                                Prendre RDV
-                            </Link>
                         </div>
                     </div>
                     <div className="row">
@@ -89,7 +93,6 @@ module.exports = React.createClass({
                             return (<span className="tag" key={tag.id}><Link route="hairfie_search" params={{ address: 'Paris--France'}} query={{tags: tag.name}}>{tag.name}</Link></span>)
                         }) }
                     </div>
-                    {shareButtonNode}
                 </div>
             </div>
         );
