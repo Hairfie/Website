@@ -12331,7 +12331,7 @@ section.how .row > div {
     font-size: 1.7em !important; }
 
 .hairfie-singleView#content {
-  margin: 40px auto;
+  margin: auto;
   min-height: calc(100vh - 60px);
   height: 100%;
   position: relative; }
@@ -12370,6 +12370,9 @@ section.how .row > div {
         background-repeat: no-repeat;
         width: 14%;
         height: 14%; }
+        @media (max-width: 767px) {
+          .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
+            font-size: 25px; } }
         .hairfie-singleView#content .single-view #carousel-hairfie .pricetag .price {
           position: absolute;
           top: 23%;

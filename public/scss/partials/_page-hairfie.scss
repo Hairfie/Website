@@ -13,7 +13,7 @@
     }
 }
 .hairfie-singleView#content {
-    margin: 40px auto;
+    margin: auto;
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 100px;
     }
@@ -57,6 +57,10 @@
                 background-repeat: no-repeat;
                 width: 14%;
                 height: 14%;
+
+                @media (max-width: $screen-xs-max){
+                    font-size: 25px;
+                }
 
                 .price{
                     position: absolute;
