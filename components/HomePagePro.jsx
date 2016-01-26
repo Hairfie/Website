@@ -50,7 +50,7 @@ module.exports = React.createClass({
                                 <form role="form" className="second-form">
                                     <br/>
                                     <Input ref="businessName" type="text" placeholder="Nom de votre salon de coiffure" label="* Nom du salon:" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
-                                    <Input ref="postalCode" type="text" placeholder="Code postal" label="* Code postal:"  groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
+                                    <Input ref="zipCode" type="text" placeholder="Code postal" label="* Code postal:"  groupClassName="col-sm-6 col-xs-12" onChange={formValidation.required} onFocus={formValidation.required} />
                                     <Input ref="phoneNumber" type="text" placeholder="Numéro de téléphone" label="* Votre numéro de téléphone" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.phoneNumber} onFocus={formValidation.phoneNumber} />
                                     <Input ref="email" type="email" placeholder="Email" label="* Votre adresse email" groupClassName="col-sm-6 col-xs-12" onChange={formValidation.email} onFocus={formValidation.email} />
                                     <Input ref="remarque" type="textarea" label="Une remarque, une question ?" groupClassName="col-sm-12" />
@@ -108,7 +108,7 @@ module.exports = React.createClass({
         if (
             !this.state.businessKind ||
             !this.refs.businessName.getValue() ||
-            !this.refs.postalCode.getValue() ||
+            !this.refs.zipCode.getValue() ||
             !this.refs.phoneNumber.getValue() ||
             !this.refs.email.getValue() 
             ) {
@@ -125,7 +125,7 @@ module.exports = React.createClass({
             businessLead        : {
                 kind        : this.state.businessKind,
                 name        : this.refs.businessName.getValue(),
-                postalCode  : this.refs.postalCode.getValue(),
+                zipCode     : this.refs.zipCode.getValue(),
                 phoneNumber : this.refs.phoneNumber.getValue(),
                 email       : this.refs.email.getValue(),
                 note        : this.refs.remarque.getValue()
