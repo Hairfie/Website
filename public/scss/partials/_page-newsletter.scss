@@ -6,7 +6,7 @@
     background-color: white;
     margin-top: 5%;
     font-size: 1.2em;
-    padding: 5% 5% 5% 10%;
+    padding: 5% 10% 5% 10%;
     margin-bottom: 10%;
     h3 {
         color: $hairfie;
@@ -20,22 +20,47 @@
         font-family: $font-second;
         li {
             margin-left: 40px;
-            &:before {
-                content: " ";
-                width: 15px;
-                height: 25px;
-                background: url(../img/sign-checkbox.png) no-repeat center center;
-                background-size: contain;
-                position: absolute;
-                left: 35px;
+            .glyphicon {
+                font-size: 0.7em;
+                color: $hairfie;
             }
         }
     }
-    em {
+    .spam-note {
         font-size: 1.5em;
         color: $hairfie;
     }
+    
+    .success {
+        border: 1px solid $green;
+        border-radius: 2px;
+        padding: 10px;
+        font-size: 1.6em;
+        color: $green;
+        display: inline-block;
+        margin-left: 15px;
+    }
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 10%;
+        .success { 
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.8em;
+            letter-spacing: 0;  
+        }
+        p {
+            font-size: 1.5em;
+        }
+        ul {
+            font-size: 1.2em;
+        }
+        .newsletter-legend {
+            font-size: 1.6em !important;
+            line-height: 25px;
+        }
+        .spam-note {
+            font-size: 1.3em;
+        }
     }
 }

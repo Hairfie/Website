@@ -23,8 +23,8 @@ var HairfiePage = React.createClass({
         if (!this.props.hairfie) return this.renderLoading();
         return (
             <PublicLayout>
-                <Breadcrumb business={this.props.business} />
                 <div className="container hairfie-singleView" id="content">
+                    <Breadcrumb business={this.props.business} className="hairfiepage-breadcrumb"/>
                     <div className="hairfie-newsletter">
                         <Newsletter />
                     </div>

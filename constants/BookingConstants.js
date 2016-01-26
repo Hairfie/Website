@@ -6,6 +6,11 @@ module.exports = {
     Status: define([
         'REQUEST',
         'NOT_CONFIRMED',
-        'CANCELLED'
+        'IN_PROCESS',
+        'CONFIRMED',
+        'HONORED',
+        'CANCELLED',
+        'NOT_AVAILABLE',
+        'NO_SHOW'
     ])
 };

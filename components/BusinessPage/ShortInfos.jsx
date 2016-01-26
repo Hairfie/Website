@@ -77,11 +77,7 @@ module.exports = React.createClass({
                   <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>DÉPOSEZ UN AVIS</Link>
                 </div>
               </div>
-              <div className="row" style={{paddingBottom: '20px'}}>
-                <div className="breadcrumb">
-                </div>
-                  <Breadcrumb business={business} />
-              </div>
+              <Breadcrumb business={business} />
           </section>
         );
     },
