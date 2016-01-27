@@ -37,6 +37,9 @@ module.exports = createStore({
     getToken: function () {
         return this.tokens;
     },
+    getUserId: function () {
+        return this.getToken() && this.getToken().userId;
+    },
     onClosedPopupStatusChange: function(status) {
         this.closedPopupStatus = status;
         this.emitChange();

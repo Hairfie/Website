@@ -32,13 +32,13 @@ var UserHairfiesPage = React.createClass({
     },
     renderLoader: function () {
         return (
-        <UserLayout user={this.props.user} tab="hairfies">
-            <div className="hairfies">
-                <div className="row">
-                    <div className="loading" />
+            <UserLayout user={this.props.user} tab="hairfies">
+                <div className="hairfies">
+                    <div className="row">
+                        <div className="loading" />
+                    </div>
                 </div>
-            </div>
-        </UserLayout>
+            </UserLayout>
         );
     },
     renderMoreButton: function () {

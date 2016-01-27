@@ -9,7 +9,6 @@ var Carousel = require('../Partial/Carousel.jsx');
 var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
-var Breadcrumb = require('./Breadcrumb.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 
@@ -44,7 +43,6 @@ var Layout = React.createClass({
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
-                    <Breadcrumb business={business} />
                     <div id="carousel-salon">
                     <Carousel id="carousel-salon" className={_.isEmpty(business.pictures) ? "noPicture" : ""} backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">

@@ -165,7 +165,7 @@ header {
 			display: none;
 		}
 	}
-	ul {
+	ul.white-header {
 		margin: 0;
 		z-index: 1;
 		li {
@@ -368,7 +368,7 @@ header {
 				}
 				&.hairfies {
 					&:before {
-            			background: url(../img/icons/mobile/hairfies.svg) no-repeat center center;
+            			background: url(../img/icons/mobile/hairfie-menu.svg) no-repeat center center;
             			background-size: contain;
         			}
 				}

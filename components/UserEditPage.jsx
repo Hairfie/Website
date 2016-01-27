@@ -38,7 +38,6 @@ var UserEditPage = React.createClass({
                             <Input type="text" ref="firstName" placeholder="Prénom" defaultValue={this.props.user.firstName || ""} />
                             <Input type="text" ref="lastName" placeholder="Nom" defaultValue={this.props.user.lastName || ""}/>
                             <Input type="email" ref="email" placeholder="Adresse Email" defaultValue={this.props.user.email || ""}/>
-                                <Input type="password" ref="password" placeholder="Mot de Passe" />
                             <Input type="text" ref="phoneNumber" placeholder="Numéro de portable" defaultValue={this.props.user.phoneNumber || ""} />
                         <div className="form-group">
                           <ImageField ref="picture" defaultPicture={this.props.user.picture} container="users"/>
@@ -58,11 +57,10 @@ var UserEditPage = React.createClass({
         e.preventDefault();
 
         var userInfo = {
-            token: this.props.token,
             email: this.refs.email.getValue() || undefined,
             firstName: this.refs.firstName.getValue() || undefined,
             lastName: this.refs.lastName.getValue() || undefined,
-            password: this.refs.password.getValue() || undefined,
+            //password: this.refs.password.getValue() || undefined,
             gender: this.state.userGender || undefined,
             phoneNumber: this.refs.phoneNumber.getValue() || undefined,
             picture: this.refs.picture.getImage() || undefined
@@ -76,10 +74,9 @@ UserEditPage = connectToStores(UserEditPage, [
     'AuthStore',
     'UserStore'
 ], function (context, props) {
-    var token = context.getStore('AuthStore').getToken();
+    var userId = context.getStore('AuthStore').getUserId();
     return {
-        token: token,
-        user: context.getStore('UserStore').getById(token.userId)
+        user: context.getStore('UserStore').getById(userId)
     };
 });
 

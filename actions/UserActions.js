@@ -24,6 +24,15 @@ var _mustBeConnected = function(context) {
     ]);
 };
 
+var getTokenIfConnected = function(context) {
+    var tokenObj = null;
+
+    var token = context.getStore('AuthStore').getToken();
+    if(!_.isEmpty(token)) tokenObj = {token: token};
+
+    return tokenObj;
+};
+
 module.exports = {
     userConnect: function(context, token) {
         return context.hairfieApi
@@ -43,10 +52,9 @@ module.exports = {
             })
     },
     editUser: function(context, payload) {
-        var token = payload.token;
-        delete payload.token;
+        var token = context.getStore('AuthStore').getToken();
         return context.hairfieApi
-            .put('/users/' + token.userId, payload, { query: { access_token: token.id }})
+            .put('/users/' + token.userId, payload, { token: token })
             .then(function () {
                 return context.executeAction(NotificationActions.notifySuccess,
                         {
@@ -65,10 +73,11 @@ module.exports = {
     },
     getUserById: function(context, id) {
         return context.hairfieApi
-            .get('/users/' + id)
+            .get('/users/' + id, getTokenIfConnected(context))
             .then(function (userInfo) {
                 return context.dispatch(Actions.RECEIVE_USER_INFO, userInfo)
-            }, function () {
+            }, function (error) {
+                console.log("error", error);
                 return context.executeAction(
                     NotificationActions.notifyError,
                     {

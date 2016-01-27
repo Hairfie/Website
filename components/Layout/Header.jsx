@@ -86,7 +86,7 @@ var Header = React.createClass({
                         <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
                             <Link route="home" className="logo" />
                         </div>
-                        <ul className="col-sm-7 col-md-5">
+                        <ul className="col-sm-7 col-md-5 white-header">
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
