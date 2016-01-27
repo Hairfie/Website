@@ -20,10 +20,12 @@ var PopupHairfie = React.createClass({
         if (!this.props.hairfie) return null;
         return (
             <div className="PopUpHairfie hairfie-singleView">
+                <span className="before" role="button" onClick={this.props.prev}/>
                 <div className="single-view row">
-                    <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    <HairfieSingle hairfie={this.props.hairfie} backgroundStyle={true} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
+                <span className="after" role="button" onClick={this.props.next} />
             </div>
         );
     },
@@ -40,10 +42,10 @@ PopupHairfie = connectToStores(PopupHairfie, [
     'UserStore',
     'AuthStore'
 ], function (context, props) {
-    var hairfie = props.hairfie;
+    var hairfie = context.getStore('HairfieStore').getById(props.hairfieId);
     var token = context.getStore('AuthStore').getToken();
     var user = context.getStore('UserStore').getById(token.userId);
-    if (user && user.likedHairfie)
+    if (hairfie && user && user.likedHairfie)
         var liked = user.likedHairfie[hairfie.id] || false;
     else
         var liked = false;

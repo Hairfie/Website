@@ -25,16 +25,7 @@ var Link = React.createClass({
         }
     },
     changePath: function (e) {
-        if (this.props.noNav.removeNav) {
-            window.history.back();
-        }
-        else if (this.props.noNav.changeNav) {
-            window.history.back();
-            window.history.pushState("", "", this.state.href);
-        }
-        else {
-            window.history.pushState("", "", this.state.href);
-        }
+        window.history.pushState("", "", this.state.href);
     },
     _getHrefFromProps: function (props) {
         var href = props.href || this.context.getStore('RouteStore').makeUrl(props.route, props.params, props.query);

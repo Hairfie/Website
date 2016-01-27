@@ -77,7 +77,7 @@ var BusinessHairfiesPage = React.createClass({
                 <div className="hairfies">
                     <div className="row">
                         {_.map(hairfies, function (hairfie) {
-                            return <Hairfie hairfie={hairfie} className="col-md-3 single-hairfie" />;
+                            return <Hairfie hairfie={hairfie} className="col-md-3 single-hairfie" popup={true} hairfies={_.map(hairfies, 'id')}/>;
                         })}
                     </div>
                     {this.renderMoreButton()}

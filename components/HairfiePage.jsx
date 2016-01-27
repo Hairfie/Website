@@ -47,8 +47,11 @@ var HairfiePage = React.createClass({
             </PublicLayout>
         );
     },
-    openPopup: function () {
-        
+    likeHairfie: function() {
+        if (!this.props.hairfieLiked)
+            this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
+        else
+            this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
     }
 });
 

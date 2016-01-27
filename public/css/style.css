@@ -9452,7 +9452,7 @@ figure {
   .tag:hover {
     color: white;
     text-decoration: none;
-    background-color: #404040; }
+    background-color: #fe282e; }
   @media screen and (max-width: 767px) {
     .tag {
       margin-top: 5px; } }
@@ -12274,8 +12274,38 @@ section.how .row > div {
     z-index: 10000;
     margin: 0;
     width: 70vw;
+    height: inherit;
+    min-height: inherit;
     left: 15vw;
     top: 15vh; }
+    .hairfie-singleView.PopUpHairfie span.before {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/left.svg) no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 25px);
+      left: calc(-7.5vw - 25px); }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        .hairfie-singleView.PopUpHairfie span.before {
+          left: calc(-5vw - 25px); } }
+    .hairfie-singleView.PopUpHairfie span.after {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/right.svg) no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 25px);
+      right: calc(-7.5vw - 25px); }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        .hairfie-singleView.PopUpHairfie span.after {
+          right: calc(-5vw - 25px); } }
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 80vw;
+        left: 10vw; } }
     .hairfie-singleView.PopUpHairfie .row {
       border: none !important;
       padding: initial !important;
@@ -12303,7 +12333,9 @@ section.how .row > div {
         background-size: cover;
         background-position: 50% 50%;
         background-color: #838B95;
-        width: 100%; }
+        width: 100%;
+        height: 0;
+        padding-top: 100%; }
       .hairfie-singleView .single-view #carousel-hairfie .pricetag {
         z-index: 99999;
         position: absolute;
@@ -12375,41 +12407,30 @@ section.how .row > div {
           margin-bottom: 5px; }
           .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.address {
             margin-top: 4px; }
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a {
+            float: none;
+            text-decoration: none;
+            font-size: 0.9em;
+            color: #b9b9b9; }
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a:hover {
+              color: #a0a0a0; }
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red {
+              color: #fe5b5f; }
+              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red:hover {
+                color: #fe282e; }
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.more-info a {
+            color: #595959;
+            text-decoration: underline; }
         .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a {
           text-decoration: underline; }
           .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a:hover {
             color: #343434; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes {
-          padding: 0;
-          padding-top: 5px; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes span {
-            padding-left: 0; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a {
-            float: none;
-            text-decoration: none;
-            font-size: 0.9em;
-            color: #595959; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a:hover {
-              color: black; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a:after {
-              content: " ";
-              height: 1px;
-              background-color: #595959;
-              position: absolute;
-              bottom: -1px;
-              left: 15px; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a:first-child {
-            padding-left: 0; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a:first-child:after {
-              width: calc(100% - 15px);
-              left: 0; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
-            width: calc(100% - 30px); }
         .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .btn-book {
           text-transform: uppercase;
           border-radius: 0;
           font-size: 1.3em; }
         .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 {
+          padding: 0;
           font-weight: 600;
           text-transform: uppercase;
           margin-bottom: 0;

@@ -38,7 +38,7 @@ module.exports = React.createClass({
                 </p>
             );
         }
-console.log(this.props.hairfie.business);
+
         var business = this.props.hairfie.business;
         var address = business.address || {};
 
@@ -55,35 +55,33 @@ console.log(this.props.hairfie.business);
                                 />
                             </Link>
                         </div>
-                        <div className="col-xs-9 address-bloc">
-                            <h2>
-                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
-                                    {this.props.hairfie.business.name}
-                                </Link>
-                                <PriceRating className="pull-right hidden-xs" business={business} style={{fontSize: "1em"}}/>
-                            </h2>
-                            <p className="address">{address.street} {address.zipCode} {address.city}</p>
-                            {hairdresserNode}          
+                        <div className="col-xs-9">
+                            <div className="address-bloc">
+                                <h2>
+                                    <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                                        {this.props.hairfie.business.name}
+                                    </Link>
+                                    <PriceRating className="pull-right hidden-xs" business={business} style={{fontSize: "1em"}}/>
+                                </h2>
+                                <p className="address">{address.street} {address.zipCode} {address.city}</p>
+                                {hairdresserNode}          
+                            </div>
                             <Rating style={{display: "inline-block"}} rating={business.rating} min={true}/>
                             { 
                             business.numReviews ? 
                                 <p style={{display: "inline", verticalAlign: '8px'}}> - {business.numReviews} avis</p>
                                 : null
                             }
-                            <p>
-                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }} style={{textDecoration: 'underline'}}>
+                            <p className="more-info">
+                                <Link route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
                                     {"+ d'infos sur le salon"}
                                 </Link>
                             </p>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-9 col-xs-offset-3 likes">
-                          <p>
-                            <a className="col-xs-3" role="button" onClick={this.props.likeHairfie.func}>{this.props.likeHairfie.state ? "Je n'aime plus" : "J'aime"}</a>
-                            -
-                            <a className="col-xs-3">{this.props.hairfie.numLikes} j'aime</a>
-                          </p>
+                            <p className="likes">
+                                <a role="button" className={this.props.likeHairfie.state ? "red" : ""} onClick={this.props.likeHairfie.func}>
+                                    <span className="glyphicon glyphicon-heart" /> {this.props.hairfie.numLikes} j'aime
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>

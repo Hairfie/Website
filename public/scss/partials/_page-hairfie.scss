@@ -14,12 +14,44 @@
 }
 .hairfie-singleView {
     &.PopUpHairfie {
-            position: fixed;
-            z-index: 10000;
-            margin: 0;
-            width: 70vw;
-            left: 15vw;
-            top: 15vh;
+        span.before {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/left.svg) no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+            top: calc(50% - 25px);
+            left: calc(-7.5vw - 25px);
+            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+                left: calc(-5vw - 25px);
+            }
+        }
+        span.after {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/right.svg) no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+            top: calc(50% - 25px);
+            right: calc(-7.5vw - 25px);
+            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+                right: calc(-5vw - 25px);
+            }
+        }
+        position: fixed;
+        z-index: 10000;
+        margin: 0;
+        width: 70vw;
+        height: inherit;
+        min-height: inherit;
+        left: 15vw;
+        top: 15vh;
+        @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            width: 80vw;
+            left: 10vw;
+        }
         .row {
             border: none !important;
             padding: initial !important;
@@ -54,12 +86,16 @@
             height: 100%;
             position: relative;
             margin-left: -15px;
-            .item img {
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: 50% 50%;
-                background-color: #838B95;
-                width: 100%;
+            .item {
+                img {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-color: #838B95;
+                    width: 100%;
+                    height: 0;
+                    padding-top: 100%;
+                }
             }
             .pricetag {
                 z-index: 99999;
@@ -147,46 +183,29 @@
                     &.address {
                         margin-top: 4px;
                     }
+                    &.likes {
+                        a {
+                            float: none;
+                            text-decoration: none;
+                            font-size: 0.9em;
+                            color: $grey8;
+                            &:hover {
+                                color: darken($grey8, 10%);
+                            }
+                            &.red {
+                                color: $hairfie;
+                                &:hover {
+                                    color: darken($hairfie, 10%);
+                                }
+                            }
+                        }
+                    }
+                    &.more-info a {
+                        color: $font-color;
+                        text-decoration: underline;
+                    }
                 }
                 p a {text-decoration: underline;&:hover {color: #343434;}}
-                .likes {
-                    padding: 0;
-                    padding-top: 5px;
-
-                    span {
-                        padding-left: 0;
-                    }
-
-                    a {
-                        float: none;
-                        text-decoration: none;
-                        font-size: 0.9em;
-                        color: $font-color;
-                        &:hover {
-                            color: black;
-                        }
-                        &:after {
-                            content: " ";
-                            height: 1px;
-                            background-color: $font-color;
-                            position: absolute; bottom: -1px;
-                            left: 15px;
-                        }
-                    }
-                    a:first-child {
-                        padding-left: 0;
-                        &:after {
-                            width: calc(100% - 15px);
-                            left: 0;
-                        }
-                    }
-                    a:last-child {
-                        &:after {
-                            width: calc(100% - 30px);
-                        }
-                    }
-                }
-
                 .btn-book {
                     text-transform: uppercase;
                     border-radius: 0;
@@ -194,6 +213,7 @@
                 }
                 div.address-bloc {
                     h2 {
+                        padding: 0;
                         font-weight: 600;
                         text-transform: uppercase;
                         margin-bottom: 0;
