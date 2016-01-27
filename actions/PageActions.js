@@ -138,7 +138,14 @@ module.exports = {
         throw error;
     },
     userHairfies: function (context, route) {
-        return context.executeAction(UserActions.getUserById, route.params.userId);
+        return Promise.all([
+            context.executeAction(UserActions.getUserById, route.params.userId),
+            context.executeAction(HairfieActions.loadUserHairfies, {
+                id: route.params.userId,
+                page: 1,
+                pageSize: 10
+            })
+        ]);
     },
     userReviews: function (context, route) {
         return Promise.all([
@@ -148,7 +155,12 @@ module.exports = {
     },
     userLikes: function (context, route) {
         return Promise.all([
-            context.executeAction(UserActions.getUserById, route.params.userId)
+            context.executeAction(UserActions.getUserById, route.params.userId),
+            context.executeAction(HairfieActions.loadUserLikes, {
+                id: route.params.userId,
+                page: 1,
+                pageSize: 10
+            })
         ]);
     },
     hairdresser: function(context, route) {
@@ -158,7 +170,12 @@ module.exports = {
     },
     hairdresserHairfies: function(context, route) {
         return Promise.all([
-            context.executeAction(HairdresserActions.loadHairdresser, route.params.id)
+            context.executeAction(HairdresserActions.loadHairdresser, route.params.id),
+            context.executeAction(HairfieActions.loadHairdresserHairfies, {
+                id: route.params.id,
+                page: 1,
+                pageSize: 10
+            })
         ]);
     },
     writeBusinessReview: function(context, route) {

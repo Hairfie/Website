@@ -5,11 +5,11 @@ var moment = require('moment');
 moment.locale('fr');
 
 function setToken(context, token) {
-    context.setCookie("AUTH_TOKEN", JSON.stringify(token), {expires: moment().add(1, 'y').toDate()});
+    context.setCookie("AUTH_TOKEN", JSON.stringify(token), {expires: moment().add(1, 'y').toDate(), path: '/'});
 }
 
 function clearToken(context) {
-    context.setCookie("AUTH_TOKEN", null);
+    context.setCookie("AUTH_TOKEN", false, {path: '/'});
 }
 
 function getToken(context) {
@@ -17,7 +17,7 @@ function getToken(context) {
 }
 
 function setHasClosedPopup(context) {
-    context.setCookie("_has_closed_popup", true, {expires: moment().add(2, 'w').toDate()}); 
+    context.setCookie("_has_closed_popup", true, {expires: moment().add(2, 'w').toDate(), path: '/'}); 
 }
 
 function getClosedPopup(context) {
@@ -25,7 +25,7 @@ function getClosedPopup(context) {
 }
 
 function setHasClosedBanner(context) {
-    context.setCookie("HAS_CLOSED_BANNER", true, {expires: moment().add(2, 'w').toDate()});
+    context.setCookie("HAS_CLOSED_BANNER", true, {expires: moment().add(2, 'w').toDate(), path: '/'});
 }
 
 function getClosedBanner(context) {

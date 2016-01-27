@@ -84,39 +84,58 @@ module.exports = createStore({
         this.emitChange();
     },
     onReceiveHairdresserHairfies: function (payload) {
-        if (_.isUndefined(this.hairdresserHairfies[payload.hairdresserId]))
-            this.hairdresserHairfies[payload.hairdresserId] = new Array();
+        if (_.isUndefined(this.hairdresserHairfies[payload.hairdresserId])) {
+            this.hairdresserHairfies[payload.hairdresserId] = {
+                hairfies: new Array(),
+                page: null
+            };
+        }
         _.map(payload.hairfies, function (hairfie) {
-            this.hairdresserHairfies[payload.hairdresserId].push(hairfie.id);
-            if (_.isUndefined(this.hairfies[hairfie.id]))
+            this.hairdresserHairfies[payload.hairdresserId].hairfies.push(hairfie.id);
+            if (_.isUndefined(this.hairfies[hairfie.id])) {
                 this.hairfies[hairfie.id] = hairfie;
+            }
         }.bind(this));
-        this.hairdresserHairfies[payload.hairdresserId] = _.uniq(this.hairdresserHairfies[payload.hairdresserId]);
+
+        this.hairdresserHairfies[payload.hairdresserId].hairfies = _.uniq(this.hairdresserHairfies[payload.hairdresserId].hairfies);
         this.hairdresserHairfies[payload.hairdresserId].page = payload.page;
         this.emitChange();
     },
     onReceiveUserHairfies: function (payload) {
-        if (_.isUndefined(this.userHairfies[payload.userId]))
-            this.userHairfies[payload.userId] = new Array();
+        if (_.isUndefined(this.userHairfies[payload.userId])) {
+            this.userHairfies[payload.userId] = {
+                hairfies: new Array(),
+                page: null
+            };
+        }
         _.map(payload.hairfies, function (hairfie) {
-            this.userHairfies[payload.userId].push(hairfie.id);
-            if (_.isUndefined(this.hairfies[hairfie.id]))
+            this.userHairfies[payload.userId].hairfies.push(hairfie.id);
+            if (_.isUndefined(this.hairfies[hairfie.id])) {
                 this.hairfies[hairfie.id] = hairfie;
+            }
         }.bind(this));
-        this.userHairfies[payload.userId] = _.uniq(this.userHairfies[payload.userId]);
+
+
+        this.userHairfies[payload.userId].hairfies = _.uniq(this.userHairfies[payload.userId].hairfies);
         this.userHairfies[payload.userId].page = payload.page;
+
         this.emitChange();
     },
     onReceiveUserLikes: function (payload) {
-        if (_.isUndefined(this.userLikes[payload.userId]))
-            this.userLikes[payload.userId] = new Array();
+        if (_.isUndefined(this.userLikes[payload.userId])) {
+            this.userLikes[payload.userId] = {
+                hairfies: new Array(),
+                page: null
+            };
+        }
         _.map(payload.hairfies, function (obj) {
             if (!obj.hairfie) return;
-            this.userLikes[payload.userId].push(obj.hairfie.id);
-            if (_.isUndefined(this.hairfies[obj.hairfie.id]))
+            this.userLikes[payload.userId].hairfies.push(obj.hairfie.id);
+            if (_.isUndefined(this.hairfies[obj.hairfie.id])) {
                 this.hairfies[obj.hairfie.id] = obj.hairfie;
+            }
         }.bind(this));
-        this.userLikes[payload.userId] = _.uniq(this.userLikes[payload.userId]);
+        this.userLikes[payload.userId].hairfies = _.uniq(this.userLikes[payload.userId].hairfies);
         this.userLikes[payload.userId].page = payload.page;
         this.emitChange();
     },
@@ -143,17 +162,17 @@ module.exports = createStore({
         return this.hairfies[id];
     },
     getHairfiesByHairdresser: function (hairdresserId) {
-        return _.map(this.hairdresserHairfies[hairdresserId], function(id) {
+        return _.map(this.hairdresserHairfies[hairdresserId] && this.hairdresserHairfies[hairdresserId].hairfies, function(id) {
             return this.hairfies[id];
         }.bind(this));
     },
     getHairfiesByUser: function (userId) {
-        return _.map(this.userHairfies[userId], function(id) {
+        return _.map(this.userHairfies[userId] && this.userHairfies[userId].hairfies, function(id) {
             return this.hairfies[id];
         }.bind(this));
     },
     getLikesByUser: function (userId) {
-        return _.map(this.userLikes[userId], function(id) {
+        return _.map(this.userLikes[userId] && this.userLikes[userId].hairfies, function(id) {
             return this.hairfies[id];
         }.bind(this));
     },
@@ -164,7 +183,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
-            this.hairdresserHairfies[hairdresserId] = new Array();
+            this.hairdresserHairfies[hairdresserId] = {hairfies: new Array(), page: null};
             this.emitChange();
             return -1;
         }
@@ -178,7 +197,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
-            this.userHairfies[userId] = new Array();
+            this.userHairfies[userId] = {hairfies: new Array(), page: null};
             this.emitChange();
             return -1;
         }
@@ -192,7 +211,7 @@ module.exports = createStore({
                 page: 1,
                 pageSize: 15
             });
-            this.userLikes[userId] = new Array();
+            this.userLikes[userId] = {hairfies: new Array(), page: null};
             this.emitChange();
             return -1;
         }

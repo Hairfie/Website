@@ -153,10 +153,10 @@ module.exports = {
     },
     loadUserHairfies: function (context, params) {
         var query = {
-        'filter[where][authorId]': params.id,
-        'filter[order]': 'createdAt DESC',
-        'filter[skip]': (params.page - 1) * params.pageSize,
-        'filter[limit]': params.pageSize
+            'filter[where][authorId]': params.id,
+            'filter[order]': 'createdAt DESC',
+            'filter[skip]': (params.page - 1) * params.pageSize,
+            'filter[limit]': params.pageSize
         };
 
         return context.hairfieApi
@@ -170,7 +170,8 @@ module.exports = {
                         page: params.page
                     })
                 ]);
-            }, function () {
+            }, function (error) {
+                console.log("error", error);
                 return context.executeAction(
                     NotificationActions.notifyError,
                     {

@@ -4,11 +4,15 @@ var React = require('react');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var HairdresserLayout = require('./HairdresserPage/Layout.jsx');
+var HairfieActions = require('../actions/HairfieActions');
 var Hairfie = require('./Partial/Hairfie.jsx');
 
-var PAGE_SIZE = 15;
+var PAGE_SIZE = 10;
 
 var HairdresserHairfiesPage = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
     render: function () {
         if (_.isUndefined(this.props.page) || this.props.page < 0)
             return this.renderLoader();
