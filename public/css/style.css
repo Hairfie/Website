@@ -11405,6 +11405,14 @@ section.how .row > div {
     padding: 15px;
     height: 250px;
     cursor: pointer; }
+    #content.search .main-content .tab-pane#salons .business-result:hover, #content.search .main-content .tab-pane#adom .business-result:hover {
+      -webkit-box-shadow: 0px 4px 5px 0px #c4c4c4;
+      -moz-box-shadow: 0px 4px 5px 0px #c4c4c4;
+      box-shadow: 0px 4px 5px 0px #c4c4c4;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .business-result, #content.search .main-content .tab-pane#adom .business-result {
         padding: 16px 10px;
@@ -11467,6 +11475,12 @@ section.how .row > div {
             height: 15px;
             position: absolute;
             margin-left: -15px; } }
+    #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
+      color: white;
+      background-color: #fe5b5f;
+      font-size: 1.6em;
+      padding: 5px;
+      margin-right: 5px; }
   #content.search .main-content .tab-pane#hairfies section:after {
     content: none; }
   #content.search .main-content .tab-pane#hairfies h3 {
