@@ -8531,9 +8531,10 @@ body {
   .home-pro .row .claim {
     color: white;
     padding: 30px;
-    margin-bottom: 100px; }
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative; }
     .home-pro .row .claim h3 {
-      margin-top: 60px;
       font-size: 2.1em; }
     .home-pro .row .claim p {
       font-size: 1.2em;
@@ -8586,6 +8587,19 @@ body {
       .home-pro .row .claim .contact a {
         color: white;
         font-weight: bold; }
+    .home-pro .row .claim .btn-scroll {
+      position: absolute;
+      right: 10%;
+      bottom: 30%; }
+      .home-pro .row .claim .btn-scroll img {
+        width: 100px;
+        cursor: pointer; }
+    .home-pro .row .claim .more-infos {
+      display: block;
+      font-weight: 400;
+      width: 100px;
+      text-align: center;
+      margin-top: 10px; }
   @media screen and (max-width: 767px) {
     .home-pro {
       height: 100%;
@@ -8595,14 +8609,16 @@ body {
         text-align: center; }
       .home-pro .row li {
         font-size: 18px; }
-      .home-pro .row .claim .form-group .radio-label {
-        width: 35%;
-        line-height: 47px;
-        margin-right: 10px; }
-      .home-pro .row .claim .second-form {
-        width: 100%; }
-      .home-pro .row .claim .btn-red {
-        width: calc(100% - 15px); } }
+      .home-pro .row .claim {
+        margin-top: 100px; }
+        .home-pro .row .claim .form-group .radio-label {
+          width: 35%;
+          line-height: 47px;
+          margin-right: 10px; }
+        .home-pro .row .claim .second-form {
+          width: 100%; }
+        .home-pro .row .claim .btn-red {
+          width: calc(100% - 15px); } }
   @media screen and (min-width: 768px) {
     .home-pro {
       height: 100%;
