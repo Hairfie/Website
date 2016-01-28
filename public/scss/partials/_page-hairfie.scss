@@ -16,30 +16,24 @@
     margin: auto;
     &.PopUpHairfie {
         span.before {
-            height: 50px;
-            width: 50px;
-            background: url(../img/icons/left.svg) no-repeat center center;
-            background-size: contain;
+            height: 50%;
+            width: 10vw;
             position: absolute;
             z-index: 1;
-            top: calc(50% - 25px);
-            left: calc(-7.5vw - 25px);
-            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-                left: calc(-5vw - 25px);
-            }
+            top: 25%;
+            right: calc(100% + 2.5vw);
+            padding-top: calc(12.5% - 25px);
+            padding-left: calc(5vw - 25px);
         }
         span.after {
-            height: 50px;
-            width: 50px;
-            background: url(../img/icons/right.svg) no-repeat center center;
-            background-size: contain;
+            height: 50%;
+            width: 10vw;
             position: absolute;
             z-index: 1;
-            top: calc(50% - 25px);
-            right: calc(-7.5vw - 25px);
-            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-                right: calc(-5vw - 25px);
-            }
+            top: 25%;
+            left: calc(100% + 2.5vw);
+            padding-top: calc(12.5% - 25px);
+            padding-left: calc(5vw - 25px);
         }
         span.quit {
             height: 40px;

@@ -67,7 +67,7 @@ module.exports = React.createClass({
                             {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                         </figcaption>
                     </Link>
-                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} className="visible-xs visible-sm">
+                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} className="hidden-md hidden-lg">
                         <Picture picture={_.last(hairfie.pictures)}
                                 resolution={{width: 640, height: 640}}
                                 placeholder="/img/placeholder-640.png"

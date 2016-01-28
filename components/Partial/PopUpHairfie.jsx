@@ -6,6 +6,7 @@ var RightColumn = require('../HairfiePage/RightColumn.jsx');
 var HairfieSingle = require('../HairfiePage/HairfieSingle.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../../actions/UserActions');
+var Picture = require('./Picture.jsx');
 
 var PopupHairfie = React.createClass({
     contextTypes: {
@@ -19,14 +20,18 @@ var PopupHairfie = React.createClass({
     render: function () {
         if (!this.props.hairfie) return null;
         return (
-            <div className="PopUpHairfie hairfie-singleView">
-                <span className="before" role="button" onClick={this.props.prev}/>
+            <div className="PopUpHairfie hairfie-singleView" {...this.props}>
+                <span className="before" role="button" onClick={this.props.prev}>
+                    <Picture picture={{url: "/img/icons/left.svg"}} style={{width: 50, height: 50}} />
+                </span>
                 <span className="quit" role="button" onClick={this.props.close}/>
                 <div className="single-view row">
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
-                <span className="after" role="button" onClick={this.props.next} />
+                <span className="after" role="button" onClick={this.props.next}>
+                    <Picture picture={{url: "/img/icons/right.svg"}} style={{width: 50, height: 50}} />
+                </span>
             </div>
         );
     },

@@ -9943,6 +9943,18 @@ input:not(:focus).valid {
 input:not(:focus).error {
   border: 2px solid #a94442 !important; }
 
+div.shadow.active {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+  z-index: 5; }
+
+div.shadow.inactive {
+  display: none; }
+
 header {
   position: relative;
   z-index: 20;
@@ -10369,18 +10381,6 @@ header {
           font-size: 1.4em;
           letter-spacing: 2px;
           color: #c4c4c4; }
-
-div.shadow.active {
-  position: fixed;
-  width: 100vw;
-  height: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
-  left: 0;
-  top: 0;
-  z-index: 5; }
-
-div.shadow.inactive {
-  display: none; }
 
 /*////////////////////////////////
 	   F O O T E R
@@ -12358,29 +12358,23 @@ section.how .row > div {
     left: 15vw;
     top: 15vh; }
     .hairfie-singleView.PopUpHairfie span.before {
-      height: 50px;
-      width: 50px;
-      background: url(../img/icons/left.svg) no-repeat center center;
-      background-size: contain;
+      height: 50%;
+      width: 10vw;
       position: absolute;
       z-index: 1;
-      top: calc(50% - 25px);
-      left: calc(-7.5vw - 25px); }
-      @media screen and (min-width: 992px) and (max-width: 1199px) {
-        .hairfie-singleView.PopUpHairfie span.before {
-          left: calc(-5vw - 25px); } }
+      top: 25%;
+      right: calc(100% + 2.5vw);
+      padding-top: calc(12.5% - 25px);
+      padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.after {
-      height: 50px;
-      width: 50px;
-      background: url(../img/icons/right.svg) no-repeat center center;
-      background-size: contain;
+      height: 50%;
+      width: 10vw;
       position: absolute;
       z-index: 1;
-      top: calc(50% - 25px);
-      right: calc(-7.5vw - 25px); }
-      @media screen and (min-width: 992px) and (max-width: 1199px) {
-        .hairfie-singleView.PopUpHairfie span.after {
-          right: calc(-5vw - 25px); } }
+      top: 25%;
+      left: calc(100% + 2.5vw);
+      padding-top: calc(12.5% - 25px);
+      padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.quit {
       height: 40px;
       width: 40px;
