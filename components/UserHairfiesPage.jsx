@@ -22,8 +22,8 @@ var UserHairfiesPage = React.createClass({
                 <div className="hairfies">
                     <div className="row">
                     {_.map(this.props.hairfies, function (hairfie) {
-                        return <Hairfie hairfie={hairfie} className="col-xs-6 col-sm-4 col-md-3 single-hairfie" />;
-                    })}
+                        return <Hairfie hairfie={hairfie} className="col-xs-6 col-sm-4 col-md-3 single-hairfie" popup={true} hairfies={_.map(this.props.hairfies, 'id')} />;
+                    }.bind(this))}
                     </div>
                     {this.renderMoreButton()};
                 </div>

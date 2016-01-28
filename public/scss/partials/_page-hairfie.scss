@@ -12,8 +12,64 @@
         }
     }
 }
-.hairfie-singleView#content {
+.hairfie-singleView {
     margin: auto;
+    &.PopUpHairfie {
+        span.before {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/left.svg) no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+            top: calc(50% - 25px);
+            left: calc(-7.5vw - 25px);
+            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+                left: calc(-5vw - 25px);
+            }
+        }
+        span.after {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/right.svg) no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+            top: calc(50% - 25px);
+            right: calc(-7.5vw - 25px);
+            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+                right: calc(-5vw - 25px);
+            }
+        }
+        span.quit {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/cross.svg) white no-repeat center center;
+            background-size: 50%;
+            position: absolute;
+            z-index: 1;
+            top: -60px;
+            right: 0;
+        }
+        position: fixed;
+        z-index: 10000;
+        margin: 0;
+        width: 70vw;
+        height: inherit;
+        min-height: inherit;
+        left: 15vw;
+        top: 15vh;
+        @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            width: 80vw;
+            left: 10vw;
+        }
+        .row {
+            border: none !important;
+            padding: initial !important;
+            margin: initial !important;
+        }
+    }
+    margin: 40px auto;
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 100px;
     }
@@ -33,6 +89,12 @@
     }
 
     .single-view {
+        span.force-size {
+            width: 0px;
+            padding-top: calc(100% + 15px);
+            display: block;
+            float: right;
+        }
         background-color: white;
         > .col-sm-6:first-child {
             padding-right: 0;
@@ -41,28 +103,28 @@
             height: 100%;
             position: relative;
             margin-left: -15px;
-            .item img {
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: 50% 50%;
-                background-color: #838B95;
-                width: 100%;
+            .item {
+                img {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-color: #838B95;
+                    width: 100%;
+                }
             }
             .pricetag {
-                font-size: 32px;
-                color: white;
                 z-index: 99999;
                 position: absolute; top: 15px; left: 15px;
                 background-image:url(../img/round.svg);
                 background-repeat: no-repeat;
                 width: 14%;
                 height: 14%;
-
                 @media (max-width: $screen-xs-max){
                     font-size: 25px;
                 }
-
-                .price{
+                .price {
+                    font-size: 32px;
+                    color: white;
                     position: absolute;
                     top: 23%;
                     width: 100%;
@@ -138,50 +200,57 @@
                     &.address {
                         margin-top: 4px;
                     }
+                    &.likes {
+                        a {
+                            float: none;
+                            text-decoration: none;
+                            font-size: 0.9em;
+                            color: $grey8;
+                            &:hover {
+                                color: darken($grey8, 10%);
+                            }
+                            &.red {
+                                color: $hairfie;
+                                &:hover {
+                                    color: darken($hairfie, 10%);
+                                }
+                            }
+                        }
+                    }
+                    &.more-info a {
+                        color: $font-color;
+                        text-decoration: underline;
+                    }
                 }
                 p a {text-decoration: underline;&:hover {color: #343434;}}
-                .likes {
-                    padding: 0;
-                    padding-top: 5px;
-
-                    span {
-                        padding-left: 0;
-                    }
-
-                    a {
-                        float: none;
-                        text-decoration: none;
-                        font-size: 0.9em;
-                        color: $font-color;
-                        &:hover {
-                            color: black;
-                        }
-                        &:after {
-                            content: " ";
-                            height: 1px;
-                            background-color: $font-color;
-                            position: absolute; bottom: -1px;
-                            left: 15px;
-                        }
-                    }
-                    a:first-child {
-                        padding-left: 0;
-                        &:after {
-                            width: calc(100% - 15px);
-                            left: 0;
-                        }
-                    }
-                    a:last-child {
-                        &:after {
-                            width: calc(100% - 30px);
-                        }
-                    }
-                }
-
                 .btn-book {
                     text-transform: uppercase;
                     border-radius: 0;
                     font-size: 1.3em;
+                }
+                div.address-bloc {
+                    h2 {
+                        padding: 0;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        margin-bottom: 0;
+                        color: $darkgrey;
+                        letter-spacing: 2px;
+                        font-size: 1.6em;
+                        a {
+                            letter-spacing: 2px;
+                            color: $darkgrey;
+                            text-decoration: none;
+                        }
+                    }
+                    a {
+                        color: #595959;
+                        text-decoration: none;
+                        letter-spacing: 1px;
+                    }
+                    p {
+                        font-size: 1.4em;
+                    }
                 }
             }
         }
@@ -217,7 +286,7 @@
                     cursor: pointer;
                     display: block;
                     text-align: center;
-                    width: 65px;height: 65px;
+                    width: 65px;height: 64px;
                     position: relative;
                     border-right: 1px solid $border-color;
 
