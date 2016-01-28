@@ -8670,10 +8670,6 @@ figcaption a.address {
 .hairfie-singleView#content .single-view #carousel-hairfie {
   height: inherit !important; }
 
-/* Fix car pas de bouton like pour le moment */
-.hairfie-singleView#content .single-view .like-group .cta {
-  width: 100%; }
-
 .cal {
   width: 100%; }
 
@@ -9498,7 +9494,7 @@ figure {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 9;
+    z-index: 1;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
@@ -9507,7 +9503,8 @@ figure {
 .tag {
   display: inline-block;
   padding: 2px 10px;
-  background-color: #595959;
+  background-color: #fe5b5f;
+  font-weight: bolder;
   color: white;
   border-radius: 2px;
   margin: 0 3px;
@@ -9518,7 +9515,7 @@ figure {
   .tag:hover {
     color: white;
     text-decoration: none;
-    background-color: #404040; }
+    background-color: #fe282e; }
   @media screen and (max-width: 767px) {
     .tag {
       margin-top: 5px; } }
@@ -9996,7 +9993,7 @@ header {
       header a.menu-search {
         margin-top: 25px; } }
     header a.menu-search.close {
-      background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
+      background: url(../img/icons/cross.svg) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header a.menu-trigger {
@@ -10009,7 +10006,7 @@ header {
       header a.menu-trigger {
         margin-top: 19px; } }
     header a.menu-trigger.close {
-      background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
+      background: url(../img/icons/cross.svg) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header .logo {
@@ -12336,38 +12333,92 @@ section.how .row > div {
   .hairfie-newsletter .newsletter-banner p {
     font-size: 1.7em !important; }
 
-.hairfie-singleView#content {
+.hairfie-singleView {
   margin: auto;
+  margin: 40px auto;
   min-height: calc(100vh - 60px);
   height: 100%;
   position: relative; }
+  .hairfie-singleView.PopUpHairfie {
+    position: fixed;
+    z-index: 10000;
+    margin: 0;
+    width: 70vw;
+    height: inherit;
+    min-height: inherit;
+    left: 15vw;
+    top: 15vh; }
+    .hairfie-singleView.PopUpHairfie span.before {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/left.svg) no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 25px);
+      left: calc(-7.5vw - 25px); }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        .hairfie-singleView.PopUpHairfie span.before {
+          left: calc(-5vw - 25px); } }
+    .hairfie-singleView.PopUpHairfie span.after {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/right.svg) no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 25px);
+      right: calc(-7.5vw - 25px); }
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        .hairfie-singleView.PopUpHairfie span.after {
+          right: calc(-5vw - 25px); } }
+    .hairfie-singleView.PopUpHairfie span.quit {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/cross.svg) white no-repeat center center;
+      background-size: 50%;
+      position: absolute;
+      z-index: 1;
+      top: -60px;
+      right: 0; }
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 80vw;
+        left: 10vw; } }
+    .hairfie-singleView.PopUpHairfie .row {
+      border: none !important;
+      padding: initial !important;
+      margin: initial !important; }
   @media screen and (max-width: 767px) {
-    .hairfie-singleView#content {
+    .hairfie-singleView {
       margin-top: 100px; } }
-  .hairfie-singleView#content > a span.arrow {
+  .hairfie-singleView > a span.arrow {
     position: absolute;
     top: 283px; }
-  .hairfie-singleView#content > a span.arrow-right {
+  .hairfie-singleView > a span.arrow-right {
     right: -50px !important; }
-  .hairfie-singleView#content > a span.arrow-left {
+  .hairfie-singleView > a span.arrow-left {
     left: -50px !important; }
-  .hairfie-singleView#content .single-view {
+  .hairfie-singleView .single-view {
     background-color: white; }
-    .hairfie-singleView#content .single-view > .col-sm-6:first-child, .hairfie-singleView#content #content.search .hairfie-search-newsletter .newsletter-banner .single-view > p:first-child, #content.search .hairfie-search-newsletter .newsletter-banner .hairfie-singleView#content .single-view > p:first-child, .hairfie-singleView#content .hairfie-newsletter .newsletter-banner .single-view > p:first-child, .hairfie-newsletter .newsletter-banner .hairfie-singleView#content .single-view > p:first-child {
+    .hairfie-singleView .single-view span.force-size {
+      width: 0px;
+      padding-top: calc(100% + 15px);
+      display: block;
+      float: right; }
+    .hairfie-singleView .single-view > .col-sm-6:first-child, .hairfie-singleView #content.search .hairfie-search-newsletter .newsletter-banner .single-view > p:first-child, #content.search .hairfie-search-newsletter .newsletter-banner .hairfie-singleView .single-view > p:first-child, .hairfie-singleView .hairfie-newsletter .newsletter-banner .single-view > p:first-child, .hairfie-newsletter .newsletter-banner .hairfie-singleView .single-view > p:first-child {
       padding-right: 0; }
-    .hairfie-singleView#content .single-view #carousel-hairfie {
+    .hairfie-singleView .single-view #carousel-hairfie {
       height: 100%;
       position: relative;
       margin-left: -15px; }
-      .hairfie-singleView#content .single-view #carousel-hairfie .item img {
+      .hairfie-singleView .single-view #carousel-hairfie .item img {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
         background-color: #838B95;
         width: 100%; }
-      .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
-        font-size: 32px;
-        color: white;
+      .hairfie-singleView .single-view #carousel-hairfie .pricetag {
         z-index: 99999;
         position: absolute;
         top: 15px;
@@ -12377,24 +12428,26 @@ section.how .row > div {
         width: 14%;
         height: 14%; }
         @media (max-width: 767px) {
-          .hairfie-singleView#content .single-view #carousel-hairfie .pricetag {
+          .hairfie-singleView .single-view #carousel-hairfie .pricetag {
             font-size: 25px; } }
-        .hairfie-singleView#content .single-view #carousel-hairfie .pricetag .price {
+        .hairfie-singleView .single-view #carousel-hairfie .pricetag .price {
+          font-size: 32px;
+          color: white;
           position: absolute;
           top: 23%;
           width: 100%;
           text-align: center; }
-      .hairfie-singleView#content .single-view #carousel-hairfie .indice-control {
+      .hairfie-singleView .single-view #carousel-hairfie .indice-control {
         width: 100%;
         position: absolute;
         bottom: 0;
         text-align: center; }
-        .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a {
+        .hairfie-singleView .single-view #carousel-hairfie .indice-control a {
           opacity: 0.5;
           display: inline-block;
           height: 40px;
           width: 40px; }
-          .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a span.arrow {
+          .hairfie-singleView .single-view #carousel-hairfie .indice-control a span.arrow {
             background-image: none;
             width: 20px;
             height: 20px;
@@ -12402,114 +12455,120 @@ section.how .row > div {
             border-radius: 100%;
             position: static;
             margin: 10px auto; }
-          .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a:hover, .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a:active, .hairfie-singleView#content .single-view #carousel-hairfie .indice-control a.active {
+          .hairfie-singleView .single-view #carousel-hairfie .indice-control a:hover, .hairfie-singleView .single-view #carousel-hairfie .indice-control a:active, .hairfie-singleView .single-view #carousel-hairfie .indice-control a.active {
             opacity: 0.9; }
-      .hairfie-singleView#content .single-view #carousel-hairfie .before, .hairfie-singleView#content .single-view #carousel-hairfie .after {
+      .hairfie-singleView .single-view #carousel-hairfie .before, .hairfie-singleView .single-view #carousel-hairfie .after {
         position: absolute;
         font-weight: 200;
         bottom: 0;
         color: white;
         font-size: 3em;
         right: 20px; }
-    .hairfie-singleView#content .single-view > div:nth-child(2) {
+    .hairfie-singleView .single-view > div:nth-child(2) {
       padding: 20px; }
-      .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos {
+      .hairfie-singleView .single-view > div:nth-child(2) .salon-infos {
         height: auto;
         border-bottom: 1px solid #f9f9f9; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .col-xs-9 {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .col-xs-9 {
           padding-left: 0; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos > div:first-child {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child {
           padding-left: 0; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child {
             max-height: 95px; }
-            .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a {
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a {
               display: inline-block;
               width: 100%;
               height: auto;
               max-height: 95px;
               overflow: hidden; }
-              .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a img {
+              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a img {
                 width: 100%;
                 height: auto; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos h2 {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos h2 {
           font-size: 1.5em; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p {
           letter-spacing: 1px;
           font-size: 1.3em;
           margin-bottom: 5px; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p.address {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.address {
             margin-top: 4px; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a {
-          text-decoration: underline; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos p a:hover {
-            color: #343434; }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes {
-          padding: 0;
-          padding-top: 5px; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes span {
-            padding-left: 0; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a {
             float: none;
             text-decoration: none;
             font-size: 0.9em;
-            color: #595959; }
-            .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:hover {
-              color: black; }
-            .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:after {
-              content: " ";
-              height: 1px;
-              background-color: #595959;
-              position: absolute;
-              bottom: -1px;
-              left: 15px; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:first-child {
-            padding-left: 0; }
-            .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:first-child:after {
-              width: calc(100% - 15px);
-              left: 0; }
-          .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .likes a:last-child:after {
-            width: calc(100% - 30px); }
-        .hairfie-singleView#content .single-view > div:nth-child(2) .salon-infos .btn-book {
+            color: #b9b9b9; }
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a:hover {
+              color: #a0a0a0; }
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red {
+              color: #fe5b5f; }
+              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red:hover {
+                color: #fe282e; }
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.more-info a {
+            color: #595959;
+            text-decoration: underline; }
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a {
+          text-decoration: underline; }
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a:hover {
+            color: #343434; }
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .btn-book {
           text-transform: uppercase;
           border-radius: 0;
           font-size: 1.3em; }
-    .hairfie-singleView#content .single-view .tags {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 {
+          padding: 0;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-bottom: 0;
+          color: #595959;
+          letter-spacing: 2px;
+          font-size: 1.6em; }
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 a {
+            letter-spacing: 2px;
+            color: #595959;
+            text-decoration: none; }
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc a {
+          color: #595959;
+          text-decoration: none;
+          letter-spacing: 1px; }
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc p {
+          font-size: 1.4em; }
+    .hairfie-singleView .single-view .tags {
       margin-left: -3px; }
-      .hairfie-singleView#content .single-view .tags .tag {
+      .hairfie-singleView .single-view .tags .tag {
         margin-bottom: 6px; }
-        .hairfie-singleView#content .single-view .tags .tag a {
+        .hairfie-singleView .single-view .tags .tag a {
           color: white !important;
           font-size: 1.4em;
           text-decoration: none; }
-          .hairfie-singleView#content .single-view .tags .tag a:hover {
+          .hairfie-singleView .single-view .tags .tag a:hover {
             text-decoration: none; }
-    .hairfie-singleView#content .single-view .like-group {
+    .hairfie-singleView .single-view .like-group {
       width: 100%;
       height: 65px;
       position: absolute;
       bottom: 0;
       left: 100%; }
       @media (max-width: 767px) {
-        .hairfie-singleView#content .single-view .like-group {
+        .hairfie-singleView .single-view .like-group {
           width: 100%;
           position: fixed;
           left: 0;
           bottom: 0;
           z-index: 90; } }
-      .hairfie-singleView#content .single-view .like-group .like-btn {
+      .hairfie-singleView .single-view .like-group .like-btn {
         border-top: 1px solid #f9f9f9;
         float: left;
         display: inline-block;
         background-color: white; }
-        .hairfie-singleView#content .single-view .like-group .like-btn a {
+        .hairfie-singleView .single-view .like-group .like-btn a {
           cursor: pointer;
           display: block;
           text-align: center;
           width: 65px;
-          height: 65px;
+          height: 64px;
           position: relative;
           border-right: 1px solid #f9f9f9; }
-          .hairfie-singleView#content .single-view .like-group .like-btn a .glyphicon {
+          .hairfie-singleView .single-view .like-group .like-btn a .glyphicon {
             position: absolute;
             top: 0;
             left: 0;
@@ -12524,7 +12583,7 @@ section.how .row > div {
             -moz-transition: all 0.1s ease;
             -ms-transition: all 0.1s ease;
             -o-transition: all 0.1s ease; }
-            .hairfie-singleView#content .single-view .like-group .like-btn a .glyphicon:after {
+            .hairfie-singleView .single-view .like-group .like-btn a .glyphicon:after {
               content: "\e005";
               font-family: glyphicon;
               font-family: Glyphicons Halflings;
@@ -12542,18 +12601,18 @@ section.how .row > div {
               -moz-transition: all 0.25s ease;
               -ms-transition: all 0.25s ease;
               -o-transition: all 0.25s ease; }
-            .hairfie-singleView#content .single-view .like-group .like-btn a .glyphicon.full:after {
+            .hairfie-singleView .single-view .like-group .like-btn a .glyphicon.full:after {
               opacity: 1;
               -webkit-transform: scale(1);
               -moz-transform: scale(1);
               -ms-transform: scale(1);
               -o-transform: scale(1); }
-      .hairfie-singleView#content .single-view .like-group .cta {
+      .hairfie-singleView .single-view .like-group .cta {
         float: none;
         display: inline-block;
         width: calc(100% - 65px);
         height: 65px; }
-        .hairfie-singleView#content .single-view .like-group .cta a {
+        .hairfie-singleView .single-view .like-group .cta a {
           text-transform: uppercase;
           float: right;
           margin: 14px;
@@ -12561,7 +12620,7 @@ section.how .row > div {
           -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
           -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
-        .hairfie-singleView#content .single-view .like-group .cta a.full {
+        .hairfie-singleView .single-view .like-group .cta a.full {
           display: block;
           width: 100%;
           height: 65px;
@@ -12574,12 +12633,12 @@ section.how .row > div {
           -moz-box-shadow: 0 0 0 transparent;
           box-shadow: 0 0 0 transparent;
           line-height: 60px; }
-  .hairfie-singleView#content .related-hairfies {
+  .hairfie-singleView .related-hairfies {
     margin-bottom: 60px; }
-    .hairfie-singleView#content .related-hairfies h3 {
+    .hairfie-singleView .related-hairfies h3 {
       text-align: center;
       margin: 0 auto 40px; }
-    .hairfie-singleView#content .related-hairfies .single-hairfie {
+    .hairfie-singleView .related-hairfies .single-hairfie {
       padding: 3px;
       padding-top: 0;
       padding-left: 0; }

@@ -9,8 +9,8 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="col-xs-12 col-sm-6">
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}
->
+                <span className="force-size"/>
+                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}>
                     {this.renderPrice()}
                 </Carousel>
                 {this.renderBookingButton()}
@@ -23,7 +23,7 @@ module.exports = React.createClass({
         return (
             <div className="like-group">
                 <div className="like-btn" onClick={this.props.likeHairfie.func}>
-                    <a>
+                    <a role="button">
                         <span className={"glyphicon glyphicon-heart" + (this.props.likeHairfie.state ? " red" : "")}></span>
                     </a>
                 </div>
