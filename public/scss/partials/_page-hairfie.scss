@@ -96,7 +96,26 @@
             height: 100%;
             position: relative;
             margin-left: -15px;
+            .carousel-control, .indice-control {
+                @media screen and (min-width: $screen-md-min) {
+                    display: none;
+                }
+            }
             .item {
+                &:not(.active) {
+                    @media screen and (min-width: $screen-md-min) {
+                        display: block;
+                        position: absolute;
+                        bottom: 3%;
+                        right: 3%;
+                        width: 20%;
+                        border: 2px white solid;
+                        z-index: 1;
+                        .pricetag {
+                            display: none;
+                        }
+                    }
+                }
                 img {
                     background-repeat: no-repeat;
                     background-size: cover;

@@ -19,7 +19,7 @@ module.exports = React.createClass({
             var cls = (i == this.state.displayIndex) ? "item active" : "item";
             return (
                 <div className={cls} key={picture.id}>
-                    <Picture picture={picture} role={this.props.gallery ? "button" : ''} backgroundProps={this.props.backgroundProps} backgroundStyle={this.props.backgroundStyle || false} onClick={this.props.gallery ? this.openGallery : ''} alt={this.props.alt} />
+                    <Picture picture={picture} role={this.props.gallery || (this.state.displayIndex != i) ? "button" : ''} backgroundProps={this.props.backgroundProps} backgroundStyle={this.props.backgroundStyle || false} onClick={this.props.gallery ? this.openGallery : ''} alt={this.props.alt} onClick={this.move.bind(null, i)}/>
                     {this.props.children}
                 </div>
             );
@@ -100,6 +100,7 @@ module.exports = React.createClass({
         this.setState({displayIndex: next});
     },
     move: function(move, e) {
+        console.log("move", move);
         e.preventDefault();
         this.setState({displayIndex: move});
     },
