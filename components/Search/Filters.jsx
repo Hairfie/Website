@@ -35,7 +35,7 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                {this.renderCurrentFilters()}
+                {/* this.renderCurrentFilters() */}
                 <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
                 <section>
                     <form>
