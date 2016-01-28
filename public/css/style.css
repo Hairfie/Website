@@ -11421,6 +11421,14 @@ section.how .row > div {
     padding: 15px;
     height: 250px;
     cursor: pointer; }
+    #content.search .main-content .tab-pane#salons .business-result:hover, #content.search .main-content .tab-pane#adom .business-result:hover {
+      -webkit-box-shadow: 0px 4px 5px 0px #c4c4c4;
+      -moz-box-shadow: 0px 4px 5px 0px #c4c4c4;
+      box-shadow: 0px 4px 5px 0px #c4c4c4;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .business-result, #content.search .main-content .tab-pane#adom .business-result {
         padding: 16px 10px;
@@ -11483,6 +11491,12 @@ section.how .row > div {
             height: 15px;
             position: absolute;
             margin-left: -15px; } }
+    #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
+      color: white;
+      background-color: #fe5b5f;
+      font-size: 1.6em;
+      padding: 5px;
+      margin-right: 5px; }
   #content.search .main-content .tab-pane#hairfies section:after {
     content: none; }
   #content.search .main-content .tab-pane#hairfies h3 {
@@ -12101,6 +12115,8 @@ section.how .row > div {
         .salon#content .sidebar section#location .map:before {
           content: "";
           display: block;
+          width: 0px;
+          float: right;
           padding-top: 100%;
           /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
@@ -12382,13 +12398,13 @@ section.how .row > div {
         .hairfie-singleView.PopUpHairfie span.after {
           right: calc(-5vw - 25px); } }
     .hairfie-singleView.PopUpHairfie span.quit {
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
       background: url(../img/icons/cross.svg) white no-repeat center center;
       background-size: 50%;
       position: absolute;
       z-index: 1;
-      top: -60px;
+      top: -50px;
       right: 0; }
     @media screen and (min-width: 992px) and (max-width: 1199px) {
       .hairfie-singleView.PopUpHairfie {

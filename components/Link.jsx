@@ -18,13 +18,14 @@ var Link = React.createClass({
     },
     render: function () {
         if (this.props.noNav) {
-            return <a role="button" {...this.props} onClick={this.changePath}>{this.props.children}</a>
+            return <a role="button" {...this.props} href={this.state.href} onClick={this.changePath}>{this.props.children}</a>
         }
         else {
             return <NavLink href={this.state.href} {...this.props}>{this.props.children}</NavLink>;
         }
     },
     changePath: function (e) {
+        e.preventDefault();
         window.history.pushState("", "", this.state.href);
     },
     _getHrefFromProps: function (props) {
