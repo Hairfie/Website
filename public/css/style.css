@@ -12085,6 +12085,8 @@ section.how .row > div {
         .salon#content .sidebar section#location .map:before {
           content: "";
           display: block;
+          width: 0px;
+          float: right;
           padding-top: 100%;
           /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
