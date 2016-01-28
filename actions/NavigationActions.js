@@ -9,7 +9,6 @@ module.exports = {
         if (params.noNav) {
         	return window.history.pushState("", "", url);
         }
-
         return context.executeAction(navigateAction, { url: url });
     }
 };
