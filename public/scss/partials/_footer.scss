@@ -56,6 +56,13 @@ footer {
 			font-family: $font-second;
 			font-size: 1em;
 			letter-spacing: .5px;
+			opacity: 0.4;
+			&:hover {
+				opacity: 1;
+			}
+			a:hover {
+				text-decoration: none !important;
+			}
 		}
 		li:last-child {
 			position: relative;

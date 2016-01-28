@@ -10473,7 +10473,12 @@ footer {
       text-wrap: no-wrap;
       font-family: "Lato", sans-serif;
       font-size: 1em;
-      letter-spacing: .5px; }
+      letter-spacing: .5px;
+      opacity: 0.4; }
+      footer .footer-links li:hover {
+        opacity: 1; }
+      footer .footer-links li a:hover {
+        text-decoration: none !important; }
     footer .footer-links li:last-child {
       position: relative;
       height: 2.2em; }
