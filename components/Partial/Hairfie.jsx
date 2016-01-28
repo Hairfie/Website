@@ -17,9 +17,13 @@ module.exports = React.createClass({
     getInitialState: function() {
         return {
             popup: false,
-            hairfieId: null,
-            defaultUrl: null
+            hairfieId: null
         };
+    },
+    componentDidMount: function() {
+        this.setState({
+            defaultUrl: window.location.pathname
+        });
     },
     render: function () {
         var hairfie = this.props.hairfie;
@@ -84,12 +88,11 @@ module.exports = React.createClass({
     openPopup: function (hairfieId, e) {
         if (!this.props.popup) return;
         if (this.state.popup) {
-            return window.history.replaceState("", "", this.state.defaultUrl);
+            window.history.replaceState("", "", this.state.defaultUrl);
         }
         this.setState({
             hairfieId: hairfieId || null,
-            popup: !this.state.popup,
-            defaultUrl: window.location.pathname
+            popup: !this.state.popup
         });
     },
     prev: function () {

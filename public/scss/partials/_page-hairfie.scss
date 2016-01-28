@@ -42,13 +42,13 @@
             }
         }
         span.quit {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             background: url(../img/icons/cross.svg) white no-repeat center center;
             background-size: 50%;
             position: absolute;
             z-index: 1;
-            top: -60px;
+            top: -50px;
             right: 0;
         }
         position: fixed;
