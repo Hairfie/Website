@@ -59,6 +59,7 @@ footer {
 			opacity: 0.4;
 			&:hover {
 				opacity: 1;
+				@include transition (all 0.5s ease-out);
 			}
 			a:hover {
 				text-decoration: none !important;

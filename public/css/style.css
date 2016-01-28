@@ -10476,7 +10476,11 @@ footer {
       letter-spacing: .5px;
       opacity: 0.4; }
       footer .footer-links li:hover {
-        opacity: 1; }
+        opacity: 1;
+        -webkit-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -ms-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out; }
       footer .footer-links li a:hover {
         text-decoration: none !important; }
       @media screen and (max-width: 1200px) {
