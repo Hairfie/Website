@@ -9993,7 +9993,7 @@ header {
       header a.menu-search {
         margin-top: 25px; } }
     header a.menu-search.close {
-      background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
+      background: url(../img/icons/cross.svg) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header a.menu-trigger {
@@ -10006,7 +10006,7 @@ header {
       header a.menu-trigger {
         margin-top: 19px; } }
     header a.menu-trigger.close {
-      background: url(../img/icons/mobile-menu-close.svg) no-repeat center center;
+      background: url(../img/icons/cross.svg) no-repeat center center;
       background-size: 90%;
       opacity: 1; }
   header .logo {
@@ -12366,6 +12366,15 @@ section.how .row > div {
       @media screen and (min-width: 992px) and (max-width: 1199px) {
         .hairfie-singleView.PopUpHairfie span.after {
           right: calc(-5vw - 25px); } }
+    .hairfie-singleView.PopUpHairfie span.quit {
+      height: 50px;
+      width: 50px;
+      background: url(../img/icons/cross.svg) white no-repeat center center;
+      background-size: 50%;
+      position: absolute;
+      z-index: 1;
+      top: -60px;
+      right: 0; }
     @media screen and (min-width: 992px) and (max-width: 1199px) {
       .hairfie-singleView.PopUpHairfie {
         width: 80vw;

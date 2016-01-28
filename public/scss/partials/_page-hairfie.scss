@@ -41,6 +41,16 @@
                 right: calc(-5vw - 25px);
             }
         }
+        span.quit {
+            height: 50px;
+            width: 50px;
+            background: url(../img/icons/cross.svg) white no-repeat center center;
+            background-size: 50%;
+            position: absolute;
+            z-index: 1;
+            top: -60px;
+            right: 0;
+        }
         position: fixed;
         z-index: 10000;
         margin: 0;

@@ -41,7 +41,7 @@ module.exports = React.createClass({
         return (
             <div key={hairfie.id} {...this.props}>
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
-                {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} /> : null}
+                {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
                     <Link route="hairfie" className="hidden-xs hidden-sm" params={{ hairfieId: hairfie.id }} noNav={this.props.popup}>
                         <Picture picture={_.last(hairfie.pictures)}
