@@ -52,7 +52,8 @@ var BookingConfirmationPage = React.createClass({
                     <h3 className="green">{bookingStatusMessage(booking)}</h3>
                     <p>
                         Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
-
+                    </p>
+                    <p>
                         En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
                     </p>
                 </div>
@@ -110,8 +111,22 @@ var BookingConfirmationPage = React.createClass({
                     {this.renderBookingInfo(booking)}
                     {this.renderBusinessInfo(business, address)}
                 </div>
-                <a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Annuler</a>
-                <AddToCalendarButton
+                
+                {this.renderCancelButton(booking)}
+                {this.renderCalendarButton(booking, business, address)}
+            </div>
+        );
+    },
+    renderCancelButton: function(booking) {
+        if(booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
+
+        return (<a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Annuler</a>);
+    },
+    renderCalendarButton: function(booking, business, address) {
+        if(booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
+
+        return (
+            <AddToCalendarButton
                     className="btn-blue black col-xs-5 pull-right"
                     eventTitle={"Hairfie : votre RDV chez " + business.name}
                     description={"RDV au " + address.street + ' ' + address.zipCode + ' ' + address.city + " le " + moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}
@@ -120,7 +135,6 @@ var BookingConfirmationPage = React.createClass({
                     address={address.street + ' ' + address.zipCode + ' ' + address.city}>
                     + Ajouter à mon calendrier
                 </AddToCalendarButton>
-            </div>
         );
     },
     renderBookingInfo: function(booking) {
@@ -169,7 +183,7 @@ var BookingConfirmationPage = React.createClass({
         if (!this.props.currentUser)
             return (
                 <div>
-                    <h3 className="orange">Complétez votre inscription</h3>
+                    <h4 className="orange">Complétez votre inscription en 1 clic</h4>
                     <Input type="password" ref="password" placeholder="Choisissez un mot de passe" className="registration"/>
                     <Button onClick={this.handleRegisterClick} className="btn-red pull-right col-xs-4">S'inscrire</Button>
                 </div>

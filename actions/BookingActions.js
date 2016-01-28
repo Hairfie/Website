@@ -39,7 +39,7 @@ module.exports = {
     cancelBooking: function(context, booking) {
         var newsletter = booking.newsletter || false;
         return context.hairfieApi
-            .delete('/bookings/' + booking.bookingId)
+            .post('/bookings/' + booking.bookingId + '/cancel')
             .then(
                 function (booking) {
                     context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter}));
