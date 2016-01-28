@@ -1,6 +1,7 @@
 'use strict';
 
 var navigateAction = require('fluxible-router').navigateAction;
+var _ = require('lodash');
 
 module.exports = {
     navigate: function navigate(context, params) {
@@ -10,6 +11,6 @@ module.exports = {
         	return window.history.pushState("", "", url);
         }
 
-        return context.executeAction(navigateAction, { url: url });
+        return context.executeAction(navigateAction, { url: url, preserveScrollPosition: params.preserveScrollPosition });
     }
 };
