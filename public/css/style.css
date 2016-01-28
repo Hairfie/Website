@@ -10479,6 +10479,9 @@ footer {
         opacity: 1; }
       footer .footer-links li a:hover {
         text-decoration: none !important; }
+      @media screen and (max-width: 1200px) {
+        footer .footer-links li {
+          font-size: 0.8em; } }
     footer .footer-links li:last-child {
       position: relative;
       height: 2.2em; }

@@ -63,6 +63,9 @@ footer {
 			a:hover {
 				text-decoration: none !important;
 			}
+			@media screen and (max-width: $screen-lg-min) {
+				font-size: 0.8em;
+			}
 		}
 		li:last-child {
 			position: relative;
