@@ -11470,6 +11470,12 @@ section.how .row > div {
             height: 15px;
             position: absolute;
             margin-left: -15px; } }
+    #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
+      color: white;
+      background-color: #fe5b5f;
+      font-size: 1.6em;
+      padding: 5px;
+      margin-right: 5px; }
   #content.search .main-content .tab-pane#hairfies section:after {
     content: none; }
   #content.search .main-content .tab-pane#hairfies h3 {

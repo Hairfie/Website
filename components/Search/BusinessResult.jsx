@@ -87,8 +87,9 @@ var Business = React.createClass({
         }
         if (searchedCategories) {
             searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
-                return _.includes(business.categories, cat.id)}, this);
-            searchedCategoriesLabels = _.map(searchedCategoriesLabels, 'label');
+                return _.includes(business.categories, cat.id)
+            }, this);
+            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){return <span className="tag hidden-xs">{cat.label}</span>});
         }
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
