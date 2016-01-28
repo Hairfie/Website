@@ -106,7 +106,7 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <h2>Qui ?</h2>
+                <h2>Nom du coiffeur</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onKeyPress={this.handleKey}/>
