@@ -53,7 +53,7 @@ module.exports = React.createClass({
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
                 {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
-                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup} className="hidden-xs hidden-sm">
+                    <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup}>
                         <Picture picture={_.last(hairfie.pictures)}
                                 resolution={{width: 640, height: 640}}
                                 placeholder="/img/placeholder-640.png"
