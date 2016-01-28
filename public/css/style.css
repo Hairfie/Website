@@ -12383,13 +12383,6 @@ section.how .row > div {
       border: none !important;
       padding: initial !important;
       margin: initial !important; }
-    .hairfie-singleView.PopUpHairfie .single-view #carousel-hairfie {
-      height: 100%;
-      position: relative;
-      margin-left: -15px; }
-      .hairfie-singleView.PopUpHairfie .single-view #carousel-hairfie .item img {
-        height: 0;
-        padding-top: 100%; }
   @media screen and (max-width: 767px) {
     .hairfie-singleView {
       margin-top: 100px; } }
@@ -12402,6 +12395,11 @@ section.how .row > div {
     left: -50px !important; }
   .hairfie-singleView .single-view {
     background-color: white; }
+    .hairfie-singleView .single-view span.force-size {
+      width: 0px;
+      padding-top: calc(100% + 15px);
+      display: block;
+      float: right; }
     .hairfie-singleView .single-view > .col-sm-6:first-child, .hairfie-singleView #content.search .hairfie-search-newsletter .newsletter-banner .single-view > p:first-child, #content.search .hairfie-search-newsletter .newsletter-banner .hairfie-singleView .single-view > p:first-child, .hairfie-singleView .hairfie-newsletter .newsletter-banner .single-view > p:first-child, .hairfie-newsletter .newsletter-banner .hairfie-singleView .single-view > p:first-child {
       padding-right: 0; }
     .hairfie-singleView .single-view #carousel-hairfie {

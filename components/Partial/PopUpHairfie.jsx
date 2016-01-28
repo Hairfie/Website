@@ -23,7 +23,7 @@ var PopupHairfie = React.createClass({
                 <span className="before" role="button" onClick={this.props.prev}/>
                 <span className="quit" role="button" onClick={this.props.close}/>
                 <div className="single-view row">
-                    <HairfieSingle hairfie={this.props.hairfie} backgroundStyle={true} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
                 <span className="after" role="button" onClick={this.props.next} />

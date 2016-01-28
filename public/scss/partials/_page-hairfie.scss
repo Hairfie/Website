@@ -68,19 +68,6 @@
             padding: initial !important;
             margin: initial !important;
         }
-        .single-view {
-            #carousel-hairfie {
-                height: 100%;
-                position: relative;
-                margin-left: -15px;
-                .item {
-                    img {
-                        height: 0;
-                        padding-top: 100%;
-                    }
-                }
-            }
-        }
     }
     margin: 40px auto;
     @media screen and (max-width: $screen-xs-max) {
@@ -102,6 +89,12 @@
     }
 
     .single-view {
+        span.force-size {
+            width: 0px;
+            padding-top: calc(100% + 15px);
+            display: block;
+            float: right;
+        }
         background-color: white;
         > .col-sm-6:first-child {
             padding-right: 0;
