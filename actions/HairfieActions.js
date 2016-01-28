@@ -86,7 +86,8 @@ module.exports = {
         return context.executeAction(NavigationActions.navigate, {
             route: 'hairfie_search',
             params: params.path,
-            query: params.query
+            query: params.query,
+            preserveScrollPosition: true
         });
     },
     loadSearchResult: function (context, search) {

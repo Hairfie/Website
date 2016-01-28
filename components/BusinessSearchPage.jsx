@@ -28,24 +28,28 @@ var BusinessSearchPage = React.createClass({
             results={this.renderResults()} />;
     },
     renderFilters: function () {
-        var facets = this.props.result && this.props.result.facets || {};
-        var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
+        // var facets = this.props.result && this.props.result.facets || {};
+        // var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
 
-        var categories = _.compact(_.map(categories, function(cat) {
-            return _.find(this.props.categories, {slug: cat});
-        }.bind(this)));
+        // var categories = _.compact(_.map(categories, function(cat) {
+        //     return _.find(this.props.categories, {slug: cat});
+        // }.bind(this)));
 
         return <Search.Filters
             tab="business"
             address={this.props.address}
             place={this.props.place}
             search={this.props.search}
-            categories={categories}
+            categories={this.props.categories}
             withQ={true}
             onChange={this.handleSearchChange} />;
     },
     renderResults: function () {
-        return <Search.BusinessResult search={this.props.search} result={this.props.result} />;
+        var searchedCategories = _.filter(this.props.categories, function(cat) {
+            return _.includes(this.props.search.categories, cat.slug);
+        }, this);
+
+        return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories}/>;
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });

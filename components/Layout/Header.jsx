@@ -83,10 +83,10 @@ var Header = React.createClass({
                         </div>
                     </div>
                     <div className="container">
-                        <div className="col-sm-2 col-md-4" style={{paddingLeft: 0}}>
+                        <div className="col-sm-2 col-md-3" style={{paddingLeft: 0}}>
                             <Link route="home" className="logo" />
                         </div>
-                        <ul className="col-sm-7 col-md-5 white-header">
+                        <ul className="col-sm-7 col-md-6 white-header">
                         {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
@@ -102,7 +102,7 @@ var Header = React.createClass({
                                 <a href="http://blog.hairfie.com" target="_blank">LE BLOG</a>
                             </li>
                         </ul>
-                        <Button className="col-sm-3 btn-search" onClick={this.handleDisplaySearch}>
+                        <Button className="col-sm-3 col-md-3 btn-search" onClick={this.handleDisplaySearch}>
                             Recherchez
                         </Button>
                     </div>

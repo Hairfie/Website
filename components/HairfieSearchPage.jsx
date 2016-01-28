@@ -78,7 +78,7 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         search: search,
         result: result,
         tagCategories: context.getStore('TagStore').getTagCategories(),
-        tags: tags,
+        tags: context.getStore('TagStore').getAllTags(),
         categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId)
     };
 });

@@ -67,7 +67,9 @@ var Business = React.createClass({
     render: function () {
         var booking_button = null;
         var business = this.props.business;
+        var searchedCategories = this.props.searchedCategories;
         var promo_icon = null;
+        var searchedCategoriesLabels = null;
         /**
         * best discount over picture for mobile
         */
@@ -76,13 +78,19 @@ var Business = React.createClass({
                     <i className="visible-xs icon-promo">{business.bestDiscount + ' %'}</i>
                 );
         }
-        if (business.isBookable)
+        if (business.isBookable) {
             booking_button = (
                 <Link className="btn btn-book col-sm-12 full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
             );
-
+        }
+        if (searchedCategories) {
+            searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
+                return _.includes(business.categories, cat.id)
+            }, this);
+            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){return <span className="business-label hidden-xs">{cat.label}</span>});
+        }
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
@@ -118,6 +126,7 @@ var Business = React.createClass({
                         <div className="clearfix"></div>
                     </div>
                     {this.renderPricing()}
+                    {searchedCategoriesLabels}
                     <div className="book">
                         {booking_button}
                     </div>
@@ -184,7 +193,7 @@ var BusinessResult = React.createClass({
             <div className="tab-pane active" id="salons">
                 <div className="row">
                     {_.map(result.hits, function (business) {
-                        return <Business key={business.id} business={business} date={date} />
+                        return <Business key={business.id} business={business} date={date} searchedCategories={this.props.searchedCategories}/>
                     }, this)}
                 </div>
                 {this.renderPagination()}

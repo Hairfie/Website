@@ -35,7 +35,7 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                {this.renderCurrentFilters()}
+                {/* this.renderCurrentFilters() */}
                 <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
                 <section>
                     <form>
@@ -106,7 +106,7 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <h2>Qui ?</h2>
+                <h2>Nom du coiffeur</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onKeyPress={this.handleKey}/>
