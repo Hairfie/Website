@@ -24,12 +24,12 @@ var PopupHairfie = React.createClass({
                 <span className="before" role="button" onClick={this.props.prev}>
                     <Picture picture={{url: "/img/icons/left.svg"}} style={{width: 50, height: 50}} />
                 </span>
-                <span className="quit" role="button" onClick={this.props.close}/>
+                <span className="quit" role="button" onClick={this.props.close} />
                 <div className="single-view row">
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
-                <span className="after" role="button" onClick={this.props.next}>
+                <span className="after" role="button" onClick={this.props.next} >
                     <Picture picture={{url: "/img/icons/right.svg"}} style={{width: 50, height: 50}} />
                 </span>
             </div>
@@ -40,6 +40,20 @@ var PopupHairfie = React.createClass({
             this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
         else
             this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
+    },
+    componentDidMount: function() {
+        document.onkeydown = function(e) {
+            e.preventDefault();
+            if(e.keyCode == 37) {
+                this.props.prev();
+            }
+            else if(e.keyCode == 39) {
+                this.props.next();
+            }
+            else if(e.keyCode == 27) {
+                this.props.close();
+            }
+        }.bind(this)
     }
 });
 
