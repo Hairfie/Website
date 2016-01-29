@@ -12358,22 +12358,22 @@ section.how .row > div {
     left: 15vw;
     top: 15vh; }
     .hairfie-singleView.PopUpHairfie span.before {
-      height: 50%;
+      height: 35%;
       width: 10vw;
       position: absolute;
       z-index: 1;
-      top: 25%;
+      top: 32.5%;
       right: calc(100% + 2.5vw);
-      padding-top: calc(12.5% - 25px);
+      padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.after {
-      height: 50%;
+      height: 35%;
       width: 10vw;
       position: absolute;
       z-index: 1;
-      top: 25%;
+      top: 32.5%;
       left: calc(100% + 2.5vw);
-      padding-top: calc(12.5% - 25px);
+      padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.quit {
       height: 40px;

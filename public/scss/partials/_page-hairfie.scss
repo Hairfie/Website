@@ -16,23 +16,23 @@
     margin: auto;
     &.PopUpHairfie {
         span.before {
-            height: 50%;
+            height: 35%;
             width: 10vw;
             position: absolute;
             z-index: 1;
-            top: 25%;
+            top: 32.5%;
             right: calc(100% + 2.5vw);
-            padding-top: calc(12.5% - 25px);
+            padding-top: calc(9.5% - 25px);
             padding-left: calc(5vw - 25px);
         }
         span.after {
-            height: 50%;
+            height: 35%;
             width: 10vw;
             position: absolute;
             z-index: 1;
-            top: 25%;
+            top: 32.5%;
             left: calc(100% + 2.5vw);
-            padding-top: calc(12.5% - 25px);
+            padding-top: calc(9.5% - 25px);
             padding-left: calc(5vw - 25px);
         }
         span.quit {
