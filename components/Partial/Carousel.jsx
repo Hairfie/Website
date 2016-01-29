@@ -100,7 +100,6 @@ module.exports = React.createClass({
         this.setState({displayIndex: next});
     },
     move: function(move, e) {
-        console.log("move", move);
         e.preventDefault();
         this.setState({displayIndex: move});
     },

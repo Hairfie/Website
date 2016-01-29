@@ -6,12 +6,54 @@ var Pagination = require('./Pagination.jsx');
 var SearchUtils = require('../../lib/search-utils');
 var Hairfie = require('../Partial/Hairfie.jsx');
 var Newsletter = require('../Partial/Newsletter.jsx');
+var HairfieAction = require('../../actions/HairfieActions');
 
 var HairfieResult = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func
+    },
+    getInitialState: function() {
+        return {
+            page: 1,
+            loading: 0,
+            isLoading: false
+        };
+    },
+    scrollListener: function (e) {
+        console.log(e);
+        var resultDiv = document.getElementsByClassName('salon-hairfies')[0];
+        if (!resultDiv) return null;
+        var scrollHeight = 0;
+        var element = resultDiv;
+        while(element){
+           scrollHeight += element.offsetTop;
+           element = element.offsetParent;
+        }
+        scrollHeight += resultDiv.offsetHeight;
+        console.log(scrollHeight);
+        if (document.body.scrollTop > (scrollHeight - window.innerHeight)) {
+            if (this.state.loading < resultDiv.offsetHeight) {
+                this.setState({loading: resultDiv.offsetHeight, isLoading: true});
+                this.loadMore();
+            } 
+        }
+    },
+    componentDidMount: function () {
+        document.addEventListener('scroll', this.scrollListener);
+
+    },
+    componentWillUnmount: function () {
+        document.removeEventListener('scroll', this.scrollListener);
+    },
+    componentWillReceiveProps: function (nextProps) {
+        if (nextProps.result)
+            this.setState({page: nextProps.result.hits % 16, isLoading: false});
+        if (nextProps.search)
+            this.setState({loading: 0});
+    },
     render: function () {
         if (!this.props.result) return <div className="loading" />;
         if (this.props.result.numHits == 0) return this.renderNoResult();
-
         return (
             <div className="tab-pane active">
                 <div className="hairfie-search-newsletter">
@@ -25,10 +67,22 @@ var HairfieResult = React.createClass({
                             }.bind(this))}
                         </div>
                     </div>
-                    {this.renderPagination()}
+                    {this.renderLoader()}
                 </section>
             </div>
         );
+    },
+    renderLoader: function () {
+        if(!this.state.isLoading) return null;
+            return (
+            <div className="row">
+                <div className="loading" />
+            </div>
+        );
+    },
+    loadMore: function () {
+        this.setState({page: this.state.page + 1});
+        this.context.executeAction(HairfieAction.loadSearchResult, _.assign({}, this.props.search, {page: this.state.page + 1, loadMore: true}));
     },
     renderPagination: function () {
         var numPages = Math.ceil(this.props.result.numHits / 16);

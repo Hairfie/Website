@@ -91,7 +91,7 @@ module.exports = {
         });
     },
     loadSearchResult: function (context, search) {
-        var query = { pageSize: 16 };
+        var query = { pageSize: search.pageSize || 16 };
         query.page = search.page;
         if (search.location) {
             query.location = [
@@ -118,10 +118,18 @@ module.exports = {
         return context.hairfieApi
             .get('/hairfies/search', { query: query })
             .then(function (result) {
-                context.dispatch(Actions.RECEIVE_HAIRFIE_SEARCH_RESULT, {
-                    search: search,
-                    result: result
-                });
+                if (search.loadMore) {
+                    delete search.loadMore;
+                    context.dispatch(Actions.LOAD_MORE_HAIRFIE_SEARCH_RESULT, {
+                        search: search,
+                        result: result
+                    }); 
+                } else {
+                    context.dispatch(Actions.RECEIVE_HAIRFIE_SEARCH_RESULT, {
+                        search: search,
+                        result: result
+                    });
+                }
             });
     },
     loadHairdresserHairfies: function (context, params) {
@@ -172,7 +180,7 @@ module.exports = {
                     })
                 ]);
             }, function (error) {
-                console.log("error", error);
+                console.log("error", error)
                 return context.executeAction(
                     NotificationActions.notifyError,
                     {
