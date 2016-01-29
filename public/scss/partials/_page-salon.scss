@@ -609,6 +609,8 @@
 				&:before{
 					content: "";
 					display: block;
+					width: 0px;
+					float: right;
 					padding-top: 100%; 	/* initial ratio of 1:1*/
 				}
 			}

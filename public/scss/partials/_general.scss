@@ -932,3 +932,18 @@ input:not(:focus) {
         border: 2px solid #a94442 !important;
     }
 }
+
+div.shadow {
+    &.active {
+        position: fixed;
+        width: 100vw;
+        height: 100vw;
+        background-color: rgba(0, 0 ,0, 0.6);
+        left: 0;
+        top: 0;
+        z-index: 5;
+    }
+    &.inactive {
+        display: none;
+    }
+}

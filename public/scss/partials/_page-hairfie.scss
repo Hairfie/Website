@@ -16,39 +16,33 @@
     margin: auto;
     &.PopUpHairfie {
         span.before {
-            height: 50px;
-            width: 50px;
-            background: url(../img/icons/left.svg) no-repeat center center;
-            background-size: contain;
+            height: 35%;
+            width: 10vw;
             position: absolute;
             z-index: 1;
-            top: calc(50% - 25px);
-            left: calc(-7.5vw - 25px);
-            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-                left: calc(-5vw - 25px);
-            }
+            top: 32.5%;
+            right: calc(100% + 2.5vw);
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
         }
         span.after {
-            height: 50px;
-            width: 50px;
-            background: url(../img/icons/right.svg) no-repeat center center;
-            background-size: contain;
+            height: 35%;
+            width: 10vw;
             position: absolute;
             z-index: 1;
-            top: calc(50% - 25px);
-            right: calc(-7.5vw - 25px);
-            @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-                right: calc(-5vw - 25px);
-            }
+            top: 32.5%;
+            left: calc(100% + 2.5vw);
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
         }
         span.quit {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             background: url(../img/icons/cross.svg) white no-repeat center center;
             background-size: 50%;
             position: absolute;
             z-index: 1;
-            top: -60px;
+            top: -50px;
             right: 0;
         }
         position: fixed;
@@ -102,7 +96,26 @@
             height: 100%;
             position: relative;
             margin-left: -15px;
+            .carousel-control, .indice-control {
+                @media screen and (min-width: $screen-md-min) {
+                    display: none;
+                }
+            }
             .item {
+                &:not(.active) {
+                    @media screen and (min-width: $screen-md-min) {
+                        display: block;
+                        position: absolute;
+                        bottom: 3%;
+                        right: 3%;
+                        width: 20%;
+                        border: 2px white solid;
+                        z-index: 1;
+                        .pricetag {
+                            display: none;
+                        }
+                    }
+                }
                 img {
                     background-repeat: no-repeat;
                     background-size: cover;

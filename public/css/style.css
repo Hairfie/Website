@@ -9943,6 +9943,18 @@ input:not(:focus).valid {
 input:not(:focus).error {
   border: 2px solid #a94442 !important; }
 
+div.shadow.active {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+  z-index: 5; }
+
+div.shadow.inactive {
+  display: none; }
+
 header {
   position: relative;
   z-index: 20;
@@ -10369,18 +10381,6 @@ header {
           font-size: 1.4em;
           letter-spacing: 2px;
           color: #c4c4c4; }
-
-div.shadow.active {
-  position: fixed;
-  width: 100vw;
-  height: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
-  left: 0;
-  top: 0;
-  z-index: 5; }
-
-div.shadow.inactive {
-  display: none; }
 
 /*////////////////////////////////
 	   F O O T E R
@@ -12099,6 +12099,8 @@ section.how .row > div {
         .salon#content .sidebar section#location .map:before {
           content: "";
           display: block;
+          width: 0px;
+          float: right;
           padding-top: 100%;
           /* initial ratio of 1:1*/ }
     .salon#content .sidebar:before {
@@ -12356,37 +12358,31 @@ section.how .row > div {
     left: 15vw;
     top: 15vh; }
     .hairfie-singleView.PopUpHairfie span.before {
-      height: 50px;
-      width: 50px;
-      background: url(../img/icons/left.svg) no-repeat center center;
-      background-size: contain;
+      height: 35%;
+      width: 10vw;
       position: absolute;
       z-index: 1;
-      top: calc(50% - 25px);
-      left: calc(-7.5vw - 25px); }
-      @media screen and (min-width: 992px) and (max-width: 1199px) {
-        .hairfie-singleView.PopUpHairfie span.before {
-          left: calc(-5vw - 25px); } }
+      top: 32.5%;
+      right: calc(100% + 2.5vw);
+      padding-top: calc(9.5% - 25px);
+      padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.after {
-      height: 50px;
-      width: 50px;
-      background: url(../img/icons/right.svg) no-repeat center center;
-      background-size: contain;
+      height: 35%;
+      width: 10vw;
       position: absolute;
       z-index: 1;
-      top: calc(50% - 25px);
-      right: calc(-7.5vw - 25px); }
-      @media screen and (min-width: 992px) and (max-width: 1199px) {
-        .hairfie-singleView.PopUpHairfie span.after {
-          right: calc(-5vw - 25px); } }
+      top: 32.5%;
+      left: calc(100% + 2.5vw);
+      padding-top: calc(9.5% - 25px);
+      padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.quit {
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
       background: url(../img/icons/cross.svg) white no-repeat center center;
       background-size: 50%;
       position: absolute;
       z-index: 1;
-      top: -60px;
+      top: -50px;
       right: 0; }
     @media screen and (min-width: 992px) and (max-width: 1199px) {
       .hairfie-singleView.PopUpHairfie {
@@ -12419,6 +12415,20 @@ section.how .row > div {
       height: 100%;
       position: relative;
       margin-left: -15px; }
+      @media screen and (min-width: 992px) {
+        .hairfie-singleView .single-view #carousel-hairfie .carousel-control, .hairfie-singleView .single-view #carousel-hairfie .indice-control {
+          display: none; } }
+      @media screen and (min-width: 992px) {
+        .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) {
+          display: block;
+          position: absolute;
+          bottom: 3%;
+          right: 3%;
+          width: 20%;
+          border: 2px white solid;
+          z-index: 1; }
+          .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) .pricetag {
+            display: none; } }
       .hairfie-singleView .single-view #carousel-hairfie .item img {
         background-repeat: no-repeat;
         background-size: cover;
