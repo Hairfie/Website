@@ -61,7 +61,6 @@ module.exports = React.createClass({
         if (hairfie.tags) {
             tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
         }
-        console.log(noNav, ' ', className);
         return (
             <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={noNav} className={className}>
                 <Picture picture={_.last(hairfie.pictures)}
