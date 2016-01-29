@@ -67,9 +67,9 @@ var SearchBar = React.createClass({
                 <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
-                        <select ref="mobileCategories" defaultValue="" placeholder="Catégories" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
-                            <optgroup label="Catégories">
-                                <option value="" disabled>Sélectionnez une catégorie</option>
+                        <select ref="mobileCategories" defaultValue="" placeholder="Spécialité" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
+                            <optgroup label="Spécialités">
+                                <option value="" disabled>Sélectionnez une spécialité</option>
                                 {_.map(this.props.categories, function(cat) {
                                     return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
                                 })}
@@ -96,7 +96,7 @@ var SearchBar = React.createClass({
                 name="Catégories"
                 value={this.state.selectedCategories}
                 onChange={this.handleSelectCategoriesChange}
-                placeholder="Catégories"
+                placeholder="Spécialité"
                 allowCreate={false}
                 options={_.map(this.props.categories, function(cat) {
                             return {value:cat.slug, label:cat.label};

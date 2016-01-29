@@ -35,8 +35,8 @@ module.exports = {
         return Promise.all([
             context.executeAction(DealActions.loadTopDeals),
             context.executeAction(HairfieActions.loadTopHairfies),
-            context.executeAction(TagActions.loadAll),
-            context.executeAction(CategoryActions.loadAll),
+            // context.executeAction(TagActions.loadAll),
+            // context.executeAction(CategoryActions.loadAll),
             context.executeAction(BlogPostActions.getRecent)
         ]);
     },
