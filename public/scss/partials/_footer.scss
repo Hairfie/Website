@@ -45,17 +45,27 @@ footer {
 	.footer-links {
 		list-style-type: none;
 		margin: 0 auto;padding: 0;
+		text-align: center;
 		@include nofloat;
 		li {
-			padding-left: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
 			display: inline-block;
 			width: auto;
 			text-wrap: no-wrap;
 			font-family: $font-second;
 			font-size: 1em;
 			letter-spacing: .5px;
-			&:first-child {
-				padding-left: 30px;
+			opacity: 0.4;
+			&:hover {
+				opacity: 1;
+				@include transition (all 0.5s ease-out);
+			}
+			a:hover {
+				text-decoration: none !important;
+			}
+			@media screen and (max-width: $screen-lg-min) {
+				font-size: 0.8em;
 			}
 		}
 		li:last-child {

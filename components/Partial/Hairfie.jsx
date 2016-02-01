@@ -62,7 +62,7 @@ module.exports = React.createClass({
             tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
         }
         return (
-            <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={noNav} className={className}>
+            <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup ? noNav : false} className={className}>
                 <Picture picture={_.last(hairfie.pictures)}
                         resolution={{width: 640, height: 640}}
                         placeholder="/img/placeholder-640.png"
