@@ -57,6 +57,12 @@ var HomePagePro = React.createClass({
                                     <Input ref="remarque" type="textarea" label="Une remarque, une question ?" groupClassName="col-sm-12" />
                                     <Button className="btn-red" onClick={this.submit}>Laisser mes coordonnées</Button>
                                 </form>
+                                <div className="btn-scroll hidden-xs">
+                                    <a onClick={this.scrollTo.bind(this, "advices")} className="arrow hidden-xs">
+                                        <Picture picture={{url: "/img/pro/btn-scroll.png"}} alt="scroll" />
+                                    </a>
+                                    <span className="more-infos">Plus d'informations&nbsp;?</span>
+                                </div>
                                 {this.displayThankYouMessage()}
                                 <div className="contact">
                                     <h4>Contactez-nous au <a href="tel:+33185089169">+33 1 85 08 91 69</a> ou <a href="mailto:hello@hairfie.com">hello@hairfie.com</a></h4>
@@ -65,7 +71,7 @@ var HomePagePro = React.createClass({
                         </div>
                     </div>
                 </section>
-                <section className="advices">
+                <section className="advices" ref="advices">
                     <div className="container text-center">
                         <h3>Améliorez votre image sur Internet avec Hairfie </h3>
                         <div className="row">
@@ -116,6 +122,10 @@ var HomePagePro = React.createClass({
                         </div>
                     </div>); 
         }
+    },
+    scrollTo: function(toRef) {
+        var target = ReactDOM.findDOMNode(this.refs[toRef]);
+        TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     },
     submit: function (e) {
         if (

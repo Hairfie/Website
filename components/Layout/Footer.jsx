@@ -47,14 +47,14 @@ var Footer = React.createClass({
                     </div>
                     <div className="row">
                         <ul className="footer-links col-md-11 col-lg-10">
-                            <li className="col-sm-2" target="_blank"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
-                            <li className="col-sm-2">
+                            <li target="_blank"><a href="http://jobs.hairfie.com/">Recrutement</a></li>
+                            <li>
                                 <Link route="howitworks_page">Comment ça marche ?</Link>
                             </li>
-                            <li className="col-sm-2"><Link route="newsletter">Newsletter</Link></li>
-                            <li className="col-sm-2"><a href="http://blog.hairfie.com/" target="_blank"a>Blog</a></li>
-                            <li className="col-sm-2"><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
-                            <li className="col-sm-2"><Link route="home_pro">Gérez votre salon</Link></li>
+                            <li><Link route="newsletter">Newsletter</Link></li>
+                            <li><a href="http://blog.hairfie.com/" target="_blank"a>Blog</a></li>
+                            <li><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
+                            <li><Link route="home_pro">Gérez votre salon</Link></li>
                         </ul>
                     </div>
                     <div className="row">

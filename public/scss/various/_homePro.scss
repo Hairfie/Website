@@ -17,10 +17,10 @@
         .claim {
             color: white;
             padding: 30px;
-            margin-bottom: 100px;
-
+            padding-top: 0;
+            padding-bottom: 0;
+            position: relative;
             h3 {
-                margin-top: 60px;
                 font-size: 2.1em;
             }
             p {
@@ -92,6 +92,22 @@
                     font-weight: bold;
                 }
             }
+            .btn-scroll {
+                position: absolute;
+                right: 10%;
+                bottom: 30%;
+                img {
+                    width: 100px;
+                    cursor: pointer;
+                }
+            }
+            .more-infos {
+                display: block;
+                font-weight: 400;
+                width: 100px;
+                text-align: center;
+                margin-top: 10px;
+            }
         }
     }
     @media screen and (max-width: $screen-xs-max) {
@@ -107,6 +123,7 @@
                 font-size: 18px;
             }
             .claim {
+                margin-top: 100px;
                 .form-group {
                     .radio-label {
                         width: 35%;
