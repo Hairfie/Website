@@ -8,6 +8,8 @@ var Hairfie = require('../Partial/Hairfie.jsx');
 var Newsletter = require('../Partial/Newsletter.jsx');
 var HairfieAction = require('../../actions/HairfieActions');
 
+var INFINITE_SCROLL = true;
+
 var HairfieResult = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
@@ -20,7 +22,6 @@ var HairfieResult = React.createClass({
         };
     },
     scrollListener: function (e) {
-        console.log(e);
         var resultDiv = document.getElementsByClassName('salon-hairfies')[0];
         if (!resultDiv) return null;
         var scrollHeight = 0;
@@ -30,7 +31,6 @@ var HairfieResult = React.createClass({
            element = element.offsetParent;
         }
         scrollHeight += resultDiv.offsetHeight;
-        console.log(scrollHeight);
         if (document.body.scrollTop > (scrollHeight - window.innerHeight)) {
             if (this.state.loading < resultDiv.offsetHeight) {
                 this.setState({loading: resultDiv.offsetHeight, isLoading: true});
@@ -39,15 +39,17 @@ var HairfieResult = React.createClass({
         }
     },
     componentDidMount: function () {
-        document.addEventListener('scroll', this.scrollListener);
+        if (INFINITE_SCROLL)
+            document.addEventListener('scroll', this.scrollListener);
 
     },
     componentWillUnmount: function () {
-        document.removeEventListener('scroll', this.scrollListener);
+        if (INFINITE_SCROLL)
+            document.removeEventListener('scroll', this.scrollListener);
     },
     componentWillReceiveProps: function (nextProps) {
         if (nextProps.result)
-            this.setState({page: nextProps.result.hits % 16, isLoading: false});
+            this.setState({isLoading: false});
         if (nextProps.search)
             this.setState({loading: 0});
     },
@@ -67,10 +69,17 @@ var HairfieResult = React.createClass({
                             }.bind(this))}
                         </div>
                     </div>
+                    {this.renderLoadMoreButton()}
                     {this.renderLoader()}
                 </section>
             </div>
         );
+    },
+    renderLoadMoreButton: function () {
+        if (!INFINITE_SCROLL)
+            return (
+                <button onClick={this.loadMore} className="btn btn-red">Plus de hairfies</button>
+            )
     },
     renderLoader: function () {
         if(!this.state.isLoading) return null;
