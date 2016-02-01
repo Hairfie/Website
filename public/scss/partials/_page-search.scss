@@ -544,6 +544,7 @@
         background: $bg3;
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
+            z-index: 149;
         }
 
         .filter-recap {
@@ -672,9 +673,10 @@
         }
         .mobile-filtres {
             position: fixed;
-            left: 0; z-index: 998;
+            left: 0; z-index: 100;
             background-color: $bg3;
-            height: #{"calc(100vh - 130px)"};
+            height: 100%;
+            padding-bottom: 65px;
             max-width: 100%;
             overflow-x: hidden;
             width: 100%;

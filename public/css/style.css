@@ -11528,7 +11528,8 @@ section.how .row > div {
   background: #f4f4f4; }
   @media screen and (max-width: 767px) {
     #content.search .sidebar {
-      padding-top: 0; } }
+      padding-top: 0;
+      z-index: 149; } }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {
@@ -11635,9 +11636,10 @@ section.how .row > div {
   #content.search .mobile-search .mobile-filtres {
     position: fixed;
     left: 0;
-    z-index: 998;
+    z-index: 100;
     background-color: #f4f4f4;
-    height: calc(100vh - 130px);
+    height: 100%;
+    padding-bottom: 65px;
     max-width: 100%;
     overflow-x: hidden;
     width: 100%;
