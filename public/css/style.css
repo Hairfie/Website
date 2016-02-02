@@ -10757,6 +10757,40 @@ footer.mobile {
     padding-right: 40px;
     margin-bottom: 35px; }
 
+section.how {
+  height: 100px; }
+  section.how h2 {
+    padding-top: 24px;
+    padding-bottom: 0; }
+  section.how object {
+    display: inline-block; }
+  section.how .row > div {
+    margin-bottom: 0; }
+    section.how .row > div img {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 0 auto 40px; }
+    section.how .row > div h3 {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      color: #595959;
+      text-transform: uppercase;
+      font-size: 1.6em;
+      display: inline-block;
+      margin: 0; }
+    section.how .row > div .how-txt {
+      height: 100px;
+      float: left;
+      width: calc(100% - 40px);
+      padding: 25px 5px 25px 10px; }
+    section.how .row > div p {
+      font-weight: 200;
+      color: #595959;
+      font-size: 1.4em;
+      line-height: 1.2em;
+      letter-spacing: 1px; }
+
 section.home-section {
   position: relative; }
   @media screen and (min-width: 768px) {
@@ -10858,6 +10892,8 @@ section.home-section {
       margin-right: 10px; }
     .landing .main-searchbar input:nth-child(2), .home-search .main-searchbar input:nth-child(2) {
       margin-left: -5px; }
+  .landing .main-searchbar.searchbar input, .home-search .main-searchbar.searchbar input {
+    color: black; }
   .landing .main-searchbar .input-group-addon, .home-search .main-searchbar .input-group-addon {
     border-radius: 0;
     border: 1px solid #e6e6e6 !important;
@@ -11294,32 +11330,6 @@ section.home-search .home-search-mobile {
   letter-spacing: 1px; }
   #home section.seo a:hover {
     color: #595959; }
-
-section.home-footer .row > div {
-  margin-bottom: 60px;
-  text-align: center; }
-  section.home-footer .row > div img {
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin: 0 auto 40px; }
-  section.home-footer .row > div h3 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 600;
-    color: #FE5B5F;
-    text-transform: uppercase;
-    font-size: 3em; }
-  section.home-footer .row > div p {
-    font-weight: 200;
-    color: #595959;
-    font-size: 1.4em;
-    line-height: 1.2em;
-    letter-spacing: 1px;
-    width: 78%;
-    margin: 10px auto; }
-
-section.how .row > div {
-  margin-bottom: 0; }
 
 /*////////////////////////////////
        P A G E  S E A R C H
