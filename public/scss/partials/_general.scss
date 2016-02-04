@@ -16,11 +16,22 @@ body {
     //  width: 100vw !important;
  //     max-width:100% !important;
     }
-    &.locked {
-        overflow: hidden !important;
-        overflow-x: hidden !important;
-        overflow-y: hidden !important;
-    }
+    // &.locked {
+    //     overflow: hidden !important;
+    //     overflow-x: hidden !important;
+    //     overflow-y: hidden !important;
+    //     position: relative;
+    // }
+}
+
+.locked {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
 }
 
 h1 {

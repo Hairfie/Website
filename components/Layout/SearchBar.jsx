@@ -66,24 +66,24 @@ var SearchBar = React.createClass({
             <div className="search-menu">
                 <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
+                    <div className="col-xs-12 input-group where">
+                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onKeyPress={this.handleKey} onChange={this.handleLocationChange} />
+                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                    </div>
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
                         <select ref="mobileCategories" defaultValue="" placeholder="Spécialité" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
                             <optgroup label="Spécialités">
-                                <option value="" disabled>Sélectionnez une spécialité</option>
+                                <option value="" disabled className="is-disabled">Sélectionnez une spécialité</option>
                                 {_.map(this.props.categories, function(cat) {
                                     return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
                                 })}
                             </optgroup>
                         </select>
                     </div>
-                    <div className="col-xs-12 input-group">
-                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onKeyPress={this.handleKey} onChange={this.handleLocationChange} />
-                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
-                    </div>
-                    <div className='col-xs-12'>
+                    <div className='col-xs-12 name'>
                         <input onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom de votre coiffeur ?" />
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 action">
                         <Button onClick={this.submit} className='btn btn-red col-xs-12'>Lancer la recherche</Button>
                     </div>
                 </div>
