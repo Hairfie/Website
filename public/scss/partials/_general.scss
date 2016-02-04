@@ -858,6 +858,9 @@ div.pagination {
         position: absolute; left: 50%;margin-left: -90px;
         li {
             padding: 0;
+            @media screen and (max-width: $screen-xs-max) {
+                width: 35px;
+            }
         }
     }
     a {

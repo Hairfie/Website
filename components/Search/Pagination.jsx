@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
 
-var arroundCurrentPage = 2;
+var arroundCurrentPage = 1;
 
 var Pagination = React.createClass({
     propTypes: {
