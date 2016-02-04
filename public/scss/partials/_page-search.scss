@@ -536,8 +536,10 @@
             }
         }
     }
-
-
+    .mobile-filtres {
+        overflow: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
     .sidebar {
         padding-top: 20px;
         padding-bottom: 60px;
@@ -545,8 +547,7 @@
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
             z-index: 149;
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
+
         }
 
         .filter-recap {

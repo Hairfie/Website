@@ -11850,6 +11850,10 @@ section.home-search .home-search-mobile {
     text-transform: uppercase;
     letter-spacing: 2px; }
 
+#content.search .mobile-filtres {
+  overflow: scroll !important;
+  -webkit-overflow-scrolling: touch !important; }
+
 #content.search .sidebar {
   padding-top: 20px;
   padding-bottom: 60px;
@@ -11857,9 +11861,7 @@ section.home-search .home-search-mobile {
   @media screen and (max-width: 767px) {
     #content.search .sidebar {
       padding-top: 0;
-      z-index: 149;
-      overflow-y: scroll;
-      -webkit-overflow-scrolling: touch; } }
+      z-index: 149; } }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {
