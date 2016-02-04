@@ -110,28 +110,6 @@ var Business = React.createClass({
                             />
                         {promo_icon}
                 </div>
-                {/*<div className="info-bloc visible-xs">
-                    <div className="address-bloc">
-                        <div className="main-infos">
-                            <h3>
-                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                    {business.name}
-                                </Link>
-                            </h3>
-                            <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                {business.address.street}, {business.address.zipCode} {business.address.city}
-                            </Link>
-                        </div>
-                        {this.renderRating()}
-                        {this.renderPricing()}
-                        <div className="clearfix"></div>
-                    </div>
-                    {searchedCategoriesLabels}
-                    <div className="book">
-                        {booking_button}
-                    </div>
-                    <div className="clearfix"></div>
-                </div>*/}
                 <div className="info-bloc">
                     <div className="business-name">
                         <h3>{business.name}</h3>
@@ -158,6 +136,7 @@ var Business = React.createClass({
         );
     },
     renderAllHairfiesButton: function () {
+        if (this.props.business.numHairfies == 0) return null;
         return (
             <Link className="btn btn-hairfies" route="business_hairfies" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
                 {'Voir les hairfies (' + this.props.business.numHairfies + ')'}
@@ -165,14 +144,24 @@ var Business = React.createClass({
         );
     },
     renderRating: function () {
-        if (!this.props.business.numReviews) return;
-        var query  = this.props.date ? { date: this.props.date } : {};
+        if (!this.props.business.numReviews && !this.props.business.yelpObject) return;
+        else if (this.props.business.numReviews) {
+            var query  = this.props.date ? { date: this.props.date } : {};
 
-        return (
-                    <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                        <Rating rating={this.props.business.rating} min={true} className="interactive" />{'- ' + this.props.business.numReviews +' avis'}
-                    </Link>
-        );
+            return (
+                <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                    <Rating rating={this.props.business.rating} min={true} className="interactive" />{'- ' + this.props.business.numReviews + ' avis'}
+                </Link>
+            );
+        } else if (this.props.business.yelpObject.review_count > 0) {
+            return (
+                <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' - ' + this.props.business.yelpObject.review_count + ' avis'}
+                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginTop: '5px'}} className="visible-xs"/>
+                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
+                </Link>
+            );
+        }
     },
     renderPricing: function () {
             return (

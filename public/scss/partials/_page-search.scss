@@ -306,50 +306,6 @@
                     margin-left: 3px;
                 }
             }
-            div.address-bloc {
-                .main-infos {
-                    width: calc(100% - 120px);
-                    float: left;
-                    @media screen and (max-width: $screen-xs-max) {
-                        width: 100%;
-                    }
-                }
-                h3 {
-                    font-size: 2.1em;
-                    margin: 0 0 3px;
-                }
-                a:nth-child(2) {
-                    font-size: 1.4em;
-                    margin-top: 3px;
-                }
-                div {
-                    padding: 0;
-                }
-                @media screen and (max-width: $screen-xs-max) {
-                    a {
-                        letter-spacing: 0px;
-                        padding-left: 0px;
-                        padding-right: 0px;
-                        font-size: 1em;
-                        font-weight: $regular;
-                        text-transform: none;
-                    }
-                    a:nth-child(2) {
-                        font-size: 1.6em;
-                        &:not(.pull-right) {
-                            line-height: 10px;
-                        }
-                    }
-                }
-                @media screen and (max-width: 374px) {
-                    a {
-                        font-size: 0.8em;
-                    }
-                    a:nth-child(2) {
-                        font-size: 1.2em;
-                    }
-                }
-            }
 
             .btn-red, .btn-book {
                 text-transform: uppercase;
@@ -504,6 +460,11 @@
                         font-size: 1.4em;
                         color: $darkgrey;
                     }
+                    img {
+                        width: 120px;
+                        margin: 0;
+                        display: inline;
+                    }
                 }
                 .business-label {
                     color: white;
@@ -582,6 +543,9 @@
                     }
                     .business-reviews {
                         margin-bottom: 5px;
+                        img {
+                            width: 80px;
+                        }
                         .star.min {
                             background-size: 95%;
                         }
