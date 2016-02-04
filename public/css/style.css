@@ -11337,7 +11337,9 @@ section.home-search .home-search-mobile {
     left: calc(-50vw + 50%);
     background: url(../img/bg-download-lite.jpg) no-repeat center center;
     background-size: cover;
-    margin: 0; } }
+    margin: 0; }
+    #home section.download .container {
+      padding-left: 134.5px; } }
 
 #home section.download p {
   font-size: 1.6em;
@@ -11351,8 +11353,7 @@ section.home-search .home-search-mobile {
 #home section.download .container {
   display: table-cell;
   height: 400px;
-  vertical-align: middle;
-  padding-left: 134.5px; }
+  vertical-align: middle; }
   #home section.download .container h2 {
     padding-top: 0; }
 

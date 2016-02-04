@@ -789,6 +789,9 @@ section.home-search {
         background: url(../img/bg-download-lite.jpg) no-repeat center center;
         background-size: cover;
         margin: 0;
+        .container {
+            padding-left: 134.5px;
+        }
     }
 
     p {
@@ -811,7 +814,7 @@ section.home-search {
         display: table-cell;
         height: 400px;
         vertical-align: middle;
-        padding-left: 134.5px;
+        //padding-left: 134.5px;
         
         h2 {
             padding-top: 0;
