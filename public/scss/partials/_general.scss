@@ -264,7 +264,7 @@ ul {
 }
 // Search bar home specific style
 .main-searchbar {
-    background-color: rgba(255,255,255,0.9);
+    background-color: white;
     position: relative;
         div.input-group {
             float: left;
@@ -274,7 +274,7 @@ ul {
                 border-right: 0;
             }
             .input-group-addon {
-                background: url(../img/icon-location.png) no-repeat center center;
+                background: url(../img/home/location-new.svg) no-repeat center center;
                 background-color: white;
                 width: 60px;
                 background-size: 40%;

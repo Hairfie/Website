@@ -39,7 +39,7 @@ var Header = React.createClass({
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
                         <nav className='col-md-8 pull-right'>
-                            *<a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>*
+                            <a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>
                         </nav>
                     
                 </header>
