@@ -10442,30 +10442,35 @@ header {
         -webkit-appearance: none;
         -o-appearance: none;
         border-radius: 0px; }
-      .mobile-nav .search-menu .searchbar div:before {
-        z-index: 1;
-        position: absolute;
-        width: 23px;
-        height: 23px;
-        top: 20px;
-        left: 20px;
-        content: " "; }
-      .mobile-nav .search-menu .searchbar div:nth-child(2) {
-        padding: 0; }
-        .mobile-nav .search-menu .searchbar div:nth-child(2):before {
-          background: url(../img/icons/localisation.svg) no-repeat center center;
-          background-size: contain; }
-      .mobile-nav .search-menu .searchbar div:nth-child(3) {
-        padding: 0; }
-        .mobile-nav .search-menu .searchbar div:nth-child(3):before {
-          background: url(../img/icons/users.svg) no-repeat center center;
-          background-size: contain; }
+      .mobile-nav .search-menu .searchbar div {
+        border-bottom: 1px solid #e6e6e6; }
+        .mobile-nav .search-menu .searchbar div:before {
+          z-index: 1;
+          position: absolute;
+          width: 23px;
+          height: 23px;
+          top: 20px;
+          left: 20px;
+          content: " "; }
+        .mobile-nav .search-menu .searchbar div:nth-child(1) {
+          border-top: 1px solid #e6e6e6; }
+        .mobile-nav .search-menu .searchbar div.where {
+          padding: 0; }
+          .mobile-nav .search-menu .searchbar div.where:before {
+            background: url(../img/icons/localisation.svg) no-repeat center center;
+            background-size: contain; }
+          .mobile-nav .search-menu .searchbar div.where input {
+            border: none; }
+        .mobile-nav .search-menu .searchbar div.name {
+          padding: 0; }
+          .mobile-nav .search-menu .searchbar div.name:before {
+            background: url(../img/icons/users.svg) no-repeat center center;
+            background-size: contain; }
       .mobile-nav .search-menu .searchbar input {
         padding-left: 50px;
         width: 100%;
         height: 65px;
         margin-bottom: 20px;
-        border-bottom: 1px solid #e6e6e6;
         border-left: none;
         border-right: none;
         border-top: none; }
@@ -10487,7 +10492,6 @@ header {
           width: 60px;
           background-size: 40%;
           border: none;
-          border-bottom: 1px solid #e6e6e6;
           border-left: 1px solid #e6e6e6; }
       .mobile-nav .search-menu .searchbar .mobile-categories {
         padding: 0; }
@@ -10503,7 +10507,7 @@ header {
           padding-left: 50px;
           background-color: white;
           height: 65px;
-          border: 1px solid #e6e6e6;
+          border: none;
           border-left: none;
           border-right: none;
           font-family: "Lato", sans-serif;
