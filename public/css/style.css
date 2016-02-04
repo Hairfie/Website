@@ -10793,6 +10793,14 @@ section.how {
       font-size: 1.4em;
       line-height: 1.2em;
       letter-spacing: 1px; }
+  @media screen and (max-width: 991px) {
+    section.how h2.col-sm-3 {
+      font-size: 1.6em; }
+    section.how .row > div h3 {
+      font-size: 1.3em; }
+    section.how .row > div p {
+      font-size: 1.1em;
+      letter-spacing: 0; } }
   @media screen and (max-width: 767px) {
     section.how {
       height: auto;

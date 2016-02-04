@@ -168,6 +168,20 @@ section.how {
             letter-spacing: 1px;
         }
     }
+    @media screen and (max-width: $screen-sm-max) {
+        h2.col-sm-3 {
+            font-size: 1.6em;
+        }
+        .row > div {
+            h3 {
+                font-size: 1.3em;
+            }
+            p {
+                font-size: 1.1em;
+                letter-spacing: 0;
+            }
+        }
+    }
     @media screen and (max-width: $screen-xs-max) {
         height: auto;
         padding-bottom: 10px;
