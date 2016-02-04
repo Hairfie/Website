@@ -32,13 +32,10 @@ var HomePage = React.createClass({
                         <div className="row">
                             <div className="headline col-md-12">
                                 <h1>Faites du bien à vos cheveux,<br className="title-break" /> Trouvez leur le bon coiffeur&nbsp;!</h1>
-                                <p> Ici, pas de blabla mais des milliers de photos de vrais clients pour faire son choix et prendre RDV gratuitement en ligne 24/7 dans le salon de coiffure qui vous correspond.</p>
                             </div>
                         </div>
-                        <div className="row choice-large">
-                            <p className="search-word">Je cherche&nbsp;:</p>
-                            <a onClick={this.scrollTo.bind(this, "categories")} className="btn btn-red">Des coiffures stylées</a>
-                            <a onClick={this.searchHairdresser} className="btn btn-red">Des coiffeurs au top</a>
+                        <div className="row">
+                            <Home.SearchSection {...this.props} ref="search" openSearchBar={this.searchHairdresser}/>
                         </div>
                         <div className="row visible-xs">
                             <div className="search-group text-center">
@@ -52,12 +49,11 @@ var HomePage = React.createClass({
                 </section>
                 <div className="container">
                     <div className="main-content" id="home">
-                        <Home.SearchSection {...this.props} ref="search" openSearchBar={this.searchHairdresser}/>
+                        <Home.HowSection />
                         <Home.Categories categories={this.props.categories} tags={this.props.tags} ref="categories" />
                         <Home.Deals deals={this.props.deals} />
                         <Home.BlogPosts posts={this.props.posts} />
                         <Home.TopHairfies hairfies={this.props.hairfies} />
-                        <Home.HowSection />
                         <Home.DownloadSection />
                     </div>
                 </div>
