@@ -135,7 +135,11 @@
                     font-size: 25px;
                 }
                 .price {
+                    @media (max-width: $screen-xs-max){
+                        font-size: 20px;
+                    }
                     font-size: 32px;
+
                     color: white;
                     position: absolute;
                     top: 23%;

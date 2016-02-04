@@ -16,11 +16,22 @@ body {
     //  width: 100vw !important;
  //     max-width:100% !important;
     }
-    &.locked {
-        overflow: hidden !important;
-        overflow-x: hidden !important;
-        overflow-y: hidden !important;
-    }
+    // &.locked {
+    //     overflow: hidden !important;
+    //     overflow-x: hidden !important;
+    //     overflow-y: hidden !important;
+    //     position: relative;
+    // }
+}
+
+.locked {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
 }
 
 h1 {
@@ -264,7 +275,7 @@ ul {
 }
 // Search bar home specific style
 .main-searchbar {
-    background-color: rgba(255,255,255,0.9);
+    background-color: white;
     position: relative;
         div.input-group {
             float: left;
@@ -274,7 +285,7 @@ ul {
                 border-right: 0;
             }
             .input-group-addon {
-                background: url(../img/icon-location.png) no-repeat center center;
+                background: url(../img/home/location-new.svg) no-repeat center center;
                 background-color: white;
                 width: 60px;
                 background-size: 40%;
@@ -847,6 +858,9 @@ div.pagination {
         position: absolute; left: 50%;margin-left: -90px;
         li {
             padding: 0;
+            @media screen and (max-width: $screen-xs-max) {
+                width: 35px;
+            }
         }
     }
     a {

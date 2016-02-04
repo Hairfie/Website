@@ -6,17 +6,20 @@ var Pagination = require('./Pagination.jsx');
 var SearchUtils = require('../../lib/search-utils');
 var Hairfie = require('../Partial/Hairfie.jsx');
 var Newsletter = require('../Partial/Newsletter.jsx');
+var Loading = require('../Partial/Loading.jsx');
+
 
 var HairfieResult = React.createClass({
     render: function () {
-        if (!this.props.result) return <div className="loading" />;
+        if (!this.props.result) return <Loading />;
         if (this.props.result.numHits == 0) return this.renderNoResult();
-
+        // OLD Newsletter
+        //<div className="hairfie-search-newsletter">
+        //    <Newsletter />
+        //</div>
         return (
             <div className="tab-pane active">
-                <div className="hairfie-search-newsletter">
-                    <Newsletter />
-                </div>
+
                 <section>
                     <div className="salon-hairfies hairfies">
                         <div className="row">

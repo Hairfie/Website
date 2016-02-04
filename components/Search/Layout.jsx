@@ -10,17 +10,30 @@ var Picture = require('../Partial/Picture.jsx');
 
 var Layout = React.createClass({
     componentDidMount: function () {
-        $('body').on("click",'.trigger-filters',function(){
+        $('body').on("click",'.trigger-filters',function() {
+            console.log("click !");
             if( jQuery('.mobile-filtres').css('top') != '65px' ) {
-                TweenMax.to('.mobile-filtres', 0.4, {top:65,ease:Power2.easeInOut,onComplete:function(){
+                TweenMax.to('.mobile-filtres', 0.2, {top:65,ease:Power2.easeInOut, onComplete:function(){
                     jQuery('body').toggleClass('locked');
                     jQuery('.mobile-filtres').addClass('opened');
+                    jQuery('.menu-trigger').addClass('close filters');
                     jQuery('.trigger-filters').html('Enregistrer les filtres');
                 }});
             } else if (jQuery('.mobile-filtres').hasClass('opened') ) {
-                TweenMax.to('.mobile-filtres', 0.4, {top:'100%',ease:Power2.easeOut,onComplete:function(){
+                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
                     jQuery('body').toggleClass('locked');
                     jQuery('.mobile-filtres').removeClass('opened');
+                    jQuery('.menu-trigger').removeClass('close filters');
+                    jQuery('.trigger-filters').html('Filtrer');
+                }});
+            }
+        });
+        $('body').on("click",'.menu-trigger',function() {
+            if (jQuery('.mobile-filtres').hasClass('opened') ) {
+                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
+                    jQuery('body').removeClass('locked');
+                    jQuery('.mobile-filtres').removeClass('opened');
+                    jQuery('.menu-trigger').removeClass('close filters');
                     jQuery('.trigger-filters').html('Filtrer');
                 }});
             }
@@ -32,7 +45,7 @@ var Layout = React.createClass({
     render: function () {
         return (
             <PublicLayout withSearchBar={true}>
-            {this.props.children}
+                {this.props.children}
                 <div className="mobile-screen hidden-md hidden-lg">
                     <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
                 </div>

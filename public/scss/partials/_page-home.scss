@@ -3,40 +3,44 @@
 ////////////////////////////////*/
 
 .landing {
+    header {
+        div.dark-header {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
     width: 100vw;
     @media screen and (min-width: $screen-sm-min) {
+        header {
+            background-color: inherit;
+        }
         height: 500px;
-        background: url(../img/bg-landing.jpg) no-repeat top center;
+        background: url(../img/home/photo-bg.jpg) no-repeat top center;
         background-size: cover;
     }
     @media screen and (max-width: $screen-xs-max) {
-        background: url(../img/bg-landing-mobile.jpg) no-repeat bottom center;
+        background: url(../img/home/photo-bg.jpg) no-repeat bottom center;
         background-size: cover;
     }
     max-width: 100%; // fix-mobile horizontal scroll    
     text-align: center;
     position: relative;
-    h1, p {
+
+    h1 {
         width: 100%;
         color: white;
-    }
-    h1 {
         margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-    }
-    p {
-        font-size: 1.6em;
         font-weight: $regular;
+        letter-spacing: 4px;
     }
     .headline {
         margin: 70px auto 0;
         @include nofloat;
         h1 {
             @media screen and (max-width: $screen-xs-max) {
-                margin-top: 150px;
+                margin-top: 125px;
+                margin-bottom: 30px;
                 font-size: 2.1em;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 line-height: 1.3;
             }
         }
@@ -99,10 +103,6 @@
         @media screen and (max-width: $screen-xs-max){
                 display: none;
         }
-        .search-word {
-            font-size: 2.3em;
-            text-transform: uppercase;
-        }
         .btn-red {
             height: 58px;
             font-size: 1.4em;
@@ -120,16 +120,107 @@
         }
     }
     .row.visible-xs {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-bottom: 30px;
     }
 }
+
+section.how {
+    height: 100px;
+    h2.col-sm-3 {
+        padding-top: 24px;
+        padding-bottom: 0;
+        letter-spacing: 1px;
+    }
+    object {
+        display: inline-block;
+    }
+    .row > div {
+        margin-bottom: 0;
+        img {
+            width: 100px;height: 100px;
+            display: block;
+            margin: 0 auto 40px;
+        }
+        svg {
+                margin: 10px 0 10px 0;
+        }
+        h3 {
+            font-family: $font-main;
+            font-weight: $regular;
+            color: $darkgrey;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            display: inline-block;
+            margin: 0;
+        }
+        .how-txt {
+            height: 100px;
+            float: left;
+            width: calc(100% - 40px);
+            padding: 25px 5px 25px 10px;
+        }
+        p {
+            font-weight: $light;
+            color: $darkgrey;
+            font-size: 1.4em;
+            line-height: 1.2em;
+            letter-spacing: 1px;
+        }
+    }
+    @media screen and (max-width: $screen-sm-max) {
+        h2.col-sm-3 {
+            font-size: 1.6em;
+        }
+        .row > div {
+            h3 {
+                font-size: 1.3em;
+            }
+            p {
+                font-size: 1.1em;
+                letter-spacing: 0;
+            }
+        }
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        height: auto;
+        padding-bottom: 10px;
+        h2.col-sm-3 {
+            color: $grey;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 35px;
+        }
+        .row > div {
+            height: 80px;
+            object {
+                margin-top: -20px;
+            }
+            h3 {
+                color: $lightgrey;
+            }
+            p {
+                color: $grey;
+                letter-spacing: 0;
+            }
+            .how-txt {
+                padding-top: 10px;
+            }
+        }
+    }
+}
+
 section.home-section {
     @media screen and (min-width: $screen-sm-min) {
         margin: 0 15px;
+        padding-bottom: 40px;
     }
-    padding-bottom: 40px;
-    background:white;
+    
+    //background:white;
     @include fullWidthBg(white);
     .row  {
         margin-left: 0;
@@ -141,6 +232,9 @@ section.home-section {
         letter-spacing: 3px;
         padding: 30px 0 10px;
         margin: 0;
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 2.2em;
+        }
         font-size: 2.4em;
         color: $darkgrey;
     }
@@ -193,10 +287,13 @@ section.home-section {
 }
 
 .landing .main-searchbar, .home-search .main-searchbar {
-    padding: 20px;
+    padding: 10px;
     margin: 90px 15px 60px 15px;
-    height: 100px;
-    border-radius:3px;
+    height: 80px;
+    border: 1px solid $grey;
+    > a:nth-child(1) {
+        margin-right: 10px;
+    }
     > div {
         padding-left: 0;
         &:nth-child(2) {
@@ -204,16 +301,88 @@ section.home-section {
         }
     }
     input {
+        @include placeholder($grey);
         height: 60px;line-height: 60px;
         margin-right: 0px; margin-left: -5px;
+        border: 1px solid $grey5;
+        font-weight: $regular;
+        letter-spacing: 0px;
+        font-size: 1.6em;
         &:first-child {
             margin-right: 10px;
         }
         &:nth-child(2) {
             margin-left: -5px;
         }
-        @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
-            font-size: 1.0em;
+        
+    }
+    &.searchbar input {
+        color: black;
+    }
+    .input-group-addon {
+        border-radius: 0;
+        border: 1px solid $grey5 !important;
+        border-right: 0 !important;
+    }
+    .Select-control {
+        border: 1px solid $grey5;
+        font-weight: regular;
+        font-size: 1.6em;
+        letter-spacing: 0px;
+        color: $grey;
+    }
+    .Select-placeholder {
+        color: $grey;
+        font-weight: $regular;
+        letter-spacing: 0;
+    }
+    .searchbar {
+        input {
+            color: black;
+        }
+    }
+    .btn-gender {
+        @extend .btn;
+
+        width: calc(50% - 5px);
+        border-radius: 0;
+        height: 60px;
+        background-color: white;
+        border: 1px solid $grey5;
+        color: $grey3;
+        font-weight: $regular;
+        font-size: 1.6em;
+        line-height: 46px;
+        &:hover {
+            @include transition(.25s ease-in-out);
+            color: white;
+            background-color: $hairfie;
+            .icon-male {
+                background-image: url(../img/home/homme-white.svg);
+            }
+            .icon-female {
+                background-image: url(../img/home/femme-white.svg);
+            }
+        }
+        .icon-male {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url(../img/home/homme.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: -5px;                             
+            margin-right: 10px;                   
+        }
+        .icon-female {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url(../img/home/femme.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            margin-bottom: -5px;                             
         }
     }
     .btn-red, .btn-book {
@@ -227,14 +396,94 @@ section.home-section {
             letter-spacing: 1px;
             font-size: 1.3em;
         }
-        @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
+    }
+    @media screen and (max-width: $screen-sm-max) and (min-width: $screen-sm-min) {
+        input {
+            font-size: 1.6em;
+        }
+        .btn-red, .btn-book {
             letter-spacing: 1px;
             font-size: 1.0em;
         }
     }
 }
 
-#home section.home-search {
+section.home-search {
+    .home-search-desktop {
+        .nav-tabs {
+            border: none;
+            margin-bottom: -1px;
+        }
+        li {
+            font-size: 1.3em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: $regular;
+            a {
+                color: $grey;
+                background-color: $bg4;
+                border-bottom: 1px solid $bg4;
+                margin-right: 0;
+                height: 48px;
+                border-radius: 0;
+                line-height: 26px;
+                &:focus {
+                    outline: none;
+                }
+                .icon-hair-dryer {
+                    position: absolute;
+                    top: 15px;
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-repeat: no-repeat;
+                    background-image: url(../img/home/hairdryer.svg);
+                    background-size: contain;                   
+                }
+                .icon-photo {
+                    position: absolute;
+                    top: 12px;
+                    display: inline-block;
+                    width: 17px;
+                    height: 17px;
+                    background-repeat: no-repeat;
+                    background-image: url(../img/home/photo.svg);
+                    background-size: contain;                   
+                }
+                div span:nth-child(2) {
+                    margin-left: 25px;
+                }
+            }
+            &.active {
+                a {
+                    //border-radius: 4px 4px 0 0;
+                    height: 48px;
+                    .icon-photo {
+                        background-image: url(../img/home/photo-red.svg);                 
+                    }
+                    .icon-hair-dryer {
+                        background-image: url(../img/home/hairdryer-red.svg);                 
+                    }
+                    color: $hairfie;
+                    background-color: white;
+                    //border-top: 3px solid $hairfie;
+                    padding-top: 10px;
+                }
+                &:after {
+                    content: " ";
+                    height: 3px;
+                    width: 100%;
+                    background-color: $hairfie;
+                    position: absolute;
+                    top: -3px;
+                    left: 0;
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px;
+                }
+            }
+        }
+    }
+    
     .main-searchbar {
         margin: 0;
     }
@@ -533,8 +782,8 @@ section.home-section {
     }
 }
 #home section:nth-child(odd) {
-    background-color: $bg2;
-    @include fullWidthBg($bg2);
+    background-color: $grey9;
+    @include fullWidthBg($grey9);
 }
 
 #home section.download {
@@ -544,6 +793,9 @@ section.home-section {
         background: url(../img/bg-download-lite.jpg) no-repeat center center;
         background-size: cover;
         margin: 0;
+        .container {
+            padding-left: 134.5px;
+        }
     }
 
     p {
@@ -555,18 +807,23 @@ section.home-section {
         &.buttons {
             margin-top: 50px;
             text-align: center;
-        }
-    }
 
-    .btn-apple {
-     //width: 204px;
+            @media screen and (max-width: $screen-xs-max) {
+                > a:nth-child(1) {
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    width: 204px;
+                }
+            }
+        }
     }
 
     .container {
         display: table-cell;
         height: 400px;
         vertical-align: middle;
-        padding-left: 134.5px;
         
         h2 {
             padding-top: 0;
@@ -583,37 +840,4 @@ section.home-section {
         &:hover {color: $font-color;}
     }
 
-}
-section.home-footer {
-    .row > div {
-        margin-bottom:60px;
-        text-align: center;
-        img {
-            width: 100px;height: 100px;
-            display: block;
-            margin: 0 auto 40px;
-        }
-        h3 {
-            font-family: $font-main;
-            font-weight: $semiBold;
-            color: #FE5B5F;
-            text-transform: uppercase;
-            font-size: 3em;
-        }
-        p {
-            font-weight: $light;
-            color: $darkgrey;
-            font-size: 1.4em;
-            line-height: 1.2em;
-            letter-spacing: 1px;
-            width: 78%;
-            margin: 10px auto;
-        }
-    }
-}
-
-section.how {
-    .row > div {
-        margin-bottom: 0;
-    }
 }

@@ -38,8 +38,8 @@ var Header = React.createClass({
             <div className="mobile-nav visible-xs">
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
-                        <nav className='col-md-8 pull-right'>
-                            *<a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>*
+                        <nav className='col-md-8 pull-right menu-button'>
+                            <a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>
                         </nav>
                     
                 </header>
@@ -135,7 +135,8 @@ var Header = React.createClass({
     },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
-            if( $('.mobile-menu').height() == 0) {
+            console.log("here !");
+            if( $('.mobile-menu').height() == 0 && !jQuery('.mobile-filtres').hasClass('opened')) {
                 $('body').addClass('locked');
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
