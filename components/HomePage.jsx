@@ -67,7 +67,6 @@ var HomePage = React.createClass({
             if( $('.mobile-menu').height() == 0 ) {
                 this.setState({displaySearch: true, findMe: findMe});
                 $('body').toggleClass('locked');
-
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
             } else {
