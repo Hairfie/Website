@@ -12206,7 +12206,7 @@ section.home-search .home-search-mobile {
         @media screen and (max-width: 767px) {
           .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
             font-size: 2.1em; } }
-      .salon#content #carousel-salon .carousel-info img {
+      .salon#content #carousel-salon .carousel-info .profil-picture {
         z-index: 1;
         position: absolute;
         width: 120px;
@@ -12217,8 +12217,14 @@ section.home-search .home-search-mobile {
         border-color: white;
         border-radius: 100%; }
         @media screen and (max-width: 1199px) {
-          .salon#content #carousel-salon .carousel-info img {
+          .salon#content #carousel-salon .carousel-info .profil-picture {
             display: none; } }
+      .salon#content #carousel-salon .carousel-info .yelp-rating {
+        width: 140px;
+        margin-bottom: 15px; }
+        @media screen and (max-width: 767px) {
+          .salon#content #carousel-salon .carousel-info .yelp-rating {
+            width: 80px; } }
     .salon#content #carousel-salon .carousel-inner .item {
       height: 470px;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;

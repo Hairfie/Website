@@ -98,7 +98,7 @@
 					font-size: 2.1em;
 				}
 			}
-			img {
+			.profil-picture {
 				@media screen and (max-width: $screen-md-max) {
 					display: none;
 				}
@@ -111,6 +111,13 @@
 				border-width: 5px;
 				border-color: white;
 				border-radius: 100%;
+			}
+			.yelp-rating {
+				width: 140px;
+				margin-bottom: 15px;
+				@media screen and (max-width: $screen-xs-max) {
+					width: 80px;
+				}
 			}
 		}
 		.carousel-inner .item {

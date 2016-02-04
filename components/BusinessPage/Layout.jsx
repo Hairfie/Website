@@ -15,17 +15,23 @@ var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 var Rating = React.createClass({
     render: function () {
         var business = this.props.business || {};
-        if (!business.numReviews) return <span />;
+        if (!business.numReviews && !business.yelpObject) return <span />;
+        else if (business.numReviews) {
+            var rating = Math.round(business.rating / 100 * 5);
 
-        var rating = Math.round(business.rating / 100 * 5);
-
-        return (
-            <div className="stars">
-                {_.map([1, 2, 3, 4, 5], function (starValue) {
-                    return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
-                })}
-            </div>
-        );
+            return (
+                <div className="stars">
+                    {_.map([1, 2, 3, 4, 5], function (starValue) {
+                        return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
+                    })}
+                </div>
+            );
+        }
+        else if (business.yelpObject.review_count > 0) {
+            return (
+                <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" className="yelp-rating" />
+            );
+        }
     }
 });
 
@@ -37,9 +43,11 @@ var Layout = React.createClass({
 
         var business = this.props.business;
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
-
         var numReviews = business.numReviews > 0 ? business.numReviews : null;
         var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
+        if (!numReviews)
+            var numYelpReviews = business.yelpObject.review_count > 0 ? business.yelpObject.review_count : null;
+        console.log('numReviews:' + numReviews + ' numYelpReviews: ' + numYelpReviews);
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
@@ -53,6 +61,7 @@ var Layout = React.createClass({
                                 <div className="col-xs-4 col-lg-3">
                                     <Rating business={business} />
                                     <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{business.numReviews ? (business.numReviews + ' avis') : ''}</Link>
+                                    <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{numYelpReviews ? (numYelpReviews + ' avis') : ''}</Link>
                                 </div>
                             </div>
                             {
@@ -64,7 +73,8 @@ var Layout = React.createClass({
                                             crop: 'thumb',
                                             gravity: 'faces'
                                          }}
-                                        placeholder="/img/placeholder-640.png" />
+                                        placeholder="/img/placeholder-640.png" 
+                                        className="profil-picture"/>
                                     : null
                             }
                         </div>
