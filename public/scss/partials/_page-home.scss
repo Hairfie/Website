@@ -30,7 +30,7 @@
         color: white;
         margin-bottom: 40px;
         font-weight: $regular;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
     }
     .headline {
         margin: 70px auto 0;
@@ -131,6 +131,7 @@ section.how {
     h2.col-sm-3 {
         padding-top: 24px;
         padding-bottom: 0;
+        letter-spacing: 1px;
     }
     object {
         display: inline-block;

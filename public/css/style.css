@@ -10681,7 +10681,7 @@ footer.mobile {
     color: white;
     margin-bottom: 40px;
     font-weight: 400;
-    letter-spacing: 5px; }
+    letter-spacing: 4px; }
   .landing .headline {
     margin: 70px auto 0;
     float: none !important; }
@@ -10762,7 +10762,8 @@ section.how {
   height: 100px; }
   section.how h2.col-sm-3 {
     padding-top: 24px;
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    letter-spacing: 1px; }
   section.how object {
     display: inline-block; }
   section.how .row > div {
