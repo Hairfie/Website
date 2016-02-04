@@ -9245,10 +9245,15 @@ body {
   @media screen and (max-width: 767px) {
     body {
       position: relative; } }
-  body.locked {
-    overflow: hidden !important;
-    overflow-x: hidden !important;
-    overflow-y: hidden !important; }
+
+.locked {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed; }
 
 h1 {
   font-family: "Lato", sans-serif;
