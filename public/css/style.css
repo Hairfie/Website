@@ -10688,6 +10688,7 @@ footer.mobile {
     @media screen and (max-width: 767px) {
       .landing .headline h1 {
         margin-top: 125px;
+        margin-bottom: 30px;
         font-size: 2.1em;
         letter-spacing: 1px;
         line-height: 1.3; } }
@@ -10755,11 +10756,11 @@ footer.mobile {
   .landing .row.visible-xs {
     padding-left: 40px;
     padding-right: 40px;
-    margin-bottom: 35px; }
+    margin-bottom: 30px; }
 
 section.how {
   height: 100px; }
-  section.how h2 {
+  section.how h2.col-sm-3 {
     padding-top: 24px;
     padding-bottom: 0; }
   section.how object {
@@ -10771,6 +10772,8 @@ section.how {
       height: 100px;
       display: block;
       margin: 0 auto 40px; }
+    section.how .row > div svg {
+      margin: 10px 0 10px 0; }
     section.how .row > div h3 {
       font-family: "Source Sans Pro", sans-serif;
       font-weight: 400;
@@ -10790,6 +10793,29 @@ section.how {
       font-size: 1.4em;
       line-height: 1.2em;
       letter-spacing: 1px; }
+  @media screen and (max-width: 767px) {
+    section.how {
+      height: auto;
+      padding-bottom: 10px; }
+      section.how h2.col-sm-3 {
+        color: #c4c4c4;
+        text-transform: uppercase;
+        font-size: 1.6em;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 25px;
+        padding-top: 35px; }
+      section.how .row > div {
+        height: 80px; }
+        section.how .row > div object {
+          margin-top: -20px; }
+        section.how .row > div h3 {
+          color: #898989; }
+        section.how .row > div p {
+          color: #c4c4c4;
+          letter-spacing: 0; }
+        section.how .row > div .how-txt {
+          padding-top: 10px; } }
 
 section.home-section {
   position: relative; }
@@ -11275,7 +11301,7 @@ section.home-search .home-search-mobile {
       padding-right: 0; } }
 
 #home section:nth-child(odd) {
-  background-color: #f0f0f1;
+  background-color: #f8f8f7;
   position: relative; }
   #home section:nth-child(odd):before {
     content: " ";
@@ -11284,7 +11310,7 @@ section.home-search .home-search-mobile {
     position: absolute;
     left: -100vw;
     top: 0;
-    background: #f0f0f1;
+    background: #f8f8f7;
     z-index: -1; }
   #home section:nth-child(odd):after {
     content: " ";
@@ -11293,7 +11319,7 @@ section.home-search .home-search-mobile {
     position: absolute;
     right: -100vw;
     top: 0;
-    background: #f0f0f1;
+    background: #f8f8f7;
     z-index: -1; }
 
 @media screen and (min-width: 767px) {

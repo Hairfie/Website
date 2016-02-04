@@ -38,6 +38,7 @@
         h1 {
             @media screen and (max-width: $screen-xs-max) {
                 margin-top: 125px;
+                margin-bottom: 30px;
                 font-size: 2.1em;
                 letter-spacing: 1px;
                 line-height: 1.3;
@@ -121,13 +122,13 @@
     .row.visible-xs {
         padding-left: 40px;
         padding-right: 40px;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
     }
 }
 
 section.how {
     height: 100px;
-    h2 {
+    h2.col-sm-3 {
         padding-top: 24px;
         padding-bottom: 0;
     }
@@ -140,6 +141,9 @@ section.how {
             width: 100px;height: 100px;
             display: block;
             margin: 0 auto 40px;
+        }
+        svg {
+                margin: 10px 0 10px 0;
         }
         h3 {
             font-family: $font-main;
@@ -162,6 +166,35 @@ section.how {
             font-size: 1.4em;
             line-height: 1.2em;
             letter-spacing: 1px;
+        }
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        height: auto;
+        padding-bottom: 10px;
+        h2.col-sm-3 {
+            color: $grey;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 35px;
+        }
+        .row > div {
+            height: 80px;
+            object {
+                margin-top: -20px;
+            }
+            h3 {
+                color: $lightgrey;
+            }
+            p {
+                color: $grey;
+                letter-spacing: 0;
+            }
+            .how-txt {
+                padding-top: 10px;
+            }
         }
     }
 }
@@ -731,8 +764,8 @@ section.home-search {
     }
 }
 #home section:nth-child(odd) {
-    background-color: $bg2;
-    @include fullWidthBg($bg2);
+    background-color: $grey9;
+    @include fullWidthBg($grey9);
 }
 
 #home section.download {
