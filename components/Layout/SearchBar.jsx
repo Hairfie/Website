@@ -73,7 +73,7 @@ var SearchBar = React.createClass({
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
                         <select ref="mobileCategories" defaultValue="" placeholder="Spécialité" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
                             <optgroup label="Spécialités">
-                                <option value="" disabled>Sélectionnez une spécialité</option>
+                                <option value="" disabled className="is-disabled">Sélectionnez une spécialité</option>
                                 {_.map(this.props.categories, function(cat) {
                                     return <option value={cat.slug} key={cat.id}>{cat.label}</option>;
                                 })}
