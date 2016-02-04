@@ -11350,6 +11350,11 @@ section.home-search .home-search-mobile {
   #home section.download p.buttons {
     margin-top: 50px;
     text-align: center; }
+    @media screen and (max-width: 767px) {
+      #home section.download p.buttons > a:nth-child(1) {
+        margin-bottom: 10px; }
+      #home section.download p.buttons img {
+        width: 204px; } }
 
 #home section.download .container {
   display: table-cell;

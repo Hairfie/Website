@@ -804,6 +804,16 @@ section.home-search {
         &.buttons {
             margin-top: 50px;
             text-align: center;
+
+            @media screen and (max-width: $screen-xs-max) {
+                > a:nth-child(1) {
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    width: 204px;
+                }
+            }
         }
     }
 
