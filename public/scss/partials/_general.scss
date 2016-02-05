@@ -569,8 +569,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     }
 
     .single-hairfie {
-        padding: 10px 5px;
-        padding-top: 0;
+        padding: 5px;
+        //padding-top: 0;
         figure {
             width: 100%;overflow: hidden;
             position: relative;

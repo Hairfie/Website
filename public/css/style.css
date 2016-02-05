@@ -9789,8 +9789,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   margin-right: 0; }
 
 .hairfies .single-hairfie {
-  padding: 10px 5px;
-  padding-top: 0; }
+  padding: 5px; }
   .hairfies .single-hairfie figure {
     width: 100%;
     overflow: hidden;
