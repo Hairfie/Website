@@ -57,6 +57,7 @@ var Header = React.createClass({
                     <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.close}>Tous les hairfies</li></Link>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
                     <Link route="home_pro"><li className="salon" onClick={this.close}>Gérez votre salon</li></Link>
+                    <Link route="newsletter"><li className="blog" onClick={this.close}>Newsletter</li></Link>
                 </ul>
                 {/*<div className="download">
                     <p>Téléchargez l'application pour poster un Hairfie !</p>
