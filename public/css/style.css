@@ -12171,7 +12171,8 @@ section.home-search .home-search-mobile {
       @media screen and (max-width: 991px) {
         .salon#content .main-content section.salon-info .avis {
           margin-top: 5px;
-          margin-bottom: -15px; } }
+          margin-bottom: -5px;
+          margin-left: 15px; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
