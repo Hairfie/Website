@@ -66,6 +66,7 @@
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
+    "react-fittext": "^0.1.1",
     "react-google-analytics": "^0.2.0",
     "react-intl": "^1.0.1",
     "react-modal": "dinodsaurus/react-modal",

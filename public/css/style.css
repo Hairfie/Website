@@ -9837,30 +9837,30 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     background-repeat: no-repeat;
     background-size: auto;
     width: 20%;
-    height: 20%; }
+    height: 20%;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center; }
   .hairfies .single-hairfie .price {
-    position: absolute;
     width: 100%;
     text-align: center;
-    font-size: 12px;
-    color: white;
-    top: 25%; }
+    color: white; }
   .hairfies .single-hairfie.big .pricetag {
     width: 15%;
     height: 15%;
     top: 15px;
     left: 15px; }
-  .hairfies .single-hairfie.big .price {
-    font-size: 24px;
-    top: 30%; }
   .hairfies .single-hairfie.medium .pricetag {
     width: 17%;
     height: 17%;
     top: 10px;
     left: 10px; }
-  .hairfies .single-hairfie.medium .price {
-    font-size: 16px;
-    top: 25%; }
 
 .hairfies .btn-red {
   display: block;
@@ -12825,20 +12825,20 @@ section.home-search .home-search-mobile {
         background-image: url(../img/round.svg);
         background-repeat: no-repeat;
         width: 14%;
-        height: 14%; }
-        @media (max-width: 767px) {
-          .hairfie-singleView .single-view #carousel-hairfie .pricetag {
-            font-size: 25px; } }
+        height: 14%;
+        display: -webkit-flexbox;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        text-align: center; }
         .hairfie-singleView .single-view #carousel-hairfie .pricetag .price {
-          font-size: 32px;
           color: white;
-          position: absolute;
-          top: 23%;
           width: 100%;
           text-align: center; }
-          @media (max-width: 767px) {
-            .hairfie-singleView .single-view #carousel-hairfie .pricetag .price {
-              font-size: 20px; } }
       .hairfie-singleView .single-view #carousel-hairfie .indice-control {
         width: 100%;
         position: absolute;

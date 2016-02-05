@@ -24,6 +24,7 @@ var Header = React.createClass({
         if (props.displaySearch) { 
             this.setState({displaySearch: props.displaySearch}); 
         }
+        console.log("will receive props", props);
     },
     render: function() {
         return (
@@ -88,7 +89,7 @@ var Header = React.createClass({
                             <Link route="home" className="logo" />
                         </div>
                         <ul className="col-sm-7 col-md-6 white-header">
-                        {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
+                            {this.state.tab ? <PopUp tab={this.state.tab} handleClose={this.desktopPopupClose} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
                                 <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9670;</span>
@@ -121,6 +122,9 @@ var Header = React.createClass({
         else {
             this.setState({tab: ""});
         }
+    },
+    desktopPopupClose: function() {
+        this.setState({tab: ""});
     },
     handleDisplaySearch: function() {
         this.setState({displaySearch: !this.state.displaySearch});

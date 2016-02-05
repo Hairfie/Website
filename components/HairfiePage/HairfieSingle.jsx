@@ -4,6 +4,7 @@ var React = require('react');
 var Carousel = require('../Partial/Carousel.jsx');
 var Link = require('../Link.jsx');
 var _ = require('lodash');
+var ReactFitText = require('react-fittext');
 
 module.exports = React.createClass({
     render: function () {
@@ -39,7 +40,9 @@ module.exports = React.createClass({
         if (!this.props.hairfie.price) return;
         return (
                 <div className="pricetag">
-                    <span className="price">{this.props.hairfie.price.amount+'€'}</span>
+                    <ReactFitText compressor={0.33}>
+                        <span className="price">{this.props.hairfie.price.amount+'€'}</span>
+                    </ReactFitText>
                 </div>
             );
 
