@@ -3,10 +3,14 @@
 var React = require('react');
 var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var _ = require('lodash');
 
 var PopUp = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired
+    },
+    getDefaultProps: function () {
+        handleClose: _.noop
     },
     render: function() {
         if (this.props.tab == "business") {

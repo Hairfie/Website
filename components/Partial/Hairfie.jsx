@@ -6,6 +6,7 @@ var Picture = require('./Picture.jsx');
 var Link = require('../Link.jsx');
 var PopUpHairfie = require('./PopUpHairfie.jsx');
 var NavigationActions = require('../../actions/NavigationActions');
+var ReactFitText = require('react-fittext');
 
 function displayName(u) { var u = u || {}; return u.firstName; }
 
@@ -54,7 +55,13 @@ module.exports = React.createClass({
 
         var price;
         if (hairfie.price) {
-            price = <div className="pricetag"><span className="price">{hairfie.price.amount + '€'}</span></div>;
+            price = (
+                <div className="pricetag">
+                    <ReactFitText compressor={0.33}>
+                        <span className="price">{hairfie.price.amount+'€'}</span>
+                    </ReactFitText>
+                </div>
+            );
         }
 
         var tags;

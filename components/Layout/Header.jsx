@@ -24,6 +24,7 @@ var Header = React.createClass({
         if (props.displaySearch) { 
             this.setState({displaySearch: props.displaySearch}); 
         }
+        console.log("will receive props", props);
     },
     render: function() {
         return (
@@ -57,6 +58,7 @@ var Header = React.createClass({
                     <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.close}>Tous les hairfies</li></Link>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
                     <Link route="home_pro"><li className="salon" onClick={this.close}>Gérez votre salon</li></Link>
+                    <Link route="newsletter"><li className="blog" onClick={this.close}>Newsletter</li></Link>
                 </ul>
                 {/*<div className="download">
                     <p>Téléchargez l'application pour poster un Hairfie !</p>
@@ -87,7 +89,7 @@ var Header = React.createClass({
                             <Link route="home" className="logo" />
                         </div>
                         <ul className="col-sm-7 col-md-6 white-header">
-                        {this.state.tab ? <PopUp tab={this.state.tab} /> : ""}
+                            {this.state.tab ? <PopUp tab={this.state.tab} handleClose={this.desktopPopupClose} /> : ""}
                             <li>
                                 <a role="button" onClick={this.handleTabChange.bind(null, "business")}>LES COIFFEURS</a>
                                 <span className={this.state.tab == "business" ? "active" : "inactive"}>&#9670;</span>
@@ -121,6 +123,9 @@ var Header = React.createClass({
             this.setState({tab: ""});
         }
     },
+    desktopPopupClose: function() {
+        this.setState({tab: ""});
+    },
     handleDisplaySearch: function() {
         this.setState({displaySearch: !this.state.displaySearch});
     },
@@ -135,7 +140,8 @@ var Header = React.createClass({
     },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
-            if( $('.mobile-menu').height() == 0) {
+            console.log("here !");
+            if( $('.mobile-menu').height() == 0 && !jQuery('.mobile-filtres').hasClass('opened')) {
                 $('body').addClass('locked');
                 $('.menu-trigger').addClass('close');
                 TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});

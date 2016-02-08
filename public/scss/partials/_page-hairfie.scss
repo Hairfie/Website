@@ -131,14 +131,17 @@
                 background-repeat: no-repeat;
                 width: 14%;
                 height: 14%;
-                @media (max-width: $screen-xs-max){
-                    font-size: 25px;
-                }
+                display: -webkit-flexbox;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-flex-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                text-align: center;
                 .price {
-                    font-size: 32px;
                     color: white;
-                    position: absolute;
-                    top: 23%;
                     width: 100%;
                     text-align: center;
                 }

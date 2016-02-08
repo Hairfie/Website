@@ -211,7 +211,8 @@
    				}
    				@media screen and (max-width: $screen-sm-max) {
    					margin-top: 5px;
-    				margin-bottom: -15px;
+    				margin-bottom: -5px;
+    				margin-left: 15px;
    				}
 			}
 
@@ -484,11 +485,13 @@
 				margin-left: -15px;
 			}
 			.row {
-				border-left-style: solid;
-				border-color: $bg2;
-				border-width: 5px;
-				padding-left: 15px;
-				margin-right: 0;
+				@media screen and (min-width: $screen-xs-max) {
+					border-left-style: solid;
+					border-color: $bg2;
+					border-width: 5px;
+					padding-left: 15px;
+					margin-right: 0;
+				}
 			}
 			&:nth-child(4) {
 				h4 {

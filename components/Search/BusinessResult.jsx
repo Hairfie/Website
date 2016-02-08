@@ -11,6 +11,7 @@ var HairfieActions = require('../../actions/HairfieActions');
 var SearchUtils = require('../../lib/search-utils');
 var Rating = require('../Partial/Rating.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
+var Loading = require('../Partial/Loading.jsx');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -193,7 +194,7 @@ var Business = React.createClass({
 
 var BusinessResult = React.createClass({
     render: function () {
-        if (!this.props.result) return <div className="loading" />;
+        if (!this.props.result) return <Loading />;;
 
         var result = this.props.result;
         var date   = this.props.search && this.props.search.date;
