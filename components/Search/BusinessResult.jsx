@@ -113,7 +113,9 @@ var Business = React.createClass({
                 </div>
                 <div className="info-bloc">
                     <div className="business-name">
-                        <h3>{business.name}</h3>
+                        <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
+                            <h3>{business.name}</h3>
+                        </Link>
                     </div>
                     <div className="business-address">
                         {business.address.street}, {business.address.zipCode} {business.address.city}    
@@ -151,7 +153,7 @@ var Business = React.createClass({
 
             return (
                 <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                    <Rating rating={this.props.business.rating} min={true} className="interactive" />{'- ' + this.props.business.numReviews + ' avis'}
+                    <Rating rating={this.props.business.rating} min={true} className="interactive" />{' - ' + this.props.business.numReviews + ' avis'}
                 </Link>
             );
         } else if (this.props.business.yelpObject.review_count > 0) {

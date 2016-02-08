@@ -11906,13 +11906,16 @@ section.home-search .home-search-mobile {
     height: 220px;
     width: calc(100% - 240px);
     margin-left: 20px; }
-    #content.search .main-content .tab-pane#salons .info-bloc .business-name > h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > h3 {
-      font-size: 2.1em;
-      margin: 0 0 3px;
-      letter-spacing: 2px;
-      color: #595959;
-      text-transform: uppercase;
-      font-weight: 600; }
+    #content.search .main-content .tab-pane#salons .info-bloc .business-name > a, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a {
+      text-decoration: none; }
+      #content.search .main-content .tab-pane#salons .info-bloc .business-name > a h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a h3 {
+        font-size: 2.1em;
+        margin: 0 0 3px;
+        letter-spacing: 2px;
+        color: #595959;
+        text-transform: uppercase;
+        font-weight: 600;
+        width: calc(100% - 75px); }
     #content.search .main-content .tab-pane#salons .info-bloc .business-address, #content.search .main-content .tab-pane#adom .info-bloc .business-address {
       font-size: 1.4em;
       letter-spacing: 1px; }
@@ -11922,16 +11925,18 @@ section.home-search .home-search-mobile {
       top: 0; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-price-rating p, #content.search .main-content .tab-pane#adom .info-bloc .business-price-rating p {
         font-size: 1.8em; }
-    #content.search .main-content .tab-pane#salons .info-bloc .business-reviews div, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews div {
-      display: inline; }
-    #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span {
-      line-height: 27px;
-      font-size: 1.4em;
-      color: #595959; }
-    #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
-      width: 120px;
-      margin: 0;
-      display: inline; }
+    #content.search .main-content .tab-pane#salons .info-bloc .business-reviews, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews {
+      margin: 5px 0 5px 0; }
+      #content.search .main-content .tab-pane#salons .info-bloc .business-reviews div, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews div {
+        display: inline; }
+      #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span {
+        line-height: 27px;
+        font-size: 1.4em;
+        color: #595959; }
+      #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
+        width: 120px;
+        margin: 0;
+        display: inline; }
     #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
       color: white;
       background-color: #fe5b5f;
@@ -11950,7 +11955,7 @@ section.home-search .home-search-mobile {
       border: 1px solid #e6e6e6;
       color: #a9aeb1;
       font-weight: 400;
-      font-size: 1.9em;
+      font-size: 1.6em;
       border-radius: 4px;
       margin-left: 10px;
       text-transform: uppercase;
@@ -12418,16 +12423,21 @@ section.home-search .home-search-mobile {
       font-family: "Source Sans Pro", sans-serif; }
     .salon#content section.salon-content > .row {
       background-color: white; }
+    .salon#content section.salon-content .hr-tab {
+      width: 1px;
+      height: 50px; }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;
       border-bottom: 1px solid #dfdfdf; }
+      .salon#content section.salon-content ul.nav li .icon-avis {
+        background-image: url(../img/icons/avis.svg);
+        background-size: contain; }
       .salon#content section.salon-content ul.nav li:first-child {
         border-left: 1px solid #dfdfdf; }
       .salon#content section.salon-content ul.nav li a {
-        height: initial;
-        padding-top: 55px; }
-      .salon#content section.salon-content ul.nav li .icon-nav {
+        height: initial; }
+      .salon#content section.salon-content ul.nav li .icon {
         width: 30px;
         height: 30px;
         left: 0;

@@ -31,7 +31,57 @@ var Rating = React.createClass({
             return (
                 <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" className="yelp-rating" />
             );
+        } else {
+            return null;
         }
+    }
+});
+
+var BusinessTab = React.createClass({
+
+    renderReviewTabContent: function() {
+        var business = this.props.business;
+        if (business.numReviews && (!business.yelpObject || business.yelpObject.review_count == 0)) return (<span className="icon-nav">{business.numReviews + ' Avis2'}</span>);
+        else if (!business.numReviews && business.yelpObject && business.yelpObject.review_count > 0) return (<span className="icon-nav">{business.yelpObject.review_count + ' Avis3'}</span>);
+        else if (business.numReviews > 0 && business.yelpObject && business.yelpObject.review_count > 0 ){
+            return (
+                <div>
+                    <span className="icon icon-avis">
+                        {business.numReviews} Avis4
+                    </span>
+                    <hr className="hr-tab"/>
+                    <span className="icon icon-yelp">
+                        {business.yelpObject.review_count} Avis5
+                    </span>
+                </div>
+            );
+        } else return (<span className="icon-nav">Avis1 </span>);
+    },
+    render: function () {
+        var route;
+        var content;
+        var numHairfies = this.props.business.numHairfies > 0 ? this.props.business.numHairfies : null;
+        switch(this.props.tab) {
+            case 'infos':
+                route = 'business';
+                content = <span className="icon-nav">Info </span>;
+                break;
+            case 'reviews':
+                route = 'business_reviews';
+                content = this.renderReviewTabContent();
+                break;
+            case 'hairfies':
+                route = 'business_hairfies';
+                content = <span className="icon-nav">{numHairfies + ' Hairfies'}</span>;
+                break;
+        }
+        return (
+            <li className={'col-xs-4' + (this.props.active ? ' active' : '')}>
+                <Link route={route} params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} preserveScrollPosition={true}>
+                    {content}
+                </Link>
+            </li>
+        );
     }
 });
 
@@ -45,7 +95,7 @@ var Layout = React.createClass({
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         var numReviews = business.numReviews > 0 ? business.numReviews : null;
         var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
-        if (!numReviews)
+        if (!numReviews && business.yelpObject)
             var numYelpReviews = business.yelpObject.review_count > 0 ? business.yelpObject.review_count : null;
         console.log('numReviews:' + numReviews + ' numYelpReviews: ' + numYelpReviews);
         return (
@@ -87,7 +137,11 @@ var Layout = React.createClass({
                                     <div role="tabpannel">
                                         <div className="row">
                                             <ul className="nav nav-tabs" role="tablist">
-                                                <li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
+                                                <BusinessTab tab="infos" active={'infos' === this.props.tab} business={business} />
+                                                <BusinessTab tab="reviews" active={'reviews' === this.props.tab} business={business} />
+                                                <BusinessTab tab="hairfies" active={'hairfies' === this.props.tab} business={business} />
+
+                                                {/*<li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
                                                         <span className="icon-nav"></span>
                                                         Info
@@ -95,8 +149,7 @@ var Layout = React.createClass({
                                                 </li>
                                                 <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
                                                     <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
-                                                        <span className="icon-nav"></span>
-                                                        {numReviews} Avis
+                                                        {this.renderReviewTab()}
                                                     </Link>
                                                 </li>
                                                 <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
@@ -104,7 +157,7 @@ var Layout = React.createClass({
                                                         <span className="icon-nav"></span>
                                                         {numHairfies} Hairfies
                                                     </Link>
-                                                </li>
+                                                </li>*/}
                                             </ul>
                                         </div>
                                         <div className="tab-content">

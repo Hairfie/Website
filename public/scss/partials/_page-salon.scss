@@ -322,8 +322,16 @@
 		> .row {
 			background-color: white;
 		}
+		.hr-tab {
+			width: 1px;
+			height: 50px;
+		}
 		ul.nav {
 			li {
+				.icon-avis {
+					background-image: url(../img/icons/avis.svg);
+					background-size: contain;
+				}
 				&:first-child {
 					border-left: 1px solid $grey2;
 				}
@@ -332,9 +340,9 @@
 				border-bottom: 1px solid $grey2;
 				a {
 					height: initial;
-					padding-top: 55px;
+					//padding-top: 55px;
 				}
-				.icon-nav {
+				.icon {
 					width: 30px;
 					height: 30px;
 					left: 0;
@@ -349,7 +357,6 @@
 				a {
 					background-color: $bg4;
 				}
-
 				&:first-child {
 					.icon-nav {
 						background-image: url(../img/icons/info.svg);
