@@ -531,15 +531,18 @@
                             //top: -5px;
                         }
                     }
-                    .business-name > h3 {
-                        font-size: 2.2em;
-                        text-transform: none;
-                        letter-spacing: 0;
-                        font-weight: $regular;
-                        margin-bottom: 0;
+                    .business-name > a {
+                        h3 {
+                            font-size: 2em;
+                            text-transform: none;
+                            letter-spacing: 0;
+                            font-weight: $regular;
+                            margin-bottom: 0;
+                            width: 100%;
+                        }
                     }
                     .business-address {
-                        font-size: 1.8em;
+                        font-size: 1.5em;
                         letter-spacing: 0;
                         font-weight: $light;
                         line-height: 12px;

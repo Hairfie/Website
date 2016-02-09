@@ -11968,14 +11968,15 @@ section.home-search .home-search-mobile {
             height: 15px;
             position: absolute;
             margin-left: -15px; }
-        #content.search .main-content .tab-pane#salons .info-bloc .business-name > h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > h3 {
-          font-size: 2.2em;
+        #content.search .main-content .tab-pane#salons .info-bloc .business-name > a h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a h3 {
+          font-size: 2em;
           text-transform: none;
           letter-spacing: 0;
           font-weight: 400;
-          margin-bottom: 0; }
+          margin-bottom: 0;
+          width: 100%; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-address, #content.search .main-content .tab-pane#adom .info-bloc .business-address {
-          font-size: 1.8em;
+          font-size: 1.5em;
           letter-spacing: 0;
           font-weight: 200;
           line-height: 12px;
@@ -12160,6 +12161,9 @@ section.home-search .home-search-mobile {
     margin: 0; }
     .salon#content .nav li a {
       padding: 0; }
+    @media screen and (max-width: 767px) {
+      .salon#content .nav li {
+        height: 65px; } }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
@@ -12415,6 +12419,23 @@ section.home-search .home-search-mobile {
       display: -webkit-flex;
       align-items: center;
       text-align: center; }
+    .salon#content section.salon-content .semi-tab:nth-child(2)::before {
+      content: '';
+      border-left: 1px solid #c4c4c4;
+      height: 50%;
+      left: 0;
+      top: 25%; }
+    .salon#content section.salon-content .yelp-title p {
+      margin-top: 20px !important; }
+    .salon#content section.salon-content .comments .note-yelp {
+      width: 120px;
+      margin-top: -6px; }
+    .salon#content section.salon-content .comments .note-yelp-info {
+      font-size: 1.8em; }
+    .salon#content section.salon-content .comments .yelp-date {
+      color: #c4c4c4; }
+    .salon#content section.salon-content .btn-book {
+      margin-top: 20px; }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;

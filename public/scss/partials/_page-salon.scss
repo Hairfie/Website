@@ -35,6 +35,11 @@
 			padding: 0;
 			//padding-top: 40px;
 		}
+        @media screen and (max-width: $screen-xs-max) {
+            li {
+                height: 65px;
+            }
+        }
 	}
 	background-color: white;
 	#carousel-salon {
@@ -340,6 +345,31 @@
 		    align-items: center;
 		    text-align: center;
 		}
+		.semi-tab:nth-child(2)::before {
+		    content: '';
+		    border-left: 1px solid $grey;
+		    height: 50%;
+		    left: 0;
+		    top: 25%;
+		}
+		.yelp-title p {
+			margin-top: 20px !important;
+		}
+		.comments {
+			.note-yelp {
+				width: 120px;
+				margin-top: -6px;
+			}
+			.note-yelp-info {
+				font-size: 1.8em;
+			}
+            .yelp-date {
+                color: $grey;
+            }
+		}
+        .btn-book {
+            margin-top: 20px;
+        }
 		ul.nav {
 			li {
 				&:first-child {

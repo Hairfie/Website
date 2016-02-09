@@ -42,9 +42,9 @@ var BusinessReviewPage = React.createClass({
             <Layout business={this.props.business} tab="reviews" className="reviews">
                 <BusinessHairfieReviews business={this.props.business} reviews={this.props.reviews} />
                 <BusinessYelpReviews business={this.props.business}/>
-                <p className="text-center">
+                <div className="text-center">
                     <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Déposez un avis</Link>
-                </p>
+                </div>
             </Layout>
         );
     }
@@ -66,6 +66,7 @@ var BusinessHairfieReviews = React.createClass ({
                         );
                     }, this)}
                 </div>
+                <div className="clearfix"></div>
             </div>
         );
     }
@@ -73,18 +74,23 @@ var BusinessHairfieReviews = React.createClass ({
 
 var BusinessYelpReviews = React.createClass ({
     render: function () {
-        if (_.isEmpty(this.props.business.yelpObject) || this.props.business.yelpObject.review_count == 0) return null;
+        if (!this.props.business.shouldDisplayYelp) return null;
         return (
             <div>
-                <div className="reviews-title">
+                <div className="yelp-title">
                     <p>Derniers avis Yelp</p>
                 </div>
-                <img src={this.props.business.yelpObject.rating_img_url_large} /> {'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}
-                {_.map(this.props.business.yelpObject.reviews, function(review) {
-                    return (
-                        <YelpReview key={review.id} review={review} />
-                    );   
-                }, this)}
+                    <div className="comments">
+                    <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
+                        <a href={this.props.business.yelpObject.url}>
+                            {_.map(this.props.business.yelpObject.reviews, function(review) {
+                                return (
+                                    <YelpReview key={review.id} review={review} />
+                                );   
+                            }, this)}
+                        </a>
+                    </div>
+                <div className="clearfix"></div>
             </div>
         );
     }

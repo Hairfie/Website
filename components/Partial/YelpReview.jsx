@@ -22,7 +22,7 @@ module.exports = React.createClass({
                         <p>{review.user.name}</p>
                         <img src={review.rating_image_large_url} className="pull-right" style={{width: '120px'}}/>
                         <br/>
-                        <span>{moment(review.time_created*1000).format('LL')}</span>
+                        <span className="yelp-date">{moment(review.time_created*1000).format('LL')}</span>
                     </div>
                     <p>{review.excerpt}</p>
                 </div>

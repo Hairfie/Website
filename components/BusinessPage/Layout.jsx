@@ -51,13 +51,14 @@ var BusinessTab = React.createClass({
 
     renderReviewTabContent: function() {
         var business = this.props.business;
-        if (business.numReviews && (!business.yelpObject || business.yelpObject.review_count == 0)) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
-        else if (!business.numReviews && business.yelpObject && business.yelpObject.review_count > 0) return (<TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="icon-yelp"/>);
-        else if (business.numReviews && business.yelpObject && business.yelpObject.review_count){
+        if (business.numReviews && (!business.yelpObject.review_count)) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
+        else if (!business.numReviews && business.yelpObject.review_count) return (<TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="icon-yelp"/>);
+        else if (business.numReviews && business.yelpObject.review_count){
             return (
                 <div className="full-tab">
-                    <TabContent label={business.numReviews +' Avis'} extraClass="semi-tab icon-avis" />
-                    <TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="semi-tab icon-yelp" />
+                    <TabContent label={business.numReviews +' Avis'} extraClass="semi-tab icon-avis hidden-xs" />
+                    <TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="semi-tab icon-yelp hidden-xs" />
+                    <TabContent label={(business.numReviews+business.yelpObject.review_count) + ' Avis'} extraClass="icon-avis hidden-sm hidden-md hidden-lg" />
                 </div>
             );
         } else return (<TabContent label='Avis' extraClass="icon-avis" />);
@@ -102,7 +103,6 @@ var Layout = React.createClass({
         var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
         if (!numReviews && business.yelpObject)
             var numYelpReviews = business.yelpObject.review_count > 0 ? business.yelpObject.review_count : null;
-        console.log('numReviews:' + numReviews + ' numYelpReviews: ' + numYelpReviews);
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">

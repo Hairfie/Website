@@ -35,6 +35,7 @@ module.exports = createStore({
         this.timeslots = state.timeslots;
     },
     onReceiveBusiness: function (business) {
+        business.shouldDisplayYelp = (business.displayYelp && business.yelpObject && business.yelpObject.review_count);
         this.businesses[business.id] = business;
         this.emitChange();
     },
