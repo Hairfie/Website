@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
 var PriceRating = require('../Partial/PriceRating.jsx');
+var GlobalReviews = require('./GlobalReviews.jsx');
 var moment = require('moment');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
@@ -52,35 +53,35 @@ module.exports = React.createClass({
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
         return (
             <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
-              <div className="row">
-                <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
-                  <h2>{displayAddress}</h2>
-                  <div className="horaires">
-                    <a role="button" onClick={this.handleDisplayTimetable}>
-                      {timetable[today] && !_.isEmpty(timetable[today]) ? <p className="title green">OUVERT</p> : <p className="title color-hairfie">FERMÉ</p>}
-                      <span className="today">
-                        {DateTimeConstants.weekDayLabelFR(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
-                            return t.startTime + ' - ' + t.endTime;
-                        }).join(" / ") + ' >')}
-                      </span>
-                      <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
-                        {this.renderTimetable()}
-                      </div>
-                    </a>
-                    <div className={(this.state.displayTimetable ? 'visible-xs' : 'hide')}>
-                      {this.renderTimetable()}
+                <div className="row">
+                    <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
+                        <h2>{displayAddress}</h2>
+                        <div className="horaires">
+                            <a role="button" onClick={this.handleDisplayTimetable}>
+                                {timetable[today] && !_.isEmpty(timetable[today]) ? <p className="title green">OUVERT</p> : <p className="title color-hairfie">FERMÉ</p>}
+                                <span className="today">
+                                    {DateTimeConstants.weekDayLabelFR(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
+                                    return t.startTime + ' - ' + t.endTime;
+                                    }).join(" / ") + ' >')}
+                                </span>
+                                <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
+                                {this.renderTimetable()}
+                                </div>
+                            </a>
+                            <div className={(this.state.displayTimetable ? 'visible-xs' : 'hide')}>
+                                {this.renderTimetable()}
+                            </div>
+                        </div>
+                        <PriceRating business={business} />
+                        <Link className="btn btn-review" route="write_business_review" query={{businessId: this.props.business.id}}>
+                            <i className="icon-white-star" />
+                            Déposez un avis
+                        </Link>
                     </div>
-                  </div>
-                  <PriceRating business={business} />
+                    <GlobalReviews business={business} className="global-reviews hidden-xs desktop pull-right" />
+
                 </div>
-                <div className="col-xs-6 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
-                  <Link className="btn btn-review" route="write_business_review" query={{businessId: this.props.business.id}}>
-                    <i className="icon-white-star" />
-                    Déposez un avis
-                  </Link>
-                </div>
-              </div>
-              <Breadcrumb business={business} />
+                <Breadcrumb business={business} />
           </section>
         );
     },

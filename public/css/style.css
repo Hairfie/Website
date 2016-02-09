@@ -9449,6 +9449,9 @@ ul {
   list-style: none;
   padding-left: 0; }
 
+a {
+  color: #595959; }
+
 #content {
   color: #595959;
   background-color: #f4f4f4;
@@ -12210,7 +12213,7 @@ section.home-search .home-search-mobile {
     background-color: #FFF; } }
 
 /*////////////////////////////////
-	   P A G E  S A L O N
+       P A G E  S A L O N
 ////////////////////////////////*/
 .salon#content.free #carousel-salon .carousel-inner .item {
   height: 255px; }
@@ -12240,48 +12243,19 @@ section.home-search .home-search-mobile {
       right: 0;
       position: absolute;
       bottom: 0px; }
-      .salon#content #carousel-salon .carousel-info .stars {
-        display: inline-block; }
-        .salon#content #carousel-salon .carousel-info .stars .star {
-          margin: 2px; }
-          @media screen and (max-width: 767px) {
-            .salon#content #carousel-salon .carousel-info .stars .star {
-              width: 10px;
-              margin: 1px; } }
-      .salon#content #carousel-salon .carousel-info .num-reviews {
-        color: white;
-        font-size: 1.4em;
-        font-weight: bold;
-        text-decoration: underline; }
-        @media screen and (min-width: 992px) {
-          .salon#content #carousel-salon .carousel-info .num-reviews {
-            position: absolute;
-            left: 100%;
-            top: 8px;
-            width: inherit; } }
-        @media screen and (min-width: 480px) and (max-width: 991px) {
-          .salon#content #carousel-salon .carousel-info .num-reviews {
-            float: right; } }
-        @media screen and (max-width: 480px) {
-          .salon#content #carousel-salon .carousel-info .num-reviews {
-            display: none; } }
-      .salon#content #carousel-salon .carousel-info div div:first-child {
+      .salon#content #carousel-salon .carousel-info div div.name {
         padding-left: 0; }
         @media screen and (max-width: 767px) {
-          .salon#content #carousel-salon .carousel-info div div:first-child {
+          .salon#content #carousel-salon .carousel-info div div.name {
             padding-left: 15px; } }
         @media screen and (min-width: 1200px) {
-          .salon#content #carousel-salon .carousel-info div div:first-child.profilePicture {
+          .salon#content #carousel-salon .carousel-info div div.name.profilePicture {
             padding-left: 125px; } }
-      .salon#content #carousel-salon .carousel-info div div:nth-child(2) {
-        position: absolute;
-        right: 0;
-        bottom: 0; }
-      .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+      .salon#content #carousel-salon .carousel-info h1 {
         color: white;
         letter-spacing: 0px; }
         @media screen and (max-width: 767px) {
-          .salon#content #carousel-salon .carousel-info h1, .salon#content #carousel-salon .carousel-info a {
+          .salon#content #carousel-salon .carousel-info h1 {
             font-size: 2.1em; } }
       .salon#content #carousel-salon .carousel-info .profil-picture {
         z-index: 1;
@@ -12297,8 +12271,7 @@ section.home-search .home-search-mobile {
           .salon#content #carousel-salon .carousel-info .profil-picture {
             display: none; } }
       .salon#content #carousel-salon .carousel-info .yelp-rating {
-        width: 140px;
-        margin-bottom: 15px; }
+        width: 140px; }
         @media screen and (max-width: 767px) {
           .salon#content #carousel-salon .carousel-info .yelp-rating {
             width: 80px; } }
@@ -12322,6 +12295,61 @@ section.home-search .home-search-mobile {
         background-color: #838B95;
         width: 100%;
         height: 100%; }
+  .salon#content .global-reviews.desktop > a {
+    float: right;
+    text-align: right;
+    width: 100%;
+    font-size: 1.4em; }
+  .salon#content .global-reviews.desktop > img {
+    float: right;
+    height: 20px; }
+  .salon#content .global-reviews.desktop .stars {
+    height: inherit; }
+    .salon#content .global-reviews.desktop .stars a {
+      margin: 0 1px 1px 0; }
+    .salon#content .global-reviews.desktop .stars .star {
+      width: 20px;
+      height: 20px; }
+  .salon#content .global-reviews.mobile {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center; }
+    @media screen and (min-width: 767px) {
+      .salon#content .global-reviews.mobile {
+        display: none !important; } }
+    .salon#content .global-reviews.mobile > img, .salon#content .global-reviews.mobile > a {
+      float: left; }
+    .salon#content .global-reviews.mobile > img {
+      height: 15px; }
+    .salon#content .global-reviews.mobile > a {
+      font-size: 1.4em;
+      margin-left: 10px; }
+    .salon#content .global-reviews.mobile .stars {
+      float: left;
+      height: inherit; }
+      .salon#content .global-reviews.mobile .stars .star {
+        width: 15px;
+        margin: 0 1px 1px 0; }
+    .salon#content .global-reviews.mobile .num-reviews {
+      color: white;
+      font-size: 1.4em;
+      font-weight: bold;
+      text-decoration: underline; }
+      @media screen and (min-width: 992px) {
+        .salon#content .global-reviews.mobile .num-reviews {
+          position: absolute;
+          left: 100%;
+          top: 8px;
+          width: inherit; } }
+      @media screen and (min-width: 480px) and (max-width: 991px) {
+        .salon#content .global-reviews.mobile .num-reviews {
+          float: right; } }
   .salon#content .main-content {
     position: relative;
     background-color: white;
@@ -12356,8 +12384,6 @@ section.home-search .home-search-mobile {
         font-size: 1.6em;
         font-weight: 200;
         margin-bottom: 5px; }
-      .salon#content .main-content section.salon-info .btn-review {
-        float: right; }
       .salon#content .main-content section.salon-info div.timetable {
         padding: 10px 15px 15px 15px;
         background-color: #f8f8f8;

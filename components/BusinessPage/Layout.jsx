@@ -8,34 +8,11 @@ var Link = require('../Link.jsx');
 var Carousel = require('../Partial/Carousel.jsx');
 var ShortInfos = require('./ShortInfos.jsx');
 var Sidebar = require('./Sidebar.jsx');
+var GlobalReviews = require('./GlobalReviews.jsx');
+var Rating = require('./Rating.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Picture = require('../Partial/Picture.jsx');
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
-
-var Rating = React.createClass({
-    render: function () {
-        var business = this.props.business || {};
-        if (!business.numReviews && !business.yelpObject) return <span />;
-        else if (business.numReviews) {
-            var rating = Math.round(business.rating / 100 * 5);
-
-            return (
-                <div className="stars">
-                    {_.map([1, 2, 3, 4, 5], function (starValue) {
-                        return <Link key={starValue} route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className={'star'+(starValue <= rating ? ' full' : '')} />
-                    })}
-                </div>
-            );
-        }
-        else if (business.yelpObject.review_count > 0) {
-            return (
-                <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" className="yelp-rating" />
-            );
-        } else {
-            return null;
-        }
-    }
-});
 
 var TabContent = React.createClass({
     render: function() {
@@ -48,7 +25,6 @@ var TabContent = React.createClass({
 });
 
 var BusinessTab = React.createClass({
-
     renderReviewTabContent: function() {
         var business = this.props.business;
         if (business.numReviews && !business.shouldDisplayYelp) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
@@ -103,24 +79,18 @@ var Layout = React.createClass({
 
         var business = this.props.business;
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
-        var numReviews = business.numReviews > 0 ? business.numReviews : null;
         var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
-        if (!numReviews && business.yelpObject)
-            var numYelpReviews = business.yelpObject.review_count > 0 ? business.yelpObject.review_count : null;
+
         return (
             <ParentLayout>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <div id="carousel-salon">
                     <Carousel id="carousel-salon" className={_.isEmpty(business.pictures) ? "noPicture" : ""} backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
                         <div className="carousel-info container">
-                            <div className="col-xs-12 col-md-8" style={{padding: '0'}}>
-                                <div className={"col-xs-8" + (displayProfilePicture ? " profilePicture" : "")}>
+                            <div className="col-xs-12" style={{padding: '0'}}>
+                                <div className={"col-xs-12 name" + (displayProfilePicture ? " profilePicture" : "")}>
                                     <h1>{business.name}</h1>
-                                </div>
-                                <div className="col-xs-4 col-lg-3">
-                                    <Rating business={business} />
-                                    <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{business.numReviews ? (business.numReviews + ' avis') : ''}</Link>
-                                    <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{numYelpReviews ? (numYelpReviews + ' avis') : ''}</Link>
+                                    <GlobalReviews business={business} className="global-reviews mobile" />
                                 </div>
                             </div>
                             {

@@ -1,14 +1,14 @@
 /*////////////////////////////////
-	   P A G E  S A L O N
+       P A G E  S A L O N
 ////////////////////////////////*/
 
 .salon#content.free {
-	#carousel-salon .carousel-inner .item {
-		height: 255px;
-		&.placeholder {
-			height: 255px;
-		}
-	}
+    #carousel-salon .carousel-inner .item {
+        height: 255px;
+        &.placeholder {
+            height: 255px;
+        }
+    }
 }
 
 .salon#content.basic {
@@ -20,351 +20,392 @@
 }
 
 .salon#content {
-	#carousel-salon.noPicture .carousel-inner .item {
-		height: 255px;
-		&.placeholder {
-			height: 255px;
-		}
-	}
-	h3 {
-		color: $hairfie;
-	}
-	.nav {
-		margin: 0;
-		li a {
-			padding: 0;
-			//padding-top: 40px;
-		}
+    #carousel-salon.noPicture .carousel-inner .item {
+        height: 255px;
+        &.placeholder {
+            height: 255px;
+        }
+    }
+    h3 {
+        color: $hairfie;
+    }
+    .nav {
+        margin: 0;
+        li a {
+            padding: 0;
+            //padding-top: 40px;
+        }
         @media screen and (max-width: $screen-xs-max) {
             li {
                 height: 65px;
             }
         }
-	}
-	background-color: white;
-	#carousel-salon {
-		position: relative;
-		.carousel-info {
-			padding: 0;
-			left: 0;
-			right: 0;
-			position: absolute;
-			bottom: 0px;
-			.stars {
-				display: inline-block;
-				.star {
-					@media screen and (max-width: $screen-xs-max) {
-						width: 10px;
-						margin: 1px;
-					}
-					margin: 2px;
-				}
-			}
-			.num-reviews {
-				color: white;
-				font-size: 1.4em;
-				font-weight: bold;
-				text-decoration: underline;
-				@media screen and (min-width: $screen-md-min) {
-					position: absolute;
-					left: 100%;
-					top: 8px;
-					width: inherit;
-				}
-				@media screen and (min-width: 480px) and (max-width: $screen-sm-max) {
-					float: right;
-				}
-				@media screen and (max-width: 480px) {
-					display: none;
-				}
-			}
-			div div {
-				&:first-child {
-					@media screen and (max-width: $screen-xs-max) {
-						padding-left: 15px;
-					}
-					padding-left: 0;
-					&.profilePicture {
-						@media screen and (min-width: $screen-lg-min) {
-		   					padding-left: 125px;
-		   				}
-					}
-				}
-				&:nth-child(2) {
-					position: absolute;
-    				right: 0;
-    				bottom: 0;
-				}
-			}
-			h1, a {
-				color: white;
-				letter-spacing: 0px;
-				@media screen and (max-width: $screen-xs-max) {
-					font-size: 2.1em;
-				}
-			}
-			.profil-picture {
-				@media screen and (max-width: $screen-md-max) {
-					display: none;
-				}
-				z-index: 1;
-				position: absolute;
-				width: 120px;
-				bottom: -60px;
-				left: 0px;
-				border-style: solid;
-				border-width: 5px;
-				border-color: white;
-				border-radius: 100%;
-			}
-			.yelp-rating {
-				width: 140px;
-				margin-bottom: 15px;
-				@media screen and (max-width: $screen-xs-max) {
-					width: 80px;
-				}
-			}
-		}
-		.carousel-inner .item {
-			height: 470px;
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
-			background-size: cover;
-			background: none;
+    }
+    background-color: white;
+    #carousel-salon {
+        position: relative;
+        .carousel-info {
+            padding: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            bottom: 0px;
 
-			@media screen and (max-width: $screen-xs-max) {
-				height: 320px;
-			}
+            div div {
+                &.name {
+                    @media screen and (max-width: $screen-xs-max) {
+                        padding-left: 15px;
+                    }
+                    padding-left: 0;
+                    &.profilePicture {
+                        @media screen and (min-width: $screen-lg-min) {
+                            padding-left: 125px;
+                        }
+                    }
+                }
+                // &:nth-child(2) {
+                //     position: absolute;
+                //     right: 0;
+                //     bottom: 0;
+                // }
+            }
+            h1 {
+                color: white;
+                letter-spacing: 0px;
+                @media screen and (max-width: $screen-xs-max) {
+                    font-size: 2.1em;
+                    //margin: 0 0 10px 0;
+                }
+            }
+            .profil-picture {
+                @media screen and (max-width: $screen-md-max) {
+                    display: none;
+                }
+                z-index: 1;
+                position: absolute;
+                width: 120px;
+                bottom: -60px;
+                left: 0px;
+                border-style: solid;
+                border-width: 5px;
+                border-color: white;
+                border-radius: 100%;
+            }
+            .yelp-rating {
+                width: 140px;
+                //margin-bottom: 15px;
+                @media screen and (max-width: $screen-xs-max) {
+                    width: 80px;
+                }
+            }
+        }
+        .carousel-inner .item {
+            height: 470px;
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
+            background-size: cover;
+            background: none;
 
-			img, a > img {
-		  		margin: auto;
-			}
+            @media screen and (max-width: $screen-xs-max) {
+                height: 320px;
+            }
 
-			&.placeholder {
-				height: 470px;
-				background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
-			}
+            img, a > img {
+                margin: auto;
+            }
 
-			img {
-				background-repeat: no-repeat;
-			    background-size: cover;
-			    background-position: 50% 50%;
-			    background-color: #838B95;
-			    width: 100%;
-			    height: 100%;
-			}
-		}
-	}
-	.main-content {
-		position: relative;
-		background-color: white;
-		@include fullWidthBg($bg3);
-		section.salon-info	{
-			&.open-timetable {
-				@media screen and (min-width: $screen-sm-min) {
-					margin-bottom: 100px;
-				}
-			}
-			p {
-				font-size: 1.6em;
-    			font-weight: 200;
-    			margin-bottom: 5px;
-			}
-			margin-left: -15px;
-			position: relative;
-			width: 100%;
-  			padding-top: 16px;
+            &.placeholder {
+                height: 470px;
+                background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(../img/placeholder-salon.png) repeat-x;
+            }
 
-  			.btn-review {
-  				float: right;
-  			}
-  			div.timetable {
-  				padding: 10px 15px 15px 15px;
-    			background-color: #f8f8f8;
-  				font-size: small;
-  				margin-top: 20px;
-  				font-weight: normal;
-  				z-index: 1;
-  				span {
-  					padding: 0;
-  				}
-  				span.extra-small {
-  					@media screen and (max-width: 480px) {
-  						width: 25%;
-  					}
-  				}
-  			}
-			.row {
-				@media screen and (max-width: $screen-xs-max) {
-					padding-left: 15px;
-				}
-				&:first-child {
-					padding-left: 0px;
-					.profilePicture {
-						@media screen and (min-width: $screen-lg-min) {
-		   					padding-left: 125px;
-		   				}
-					}
-				}
-			}
-			.avis {
-				@media screen and (min-width: $screen-sm-min) {
-   					float: right;
-   				}
-   				@media screen and (max-width: $screen-sm-max) {
-   					margin-top: 5px;
-    				margin-bottom: -5px;
-    				margin-left: 15px;
-   				}
-			}
+            img {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50% 50%;
+                background-color: #838B95;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .global-reviews {
+        &.desktop {
+            > a {
+                float: right;
+                text-align: right;
+                width: 100%;
+                font-size: 1.4em;
+            }
+            > img {
+                float: right;
+                height: 20px;
+            }
 
-			.prix, .tags {
-				font-size: 1.077em;
-				letter-spacing: 1px;
+            .stars {
+                height: inherit;
+                a { 
+                    margin: 0 1px 1px 0;
+                }
+                .star {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
 
-				.small {
-					font-size:0.9em;
-					color: $font-color;
-					&:hover {
-						color: $font-color;
-					}
-				}
+        &.mobile {
+            @media screen and (min-width: $screen-xs-max) {
+                @include hide;
+            }
+            @include flex-center; 
 
-				span.glyphicon {
-					color: $font-color; width: 1.4em;
-				}
-			}
-			.horaires {
-    			margin: 20px 0 20px 0;
-    			width: 100vw;
-					a { 
-						display: inline-block;
-						text-decoration: none;
-						color: black;
-						font-weight: bold;
-						position: relative;
-					.title {
-						margin: 0;
-						display: inline-block;
-						font-size: 1.8em;
-						@media screen and (max-width: $screen-xs-max) {
-							font-size: 1.4em;
-						}
-						@media screen and (max-width: 350px) {
-							font-size: 1.3em;
-						}
-						font-weight: bold;
-						border: solid #f8f8f8;
-						border-width: 2px;
-    					padding: 2px 20px 2px 10px;;
-    					border-radius: 5px;
-					}
-					.today {
-						@media screen and (max-width: $screen-xs-max) {
-							font-size: 1.4em;
-						}
-						@media screen and (max-width: 350px) {
-							font-size: 1.3em;
-						}
-						border: 2px #f8f8f8 solid;
-						display: inline-block;
-						min-height: 100%;
-						background-color: #f8f8f8;
-						border-radius: 5px;
-						margin-left: -10px;
-						padding: 2px 20px 2px 20px;
-    					font-size: 1.8em;
-    					color: #666b74;
-					}
-					.timetable {
-						position: absolute;
-					    width: 200px;
-					    top: -20px;
-					    right: -195px;
-					    border-radius: 5px;
-					}
-				}
-			}
+            > img, > a {
+                float: left;
+            }
+            > img {
+                height: 15px;
+            }
+            > a {
+                font-size: 1.4em;
+                margin-left: 10px;
+            }
+            .stars {
+                float: left;
+                height: inherit;
+                .star {
+                    width: 15px;
+                    margin: 0 1px 1px 0;
 
-			.breadcrumb {
-				background-color: #FFF; 
-			}
-		}
-	}
-	section.salon-content {
-		margin-top: 20px;
-		margin-bottom: 70px;
-		.row {
-			@media screen and (min-width: $screen-xs-max) {
-		    	margin-right: 0px;
-		    }
-		}
+                }
+            }
+            .num-reviews {
+                color: white;
+                font-size: 1.4em;
+                font-weight: bold;
+                text-decoration: underline;
+                @media screen and (min-width: $screen-md-min) {
+                    position: absolute;
+                    left: 100%;
+                    top: 8px;
+                    width: inherit;
+                }
+                @media screen and (min-width: 480px) and (max-width: $screen-sm-max) {
+                    float: right;
+                }
+                @media screen and (max-width: 480px) {
+                    
+                }
+            }
+        }
+    }
+    .main-content {
+        position: relative;
+        background-color: white;
+        @include fullWidthBg($bg3);
+        section.salon-info  {
+            &.open-timetable {
+                @media screen and (min-width: $screen-sm-min) {
+                    margin-bottom: 100px;
+                }
+            }
+            p {
+                font-size: 1.6em;
+                font-weight: 200;
+                margin-bottom: 5px;
+            }
+            margin-left: -15px;
+            position: relative;
+            width: 100%;
+            padding-top: 16px;
 
-		div.reviews-title {
-			a {
-				color: $hairfie;
-				font-size: 1.8em;
-    			font-weight: bolder;
-    			text-decoration: underline;
-			}
-			p {
-				margin: 0;
-				color: $darkgrey;
-				font-size: 1.8em;
-    			font-weight: bolder;
-			}
-			margin-top: 20px;
-			margin-bottom: 30px;
-		}
+            div.timetable {
+                padding: 10px 15px 15px 15px;
+                background-color: #f8f8f8;
+                font-size: small;
+                margin-top: 20px;
+                font-weight: normal;
+                z-index: 1;
+                span {
+                    padding: 0;
+                }
+                span.extra-small {
+                    @media screen and (max-width: 480px) {
+                        width: 25%;
+                    }
+                }
+            }
+            .row {
+                @media screen and (max-width: $screen-xs-max) {
+                    padding-left: 15px;
+                }
+                &:first-child {
+                    padding-left: 0px;
+                    .profilePicture {
+                        @media screen and (min-width: $screen-lg-min) {
+                            padding-left: 125px;
+                        }
+                    }
+                }
+            }
+            .avis {
+                @media screen and (min-width: $screen-sm-min) {
+                    float: right;
+                }
+                @media screen and (max-width: $screen-sm-max) {
+                    margin-top: 5px;
+                    margin-bottom: -5px;
+                    margin-left: 15px;
+                }
+            }
 
-		h5 {
-			font-family: $font-main;
-		}
+            .prix, .tags {
+                font-size: 1.077em;
+                letter-spacing: 1px;
 
-		> .row {
-			background-color: white;
-		}
-		.full-tab {
-			height: 100%;
-			width: 100%;
+                .small {
+                    font-size:0.9em;
+                    color: $font-color;
+                    &:hover {
+                        color: $font-color;
+                    }
+                }
+
+                span.glyphicon {
+                    color: $font-color; width: 1.4em;
+                }
+            }
+            .horaires {
+                margin: 20px 0 20px 0;
+                width: 100vw;
+                    a { 
+                        display: inline-block;
+                        text-decoration: none;
+                        color: black;
+                        font-weight: bold;
+                        position: relative;
+                    .title {
+                        margin: 0;
+                        display: inline-block;
+                        font-size: 1.8em;
+                        @media screen and (max-width: $screen-xs-max) {
+                            font-size: 1.4em;
+                        }
+                        @media screen and (max-width: 350px) {
+                            font-size: 1.3em;
+                        }
+                        font-weight: bold;
+                        border: solid #f8f8f8;
+                        border-width: 2px;
+                        padding: 2px 20px 2px 10px;;
+                        border-radius: 5px;
+                    }
+                    .today {
+                        @media screen and (max-width: $screen-xs-max) {
+                            font-size: 1.4em;
+                        }
+                        @media screen and (max-width: 350px) {
+                            font-size: 1.3em;
+                        }
+                        border: 2px #f8f8f8 solid;
+                        display: inline-block;
+                        min-height: 100%;
+                        background-color: #f8f8f8;
+                        border-radius: 5px;
+                        margin-left: -10px;
+                        padding: 2px 20px 2px 20px;
+                        font-size: 1.8em;
+                        color: #666b74;
+                    }
+                    .timetable {
+                        position: absolute;
+                        width: 200px;
+                        top: -20px;
+                        right: -195px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .breadcrumb {
+                background-color: #FFF; 
+            }
+        }
+    }
+    section.salon-content {
+        margin-top: 20px;
+        margin-bottom: 70px;
+        .row {
+            @media screen and (min-width: $screen-xs-max) {
+                margin-right: 0px;
+            }
+        }
+
+        div.reviews-title {
+            a {
+                color: $hairfie;
+                font-size: 1.8em;
+                font-weight: bolder;
+                text-decoration: underline;
+            }
+            p {
+                margin: 0;
+                color: $darkgrey;
+                font-size: 1.8em;
+                font-weight: bolder;
+            }
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        h5 {
+            font-family: $font-main;
+        }
+
+        > .row {
+            background-color: white;
+        }
+        .full-tab {
+            height: 100%;
+            width: 100%;
             @include flex-center;
 
-		    > span {
-		    	width: 100%;
-		    }
-		}
-		.semi-tab {
-		    float: left;
-		    width: 50%;
-		    height: 100%;
-	        @include flex-center;
-		}
-		.semi-tab:nth-child(2)::before {
-		    content: '';
-		    border-left: 1px solid $grey;
-		    height: 50%;
-		    left: 0;
-		    top: 25%;
-		}
-		.yelp-title {
+            > span {
+                width: 100%;
+            }
+        }
+        .semi-tab {
+            float: left;
+            width: 50%;
+            height: 100%;
+            @include flex-center;
+        }
+        .semi-tab:nth-child(2)::before {
+            content: '';
+            border-left: 1px solid $grey;
+            height: 50%;
+            left: 0;
+            top: 25%;
+        }
+        .yelp-title {
             margin-bottom: 10px;
             span {
                 color: $darkgrey;
                 font-size: 1.8em;
                 font-weight: bolder;
             }
-		}
-		.comments {
-			.note-yelp {
-				width: 120px;
-				margin-top: -6px;
-			}
-			.note-yelp-info {
-				font-size: 1.8em;
-			}
+        }
+        .comments {
+            .note-yelp {
+                width: 120px;
+                margin-top: -6px;
+            }
+            .note-yelp-info {
+                font-size: 1.8em;
+            }
             .yelp-date {
                 color: $grey;
             }
-		}
+        }
         @media screen and (min-width: $screen-xs-max) {
             .bottom-tab {
                 @include hide;
@@ -380,7 +421,7 @@
                 .bottom-tab {
                     height: 13px;
                     width: 100%;
-	                @include flex-center;
+                    @include flex-center;
                     > span {
                         width: 100%;
                         margin-top: -26px;
@@ -396,534 +437,534 @@
             margin-top: 20px;
         }
 
-		ul.nav {
-			li {
-				&:first-child {
-					border-left: 1px solid $grey2;
-				}
-				border-top: 1px solid $grey2;
-				border-right: 1px solid $grey2;
-				border-bottom: 1px solid $grey2;
-				a {
-					height: 100%;
+        ul.nav {
+            li {
+                &:first-child {
+                    border-left: 1px solid $grey2;
+                }
+                border-top: 1px solid $grey2;
+                border-right: 1px solid $grey2;
+                border-bottom: 1px solid $grey2;
+                a {
+                    height: 100%;
                     @media screen and (max-width: $screen-xs-max) {
                         font-size: 1em;
                     }   
-				}
-				.icon-nav {
-					width: 25px;
-					height: 25px;
-					margin-left: auto;
-					margin-right: auto;
-					background-repeat: no-repeat;
-					position: initial;
-				}
-			}
-			li:not(.active) {
-				background-color: $bg4;
-				a {
-					background-color: $bg4;
-				}
-				div.icon-info i {
-					background-image: url(../img/businessPage/info.svg);
-					background-size: contain;					
-				}
-				div.icon-avis i {
-					background-image: url(../img/businessPage/chat.svg);
-					background-size: contain;
-				}
-				div.icon-yelp i {
-					background-image: url(../img/businessPage/yelp.png);
-					background-size: contain;
-					width: 50px;
-				}
-				div.icon-hairfie i {
-					background-image: url(../img/businessPage/photo.svg);
-					background-size: contain;
-				}
-			}
-			li.active {
-				background-color: $bg5;
-				a {
-					background-color: $bg5;
-				}
-				div.icon-info i {
-					background-image: url(../img/businessPage/info-red.svg);
-					background-size: contain;
-				}
-				div.icon-avis i {
-					background-image: url(../img/businessPage/chat-red.svg);
-					background-size: contain;
-				}
-				div.icon-yelp i {
-					background-image: url(../img/businessPage/yelp.png);
-					background-size: contain;
-					width: 50px;
-				}
-				div.icon-hairfie i {
-					background-image: url(../img/businessPage/photo-red.svg);
-					background-size: contain;
-				}
-			}
-		}
-		section {
-			&.latestHairfie {
-				div.hairfies {
-					overflow: auto;
-				}
-				.more {
-					display: block;
-					position: relative;
-					font-size: 1.6em;
-					margin-top: 20px;
-					margin-bottom: 20px;
-					padding: 5px 40px 5px 40px;
-					font-size: 1.6em;
-					text-align: center;
-					font-weight: bold;
-					color: #fe5b5f;
-				    border: solid;
-				    border-width: 3px;
-				    border-radius: 20px;
-				    margin-right: calc(100% / 3);
-				    @media screen and (max-width: $screen-xs-max) {
-				    	margin-right: calc(100% / 6);
-				    }
-    				&:hover {
-    					background-color: white;
-    					text-decoration: none;
-    				}
-				}
-			}
-			p.title {
-			    margin-left: -15px;
-			    color: $hairfie;
-			    margin-top: -20px;
-			    margin-bottom: 25px;
-			    letter-spacing: 1px;
-			    font-weight: 400;
-			    font-size: 1.8em;
-			}
-			div.average-price {
-					font-weight: bold;
-					font-size: 1.5em;
-				    background-color: $bg3;
-    				height: 70px;
-    				@media screen and (max-width: $screen-xs-max) {
-    					height: 35px;
-    					font-size: 1.3em;
-    				}
-    				border: none;
-    				div.gender {
-    					margin-top: 25px;
-    					@media screen and (max-width: $screen-xs-max) {
-    						margin-top: 12px;
-    					}
-    				}
-    				div.price {
-    					background-color: white;
-    					font-size: 1.6em;
-    					color: $hairfie;
-    					padding: 31px 0px;
-    					text-align: center;
-    				    position: absolute;
-    					right: 0;
-    					top: -15px;
-    					width: 100px;
-    					height: 100px;
-					    display: inline-block;
-					    border: 2px solid $hairfie;
-					    border-radius: 100%;
-					    @media screen and (max-width: $screen-xs-max) {
-    						width: 50px;
-    						height: 50px;
-    						font-size: 1.4em;
-    						padding: 10px;
-    						top: -7px;
-    					}
-    				}
-			}
-			@media screen and (max-width: $screen-xs-max) {
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-			padding-bottom: 35px;
-			border-bottom: 2px solid $border-color;
-			h4 {
-				color: #343434;
-				margin-bottom: 3px;
-			}
-			h3 {
-				margin-left: -15px;
-			}
-			.row {
-				@media screen and (min-width: $screen-xs-max) {
-					border-left-style: solid;
-					border-color: $bg2;
-					border-width: 5px;
-					padding-left: 15px;
-					margin-right: 0;
-				}
-			}
-			&:nth-child(4) {
-				h4 {
-					text-transform: uppercase;
-					letter-spacing: 2px;
-				}
-				p {
-					letter-spacing: 1px;
-				}
-			}
-			.similar {
-				margin-right: 0px;
-				h4 {
-					color: $hairfie;
-				}
-				a {
-					text-decoration: none;
-					p {
-						color: black;
-					}
-				}
-				padding-top: 15px;
-				padding-bottom: 15px;
-				background-color: $bg3;
-			}
-			.coiffeur {
-				img {
-					display: block;
-					width: 10em;
-					border-radius: 100%;
-					margin: 0 auto 20px;
-					border: 6px solid $bg2;
-				}
-				p > a {
-					font-size: 1em;
-					color: #343434;
-					text-align: center;
-					letter-spacing: 1px;
-					width: 100%; display: block;
+                }
+                .icon-nav {
+                    width: 25px;
+                    height: 25px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-repeat: no-repeat;
+                    position: initial;
+                }
+            }
+            li:not(.active) {
+                background-color: $bg4;
+                a {
+                    background-color: $bg4;
+                }
+                div.icon-info i {
+                    background-image: url(../img/businessPage/info.svg);
+                    background-size: contain;                   
+                }
+                div.icon-avis i {
+                    background-image: url(../img/businessPage/chat.svg);
+                    background-size: contain;
+                }
+                div.icon-yelp i {
+                    background-image: url(../img/businessPage/yelp.png);
+                    background-size: contain;
+                    width: 50px;
+                }
+                div.icon-hairfie i {
+                    background-image: url(../img/businessPage/photo.svg);
+                    background-size: contain;
+                }
+            }
+            li.active {
+                background-color: $bg5;
+                a {
+                    background-color: $bg5;
+                }
+                div.icon-info i {
+                    background-image: url(../img/businessPage/info-red.svg);
+                    background-size: contain;
+                }
+                div.icon-avis i {
+                    background-image: url(../img/businessPage/chat-red.svg);
+                    background-size: contain;
+                }
+                div.icon-yelp i {
+                    background-image: url(../img/businessPage/yelp.png);
+                    background-size: contain;
+                    width: 50px;
+                }
+                div.icon-hairfie i {
+                    background-image: url(../img/businessPage/photo-red.svg);
+                    background-size: contain;
+                }
+            }
+        }
+        section {
+            &.latestHairfie {
+                div.hairfies {
+                    overflow: auto;
+                }
+                .more {
+                    display: block;
+                    position: relative;
+                    font-size: 1.6em;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    padding: 5px 40px 5px 40px;
+                    font-size: 1.6em;
+                    text-align: center;
+                    font-weight: bold;
+                    color: #fe5b5f;
+                    border: solid;
+                    border-width: 3px;
+                    border-radius: 20px;
+                    margin-right: calc(100% / 3);
+                    @media screen and (max-width: $screen-xs-max) {
+                        margin-right: calc(100% / 6);
+                    }
+                    &:hover {
+                        background-color: white;
+                        text-decoration: none;
+                    }
+                }
+            }
+            p.title {
+                margin-left: -15px;
+                color: $hairfie;
+                margin-top: -20px;
+                margin-bottom: 25px;
+                letter-spacing: 1px;
+                font-weight: 400;
+                font-size: 1.8em;
+            }
+            div.average-price {
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    background-color: $bg3;
+                    height: 70px;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: 35px;
+                        font-size: 1.3em;
+                    }
+                    border: none;
+                    div.gender {
+                        margin-top: 25px;
+                        @media screen and (max-width: $screen-xs-max) {
+                            margin-top: 12px;
+                        }
+                    }
+                    div.price {
+                        background-color: white;
+                        font-size: 1.6em;
+                        color: $hairfie;
+                        padding: 31px 0px;
+                        text-align: center;
+                        position: absolute;
+                        right: 0;
+                        top: -15px;
+                        width: 100px;
+                        height: 100px;
+                        display: inline-block;
+                        border: 2px solid $hairfie;
+                        border-radius: 100%;
+                        @media screen and (max-width: $screen-xs-max) {
+                            width: 50px;
+                            height: 50px;
+                            font-size: 1.4em;
+                            padding: 10px;
+                            top: -7px;
+                        }
+                    }
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            padding-bottom: 35px;
+            border-bottom: 2px solid $border-color;
+            h4 {
+                color: #343434;
+                margin-bottom: 3px;
+            }
+            h3 {
+                margin-left: -15px;
+            }
+            .row {
+                @media screen and (min-width: $screen-xs-max) {
+                    border-left-style: solid;
+                    border-color: $bg2;
+                    border-width: 5px;
+                    padding-left: 15px;
+                    margin-right: 0;
+                }
+            }
+            &:nth-child(4) {
+                h4 {
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+                p {
+                    letter-spacing: 1px;
+                }
+            }
+            .similar {
+                margin-right: 0px;
+                h4 {
+                    color: $hairfie;
+                }
+                a {
+                    text-decoration: none;
+                    p {
+                        color: black;
+                    }
+                }
+                padding-top: 15px;
+                padding-bottom: 15px;
+                background-color: $bg3;
+            }
+            .coiffeur {
+                img {
+                    display: block;
+                    width: 10em;
+                    border-radius: 100%;
+                    margin: 0 auto 20px;
+                    border: 6px solid $bg2;
+                }
+                p > a {
+                    font-size: 1em;
+                    color: #343434;
+                    text-align: center;
+                    letter-spacing: 1px;
+                    width: 100%; display: block;
 
-					&:hover {
-						color: darken(#343434,10%);
-						text-decoration: underline;
-					}
-				}
-			}
-			.table-price {
-				border: 0px;
-				padding-left: 0;
-				margin-left: -16px;
-				div {
-					&.title {
-						font-weight: bold;
-						height: 35px;
-						&:nth-child(1n + 2) {
-							line-height: 35px;
-						}
-					}
-					&:nth-child(2n) {
-						background-color: $bg3;
-					}
-					&:last-child {
-						//margin-bottom: 15px;
-					}
-					padding-left: 24px;
-					min-height: 20px;
-					overflow: auto;
-					p {
-						margin-bottom: 2px;
-						text-align: left;
-						color: #343434;
-						font-size: 1.4em;
-						text-transform: uppercase;
-						font-weight: bolder;
-						color: $lightgrey;
-					}
+                    &:hover {
+                        color: darken(#343434,10%);
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .table-price {
+                border: 0px;
+                padding-left: 0;
+                margin-left: -16px;
+                div {
+                    &.title {
+                        font-weight: bold;
+                        height: 35px;
+                        &:nth-child(1n + 2) {
+                            line-height: 35px;
+                        }
+                    }
+                    &:nth-child(2n) {
+                        background-color: $bg3;
+                    }
+                    &:last-child {
+                        //margin-bottom: 15px;
+                    }
+                    padding-left: 24px;
+                    min-height: 20px;
+                    overflow: auto;
+                    p {
+                        margin-bottom: 2px;
+                        text-align: left;
+                        color: #343434;
+                        font-size: 1.4em;
+                        text-transform: uppercase;
+                        font-weight: bolder;
+                        color: $lightgrey;
+                    }
 
-					span.price {
-						float: right;
-					}
-				}
+                    span.price {
+                        float: right;
+                    }
+                }
 
-				&:not(:first-child) {
-					div.title {
-						margin-top: 15px;
-					}
-				}
-			}
-		}
-		#avis .row {
-			padding-left: 15px;
-			padding-right: 15px;
-			border: 0;
-			padding-bottom: 0;
-		}
-	}
-	.sidebar {
-		.btn-red, .btn-book {
-			height: 46px;
-			display: block;
-			font-weight: $semiBold;
-			font-size: 1.9em;
-			width: 100%;
-			margin-bottom: 20px;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			padding-top: 10px;
-			@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
-			@media screen and (max-width: $screen-sm-max) {
-				bottom: 0;
-				left: 0;
-				position: fixed;
-				width:100%;
-				z-index: 90;
-				margin-bottom: 0px;
-			}
-		}
-		section#location {
-			margin-bottom: 20px;
-			.map {
-				width: 100%;
-				height: 100%;
-				background: url(../img/placeholder-map.jpg) no-repeat center center;
-				background-size:cover;
-				&:before{
-					content: "";
-					display: block;
-					width: 0px;
-					float: right;
-					padding-top: 100%; 	/* initial ratio of 1:1*/
-				}
-			}
-		}
-		margin-top: 12px;
-		@include fullWidthBg($bg3);
-		@media screen and (max-width: $screen-sm-max) {
-			width: 100%;
-		}
-		.calendar {
-			margin-bottom: 10px;
-		@media screen and (max-width: $screen-sm-max) {
-			display: none;
-			}
-		}
-		.phone {
-			margin-bottom: 20px;
-			.btn-phone {
-				position: relative;
-				width: 100%;
-				height: 50px;
-				color: $hairfie;
-				font-size: 2em;
-    			border: $hairfie;
-			    border-width: 3px;
-			    border-style: solid;
-			    border-radius: 4px;
-				&:after {
-					content: " ";
-					background: url(../img/phone-red.png) no-repeat center center;
-					position: absolute;
-					width: 25px;
-					height: 25px;
-					left: 50px;
-					top: 10px;
+                &:not(:first-child) {
+                    div.title {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+        #avis .row {
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 0;
+            padding-bottom: 0;
+        }
+    }
+    .sidebar {
+        .btn-red, .btn-book {
+            height: 46px;
+            display: block;
+            font-weight: $semiBold;
+            font-size: 1.9em;
+            width: 100%;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding-top: 10px;
+            @include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+            @media screen and (max-width: $screen-sm-max) {
+                bottom: 0;
+                left: 0;
+                position: fixed;
+                width:100%;
+                z-index: 90;
+                margin-bottom: 0px;
+            }
+        }
+        section#location {
+            margin-bottom: 20px;
+            .map {
+                width: 100%;
+                height: 100%;
+                background: url(../img/placeholder-map.jpg) no-repeat center center;
+                background-size:cover;
+                &:before{
+                    content: "";
+                    display: block;
+                    width: 0px;
+                    float: right;
+                    padding-top: 100%;  /* initial ratio of 1:1*/
+                }
+            }
+        }
+        margin-top: 12px;
+        @include fullWidthBg($bg3);
+        @media screen and (max-width: $screen-sm-max) {
+            width: 100%;
+        }
+        .calendar {
+            margin-bottom: 10px;
+        @media screen and (max-width: $screen-sm-max) {
+            display: none;
+            }
+        }
+        .phone {
+            margin-bottom: 20px;
+            .btn-phone {
+                position: relative;
+                width: 100%;
+                height: 50px;
+                color: $hairfie;
+                font-size: 2em;
+                border: $hairfie;
+                border-width: 3px;
+                border-style: solid;
+                border-radius: 4px;
+                &:after {
+                    content: " ";
+                    background: url(../img/phone-red.png) no-repeat center center;
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+                    left: 50px;
+                    top: 10px;
 
-					@media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
-						left: 20px;
-					}
-					@media screen and (max-width: $screen-sm-min) {
-						left: 20%;
-					}
-					@media screen and (max-width: $screen-xs-max) {
-						left: 25px;
-					}
-				}
-			}
-		}
+                    @media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
+                        left: 20px;
+                    }
+                    @media screen and (max-width: $screen-sm-min) {
+                        left: 20%;
+                    }
+                    @media screen and (max-width: $screen-xs-max) {
+                        left: 25px;
+                    }
+                }
+            }
+        }
 
-		.promo-sidebar {
-			position: relative;
-			margin-bottom: 80px;
-			img {
-				border-radius: 4px;
-				@include filter(brightness(50%));
-			}
-			.inline-promo {
-				top: 0;
-				position: absolute;
-				font-size: 2.1em !important;
-				text-align: center;
-				color: white;
-				width: 100%;
-				@media screen and (min-width: $screen-lg-min) {
-					margin-top: 30px;
-				}
-				@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-					margin-top: 60px;
-				}
-				p {
-					font-weight: bold;
-					margin-top: 0;
-					&:first-child {
-						font-size: 2.8em;
-						@media screen and (min-width: $screen-lg-min) {
-							font-size: 3.1em;
-						}
-						@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-							font-size: 3.1em;
-						}
-					}
-					&:nth-child(2) {
-						margin-top: -30px;
-					}
-				}
-				img {
-					margin-top: -10px;
-					@include filter(none);
-					border-radius: 0;
+        .promo-sidebar {
+            position: relative;
+            margin-bottom: 80px;
+            img {
+                border-radius: 4px;
+                @include filter(brightness(50%));
+            }
+            .inline-promo {
+                top: 0;
+                position: absolute;
+                font-size: 2.1em !important;
+                text-align: center;
+                color: white;
+                width: 100%;
+                @media screen and (min-width: $screen-lg-min) {
+                    margin-top: 30px;
+                }
+                @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                    margin-top: 60px;
+                }
+                p {
+                    font-weight: bold;
+                    margin-top: 0;
+                    &:first-child {
+                        font-size: 2.8em;
+                        @media screen and (min-width: $screen-lg-min) {
+                            font-size: 3.1em;
+                        }
+                        @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                            font-size: 3.1em;
+                        }
+                    }
+                    &:nth-child(2) {
+                        margin-top: -30px;
+                    }
+                }
+                img {
+                    margin-top: -10px;
+                    @include filter(none);
+                    border-radius: 0;
 
-				}
-				.icon-promo {
-					float:none;margin-right: 10px;
-				}
-				@media screen and (max-width: $screen-xs-max) {
-  					font-size: 1.6em !important;
-				}
-				@media screen and (max-width: $screen-sm-max) {
-  					text-align: center;
-				}
-			}
-		}
-		.related-content {
-			background: white;
-			border-radius: 3px;
-			border: 1px solid $border-color;
-			@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
-			padding: 5px 20px 0px 20px;
-			margin-top: 15px;
-			margin-bottom: 20px;
+                }
+                .icon-promo {
+                    float:none;margin-right: 10px;
+                }
+                @media screen and (max-width: $screen-xs-max) {
+                    font-size: 1.6em !important;
+                }
+                @media screen and (max-width: $screen-sm-max) {
+                    text-align: center;
+                }
+            }
+        }
+        .related-content {
+            background: white;
+            border-radius: 3px;
+            border: 1px solid $border-color;
+            @include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+            padding: 5px 20px 0px 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
 
-			@media screen and (max-width: $screen-sm-max) {
-				margin-top: 0;
-			}
-			@media screen and (max-width: $screen-xs-max) {
-				padding-left: 30px;
-			}
+            @media screen and (max-width: $screen-sm-max) {
+                margin-top: 0;
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                padding-left: 30px;
+            }
 
-			h5 {
-				color: $darkgrey;
-				font-size: 1.6em;
-				border-bottom: 1px solid $border-color;
-				padding-bottom: 15px;
-				letter-spacing: 1px;
-			}
-			.rival {
-				padding: 20px 0;
-				border-bottom: 1px solid $border-color;
-				&:last-child {
-					border:none;
-				}
-				a:first-child {
-					padding-left: 15px;
-					padding-right: 15px;
-					width: initial;
-					float: left;
-					overflow: hidden;
-					@media screen and (max-width: $screen-xs-max) {
-						padding-left: 0;
-					}
-				}
-				a:nth-child(2) {
-					font-size: 1.4em;
-					color: $darkgrey;
-					font-weight: $light;
-					padding-left: 0;
+            h5 {
+                color: $darkgrey;
+                font-size: 1.6em;
+                border-bottom: 1px solid $border-color;
+                padding-bottom: 15px;
+                letter-spacing: 1px;
+            }
+            .rival {
+                padding: 20px 0;
+                border-bottom: 1px solid $border-color;
+                &:last-child {
+                    border:none;
+                }
+                a:first-child {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    width: initial;
+                    float: left;
+                    overflow: hidden;
+                    @media screen and (max-width: $screen-xs-max) {
+                        padding-left: 0;
+                    }
+                }
+                a:nth-child(2) {
+                    font-size: 1.4em;
+                    color: $darkgrey;
+                    font-weight: $light;
+                    padding-left: 0;
 
-					span:first-child {
-						display: block;
-						font-weight: $semiBold;
-						letter-spacing: .5px;
-						text-transform: uppercase;
-					}
-				}
-				p:nth-child(3) {
-					line-height: 26px;
-					font-weight: $regular;
-					color: $promo-color;
-					text-align: left;
-					padding-top: 45px;
-					margin-bottom: 0px;
+                    span:first-child {
+                        display: block;
+                        font-weight: $semiBold;
+                        letter-spacing: .5px;
+                        text-transform: uppercase;
+                    }
+                }
+                p:nth-child(3) {
+                    line-height: 26px;
+                    font-weight: $regular;
+                    color: $promo-color;
+                    text-align: left;
+                    padding-top: 45px;
+                    margin-bottom: 0px;
 
-					.icon-promo {
-						width: 26px;height: 26px;
-						line-height: 26px;
-						background-size: 100%;
-						margin-right: 10px;
-					}
-				}
-				p:nth-child(4) {
-					padding-left: 38px;
-					letter-spacing: .5px;
-					display: inline-block;
-  					margin-bottom: 0;
-				}
-			}
-		}
-		.networks {
-			margin-bottom: 60px;
-			@media screen and (max-width: $screen-xs-max) {
-				padding-left: 0;
-				padding-right: 0;
-			}
-			p {
-				text-align: center;
-				color:$font-color;
-				font-size: 2.1em;
-				font-weight: $regular;
-				letter-spacing: 2px;
-				margin-bottom: 0;
-				margin-top: 0;
-			}
+                    .icon-promo {
+                        width: 26px;height: 26px;
+                        line-height: 26px;
+                        background-size: 100%;
+                        margin-right: 10px;
+                    }
+                }
+                p:nth-child(4) {
+                    padding-left: 38px;
+                    letter-spacing: .5px;
+                    display: inline-block;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .networks {
+            margin-bottom: 60px;
+            @media screen and (max-width: $screen-xs-max) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            p {
+                text-align: center;
+                color:$font-color;
+                font-size: 2.1em;
+                font-weight: $regular;
+                letter-spacing: 2px;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
 
-			.social-links {
-				padding: 20px;
-				margin: 10px auto;
-				width: 280px;
-				margin-left: 8%;
-  				margin-left: #{"calc(50% - 140px)"};
-				li {
-					margin-right: 10px;
-					&:last-child {margin-right: 0;}
-					a {
-						width: 38px;
-						box-sizing: border-box;
-						color: $font-color;
-						border-color: $font-color;
-						position: relative;
-						@include transition(all 0.25s ease);
-						&:after {
-							content: " ";
-							position: absolute;
-							width: #{"calc(100% + 4px)"};
-							height: #{"calc(100% + 4px)"};
-							border-radius: 100%;
-							border: 2px solid $font-color;
-							left: -2px;top: -2px;
-							opacity: 0;
-							@include transition(all 0.25s ease);
-						}
-						&:hover {
-							@include transition(all 0.25s ease);
-							color: $font-color !important;
-							background-color: transparent !important;
-							&:after {
-								opacity: 1;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+            .social-links {
+                padding: 20px;
+                margin: 10px auto;
+                width: 280px;
+                margin-left: 8%;
+                margin-left: #{"calc(50% - 140px)"};
+                li {
+                    margin-right: 10px;
+                    &:last-child {margin-right: 0;}
+                    a {
+                        width: 38px;
+                        box-sizing: border-box;
+                        color: $font-color;
+                        border-color: $font-color;
+                        position: relative;
+                        @include transition(all 0.25s ease);
+                        &:after {
+                            content: " ";
+                            position: absolute;
+                            width: #{"calc(100% + 4px)"};
+                            height: #{"calc(100% + 4px)"};
+                            border-radius: 100%;
+                            border: 2px solid $font-color;
+                            left: -2px;top: -2px;
+                            opacity: 0;
+                            @include transition(all 0.25s ease);
+                        }
+                        &:hover {
+                            @include transition(all 0.25s ease);
+                            color: $font-color !important;
+                            background-color: transparent !important;
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
