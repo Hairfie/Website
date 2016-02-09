@@ -12181,8 +12181,7 @@ section.home-search .home-search-mobile {
   .salon#content .nav {
     margin: 0; }
     .salon#content .nav li a {
-      padding: 0;
-      padding-top: 40px; }
+      padding: 0; }
   .salon#content #carousel-salon {
     position: relative; }
     .salon#content #carousel-salon .carousel-info {
@@ -12423,53 +12422,69 @@ section.home-search .home-search-mobile {
       font-family: "Source Sans Pro", sans-serif; }
     .salon#content section.salon-content > .row {
       background-color: white; }
-    .salon#content section.salon-content .hr-tab {
-      width: 1px;
-      height: 50px; }
+    .salon#content section.salon-content .full-tab {
+      height: 100%;
+      width: 100%;
+      display: -webkit-flex;
+      align-items: center;
+      text-align: center; }
+      .salon#content section.salon-content .full-tab > span {
+        width: 100%; }
+    .salon#content section.salon-content .semi-tab {
+      float: left;
+      width: 50%;
+      height: 100%;
+      display: -webkit-flex;
+      align-items: center;
+      text-align: center; }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;
       border-bottom: 1px solid #dfdfdf; }
-      .salon#content section.salon-content ul.nav li .icon-avis {
-        background-image: url(../img/icons/avis.svg);
-        background-size: contain; }
       .salon#content section.salon-content ul.nav li:first-child {
         border-left: 1px solid #dfdfdf; }
       .salon#content section.salon-content ul.nav li a {
-        height: initial; }
-      .salon#content section.salon-content ul.nav li .icon {
-        width: 30px;
-        height: 30px;
-        left: 0;
-        right: 0;
+        height: 100%; }
+      .salon#content section.salon-content ul.nav li .icon-nav {
+        width: 25px;
+        height: 25px;
         margin-left: auto;
         margin-right: auto;
-        background-repeat: no-repeat; }
+        background-repeat: no-repeat;
+        position: initial; }
     .salon#content section.salon-content ul.nav li:not(.active) {
       background-color: #f7f7f7; }
       .salon#content section.salon-content ul.nav li:not(.active) a {
         background-color: #f7f7f7; }
-      .salon#content section.salon-content ul.nav li:not(.active):first-child .icon-nav {
-        background-image: url(../img/icons/info.svg);
+      .salon#content section.salon-content ul.nav li:not(.active) div.icon-info i {
+        background-image: url(../img/businessPage/info.svg);
         background-size: contain; }
-      .salon#content section.salon-content ul.nav li:not(.active):nth-child(2) .icon-nav {
-        background-image: url(../img/icons/avis.svg);
+      .salon#content section.salon-content ul.nav li:not(.active) div.icon-avis i {
+        background-image: url(../img/businessPage/chat.svg);
         background-size: contain; }
-      .salon#content section.salon-content ul.nav li:not(.active):last-child .icon-nav {
-        background-image: url(../img/icons/hairfie.svg);
+      .salon#content section.salon-content ul.nav li:not(.active) div.icon-yelp i {
+        background-image: url(../img/businessPage/yelp.png);
+        background-size: contain;
+        width: 50px; }
+      .salon#content section.salon-content ul.nav li:not(.active) div.icon-hairfie i {
+        background-image: url(../img/businessPage/photo.svg);
         background-size: contain; }
     .salon#content section.salon-content ul.nav li.active {
       background-color: #fcfcfc; }
       .salon#content section.salon-content ul.nav li.active a {
         background-color: #fcfcfc; }
-      .salon#content section.salon-content ul.nav li.active:first-child .icon-nav {
-        background-image: url(../img/icons/info-selected.svg);
+      .salon#content section.salon-content ul.nav li.active div.icon-info i {
+        background-image: url(../img/businessPage/info-red.svg);
         background-size: contain; }
-      .salon#content section.salon-content ul.nav li.active:nth-child(2) .icon-nav {
-        background-image: url(../img/icons/avis-selected.svg);
+      .salon#content section.salon-content ul.nav li.active div.icon-avis i {
+        background-image: url(../img/businessPage/chat-red.svg);
         background-size: contain; }
-      .salon#content section.salon-content ul.nav li.active:last-child .icon-nav {
-        background-image: url(../img/icons/hairfie-selected.svg);
+      .salon#content section.salon-content ul.nav li.active div.icon-yelp i {
+        background-image: url(../img/businessPage/yelp.png);
+        background-size: contain;
+        width: 50px; }
+      .salon#content section.salon-content ul.nav li.active div.icon-hairfie i {
+        background-image: url(../img/businessPage/photo-red.svg);
         background-size: contain; }
     .salon#content section.salon-content section {
       padding-bottom: 35px;

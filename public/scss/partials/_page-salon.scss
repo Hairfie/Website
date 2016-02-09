@@ -33,7 +33,7 @@
 		margin: 0;
 		li a {
 			padding: 0;
-			padding-top: 40px;
+			//padding-top: 40px;
 		}
 	}
 	background-color: white;
@@ -322,16 +322,26 @@
 		> .row {
 			background-color: white;
 		}
-		.hr-tab {
-			width: 1px;
-			height: 50px;
+		.full-tab {
+			height: 100%;
+			width: 100%;
+			display: -webkit-flex;
+		    align-items: center;
+		    text-align: center;
+		    > span {
+		    	width: 100%;
+		    }
+		}
+		.semi-tab {
+		    float: left;
+		    width: 50%;
+		    height: 100%;
+		    display: -webkit-flex;
+		    align-items: center;
+		    text-align: center;
 		}
 		ul.nav {
 			li {
-				.icon-avis {
-					background-image: url(../img/icons/avis.svg);
-					background-size: contain;
-				}
 				&:first-child {
 					border-left: 1px solid $grey2;
 				}
@@ -339,17 +349,15 @@
 				border-right: 1px solid $grey2;
 				border-bottom: 1px solid $grey2;
 				a {
-					height: initial;
-					//padding-top: 55px;
+					height: 100%;
 				}
-				.icon {
-					width: 30px;
-					height: 30px;
-					left: 0;
-					right: 0;
+				.icon-nav {
+					width: 25px;
+					height: 25px;
 					margin-left: auto;
 					margin-right: auto;
 					background-repeat: no-repeat;
+					position: initial;
 				}
 			}
 			li:not(.active) {
@@ -357,23 +365,22 @@
 				a {
 					background-color: $bg4;
 				}
-				&:first-child {
-					.icon-nav {
-						background-image: url(../img/icons/info.svg);
-						background-size: contain;					
-    				}
+				div.icon-info i {
+					background-image: url(../img/businessPage/info.svg);
+					background-size: contain;					
 				}
-				&:nth-child(2) {
-					.icon-nav {
-						background-image: url(../img/icons/avis.svg);
-						background-size: contain;
-					}
+				div.icon-avis i {
+					background-image: url(../img/businessPage/chat.svg);
+					background-size: contain;
 				}
-				&:last-child {
-					.icon-nav {
-						background-image: url(../img/icons/hairfie.svg);
-						background-size: contain;
-					}
+				div.icon-yelp i {
+					background-image: url(../img/businessPage/yelp.png);
+					background-size: contain;
+					width: 50px;
+				}
+				div.icon-hairfie i {
+					background-image: url(../img/businessPage/photo.svg);
+					background-size: contain;
 				}
 			}
 			li.active {
@@ -381,23 +388,22 @@
 				a {
 					background-color: $bg5;
 				}
-				&:first-child {
-					.icon-nav {
-						background-image: url(../img/icons/info-selected.svg);
-						background-size: contain;
-					}
+				div.icon-info i {
+					background-image: url(../img/businessPage/info-red.svg);
+					background-size: contain;
 				}
-				&:nth-child(2) {
-					.icon-nav {
-						background-image: url(../img/icons/avis-selected.svg);
-						background-size: contain;
-					}
+				div.icon-avis i {
+					background-image: url(../img/businessPage/chat-red.svg);
+					background-size: contain;
 				}
-				&:last-child {
-					.icon-nav {
-						background-image: url(../img/icons/hairfie-selected.svg);
-						background-size: contain;
-					}
+				div.icon-yelp i {
+					background-image: url(../img/businessPage/yelp.png);
+					background-size: contain;
+					width: 50px;
+				}
+				div.icon-hairfie i {
+					background-image: url(../img/businessPage/photo-red.svg);
+					background-size: contain;
 				}
 			}
 		}

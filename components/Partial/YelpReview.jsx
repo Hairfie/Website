@@ -13,7 +13,7 @@ module.exports = React.createClass({
     render: function () {
         var review = this.props.review;
         return (
-            <div key={review.id} className="single-comment col-xs-12">
+            <div className="single-comment col-xs-12">
                 <div className="user-profil col-xs-3 col-sm-2">
                     <img src={review.user.image_url} className="ProfilePicture" />
                 </div>

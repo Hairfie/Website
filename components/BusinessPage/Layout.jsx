@@ -37,25 +37,30 @@ var Rating = React.createClass({
     }
 });
 
+var TabContent = React.createClass({
+    render: function() {
+        return (
+            <div className={"full-tab " + this.props.extraClass}>
+                <span><i className="icon-nav"/>{this.props.label}</span>
+            </div>
+        );
+    }
+});
+
 var BusinessTab = React.createClass({
 
     renderReviewTabContent: function() {
         var business = this.props.business;
-        if (business.numReviews && (!business.yelpObject || business.yelpObject.review_count == 0)) return (<span className="icon-nav">{business.numReviews + ' Avis2'}</span>);
-        else if (!business.numReviews && business.yelpObject && business.yelpObject.review_count > 0) return (<span className="icon-nav">{business.yelpObject.review_count + ' Avis3'}</span>);
-        else if (business.numReviews > 0 && business.yelpObject && business.yelpObject.review_count > 0 ){
+        if (business.numReviews && (!business.yelpObject || business.yelpObject.review_count == 0)) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
+        else if (!business.numReviews && business.yelpObject && business.yelpObject.review_count > 0) return (<TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="icon-yelp"/>);
+        else if (business.numReviews && business.yelpObject && business.yelpObject.review_count){
             return (
-                <div>
-                    <span className="icon icon-avis">
-                        {business.numReviews} Avis4
-                    </span>
-                    <hr className="hr-tab"/>
-                    <span className="icon icon-yelp">
-                        {business.yelpObject.review_count} Avis5
-                    </span>
+                <div className="full-tab">
+                    <TabContent label={business.numReviews +' Avis'} extraClass="semi-tab icon-avis" />
+                    <TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="semi-tab icon-yelp" />
                 </div>
             );
-        } else return (<span className="icon-nav">Avis1 </span>);
+        } else return (<TabContent label='Avis' extraClass="icon-avis" />);
     },
     render: function () {
         var route;
@@ -64,7 +69,7 @@ var BusinessTab = React.createClass({
         switch(this.props.tab) {
             case 'infos':
                 route = 'business';
-                content = <span className="icon-nav">Info </span>;
+                content = <TabContent label="infos" extraClass="icon-info" />;
                 break;
             case 'reviews':
                 route = 'business_reviews';
@@ -72,7 +77,7 @@ var BusinessTab = React.createClass({
                 break;
             case 'hairfies':
                 route = 'business_hairfies';
-                content = <span className="icon-nav">{numHairfies + ' Hairfies'}</span>;
+                content = <TabContent label={numHairfies + ' Hairfies'} extraClass="icon-hairfie" />;
                 break;
         }
         return (
