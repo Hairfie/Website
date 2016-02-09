@@ -77,7 +77,7 @@ var BusinessYelpReviews = React.createClass ({
     render: function () {
         if (!this.props.business.shouldDisplayYelp) return null;
         return (
-            <div>
+            <div style={{marginTop: '20px'}}>
                 <div className="yelp-title">
                     <span>Derniers avis Yelp</span>
                 </div>
@@ -91,10 +91,10 @@ var BusinessYelpReviews = React.createClass ({
                             }, this)}
                         </a>
                     </div>
-                <div className="clearfix"></div>
-                <div className="pull-right yelp-title">
-                    <span>Edité par</span> <Picture picture={{url: "/img/businessPage/yelp-powered.png"}} style={{width: 100}} alt="yelp-powered" />
+                <div className="pull-right">
+                    <Picture picture={{url: "/img/businessPage/yelp-powered.png"}} style={{width: 100}} alt="yelp-powered" />
                 </div>
+                <div className="clearfix"></div>
             </div>
         );
     }

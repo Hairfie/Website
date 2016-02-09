@@ -12425,11 +12425,12 @@ section.home-search .home-search-mobile {
       height: 50%;
       left: 0;
       top: 25%; }
-    .salon#content section.salon-content .yelp-title span {
-      margin-top: 20px;
-      color: #595959;
-      font-size: 1.8em;
-      font-weight: bolder; }
+    .salon#content section.salon-content .yelp-title {
+      margin-bottom: 10px; }
+      .salon#content section.salon-content .yelp-title span {
+        color: #595959;
+        font-size: 1.8em;
+        font-weight: bolder; }
     .salon#content section.salon-content .comments .note-yelp {
       width: 120px;
       margin-top: -6px; }

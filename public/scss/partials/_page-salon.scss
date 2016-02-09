@@ -352,11 +352,13 @@
 		    left: 0;
 		    top: 25%;
 		}
-		.yelp-title span {
-			margin-top: 20px;
-            color: $darkgrey;
-            font-size: 1.8em;
-            font-weight: bolder;
+		.yelp-title {
+            margin-bottom: 10px;
+            span {
+                color: $darkgrey;
+                font-size: 1.8em;
+                font-weight: bolder;
+            }
 		}
 		.comments {
 			.note-yelp {
