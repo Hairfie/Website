@@ -33,8 +33,13 @@
 		margin: 0;
 		li a {
 			padding: 0;
-			padding-top: 40px;
+			//padding-top: 40px;
 		}
+        @media screen and (max-width: $screen-xs-max) {
+            li {
+                height: 65px;
+            }
+        }
 	}
 	background-color: white;
 	#carousel-salon {
@@ -98,7 +103,7 @@
 					font-size: 2.1em;
 				}
 			}
-			img {
+			.profil-picture {
 				@media screen and (max-width: $screen-md-max) {
 					display: none;
 				}
@@ -111,6 +116,13 @@
 				border-width: 5px;
 				border-color: white;
 				border-radius: 100%;
+			}
+			.yelp-rating {
+				width: 140px;
+				margin-bottom: 15px;
+				@media screen and (max-width: $screen-xs-max) {
+					width: 80px;
+				}
 			}
 		}
 		.carousel-inner .item {
@@ -315,6 +327,84 @@
 		> .row {
 			background-color: white;
 		}
+		.full-tab {
+			height: 100%;
+			width: 100%;
+			display: -webkit-flex;
+		    align-items: center;
+		    text-align: center;
+		    > span {
+		    	width: 100%;
+		    }
+		}
+		.semi-tab {
+		    float: left;
+		    width: 50%;
+		    height: 100%;
+		    display: -webkit-flex;
+		    align-items: center;
+		    text-align: center;
+		}
+		.semi-tab:nth-child(2)::before {
+		    content: '';
+		    border-left: 1px solid $grey;
+		    height: 50%;
+		    left: 0;
+		    top: 25%;
+		}
+		.yelp-title {
+            margin-bottom: 10px;
+            span {
+                color: $darkgrey;
+                font-size: 1.8em;
+                font-weight: bolder;
+            }
+		}
+		.comments {
+			.note-yelp {
+				width: 120px;
+				margin-top: -6px;
+			}
+			.note-yelp-info {
+				font-size: 1.8em;
+			}
+            .yelp-date {
+                color: $grey;
+            }
+		}
+        @media screen and (min-width: $screen-xs-max) {
+            .bottom-tab {
+                @include hide;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            .full-tab.reviews-tab { 
+                display: block;
+                height: calc(100% - 13px);
+                .semi-tab:nth-child(2)::before {
+                    content: none;
+                }
+                .bottom-tab {
+                    height: 13px;
+                    width: 100%;
+                    display: -webkit-flex;
+                    align-items: center;
+                    text-align: center;
+                    > span {
+                        width: 100%;
+                        margin-top: -26px;
+                    }
+
+                }
+                span > span {
+                        @include hide;
+                }
+            }
+        }
+        .btn-book {
+            margin-top: 20px;
+        }
+
 		ul.nav {
 			li {
 				&:first-child {
@@ -324,17 +414,18 @@
 				border-right: 1px solid $grey2;
 				border-bottom: 1px solid $grey2;
 				a {
-					height: initial;
-					padding-top: 55px;
+					height: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        font-size: 1em;
+                    }   
 				}
 				.icon-nav {
-					width: 30px;
-					height: 30px;
-					left: 0;
-					right: 0;
+					width: 25px;
+					height: 25px;
 					margin-left: auto;
 					margin-right: auto;
 					background-repeat: no-repeat;
+					position: initial;
 				}
 			}
 			li:not(.active) {
@@ -342,24 +433,22 @@
 				a {
 					background-color: $bg4;
 				}
-
-				&:first-child {
-					.icon-nav {
-						background-image: url(../img/icons/info.svg);
-						background-size: contain;					
-    				}
+				div.icon-info i {
+					background-image: url(../img/businessPage/info.svg);
+					background-size: contain;					
 				}
-				&:nth-child(2) {
-					.icon-nav {
-						background-image: url(../img/icons/avis.svg);
-						background-size: contain;
-					}
+				div.icon-avis i {
+					background-image: url(../img/businessPage/chat.svg);
+					background-size: contain;
 				}
-				&:last-child {
-					.icon-nav {
-						background-image: url(../img/icons/hairfie.svg);
-						background-size: contain;
-					}
+				div.icon-yelp i {
+					background-image: url(../img/businessPage/yelp.png);
+					background-size: contain;
+					width: 50px;
+				}
+				div.icon-hairfie i {
+					background-image: url(../img/businessPage/photo.svg);
+					background-size: contain;
 				}
 			}
 			li.active {
@@ -367,23 +456,22 @@
 				a {
 					background-color: $bg5;
 				}
-				&:first-child {
-					.icon-nav {
-						background-image: url(../img/icons/info-selected.svg);
-						background-size: contain;
-					}
+				div.icon-info i {
+					background-image: url(../img/businessPage/info-red.svg);
+					background-size: contain;
 				}
-				&:nth-child(2) {
-					.icon-nav {
-						background-image: url(../img/icons/avis-selected.svg);
-						background-size: contain;
-					}
+				div.icon-avis i {
+					background-image: url(../img/businessPage/chat-red.svg);
+					background-size: contain;
 				}
-				&:last-child {
-					.icon-nav {
-						background-image: url(../img/icons/hairfie-selected.svg);
-						background-size: contain;
-					}
+				div.icon-yelp i {
+					background-image: url(../img/businessPage/yelp.png);
+					background-size: contain;
+					width: 50px;
+				}
+				div.icon-hairfie i {
+					background-image: url(../img/businessPage/photo-red.svg);
+					background-size: contain;
 				}
 			}
 		}

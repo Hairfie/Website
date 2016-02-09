@@ -89,13 +89,13 @@ var BreadCrumb = React.createClass({
                     {_.map(crumbs, function (crumb, index) {
                         if (index == crumbs.length - 1) {
                             return (
-                                <li>
+                                <li key={index}>
                                     {crumb.label}
                                 </li>
                             );
                         } else {
                             return (
-                                <li>
+                                <li key={index}>
                                     <Link route={crumb.route} params={crumb.params}>
                                         <u>{crumb.label}</u>
                                     </Link>

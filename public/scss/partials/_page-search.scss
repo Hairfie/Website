@@ -264,7 +264,7 @@
                 }
 
                 @media screen and (min-width: $screen-xs-max) {
-                    float: right;
+                    //float: right;
                 }
                 @media screen and (max-width: $screen-xs-max) {
                     width: 100%;
@@ -304,50 +304,6 @@
                 }
                 span.black {
                     margin-left: 3px;
-                }
-            }
-            div.address-bloc {
-                .main-infos {
-                    width: calc(100% - 120px);
-                    float: left;
-                    @media screen and (max-width: $screen-xs-max) {
-                        width: 100%;
-                    }
-                }
-                h3 {
-                    font-size: 2.1em;
-                    margin: 0 0 3px;
-                }
-                a:nth-child(2) {
-                    font-size: 1.4em;
-                    margin-top: 3px;
-                }
-                div {
-                    padding: 0;
-                }
-                @media screen and (max-width: $screen-xs-max) {
-                    a {
-                        letter-spacing: 0px;
-                        padding-left: 0px;
-                        padding-right: 0px;
-                        font-size: 1em;
-                        font-weight: $regular;
-                        text-transform: none;
-                    }
-                    a:nth-child(2) {
-                        font-size: 1.6em;
-                        &:not(.pull-right) {
-                            line-height: 10px;
-                        }
-                    }
-                }
-                @media screen and (max-width: 374px) {
-                    a {
-                        font-size: 0.8em;
-                    }
-                    a:nth-child(2) {
-                        font-size: 1.2em;
-                    }
                 }
             }
 
@@ -475,9 +431,80 @@
                 height: 220px;
                 width: calc(100% - 240px);
                 margin-left: 20px;
+                .business-name > a {
+                    text-decoration: none;
+                    h3 {
+                        font-size: 2.1em;
+                        margin: 0 0 3px;
+                        letter-spacing: 2px;
+                        color: $darkgrey;
+                        text-transform: uppercase;
+                        font-weight: $semiBold;
+                        width: calc(100% - 75px);
+                    }
+                }
+                .business-address {
+                    font-size: 1.4em;
+                    letter-spacing: 1px;
+                }
+                .business-price-rating {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    p {
+                        font-size: 1.8em;
+                    }
+                }
+                .business-reviews {
+                    margin: 5px 0 5px 0;
+                    div {
+                        display: inline;                        
+                    }
+                    > a > span {
+                        line-height: 27px;
+                        font-size: 1.4em;
+                        color: $darkgrey;
+                    }
+                    img {
+                        width: 120px;
+                        margin: 0;
+                        display: inline;
+                    }
+                }
+                .business-label {
+                    color: white;
+                    background-color: $hairfie;
+                    font-size: 1.6em;
+                    padding: 5px;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                    display: inline-block;
+                }
                 .book {
                     bottom: 0px;
                     position: absolute;
+                }
+                .btn-hairfies {
+                    @extend .btn;
+                    //width: calc(50% - 5px);
+                    border-radius: 0;
+                    height: 39px;
+                    background-color: white;
+                    border: 1px solid $grey5;
+                    color: $grey3;
+                    font-weight: $regular;
+                    font-size: 1.6em;
+                    border-radius: 4px;
+                    margin-left: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    font-weight: $regular;
+                    padding: 6px 12px;
+                    &:hover {
+                        @include transition(.25s ease-in-out);
+                        color: white;
+                        background-color: $hairfie;
+                    }
                 }
                 @media screen and (max-width: $screen-xs-max) {
                     height: 124px;
@@ -504,14 +531,45 @@
                             //top: -5px;
                         }
                     }
-
-                }
-                .business-label {
-                    color: white;
-                    background-color: $hairfie;
-                    font-size: 1.6em;
-                    padding: 5px;
-                    margin-right: 5px;
+                    .business-name > a {
+                        h3 {
+                            font-size: 2em;
+                            text-transform: none;
+                            letter-spacing: 0;
+                            font-weight: $regular;
+                            margin-bottom: 0;
+                            width: 100%;
+                        }
+                    }
+                    .business-address {
+                        font-size: 1.5em;
+                        letter-spacing: 0;
+                        font-weight: $light;
+                        line-height: 12px;
+                        margin-bottom: 5px;
+                        color: $grey;
+                    }
+                    .business-reviews {
+                        margin-bottom: 5px;
+                        img {
+                            width: 80px;
+                        }
+                        .star.min {
+                            background-size: 95%;
+                        }
+                        .star {
+                            height: 16px;
+                            width: 16px;
+                        }
+                        > a > span {
+                            line-height: 16px;
+                            font-size: 1.8em;
+                            color: $darkgrey;
+                        }
+                    }
+                    .business-price-rating {
+                        position: initial;
+                    }
                 }
             }
 

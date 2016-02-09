@@ -81,7 +81,7 @@ var Business = React.createClass({
         }
         if (business.isBookable) {
             booking_button = (
-                <Link className="btn btn-book col-sm-12 full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <Link className="btn btn-book full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
             );
@@ -112,63 +112,76 @@ var Business = React.createClass({
                         {promo_icon}
                 </div>
                 <div className="info-bloc">
-                    <div className="address-bloc">
-                        <div className="main-infos">
-                            <h3>
-                                <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                    {business.name}
-                                </Link>
-                            </h3>
-                            <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                {business.address.street}, {business.address.zipCode} {business.address.city}
-                            </Link>
-                        </div>
-                        {this.renderRating()}
-                        <div className="clearfix"></div>
+                    <div className="business-name">
+                        <Link route="business" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug}}>
+                            <h3>{business.name}</h3>
+                        </Link>
                     </div>
-                    {this.renderPricing()}
+                    <div className="business-address">
+                        {business.address.street}, {business.address.zipCode} {business.address.city}    
+                    </div>
+                    <div className="business-reviews">
+                        {this.renderRating()}
+                    </div>
+                    <div className="business-price-rating">
+                        {this.renderPricing()}
+                    </div>
+                    <div className="business-promo">
+                        {this.renderDiscount()}
+                    </div>
                     {searchedCategoriesLabels}
                     <div className="book">
                         {booking_button}
+                        <span className="hidden-xs">{this.renderAllHairfiesButton()}</span>
                     </div>
-                    <div className="clearfix"></div>
                 </div>
             </section>
         );
     },
-    renderRating: function () {
-        if (!this.props.business.numReviews) return;
-        var query  = this.props.date ? { date: this.props.date } : {};
-
+    renderAllHairfiesButton: function () {
+        if (this.props.business.numHairfies == 0) return null;
         return (
-            <div className="rating">
-                <div className="note">
-                    <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                        <Rating rating={this.props.business.rating} min={true} className="interactive" />
-                    </Link>
-                </div>
-                <Link className="pull-right" route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                    <span className="visible-xs">-&nbsp;</span>{this.props.business.numReviews +' avis'}
-                </Link>
-                <div className="clearfix"></div>
-            </div>
+            <Link className="btn btn-hairfies" route="business_hairfies" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                {'Voir les hairfies (' + this.props.business.numHairfies + ')'}
+            </Link>
         );
     },
-    renderPricing: function () {
-        var bestDiscountNode;
-        if (this.props.business.bestDiscount) {
-            bestDiscountNode = (<div className="inline-promo">
-                        <span className="icon-promo">%</span>
-                        {'-' + this.props.business.bestDiscount + '% dans tout le salon*'}
-                    </div>);
+    renderRating: function () {
+        if (!this.props.business.numReviews && !this.props.business.yelpObject) return;
+        else if (this.props.business.numReviews) {
+            var query  = this.props.date ? { date: this.props.date } : {};
+
+            return (
+                <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
+                    <Rating rating={this.props.business.rating} min={true} className="interactive" />{' - ' + this.props.business.numReviews + ' avis'}
+                </Link>
+            );
+        } else if (this.props.business.yelpObject.review_count > 0) {
+            return (
+                <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
+                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' - ' + this.props.business.yelpObject.review_count + ' avis'}
+                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginTop: '5px'}} className="visible-xs"/>
+                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
+                </Link>
+            );
         }
+    },
+    renderPricing: function () {
             return (
                 <div>
-                    {bestDiscountNode}
                     <PriceRating business={this.props.business} />
                     {this.renderNumHairfies()}
                 </div>
             );
+    },
+    renderDiscount: function () {
+        if (!this.props.business.bestDiscount) return null;
+        return (
+            <div className="inline-promo">
+                <span className="icon-promo">%</span>
+                {'-' + this.props.business.bestDiscount + '% dans tout le salon*'}
+            </div>
+        );
     },
     renderNumHairfies: function () {
         if (this.props.business.numHairfies) {

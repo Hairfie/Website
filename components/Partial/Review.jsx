@@ -31,7 +31,7 @@ module.exports = React.createClass({
         }
 
         return (
-            <div key={review.id} className="single-comment col-xs-12">
+            <div className="single-comment col-xs-12">
                 <div className="user-profil col-xs-3 col-sm-2">
                     <UserProfilePicture className={"ProfilePicture" + (review && review.author && review.author.picture ? '' : ' placeholder')}
                     picture={review && review.author ? review.author.picture : ''}
