@@ -52,7 +52,7 @@ var Footer = React.createClass({
                                 <Link route="howitworks_page">Comment ça marche ?</Link>
                             </li>
                             <li><Link route="newsletter">Newsletter</Link></li>
-                            <li><a href="http://blog.hairfie.com/" target="_blank"a>Blog</a></li>
+                            <li><a href="http://blog.hairfie.com/" target="_blank">Blog</a></li>
                             <li><a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank">Conditions générales</a></li>
                             <li><Link route="home_pro">Gérez votre salon</Link></li>
                         </ul>
@@ -60,7 +60,7 @@ var Footer = React.createClass({
                     <div className="row">
                         <div className="hr col-sm-10 col-xs-10"></div>
                     </div>
-                    <p>© Hairfie 2016<span className="pull-right hidden-xs"><a href="https://heapanalytics.com/?utm_source=badge"><img style={{width:'108px', height:'41px'}} src="//heapanalytics.com/img/badge.png" alt="Heap | Mobile and Web Analytics" /></a></span></p>
+                    <p>© Hairfie 2016<span className="pull-right hidden-xs"><a href="https://heapanalytics.com/?utm_source=badge"><img style={{width:'108px', height:'41px'}} src="//heapanalytics.com/img/badge.png" alt="Heap | Mobile and Web Analytics" target="_blank" /></a></span></p>
                     <LinksSection links={this.props.links}/>
                 </div>
                 <EmailModal ref="emailModal" />

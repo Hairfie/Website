@@ -8869,28 +8869,6 @@ body {
     padding-left: 10%;
     padding-right: 10%; }
 
-.star-rating {
-  /* clear */
-  zoom: 1;
-  /* for IE 6/7 */ }
-  .star-rating .star {
-    display: block;
-    width: 22px;
-    height: 22px;
-    float: left;
-    background-image: url(../img/star-rating/22/stars.png); }
-    .star-rating .star:hover {
-      cursor: pointer; }
-    .star-rating .star.on {
-      background-position: top; }
-    .star-rating .star.off {
-      background-position: bottom; }
-  .star-rating:before, .star-rating:after {
-    content: '';
-    display: table; }
-  .star-rating:after {
-    clear: both; }
-
 #content {
   height: inherit; }
 
