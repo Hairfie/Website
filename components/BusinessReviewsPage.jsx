@@ -10,6 +10,7 @@ var Rating = require('./Partial/Rating.jsx');
 var Review = require('./Partial/Review.jsx');
 var YelpReview = require('./Partial/YelpReview.jsx');
 var LatestHairfies = require('./BusinessPage/LatestHairfies.jsx');
+var Picture = require('./Partial/Picture.jsx');
 
 var BusinessReviewPage = React.createClass({
     render: function () {
@@ -78,11 +79,11 @@ var BusinessYelpReviews = React.createClass ({
         return (
             <div>
                 <div className="yelp-title">
-                    <p>Derniers avis Yelp</p>
+                    <span>Derniers avis Yelp</span>
                 </div>
                     <div className="comments">
-                    <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
-                        <a href={this.props.business.yelpObject.url}>
+                        <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
+                        <a href={this.props.business.yelpObject.url} target="_blank">
                             {_.map(this.props.business.yelpObject.reviews, function(review) {
                                 return (
                                     <YelpReview key={review.id} review={review} />
@@ -91,6 +92,9 @@ var BusinessYelpReviews = React.createClass ({
                         </a>
                     </div>
                 <div className="clearfix"></div>
+                <div className="pull-right yelp-title">
+                    <span>Edité par</span> <Picture picture={{url: "/img/businessPage/yelp-powered.png"}} style={{width: 100}} alt="yelp-powered" />
+                </div>
             </div>
         );
     }

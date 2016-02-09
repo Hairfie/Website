@@ -51,14 +51,18 @@ var BusinessTab = React.createClass({
 
     renderReviewTabContent: function() {
         var business = this.props.business;
-        if (business.numReviews && (!business.yelpObject.review_count)) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
-        else if (!business.numReviews && business.yelpObject.review_count) return (<TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="icon-yelp"/>);
-        else if (business.numReviews && business.yelpObject.review_count){
+        if (business.numReviews && !business.shouldDisplayYelp) return (<TabContent label={business.numReviews + ' Avis'} extraClass="icon-avis" />);
+        else if (!business.numReviews && business.shouldDisplayYelp) return (<TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="icon-yelp"/>);
+        else if (business.numReviews && business.shouldDisplayYelp){
             return (
-                <div className="full-tab">
-                    <TabContent label={business.numReviews +' Avis'} extraClass="semi-tab icon-avis hidden-xs" />
-                    <TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="semi-tab icon-yelp hidden-xs" />
-                    <TabContent label={(business.numReviews+business.yelpObject.review_count) + ' Avis'} extraClass="icon-avis hidden-sm hidden-md hidden-lg" />
+                <div className="full-tab reviews-tab">
+                    <TabContent label={business.numReviews +' Avis'} extraClass="semi-tab icon-avis" />
+                    <TabContent label={business.yelpObject.review_count + ' Avis'} extraClass="semi-tab icon-yelp" />
+                    <div className="bottom-tab">
+                        <span>
+                            {(business.numReviews+business.yelpObject.review_count) + ' Avis'}
+                        </span>
+                    </div>
                 </div>
             );
         } else return (<TabContent label='Avis' extraClass="icon-avis" />);

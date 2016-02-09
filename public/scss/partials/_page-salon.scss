@@ -352,8 +352,11 @@
 		    left: 0;
 		    top: 25%;
 		}
-		.yelp-title p {
-			margin-top: 20px !important;
+		.yelp-title span {
+			margin-top: 20px;
+            color: $darkgrey;
+            font-size: 1.8em;
+            font-weight: bolder;
 		}
 		.comments {
 			.note-yelp {
@@ -367,9 +370,39 @@
                 color: $grey;
             }
 		}
+        @media screen and (min-width: $screen-xs-max) {
+            .bottom-tab {
+                @include hide;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            .full-tab.reviews-tab { 
+                display: block;
+                height: calc(100% - 13px);
+                .semi-tab:nth-child(2)::before {
+                    content: none;
+                }
+                .bottom-tab {
+                    height: 13px;
+                    width: 100%;
+                    display: -webkit-flex;
+                    align-items: center;
+                    text-align: center;
+                    > span {
+                        width: 100%;
+                        margin-top: -26px;
+                    }
+
+                }
+                span > span {
+                        @include hide;
+                }
+            }
+        }
         .btn-book {
             margin-top: 20px;
         }
+
 		ul.nav {
 			li {
 				&:first-child {
@@ -380,6 +413,9 @@
 				border-bottom: 1px solid $grey2;
 				a {
 					height: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        font-size: 1em;
+                    }   
 				}
 				.icon-nav {
 					width: 25px;

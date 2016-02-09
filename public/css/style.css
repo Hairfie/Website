@@ -12425,8 +12425,11 @@ section.home-search .home-search-mobile {
       height: 50%;
       left: 0;
       top: 25%; }
-    .salon#content section.salon-content .yelp-title p {
-      margin-top: 20px !important; }
+    .salon#content section.salon-content .yelp-title span {
+      margin-top: 20px;
+      color: #595959;
+      font-size: 1.8em;
+      font-weight: bolder; }
     .salon#content section.salon-content .comments .note-yelp {
       width: 120px;
       margin-top: -6px; }
@@ -12434,6 +12437,26 @@ section.home-search .home-search-mobile {
       font-size: 1.8em; }
     .salon#content section.salon-content .comments .yelp-date {
       color: #c4c4c4; }
+    @media screen and (min-width: 767px) {
+      .salon#content section.salon-content .bottom-tab {
+        display: none !important; } }
+    @media screen and (max-width: 767px) {
+      .salon#content section.salon-content .full-tab.reviews-tab {
+        display: block;
+        height: calc(100% - 13px); }
+        .salon#content section.salon-content .full-tab.reviews-tab .semi-tab:nth-child(2)::before {
+          content: none; }
+        .salon#content section.salon-content .full-tab.reviews-tab .bottom-tab {
+          height: 13px;
+          width: 100%;
+          display: -webkit-flex;
+          align-items: center;
+          text-align: center; }
+          .salon#content section.salon-content .full-tab.reviews-tab .bottom-tab > span {
+            width: 100%;
+            margin-top: -26px; }
+        .salon#content section.salon-content .full-tab.reviews-tab span > span {
+          display: none !important; } }
     .salon#content section.salon-content .btn-book {
       margin-top: 20px; }
     .salon#content section.salon-content ul.nav li {
@@ -12444,6 +12467,9 @@ section.home-search .home-search-mobile {
         border-left: 1px solid #dfdfdf; }
       .salon#content section.salon-content ul.nav li a {
         height: 100%; }
+        @media screen and (max-width: 767px) {
+          .salon#content section.salon-content ul.nav li a {
+            font-size: 1em; } }
       .salon#content section.salon-content ul.nav li .icon-nav {
         width: 25px;
         height: 25px;
