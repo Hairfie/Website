@@ -8,25 +8,14 @@ var Link = require('./Link.jsx');
 var UserProfilePicture = require('./Partial/UserProfilePicture.jsx');
 var Rating = require('./Partial/Rating.jsx');
 var Review = require('./Partial/Review.jsx');
+var YelpReview = require('./Partial/YelpReview.jsx');
 var LatestHairfies = require('./BusinessPage/LatestHairfies.jsx');
-
-var moment = require('moment');
-require('moment/locale/fr');
-moment.locale('fr');
-
-function displayName(u) { var u = u || {}; return u.firstName+' '+(u.lastName || '').substr(0, 1); }
-function initials(u) { var u = u || {}; return (u.firstName || '').substr(0, 1)+(u.lastName || '').substr(0, 1); }
+var Picture = require('./Partial/Picture.jsx');
 
 var BusinessReviewPage = React.createClass({
     render: function () {
         var reviews = this.props.reviews;
 
-        var options = {
-            width: 340,
-            height: 340,
-            crop: 'thumb',
-            gravity: 'faces'
-        };
 
         if (!_.isArray(this.props.reviews)) {
             return (
@@ -36,7 +25,7 @@ var BusinessReviewPage = React.createClass({
             );
         }
 
-        if (_.isEmpty(this.props.reviews)) {
+        if (_.isEmpty(this.props.reviews) && (_.isEmpty(this.props.business.yelpObject) || this.props.business.yelpObject.review_count == 0) ) {
             return (
                 <Layout business={this.props.business} tab="reviews" className="reviews">
                     <p className="text-center">
@@ -52,28 +41,62 @@ var BusinessReviewPage = React.createClass({
 
         return (
             <Layout business={this.props.business} tab="reviews" className="reviews">
+                <BusinessHairfieReviews business={this.props.business} reviews={this.props.reviews} />
+                <BusinessYelpReviews business={this.props.business}/>
+                <div className="text-center">
+                    <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Déposez un avis</Link>
+                </div>
+            </Layout>
+        );
+    }
+});
+
+var BusinessHairfieReviews = React.createClass ({
+    render: function() {
+        if (_.isEmpty(this.props.reviews) || this.props.business.numReviews == 0) return null;
+        return (
+            <div>
                 <div className="reviews-title">
                     <p>Vous êtes déjà allé dans ce salon ?</p>
                     <Link route="write_business_review" query={{businessId: this.props.business.id}}>Donnez votre avis et aidez la communauté.</Link>
                 </div>
                 <div className="comments">
-                    {_.map(reviews, function (review) {
+                    {_.map(this.props.reviews, function (review) {
                         return (
-                            <Review review={review} />
+                            <Review key={review.id} review={review} />
                         );
                     }, this)}
-                    <p className="text-center">
-                        <br /><br />
-                        <br /><br />
-                        <Link route="write_business_review" className="btn btn-book" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}>Déposez un avis</Link>
-                    </p>
                 </div>
-            </Layout>
+                <div className="clearfix"></div>
+            </div>
         );
-    },
-    verified: function(review) {
-        if (review && !review.verified) return null;
-        return (<strong className="pull-right red verified">Avis vérifié</strong>);
+    }
+});
+
+var BusinessYelpReviews = React.createClass ({
+    render: function () {
+        if (!this.props.business.shouldDisplayYelp) return null;
+        return (
+            <div style={{marginTop: '20px'}}>
+                <div className="yelp-title">
+                    <span>Derniers avis Yelp</span>
+                </div>
+                    <div className="comments">
+                        <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
+                        <a href={this.props.business.yelpObject.url} target="_blank">
+                            {_.map(this.props.business.yelpObject.reviews, function(review) {
+                                return (
+                                    <YelpReview key={review.id} review={review} />
+                                );   
+                            }, this)}
+                        </a>
+                    </div>
+                <div className="pull-right">
+                    <Picture picture={{url: "/img/businessPage/yelp-powered.png"}} style={{width: 100}} alt="yelp-powered" />
+                </div>
+                <div className="clearfix"></div>
+            </div>
+        );
     }
 });
 

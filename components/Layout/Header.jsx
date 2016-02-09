@@ -24,7 +24,6 @@ var Header = React.createClass({
         if (props.displaySearch) { 
             this.setState({displaySearch: props.displaySearch}); 
         }
-        console.log("will receive props", props);
     },
     render: function() {
         return (
