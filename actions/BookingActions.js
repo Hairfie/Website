@@ -16,7 +16,9 @@ module.exports = {
             .then(
                 function (booking) {
                     ga('send', 'event', 'Booking', 'Confirm');
-
+                    if(typeof fbq !== "undefined") {
+                        fbq('track', 'Purchase', {value: '6.00', currency: 'EUR'});
+                    }
                     return Promise.all([
                         context.dispatch(Actions.RECEIVE_BOOKING, _.assign(booking, {newsletter: newsletter})),
                         context.executeAction(NavigationActions.navigate, {

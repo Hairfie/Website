@@ -130,11 +130,21 @@ var Layout = React.createClass({
           "description": description.content
         };
 
-        if(business.numReviews > 0) {
-            markup["aggregateRating"] ={
+        if(business.numReviews > 0 || (business.yelpObject && business.yelpObject.review_count > 0)) {
+            var numReviews = business.numReviews + business.review_count;
+            var rating, numReviews;
+            if(business.rating) {
+                rating = business.rating/100*5;
+                numReviews = business.numReviews;
+            } else if (business.yelpObject.review_count ) {
+                rating = business.yelpObject.rating;
+                numReviews = business.yelpObject.review_count;
+            }
+
+            markup["aggregateRating"] = {
                 "@type": "AggregateRating",
-                "ratingValue": business.rating/100*5,
-                "reviewCount": business.numReviews
+                "ratingValue": rating,
+                "reviewCount": numReviews
             }
         }
 
