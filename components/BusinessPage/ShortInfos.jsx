@@ -74,7 +74,10 @@ module.exports = React.createClass({
                   <PriceRating business={business} />
                 </div>
                 <div className="col-xs-6 col-sm-offset-0 col-sm-3 avis" style={{padding: '0', marginTop: '-5px'}}>
-                  <Link className="btn" route="write_business_review" query={{businessId: this.props.business.id}}>Déposez un avis</Link>
+                  <Link className="btn btn-review" route="write_business_review" query={{businessId: this.props.business.id}}>
+                    <i className="icon-white-star" />
+                    Déposez un avis
+                  </Link>
                 </div>
               </div>
               <Breadcrumb business={business} />

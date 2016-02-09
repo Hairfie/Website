@@ -82,7 +82,7 @@ var BusinessTab = React.createClass({
                 break;
             case 'hairfies':
                 route = 'business_hairfies';
-                content = <TabContent label={numHairfies + ' Hairfies'} extraClass="icon-hairfie" />;
+                content = <TabContent label={numHairfies ? numHairfies + ' Hairfies' : 'Hairfies'} extraClass="icon-hairfie" />;
                 break;
         }
         return (
@@ -149,24 +149,6 @@ var Layout = React.createClass({
                                                 <BusinessTab tab="infos" active={'infos' === this.props.tab} business={business} />
                                                 <BusinessTab tab="reviews" active={'reviews' === this.props.tab} business={business} />
                                                 <BusinessTab tab="hairfies" active={'hairfies' === this.props.tab} business={business} />
-
-                                                {/*<li className={'col-xs-4'+('infos' === this.props.tab ? ' active' : '')}>
-                                                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
-                                                        <span className="icon-nav"></span>
-                                                        Info
-                                                    </Link>
-                                                </li>
-                                                <li className={'col-xs-4'+('reviews' === this.props.tab ? ' active' : '')}>
-                                                    <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
-                                                        {this.renderReviewTab()}
-                                                    </Link>
-                                                </li>
-                                                <li className={'col-xs-4'+('hairfies' === this.props.tab ? ' active' : '')}>
-                                                    <Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} preserveScrollPosition={true}>
-                                                        <span className="icon-nav"></span>
-                                                        {numHairfies} Hairfies
-                                                    </Link>
-                                                </li>*/}
                                             </ul>
                                         </div>
                                         <div className="tab-content">

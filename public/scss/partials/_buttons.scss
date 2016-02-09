@@ -1,7 +1,7 @@
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white, .btn-book {
+.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white, .btn-book, .btn-review {
     @extend .btn;
     &.btn-red {
         background-color: $hairfie;
@@ -21,6 +21,24 @@
     &.btn-book {
         background-color: $book;
         border-bottom-color: $book-darker;
+    }
+
+    &.btn-review {
+        background-color: $hairfie !important;
+        text-transform: uppercase;
+        width: 180px;
+        span {
+            line-height: 21px;
+            margin-left: 5px;
+        }
+        @include flex-center;
+        i {
+            content: ' ';
+            background: url(../img/icons/star-white.svg) no-repeat center center;
+            background-size: contain;
+            width: 20px;
+            height: 20px;
+        }
     }
 
     border: none;

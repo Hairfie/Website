@@ -174,13 +174,9 @@
 			width: 100%;
   			padding-top: 16px;
 
-			a.btn {
-				color: $hairfie;
-    			border: solid;
-    			border-width: 3px;
-    			width: 100%;
-   				border-radius: 20px;
-			}
+  			.btn-review {
+  				float: right;
+  			}
   			div.timetable {
   				padding: 10px 15px 15px 15px;
     			background-color: #f8f8f8;
@@ -330,9 +326,8 @@
 		.full-tab {
 			height: 100%;
 			width: 100%;
-			display: -webkit-flex;
-		    align-items: center;
-		    text-align: center;
+            @include flex-center;
+
 		    > span {
 		    	width: 100%;
 		    }
@@ -341,9 +336,7 @@
 		    float: left;
 		    width: 50%;
 		    height: 100%;
-		    display: -webkit-flex;
-		    align-items: center;
-		    text-align: center;
+	        @include flex-center;
 		}
 		.semi-tab:nth-child(2)::before {
 		    content: '';
@@ -387,9 +380,7 @@
                 .bottom-tab {
                     height: 13px;
                     width: 100%;
-                    display: -webkit-flex;
-                    align-items: center;
-                    text-align: center;
+	                @include flex-center;
                     > span {
                         width: 100%;
                         margin-top: -26px;
