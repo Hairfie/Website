@@ -9384,9 +9384,12 @@ div.connect-button .facebook {
           line-height: 20px;
           height: 20px; } }
     .cal td.off {
-      background: #f3f3f3; }
+      background: #f3f3f3;
+      cursor: not-allowed; }
     .cal td.off a {
       color: #dbdddf; }
+    .cal td.today, .cal td.today:hover {
+      background-color: #c4c4c4; }
     .cal td.active, .cal td:active {
       background-color: #fc5a5f !important;
       line-height: 2.2em; }

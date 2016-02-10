@@ -129,6 +129,7 @@
       line-height: 40px;
       height: 40px;
     }
+
     a {
       clear: both;
       display: block;
@@ -162,9 +163,16 @@
       }
     }
 
-    &.off { background: #f3f3f3; }
+    &.off { 
+      background: #f3f3f3;
+      cursor: not-allowed;
+     }
 
     &.off a { color: #dbdddf; }
+
+    &.today, &.today:hover {
+      background-color: $grey;
+    }
     
     &.active, &:active {
       background-color: $red !important;
