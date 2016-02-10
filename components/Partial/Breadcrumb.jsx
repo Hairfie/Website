@@ -68,7 +68,7 @@ var BreadCrumb = React.createClass({
         switch(currentRoute.name) {
             case 'business':
             case 'business_reviews':
-            case 'business_hairfies':
+            case 'business_hairfies': 
                 crumbs = crumbs.concat(businessCrumbs);
                 break;
             case 'business_booking':
@@ -84,7 +84,7 @@ var BreadCrumb = React.createClass({
         crumbs = _.compact(crumbs);
 
         return (
-            <div className="breadcrumb-container visible-md visible-lg">
+            <div className="breadcrumb-container">
                 <ol className="breadcrumb">
                     {_.map(crumbs, function (crumb, index) {
                         if (index == crumbs.length - 1) {

@@ -879,6 +879,11 @@ div.pagination {
         }
     }
 }
+.breadcrumb-main {
+    @media screen and (max-width: $screen-md-min) {
+        @include hide;
+    }
+}
 .breadcrumb {
     font-size: 1.4em;
     padding-left: 0;

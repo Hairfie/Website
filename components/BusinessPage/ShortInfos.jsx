@@ -44,49 +44,69 @@ module.exports = React.createClass({
     render: function () {
         var business = this.props.business || {};
         var address  = business.address || {};
-        var timetable = business.timetable || {};
-
-        var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
+
         return (
             <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
                 <div className="row">
-                    <div className={"col-sm-8" + (displayProfilePicture ? " profilePicture" : "")}>
-                        <h2>{displayAddress}</h2>
+                    <div className={"col-sm-8 short-infos" + (displayProfilePicture ? " profilePicture" : "")}>
+                        <p className="address">{displayAddress}</p>
                         <div className="horaires">
-                            <a role="button" onClick={this.handleDisplayTimetable}>
-                                {timetable[today] && !_.isEmpty(timetable[today]) ? <p className="title green">OUVERT</p> : <p className="title color-hairfie">FERMÉ</p>}
-                                <span className="today">
-                                    {DateTimeConstants.weekDayLabelFR(today) + (_.isEmpty(timetable[today]) ? '' : ' : ' + _.map(parseTimetable(timetable[today]), function(t) {
-                                    return t.startTime + ' - ' + t.endTime;
-                                    }).join(" / ") + ' >')}
-                                </span>
-                                <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
-                                {this.renderTimetable()}
-                                </div>
-                            </a>
+                            {this.displayTimeTableTitle()}
                             <div className={(this.state.displayTimetable ? 'visible-xs' : 'hide')}>
                                 {this.renderTimetable()}
                             </div>
                         </div>
-                        <PriceRating business={business} />
+                        <PriceRating business={business} className="price-rating" />
                         <Link className="btn btn-review" route="write_business_review" query={{businessId: this.props.business.id}}>
                             <i className="icon-white-star" />
                             Déposez un avis
                         </Link>
                     </div>
                     <GlobalReviews business={business} className="global-reviews hidden-xs desktop pull-right" />
-
+                    <div className="clearfix" />
                 </div>
                 <Breadcrumb business={business} />
+                <hr className="visible-xs" />
           </section>
         );
     },
     handleDisplayTimetable: function() {
       this.setState({displayTimetable: (!this.state.displayTimetable)});
+    },
+    displayTimeTableTitle: function() {
+        var timetable = this.props.business.timetable || {};
+        var today = DateTimeConstants.weekDaysNumber[moment().day()];
+
+        if(_.isEmpty(timetable)) {
+            return <div className="more empty"><span>Pas d'infos sur les horaires</span></div>;
+        }
+
+        var todayTimetable = _.map(parseTimetable(timetable[today]), function(t) {
+            return t.startTime + ' à ' + t.endTime;
+        }).join(" et de "); 
+
+        var displayTitle;
+        if(timetable[today] && !_.isEmpty(timetable[today])) {
+            displayTitle = <span className="title green">{"Ouvert de " + todayTimetable}</span>
+        } else {
+            displayTitle = <span className="title color-hairfie">Fermé aujourd'hui</span>
+        }
+
+        return (
+            <a role="button" onClick={this.handleDisplayTimetable}>
+                <div>
+                    {displayTitle}
+                    <span className="more">{' - Voir le détail >'}</span>
+                </div> 
+                <div className={"hidden-xs" + (this.state.displayTimetable ? '' : ' hide')}>
+                {this.renderTimetable()}
+                </div>
+            </a>
+        );
     },
     renderTimetable: function() {
         if (!this.props.business.timetable)

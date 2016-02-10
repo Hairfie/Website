@@ -111,6 +111,7 @@ var Layout = React.createClass({
                     <div className="container">
                         <div className="main-content col-md-8 col-sm-12">
                             <ShortInfos business={business} />
+                            <div className="clearfix" />
                             <section id="salon-content" className="salon-content">
                                 <div className="row">
                                     <div role="tabpannel">

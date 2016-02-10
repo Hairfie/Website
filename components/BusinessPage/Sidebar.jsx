@@ -25,8 +25,8 @@ var Sidebar = React.createClass({
                 {this.renderBookNow()}
                 {this.renderBestDiscount()}
                 {this.renderSimilarBusinesses()}
-                {this.renderPhoneNumber()}
                 {this.renderLocation()}
+                {this.renderPhoneNumber()}
             </div>
         );
     },
