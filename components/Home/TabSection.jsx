@@ -19,7 +19,7 @@ var GenderChoice = React.createClass({
 
 var TabSection = React.createClass({
     render: function () {
-        var tabTitle1 = <div><span className="icon-hair-dryer"/> Trouver un salon </div>;
+        var tabTitle1 = <div><span className="icon-hair-dryer"/> Trouvez un salon </div>;
         var tabTitle2 = <div><span className="icon-photo"/>Inspirez-vous de nos photos</div>;
 
         return (

@@ -547,12 +547,22 @@
                         font-weight: $light;
                         line-height: 12px;
                         margin-bottom: 5px;
-                        color: $grey;
+                        color: $lightgrey;
+                        width: 100%;
                     }
                     .business-reviews {
                         margin-bottom: 5px;
+                        a > img, > a > span, img {
+                            float: left;
+                            margin-right: 5px;
+                        }
                         img {
                             width: 80px;
+                        }
+                        .yelp {
+                            width: 40px;
+                            margin-top: -5px;
+                            margin-bottom: 5px;
                         }
                         .star.min {
                             background-size: 95%;
