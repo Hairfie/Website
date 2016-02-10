@@ -9102,6 +9102,7 @@ div#app {
     background-color: #fe5b5f !important;
     text-transform: uppercase;
     width: 180px;
+    padding: 2px 7px;
     display: -webkit-flexbox;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -9113,13 +9114,19 @@ div#app {
     text-align: center; }
     .btn-red.btn-review span, .btn-blue.btn-review span, .btn-orange.btn-review span, .btn-green.btn-review span, .btn-white.btn-review span, .btn-book.btn-review span, .btn-review.btn-review span {
       line-height: 21px;
-      margin-left: 5px; }
+      margin-left: 5px;
+      margin-top: 3px;
+      margin-bottom: 3px; }
     .btn-red.btn-review i, .btn-blue.btn-review i, .btn-orange.btn-review i, .btn-green.btn-review i, .btn-white.btn-review i, .btn-book.btn-review i, .btn-review.btn-review i {
       content: ' ';
       background: url(../img/icons/star-white.svg) no-repeat center center;
       background-size: contain;
       width: 20px;
-      height: 20px; }
+      height: 20px;
+      margin-bottom: 4px; }
+    .btn-red.btn-review:hover, .btn-blue.btn-review:hover, .btn-orange.btn-review:hover, .btn-green.btn-review:hover, .btn-white.btn-review:hover, .btn-book.btn-review:hover, .btn-review.btn-review:hover {
+      color: white;
+      background: rgba(254, 91, 95, 0.8) !important; }
   .btn-red:hover.btn-red, .btn-red:focus.btn-red, .btn-blue:hover.btn-red, .btn-blue:focus.btn-red, .btn-orange:hover.btn-red, .btn-orange:focus.btn-red, .btn-green:hover.btn-red, .btn-green:focus.btn-red, .btn-white:hover.btn-red, .btn-white:focus.btn-red, .btn-book:hover.btn-red, .btn-book:focus.btn-red, .btn-review:hover.btn-red, .btn-review:focus.btn-red {
     background-color: #fe4246;
     color: white; }
@@ -10932,7 +10939,7 @@ footer.mobile {
     height: 63px;
     line-height: 49px;
     border-radius: 0;
-    color: #d6d6d6;
+    color: #898989;
     font-size: 1.4em;
     font-family: "Lato", sans-serif;
     font-weight: 200; }
@@ -11030,7 +11037,7 @@ section.how {
       height: auto;
       padding-bottom: 10px; }
       section.how h2.col-sm-3 {
-        color: #c4c4c4;
+        color: #898989;
         text-transform: uppercase;
         font-size: 1.6em;
         letter-spacing: 1px;
@@ -11038,13 +11045,14 @@ section.how {
         margin-bottom: 25px;
         padding-top: 35px; }
       section.how .row > div {
-        height: 80px; }
+        height: 80px;
+        color: #898989; }
         section.how .row > div object {
           margin-top: -20px; }
         section.how .row > div h3 {
           color: #898989; }
         section.how .row > div p {
-          color: #c4c4c4;
+          color: #898989;
           letter-spacing: 0; }
         section.how .row > div .how-txt {
           padding-top: 10px; } }
@@ -12056,11 +12064,19 @@ section.home-search .home-search-mobile {
           font-weight: 200;
           line-height: 12px;
           margin-bottom: 5px;
-          color: #c4c4c4; }
+          color: #898989;
+          width: 100%; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews {
           margin-bottom: 5px; }
+          #content.search .main-content .tab-pane#salons .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
+            float: left;
+            margin-right: 5px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
             width: 80px; }
+          #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .yelp, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .yelp {
+            width: 40px;
+            margin-top: -5px;
+            margin-bottom: 5px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star.min, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star.min {
             background-size: 95%; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star {

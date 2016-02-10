@@ -63,7 +63,7 @@ module.exports = React.createClass({
                         <PriceRating business={business} className="price-rating" />
                         <Link className="btn btn-review" route="write_business_review" query={{businessId: this.props.business.id}}>
                             <i className="icon-white-star" />
-                            Déposez un avis
+                            Déposer un avis
                         </Link>
                     </div>
                     <GlobalReviews business={business} className="global-reviews hidden-xs desktop pull-right" />

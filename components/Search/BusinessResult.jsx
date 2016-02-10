@@ -12,6 +12,7 @@ var SearchUtils = require('../../lib/search-utils');
 var Rating = require('../Partial/Rating.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Loading = require('../Partial/Loading.jsx');
+var ReactFitText = require('react-fittext');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -117,9 +118,11 @@ var Business = React.createClass({
                             <h3>{business.name}</h3>
                         </Link>
                     </div>
-                    <div className="business-address">
-                        {business.address.street}, {business.address.zipCode} {business.address.city}    
-                    </div>
+                    <ReactFitText compressor={1.5}>
+                        <div className="business-address">
+                            {business.address.street}, {business.address.zipCode} {business.address.city}    
+                        </div>
+                    </ReactFitText>
                     <div className="business-reviews">
                         {this.renderRating()}
                     </div>
@@ -159,8 +162,8 @@ var Business = React.createClass({
         } else if (this.props.business.yelpObject.review_count > 0) {
             return (
                 <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' - ' + this.props.business.yelpObject.review_count + ' avis'}
-                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginTop: '5px'}} className="visible-xs"/>
+                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' (' + this.props.business.yelpObject.review_count + ')'}
+                    <Picture picture={{url: "/img/search/yelp.png"}} className="visible-xs yelp"/>
                     <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
                 </Link>
             );

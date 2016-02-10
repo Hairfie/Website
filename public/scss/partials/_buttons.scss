@@ -27,9 +27,12 @@
         background-color: $hairfie !important;
         text-transform: uppercase;
         width: 180px;
+        padding: 2px 7px;
         span {
             line-height: 21px;
             margin-left: 5px;
+            margin-top: 3px;
+            margin-bottom: 3px;
         }
         @include flex-center;
         i {
@@ -38,6 +41,12 @@
             background-size: contain;
             width: 20px;
             height: 20px;
+            margin-bottom: 4px;
+        }
+
+        &:hover {
+            color: white;
+            background: rgba(254, 91, 95, .8) !important;
         }
     }
 
