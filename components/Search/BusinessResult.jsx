@@ -118,7 +118,7 @@ var Business = React.createClass({
                             <h3>{business.name}</h3>
                         </Link>
                     </div>
-                    <ReactFitText compressor={1.5}>
+                    <ReactFitText compressor={1.5} maxFontSize={14}>
                         <div className="business-address">
                             {business.address.street}, {business.address.zipCode} {business.address.city}    
                         </div>
