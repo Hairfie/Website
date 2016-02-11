@@ -12664,8 +12664,10 @@ section.home-search .home-search-mobile {
         margin-left: 5px; }
       .salon#content section.salon-content .comments .single-comment {
         padding: 20px 0 0 0; } }
-    .salon#content section.salon-content .btn-book {
-      margin-top: 20px; }
+    .salon#content section.salon-content .btn-review {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px; }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;
