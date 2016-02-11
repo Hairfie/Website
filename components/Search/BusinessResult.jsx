@@ -69,9 +69,7 @@ var Business = React.createClass({
     render: function () {
         var booking_button = null;
         var business = this.props.business;
-        var searchedCategories = this.props.searchedCategories;
         var promo_icon = null;
-        var searchedCategoriesLabels = null;
         /**
         * best discount over picture for mobile
         */
@@ -86,12 +84,6 @@ var Business = React.createClass({
                     Prendre RDV
                 </Link>
             );
-        }
-        if (searchedCategories) {
-            searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
-                return _.includes(business.categories, cat.id)
-            }, this);
-            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){return <span className="business-label hidden-xs">{cat.label}</span>});
         }
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
@@ -133,7 +125,6 @@ var Business = React.createClass({
                     <div className="business-promo">
                         {this.renderDiscount()}
                     </div>
-                    {searchedCategoriesLabels}
                     <div className="book">
                         {booking_button}
                         <span className="hidden-xs">{this.renderAllHairfiesButton()}</span>
@@ -210,14 +201,24 @@ var BusinessResult = React.createClass({
 
         var result = this.props.result;
         var date   = this.props.search && this.props.search.date;
+        var searchedCategories = this.props.searchedCategories;
+        var searchedCategoriesLabels = null;
+        console.log(searchedCategories);
 
         if (result.hits.length == 0) return this.renderNoResult();
-
+        if (searchedCategories) {
+            searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
+                return (
+                    <span key={cat.id} className="business-label" onClick={this.removeCategory.bind(this, cat)}>{cat.label}&times;</span>
+                );
+            }, this)
+        }
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
+                    {searchedCategoriesLabels}
                     {_.map(result.hits, function (business) {
-                        return <Business key={business.id} business={business} date={date} searchedCategories={this.props.searchedCategories}/>
+                        return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
                     }, this)}
                 </div>
                 {this.renderPagination()}
@@ -253,6 +254,12 @@ var BusinessResult = React.createClass({
                 <br />
             </p>
         );
+    },
+    removeCategory: function (category) {
+        console.log("oldCategories", this.props.search.categories);
+        console.log("newCategories", _.without(this.props.search.categories, category.slug));
+
+        this.props.onChange({categories: _.without(this.props.search.categories, category.slug)});
     }
 });
 
