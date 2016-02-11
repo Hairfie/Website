@@ -12336,7 +12336,6 @@ section.home-search .home-search-mobile {
             margin-top: 5px; } }
     .salon#content #carousel-salon .carousel-inner .item {
       height: 470px;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x;
       background-size: cover;
       background: none; }
       @media screen and (max-width: 767px) {
@@ -12346,7 +12345,7 @@ section.home-search .home-search-mobile {
         margin: auto; }
       .salon#content #carousel-salon .carousel-inner .item.placeholder {
         height: 470px;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url(../img/placeholder-salon.png) repeat-x; }
+        background: url(../img/placeholder-salon.png) repeat-x; }
       .salon#content #carousel-salon .carousel-inner .item img {
         background-repeat: no-repeat;
         background-size: cover;
@@ -12354,10 +12353,19 @@ section.home-search .home-search-mobile {
         background-color: #838B95;
         width: 100%;
         height: 100%; }
+      @media screen and (max-width: 767px) {
+        .salon#content #carousel-salon .carousel-inner .item:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.4); } }
     @media screen and (max-width: 767px) {
       .salon#content #carousel-salon .carousel-control {
         display: none; } }
-  .salon#content .global-reviews {
+  .salon#content .global-reviews.desktop {
     position: absolute;
     right: 0; }
     .salon#content .global-reviews.desktop > a {
@@ -12378,47 +12386,47 @@ section.home-search .home-search-mobile {
       .salon#content .global-reviews.desktop .stars .star {
         width: 20px;
         height: 20px; }
-    .salon#content .global-reviews.mobile {
-      display: -webkit-flexbox;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 10px; }
-      @media screen and (min-width: 767px) {
-        .salon#content .global-reviews.mobile {
-          display: none !important; } }
-      .salon#content .global-reviews.mobile > img, .salon#content .global-reviews.mobile > a {
-        float: left; }
-      .salon#content .global-reviews.mobile > img {
-        height: 20px; }
-      .salon#content .global-reviews.mobile > a {
-        font-size: 1.4em;
-        margin-left: 10px; }
-      .salon#content .global-reviews.mobile .stars {
-        float: left;
-        height: inherit; }
-        .salon#content .global-reviews.mobile .stars .star {
-          width: 20px;
-          margin: 0 2px 1px 0; }
-      .salon#content .global-reviews.mobile .num-reviews {
-        color: white;
-        font-size: 1.4em;
-        font-weight: bold;
-        text-decoration: underline; }
-        @media screen and (min-width: 992px) {
-          .salon#content .global-reviews.mobile .num-reviews {
-            position: absolute;
-            left: 100%;
-            top: 8px;
-            width: inherit; } }
-        @media screen and (min-width: 480px) and (max-width: 991px) {
-          .salon#content .global-reviews.mobile .num-reviews {
-            float: right; } }
+  .salon#content .global-reviews.mobile {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px; }
+    @media screen and (min-width: 767px) {
+      .salon#content .global-reviews.mobile {
+        display: none !important; } }
+    .salon#content .global-reviews.mobile > img, .salon#content .global-reviews.mobile > a {
+      float: left; }
+    .salon#content .global-reviews.mobile > img {
+      height: 20px; }
+    .salon#content .global-reviews.mobile > a {
+      font-size: 1.4em;
+      margin-left: 10px; }
+    .salon#content .global-reviews.mobile .stars {
+      float: left;
+      height: inherit; }
+      .salon#content .global-reviews.mobile .stars .star {
+        width: 20px;
+        margin: 0 2px 1px 0; }
+    .salon#content .global-reviews.mobile .num-reviews {
+      color: white;
+      font-size: 1.4em;
+      font-weight: bold;
+      text-decoration: underline; }
+      @media screen and (min-width: 992px) {
+        .salon#content .global-reviews.mobile .num-reviews {
+          position: absolute;
+          left: 100%;
+          top: 8px;
+          width: inherit; } }
+      @media screen and (min-width: 480px) and (max-width: 991px) {
+        .salon#content .global-reviews.mobile .num-reviews {
+          float: right; } }
   .salon#content .main-content {
     position: relative;
     background-color: white;
@@ -12611,9 +12619,22 @@ section.home-search .home-search-mobile {
       width: 120px;
       margin-top: -6px; }
     .salon#content section.salon-content .comments .note-yelp-info {
-      font-size: 1.8em; }
+      font-size: 1.8em;
+      margin-left: 5px; }
     .salon#content section.salon-content .comments .yelp-date {
-      color: #c4c4c4; }
+      color: #c4c4c4;
+      display: block;
+      font-size: 1.4em; }
+    .salon#content section.salon-content .comments .review-rating {
+      float: right; }
+    .salon#content section.salon-content .comments a:hover {
+      color: inherit; }
+    .salon#content section.salon-content .comments .review {
+      letter-spacing: 0;
+      text-align: justify; }
+    @media screen and (max-width: 767px) {
+      .salon#content section.salon-content .comments .single-comment div div.title p {
+        display: inherit; } }
     @media screen and (min-width: 767px) {
       .salon#content section.salon-content .bottom-tab {
         display: none !important; } }
@@ -12639,7 +12660,22 @@ section.home-search .home-search-mobile {
             width: 100%;
             margin-top: -26px; }
         .salon#content section.salon-content .full-tab.reviews-tab span > span {
-          display: none !important; } }
+          display: none !important; }
+      .salon#content section.salon-content .comments .note-yelp-info {
+        font-size: 1.4em; }
+      .salon#content section.salon-content .comments .review-rating {
+        float: left;
+        margin-bottom: 5px;
+        display: block; }
+      .salon#content section.salon-content .comments .yelp-date {
+        display: inline-block;
+        width: 100%; }
+      .salon#content section.salon-content .comments .mini-yelp {
+        width: 40px;
+        margin-right: 5px;
+        margin-left: 5px; }
+      .salon#content section.salon-content .comments .single-comment {
+        padding: 20px 0 0 0; } }
     .salon#content section.salon-content .btn-book {
       margin-top: 20px; }
     .salon#content section.salon-content ul.nav li {
@@ -12727,7 +12763,8 @@ section.home-search .home-search-mobile {
         margin-bottom: 25px;
         letter-spacing: 1px;
         font-weight: 400;
-        font-size: 1.8em; }
+        font-size: 1.8em;
+        float: left; }
       .salon#content section.salon-content section div.average-price {
         font-weight: bold;
         font-size: 1.5em;
