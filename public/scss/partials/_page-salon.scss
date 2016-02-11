@@ -141,12 +141,19 @@
         }
     }
     .global-reviews {
+        position: absolute;
+        right: 0;
         &.desktop {
             > a {
                 float: right;
                 text-align: right;
                 width: 100%;
                 font-size: 1.4em;
+                margin-top: 5px;
+
+                img {
+                    width: 100px
+                }
             }
             > img {
                 float: right;
@@ -214,7 +221,14 @@
         position: relative;
         background-color: white;
         @include fullWidthBg($bg3);
+
         section.salon-info  {
+
+            @media screen and (min-width: $screen-xs-max) {
+                &.open-timetable {
+                    margin-bottom: 40px;
+                }
+            }
             p {
                 font-size: 1.6em;
                 font-weight: 200;

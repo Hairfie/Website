@@ -3,6 +3,8 @@ var _ = require('lodash');
 
 var Rating = require('./Rating.jsx');
 var Link = require('../Link.jsx');
+var Picture = require('../Partial/Picture.jsx');
+
 
 module.exports = React.createClass({
     render: function() {
@@ -15,7 +17,11 @@ module.exports = React.createClass({
         return (
             <div {...this.props}>
                 <Rating business={business} />
-                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">{numReviews ? (numReviews + ' avis') : ''}</Link>
+                <Link route="business_reviews" params={{ businessId: business.id, businessSlug: business.slug }} className="num-reviews">
+                    {numReviews ? (numReviews + ' avis') : ''}
+                    <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
+                </Link>
+                    <Picture picture={{url: "/img/search/yelp.png"}} className="visible-xs yelp" style={{marginLeft: '5px'}}/>
             </div>
         )
     }
