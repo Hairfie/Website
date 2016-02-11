@@ -12595,9 +12595,22 @@ section.home-search .home-search-mobile {
       width: 120px;
       margin-top: -6px; }
     .salon#content section.salon-content .comments .note-yelp-info {
-      font-size: 1.8em; }
+      font-size: 1.8em;
+      margin-left: 5px; }
     .salon#content section.salon-content .comments .yelp-date {
-      color: #c4c4c4; }
+      color: #c4c4c4;
+      display: block;
+      font-size: 1.4em; }
+    .salon#content section.salon-content .comments .review-rating {
+      float: right; }
+    .salon#content section.salon-content .comments a:hover {
+      color: inherit; }
+    .salon#content section.salon-content .comments .review {
+      letter-spacing: 0;
+      text-align: justify; }
+    @media screen and (max-width: 767px) {
+      .salon#content section.salon-content .comments .single-comment div div.title p {
+        display: inherit; } }
     @media screen and (min-width: 767px) {
       .salon#content section.salon-content .bottom-tab {
         display: none !important; } }
@@ -12623,7 +12636,22 @@ section.home-search .home-search-mobile {
             width: 100%;
             margin-top: -26px; }
         .salon#content section.salon-content .full-tab.reviews-tab span > span {
-          display: none !important; } }
+          display: none !important; }
+      .salon#content section.salon-content .comments .note-yelp-info {
+        font-size: 1.4em; }
+      .salon#content section.salon-content .comments .review-rating {
+        float: left;
+        margin-bottom: 5px;
+        display: block; }
+      .salon#content section.salon-content .comments .yelp-date {
+        display: inline-block;
+        width: 100%; }
+      .salon#content section.salon-content .comments .mini-yelp {
+        width: 40px;
+        margin-right: 5px;
+        margin-left: 5px; }
+      .salon#content section.salon-content .comments .single-comment {
+        padding: 20px 0 0 0; } }
     .salon#content section.salon-content .btn-book {
       margin-top: 20px; }
     .salon#content section.salon-content ul.nav li {
@@ -12711,7 +12739,8 @@ section.home-search .home-search-mobile {
         margin-bottom: 25px;
         letter-spacing: 1px;
         font-weight: 400;
-        font-size: 1.8em; }
+        font-size: 1.8em;
+        float: left; }
       .salon#content section.salon-content section div.average-price {
         font-weight: bold;
         font-size: 1.5em;
