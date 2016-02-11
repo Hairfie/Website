@@ -118,13 +118,14 @@ var Business = React.createClass({
                             <h3>{business.name}</h3>
                         </Link>
                     </div>
-                    <ReactFitText compressor={1.5} maxFontSize={14}>
+                    <ReactFitText compressor={1.55} maxFontSize={14}>
                         <div className="business-address">
-                            {business.address.street}, {business.address.zipCode} {business.address.city}    
+                            {business.address.street + ', ' + business.address.zipCode + ' ' + business.address.city}    
                         </div>
                     </ReactFitText>
                     <div className="business-reviews">
                         {this.renderRating()}
+                        <div className="clearfix" />
                     </div>
                     <div className="business-price-rating">
                         {this.renderPricing()}
@@ -156,7 +157,13 @@ var Business = React.createClass({
 
             return (
                 <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }} query={query}>
-                    <Rating rating={this.props.business.rating} min={true} className="interactive" />{' - ' + this.props.business.numReviews + ' avis'}
+                    <span className="desktop">
+                        <Rating rating={this.props.business.rating} min={true} />
+                        {' - ' + this.props.business.numReviews + ' avis'}
+                    </span>
+                    <span className="mobile">
+                        <Rating rating={this.props.business.rating} min={true} />{' (' + this.props.business.numReviews + ')'}
+                    </span>
                 </Link>
             );
         } else if (this.props.business.yelpObject.review_count > 0) {
