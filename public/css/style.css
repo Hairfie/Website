@@ -12001,6 +12001,13 @@ section.home-search .home-search-mobile {
         width: 120px;
         margin: 0;
         display: inline; }
+      #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .mobile, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .mobile {
+        display: none !important; }
+      @media screen and (max-width: 767px) {
+        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .desktop, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .desktop {
+          display: none !important; }
+        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .mobile, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .mobile {
+          display: block !important; } }
     #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
       color: white;
       background-color: #fe5b5f;
@@ -12066,25 +12073,27 @@ section.home-search .home-search-mobile {
           letter-spacing: 0;
           font-weight: 200;
           line-height: 12px;
-          margin-bottom: 5px;
+          margin-bottom: 2px;
           color: #898989;
           width: 100%; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews {
-          margin-bottom: 5px; }
-          #content.search .main-content .tab-pane#salons .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
+          margin: 0 0 5px; }
+          #content.search .main-content .tab-pane#salons .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .stars, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .stars {
             float: left;
             margin-right: 5px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
-            width: 80px; }
+            width: 80px;
+            margin-top: 1px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .yelp, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .yelp {
             width: 40px;
-            margin-top: -5px;
-            margin-bottom: 5px; }
+            margin-top: -5px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star.min, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star.min {
             background-size: 95%; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star {
             height: 16px;
             width: 16px; }
+          #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .stars, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .stars {
+            height: 16px; }
           #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span {
             line-height: 16px;
             font-size: 1.8em;

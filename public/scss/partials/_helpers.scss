@@ -92,6 +92,10 @@
 	display: none !important;
 }
 
+@mixin show() {
+	display: initial !important;
+}
+
 @mixin hr($color, $height, $margin)
 {
 	background-color: $color;

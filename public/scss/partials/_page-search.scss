@@ -470,6 +470,17 @@
                         margin: 0;
                         display: inline;
                     }
+                    .mobile {
+                        @include hide;
+                    }
+                    @media screen and (max-width: $screen-xs-max) {
+                        .desktop {
+                            @include hide;
+                        }
+                        .mobile {
+                            display: block !important;
+                        }
+                    }
                 }
                 .business-label {
                     color: white;
@@ -546,23 +557,23 @@
                         letter-spacing: 0;
                         font-weight: $light;
                         line-height: 12px;
-                        margin-bottom: 5px;
+                        margin-bottom: 2px;
                         color: $lightgrey;
                         width: 100%;
                     }
                     .business-reviews {
-                        margin-bottom: 5px;
-                        a > img, > a > span, img {
+                        margin: 0 0 5px;
+                        a > img, > a > span, img, .stars {
                             float: left;
                             margin-right: 5px;
                         }
                         img {
                             width: 80px;
+                            margin-top: 1px;
                         }
                         .yelp {
                             width: 40px;
                             margin-top: -5px;
-                            margin-bottom: 5px;
                         }
                         .star.min {
                             background-size: 95%;
@@ -570,6 +581,9 @@
                         .star {
                             height: 16px;
                             width: 16px;
+                        }
+                        .stars {
+                            height: 16px;
                         }
                         > a > span {
                             line-height: 16px;
