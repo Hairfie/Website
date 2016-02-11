@@ -17,10 +17,22 @@ var HairfieResult = React.createClass({
         //<div className="hairfie-search-newsletter">
         //    <Newsletter />
         //</div>
+        var searchedCategories = this.props.searchedCategories;
+        var searchedCategoriesLabels = null;
+        if (searchedCategories) {
+            searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
+                return (
+                    <span key={cat} className="business-label" onClick={this.removeCategory.bind(this, cat)}>{cat}&times;</span>
+                );
+            }, this)
+        }
         return (
             <div className="tab-pane active">
 
                 <section>
+                    <div>
+                        {searchedCategoriesLabels}
+                    </div>
                     <div className="salon-hairfies hairfies">
                         <div className="row">
                             {_.map(this.props.result.hits, function (hairfie) {
@@ -55,6 +67,10 @@ var HairfieResult = React.createClass({
                 <br />
             </p>
         );
+    },
+    removeCategory: function (category) {
+        debugger;
+        this.props.onChange({tags: _.without(this.props.search.tags, category)});
     }
 });
 

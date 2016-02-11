@@ -203,8 +203,6 @@ var BusinessResult = React.createClass({
         var date   = this.props.search && this.props.search.date;
         var searchedCategories = this.props.searchedCategories;
         var searchedCategoriesLabels = null;
-        console.log(searchedCategories);
-
         if (result.hits.length == 0) return this.renderNoResult();
         if (searchedCategories) {
             searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
@@ -216,7 +214,9 @@ var BusinessResult = React.createClass({
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
-                    {searchedCategoriesLabels}
+                        {searchedCategoriesLabels}
+                    </div>
+                <div className="row">
                     {_.map(result.hits, function (business) {
                         return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
                     }, this)}
@@ -256,9 +256,6 @@ var BusinessResult = React.createClass({
         );
     },
     removeCategory: function (category) {
-        console.log("oldCategories", this.props.search.categories);
-        console.log("newCategories", _.without(this.props.search.categories, category.slug));
-
         this.props.onChange({categories: _.without(this.props.search.categories, category.slug)});
     }
 });
