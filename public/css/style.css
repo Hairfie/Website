@@ -9809,6 +9809,10 @@ a {
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .searchbar.small-search .btn-red {
         padding: 6px 10px; } }
+    @media (max-width: 991px) {
+      .searchbar.small-search .btn-red {
+        padding: 0 10px 0 10px;
+        font-size: 1.2em; } }
 
 figure {
   position: relative; }
