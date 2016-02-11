@@ -352,10 +352,6 @@
         }
     }
     section.salon-content {
-        @media screen and (max-width: $screen-xs-max) {
-            //margin-top: 20px;
-        }
-        //margin-top: 20px;
         margin-bottom: 70px;
         .row {
             @media screen and (min-width: $screen-xs-max) {
@@ -424,9 +420,27 @@
             }
             .note-yelp-info {
                 font-size: 1.8em;
+                margin-left: 5px;
             }
             .yelp-date {
                 color: $grey;
+                display: block;
+                font-size: 1.4em;
+            }
+            .review-rating {
+                float: right;
+            }
+            a:hover {
+                color: inherit;
+            }
+            .review {
+                letter-spacing: 0;
+                text-align: justify;
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                .single-comment div div.title p {
+                    display: inherit;
+                }
             }
         }
         @media screen and (min-width: $screen-xs-max) {
@@ -453,6 +467,28 @@
                 }
                 span > span {
                         @include hide;
+                }
+            }
+            .comments {
+                .note-yelp-info {
+                    font-size: 1.4em;
+                }
+                .review-rating {
+                    float: left;
+                    margin-bottom: 5px;
+                    display: block;
+                }
+                .yelp-date {
+                    display: inline-block;
+                    width: 100%;
+                }
+                .mini-yelp {
+                    width: 40px;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+                .single-comment {
+                    padding: 20px 0 0 0;
                 }
             }
         }
@@ -567,6 +603,7 @@
                 letter-spacing: 1px;
                 font-weight: 400;
                 font-size: 1.8em;
+                float: left;
             }
             div.average-price {
                     font-weight: bold;

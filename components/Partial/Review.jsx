@@ -41,16 +41,16 @@ module.exports = React.createClass({
                 <div className="col-xs-9 col-sm-10">
                     <div className="title">
                         <p>{displayName(review)}{symbol}</p>
-                        <Rating rating={review.rating} min={true} className="pull-right" />
+                        <Rating rating={review.rating} min={true} className="review-rating" />
                     </div>
-                    <p>{review.comment}</p>
                     {this.verified(review)}
                 </div>
+                <p className="col-xs-12 col-sm-10 review">{review.comment}</p>
             </div>
         );
     },
     verified: function(review) {
-        if (review && !review.verified) return (<strong className="pull-right darkgrey">Avis libre déposé le {moment(review.createdAt).format('LL')}</strong>);;
-        return (<strong className="pull-right ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</strong>);
+        if (review && !review.verified) return (<span className="yelp-date">Avis libre déposé le {moment(review.createdAt).format('LL')}</span>);;
+        return (<span className="yelp-date ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</span>);
     }
 });
