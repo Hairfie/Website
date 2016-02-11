@@ -5,6 +5,7 @@ var _ = require('lodash');
 var UserProfilePicture = require('./UserProfilePicture.jsx');
 var Rating = require('./Rating.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var ReactFitText = require('react-fittext');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -20,14 +21,21 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-xs-9 col-sm-10">
                     <div className="title">
-                        <p>{review.user.name + ' via Yelp'}</p>
-                        <img src={review.rating_image_large_url} className="pull-right" style={{width: '120px'}}/>
-                        <Picture picture={{url: "/img/businessPage/yelp-reviews.png"}} style={{width: 100, marginRight: '5px'}} className="pull-right" alt="yelp-reviews" />
-                        <br/>
-                        <span className="yelp-date">{moment(review.time_created*1000).format('LL')}</span>
+                        <div>
+                            <p>{review.user.name + ' via Yelp'}</p>
+                            <p>
+                                <img src={review.rating_image_large_url} className="review-rating" style={{width: '120px'}}/>
+                                <Picture picture={{url: "/img/businessPage/yelp.png"}} className="review-rating visible-xs mini-yelp" alt="yelp-reviews" />
+                                <Picture picture={{url: "/img/businessPage/yelp-reviews.png"}} style={{width: 100, marginRight: '5px'}} className="review-rating hidden-xs" alt="yelp-reviews" />
+                            </p>
+                        </div>
+                        <ReactFitText compressor={0.4} maxFontSize={14}>
+                            <span className="yelp-date">{moment(review.time_created*1000).format('LL')}</span>
+                        </ReactFitText>
                     </div>
-                    <p>{review.excerpt}</p>
+                    
                 </div>
+                <p className="col-xs-12 col-sm-10 review">{review.excerpt}</p>
             </div>
         );
     }
