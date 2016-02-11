@@ -82,7 +82,8 @@ var BusinessYelpReviews = React.createClass ({
                     <span>Derniers avis Yelp</span>
                 </div>
                     <div className="comments">
-                        <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
+                        <img src={this.props.business.yelpObject.rating_img_url_large} className="note-yelp"/> 
+                        <span className="note-yelp-info">{'Note globale basée sur ' + this.props.business.yelpObject.review_count + ' avis'}</span>
                         <a href={this.props.business.yelpObject.url} target="_blank">
                             {_.map(this.props.business.yelpObject.reviews, function(review) {
                                 return (
