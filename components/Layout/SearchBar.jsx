@@ -31,7 +31,7 @@ var SearchBar = React.createClass({
     renderSearchBar: function() {
         if (this.props.displaySearch) {
             return (
-                <div className="searchbar small-search col-xs-12 hidden-sm">
+                <div className="searchbar small-search col-xs-12 hidden-xs">
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         {this.renderSelect()}
                     </div>

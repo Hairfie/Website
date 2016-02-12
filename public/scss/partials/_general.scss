@@ -419,6 +419,10 @@ a {
         @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
             padding: 6px 10px;
         }
+        @media (max-width: $screen-sm-max) {
+            padding: 0 10px 0 10px;
+            font-size: 1.2em;
+        }
     }
 }
 // figure
