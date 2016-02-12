@@ -12367,8 +12367,8 @@ section.home-search .home-search-mobile {
           width: 100%;
           background-color: rgba(0, 0, 0, 0.4); } }
     @media screen and (max-width: 767px) {
-      .salon#content #carousel-salon .carousel-control {
-        display: none; } }
+      .salon#content #carousel-salon .carousel-control .glyphicon {
+        top: calc(50% - 5px); } }
   .salon#content .global-reviews.desktop {
     position: absolute;
     right: 0; }
@@ -13216,7 +13216,9 @@ section.home-search .home-search-mobile {
       margin: initial !important; }
   @media screen and (max-width: 767px) {
     .hairfie-singleView {
-      margin-top: 100px; } }
+      margin-top: 65px; }
+      .hairfie-singleView .breadcrumb {
+        margin-bottom: 5px; } }
   .hairfie-singleView > a span.arrow {
     position: absolute;
     top: 283px; }

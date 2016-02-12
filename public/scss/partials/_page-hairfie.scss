@@ -64,7 +64,10 @@
         }
     }
     @media screen and (max-width: $screen-xs-max) {
-        margin-top: 100px;
+        margin-top: 65px;
+        .breadcrumb {
+            margin-bottom: 5px;
+        }
     }
     min-height: #{"calc(100vh - 60px)"};
     height: 100%;
