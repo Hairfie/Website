@@ -49,7 +49,7 @@ var BusinessSearchPage = React.createClass({
             return _.includes(this.props.search.categories, cat.slug);
         }, this);
 
-        return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories}/>;
+        return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories} onChange={this.handleSearchChange}/>;
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });

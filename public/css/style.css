@@ -11916,7 +11916,7 @@ section.home-search .home-search-mobile {
     margin: 0; }
     @media screen and (min-width: 768px) {
       #content.search .main-content .tab-pane#salons .row:first-child, #content.search .main-content .tab-pane#adom .row:first-child {
-        margin-top: 10px; } }
+        margin-top: 5px; } }
   #content.search .main-content .tab-pane#salons a.extend-search, #content.search .main-content .tab-pane#adom a.extend-search {
     font-weight: 400;
     font-size: 1.5em; }
@@ -12244,6 +12244,22 @@ section.home-search .home-search-mobile {
     width: 100%;
     top: 100%; }
 
+#content.search .business-label {
+  color: white;
+  background-color: #fe5b5f;
+  font-size: 1.6em;
+  padding: 5px 25px 5px 5px;
+  margin: 15px 5px 10px 0;
+  display: inline-block;
+  position: relative;
+  cursor: pointer; }
+  #content.search .business-label span:nth-child(2) {
+    font-size: 1.8em;
+    font-weight: 200;
+    position: absolute;
+    top: -3px;
+    right: 5px; }
+
 @media screen and (max-width: 767px) {
   .bg-white-xs {
     background-color: #FFF; } }
@@ -12351,8 +12367,8 @@ section.home-search .home-search-mobile {
           width: 100%;
           background-color: rgba(0, 0, 0, 0.4); } }
     @media screen and (max-width: 767px) {
-      .salon#content #carousel-salon .carousel-control {
-        display: none; } }
+      .salon#content #carousel-salon .carousel-control .glyphicon {
+        top: calc(50% - 5px); } }
   .salon#content .global-reviews.desktop {
     position: absolute;
     right: 0; }
@@ -13204,7 +13220,9 @@ section.home-search .home-search-mobile {
       margin: initial !important; }
   @media screen and (max-width: 767px) {
     .hairfie-singleView {
-      margin-top: 100px; } }
+      margin-top: 65px; }
+      .hairfie-singleView .breadcrumb {
+        margin-bottom: 5px; } }
   .hairfie-singleView > a span.arrow {
     position: absolute;
     top: 283px; }

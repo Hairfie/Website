@@ -69,8 +69,8 @@ var Business = React.createClass({
     render: function () {
         var booking_button = null;
         var business = this.props.business;
-        var searchedCategories = this.props.searchedCategories;
         var promo_icon = null;
+        var searchedCategories = this.props.searchedCategories;
         var searchedCategoriesLabels = null;
         /**
         * best discount over picture for mobile
@@ -210,14 +210,24 @@ var BusinessResult = React.createClass({
 
         var result = this.props.result;
         var date   = this.props.search && this.props.search.date;
-
+        var searchedCategories = this.props.searchedCategories;
+        var searchedCategoriesLabels = null;
         if (result.hits.length == 0) return this.renderNoResult();
-
+        if (searchedCategories) {
+            searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
+                return (
+                    <span key={cat.id} className="business-label" onClick={this.removeCategory.bind(this, cat)}>{cat.label}&times;</span>
+                );
+            }, this)
+        }
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
+                        {searchedCategoriesLabels}
+                    </div>
+                <div className="row">
                     {_.map(result.hits, function (business) {
-                        return <Business key={business.id} business={business} date={date} searchedCategories={this.props.searchedCategories}/>
+                        return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
                     }, this)}
                 </div>
                 {this.renderPagination()}
@@ -253,6 +263,9 @@ var BusinessResult = React.createClass({
                 <br />
             </p>
         );
+    },
+    removeCategory: function (category) {
+        this.props.onChange({categories: _.without(this.props.search.categories, category.slug)});
     }
 });
 

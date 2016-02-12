@@ -147,7 +147,10 @@
         }
         .carousel-control {
             @media screen and (max-width: $screen-xs-max) {
-                display: none;
+                .glyphicon {
+                    top: calc(50% - 5px);
+                }
+                //display: none;
             }
         }
     }
