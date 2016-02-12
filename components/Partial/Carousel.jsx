@@ -25,6 +25,7 @@ module.exports = React.createClass({
             );
         }, this);
         if (items.length == 0) items.push(<div className="item active placeholder" />);
+
         return (
             <div {...this.props} className={"carousel slide" + (this.props.className ? (" " + this.props.className) : "")} data-ride="carousel" data-interval="false">
                 <div className="carousel-inner" role="listbox">
@@ -37,6 +38,11 @@ module.exports = React.createClass({
                 {gallery}
             </div>
         );
+    },
+    componentDidUpdate: function() {
+        if(typeof window !== 'undefined') {
+            window.dispatchEvent(new Event('resize'));
+        }
     },
     renderControlLeft: function() {
         if(!this.props.pictures || this.props.pictures.length < 2) return null;
@@ -100,7 +106,6 @@ module.exports = React.createClass({
         this.setState({displayIndex: next});
     },
     move: function(move, e) {
-        console.log("move", move);
         e.preventDefault();
         this.setState({displayIndex: move});
     },

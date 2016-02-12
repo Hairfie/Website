@@ -12667,7 +12667,10 @@ section.home-search .home-search-mobile {
     .salon#content section.salon-content .btn-review {
       margin-left: auto;
       margin-right: auto;
-      margin-top: 10px; }
+      margin-top: 10px;
+      justify-content: center;
+      display: inline-flex;
+      width: inherit; }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;
@@ -12750,16 +12753,17 @@ section.home-search .home-search-mobile {
         margin-left: -15px;
         color: #fe5b5f;
         margin-top: -20px;
-        margin-bottom: 25px;
+        margin-bottom: 0;
         letter-spacing: 1px;
         font-weight: 400;
-        font-size: 1.8em;
-        float: left; }
+        font-size: 1.8em; }
       .salon#content section.salon-content section div.average-price {
         font-weight: bold;
         font-size: 1.5em;
         background-color: #f4f4f4;
         height: 70px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
         border: none; }
         @media screen and (max-width: 767px) {
           .salon#content section.salon-content section div.average-price {
@@ -12788,7 +12792,7 @@ section.home-search .home-search-mobile {
             .salon#content section.salon-content section div.average-price div.price {
               width: 50px;
               height: 50px;
-              font-size: 1.4em;
+              font-size: 1.3em;
               padding: 10px;
               top: -7px; } }
       @media screen and (max-width: 767px) {

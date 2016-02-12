@@ -521,6 +521,9 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 10px;
+            justify-content: center;
+            display: inline-flex;
+            width: inherit;
         }
 
         ul.nav {
@@ -626,17 +629,19 @@
                 margin-left: -15px;
                 color: $hairfie;
                 margin-top: -20px;
-                margin-bottom: 25px;
+                margin-bottom: 0;
                 letter-spacing: 1px;
                 font-weight: 400;
                 font-size: 1.8em;
-                float: left;
+                //float: left;
             }
             div.average-price {
                     font-weight: bold;
                     font-size: 1.5em;
                     background-color: $bg3;
                     height: 70px;
+                    border-top-right-radius: 30px;
+                    border-bottom-right-radius: 30px;
                     @media screen and (max-width: $screen-xs-max) {
                         height: 35px;
                         font-size: 1.3em;
@@ -644,6 +649,7 @@
                     border: none;
                     div.gender {
                         margin-top: 25px;
+                        //float: right;
                         @media screen and (max-width: $screen-xs-max) {
                             margin-top: 12px;
                         }
@@ -662,10 +668,11 @@
                         display: inline-block;
                         border: 2px solid $hairfie;
                         border-radius: 100%;
+                        //float right;
                         @media screen and (max-width: $screen-xs-max) {
                             width: 50px;
                             height: 50px;
-                            font-size: 1.4em;
+                            font-size: 1.3em;
                             padding: 10px;
                             top: -7px;
                         }
