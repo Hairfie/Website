@@ -70,6 +70,8 @@ var Business = React.createClass({
         var booking_button = null;
         var business = this.props.business;
         var promo_icon = null;
+        var searchedCategories = this.props.searchedCategories;
+        var searchedCategoriesLabels = null;
         /**
         * best discount over picture for mobile
         */
@@ -84,6 +86,12 @@ var Business = React.createClass({
                     Prendre RDV
                 </Link>
             );
+        }
+        if (searchedCategories) {
+            searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
+                return _.includes(business.categories, cat.id)
+            }, this);
+            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){return <span className="business-label hidden-xs">{cat.label}</span>});
         }
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
@@ -125,6 +133,7 @@ var Business = React.createClass({
                     <div className="business-promo">
                         {this.renderDiscount()}
                     </div>
+                    {searchedCategoriesLabels}
                     <div className="book">
                         {booking_button}
                         <span className="hidden-xs">{this.renderAllHairfiesButton()}</span>
