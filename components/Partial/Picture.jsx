@@ -31,7 +31,7 @@ module.exports = React.createClass({
     },
     render: function () {
         if(this.props.backgroundStyle) {
-            return <img ref="image" {...this.props} style={this.getBackgroundStyle()} />
+            return <img ref="image" {...this.props} style={this.getBackgroundStyle()} src={this.getSrc()} />
         }
         if (this.props.svg) {
             return <object ref="image" {...this.props} data={this.getSrc()} />
@@ -40,7 +40,8 @@ module.exports = React.createClass({
     },
     getBackgroundStyle: function() {
         return {
-            backgroundImage: (this.props.backgroundProps || '') + ' url(' + this.getSrc() + ')'
+            backgroundImage: (this.props.backgroundProps || '') + ' url(' + this.getSrc() + ')',
+            paddingLeft: '100% !important'
         }
     },
     getSrc: function () {
