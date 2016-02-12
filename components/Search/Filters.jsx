@@ -216,7 +216,7 @@ var Filters = React.createClass({
                     var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
                     var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
                     return (
-                        <label className="checkbox-inline">
+                        <label key={DateTimeConstants.weekDayLabelFR(day)} className="checkbox-inline">
                             <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
                             <span />
                             {DateTimeConstants.weekDayLabelFR(day)}
