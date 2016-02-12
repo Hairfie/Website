@@ -29,7 +29,6 @@ var HairfieSearchPage = React.createClass({
     renderFilters: function () {
         var result = _.keys((this.props.result || {}).tags);
         var tags = this.props.tags;
-
         return <Search.Filters
             tab="hairfie"
             search={this.props.search}
@@ -38,7 +37,7 @@ var HairfieSearchPage = React.createClass({
             onChange={this.handleSearchChange} />;
     },
     renderResults: function () {
-        return <Search.HairfieResult search={this.props.search} result={this.props.result} />;
+        return <Search.HairfieResult search={this.props.search} result={this.props.result} searchedCategories={this.props.search.tags} onChange={this.handleSearchChange} />;
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });

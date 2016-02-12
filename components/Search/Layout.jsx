@@ -68,7 +68,7 @@ var Layout = React.createClass({
                                 <div className="row">
                                     <div role="tabpanel" className="bg-white-xs">
                                         <div className="row">
-                                            {this.renderTabs()}
+                                            {/*this.renderTabs()*/}
                                         </div>
                                         <div className="tab-content">
                                             {this.props.results}
