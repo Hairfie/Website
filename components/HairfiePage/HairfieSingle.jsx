@@ -40,7 +40,7 @@ module.exports = React.createClass({
         if (!this.props.hairfie.price) return;
         return (
                 <div className="pricetag">
-                    <ReactFitText compressor={0.33}>
+                    <ReactFitText compressor={0.33} minFontSize={10}>
                         <span className="price">{this.props.hairfie.price.amount+'€'}</span>
                     </ReactFitText>
                 </div>

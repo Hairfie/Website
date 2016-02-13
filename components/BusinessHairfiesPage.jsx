@@ -47,7 +47,7 @@ var BusinessHairfiesPage = React.createClass({
                 <h3>Prix moyen constaté</h3>
                 <p className="title">Sur les hairfies du salon</p>
                 <div className="row average-price">
-                    <div className={"col-xs-6 col-sm-5" + (averagePrice.women ? '' : ' hide')}>
+                    <div className={"col-xs-6 col-sm-6 pull-right" + (averagePrice.women ? '' : ' hide')}>
                         <div className="gender">
                             FEMME
                         </div>
@@ -55,7 +55,7 @@ var BusinessHairfiesPage = React.createClass({
                             <span>{parseInt(averagePrice.women) + '€'}</span>
                         </div>
                     </div>
-                    <div className={"col-xs-6 col-sm-5" + (averagePrice.men ? '' : ' hide')}>
+                    <div className={"col-xs-6 col-sm-6 pull-right" + (averagePrice.men ? '' : ' hide')}>
                         <div className="gender">
                             HOMME
                         </div>
