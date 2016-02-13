@@ -47,7 +47,7 @@ module.exports = React.createClass({
     renderControlLeft: function() {
         if(!this.props.pictures || this.props.pictures.length < 2) return null;
         return (
-            <a className="left carousel-control" href="#carousel-salon" role="button" onClick={this.openGallery}>
+            <a className="left carousel-control" href="#carousel-salon" role="button" onClick={this.handleLeftClick}>
                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span className="sr-only">Précédent</span>
             </a>
@@ -56,7 +56,7 @@ module.exports = React.createClass({
     renderControlRight: function() {
         if (!this.props.pictures || this.props.pictures.length < 2) return null;
         return (
-            <a className="right carousel-control" href="#carousel-salon" role="button" onClick={this.openGallery}>
+            <a className="right carousel-control" href="#carousel-salon" role="button" onClick={this.handleRightClick}>
                 <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span className="sr-only">Suivant</span>
             </a>
@@ -83,6 +83,20 @@ module.exports = React.createClass({
         }
         else {
             return <p className="after">Après</p>;
+        }
+    },
+    handleLeftClick: function(e) {
+        if(this.props.gallery) {
+            this.openGallery(e);
+        } else {
+            this.previous(e);
+        }
+    },
+    handleRightClick: function(e) {
+        if(this.props.gallery) {
+            this.openGallery(e);
+        } else {
+            this.next(e);
         }
     },
     previous: function(e) {

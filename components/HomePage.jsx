@@ -53,7 +53,6 @@ var HomePage = React.createClass({
                         <Home.Styles />
                         <Home.Deals deals={this.props.deals} />
                         <Home.BlogPosts posts={this.props.posts} />
-                        <Home.TopHairfies hairfies={this.props.hairfies} />
                         <Home.DownloadSection />
                     </div>
                 </div>
@@ -99,7 +98,6 @@ HomePage = connectToStores(HomePage, [
         categories  : context.getStore('CategoryStore').getAllCategories(),
         tags        : context.getStore('TagStore').getAllTags(),
         deals       : context.getStore('DealStore').getTop(),
-        hairfies    : context.getStore('HairfieStore').getTop(),
         posts       : context.getStore('BlogPostStore').getRecent()
     };
 });
