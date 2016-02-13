@@ -12626,7 +12626,7 @@ section.home-search .home-search-mobile {
       padding-top: 10px; }
       @media screen and (min-width: 767px) {
         .salon#content .main-content section.salon-info.open-timetable {
-          margin-bottom: 40px; } }
+          margin-bottom: 100px; } }
       .salon#content .main-content section.salon-info p {
         font-size: 1.6em;
         font-weight: 200;
