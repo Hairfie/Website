@@ -1,7 +1,7 @@
 /*////////////////////////////////
    B U T T O N S  &  I N P U T
 ////////////////////////////////*/
-.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white, .btn-book, .btn-review {
+.btn-red, .btn-blue, .btn-orange, .btn-green, .btn-white, .btn-book, .btn-review, .btn-whitered {
     @extend .btn;
     &.btn-red {
         background-color: $hairfie;
@@ -50,6 +50,14 @@
         }
     }
 
+    &.btn-whitered {
+        border-radius: 0;
+        background-color: white;
+        border: 1px solid $grey3;
+        color: $grey3;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
     border: none;
     color: white;
     font-family: $font-main;
@@ -83,6 +91,11 @@
         &.btn-book {
             background-color: $book-lighter;
             color: white;
+        }
+        &.btn-whitered {
+            background-color: $hairfie;
+            color: white;
+            border-color: white;
         }
 
     }

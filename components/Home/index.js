@@ -2,6 +2,7 @@
 
 module.exports = {
     Categories: require('./CategoriesSection.jsx'),
+    Styles: require('./StylesSection.jsx'),
     Deals: require('./DealsSection.jsx'),
     TopHairfies: require('./TopHairfiesSection.jsx'),
     HowSection: require('./HowSection.jsx'),

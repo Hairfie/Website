@@ -9,7 +9,7 @@ var Link = require('../Link.jsx');
 var GenderChoice = React.createClass({
     render: function () {
         return (
-            <div className="searchbar main-searchbar col-xs-12 hidden-sm">
+            <div className="searchbar main-searchbar col-xs-12 hidden-xs">
                 <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Femme'}} className="btn-gender"><span className="icon-female"/>Vous êtes une femme</Link>             
                 <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Homme'}} className="btn-gender"><span className="icon-male"/>Vous êtes un homme</Link> 
             </div>
