@@ -7,15 +7,17 @@ var SearchUtils = require('../../lib/search-utils');
 var Breadcrumb = require('../Partial/Breadcrumb.jsx');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
+var MobileFilters = require('./MobileFilters.jsx');
 var ReactDOM = require('react-dom');
 
 var Layout = React.createClass({
     getInitialState: function () {
         return {
+            displayMobileFilters: false,
             isExpanded: false
         };
     },
-    componentDidMount: function () {
+    /*componentDidMount: function () {
         $('body').on("click",'.trigger-filters',function() {
             console.log("click !");
             if( jQuery('.mobile-filtres').css('top') != '65px' ) {
@@ -47,13 +49,15 @@ var Layout = React.createClass({
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');
-    },
+    },*/
     render: function () {
+        console.log('display ? ' + this.state.displayMobileFilters);
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}
                 <div className="mobile-screen hidden-md hidden-lg">
-                    <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
+                    {/*<a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>*/}
+                    <a role="button" className="btn-red btn-mobile-fixed" onClick={this.handleDisplayMobileFilters}>Filtres</a>
                 </div>
                 <div className="container search" id="content">
                     <div className="mobile-search visible-sm visible-xs">
@@ -70,6 +74,7 @@ var Layout = React.createClass({
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
+                                {this.renderMobileFilters()}
                                 {this.renderHeader()}
                                 <div className="row">
                                     <div role="tabpanel" className="bg-white-xs">
@@ -87,6 +92,18 @@ var Layout = React.createClass({
                 </div>
             </PublicLayout>
         );
+    },
+    renderMobileFilters: function () {
+        console.log("renderMobileFilters", this.state.displayMobileFilters);
+        if (!this.state.displayMobileFilters) return null;
+        return (
+            <div className="new-filters-container">
+                <MobileFilters/>
+            </div>
+        );
+    },
+    handleDisplayMobileFilters: function() {
+        this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     renderHeader: function () {
         var place = this.props.place || {};

@@ -12000,6 +12000,19 @@ section.home-search .home-search-mobile {
       #content.search .main-content .filters label[for="category"] > div {
         float: none !important; } }
 
+#content.search .main-content .new-filters {
+  position: fixed;
+  z-index: 201;
+  left: 0;
+  top: 0;
+  background-color: #f4f4f4;
+  height: 100%;
+  padding-bottom: 65px;
+  max-width: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  font-size: 2em; }
+
 #content.search .main-content .tab-pane section {
   padding-bottom: 20px;
   margin-bottom: 20px; }
