@@ -3,11 +3,17 @@
 ////////////////////////////////*/
 #content.reservation {
 	padding-bottom: 50px;
-	@media screen and (max-width: $screen-sm-max) {
-		padding-top: 75px;
+	@media screen and (max-width: $screen-xs-max) {
+		//padding-top: 75px;
+		.breadcrumb {
+			margin-top: 60px;
+		}
 	}
-	@media screen and (min-width: $screen-lg-min) {
+	@media screen and (min-width: $screen-md-min) {
 		padding-top: 0px;
+		.breadcrumb {
+			margin-left: -15px;
+		}
 	}
 
 	.sidebar {
@@ -188,6 +194,9 @@
 					}
 				}
 			}
+		}
+		h3 {
+			margin: 0;
 		}
 	}
 }

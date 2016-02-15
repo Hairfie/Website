@@ -38,8 +38,8 @@ var BusinessBookingPage = React.createClass({
         var className = this.state.timeslotSelected ? "container reservation bookingForm" : "container reservation";
         return (
             <div className={className} id="content" >
+                <Breadcrumb business={this.props.business} />
                 <div className="row">
-                    <Breadcrumb business={this.props.business} />
                     {formNode}
                     <LeftColumn business={this.props.business} discountObj={this.props.discountObj} />
                 </div>
