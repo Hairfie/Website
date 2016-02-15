@@ -12550,7 +12550,7 @@ section.home-search .home-search-mobile {
             width: 110px;
             margin-top: 5px; } }
     .salon#content #carousel-salon .carousel-inner .item {
-      height: 470px;
+      height: 400px;
       background-size: cover;
       background: none; }
       @media screen and (max-width: 767px) {
@@ -12559,7 +12559,7 @@ section.home-search .home-search-mobile {
       .salon#content #carousel-salon .carousel-inner .item img, .salon#content #carousel-salon .carousel-inner .item a > img {
         margin: auto; }
       .salon#content #carousel-salon .carousel-inner .item.placeholder {
-        height: 470px;
+        height: 400px;
         background: url(../img/placeholder-salon.png) repeat-x; }
       .salon#content #carousel-salon .carousel-inner .item img {
         background-repeat: no-repeat;

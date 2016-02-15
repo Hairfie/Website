@@ -216,12 +216,13 @@ module.exports = createStore({
 
         var address = SearchUtils.addressFromUrlParameter(params.address);
         var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
+        var allCategories = this.dispatcher.getStore('CategoryStore').getAllCategories();
 
         var search = {
             categories: _.isUndefined(categories) ? categories : [categories]
         };
 
-        var title = SearchUtils.searchToTitle(search, place, "business");
+        var title = SearchUtils.searchToTitle(search, place, "business", allCategories);
         var description = SearchUtils.searchToDescription(search, place);
         if(query.withDiscount) title = 'Promotions à ' + address;
 
