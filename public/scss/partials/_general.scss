@@ -577,7 +577,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
     .single-hairfie {
         padding: 5px;
-        //padding-top: 0;
+        @media screen and (min-width: $screen-md-min) {
+            padding: 5px 10px 5px 0;
+        }
         figure {
             width: 100%;overflow: hidden;
             position: relative;
