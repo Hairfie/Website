@@ -64,7 +64,11 @@ var BreadCrumb = React.createClass({
                 label: 'Hairfie'
             }
         ];
-
+        if(this.props.searchedPlace) {
+            var placeCrumb = {
+                label: (this.props.searchedPlace.name || '').split(',')[0]
+            };
+        }
         switch(currentRoute.name) {
             case 'business':
             case 'business_reviews':
@@ -79,6 +83,10 @@ var BreadCrumb = React.createClass({
                 break;
             case 'hairfie':
                 crumbs = crumbs.concat(hairfieCrumb);
+                break;
+            case 'business_search':
+            case 'hairfie_search':
+                crumbs = crumbs.concat(placeCrumb);
                 break;
         }
         crumbs = _.compact(crumbs);

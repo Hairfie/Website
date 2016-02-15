@@ -69,7 +69,6 @@ var HairfieResult = React.createClass({
         );
     },
     removeCategory: function (category) {
-        debugger;
         this.props.onChange({tags: _.without(this.props.search.tags, category)});
     }
 });
