@@ -81,13 +81,16 @@ module.exports = React.createClass({
         var timetable = this.props.business.timetable || {};
         var today = DateTimeConstants.weekDaysNumber[moment().day()];
 
-        if(_.isEmpty(timetable)) {
+        if(_.isEmpty(timetable) || _.isEmpty(_.flattenDeep(_.values(timetable)))) {
             return <div className="more empty"><span>Pas d'infos sur les horaires</span></div>;
         }
 
-        var todayTimetable = _.map(parseTimetable(timetable[today]), function(t) {
-            return t.startTime + ' à ' + t.endTime;
-        }).join(" et de "); 
+        var todayTimetable;
+        if(!_.isEmpty(timetable[today])) {
+            todayTimetable = _.map(parseTimetable(timetable[today]), function(t) {
+                return t.startTime + ' à ' + t.endTime;
+            }).join(" et de "); 
+        }
 
         var displayTitle;
         if(timetable[today] && !_.isEmpty(timetable[today])) {
