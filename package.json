@@ -11,7 +11,7 @@
     "postinstall": "npm run bower && npm run build",
     "bower": "bower install",
     "build": "grunt build",
-    "dev": "grunt",
+    "dev": "LOG_ENV=dev grunt",
     "bump": "grunt bump"
   },
   "dependencies": {

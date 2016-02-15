@@ -40,7 +40,7 @@ var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('.
 server.use(compress());
 
 server.use(favicon(__dirname + '/public/favicon.ico'));
-server.use(logger('dev'));
+server.use(logger(process.env.LOG_ENV ? process.env.LOG_ENV : 'combined'));
 server.use(cookieParser());
 
 var robotFile = process.env.NODE_ENV === 'production' ? 'robots-production.txt' : 'robots-staging.txt';
