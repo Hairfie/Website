@@ -17,13 +17,12 @@
             }
         }
     }
-    @media screen and (max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-xs-max) {
         margin-top: 60px;
         padding-bottom: 60px;
     }
     .breadcrumb {
-        margin-top: 15px;
-        margin-bottom: 0;
+        margin: 15px 0 0 15px;
         padding-left: 0;
         font-size: 1.2em;
         letter-spacing: 1px;
@@ -45,16 +44,22 @@
             color: $font-color;
 
         }
+        @media screen and (max-width: $screen-sm-max) {
+            margin-left: 0px;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            margin-left: 10px;
+        }
     }
 
     .main-content {
-        padding-top: 20px;
 
         .search-content {
             @include fullWidthBg($bg3);
         }
 
         .header-part {
+            padding:0;
             .cover {
                 border-radius: 3px;
                 display: block; width: 100%;
@@ -67,7 +72,8 @@
                 margin-top:25px;
                 margin-bottom:25px;
                 @media screen and (max-width: $screen-xs-max) {
-                    margin-top:0;
+                    margin: 5px 0 20px 10px;
+                    margin-top:5px;
                     margin-bottom:20px;
                 }
             }
@@ -76,9 +82,25 @@
                 font-size: 1.4em;
                 letter-spacing: 1px;
                 margin-bottom: 30px;
-                @media screen and (max-width: $screen-xs-max) {
-                    display: none;
-                }
+            }
+            div {
+                display: inline-block;
+                float: left;
+                margin: 0;
+                padding-top: 1.2em;
+            }
+            .mobile-description {
+                font-size: 1.4em;
+                margin-left: 10px;
+                margin-right: 10px;
+                letter-spacing: 0;
+            }
+            .btn-expand {
+                background-color: $hairfie;
+                font-size: 1.4em;
+                color: white;
+                border-radius: 5px;
+                padding: 0px 5px 0px 5px;
             }
         }
         .nav {
@@ -623,7 +645,6 @@
         -webkit-overflow-scrolling: touch !important;
     }
     .sidebar {
-        padding-top: 20px;
         padding-bottom: 60px;
         background: $bg3;
         @media screen and (max-width: $screen-xs-max) {
@@ -774,22 +795,27 @@
         }
     }
     .business-label {
-                    color: white;
-                    background-color: $hairfie;
-                    font-size: 1.6em;
-                    padding: 5px 25px 5px 5px;
-                    margin: 15px 5px 10px 0;
-                    display: inline-block;
-                    position: relative;
-                    cursor: pointer;
-                    span:nth-child(2) {
-                        font-size: 1.8em;
-                        font-weight: $light;
-                        position: absolute;
-                        top: -3px;
-                        right: 5px;
-                    }
-                }
+        color: white;
+        background-color: $hairfie;
+        font-size: 1.6em;
+        padding: 5px 25px 5px 5px;
+        margin: 15px 5px 10px 0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        span:nth-child(2) {
+            font-size: 1.8em;
+            font-weight: $light;
+            position: absolute;
+            top: -3px;
+            right: 5px;
+        }
+    }
+    @media screen and (max-width: $screen-xs-max){
+        .business-label:first-child {
+            margin-left: 10px;
+        }
+    }
 }
 .bg-white-xs {
     @media screen and (max-width: $screen-xs-max) {

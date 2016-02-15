@@ -4,11 +4,17 @@ var React = require('react');
 var PublicLayout = require('../PublicLayout.jsx');
 var Link = require('../Link.jsx');
 var SearchUtils = require('../../lib/search-utils');
-var Breadcrumb = require('./Breadcrumb.jsx');
+var Breadcrumb = require('../Partial/Breadcrumb.jsx');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
+var ReactDOM = require('react-dom');
 
 var Layout = React.createClass({
+    getInitialState: function () {
+        return {
+            isExpanded: false
+        };
+    },
     componentDidMount: function () {
         $('body').on("click",'.trigger-filters',function() {
             console.log("click !");
@@ -58,7 +64,7 @@ var Layout = React.createClass({
                         </div>
                     </div>
                     <div className="row">
-                        <Breadcrumb place={this.props.place} />
+                        <Breadcrumb searchedPlace={this.props.place} />
                         <div className="col-md-4 col-sm-12 hidden-xs hidden-sm">
                             {this.props.filters}
                         </div>
@@ -90,16 +96,33 @@ var Layout = React.createClass({
         if (place.picture) {
             coverImage = <Picture picture={{url: place.picture.url}} alt={place.name} className="cover" />;
         }
-
+        var description = SearchUtils.searchToDescription(search, place);
+        if (!this.state.isExpanded)
+            description = _.trunc(description, {
+                'length': 120,
+                'separator': ' ',
+                'omission': ' '
+            });
         return (
             <div className="row">
                 <div className="col-xs-12 header-part">
                     {coverImage}
                     <h1>{SearchUtils.searchToTitle(search, place, this.props.tab)}</h1>
-                    <p>{SearchUtils.searchToDescription(search, place)}</p>
+                    <p ref="description" className="hidden-xs">{SearchUtils.searchToDescription(search, place)}</p>
+                    <span ref="description" className="visible-xs mobile-description">
+                        {description}
+                        <span className="btn-expand" ref="expand" onClick={this.expandText}>...</span>
+                    </span>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
        );
+    },
+    expandText: function (e) {
+        this.setState({isExpanded: true});
+        ReactDOM.findDOMNode(this.refs.expand).className += ' hidden';
     },
     renderTabs: function () {
         var address = SearchUtils.addressToUrlParameter(this.props.address);
