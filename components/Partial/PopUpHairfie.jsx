@@ -41,19 +41,26 @@ var PopupHairfie = React.createClass({
         else
             this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
     },
+    componentWillUnmount: function() {
+        document.removeEventListener('keydown', this.keyListener);
+
+    },
     componentDidMount: function() {
-        document.onkeydown = function(e) {
+        document.addEventListener('keydown', this.keyListener);
+    },
+    keyListener: function (e) {
+        if(e.keyCode == 37) {
             e.preventDefault();
-            if(e.keyCode == 37) {
-                this.props.prev();
-            }
-            else if(e.keyCode == 39) {
-                this.props.next();
-            }
-            else if(e.keyCode == 27) {
-                this.props.close();
-            }
-        }.bind(this)
+            this.props.prev();
+        }
+        else if(e.keyCode == 39) {
+            e.preventDefault();
+            this.props.next();
+        }
+        else if(e.keyCode == 27) {
+            e.preventDefault();
+            this.props.close();
+        }
     }
 });
 
