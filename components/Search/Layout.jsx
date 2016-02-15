@@ -92,6 +92,9 @@ var Layout = React.createClass({
         var place = this.props.place || {};
         var search = this.props.search || {};
         var coverImage;
+        var btnExpand = '';
+        if(!_.isEmpty(SearchUtils.searchToDescription(search, place)))
+            var btnExpand = <span className="btn-expand" ref="expand" onClick={this.expandText}>...</span>;
 
         if (place.picture) {
             coverImage = <Picture picture={{url: place.picture.url}} alt={place.name} className="cover" />;
@@ -111,7 +114,7 @@ var Layout = React.createClass({
                     <p ref="description" className="hidden-xs">{SearchUtils.searchToDescription(search, place)}</p>
                     <span ref="description" className="visible-xs mobile-description">
                         {description}
-                        <span className="btn-expand" ref="expand" onClick={this.expandText}>...</span>
+                        {btnExpand}
                     </span>
                     <div>
                         
