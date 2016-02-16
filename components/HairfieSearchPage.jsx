@@ -24,6 +24,8 @@ var HairfieSearchPage = React.createClass({
             address={this.props.address}
             place={this.props.place}
             filters={this.renderFilters()}
+            allFilters = {this.props.tags}
+            filterCategories = {this.props.tagCategories}
             results={this.renderResults()} />
     },
     renderFilters: function () {

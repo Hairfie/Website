@@ -51,7 +51,6 @@ var Layout = React.createClass({
         $('body').removeClass('locked');
     },*/
     render: function () {
-        console.log('display ? ' + this.state.displayMobileFilters);
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}
@@ -74,7 +73,14 @@ var Layout = React.createClass({
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
-                                {this.renderMobileFilters()}
+                                <MobileFilters 
+                                    onClose={this.handleDisplayMobileFilters} 
+                                    shouldBeDisplayed={this.state.displayMobileFilters} 
+                                    filters={this.props.filters}
+                                    allFilters = {this.props.allFilters}
+                                    filterCategories = {this.props.filterCategories}
+                                    search={this.props.search}/> 
+
                                 {this.renderHeader()}
                                 <div className="row">
                                     <div role="tabpanel" className="bg-white-xs">
@@ -91,15 +97,6 @@ var Layout = React.createClass({
                     </div>
                 </div>
             </PublicLayout>
-        );
-    },
-    renderMobileFilters: function () {
-        console.log("renderMobileFilters", this.state.displayMobileFilters);
-        if (!this.state.displayMobileFilters) return null;
-        return (
-            <div className="new-filters-container">
-                <MobileFilters/>
-            </div>
         );
     },
     handleDisplayMobileFilters: function() {

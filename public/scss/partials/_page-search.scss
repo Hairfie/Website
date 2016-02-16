@@ -250,8 +250,19 @@
             max-width: 100%;
             overflow-x: hidden;
             width: 100%;
-            font-size: 2em;
+            font-size: 1em;
+            .filters-category {
+                display: block;
+                font-size: 1.5em;
+            }
         }
+        .subfilters {
+                z-index: 202;
+                font-size: 1em;
+                .filter-line {
+                    line-height: 40px;
+                }
+            }
         .tab-pane section {
             padding-bottom: 20px;
             margin-bottom: 20px;

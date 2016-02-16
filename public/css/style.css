@@ -12011,7 +12011,16 @@ section.home-search .home-search-mobile {
   max-width: 100%;
   overflow-x: hidden;
   width: 100%;
-  font-size: 2em; }
+  font-size: 1em; }
+  #content.search .main-content .new-filters .filters-category {
+    display: block;
+    font-size: 1.5em; }
+
+#content.search .main-content .subfilters {
+  z-index: 202;
+  font-size: 1em; }
+  #content.search .main-content .subfilters .filter-line {
+    line-height: 40px; }
 
 #content.search .main-content .tab-pane section {
   padding-bottom: 20px;
