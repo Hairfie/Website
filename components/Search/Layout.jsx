@@ -103,6 +103,10 @@ var Layout = React.createClass({
         );
     },
     handleDisplayMobileFilters: function() {
+        if(this.state.displayMobileFilters == false)
+            $('body').toggleClass('locked');
+        else
+            $('body').removeClass('locked');
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     renderHeader: function () {
