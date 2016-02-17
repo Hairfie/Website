@@ -55,7 +55,7 @@ var PopUp = React.createClass({
             <div className="PopUp">
                 <div className="link-list">
                     <p className="title">NOS HAIRFIES</p>
-                    <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Carré'}}>Carré plongeant</Link>
+                    <Link route="hairfie_search" params={{address: 'France'}} query={{tags: ['Carré droit', 'Carré plongeant', 'Carré long']}}>Carré</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Balayage'}}>Balayage</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Tie & Dye'}}>Tie and dye</Link>
                     <Link route="hairfie_search" params={{address: 'France'}} query={{tags: 'Court'}}>Coupe courte</Link>
