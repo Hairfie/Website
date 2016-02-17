@@ -24,6 +24,7 @@ var Header = React.createClass({
         if (props.displaySearch) { 
             this.setState({displaySearch: props.displaySearch}); 
         }
+        this.setState({tab: ""});
     },
     render: function() {
         return (

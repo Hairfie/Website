@@ -14,21 +14,21 @@ var Styles = React.createClass({
                 <div className="row">
                     <div className="col-sm-6">
                         <div className="sm-sqr col-sm-6 col-xs-6">
-                            <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: 'Carré' }}>
+                            <Link route="hairfie_search" params={{ address: 'France' }} query={{ tags: ['Carré droit', 'Carré plongeant', 'Carré long'] }}>
                                 <div className="background carre">
                                     <StyleContent style="Carré"/>
                                 </div>
                             </Link>
                         </div>
                         <div className="sm-sqr col-sm-6 col-xs-6">
-                            <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: 'Homme' }}>
+                            <Link route="hairfie_search" params={{ address: 'France' }} query={{ tags: 'Homme' }}>
                                 <div className="background homme">
                                     <StyleContent style="Homme"/>
                                 </div>
                             </Link>
                         </div>
                         <div className="rectangle col-sm-12 col-xs-6">
-                            <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: 'Mariage' }}>
+                            <Link route="hairfie_search" params={{ address: 'France' }} query={{ tags: 'Mariage' }}>
                                 <div className="background mariage">
                                     <StyleContent style="Mariage"/>
                                 </div>
@@ -36,7 +36,7 @@ var Styles = React.createClass({
                         </div>
                     </div>
                     <div className="big-sqr col-sm-6 col-xs-6">
-                        <Link route="hairfie_search" params={{ address: 'Paris--France' }} query={{ tags: 'Avant / Après' }}>
+                        <Link route="hairfie_search" params={{ address: 'France' }} query={{ tags: 'Avant-après' }}>
                             <div className="background avant-apres">
                                 <StyleContent style="Avant / Après"/>
                             </div>
