@@ -9,8 +9,12 @@ var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
 var MobileFilters = require('./MobileFilters.jsx');
 var ReactDOM = require('react-dom');
+var HairfieActions = require('../../actions/HairfieActions');
 
 var Layout = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
+    },
     getInitialState: function () {
         return {
             displayMobileFilters: false,
@@ -49,8 +53,10 @@ var Layout = React.createClass({
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');
-    },*/
+    },*/    
     render: function () {
+            console.log("render layout", this.props.search);
+
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}
@@ -76,10 +82,10 @@ var Layout = React.createClass({
                                 <MobileFilters 
                                     onClose={this.handleDisplayMobileFilters} 
                                     shouldBeDisplayed={this.state.displayMobileFilters} 
-                                    filters={this.props.filters}
                                     allFilters = {this.props.allFilters}
                                     filterCategories = {this.props.filterCategories}
-                                    search={this.props.search}/> 
+                                    initialSearch={this.props.search}
+                                    onChange={this.handleSearchChange} /> 
 
                                 {this.renderHeader()}
                                 <div className="row">
@@ -105,6 +111,10 @@ var Layout = React.createClass({
         else
             $('body').removeClass('locked');
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
+    },
+    handleSearchChange: function (nextSearch) {
+        this.handleDisplayMobileFilters();
+        this.context.executeAction(HairfieActions.submitSearch, nextSearch);
     },
     renderHeader: function () {
         var place = this.props.place || {};
