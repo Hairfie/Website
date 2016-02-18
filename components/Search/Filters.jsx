@@ -110,7 +110,7 @@ var Filters = React.createClass({
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onKeyPress={this.handleKey}/>
-                    <div className="input-group-addon"><a role="button"></a></div>
+                    <div className="input-group-addon"><a role="button" onClick={this.handleChange}></a></div>
                 </div>
             </div>
         );

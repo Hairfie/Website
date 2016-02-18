@@ -21,6 +21,7 @@ var BusinessSearchPage = React.createClass({
         return <Search.Layout
             query={query}
             search={this.props.search}
+            categories={this.props.categories}
             tab="business"
             address={this.props.address}
             place={this.props.place}
@@ -28,13 +29,6 @@ var BusinessSearchPage = React.createClass({
             results={this.renderResults()} />;
     },
     renderFilters: function () {
-        // var facets = this.props.result && this.props.result.facets || {};
-        // var categories = _.keys(facets.categorySlugs || facets['categorySlugs.fr']);
-
-        // var categories = _.compact(_.map(categories, function(cat) {
-        //     return _.find(this.props.categories, {slug: cat});
-        // }.bind(this)));
-
         return <Search.Filters
             tab="business"
             address={this.props.address}

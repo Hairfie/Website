@@ -24,6 +24,7 @@ var Header = React.createClass({
         if (props.displaySearch) { 
             this.setState({displaySearch: props.displaySearch}); 
         }
+        this.setState({tab: ""});
     },
     render: function() {
         return (
@@ -74,10 +75,11 @@ var Header = React.createClass({
                 <header className={headerClassName + ' hidden-xs'}>
                     <div className="dark-header">
                         <div className="container">
-                            <div className="col-sm-5 col-md-6 col-lg-7" style={{paddingLeft: 0}}>
+                            <div className="col-sm-4 col-md-4 col-lg-5" style={{paddingLeft: 0}}>
                                 <Link route="home_pro">Vous gérez un salon ?</Link>
                             </div>
-                            <div className="col-sm-7 col-md-6 col-lg-5" style={{textAlign: "end", paddingRight: 0}}>
+                            <div className="col-sm-8 col-md-8 col-lg-7" style={{textAlign: "end", paddingRight: 0}}>
+                                <a href="tel://+33185089169">Support : +33 1 85 08 91 69</a>
                                 <Link  route="howitworks_page">Comment ça marche ?</Link>
                                 <User />
                             </div>

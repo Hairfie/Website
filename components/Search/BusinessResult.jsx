@@ -212,7 +212,6 @@ var BusinessResult = React.createClass({
         var date   = this.props.search && this.props.search.date;
         var searchedCategories = this.props.searchedCategories;
         var searchedCategoriesLabels = null;
-        if (result.hits.length == 0) return this.renderNoResult();
         if (searchedCategories) {
             searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
                 return (
@@ -220,6 +219,8 @@ var BusinessResult = React.createClass({
                 );
             }, this)
         }
+        if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels);
+
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
@@ -253,15 +254,20 @@ var BusinessResult = React.createClass({
             query={params.query}
             />
     },
-    renderNoResult: function () {
+    renderNoResult: function (searchedCategoriesLabels) {
         return (
-            <p className="text-center">
-                <br />
-                <br />
-                Aucun résultat correspondant à votre recherche n'a pu être trouvé.
-                <br />
-                <br />
-            </p>
+            <div className="tab-pane active" id="salons">
+                <div className="row">
+                    {searchedCategoriesLabels}
+                </div>
+                <div className="row">
+                    <p className="text-center">
+                        Aucun résultat correspondant à votre recherche n'a pu être trouvé.
+                        <br />
+                        Essayez de retirer un filtre ou d'étendre votre recherche géographique pour obtenir plus de résultats !
+                    </p>
+                </div>
+            </div>
         );
     },
     removeCategory: function (category) {

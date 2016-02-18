@@ -12,13 +12,12 @@ var Loading = require('../Partial/Loading.jsx');
 var HairfieResult = React.createClass({
     render: function () {
         if (!this.props.result) return <Loading />;
-        if (this.props.result.numHits == 0) return this.renderNoResult();
         // OLD Newsletter
         //<div className="hairfie-search-newsletter">
         //    <Newsletter />
         //</div>
         var searchedCategories = this.props.searchedCategories;
-        var searchedCategoriesLabels = null;
+        var searchedCategoriesLabels;
         if (searchedCategories) {
             searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
                 return (
@@ -26,6 +25,9 @@ var HairfieResult = React.createClass({
                 );
             }, this)
         }
+
+        if (this.props.result.numHits == 0) return this.renderNoResult(searchedCategoriesLabels);
+
         return (
             <div className="tab-pane active">
 
@@ -57,15 +59,20 @@ var HairfieResult = React.createClass({
             query={params.query}
             />
     },
-    renderNoResult: function () {
+    renderNoResult: function (searchedCategoriesLabels) {
         return (
-            <p className="text-center">
-                <br />
-                <br />
-                Aucun résultat correspondant à votre recherche n'a pu être trouvé.
-                <br />
-                <br />
-            </p>
+            <div className="tab-pane active" id="salons">
+                <div className="row">
+                    {searchedCategoriesLabels}
+                </div>
+                <div className="row">
+                    <p className="text-center">
+                        Aucun résultat correspondant à votre recherche n'a pu être trouvé.
+                        <br />
+                        Essayez de retirer un filtre ou d'étendre votre recherche géographique pour obtenir plus de résultats !
+                    </p>
+                </div>
+            </div>
         );
     },
     removeCategory: function (category) {
