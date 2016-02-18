@@ -12,7 +12,8 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 var MobileFilters = React.createClass({
     getInitialState: function () {
         return {
-            filtersCategoryToDisplay: {}
+            filtersCategoryToDisplay: {},
+            filtersToSearch: this.props.search.tags
         };
     },
     getDefaultProps: function () {
@@ -21,13 +22,14 @@ var MobileFilters = React.createClass({
         };
     },
     render: function () {
-        debugger;
+        // debugger;
+        console.log('filtres', this.state.filtersToSearch);
         if(!this.props.shouldBeDisplayed) return null;
         return (
             <div className="new-filters">
                 <SubFilters 
                     cat={this.state.filtersCategoryToDisplay} 
-                    onClose={this.handleDisplayMobileSubFilters.bind(this, {})} 
+                    onClose={this.handleCloseMobileSubFilters} 
                     filters={this.props.allFilters} 
                     search={this.props.search}/>
                 <h1>Filtrer par</h1>
@@ -40,6 +42,15 @@ var MobileFilters = React.createClass({
     },
     handleDisplayMobileSubFilters: function(category) {
         this.setState({filtersCategoryToDisplay: category});
+    },
+    handleCloseMobileSubFilters: function(tags) {
+        this.setState({filtersCategoryToDisplay: {}});
+
+        if(tags) {
+            this.setState({filtersToSearch: tags});
+        } else {
+            return;
+        }
     }
 });
 
@@ -60,9 +71,9 @@ var SubFilters = React.createClass ({
         if(_.isEmpty(this.props.cat)) return null;
         return (
             <div className="new-filters subfilters"><h1>{'Catégorie :' + this.props.cat.name}</h1>
-                <button onClick={this.props.onClose} className="btn btn-red">Précédent</button>
+                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
                 <br/>
-                    {_.map(_.filter(this.props.filters, 'category', this.props.cat), function (filter) {
+                    {_.map(_.groupBy(this.props.filters, 'category.id')[this.props.cat.id], function (filter) {
                         return (
                             <div key={filter.id} className="filter-line">
                                 <label className="checkbox-inline">
@@ -79,12 +90,15 @@ var SubFilters = React.createClass ({
                 <br/>
                 <button onClick={this.selectAll} className="btn btn-red">Tout sélectionner</button>
                 <br/>
-                <button onClick={this.selectAll} className="btn btn-red">Valider</button>
+                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
             </div>
         );
     },
     isSearched: function (filter) {
         return (_.indexOf(this.state.filtersToSearch, filter.name) > -1 ? true : false);
+    },
+    handleClose: function() {
+        this.props.onClose(this.state.filtersToSearch);
     },
     handleFilterChange: function (e) {
         if (e.currentTarget.checked === true){
@@ -98,8 +112,17 @@ var SubFilters = React.createClass ({
         }
     },
     selectAll: function () {
+        if (!this.state.selectAll){
+            var newTags = this.state.filtersToSearch;
+            newTags = newTags.concat(_.map(_.groupBy(this.props.filters, 'category.id')[this.props.cat.id], function (filter) {
+                        return filter.name }, this));
+
+            this.setState({filtersToSearch: newTags});
+
+        } else {
+            this.setState({filtersToSearch: ''});
+        }
         this.setState({selectAll: !this.state.selectAll});
-        debugger;
     }
 });
 
