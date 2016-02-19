@@ -1,42 +1,48 @@
 [
     {
-        "displayName": "Coiffeurs à Paris",
+        "displayName": "Coiffeur Paris",
         "address": "Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Paris--France"
     },
     {
-        "displayName": "Coiffeurs Les Batignolles",
+        "displayName": "Coiffeur Visagiste Paris",
+        "address": "Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Paris--France"
+    },
+    {
+        "displayName": "Coiffeur Batignolles",
         "address": "Batignolles--75017-Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Batignolles--75017-Paris--France"
     },
     {
-        "displayName": "Coiffeurs dans le Marais",
+        "displayName": "Coiffeur Marais",
         "address": "Le-Marais--Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Le-Marais--Paris--France"
     },
     {
-        "displayName": "Coiffeurs à Montmartre",
+        "displayName": "Coiffeur Montmartre",
         "address": "Montmartre--75018-Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Montmartre--75018-Paris--France"
     },
     {
-        "displayName": "Coiffeurs proche des Champs-Elysées",
+        "displayName": "Coiffeur Champs Elysées",
         "address": "Champs~Élysées--Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Champs~Élysées--Paris--France"
     },
     {
-        "displayName": "Coiffeurs du Quartier Montorgueil",
+        "displayName": "Coiffeur Montorgueil",
         "address": "Rue-Montorgueil--Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Rue-Montorgueil--Paris--France"
     },
     {
-        "displayName": "Coiffeurs à Montparnasse",
+        "displayName": "Coiffeurs Montparnasse",
         "address": "Montparnasse--Paris--France",
         "category": "",
         "url": "/fr/coiffeurs/Montparnasse--Paris--France"

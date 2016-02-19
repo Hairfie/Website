@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
         return (
             <div className="suggestion">
-                <p className="title">NOS SUGGESTIONS</p>
+                <p className="title">Recherches fréquentes</p>
                 <p className="subtitle" />
                 <div className="row">
                     {_.map(_.chunk(this.props.links, colSize), this.renderColumn)}
