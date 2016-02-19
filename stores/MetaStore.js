@@ -209,24 +209,23 @@ module.exports = createStore({
         return metas;
     },
     _getBusinessSearchMetas: function(route) {
-        var query   = route.query;
-        var params  = route.params;
-
+        var query             = route.query;
+        var params            = route.params;
         var categories        = query.categories;
+        var page              = query.page;
 
         var address = SearchUtils.addressFromUrlParameter(params.address);
         var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
         var allCategories = this.dispatcher.getStore('CategoryStore').getAllCategories();
 
         var search = {
-            categories: _.isUndefined(categories) ? categories : [categories]
+            categories: _.isUndefined(categories) ? categories : [categories],
+            page: page
         };
 
         var title = SearchUtils.searchToTitle(search, place, "business", allCategories);
         var description = SearchUtils.searchToDescription(search, place);
         if(query.withDiscount) title = 'Promotions à ' + address;
-
-        if(query.page) title += ' - page ' + query.page;
 
         title += ' | Prendre RDV en ligne sur Hairfie';
 
@@ -241,16 +240,17 @@ module.exports = createStore({
         return metas;
     },
     _getHairfieSearchMetas: function(route) {
-        var query   = route.query;
-        var params  = route.params;
-
+        var query       = route.query;
+        var params      = route.params;
         var tags        = query.tags;
+        var page        = query.page;
 
         var address = SearchUtils.addressFromUrlParameter(params.address);
         var place = this.dispatcher.getStore('PlaceStore').getByAddress(address);
 
         var search = {
-            tags: _.isUndefined(tags) ? tags : [tags]
+            tags: _.isUndefined(tags) ? tags : [tags],
+            page: page
         };
 
         var title = SearchUtils.searchToTitle(search, place, "hairfie");
@@ -259,8 +259,6 @@ module.exports = createStore({
         if(!description) {
             description = "Les meilleurs Hairfies de " + title;
         }
-
-        if(query.page) title += ' - page ' + query.page;
 
         title += ' | Prendre RDV en ligne sur Hairfie';
 

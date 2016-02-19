@@ -9855,7 +9855,9 @@ a {
       background: url(../img/icon-location.png) no-repeat center center;
       background-color: white;
       width: 50px;
-      background-size: 40%; }
+      background-size: 40%;
+      border: 1px solid #e6e6e6;
+      border-left: none; }
   .searchbar.small-search .btn-red {
     height: 40px;
     line-height: 25px;
@@ -10064,8 +10066,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         font-weight: 400;
         font-size: 1.2em;
         padding: 10px 8px; }
-    .hairfies .single-hairfie figure:hover figcaption {
-      opacity: 1; }
+    @media screen and (min-width: 992px) {
+      .hairfies .single-hairfie figure:hover figcaption {
+        opacity: 1; } }
   .hairfies .single-hairfie .pricetag {
     position: absolute;
     top: 5px;
@@ -12853,7 +12856,9 @@ section.home-search .home-search-mobile {
       text-align: justify; }
     @media screen and (max-width: 767px) {
       .salon#content section.salon-content .comments .single-comment div div.title p {
-        display: inherit; } }
+        display: inherit; }
+      .salon#content section.salon-content .comments .single-comment p.review {
+        padding: 0; } }
     @media screen and (min-width: 767px) {
       .salon#content section.salon-content .bottom-tab {
         display: none !important; } }
@@ -13098,7 +13103,11 @@ section.home-search .home-search-mobile {
             font-weight: bolder;
             color: #898989; }
           .salon#content section.salon-content section .table-price div span.price {
-            float: right; }
+            float: right;
+            padding-right: 5px; }
+            @media screen and (min-width: 991px) {
+              .salon#content section.salon-content section .table-price div span.price {
+                padding-right: 10px; } }
         .salon#content section.salon-content section .table-price:not(:first-child) div.title {
           margin-top: 15px; }
     .salon#content section.salon-content #avis .row {
@@ -13607,7 +13616,7 @@ section.home-search .home-search-mobile {
             text-decoration: none; }
     .hairfie-singleView .single-view .like-group {
       width: 100%;
-      height: 65px;
+      height: 46px;
       position: absolute;
       bottom: 0;
       left: 100%; }
@@ -13628,7 +13637,7 @@ section.home-search .home-search-mobile {
           display: block;
           text-align: center;
           width: 65px;
-          height: 64px;
+          height: 44px;
           position: relative;
           border-right: 1px solid #f9f9f9; }
           .hairfie-singleView .single-view .like-group .like-btn a .glyphicon {
@@ -13674,7 +13683,7 @@ section.home-search .home-search-mobile {
         float: none;
         display: inline-block;
         width: calc(100% - 65px);
-        height: 65px; }
+        height: 46px; }
         .hairfie-singleView .single-view .like-group .cta a {
           text-transform: uppercase;
           float: right;
@@ -13686,7 +13695,7 @@ section.home-search .home-search-mobile {
         .hairfie-singleView .single-view .like-group .cta a.full {
           display: block;
           width: 100%;
-          height: 65px;
+          height: 46px;
           text-transform: uppercase;
           border-radius: 0;
           margin: 0;
@@ -13695,7 +13704,7 @@ section.home-search .home-search-mobile {
           -webkit-box-shadow: 0 0 0 transparent;
           -moz-box-shadow: 0 0 0 transparent;
           box-shadow: 0 0 0 transparent;
-          line-height: 60px; }
+          line-height: 39px; }
   .hairfie-singleView .related-hairfies {
     margin-bottom: 60px; }
     .hairfie-singleView .related-hairfies h3 {

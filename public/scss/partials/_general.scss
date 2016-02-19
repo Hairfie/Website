@@ -407,6 +407,8 @@ a {
             background-color: white;
             width: 50px;
             background-size: 40%;
+            border: 1px solid #e6e6e6;
+            border-left: none;
         }
     }
     .btn-red {
@@ -624,8 +626,10 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
             }
 
             &:hover {
-                figcaption {
-                    opacity: 1;
+                @media screen and (min-width: $screen-md-min) {
+                    figcaption {
+                        opacity: 1;
+                    }
                 }
             }
         }

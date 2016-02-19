@@ -469,6 +469,12 @@
                 .single-comment div div.title p {
                     display: inherit;
                 }
+
+                .single-comment {
+                    p.review {
+                        padding: 0;
+                    }
+                }
             }
         }
         @media screen and (min-width: $screen-xs-max) {
@@ -781,6 +787,10 @@
 
                     span.price {
                         float: right;
+                        padding-right:  5px;
+                        @media screen and (min-width: $screen-sm-max) {
+                            padding-right: 10px;
+                        }
                     }
                 }
 
