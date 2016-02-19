@@ -24,7 +24,7 @@ var MobileFilters = React.createClass({
     },
     render: function () {
         // debugger;
-        console.log('render', this.state.search);
+        console.log('render MobileFilters', this.state.search);
         var displayClass = 'new-filters ';
         if (!this.state.displayMobileFilters)
             displayClass += 'hidden';
@@ -59,11 +59,17 @@ var MobileFilters = React.createClass({
                     onClose={this.handleCloseMobileSubFilters} 
                     allCategories={this.props.allCategories} 
                     initialSearch={this.state.search}/>
+                <OpeningDays 
+                    initialSearch={this.state.search}
+                    cat={this.state.filtersCategoryToDisplay}
+                    onClose={this.handleCloseMobileSubFilters} />
                 <h1>Filtrer par</h1>
                 <div>Où</div>
                 <div>Nom du Salon</div>
-                <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'business')}>Catégories</a>
-                <div>Jours d'ouverture</div>
+                <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>Catégories</a>
+                <div>
+                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>Jours d'ouverture</a>
+                </div>
                 <div>Prix</div>
                 <div>Promo</div>
             </div>
@@ -105,6 +111,51 @@ var MobileFilters = React.createClass({
     }
 });
 
+var OpeningDays = React.createClass ({
+    getInitialState: function () {
+        return {
+            search: this.props.initialSearch,
+            selectAll: false
+        };
+    },
+    render: function() {
+        if(this.props.cat != 'OpeningDays') return null;
+
+        var displayDays = ['MON', 'SUN'];
+        return (
+            <div className="new-filters subfilters">
+                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
+                <h2>Ouverture le</h2>
+                {_.map(DateTimeConstants.weekDaysNumber, function(day) {
+                    if (_.isEmpty(_.intersection([day], displayDays))) return null;
+                    var active   = this.state.search && (this.state.search.days || []).indexOf(day) > -1;
+                    var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
+                    return (
+                        <label key={DateTimeConstants.weekDayLabelFR(day)} className="checkbox-inline">
+                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                            <span />
+                            {DateTimeConstants.weekDayLabelFR(day)}
+                        </label>
+                        );
+                    }, this)
+                }
+                <br/>
+                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
+            </div>
+        );
+    },
+    handleClose: function() {
+        this.props.onClose(this.state.search);
+    },
+    addDay: function (day) {
+        this.setState({search: {days: _.union(this.state.search.days || [], [day])}});
+    },
+    removeDay: function (day) {
+        this.setState({search: {days: _.without(this.state.search.days, day)}});
+    }
+
+});
+
 var CategorySubFilters = React.createClass ({
     getInitialState: function () {
         return {
@@ -118,8 +169,8 @@ var CategorySubFilters = React.createClass ({
         };
     },
     render: function () {
-        console.log("render subfilters", this.state);
-        if(_.isEmpty(this.props.cat)) return null;
+        //console.log("render subfilters", this.state);
+        if(this.props.cat != 'businessCategories') return null;
         return (
             <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red">Précédent</button>

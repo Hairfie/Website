@@ -55,7 +55,7 @@ var Layout = React.createClass({
         $('body').removeClass('locked');
     },*/    
     render: function () {
-            console.log("render layout", this.props.search);
+            console.log("RENDER LAYOUT", this.props.search);
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}
