@@ -26,6 +26,7 @@ var HairfieSearchPage = React.createClass({
             filters={this.renderFilters()}
             allFilters = {this.props.tags}
             filterCategories = {this.props.tagCategories}
+            mobileFilters={this.renderMobileFilters()}
             results={this.renderResults()} />
     },
     renderFilters: function () {
@@ -37,9 +38,28 @@ var HairfieSearchPage = React.createClass({
             tags={tags}
             tagCategories={this.props.tagCategories}
             onChange={this.handleSearchChange} />;
+
+    },
+    renderMobileFilters: function () {
+        return <Search.MobileFilters 
+            onClose={this.handleDisplayMobileFilters} 
+            shouldBeDisplayed={true}
+            tab="hairfie" 
+            allTags = {this.props.tags}
+            allCategories = {this.props.categories}
+            filterCategories = {this.props.tagCategories}
+            initialSearch={this.props.search}
+            onChange={this.handleSearchChange} />
     },
     renderResults: function () {
         return <Search.HairfieResult search={this.props.search} result={this.props.result} searchedCategories={this.props.search.tags} onChange={this.handleSearchChange} />;
+    },
+    handleDisplayMobileFilters: function() {
+        if(this.state.displayMobileFilters == false)
+            $('body').toggleClass('locked');
+        else
+            $('body').removeClass('locked');
+        this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });

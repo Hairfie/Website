@@ -12,6 +12,7 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 var MobileFilters = React.createClass({
     getInitialState: function () {
         return {
+            displayMobileFilters: false,
             filtersCategoryToDisplay: {},
             search: this.props.initialSearch
         };
@@ -23,27 +24,73 @@ var MobileFilters = React.createClass({
     },
     render: function () {
         // debugger;
-        console.log('filtres', this.state.search);
-        if(!this.props.shouldBeDisplayed) return null;
+        console.log('render', this.state.search);
+        var displayClass = 'new-filters ';
+        if (!this.state.displayMobileFilters)
+            displayClass += 'hidden';
         return (
-            <div className="new-filters">
-                <SubFilters 
-                    cat={this.state.filtersCategoryToDisplay} 
+            <div>
+                <div className="mobile-screen hidden-md hidden-lg">
+                    <a role="button" className="btn-red btn-mobile-fixed" onClick={this.handleDisplayMobileFilters}>Filtres</a>
+                </div>
+                <div className={displayClass}>
+                    {this.renderHairfiesFilters()}
+                    {this.renderBusinessFilters()}
+                    <button onClick={this.handleChange} className="btn btn-red">Valider</button>
+                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red">Fermer</button>
+                </div>
+            </div>
+        );
+    },
+    handleDisplayMobileFilters: function() {
+        if(this.state.displayMobileFilters == false)
+            $('body').toggleClass('locked');
+        else
+            $('body').removeClass('locked');
+        this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
+    },
+    renderBusinessFilters: function() {
+        if (this.props.tab != 'business') return;
+        return (
+            <div>
+                <CategorySubFilters 
+                    cat={this.state.filtersCategoryToDisplay}
+                    tab={this.props.tab}
                     onClose={this.handleCloseMobileSubFilters} 
-                    allFilters={this.props.allFilters} 
+                    allCategories={this.props.allCategories} 
+                    initialSearch={this.state.search}/>
+                <h1>Filtrer par</h1>
+                <div>Où</div>
+                <div>Nom du Salon</div>
+                <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'business')}>Catégories</a>
+                <div>Jours d'ouverture</div>
+                <div>Prix</div>
+                <div>Promo</div>
+            </div>
+        );
+    },
+    renderHairfiesFilters: function() {
+        if (this.props.tab != 'hairfie') return;
+        console.log('renderHairfiesFilters');
+        return (
+            <div>
+                <TagSubFilters 
+                    cat={this.state.filtersCategoryToDisplay} 
+                    tab={this.props.tab}
+                    onClose={this.handleCloseMobileSubFilters} 
+                    allTags={this.props.allTags} 
                     initialSearch={this.state.search}/>
                 <h1>Filtrer par</h1>
                 {_.map(this.props.filterCategories, function (category) {
                         return <a key={category.id} role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, category)}>{category.name}</a>
                     }.bind(this))}
-                <button onClick={this.handleChange} className="btn btn-red">Valider</button>
-                <button onClick={this.props.onClose} className="btn btn-red">Fermer</button>
             </div>
         );
     },
     handleChange: function () {
         console.log('handleChange');
         this.props.onChange(this.state.search);
+        this.handleDisplayMobileFilters();
     },
     handleDisplayMobileSubFilters: function(category) {
         this.setState({filtersCategoryToDisplay: category});
@@ -58,7 +105,7 @@ var MobileFilters = React.createClass({
     }
 });
 
-var SubFilters = React.createClass ({
+var CategorySubFilters = React.createClass ({
     getInitialState: function () {
         return {
             search: this.props.initialSearch,
@@ -71,26 +118,27 @@ var SubFilters = React.createClass ({
         };
     },
     render: function () {
-        console.log("render", this.state);
+        console.log("render subfilters", this.state);
         if(_.isEmpty(this.props.cat)) return null;
         return (
-            <div className="new-filters subfilters"><h1>{'Catégorie :' + this.props.cat.name}</h1>
+            <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
+                <h1>Catégories</h1>
                 <br/>
-                    {_.map(_.groupBy(this.props.allFilters, 'category.id')[this.props.cat.id], function (filter) {
-                        return (
-                            <div key={filter.id} className="filter-line">
-                                <label className="checkbox-inline">
-                                    <input type="checkbox"
-                                        ref={filter.id}
-                                        value={filter.name}
-                                        checked={this.isSearched(filter)}
-                                        onChange={this.handleFilterChange} />
-                                    {filter.name}
-                                </label>
-                            </div>
-                        )
-                    }, this)}
+                {_.map(this.props.allCategories, function (filter) {
+                    return (
+                        <div key={filter.id} className="filter-line">
+                            <label className="checkbox-inline">
+                                <input type="checkbox"
+                                    ref={filter.id}
+                                    value={filter.slug}
+                                    checked={this.isSearched(filter)}
+                                    onChange={this.handleFilterChange} />
+                                {filter.name}
+                            </label>
+                        </div>
+                    )
+                }, this)}
                 <br/>
                 <button onClick={this.selectAll} className="btn btn-red">Tout sélectionner</button>
                 <br/>
@@ -99,16 +147,100 @@ var SubFilters = React.createClass ({
         );
     },
     isSearched: function (filter) {
-        return (_.indexOf(this.state.search.tags, filter.name) > -1 ? true : false);
+        return (_.indexOf(this.state.search.categories, filter.slug) > -1 ? true : false);
     },
     handleClose: function() {
         this.props.onClose(this.state.search);
+        this.setState({selectAll: false});
+            console.log('handleClose', this.state.search);
+    },
+    handleFilterChange: function (e) {
+        if (_.isArray(this.state.search.categories)) {
+            var newTags = this.state.search.categories;
+        }
+        else {
+            newTags = [];
+        }
+        if (e.currentTarget.checked === true){
+            newTags.push(e.currentTarget.value);
+            this.setState({search: _.assign({}, this.state.search, {categories: newTags})});
+        }
+        else {
+            this.setState({search: _.assign({}, this.state.search, {categories:  _.without(newTags, e.currentTarget.value)})});
+        }
+        console.log('handleFilterChange', this.state.search);
+    },
+    selectAll: function () {
+        if (!this.state.selectAll){
+            var newTags = _.map(this.props.allCategories, function(cat) { return cat.slug; });
+            this.setState({search: {categories: newTags}});
+
+        } else {
+            this.setState({search: {categories: {}}});
+        }
+        this.setState({selectAll: !this.state.selectAll});
+    }
+});
+
+var TagSubFilters = React.createClass ({
+    getInitialState: function () {
+        return {
+            search: this.props.initialSearch,
+            selectAll: false
+        };
+    },
+    getDefaultProps: function () {
+        return {
+            onClose: _.noop
+        };
+    },
+    render: function () {
+        console.log("render subfilters", this.state);
+        if(_.isEmpty(this.props.cat)) return null;
+        return (
+            <div className="new-filters subfilters">
+                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
+                <h1>{'Catégorie :' + this.props.cat.name}</h1>
+                <br/>
+                {_.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
+                    return (
+                        <div key={filter.id} className="filter-line">
+                            <label className="checkbox-inline">
+                                <input type="checkbox"
+                                    ref={filter.id}
+                                    value={filter.name}
+                                    checked={this.isSearched(filter)}
+                                    onChange={this.handleFilterChange} />
+                                {filter.name}
+                            </label>
+                        </div>
+                    )
+                }, this)}
+                <br/>
+                <button onClick={this.selectAll} className="btn btn-red">Tout sélectionner</button>
+                <br/>
+                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
+            </div>
+        );
+    },
+
+    isSearched: function (filter) {
+        return (_.indexOf(this.state.search.tags, filter.name) > -1 ? true : false);
+
+    },
+    handleClose: function() {
+        this.props.onClose(this.state.search);
+        this.setState({selectAll: false});
             console.log('handleClose', this.state.search);
 
     },
     handleFilterChange: function (e) {
-        var newTags = this.state.search.tags;
-
+        if (_.isArray(this.state.search.tags)) {
+            var newTags = this.state.search.tags;
+        }
+        else {
+            newTags = [];
+        }
         if (e.currentTarget.checked === true){
             newTags.push(e.currentTarget.value);
             this.setState({search: _.assign({}, this.state.search, {tags: newTags})});
@@ -121,13 +253,20 @@ var SubFilters = React.createClass ({
     },
     selectAll: function () {
         if (!this.state.selectAll){
-            var newTags = this.state.search.tags;
-            newTags = newTags.concat(_.map(_.groupBy(this.props.allFilters, 'category.id')[this.props.cat.id], function (filter) {
-                return filter.name }, this));
+            if (_.isArray(this.state.search.tags)) {
+                var newTags = this.state.search.tags;
+                newTags = newTags.concat(_.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
+                    return filter.name }, this));
+            }
+            else {
+                var newTags = _.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
+                    return filter.name }, this);
+            }
+            
 
             this.setState({search: {tags: newTags}});
         } else {
-            var currentTags = _.map(_.groupBy(this.props.allFilters, 'category.id')[this.props.cat.id], function (filter) {
+            var currentTags = _.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
                 return filter.name }, this);
             var newTags = _.filter(this.state.search.tags, function(tag) {
                 return !_.include(currentTags, tag)});

@@ -35,7 +35,6 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                {/* this.renderCurrentFilters() */}
                 <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
                 <section>
                     <form>
@@ -50,41 +49,6 @@ var Filters = React.createClass({
                     </form>
                 </section>
             </div>
-        );
-    },
-    renderCurrentFilters: function () {
-        if (this.props.categories)
-            var search = _.compact(_.map(this.props.search.categories, function (cat) {
-                var category = _.find(this.props.categories, {slug: cat});
-                return category ? { label: category.label, slug: cat } : undefined;
-            }.bind(this)));
-        else
-            var search = this.props.search.tags;
-
-        var filters = _.map(search, function (selection) {
-                var selectionLabel = selection.label ? selection.label : selection;
-                var selectionSlug = selection.slug ? selection.slug : selection;
-                return {
-                    label   : selectionLabel,
-                    onChange: this.removeSelection.bind(this, selectionSlug)
-                }
-        }, this);
-
-        if (filters.length == 0) return null;
-
-        return (
-            <section className="filter-recap">
-                <h2>Ma sélection</h2>
-                {_.map(filters, function (filter, i) {
-                    return (
-                        <label key={i+'#'+filter.label} className="checkbox-inline">
-                            <input type="checkbox" align="baseline" checked onChange={filter.onChange} className="checkbox-disabled" />
-                            <span></span>
-                            {filter.label}
-                        </label>
-                    );
-                }, this)}
-            </section>
         );
     },
     renderRadius: function () {
