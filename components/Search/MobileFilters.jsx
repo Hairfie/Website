@@ -65,13 +65,23 @@ var MobileFilters = React.createClass({
                     onClose={this.handleCloseMobileSubFilters} />
                 <h1>Filtrer par</h1>
                 <div>Où</div>
-                <div>Nom du Salon</div>
+                <div>
+                    <BusinessNameInput 
+                        ref="businessNameInput"
+                        initialSearch={this.state.search}
+                        onSubmit={this.handleChange}/>
+                </div>
                 <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>Catégories</a>
                 <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>Jours d'ouverture</a>
                 </div>
                 <div>Prix</div>
-                <div>Promo</div>
+                <div>
+                    <PromoCheckbox
+                        ref="promoCheckbox"
+                        initialSearch={this.state.search} 
+                        onChange={this.handlePromoChange}/>
+                </div>
             </div>
         );
     },
@@ -95,33 +105,109 @@ var MobileFilters = React.createClass({
     },
     handleChange: function () {
         console.log('handleChange');
-        this.props.onChange(this.state.search);
+        if (this.refs.businessNameInput) {
+            this.setState({search: _.assign({}, this.state.search, {q: this.refs.businessNameInput.getValue()})}, function() {
+                this.props.onChange(this.state.search);
+            });
+        } else {
+            this.props.onChange(this.state.search);
+        }
         this.handleDisplayMobileFilters();
+    },
+    handlePromoChange: function() {
+        this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});
     },
     handleDisplayMobileSubFilters: function(category) {
         this.setState({filtersCategoryToDisplay: category});
     },
     handleCloseMobileSubFilters: function(search) {
-        this.setState({filtersCategoryToDisplay: {}});
-
         if(search) {
-
             this.setState({search:search});
         }
+        this.setState({filtersCategoryToDisplay: {}});
+    }
+});
+
+var PromoCheckbox = React.createClass ({
+    getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
+        return {
+            search: props.initialSearch
+        }
+    },
+    render: function() {
+        console.log('promo', this.state.search.withDiscount);
+        return (
+            <div>
+                <label className="checkbox-inline">
+                    <input ref="promo" type="checkbox" align="baseline" onChange={this.handleChange} checked={this.state.search.withDiscount} />
+                    <span />
+                    Avec une promotion
+                </label>
+            </div>
+        );
+    },
+    getValue: function () {
+        return this.refs.promo.value;
+    },
+    handleChange: function () {
+        this.props.onChange(this.state.search);
+    }
+});
+
+var BusinessNameInput = React.createClass ({
+    getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
+        return {
+            search: props.initialSearch
+        }
+    },
+    render: function() {
+        return (
+            <div>
+                <h2>Nom du coiffeur</h2>
+                <div className="input-group">
+                    <input className="form-control" ref="query" type="text" defaultValue={this.state.search.q}/>
+                    <div className="input-group-addon"><a role="button" onClick={this.handleSubmit}>O</a></div>
+                </div>
+            </div>
+        );
+    },
+    getValue: function () {
+        return this.refs.query.value;
+    },
+    handleSubmit: function () {
+        this.props.onSubmit(this.state.search);
     }
 });
 
 var OpeningDays = React.createClass ({
     getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
         return {
-            search: this.props.initialSearch,
+            search: props.initialSearch,
             selectAll: false
-        };
+        }
     },
     render: function() {
         if(this.props.cat != 'OpeningDays') return null;
 
-        var displayDays = ['MON', 'SUN'];
+        var displayDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
         return (
             <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
@@ -148,20 +234,27 @@ var OpeningDays = React.createClass ({
         this.props.onClose(this.state.search);
     },
     addDay: function (day) {
-        this.setState({search: {days: _.union(this.state.search.days || [], [day])}});
+        this.setState({search: _.assign({}, this.state.search,{days: _.union(this.state.search.days || [], [day])})});
     },
     removeDay: function (day) {
-        this.setState({search: {days: _.without(this.state.search.days, day)}});
+        this.setState({search: _.assign({}, this.state.search,{days: _.without(this.state.search.days, day)})});
     }
 
 });
 
 var CategorySubFilters = React.createClass ({
     getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        console.log("componentWillReceiveProps");
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
         return {
-            search: this.props.initialSearch,
+            search: props.initialSearch,
             selectAll: false
-        };
+        }
     },
     getDefaultProps: function () {
         return {
