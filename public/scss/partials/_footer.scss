@@ -87,13 +87,18 @@ footer {
 		}
 	}
 	.suggestion {
-		margin-bottom: 40px;
+		padding-bottom: 40px;
+		padding-top: 40px;
+		.title {
+			padding-bottom: 10px;
+			text-transform: uppercase;
+		}
 		p, a {
 			text-align: initial;
 			color: $lightgrey;
 		}
 		p:not(.title) {
-			padding-bottom: 5px;
+			padding-bottom: 3px;
 		}
 		div.row {
 

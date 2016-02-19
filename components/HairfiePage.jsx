@@ -23,9 +23,6 @@ var HairfiePage = React.createClass({
     render: function () {
         if (!this.props.hairfie) return this.renderLoading();
 
-                    //<div className="hairfie-newsletter">
-                    //    <Newsletter />
-                    //</div>
         return (
             <PublicLayout>
                 <div className="container hairfie-singleView" id="content">

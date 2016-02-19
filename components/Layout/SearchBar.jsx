@@ -32,12 +32,12 @@ var SearchBar = React.createClass({
         if (this.props.displaySearch) {
             return (
                 <div className="searchbar small-search col-xs-12 hidden-xs">
-                    <div className="col-xs-3" style={{paddingLeft: '0'}}>
-                        {this.renderSelect()}
-                    </div>
                     <div className="col-xs-3 input-group">
                         <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
                         <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                    </div>
+                    <div className="col-xs-3" style={{paddingLeft: '0'}}>
+                        {this.renderSelect()}
                     </div>
                     <input ref="query" onKeyPress={this.handleKey} type="search" placeholder="Nom du coiffeur" className="col-xs-3" />
                     <button type="button" className="btn btn-red" onClick={this.submit}>Trouvez votre coiffeur</button>

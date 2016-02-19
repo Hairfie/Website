@@ -1,8 +1,9 @@
 require('node-jsx').install({extension:'.jsx'});
 
+var newrelic;
 if (process.env.NEW_RELIC_LICENSE_KEY) {
     try {
-        require('newrelic');
+        newrelic = require('newrelic');
     }
     catch (e) {
         console.log('NEWRELIC Error')
@@ -59,6 +60,17 @@ server.get('/sitemap.xml', function(req, res) {
   res.send(sitemap.toString());
 });
 
+// NEW RELIC FORMATTING
+
+// server.use(function(req, res, next) {
+//   if (newrelic) {
+//     var url = req.url.substring(1);
+//     console.log("url", url);
+
+//     newrelic.setTransactionName(url);
+//   }
+//   next();
+// });
 
 // serve application
 server.use(function (req, res, next) {
@@ -69,6 +81,7 @@ server.use(function (req, res, next) {
     context.executeAction(ServerActions.initialize, req.url)
         .then(function () {
             var AppComponent = app.getComponent();
+
             var markup = ReactDOMServer.renderToString(React.createFactory(AppComponent)({
                 context: context.getComponentContext()
             }));
@@ -79,8 +92,18 @@ server.use(function (req, res, next) {
                 markup  : markup
             }));
 
-            // res.write(html);
-            // res.end();
+
+            if (newrelic) {
+                try {
+                    var route = context.getComponentContext().getStore('RouteStore').getCurrentRoute();
+                    newrelic.setTransactionName(route.path);
+                }
+                catch (e) {
+                    console.log('NEWRELIC Path error')
+                    console.log(e)
+                }
+            }
+
             res.send(html);
         })
         .catch(function (err) {
@@ -131,6 +154,7 @@ server.use(function (err, req, res, next) { // error page
     res.write(html);
     res.end();
 });
+
 
 module.exports = server;
 
