@@ -9,22 +9,26 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 
-var MobileFilters = React.createClass({
+var MobileFilters = React.createClass({    
     getInitialState: function () {
-        return {
-            displayMobileFilters: false,
-            filtersCategoryToDisplay: {},
-            search: this.props.initialSearch
-        };
+        return this.getStateFromProps(this.props);
     },
     getDefaultProps: function () {
         return {
             onClose: _.noop
         };
     },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
+        return {
+            search: props.initialSearch,
+            displayMobileFilters: false,
+            filtersCategoryToDisplay: {}
+        }
+    }, 
     render: function () {
-        // debugger;
-        console.log('render MobileFilters', this.state.search);
         var displayClass = 'new-filters ';
         if (!this.state.displayMobileFilters)
             displayClass += 'hidden';
@@ -64,7 +68,14 @@ var MobileFilters = React.createClass({
                     cat={this.state.filtersCategoryToDisplay}
                     onClose={this.handleCloseMobileSubFilters} />
                 <h1>Filtrer par</h1>
-                <div>Où</div>
+                <div>
+                    <LocationInput 
+                        ref="locationInput"
+                        initialSearch={this.state.search}
+                        onSubmit={this.handleChange}
+                        currentPosition={this.props.currentPosition}
+                        onChange={this.handleLocationChange} />
+                </div>
                 <div>
                     <BusinessNameInput 
                         ref="businessNameInput"
@@ -87,7 +98,6 @@ var MobileFilters = React.createClass({
     },
     renderHairfiesFilters: function() {
         if (this.props.tab != 'hairfie') return;
-        console.log('renderHairfiesFilters');
         return (
             <div>
                 <TagSubFilters 
@@ -104,15 +114,17 @@ var MobileFilters = React.createClass({
         );
     },
     handleChange: function () {
-        console.log('handleChange');
-        if (this.refs.businessNameInput) {
-            this.setState({search: _.assign({}, this.state.search, {q: this.refs.businessNameInput.getValue()})}, function() {
+        if (this.props.tab == 'business') {
+            this.setState({search: _.assign({}, this.state.search, 
+                {q: this.refs.businessNameInput.getValue(), address: this.refs.locationInput.getValue()})}, function() {
                 this.props.onChange(this.state.search);
             });
-        } else {
+        }
+        else {
             this.props.onChange(this.state.search);
         }
         this.handleDisplayMobileFilters();
+
     },
     handlePromoChange: function() {
         this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});
@@ -128,36 +140,55 @@ var MobileFilters = React.createClass({
     }
 });
 
-var PromoCheckbox = React.createClass ({
+var LocationInput = React.createClass ({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
+    },
     getInitialState: function () {
         return this.getStateFromProps(this.props);
     },
     componentWillReceiveProps: function(nextProps) {
         this.setState(this.getStateFromProps(nextProps));
+        if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
+            this.refs.address.refs.input.value = nextProps.currentPosition;
+        }
     },
     getStateFromProps: function(props) {
         return {
-            search: props.initialSearch
+            search: props.initialSearch,
+            isGeolocated: (this.state && this.state.isGeolocated) || false
         }
     },
-    render: function() {
+    render: function () {
+
         return (
             <div>
-                <label className="checkbox-inline">
-                    <input ref="promo" type="checkbox" align="baseline" onChange={this.handleChange} checked={this.state.search.withDiscount} />
-                    <span />
-                    Avec une promotion
-                </label>
+                <div className="input-group">
+                    <GeoInput className="form-control" ref="address" type="text" 
+                        onChange={this.handleLocationChange} 
+                        defaultValue={this.state.search.address != 'France' ? this.state.search.address : ''}/>
+                    <div className="input-group-addon"><a role="button" onClick={this.props.onSubmit}>O</a></div>
+                </div>
+                <div>
+                    <button className="btn btn-hairfie" onClick={this.locateMe}>Autour de moi</button>
+                </div>
             </div>
         );
     },
     getValue: function () {
-        return this.refs.promo.value;
+        //this.refs.address.refs.input.value = "TEST";
+        if (this.refs.address.refs.input.value == '') return 'France';
+        return this.refs.address.getFormattedAddress();
     },
-    handleChange: function () {
-        this.props.onChange(this.state.search);
+    locateMe: function() {
+        this.setState({isGeolocated: true});
+        this.context.executeAction(PlaceActions.getPlaceByGeolocation);
+    },
+    handleLocationChange: function() {
+        this.setState({isGeolocated: false});
     }
 });
+
 
 var BusinessNameInput = React.createClass ({
     getInitialState: function () {
@@ -241,6 +272,38 @@ var OpeningDays = React.createClass ({
 
 });
 
+
+var PromoCheckbox = React.createClass ({
+    getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
+        return {
+            search: props.initialSearch
+        }
+    },
+    render: function() {
+        return (
+            <div>
+                <label className="checkbox-inline">
+                    <input ref="promo" type="checkbox" align="baseline" onChange={this.handleChange} checked={this.state.search.withDiscount} />
+                    <span />
+                    Avec une promotion
+                </label>
+            </div>
+        );
+    },
+    getValue: function () {
+        return this.refs.promo.value;
+    },
+    handleChange: function () {
+        this.props.onChange(this.state.search);
+    }
+});
+
 var CategorySubFilters = React.createClass ({
     getInitialState: function () {
         return this.getStateFromProps(this.props);
@@ -260,7 +323,6 @@ var CategorySubFilters = React.createClass ({
         };
     },
     render: function () {
-        //console.log("render subfilters", this.state);
         if(this.props.cat != 'businessCategories') return null;
         return (
             <div className="new-filters subfilters">
@@ -294,15 +356,10 @@ var CategorySubFilters = React.createClass ({
     handleClose: function() {
         this.props.onClose(this.state.search);
         this.setState({selectAll: false});
-            console.log('handleClose', this.state.search);
     },
     handleFilterChange: function (e) {
-        if (_.isArray(this.state.search.categories)) {
-            var newTags = this.state.search.categories;
-        }
-        else {
-            newTags = [];
-        }
+        var newTags = _.isArray(this.state.search.categories) ? this.state.search.categories : [];
+
         if (e.currentTarget.checked === true){
             newTags.push(e.currentTarget.value);
             this.setState({search: _.assign({}, this.state.search, {categories: newTags})});
@@ -310,26 +367,30 @@ var CategorySubFilters = React.createClass ({
         else {
             this.setState({search: _.assign({}, this.state.search, {categories:  _.without(newTags, e.currentTarget.value)})});
         }
-        console.log('handleFilterChange', this.state.search);
     },
     selectAll: function () {
         if (!this.state.selectAll){
             var newTags = _.map(this.props.allCategories, function(cat) { return cat.slug; });
-            this.setState({search: {categories: newTags}});
+            this.setState({search: {categories: newTags}, selectAll: !this.state.selectAll});
 
         } else {
-            this.setState({search: {categories: {}}});
+            this.setState({search: {categories: {}}, selectAll: !this.state.selectAll});
         }
-        this.setState({selectAll: !this.state.selectAll});
     }
 });
 
 var TagSubFilters = React.createClass ({
     getInitialState: function () {
+        return this.getStateFromProps(this.props);
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.setState(this.getStateFromProps(nextProps));
+    },
+    getStateFromProps: function(props) {
         return {
-            search: this.props.initialSearch,
+            search: props.initialSearch,
             selectAll: false
-        };
+        }
     },
     getDefaultProps: function () {
         return {
@@ -337,8 +398,8 @@ var TagSubFilters = React.createClass ({
         };
     },
     render: function () {
-        console.log("render subfilters", this.state);
         if(_.isEmpty(this.props.cat)) return null;
+
         return (
             <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
@@ -365,24 +426,16 @@ var TagSubFilters = React.createClass ({
             </div>
         );
     },
-
     isSearched: function (filter) {
         return (_.indexOf(this.state.search.tags, filter.name) > -1 ? true : false);
-
     },
     handleClose: function() {
         this.props.onClose(this.state.search);
         this.setState({selectAll: false});
-            console.log('handleClose', this.state.search);
-
     },
     handleFilterChange: function (e) {
-        if (_.isArray(this.state.search.tags)) {
-            var newTags = this.state.search.tags;
-        }
-        else {
-            newTags = [];
-        }
+        var newTags = _.isArray(this.state.search.tags) ? this.state.search.tags : [];
+
         if (e.currentTarget.checked === true){
             newTags.push(e.currentTarget.value);
             this.setState({search: _.assign({}, this.state.search, {tags: newTags})});
@@ -390,32 +443,31 @@ var TagSubFilters = React.createClass ({
         else {
             this.setState({search: _.assign({}, this.state.search, {tags:  _.without(newTags, e.currentTarget.value)})});
         }
-        console.log('handleFilterChange', this.state.search);
-
     },
     selectAll: function () {
-        if (!this.state.selectAll){
-            if (_.isArray(this.state.search.tags)) {
-                var newTags = this.state.search.tags;
-                newTags = newTags.concat(_.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
-                    return filter.name }, this));
-            }
-            else {
-                var newTags = _.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
-                    return filter.name }, this);
-            }
-            
+        var allCategoryTags = _.groupBy(this.props.allTags, 'category.id')[this.props.cat.id]
 
+        if (!this.state.selectAll){
+            var newTags = _.map(allCategoryTags, 'name');
+            if(_.isArray(this.state.search.tags)) newTags = newTags.concat(this.state.search.tags)
             this.setState({search: {tags: newTags}});
         } else {
-            var currentTags = _.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
-                return filter.name }, this);
+            var currentTags = _.map(allCategoryTags, 'name');
             var newTags = _.filter(this.state.search.tags, function(tag) {
-                return !_.include(currentTags, tag)});
+                return !_.include(currentTags, tag)
+            });
             this.setState({search: {tags: newTags}});
         }
         this.setState({selectAll: !this.state.selectAll});
     }
+});
+
+MobileFilters = connectToStores(MobileFilters, [
+    'PlaceStore'
+], function (context, props) {
+    return _.assign({}, {
+        currentPosition: context.getStore('PlaceStore').getCurrentPosition()
+    }, props);
 });
 
 module.exports = MobileFilters;

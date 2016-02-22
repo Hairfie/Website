@@ -67,7 +67,6 @@ var BusinessSearchPage = React.createClass({
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
         this.context.executeAction(BusinessActions.submitSearch, search);
-        console.log('SEARCHED');
     }
 });
 
