@@ -141,7 +141,6 @@ var PromoCheckbox = React.createClass ({
         }
     },
     render: function() {
-        console.log('promo', this.state.search.withDiscount);
         return (
             <div>
                 <label className="checkbox-inline">
@@ -247,7 +246,6 @@ var CategorySubFilters = React.createClass ({
         return this.getStateFromProps(this.props);
     },
     componentWillReceiveProps: function(nextProps) {
-        console.log("componentWillReceiveProps");
         this.setState(this.getStateFromProps(nextProps));
     },
     getStateFromProps: function(props) {
