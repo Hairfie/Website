@@ -43,12 +43,12 @@ var MobileFilters = React.createClass({
                     <a role="button" className="btn-red btn-mobile-fixed" onClick={this.handleDisplayMobileFilters}>Filtres</a>
                 </div>
                 <div className={displayClass}>
-                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red close-filters">X</button>
+                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red close-filters">Fermer X</button>
                     {this.renderHairfiesFilters()}
                     {this.renderBusinessFilters()}
                     <div className="filter-footer">
+                        <button onClick={this.reset} className="btn btn-red semi">Réinitialiser</button>
                         <button onClick={this.handleChange} className="btn btn-red semi">Valider</button>
-                        <button onClick={this.handleDisplayMobileFilters} className="btn btn-red semi">Fermer</button>
                     </div>
                 </div>
             </div>
@@ -165,6 +165,9 @@ var MobileFilters = React.createClass({
             this.setState({search:search});
         }
         this.setState({filtersCategoryToDisplay: {}});
+    },
+    reset: function () {
+        this.setState({search: this.props.initialSearch});
     }
 });
 
