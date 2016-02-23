@@ -12887,6 +12887,8 @@ section.home-search .home-search-mobile {
           display: none !important; }
       .salon#content section.salon-content .comments .note-yelp-info {
         font-size: 1.4em; }
+      .salon#content section.salon-content .comments a:focus {
+        color: inherit; }
       .salon#content section.salon-content .comments .review-rating {
         float: left;
         margin-bottom: 5px;

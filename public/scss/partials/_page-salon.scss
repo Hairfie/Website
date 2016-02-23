@@ -507,6 +507,9 @@
                 .note-yelp-info {
                     font-size: 1.4em;
                 }
+                a:focus {
+                    color: inherit;
+                }
                 .review-rating {
                     float: left;
                     margin-bottom: 5px;
