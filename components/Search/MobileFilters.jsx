@@ -43,6 +43,7 @@ var MobileFilters = React.createClass({
                     <a role="button" className="btn-red btn-mobile-fixed" onClick={this.handleDisplayMobileFilters}>Filtres</a>
                 </div>
                 <div className={displayClass}>
+                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red close-filters">X</button>
                     {this.renderHairfiesFilters()}
                     {this.renderBusinessFilters()}
                     <div className="filter-footer">

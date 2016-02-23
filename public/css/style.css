@@ -12004,6 +12004,19 @@ section.home-search .home-search-mobile {
         font-family: "Lato", sans-serif;
         font-size: 1.5em;
         margin-right: 5px; }
+    #content.search .new-filters .btn-red.close-filters {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: -webkit-flexbox;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      text-align: center; }
 
 #content.search .subfilters {
   z-index: 202;
