@@ -4,10 +4,15 @@ var React = require('react');
 var _ = require('lodash');
 var PriceFilter = require('./PriceFilter.jsx');
 var RadiusFilter = require('./RadiusFilter.jsx');
-var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
+var TagSubFilters = require('./TagSubFilters.jsx');
+var CategorySubFilters = require('./CategorySubFilters.jsx');
+var PromoCheckbox = require('./PromoCheckbox.jsx');
+var OpeningDays = require('./OpeningDays.jsx');
+var BusinessNameInput = require('./BusinessNameInput.jsx');
+var LocationInput = require('./LocationInput.jsx');
 
 var MobileFilters = React.createClass({    
     getInitialState: function () {
@@ -24,7 +29,7 @@ var MobileFilters = React.createClass({
     getStateFromProps: function(props) {
         return {
             search: props.initialSearch,
-            displayMobileFilters: false,
+            displayMobileFilters: this.state && this.state.displayMobileFilters || false,
             filtersCategoryToDisplay: {}
         }
     }, 
@@ -40,8 +45,10 @@ var MobileFilters = React.createClass({
                 <div className={displayClass}>
                     {this.renderHairfiesFilters()}
                     {this.renderBusinessFilters()}
-                    <button onClick={this.handleChange} className="btn btn-red">Valider</button>
-                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red">Fermer</button>
+                    <div className="filter-footer">
+                        <button onClick={this.handleChange} className="btn btn-red semi">Valider</button>
+                        <button onClick={this.handleDisplayMobileFilters} className="btn btn-red semi">Fermer</button>
+                    </div>
                 </div>
             </div>
         );
@@ -67,14 +74,12 @@ var MobileFilters = React.createClass({
                     initialSearch={this.state.search}
                     cat={this.state.filtersCategoryToDisplay}
                     onClose={this.handleCloseMobileSubFilters} />
-                <h1>Filtrer par</h1>
+                <div className="filter-header">Filtrer par:</div>
                 <div>
                     <LocationInput 
                         ref="locationInput"
                         initialSearch={this.state.search}
-                        onSubmit={this.handleChange}
-                        currentPosition={this.props.currentPosition}
-                        onChange={this.handleLocationChange} />
+                        currentPosition={this.props.currentPosition} />
                 </div>
                 <div>
                     <BusinessNameInput 
@@ -82,11 +87,14 @@ var MobileFilters = React.createClass({
                         initialSearch={this.state.search}
                         onSubmit={this.handleChange}/>
                 </div>
-                <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>Catégories</a>
+                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>
+                        Spécialités {this.countCategories(this.state.search.categories)}
+                    </a>
                 <div>
-                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>Jours d'ouverture</a>
+                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>
+                        Jours d'ouverture {this.countCategories(this.state.search.days)}
+                    </a>
                 </div>
-                <div>Prix</div>
                 <div>
                     <PromoCheckbox
                         ref="promoCheckbox"
@@ -106,12 +114,31 @@ var MobileFilters = React.createClass({
                     onClose={this.handleCloseMobileSubFilters} 
                     allTags={this.props.allTags} 
                     initialSearch={this.state.search}/>
-                <h1>Filtrer par</h1>
+                <div className="filter-header">Filtrer par:</div>
                 {_.map(this.props.filterCategories, function (category) {
-                        return <a key={category.id} role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, category)}>{category.name}</a>
+                        return <a key={category.id} role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, category)}>
+                                    {category.name} 
+                                    {this.countTagsByCategory(category)}
+                                </a>
                     }.bind(this))}
             </div>
         );
+    },
+    countTagsByCategory: function(category) {
+        var categoryTags= _.map(_.groupBy(this.props.allTags, 'category.id')[category.id], function (filter) {
+            return filter.name
+        });
+
+        var matchingTags = _.filter(this.state.search.tags, function(tag) {
+            return _.include(categoryTags, tag)
+        });
+        var tagClass = matchingTags.length >0 ? 'tag-count' : null;
+        return matchingTags.length > 0 ? <span className={tagClass}>{matchingTags.length}</span> : null;
+    },
+    countCategories: function (arrayToCount) {
+        var tagClass = arrayToCount && arrayToCount.length > 0 ? 'tag-count' : null;
+        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return;
+        else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {
         if (this.props.tab == 'business') {
@@ -137,328 +164,6 @@ var MobileFilters = React.createClass({
             this.setState({search:search});
         }
         this.setState({filtersCategoryToDisplay: {}});
-    }
-});
-
-var LocationInput = React.createClass ({
-    contextTypes: {
-        executeAction: React.PropTypes.func.isRequired
-    },
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-        if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
-            this.refs.address.refs.input.value = nextProps.currentPosition;
-        }
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch,
-            isGeolocated: (this.state && this.state.isGeolocated) || false
-        }
-    },
-    render: function () {
-
-        return (
-            <div>
-                <div className="input-group">
-                    <GeoInput className="form-control" ref="address" type="text" 
-                        onChange={this.handleLocationChange} 
-                        defaultValue={this.state.search.address != 'France' ? this.state.search.address : ''}/>
-                    <div className="input-group-addon"><a role="button" onClick={this.props.onSubmit}>O</a></div>
-                </div>
-                <div>
-                    <button className="btn btn-hairfie" onClick={this.locateMe}>Autour de moi</button>
-                </div>
-            </div>
-        );
-    },
-    getValue: function () {
-        //this.refs.address.refs.input.value = "TEST";
-        if (this.refs.address.refs.input.value == '') return 'France';
-        return this.refs.address.getFormattedAddress();
-    },
-    locateMe: function() {
-        this.setState({isGeolocated: true});
-        this.context.executeAction(PlaceActions.getPlaceByGeolocation);
-    },
-    handleLocationChange: function() {
-        this.setState({isGeolocated: false});
-    }
-});
-
-
-var BusinessNameInput = React.createClass ({
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch
-        }
-    },
-    render: function() {
-        return (
-            <div>
-                <h2>Nom du coiffeur</h2>
-                <div className="input-group">
-                    <input className="form-control" ref="query" type="text" defaultValue={this.state.search.q}/>
-                    <div className="input-group-addon"><a role="button" onClick={this.handleSubmit}>O</a></div>
-                </div>
-            </div>
-        );
-    },
-    getValue: function () {
-        return this.refs.query.value;
-    },
-    handleSubmit: function () {
-        this.props.onSubmit(this.state.search);
-    }
-});
-
-var OpeningDays = React.createClass ({
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch,
-            selectAll: false
-        }
-    },
-    render: function() {
-        if(this.props.cat != 'OpeningDays') return null;
-
-        var displayDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-        return (
-            <div className="new-filters subfilters">
-                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
-                <h2>Ouverture le</h2>
-                {_.map(DateTimeConstants.weekDaysNumber, function(day) {
-                    if (_.isEmpty(_.intersection([day], displayDays))) return null;
-                    var active   = this.state.search && (this.state.search.days || []).indexOf(day) > -1;
-                    var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
-                    return (
-                        <label key={DateTimeConstants.weekDayLabelFR(day)} className="checkbox-inline">
-                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
-                            <span />
-                            {DateTimeConstants.weekDayLabelFR(day)}
-                        </label>
-                        );
-                    }, this)
-                }
-                <br/>
-                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
-            </div>
-        );
-    },
-    handleClose: function() {
-        this.props.onClose(this.state.search);
-    },
-    addDay: function (day) {
-        this.setState({search: _.assign({}, this.state.search,{days: _.union(this.state.search.days || [], [day])})});
-    },
-    removeDay: function (day) {
-        this.setState({search: _.assign({}, this.state.search,{days: _.without(this.state.search.days, day)})});
-    }
-
-});
-
-
-var PromoCheckbox = React.createClass ({
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch
-        }
-    },
-    render: function() {
-        return (
-            <div>
-                <label className="checkbox-inline">
-                    <input ref="promo" type="checkbox" align="baseline" onChange={this.handleChange} checked={this.state.search.withDiscount} />
-                    <span />
-                    Avec une promotion
-                </label>
-            </div>
-        );
-    },
-    getValue: function () {
-        return this.refs.promo.value;
-    },
-    handleChange: function () {
-        this.props.onChange(this.state.search);
-    }
-});
-
-var CategorySubFilters = React.createClass ({
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch,
-            selectAll: false
-        }
-    },
-    getDefaultProps: function () {
-        return {
-            onClose: _.noop
-        };
-    },
-    render: function () {
-        if(this.props.cat != 'businessCategories') return null;
-        return (
-            <div className="new-filters subfilters">
-                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
-                <h1>Catégories</h1>
-                <br/>
-                {_.map(this.props.allCategories, function (filter) {
-                    return (
-                        <div key={filter.id} className="filter-line">
-                            <label className="checkbox-inline">
-                                <input type="checkbox"
-                                    ref={filter.id}
-                                    value={filter.slug}
-                                    checked={this.isSearched(filter)}
-                                    onChange={this.handleFilterChange} />
-                                {filter.name}
-                            </label>
-                        </div>
-                    )
-                }, this)}
-                <br/>
-                <button onClick={this.selectAll} className="btn btn-red">Tout sélectionner</button>
-                <br/>
-                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
-            </div>
-        );
-    },
-    isSearched: function (filter) {
-        return (_.indexOf(this.state.search.categories, filter.slug) > -1 ? true : false);
-    },
-    handleClose: function() {
-        this.props.onClose(this.state.search);
-        this.setState({selectAll: false});
-    },
-    handleFilterChange: function (e) {
-        var newTags = _.isArray(this.state.search.categories) ? this.state.search.categories : [];
-
-        if (e.currentTarget.checked === true){
-            newTags.push(e.currentTarget.value);
-            this.setState({search: _.assign({}, this.state.search, {categories: newTags})});
-        }
-        else {
-            this.setState({search: _.assign({}, this.state.search, {categories:  _.without(newTags, e.currentTarget.value)})});
-        }
-    },
-    selectAll: function () {
-        if (!this.state.selectAll){
-            var newTags = _.map(this.props.allCategories, function(cat) { return cat.slug; });
-            this.setState({search: {categories: newTags}, selectAll: !this.state.selectAll});
-
-        } else {
-            this.setState({search: {categories: {}}, selectAll: !this.state.selectAll});
-        }
-    }
-});
-
-var TagSubFilters = React.createClass ({
-    getInitialState: function () {
-        return this.getStateFromProps(this.props);
-    },
-    componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
-    },
-    getStateFromProps: function(props) {
-        return {
-            search: props.initialSearch,
-            selectAll: false
-        }
-    },
-    getDefaultProps: function () {
-        return {
-            onClose: _.noop
-        };
-    },
-    render: function () {
-        if(_.isEmpty(this.props.cat)) return null;
-
-        return (
-            <div className="new-filters subfilters">
-                <button onClick={this.handleClose} className="btn btn-red">Précédent</button>
-                <h1>{'Catégorie :' + this.props.cat.name}</h1>
-                <br/>
-                {_.map(_.groupBy(this.props.allTags, 'category.id')[this.props.cat.id], function (filter) {
-                    return (
-                        <div key={filter.id} className="filter-line">
-                            <label className="checkbox-inline">
-                                <input type="checkbox"
-                                    ref={filter.id}
-                                    value={filter.name}
-                                    checked={this.isSearched(filter)}
-                                    onChange={this.handleFilterChange} />
-                                {filter.name}
-                            </label>
-                        </div>
-                    )
-                }, this)}
-                <br/>
-                <button onClick={this.selectAll} className="btn btn-red">Tout sélectionner</button>
-                <br/>
-                <button onClick={this.handleClose} className="btn btn-red">Valider</button>
-            </div>
-        );
-    },
-    isSearched: function (filter) {
-        return (_.indexOf(this.state.search.tags, filter.name) > -1 ? true : false);
-    },
-    handleClose: function() {
-        this.props.onClose(this.state.search);
-        this.setState({selectAll: false});
-    },
-    handleFilterChange: function (e) {
-        var newTags = _.isArray(this.state.search.tags) ? this.state.search.tags : [];
-
-        if (e.currentTarget.checked === true){
-            newTags.push(e.currentTarget.value);
-            this.setState({search: _.assign({}, this.state.search, {tags: newTags})});
-        }
-        else {
-            this.setState({search: _.assign({}, this.state.search, {tags:  _.without(newTags, e.currentTarget.value)})});
-        }
-    },
-    selectAll: function () {
-        var allCategoryTags = _.groupBy(this.props.allTags, 'category.id')[this.props.cat.id]
-
-        if (!this.state.selectAll){
-            var newTags = _.map(allCategoryTags, 'name');
-            if(_.isArray(this.state.search.tags)) newTags = newTags.concat(this.state.search.tags)
-            this.setState({search: {tags: newTags}});
-        } else {
-            var currentTags = _.map(allCategoryTags, 'name');
-            var newTags = _.filter(this.state.search.tags, function(tag) {
-                return !_.include(currentTags, tag)
-            });
-            this.setState({search: {tags: newTags}});
-        }
-        this.setState({selectAll: !this.state.selectAll});
     }
 });
 

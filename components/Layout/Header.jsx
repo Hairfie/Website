@@ -141,7 +141,6 @@ var Header = React.createClass({
     },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {
-            console.log("here !");
             if( $('.mobile-menu').height() == 0 && !jQuery('.mobile-filtres').hasClass('opened')) {
                 $('body').addClass('locked');
                 $('.menu-trigger').addClass('close');
