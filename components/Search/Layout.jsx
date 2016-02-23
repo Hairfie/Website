@@ -21,41 +21,7 @@ var Layout = React.createClass({
             isExpanded: false
         };
     },
-    /*componentDidMount: function () {
-        $('body').on("click",'.trigger-filters',function() {
-            console.log("click !");
-            if( jQuery('.mobile-filtres').css('top') != '65px' ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:65,ease:Power2.easeInOut, onComplete:function(){
-                    jQuery('body').toggleClass('locked');
-                    jQuery('.mobile-filtres').addClass('opened');
-                    jQuery('.menu-trigger').addClass('close filters');
-                    jQuery('.trigger-filters').html('Enregistrer les filtres');
-                }});
-            } else if (jQuery('.mobile-filtres').hasClass('opened') ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
-                    jQuery('body').toggleClass('locked');
-                    jQuery('.mobile-filtres').removeClass('opened');
-                    jQuery('.menu-trigger').removeClass('close filters');
-                    jQuery('.trigger-filters').html('Filtrer');
-                }});
-            }
-        });
-        $('body').on("click",'.menu-trigger',function() {
-            if (jQuery('.mobile-filtres').hasClass('opened') ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
-                    jQuery('body').removeClass('locked');
-                    jQuery('.mobile-filtres').removeClass('opened');
-                    jQuery('.menu-trigger').removeClass('close filters');
-                    jQuery('.trigger-filters').html('Filtrer');
-                }});
-            }
-        });
-    },
-    componentWillUnmount: function() {
-        $('body').removeClass('locked');
-    },*/    
     render: function () {
-            console.log("RENDER LAYOUT", this.props.search);
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}

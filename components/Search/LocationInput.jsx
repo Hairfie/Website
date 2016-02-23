@@ -14,8 +14,6 @@ var LocationInput = React.createClass ({
         return this.getStateFromProps(this.props);
     },
     componentWillReceiveProps: function(nextProps) {
-        console.log('STATE', this.state.isGeolocated);
-        console.log('nextProps', nextProps);
         this.setState(this.getStateFromProps(nextProps));
         if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
             this.refs.address.refs.input.value = nextProps.currentPosition;
@@ -36,7 +34,7 @@ var LocationInput = React.createClass ({
                     <GeoInput className="form-control" ref="address" type="text" 
                         onChange={this.handleLocationChange} 
                         defaultValue={this.state.search.address != 'France' ? this.state.search.address : ''}/>
-                    <div className="input-group-addon"><a role="button" onClick={this.props.onSubmit}>O</a></div>
+                    <div className="input-group-addon"><a role="button" onClick={this.props.onSubmit}> </a></div>
                 </div>
                 <div>
                     <button className="btn btn-around" onClick={this.locateMe}>Autour de moi</button>

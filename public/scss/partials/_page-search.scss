@@ -110,6 +110,17 @@
                     border-top-left-radius: 0;
                     border-bottom-left-radius: 0;
                     border-color: $grey5;
+                    padding: 6px 17px;
+                    a {
+                        content: ' ';
+                    background: url(../img/search/search-slim.svg) no-repeat center center;
+                    background-size: contain;
+                    width: 18px;
+                    height: 18px;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    }
                 }
             }
             //Business name input
@@ -228,7 +239,6 @@
                 right: 10px;
                 @include flex-center;
                 &:before {
-                    //content: '‹';
                     content: '<';
                     line-height: 28px;
                     float: left;

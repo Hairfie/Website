@@ -11888,7 +11888,17 @@ section.home-search .home-search-mobile {
         border-radius: 2px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        border-color: #e6e6e6; }
+        border-color: #e6e6e6;
+        padding: 6px 17px; }
+        #content.search .new-filters .location .input-group .input-group-addon a, #content.search .new-filters .business-name .input-group .input-group-addon a {
+          content: ' ';
+          background: url(../img/search/search-slim.svg) no-repeat center center;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          top: 10px;
+          right: 10px; }
     #content.search .new-filters .location .form-control, #content.search .new-filters .business-name .form-control {
       height: 40px;
       border-radius: 2px;
