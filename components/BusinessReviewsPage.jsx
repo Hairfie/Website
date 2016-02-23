@@ -32,7 +32,7 @@ var BusinessReviewPage = React.createClass({
                         <br /><br />
                         Pas encore d'avis sur ce coiffeur.
                         <br /><br />
-                        <Link route="write_business_review" className="btn btn-review" style={{fontSize: '1.3em'}} query={{businessId: this.props.business.id}}><i className="icon-white-star" />Soyez le premier à déposer un avis</Link>
+                        <Link route="write_business_review" className="btn btn-review" query={{businessId: this.props.business.id}}><i className="icon-white-star" />Soyez le premier à déposer un avis</Link>
                     </p>
                     <LatestHairfies business={this.props.business} />
                 </Layout>

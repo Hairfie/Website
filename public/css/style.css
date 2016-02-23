@@ -12908,7 +12908,11 @@ section.home-search .home-search-mobile {
       margin-top: 10px;
       justify-content: center;
       display: inline-flex;
-      width: inherit; }
+      width: inherit;
+      font-size: 1.3em; }
+      @media screen and (max-width: 767px) {
+        .salon#content section.salon-content .btn-review {
+          font-size: 0.7em; } }
     .salon#content section.salon-content ul.nav li {
       border-top: 1px solid #dfdfdf;
       border-right: 1px solid #dfdfdf;

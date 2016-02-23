@@ -536,6 +536,10 @@
             justify-content: center;
             display: inline-flex;
             width: inherit;
+            font-size: 1.3em;
+            @media screen and (max-width: $screen-xs-max){
+                font-size: 0.7em;
+            }
         }
 
         ul.nav {
