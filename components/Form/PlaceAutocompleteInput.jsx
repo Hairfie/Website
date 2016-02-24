@@ -34,9 +34,6 @@ module.exports = React.createClass({
         var place = this.autocomplete.getPlace();
         this.props.onPlaceChanged(place);
     },
-    getValue: function () {
-        return this.refs.input.getValue();
-    },
     getFormattedAddress: function () {
         var place = this.autocomplete.getPlace();
         if(!place) return this.refs.input.value;

@@ -7,54 +7,25 @@ var SearchUtils = require('../../lib/search-utils');
 var Breadcrumb = require('../Partial/Breadcrumb.jsx');
 var _ = require('lodash');
 var Picture = require('../Partial/Picture.jsx');
+var MobileFilters = require('./MobileFilters.jsx');
 var ReactDOM = require('react-dom');
+var HairfieActions = require('../../actions/HairfieActions');
 
 var Layout = React.createClass({
+    contextTypes: {
+        executeAction: React.PropTypes.func.isRequired
+    },
     getInitialState: function () {
         return {
+            displayMobileFilters: false,
             isExpanded: false
         };
-    },
-    componentDidMount: function () {
-        $('body').on("click",'.trigger-filters',function() {
-            console.log("click !");
-            if( jQuery('.mobile-filtres').css('top') != '65px' ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:65,ease:Power2.easeInOut, onComplete:function(){
-                    jQuery('body').toggleClass('locked');
-                    jQuery('.mobile-filtres').addClass('opened');
-                    jQuery('.menu-trigger').addClass('close filters');
-                    jQuery('.trigger-filters').html('Enregistrer les filtres');
-                }});
-            } else if (jQuery('.mobile-filtres').hasClass('opened') ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
-                    jQuery('body').toggleClass('locked');
-                    jQuery('.mobile-filtres').removeClass('opened');
-                    jQuery('.menu-trigger').removeClass('close filters');
-                    jQuery('.trigger-filters').html('Filtrer');
-                }});
-            }
-        });
-        $('body').on("click",'.menu-trigger',function() {
-            if (jQuery('.mobile-filtres').hasClass('opened') ) {
-                TweenMax.to('.mobile-filtres', 0.2, {top:'100%',ease:Power2.easeOut, onComplete:function(){
-                    jQuery('body').removeClass('locked');
-                    jQuery('.mobile-filtres').removeClass('opened');
-                    jQuery('.menu-trigger').removeClass('close filters');
-                    jQuery('.trigger-filters').html('Filtrer');
-                }});
-            }
-        });
-    },
-    componentWillUnmount: function() {
-        $('body').removeClass('locked');
     },
     render: function () {
         return (
             <PublicLayout withSearchBar={true}>
                 {this.props.children}
-                <div className="mobile-screen hidden-md hidden-lg">
-                    <a role="button" className="btn-red trigger-filters btn-mobile-fixed">Filtres</a>
-                </div>
+
                 <div className="container search" id="content">
                     <div className="mobile-search visible-sm visible-xs">
                         <div className="mobile-filtres">
@@ -67,6 +38,10 @@ var Layout = React.createClass({
                         <Breadcrumb searchedPlace={this.props.place} />
                         <div className="col-md-4 col-sm-12 hidden-xs hidden-sm">
                             {this.props.filters}
+                        </div>
+                        <div className="col-xs-12 visible-xs visible-sm">
+                            {this.props.mobileFilters}
+
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">

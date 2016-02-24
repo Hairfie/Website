@@ -26,6 +26,7 @@ var BusinessSearchPage = React.createClass({
             address={this.props.address}
             place={this.props.place}
             filters={this.renderFilters()}
+            mobileFilters={this.renderMobileFilters()}
             results={this.renderResults()} />;
     },
     renderFilters: function () {
@@ -38,12 +39,30 @@ var BusinessSearchPage = React.createClass({
             withQ={true}
             onChange={this.handleSearchChange} />;
     },
+    renderMobileFilters: function () {
+        return <Search.MobileFilters 
+            onClose={this.handleDisplayMobileFilters} 
+            shouldBeDisplayed={true}
+            tab="business"
+            allTags = {this.props.allFilters}
+            allCategories = {this.props.categories}
+            filterCategories = {this.props.filterCategories}
+            initialSearch={this.props.search}
+            onChange={this.handleSearchChange} />
+    },
     renderResults: function () {
         var searchedCategories = _.filter(this.props.categories, function(cat) {
             return _.includes(this.props.search.categories, cat.slug);
         }, this);
 
         return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories} onChange={this.handleSearchChange}/>;
+    },
+    handleDisplayMobileFilters: function() {
+        if(this.state.displayMobileFilters == false)
+            $('body').toggleClass('locked');
+        else
+            $('body').removeClass('locked');
+        this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
