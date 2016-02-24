@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var moment = require('moment');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
@@ -39,7 +40,7 @@ var BusinessBookingPage = React.createClass({
         return (
             <div className={className} id="content" >
                 <Breadcrumb business={this.props.business} />
-                <div className="row">
+                <div className="row" >
                     {formNode}
                     <LeftColumn business={this.props.business} discountObj={this.props.discountObj} />
                 </div>
@@ -58,9 +59,9 @@ var BusinessBookingPage = React.createClass({
                         <h2>Choisissez votre date</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-xs-6" ref="timeSelectContainer">
                         <h2>À quelle heure ?</h2>
-                        <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} />
+                        <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
                     </div>
                 </div>
             </div>
@@ -78,7 +79,7 @@ var BusinessBookingPage = React.createClass({
     },
     renderInfoForm: function() {
         return (
-            <div className="main-content col-md-9 col-sm-12 pull-right">
+            <div className="main-content col-md-9 col-sm-12 pull-right" ref="bookingContainer">
                 <InfoForm
                     ref="booking"
                     modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)}
@@ -92,8 +93,12 @@ var BusinessBookingPage = React.createClass({
             </div>
         );
     },
+    scrollTo: function(toRef) {
+        var target = ReactDOM.findDOMNode(this.refs[toRef]);
+        TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
+    },
     handleDaySelectedChange: function(m) {
-        this.setState({daySelected: m, timeslotSelected: null});
+        this.setState({daySelected: m, timeslotSelected: null}, this.scrollTo("timeSelectContainer"));
     },
     handleTimeSlotSelectedChange: function(timeslotSelected, discount) {
         this.setState({timeslotSelected: timeslotSelected, discount: discount});

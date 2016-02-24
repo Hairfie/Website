@@ -13728,7 +13728,8 @@ section.home-search .home-search-mobile {
   padding-bottom: 50px; }
   @media screen and (max-width: 767px) {
     #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
-      margin-top: 60px; } }
+      margin-top: 60px;
+      width: 200vw; } }
   @media screen and (min-width: 992px) {
     #content.reservation, .review-confirmation {
       padding-top: 0px; }
@@ -13789,7 +13790,8 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 991px) {
       #content.reservation .main-content, .review-confirmation .main-content {
         padding-left: 15px;
-        float: none !important; } }
+        float: none !important;
+        margin-top: 65px; } }
     #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
       color: #595959;
       font-weight: 400;
@@ -13895,7 +13897,7 @@ section.home-search .home-search-mobile {
     color: #f39c12;
     padding-left: 0; }
   #content.reservation.bookingForm p, .bookingForm.review-confirmation p, #content.reservation.bookingForm a, .bookingForm.review-confirmation a, #content.reservation.bookingForm label, .bookingForm.review-confirmation label, #content.reservation.bookingForm select, .bookingForm.review-confirmation select {
-    font-size: 1.4em;
+    font-size: 14px;
     color: #595959; }
   #content.reservation.bookingForm .legend.conf + a, .bookingForm.review-confirmation .legend.conf + a {
     text-decoration: underline;
@@ -13945,7 +13947,8 @@ section.home-search .home-search-mobile {
       font-size: 1em;
       border-radius: 0 !important; }
     #content.reservation.bookingForm .confirm-bloc-form form label, .bookingForm.review-confirmation .confirm-bloc-form form label {
-      width: 100%; }
+      width: 100%;
+      font-weight: normal; }
       #content.reservation.bookingForm .confirm-bloc-form form label .icon, .bookingForm.review-confirmation .confirm-bloc-form form label .icon {
         background: url(../img/icon-resa-user.png) no-repeat center left;
         width: 16px;

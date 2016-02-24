@@ -7,6 +7,7 @@
 		//padding-top: 75px;
 		.breadcrumb {
 			margin-top: 60px;
+			width: 200vw;
 		}
 	}
 	@media screen and (min-width: $screen-md-min) {
@@ -81,6 +82,7 @@
 		@media screen and (max-width: $screen-sm-max) {
 			padding-left: 15px;
 			float: none !important;
+        	margin-top: 65px;
 		}
 		.legend {
 			color: $font-color;
@@ -217,7 +219,7 @@
 			padding-left: 0;
 		}
 	}
-	p, a, label, select {font-size: 1.4em;color: $font-color;}
+	p, a, label, select {font-size: 14px;color: $font-color;}
 	.legend.conf + a {
 		text-decoration: underline;
 		margin-top: -2em;
@@ -267,7 +269,7 @@
 			select {font-size: 1em;border-radius: 0 !important;}
 			label {
 				width: 100%;
-				// padding-left: 40px;
+				font-weight: normal;
 				.icon {
 					background: url(../img/icon-resa-user.png) no-repeat center left;
 					width: 16px;height: 16px;display: inline-block;

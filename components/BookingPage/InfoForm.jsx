@@ -44,12 +44,14 @@ module.exports = React.createClass({
             return {
                 formConnect: false,
                 cgu: true,
-                newsletter: true
-                };
+                newsletter: true,
+                firstTimeCustomer: true
+            };
         }
         return {
             formConnect: false,
             cgu: true,
+            firstTimeCustomer: true,
             firstName: this.props.currentUser.firstName ? this.props.currentUser.firstName : "",
             lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "",
             email: this.props.currentUser.email ? this.props.currentUser.email : "",
@@ -113,6 +115,11 @@ module.exports = React.createClass({
                                       <p data-tip="Au niveau du bas du dos">Très longs</p>
                                     </div>
                                 </Input>
+                                <label className="firstTimeCustomer">
+                                    <input type="checkbox" name='firstTimeCustomer' checked={this.state.firstTimeCustomer == true} onChange={this.handleFirstTimeChanged}/>
+                                    <span></span>
+                                    Je suis un nouveau client dans ce salon
+                                </label>
                                 <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, lissage, couleur, extension…)  ? *" onChange={formValidation.required} onFocus={formValidation.required}/>
                                 <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
                             </form>
@@ -208,6 +215,11 @@ module.exports = React.createClass({
             newsletter: e.currentTarget.checked
         });
     },
+    handleFirstTimeChanged: function(e) {
+        this.setState({
+            firstTimeCustomer: e.currentTarget.checked
+        });  
+    },
     handleFormConnectChanged: function () {
         if (this.state.formConnect == true)
             this.setState({
@@ -235,7 +247,8 @@ module.exports = React.createClass({
             comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount,
-            newsletter  : this.state.newsletter
+            newsletter  : this.state.newsletter,
+            firstTimeCustomer : this.state.firstTimeCustomer
         };
     },
     getCGUStatus: function() {
