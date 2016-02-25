@@ -9,6 +9,10 @@
 			margin-top: 60px;
 			width: 200vw;
 		}
+
+		&.confirmation {
+			margin-top: 65px;
+		}
 	}
 	@media screen and (min-width: $screen-md-min) {
 		padding-top: 0px;
@@ -82,7 +86,6 @@
 		@media screen and (max-width: $screen-sm-max) {
 			padding-left: 15px;
 			float: none !important;
-        	margin-top: 65px;
 		}
 		.legend {
 			color: $font-color;

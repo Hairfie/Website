@@ -97,10 +97,14 @@ var BusinessBookingPage = React.createClass({
         var target = ReactDOM.findDOMNode(this.refs[toRef]);
         TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     },
+    scrollToTop: function() {
+        TweenMax.to(window, 0.5, {scrollTo:{y:0}, ease:Power2.easeOut});
+    },
     handleDaySelectedChange: function(m) {
         this.setState({daySelected: m, timeslotSelected: null}, this.scrollTo("timeSelectContainer"));
     },
     handleTimeSlotSelectedChange: function(timeslotSelected, discount) {
+        this.scrollToTop();
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
     },
     handleSubmit: function() {

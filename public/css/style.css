@@ -13936,7 +13936,9 @@ section.home-search .home-search-mobile {
   @media screen and (max-width: 767px) {
     #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
       margin-top: 60px;
-      width: 200vw; } }
+      width: 200vw; }
+    #content.reservation.confirmation, .confirmation.review-confirmation {
+      margin-top: 65px; } }
   @media screen and (min-width: 992px) {
     #content.reservation, .review-confirmation {
       padding-top: 0px; }
@@ -13997,8 +13999,7 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 991px) {
       #content.reservation .main-content, .review-confirmation .main-content {
         padding-left: 15px;
-        float: none !important;
-        margin-top: 65px; } }
+        float: none !important; } }
     #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
       color: #595959;
       font-weight: 400;
