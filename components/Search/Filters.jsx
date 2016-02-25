@@ -15,9 +15,19 @@ var Filters = React.createClass({
         executeAction: React.PropTypes.func.isRequired
     },
     getInitialState: function () {
+        var states = {
+            price: false,
+            openDays: false,
+            categories: false
+        };
+        _.map(this.props.tagCategories, function(cat){
+            states[cat.id]=false;
+        });
+
         return {
             location: "",
-            activeLocation: false
+            activeLocation: false,
+            expandedFilters: states
         };
     },
     componentWillReceiveProps: function(newProps) {
@@ -35,12 +45,12 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                <h4 style={{textAlign: 'center'}}>Affiner la recherche</h4>
+                <h4>Filtrer les résultats de la recherche</h4>
                 <section>
                     <form>
-                    {this.renderQ()}
                     {this.renderAddress()}
-                    {this.renderRadius()}
+                    {/*this.renderRadius()*/}
+                    {this.renderQ()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderOpenDays()}
@@ -63,14 +73,16 @@ var Filters = React.createClass({
             max={max}
             defaultMin={this.props.search.priceMin || min}
             defaultMax={this.props.search.priceMax || max}
-            onChange={this.handlePriceChange} />;
+            onChange={this.handlePriceChange} 
+            expandedFilters={this.state.expandedFilters}
+            toggleExpandedFilters={this.toggleExpandedFilters.bind(this, 'price')}/>;
     },
     renderQ: function () {
         if (!this.props.withQ) return;
 
         return (
-            <div>
-                <h2>Nom du coiffeur</h2>
+            <div className="business-name">
+                <h2 style={{borderBottom: 0}}>Nom du coiffeur</h2>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
                         onKeyPress={this.handleKey}/>
@@ -84,14 +96,14 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <h2>Où ?</h2>
+                <h2 style={{borderBottom: 0}}>Localisation</h2>
                 <div className="input-group">
-                    <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     <GeoInput className="form-control" ref="address" type="text"
                         value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
                         />
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
+                <a className="btn btn-around" role="button" onClick={this.findMe} title="Me localiser" >Autour de moi</a>
             </div>
         );
     },
@@ -101,20 +113,25 @@ var Filters = React.createClass({
         var categories = this.props.categories || [];
         if (categories.length == 0) return;
         return (
-            <div>
-                <h2>Catégories</h2>
-                {_.map(categories, function (category, i) {
-                    var active   = this.props.search && (this.props.search.categories || []).indexOf(category.slug) > -1;
-                    var onChange = active ? this.removeCategory.bind(this, category.slug) : this.addCategory.bind(this, category.slug);
+            <div className={this.state.expandedFilters.categories ? '' : 'closed'}>
+                <h2 onClick={this.toggleExpandedFilters.bind(this, 'categories')}>
+                    Catégories {this.countCategories(this.props.search.categories)}
+                    <span className="chevron">›</span>
+                </h2>
+                <div className="tag-list">
+                    {_.map(categories, function (category, i) {
+                        var active   = this.props.search && (this.props.search.categories || []).indexOf(category.slug) > -1;
+                        var onChange = active ? this.removeCategory.bind(this, category.slug) : this.addCategory.bind(this, category.slug);
 
-                    return (
-                        <label key={category.label} className="checkbox-inline">
-                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
-                            <span />
-                            {category.label}
-                        </label>
-                    );
-                }, this)}
+                        return (
+                            <label key={category.label} className="checkbox-inline">
+                                <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                                <span />
+                                {category.label}
+                            </label>
+                        );
+                    }, this)}
+                </div>
             </div>
         );
     },
@@ -127,42 +144,46 @@ var Filters = React.createClass({
         return (
             <div>
                 <h2>Promotions</h2>
-                <label className="checkbox-inline">
-                    <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
-                    <span />
-                    Avec une promotion
-                </label>
+                <div  className="tag-list">
+                    <label className="checkbox-inline">
+                        <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
+                        <span />
+                        Avec une promotion
+                    </label>
+                </div>
             </div>
         );
     },
     renderTags: function () {
         var tags = this.props.tags || [];
         if (!this.props.tags || tags.length == 0) return;
-
+        
         return (
             <div>
                 {_.map(this.props.tagCategories, function (category) {
-                    var title = <h2>{category.name}</h2>;
+                    var title = <h2 onClick={this.toggleExpandedFilters.bind(this, category.id)}>{category.name}{this.countTagsByCategory(category)}<span className="chevron">›</span></h2>;
 
                     var tagsInCategory = _.map(tags, function(tag) {
                         if (tag.category.id != category.id) return;
                         var active   = this.props.search && (this.props.search.tags || []).indexOf(tag.name) > -1;
                         var onChange = active ? this.removeTag.bind(this, tag.name) : this.addTag.bind(this, tag.name);
-                                                return (
-                            <label key={tag.name} className="checkbox-inline">
-                                <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
-                                <span />
-                                {tag.name}
-                            </label>
+                        return (
+                                <label key={tag.name} className="checkbox-inline">
+                                    <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                                    <span />
+                                    {tag.name}
+                                </label>
                         );
                     }, this);
                     tagsInCategory = _.compact(tagsInCategory);
                     if (_.isEmpty(tagsInCategory)) return;
 
                     return (
-                        <div key={category.name}>
+                        <div key={category.name} className={this.state.expandedFilters[category.id] ? '' : 'closed'}>
                             {title}
-                            {tagsInCategory}
+                            <div className='tag-list'>
+                                {tagsInCategory}
+                            </div>
                         </div>);
                 }, this)}
             </div>
@@ -173,23 +194,49 @@ var Filters = React.createClass({
 
         var displayDays = ['MON', 'SUN'];
         return (
-            <div>
-                <h2>Ouverture le</h2>
-                {_.map(DateTimeConstants.weekDaysNumber, function(day) {
-                    if (_.isEmpty(_.intersection([day], displayDays))) return null;
-                    var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
-                    var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
-                    return (
-                        <label key={DateTimeConstants.weekDayLabelFR(day)} className="checkbox-inline">
-                            <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
-                            <span />
-                            {DateTimeConstants.weekDayLabelFR(day)}
-                        </label>
-                        );
-                    }, this)
-                }
+            <div className={this.state.expandedFilters.openDays ? '' : 'closed'}>
+                <h2 onClick={this.toggleExpandedFilters.bind(this, 'openDays')}>
+                    Ouverture le {this.countCategories(this.props.search.days)}
+                    <span className="chevron">›</span>
+                </h2>
+                <div className="tag-list">
+                    {_.map(DateTimeConstants.weekDaysNumber, function(day) {
+                        if (_.isEmpty(_.intersection([day], displayDays))) return null;
+                        var active   = this.props.search && (this.props.search.days || []).indexOf(day) > -1;
+                        var onChange = active ? this.removeDay.bind(this, day) : this.addDay.bind(this, day);
+                        return (
+                            <label key={DateTimeConstants.weekDayLabelFR(day)} className="checkbox-inline">
+                                <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
+                                <span />
+                                {DateTimeConstants.weekDayLabelFR(day)}
+                            </label>
+                            );
+                        }, this)
+                    }
+                </div>
             </div>
         );
+    },
+    toggleExpandedFilters: function(type) {
+        var newState = this.state.expandedFilters;
+        newState[type] = !this.state.expandedFilters[type];
+        this.setState(newState);
+    },
+    countTagsByCategory: function(category) {
+        var categoryTags= _.map(_.groupBy(this.props.tags, 'category.id')[category.id], function (filter) {
+            return filter.name
+        });
+
+        var matchingTags = _.filter(this.props.search.tags, function(tag) {
+            return _.include(categoryTags, tag)
+        });
+        var tagClass = matchingTags.length >0 ? 'tag-count' : null;
+        return matchingTags.length > 0 ? <span className={tagClass}>{matchingTags.length}</span> : null;
+    },
+    countCategories: function (arrayToCount) {
+        var tagClass = arrayToCount && arrayToCount.length > 0 ? 'tag-count' : null;
+        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return;
+        else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleLocationChange: function(e) {
         this.setState({

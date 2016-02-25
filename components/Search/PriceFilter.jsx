@@ -54,7 +54,7 @@ module.exports = React.createClass({
     render: function () {
         var min = Math.max(this.props.min, this.state.displayValue.min || this.props.min);
         var max = Math.min(this.props.max, this.state.displayValue.max || this.props.max);
-
+        var displayClass = this.props.expandedFilters.price ? 'price' : 'price closed';
         if (min > 0 && min == this.props.min) {
             min = '- de '+min;
         }
@@ -63,9 +63,12 @@ module.exports = React.createClass({
         }
 
         return (
-            <div className="price">
-                <h2>Fourchette de prix</h2>
-                <div className="selectRange">
+            <div className={displayClass}>
+                <h2 onClick={this.props.toggleExpandedFilters}>
+                    Fourchette de prix
+                    <span className="chevron">›</span>
+                </h2>
+                <div className='selectRange'>
                     <div ref="slider" className="rangeslider" />
                     <p className="col-xs-6">De {min}€</p>
                     <p className="col-xs-6">à {max}€</p>
