@@ -857,6 +857,7 @@
     }
     .sidebar {
         background: white;
+        margin-bottom: 60px;
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
             z-index: 149;

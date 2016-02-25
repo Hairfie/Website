@@ -12544,7 +12544,8 @@ section.home-search .home-search-mobile {
   -webkit-overflow-scrolling: touch !important; }
 
 #content.search .sidebar {
-  background: white; }
+  background: white;
+  margin-bottom: 60px; }
   @media screen and (max-width: 767px) {
     #content.search .sidebar {
       padding-top: 0;
