@@ -119,7 +119,7 @@ var Filters = React.createClass({
         return (
             <div className={this.state.expandedFilters.categories ? '' : 'closed'}>
                 <h2 onClick={this.toggleExpandedFilters.bind(this, 'categories')}>
-                    Catégories {this.countCategories(this.props.search.categories)}
+                    Spécialités {this.countCategories(this.props.search.categories)}
                     <span className="chevron">›</span>
                 </h2>
                 <div className="tag-list">
