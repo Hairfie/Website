@@ -18,10 +18,13 @@ var Filters = React.createClass({
         var states = {
             price: false,
             openDays: false,
-            categories: false
+            categories: true
         };
-        _.map(this.props.tagCategories, function(cat){
-            states[cat.id]=false;
+        _.map(this.props.tagCategories, function(cat, i){
+            if (i < 2)
+                states[cat.id]=true;
+            else
+                states[cat.id]=false;
         });
 
         return {
@@ -35,6 +38,7 @@ var Filters = React.createClass({
             this.setState({
                 location: newProps.location
             });
+            this.handleChange();
         }
         else if (newProps.place && newProps.place.name) {
             this.setState({
@@ -143,7 +147,6 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <h2>Promotions</h2>
                 <div  className="tag-list">
                     <label className="checkbox-inline">
                         <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
@@ -192,11 +195,12 @@ var Filters = React.createClass({
     renderOpenDays: function () {
         if (this.props.tab != "business") return null;
 
-        var displayDays = ['MON', 'SUN'];
+        var displayDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+
         return (
             <div className={this.state.expandedFilters.openDays ? '' : 'closed'}>
                 <h2 onClick={this.toggleExpandedFilters.bind(this, 'openDays')}>
-                    Ouverture le {this.countCategories(this.props.search.days)}
+                    Ouvert le {this.countCategories(this.props.search.days)}
                     <span className="chevron">›</span>
                 </h2>
                 <div className="tag-list">

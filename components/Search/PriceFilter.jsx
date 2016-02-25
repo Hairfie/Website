@@ -65,7 +65,7 @@ module.exports = React.createClass({
         return (
             <div className={displayClass}>
                 <h2 onClick={this.props.toggleExpandedFilters}>
-                    Fourchette de prix
+                    Prix
                     <span className="chevron">›</span>
                 </h2>
                 <div className='selectRange'>
