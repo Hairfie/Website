@@ -113,13 +113,13 @@
                     padding: 6px 17px;
                     a {
                         content: ' ';
-                    background: url(../img/search/search-slim.svg) no-repeat center center;
-                    background-size: contain;
-                    width: 18px;
-                    height: 18px;
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
+                        background: url(../img/search/search-slim.svg) no-repeat center center;
+                        background-size: contain;
+                        width: 18px;
+                        height: 18px;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
                     }
                 }
             }
@@ -856,8 +856,8 @@
         -webkit-overflow-scrolling: touch !important;
     }
     .sidebar {
-        padding-bottom: 60px;
-        background: $bg3;
+        background: white;
+        margin-bottom: 60px;
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
             z-index: 149;
@@ -880,30 +880,63 @@
             padding: 0;margin: 20px 0;
         }
         h2 {
-            background-color: $bgfooter;
-            padding: 6px 0; margin: 0;
-
-            color: white;
-            text-align: center;
-            font-weight: $semiBold;
-            font-size: 1.462em;
-            letter-spacing: 1px;
-        }
-        label {
-            background-color: white;
-            border-bottom: 1px solid #e2e3e6;
+            height: 50px;
+            line-height: 50px;
+            margin: 0;
+            color: $font-color;
+            font-weight: $light;
             font-size: 1.6em;
-            font-weight: $regular;
             letter-spacing: 1px;
-            line-height: 2.2;
-
+            padding: 0 10px 0 25px;
+            border-bottom: 1px solid $bg4;
+            &:hover {
+                cursor: pointer;
+            }
+            .chevron {
+                float: right;
+                font-size: 2em;
+                @include rotate(90deg);
+            }
+        }
+        h4 {
+            color: $font-color;
+            padding: 25px;
+            border-bottom: 1px solid $bg4;
+            margin-bottom: 0;
+        }
+        div.closed {
+            > h2 {
+                .chevron {
+                    @include rotate(0deg);
+                }
+            }
+            > div {
+                display: none;
+            }
+        }
+        .tag-list {
+            padding: 10px 25px;
+            border-bottom: 1px solid $bg4;
+        }
+        label {            
+            color: $font-color;
+            background-color: white;
+            font-size: 1.4em;
+            font-weight: $light;
+            line-height: 25px;
+            height: 25px;
             display: block;
             width: 100%;
-            padding-left: 30px;
-
+            span {
+                padding-top: 1px;
+            }
+        }
+        .business-name {
+            border-bottom: 1px solid $bg4;
+            padding-bottom: 15px;
         }
         div.input-group {
-            padding: 24px 12px;
+            padding: 0px 25px;
             border-radius: 2px;
             background: white;
             height: 40px;
@@ -912,10 +945,10 @@
                 height: 45px;
                 -webkit-appearance: none;
                 border:0;
-                border: 1px solid #e2e3e6;
+                border: 1px solid $grey5;
                 box-shadow: none !important;
                 letter-spacing: 1px;
-                border-right: 0;
+                // border-right: 0;
                 &:focus {
                     outline: none !important;
                 }
@@ -923,19 +956,17 @@
 
             .input-group-addon {
                 border: none;
-                border-radius: 0;
                 background: transparent;
-                border: 1px solid #e2e3e6;
-            }
-            .input-group-addon:first-child {
-                background: url(../img/icon-location.png) no-repeat center center;
-                width: 50px; height: 40px; background-size: 40%;
-                border-right: 1px solid #e2e3e6;
-                border-right: 0;
+                border: 1px solid $grey5;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-color: $grey5;
             }
             .input-group-addon:last-child {
                 padding: 0;
                 border-left: 0;
+                background-color: $bg4;
+
                 a {
                     background-image: url(../img/icon-search-glass.png);
                     background-repeat: no-repeat;
@@ -944,6 +975,36 @@
                     display: inline-block;
                 }
             }
+        }     
+
+        .btn-around {
+            background-color: $bg4;
+            color: $grey7;
+            font-weight: $light;
+            width: calc(100% - 50px);
+            height: 40px;
+            border: 1px solid $grey5;
+            border-radius: 2px;
+            margin: 15px 25px 0 25px;
+            @include flex-center;
+            justify-content: center;
+            &:before {
+                content: ' ';
+                background: url(../img/search/location-new.svg) no-repeat center center;
+                background-size: contain;
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                left: calc(50% - 65px);
+            }
+        }
+        .tag-count {
+            color: white;
+            font-weight: $regular;
+            background-color: $hairfie;
+            margin-left: 5px;
+            padding: 1px 5px;
+            border-radius: 3px;
         }
         .price, .radius {
             .selectRange {
@@ -999,11 +1060,6 @@
             overflow-x: hidden;
             width: 100%;
             top: 100%;
-
-            // &.open {
-            //     overflow-y: scroll;
-            //     -webkit-overflow-scrolling: touch;
-            // }
         }
     }
     .business-label {
