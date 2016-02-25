@@ -66,6 +66,13 @@
 	-ms-transform: 		 scale($factor);
 	-o-transform: 		 scale($factor);
 }
+@mixin rotate($angle)
+{
+	-webkit-transform:   rotate($angle);
+	-moz-transform: 	 rotate($angle);
+	-ms-transform: 		 rotate($angle);
+	-o-transform: 		 rotate($angle);
+}
 @mixin flex-center() {
     display: -webkit-flexbox;
     display: -ms-flexbox;
