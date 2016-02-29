@@ -10985,7 +10985,8 @@ footer.mobile {
     color: white;
     margin-bottom: 40px;
     font-weight: 400;
-    letter-spacing: 4px; }
+    letter-spacing: 4px;
+    font-family: "Source Sans Pro", sans-serif; }
   .landing .headline {
     margin: 70px auto 0;
     float: none !important; }
@@ -11096,8 +11097,7 @@ section.how {
       font-weight: 200;
       color: #595959;
       font-size: 1.4em;
-      line-height: 1.2em;
-      letter-spacing: 1px; }
+      line-height: 1.2em; }
   @media screen and (max-width: 991px) {
     section.how h2.col-sm-3 {
       font-size: 1.6em; }
@@ -11161,7 +11161,6 @@ section.home-section {
   section.home-section h2 {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    letter-spacing: 3px;
     padding: 30px 0 10px;
     margin: 0;
     font-size: 2.4em;
@@ -11674,6 +11673,9 @@ section.home-search .home-search-mobile {
         line-height: 1;
         float: none; }
 
+#home section.deals .btn-whitered {
+  margin-top: 30px; }
+
 #home section.blog-posts .post img {
   max-width: 100%;
   max-height: 160px; }
@@ -11714,6 +11716,9 @@ section.home-search .home-search-mobile {
 #home section.blog-posts .post a.readmore, #home section.blog-posts .post a.readmore:hover {
   text-decoration: underline;
   font-size: 14px; }
+
+#home section.blog-posts .btn-whitered {
+  margin-top: 30px; }
 
 #home section.hairfies .row {
   margin-left: -12px;
@@ -14840,7 +14845,7 @@ section.home-search .home-search-mobile {
   margin-bottom: -20px; }
 
 .container.write-review {
-  margin-top: 25px;
+  margin-top: 65px;
   font-size: 1.3em; }
   .container.write-review form.form .green {
     float: left; }

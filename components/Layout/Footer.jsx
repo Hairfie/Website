@@ -60,7 +60,7 @@ var Footer = React.createClass({
                     <div className="row">
                         <div className="hr col-sm-10 col-xs-10"></div>
                     </div>
-                    <p>© Hairfie 2016<span className="pull-right hidden-xs"><a href="https://heapanalytics.com/?utm_source=badge"><img style={{width:'108px', height:'41px'}} src="//heapanalytics.com/img/badge.png" alt="Heap | Mobile and Web Analytics" target="_blank" /></a></span></p>
+                    <p>© Hairfie 2016<span className="pull-right hidden-xs"><a href="https://heapanalytics.com/?utm_source=badge" target="_blank"><img style={{width:'108px', height:'41px'}} src="//heapanalytics.com/img/badge.png" alt="Heap | Mobile and Web Analytics" target="_blank" /></a></span></p>
                     <LinksSection links={this.props.links}/>
                 </div>
                 <EmailModal ref="emailModal" />
