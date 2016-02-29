@@ -46,11 +46,8 @@ module.exports = React.createClass({
                     </div>
                     {this.verified(review)}
                 </div>
-                <p className="col-xs-12 col-sm-10 review">{review.comment}
-                </p>
-                <div className="col-sm-offset-2 col-sm-10">
-                    <Link route="business" params={{ businessId: review.business.id, businessSlug: review.business.slug }}><h5>{'Voir le salon ' + review.business.name}</h5></Link>
-                </div>
+                <p className="col-xs-12 col-sm-10 review">{review.comment}</p>
+                {this.renderBusinessLink()}
             </div>
         );
     },
@@ -59,6 +56,12 @@ module.exports = React.createClass({
         return (<span className="yelp-date ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</span>);
     },
     renderBusinessLink: function() {
-
+        var review = this.props.review;
+        if(!this.props.topReviews) return;
+        return (
+            <div className="col-sm-offset-2 col-sm-10">
+                <Link route="business" params={{ businessId: review.business.id, businessSlug: review.business.slug }}><h5>{'Voir le salon ' + review.business.name}</h5></Link>
+            </div>
+        );
     }
 });
