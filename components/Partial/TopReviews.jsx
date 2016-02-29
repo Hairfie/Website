@@ -13,7 +13,7 @@ var TopReviews = React.createClass({
     render: function () {
         return (
             <div className='top-reviews comments hidden-xs hidden-sm'>
-                <h4>Les meilleurs avis:</h4>
+                <h4>Les derniers avis</h4>
                 {_.map(this.props.topReviews, function(review) {
                     return <Review key={review.id} review={review} topReviews={true} />
                 })}

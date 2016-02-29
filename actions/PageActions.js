@@ -87,16 +87,26 @@ module.exports = {
     businessSearch: function (context, route) {
         var address = SearchUtils.addressFromUrlParameter(route.params.address);
 
-        return context.executeAction(PlaceActions.loadAddressPlace, address)
+        // return context.executeAction(PlaceActions.loadAddressPlace, address)
+        //     .then(function () {
+        //         var place  = context.getStore('PlaceStore').getByAddress(address);
+        //         var search = SearchUtils.searchFromRouteAndPlace(route, place);
+
+        //         return context.executeAction(BusinessActions.loadSearchResult, search);
+        //     })
+        //     .then(function() {
+        //         return context.executeAction(BusinessReviewActions.getTopReviews);
+        //     })
+        return Promise.all([
+            context.executeAction(PlaceActions.loadAddressPlace, address)
             .then(function () {
                 var place  = context.getStore('PlaceStore').getByAddress(address);
                 var search = SearchUtils.searchFromRouteAndPlace(route, place);
 
                 return context.executeAction(BusinessActions.loadSearchResult, search);
-            })
-            .then(function() {
-                return context.executeAction(BusinessReviewActions.getTopReviews);
-            })
+            }),
+            context.executeAction(BusinessReviewActions.getTopReviews)
+        ]);
     },
     businessBooking: businessWithSlug,
     bookingConfirmation: function (context, route) {
