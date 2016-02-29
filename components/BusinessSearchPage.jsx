@@ -5,6 +5,7 @@ var _ = require('lodash');
 var BusinessActions = require('../actions/BusinessActions');
 var SearchUtils = require('../lib/search-utils');
 var connectToStores = require('fluxible-addons-react/connectToStores');
+var TopReviews = require('./Partial/TopReviews.jsx');
 
 var Search = require('./Search');
 
@@ -27,7 +28,8 @@ var BusinessSearchPage = React.createClass({
             place={this.props.place}
             filters={this.renderFilters()}
             mobileFilters={this.renderMobileFilters()}
-            results={this.renderResults()} />;
+            results={this.renderResults()} 
+            topReviews={this.renderTopReviews()}/>;
     },
     renderFilters: function () {
         return <Search.Filters
@@ -56,6 +58,9 @@ var BusinessSearchPage = React.createClass({
         }, this);
 
         return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories} onChange={this.handleSearchChange}/>;
+    },
+    renderTopReviews: function() {
+        return <TopReviews />;
     },
     handleDisplayMobileFilters: function() {
         if(this.state.displayMobileFilters == false)

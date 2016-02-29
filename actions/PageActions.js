@@ -93,14 +93,16 @@ module.exports = {
                 var search = SearchUtils.searchFromRouteAndPlace(route, place);
 
                 return context.executeAction(BusinessActions.loadSearchResult, search);
-            });
+            })
+            .then(function() {
+                return context.executeAction(BusinessReviewActions.getTopReviews);
+            })
     },
     businessBooking: businessWithSlug,
     bookingConfirmation: function (context, route) {
         var bookingId  = route.params.bookingId;
 
-        return context.hairfieApi
-            .get('/bookings/'+bookingId)
+        return context.hairfieApi.get('/bookings/'+bookingId)
             .then(function (booking) {
                 context.dispatch(Actions.RECEIVE_BOOKING, booking);
             });
