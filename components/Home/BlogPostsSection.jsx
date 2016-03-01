@@ -17,9 +17,11 @@ module.exports = React.createClass({
                     <div className="row">
                         {_.map(posts, this.renderPost)}
                     </div>
-                    <a href="http://blog.hairfie.com" target="_blank" className="btn btn-red home-cta col-md-3 col-xs-10">
-                        Voir toutes les news
-                    </a>
+                    <div className="text-center">
+                        <a href="http://blog.hairfie.com" target="_blank" className="btn btn-whitered">
+                            Voir toutes les news
+                        </a>
+                    </div>
                 </div>
 
             </section>
