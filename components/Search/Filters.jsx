@@ -18,7 +18,8 @@ var Filters = React.createClass({
         var states = {
             price: false,
             openDays: false,
-            categories: true
+            categories: true,
+            selections: false
         };
         _.map(this.props.tagCategories, function(cat, i){
             if (i < 2)
@@ -55,6 +56,7 @@ var Filters = React.createClass({
                     {this.renderAddress()}
                     {/*this.renderRadius()*/}
                     {this.renderQ()}
+                    {this.renderSelections()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderOpenDays()}
@@ -62,6 +64,32 @@ var Filters = React.createClass({
                     {this.renderDiscount()}
                     </form>
                 </section>
+            </div>
+        );
+    },
+    renderSelections: function () {
+        return (
+            <div className={this.state.expandedFilters.selections ? '' : 'closed'}>
+                <h2 onClick={this.toggleExpandedFilters.bind(this, 'selections')}>
+                    Nos sélections de coiffeurs
+                    <span className="chevron">›</span>
+                </h2>
+                <div className='tag-list'>
+                    {_.map(this.props.selections, function (selection) {
+                        var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.id) > -1;
+                        var onChange = active ? this.removeSelection.bind(this, selection.id) : this.addSelection.bind(this, selection.id);
+
+                        return (
+                            <label key={selection.label} className="checkbox-inline">
+                                <input type="checkbox" align="baseline" 
+                                    onChange={onChange} 
+                                    checked={active} />
+                                <span />
+                                {selection.label}
+                            </label>
+                        );
+                    }, this)}
+                </div>
             </div>
         );
     },
@@ -263,14 +291,6 @@ var Filters = React.createClass({
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
     },
-    removeSelection: function(selection) {
-        if (this.props.search.tags)
-            this.props.onChange({tags: _.without(this.props.search.tags, selection)});
-        else if (this.props.search.categories) {
-
-            this.props.onChange({categories: _.without(this.props.search.categories, selection)});
-        }
-    },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category)});
     },
@@ -285,6 +305,12 @@ var Filters = React.createClass({
     },
     removeDay: function (day) {
         this.props.onChange({days: _.without(this.props.search.days, day)});
+    },
+    addSelection: function (selection) {
+        this.props.onChange({selections: _.union(this.props.search.selections || [], [selection])});
+    },
+    removeSelection: function (selection) {
+        this.props.onChange({selections: _.without(this.props.search.selections, selection)});
     },
     addWithDiscount: function () {
         this.props.onChange({withDiscount: true});

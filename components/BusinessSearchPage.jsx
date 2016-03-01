@@ -39,6 +39,7 @@ var BusinessSearchPage = React.createClass({
             search={this.props.search}
             categories={this.props.categories}
             withQ={true}
+            selections={this.props.selections}
             onChange={this.handleSearchChange} />;
     },
     renderMobileFilters: function () {
@@ -50,6 +51,7 @@ var BusinessSearchPage = React.createClass({
             allCategories = {this.props.categories}
             filterCategories = {this.props.filterCategories}
             initialSearch={this.props.search}
+            selections={this.props.selections}
             onChange={this.handleSearchChange} />
     },
     renderResults: function () {
@@ -80,7 +82,8 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'HairfieStore',
     'BusinessStore',
     'CategoryStore',
-    'TagStore'
+    'TagStore',
+    'SelectionStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -109,7 +112,8 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         search: search,
         result: result,
         categories: context.getStore('CategoryStore').getAllCategories(),
-        tags: context.getStore('TagStore').getTagsById(searchTagsId)
+        tags: context.getStore('TagStore').getTagsById(searchTagsId),
+        selections: context.getStore('SelectionStore').getSelections()
     };
 });
 
