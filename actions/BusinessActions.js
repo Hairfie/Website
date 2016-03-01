@@ -69,6 +69,10 @@ module.exports = {
             query['facetFilters[openOn' + DateTimeConstants.weekDayLabel(day) + ']'] = true;
         });
 
+        _.forEach(search.selections, function (selection, i) {
+            query['facetFilters[selectionsSlug]['+i+']'] = selection;
+        });
+
         return context.hairfieApi
             .get('/businesses/search', { query: query })
             .then(function (result) {

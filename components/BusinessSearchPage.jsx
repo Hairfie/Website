@@ -39,6 +39,7 @@ var BusinessSearchPage = React.createClass({
             search={this.props.search}
             categories={this.props.categories}
             withQ={true}
+            selections={this.props.selections}
             onChange={this.handleSearchChange} />;
     },
     renderMobileFilters: function () {
@@ -50,14 +51,22 @@ var BusinessSearchPage = React.createClass({
             allCategories = {this.props.categories}
             filterCategories = {this.props.filterCategories}
             initialSearch={this.props.search}
+            selections={this.props.selections}
             onChange={this.handleSearchChange} />
     },
     renderResults: function () {
         var searchedCategories = _.filter(this.props.categories, function(cat) {
             return _.includes(this.props.search.categories, cat.slug);
         }, this);
-
-        return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories} onChange={this.handleSearchChange}/>;
+        var searchedSelections = _.filter(this.props.selections, function(selection) {
+            return _.includes(this.props.search.selections, selection.slug);
+        }, this);
+        return <Search.BusinessResult 
+            search={this.props.search} 
+            result={this.props.result} 
+            searchedCategories={searchedCategories}
+            searchedSelections={searchedSelections}
+            onChange={this.handleSearchChange}/>;
     },
     renderTopReviews: function() {
         return <TopReviews />;
@@ -80,7 +89,8 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
     'HairfieStore',
     'BusinessStore',
     'CategoryStore',
-    'TagStore'
+    'TagStore',
+    'SelectionStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
@@ -109,7 +119,8 @@ BusinessSearchPage = connectToStores(BusinessSearchPage, [
         search: search,
         result: result,
         categories: context.getStore('CategoryStore').getAllCategories(),
-        tags: context.getStore('TagStore').getTagsById(searchTagsId)
+        tags: context.getStore('TagStore').getTagsById(searchTagsId),
+        selections: context.getStore('SelectionStore').getSelections()
     };
 });
 
