@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var UserProfilePicture = require('./UserProfilePicture.jsx');
 var Rating = require('./Rating.jsx');
+var Link = require('../Link.jsx');
 
 var moment = require('moment');
 require('moment/locale/fr');
@@ -46,11 +47,21 @@ module.exports = React.createClass({
                     {this.verified(review)}
                 </div>
                 <p className="col-xs-12 col-sm-10 review">{review.comment}</p>
+                {this.renderBusinessLink()}
             </div>
         );
     },
     verified: function(review) {
         if (review && !review.verified) return (<span className="yelp-date">Avis libre déposé le {moment(review.createdAt).format('LL')}</span>);;
         return (<span className="yelp-date ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</span>);
+    },
+    renderBusinessLink: function() {
+        var review = this.props.review;
+        if(!this.props.topReviews) return;
+        return (
+            <div className="col-sm-offset-2 col-sm-10">
+                <Link route="business" params={{ businessId: review.business.id, businessSlug: review.business.slug }}><h5>{'Voir le salon ' + review.business.name}</h5></Link>
+            </div>
+        );
     }
 });
