@@ -230,7 +230,7 @@ var BusinessResult = React.createClass({
                 );
             }, this);
         }
-        if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels);
+        if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels, searchedSelectionsLabels);
 
         return (
             <div className="tab-pane active" id="salons">
@@ -266,11 +266,12 @@ var BusinessResult = React.createClass({
             query={params.query}
             />
     },
-    renderNoResult: function (searchedCategoriesLabels) {
+    renderNoResult: function (searchedCategoriesLabels, searchedSelectionsLabels) {
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
                     {searchedCategoriesLabels}
+                    {searchedSelectionsLabels}
                 </div>
                 <div className="row">
                     <p className="text-center">

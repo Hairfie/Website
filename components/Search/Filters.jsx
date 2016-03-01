@@ -68,6 +68,8 @@ var Filters = React.createClass({
         );
     },
     renderSelections: function () {
+        if(_.isEmpty(this.props.selections)) return null;
+
         return (
             <div className={this.state.expandedFilters.selections ? '' : 'closed'}>
                 <h2 onClick={this.toggleExpandedFilters.bind(this, 'selections')}>
