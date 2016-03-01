@@ -19,7 +19,6 @@ var UserActions = require('./UserActions');
 var TagActions = require('./TagActions');
 var CategoryActions = require('./CategoryActions');
 var BlogPostActions = require('./BlogPostActions');
-var SelectionActions = require('./SelectionActions');
 var SearchUtils = require('../lib/search-utils');
 
 var RouteStore = require('../stores/RouteStore');
@@ -96,8 +95,7 @@ module.exports = {
 
                 return context.executeAction(BusinessActions.loadSearchResult, search);
             }),
-            context.executeAction(BusinessReviewActions.getTopReviews),
-            context.executeAction(SelectionActions.loadAll)
+            context.executeAction(BusinessReviewActions.getTopReviews)
         ]);
     },
     businessBooking: businessWithSlug,

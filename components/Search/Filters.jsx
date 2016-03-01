@@ -76,8 +76,8 @@ var Filters = React.createClass({
                 </h2>
                 <div className='tag-list'>
                     {_.map(this.props.selections, function (selection) {
-                        var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.id) > -1;
-                        var onChange = active ? this.removeSelection.bind(this, selection.id) : this.addSelection.bind(this, selection.id);
+                        var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.slug) > -1;
+                        var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
                         return (
                             <label key={selection.label} className="checkbox-inline">

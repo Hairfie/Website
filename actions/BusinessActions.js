@@ -70,7 +70,7 @@ module.exports = {
         });
 
         _.forEach(search.selections, function (selection, i) {
-            query['facetFilters[selections]['+i+']'] = selection;
+            query['facetFilters[selectionsSlug]['+i+']'] = selection;
         });
 
         return context.hairfieApi

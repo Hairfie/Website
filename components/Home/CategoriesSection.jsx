@@ -44,7 +44,6 @@ module.exports = React.createClass({
                 try {
                     return _.find(this.props.tags, {id: tagId}).name;
                 } catch(e) {
-                    console.log("error in renderCategory", e);
                     return;
                 }
             }.bind(this)));

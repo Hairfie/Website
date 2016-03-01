@@ -27,8 +27,8 @@ var Selections = React.createClass ({
                     </div>
                 </div>
                 {_.map(this.props.selections, function (selection) {
-                        var active   = this.state.search && (this.state.search.selections || []).indexOf(selection.id) > -1;
-                        var onChange = active ? this.removeSelection.bind(this, selection.id) : this.addSelection.bind(this, selection.id);
+                        var active   = this.state.search && (this.state.search.selections || []).indexOf(selection.slug) > -1;
+                        var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
                         return (
                             <label key={selection.label} className="checkbox-inline">

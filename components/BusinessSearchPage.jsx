@@ -58,8 +58,15 @@ var BusinessSearchPage = React.createClass({
         var searchedCategories = _.filter(this.props.categories, function(cat) {
             return _.includes(this.props.search.categories, cat.slug);
         }, this);
-
-        return <Search.BusinessResult search={this.props.search} result={this.props.result} searchedCategories={searchedCategories} onChange={this.handleSearchChange}/>;
+        var searchedSelections = _.filter(this.props.selections, function(selection) {
+            return _.includes(this.props.search.selections, selection.slug);
+        }, this);
+        return <Search.BusinessResult 
+            search={this.props.search} 
+            result={this.props.result} 
+            searchedCategories={searchedCategories}
+            searchedSelections={searchedSelections}
+            onChange={this.handleSearchChange}/>;
     },
     renderTopReviews: function() {
         return <TopReviews />;
