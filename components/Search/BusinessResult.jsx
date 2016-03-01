@@ -91,7 +91,9 @@ var Business = React.createClass({
             searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
                 return _.includes(business.categories, cat.id)
             }, this);
-            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){return <span className="business-label hidden-xs">{cat.label}</span>});
+            searchedCategoriesLabels = _.map(searchedCategoriesLabels, function(cat){
+                return <span key={cat.id} className="business-label hidden-xs">{cat.label}</span>
+            });
         }
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
@@ -210,8 +212,10 @@ var BusinessResult = React.createClass({
 
         var result = this.props.result;
         var date   = this.props.search && this.props.search.date;
+        var searchedSelections = this.props.searchedSelections;
         var searchedCategories = this.props.searchedCategories;
         var searchedCategoriesLabels = null;
+        var searchedSelectionsLabels = null;
         if (searchedCategories) {
             searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
                 return (
@@ -219,11 +223,19 @@ var BusinessResult = React.createClass({
                 );
             }, this)
         }
+        if (searchedSelections) {
+            searchedSelectionsLabels = _.map(searchedSelections, function(selection){
+                return (
+                    <span key={selection.id} className="business-label" onClick={this.removeSelection.bind(this, selection.slug)}>{selection.label}&times;</span>
+                );
+            }, this);
+        }
         if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels);
 
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
+                        {searchedSelectionsLabels}
                         {searchedCategoriesLabels}
                     </div>
                 <div className="row">
@@ -272,6 +284,9 @@ var BusinessResult = React.createClass({
     },
     removeCategory: function (category) {
         this.props.onChange({categories: _.without(this.props.search.categories, category.slug)});
+    },
+    removeSelection: function (selectionSlug) {
+        this.props.onChange({selections: _.without(this.props.search.selections, selectionSlug)});
     }
 });
 

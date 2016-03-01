@@ -38,6 +38,7 @@ var Layout = React.createClass({
                         <Breadcrumb searchedPlace={this.props.place} />
                         <div className="col-md-4 col-sm-12 hidden-xs hidden-sm">
                             {this.props.filters}
+                            {this.props.topReviews}
                         </div>
                         <div className="col-xs-12 visible-xs visible-sm">
                             {this.props.mobileFilters}

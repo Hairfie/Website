@@ -59,5 +59,14 @@ module.exports = {
                     });
                 });
             });
+    },
+    getTopReviews: function(context) {
+        var query = {'limit': 3};
+
+        return context.hairfieApi
+            .get('/tops/businessReviews', {query: query})
+            .then(function (topReviews){
+                context.dispatch(Actions.RECEIVE_TOP_REVIEWS, {topReviews: topReviews});
+            });
     }
 };

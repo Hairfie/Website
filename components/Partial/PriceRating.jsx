@@ -13,10 +13,10 @@ module.exports = React.createClass({
         var price = [];
         for (i = 0; i < 4; i++) {
           if (i < (business.priceLevel || 0)) {
-            price.push(<span className="glyphicon glyphicon-euro"></span>);
+            price.push(<span key={i} className="glyphicon glyphicon-euro"></span>);
           }
           else {
-            price.push(<span className="glyphicon glyphicon-euro" style={{opacity: 0.5}}></span>);
+            price.push(<span key={i} className="glyphicon glyphicon-euro" style={{opacity: 0.5}}></span>);
           }
         }
 

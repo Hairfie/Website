@@ -82,6 +82,7 @@ app.registerStore(require('./stores/TimeslotStore'));
 app.registerStore(require('./stores/BlogPostStore'));
 app.registerStore(require('./stores/SubscriberStore'));
 app.registerStore(require('./stores/BusinessLeadStore'));
+app.registerStore(require('./stores/SelectionStore'));
 
 // Front end require
 //var Share = require('public/js/share.min.js');
