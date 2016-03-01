@@ -78,7 +78,17 @@ var BookingConfirmationPage = React.createClass({
                 <div className="legend conf">
                     <h3 className="orange">{bookingStatusMessage(booking)}</h3>
                     <p>
+                        Votre RDV a bien été annulé
+                    </p>
+                </div>
+            );
+        } else if (booking.status == BookingStatus.CANCEL_REQUEST) {
+            return (
+                <div className="legend conf">
+                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
+                    <p>
                         Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
+
                     </p>
                 </div>
             );
@@ -118,9 +128,11 @@ var BookingConfirmationPage = React.createClass({
         );
     },
     renderCancelButton: function(booking) {
-        if(booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
-
-        return (<a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Annuler</a>);
+        if(booking.status == BookingStatus.REQUEST || booking.status == BookingStatus.IN_PROCESS || booking.status == BookingStatus.CONFIRMED) {
+            return (<a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Je veux annuler mon RDV</a>);
+        } else {
+            return;
+        }
     },
     renderCalendarButton: function(booking, business, address) {
         if(booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
@@ -192,10 +204,12 @@ var BookingConfirmationPage = React.createClass({
     cancelled: function (e) {
         e.preventDefault();
 
-        this.context.executeAction(BookingActions.cancelBooking, {
-            bookingId: this.props.booking.id,
-            newsletter: this.props.booking.newsletter
-        });
+        if(confirm('Êtes-vous certain de vouloir annuler votre RDV ?')) {
+            this.context.executeAction(BookingActions.cancelBooking, {
+                bookingId: this.props.booking.id,
+                newsletter: this.props.booking.newsletter
+            });
+        };
     },
     handleRegisterClick: function(e) {
         e.preventDefault();
@@ -237,6 +251,9 @@ function bookingStatusMessage(booking) {
             break;
         case BookingStatus.IN_PROCESS :
             status = 'Demande de RDV en cours de traitement';
+            break;
+        case BookingStatus.CANCEL_REQUEST :
+            status = "Demande d'annulation bien prise en compte";
             break;
         case BookingStatus.CANCELLED :
             status = 'Votre RDV est annulé';
