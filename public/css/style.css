@@ -11531,6 +11531,9 @@ section.home-search .home-search-mobile {
 
 #home section.styles .btn-whitered {
   margin-top: 20px; }
+  @media screen and (max-width: 767px) {
+    #home section.styles .btn-whitered {
+      margin-bottom: 20px; } }
 
 #home section.styles #style-content {
   z-index: 0; }
@@ -11675,6 +11678,9 @@ section.home-search .home-search-mobile {
 
 #home section.deals .btn-whitered {
   margin-top: 30px; }
+  @media screen and (max-width: 767px) {
+    #home section.deals .btn-whitered {
+      margin-bottom: 20px; } }
 
 #home section.blog-posts .post img {
   max-width: 100%;
@@ -11719,6 +11725,9 @@ section.home-search .home-search-mobile {
 
 #home section.blog-posts .btn-whitered {
   margin-top: 30px; }
+  @media screen and (max-width: 767px) {
+    #home section.blog-posts .btn-whitered {
+      margin-bottom: 20px; } }
 
 #home section.hairfies .row {
   margin-left: -12px;

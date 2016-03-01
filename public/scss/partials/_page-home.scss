@@ -662,6 +662,9 @@ section.home-search {
     }
     .btn-whitered {
         margin-top: 20px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+        }
     }
     #style-content {
         z-index: 0;
@@ -839,6 +842,9 @@ section.home-search {
     }
     .btn-whitered {
         margin-top: 30px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -891,6 +897,9 @@ section.home-search {
     }
     .btn-whitered {
         margin-top: 30px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+        }
     }
 }
 
