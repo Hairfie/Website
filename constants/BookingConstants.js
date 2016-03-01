@@ -10,6 +10,7 @@ module.exports = {
         'CONFIRMED',
         'HONORED',
         'CANCELLED',
+        'CANCEL_REQUEST',
         'NOT_AVAILABLE',
         'NO_SHOW'
     ])

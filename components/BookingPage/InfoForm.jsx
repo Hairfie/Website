@@ -120,7 +120,7 @@ module.exports = React.createClass({
                                     <span></span>
                                     Je suis un nouveau client dans ce salon
                                 </label>
-                                <Input ref="service" name="service" type="text" placeholder="Quelle prestation désirez-vous (coupe, lissage, couleur, extension…)  ? *" onChange={formValidation.required} onFocus={formValidation.required}/>
+                                <Input ref="service" name="service" type="text" placeholder="Prestation demandée *" onChange={formValidation.required} onFocus={formValidation.required}/>
                                 <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
                             </form>
                         </div>
