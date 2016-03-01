@@ -59,5 +59,19 @@ module.exports = {
                     });
                 });
             });
+    },
+    getTopReviews: function(context) {
+        var query = {'limit': 3};
+        var topReviews = context.getStore('BusinessReviewStore').getTopReviews();
+
+        if(!_.isEmpty(topReviews)) {
+            return;
+        } else {
+            return context.hairfieApi
+                .get('/tops/businessReviews', {query: query})
+                .then(function (topReviews){
+                    context.dispatch(Actions.RECEIVE_TOP_REVIEWS, {topReviews: topReviews});
+                });
+        }
     }
 };

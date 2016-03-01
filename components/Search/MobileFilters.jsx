@@ -11,6 +11,7 @@ var TagSubFilters = require('./TagSubFilters.jsx');
 var CategorySubFilters = require('./CategorySubFilters.jsx');
 var PromoCheckbox = require('./PromoCheckbox.jsx');
 var OpeningDays = require('./OpeningDays.jsx');
+var Selections = require('./Selections.jsx');
 var BusinessNameInput = require('./BusinessNameInput.jsx');
 var LocationInput = require('./LocationInput.jsx');
 
@@ -88,14 +89,26 @@ var MobileFilters = React.createClass({
                         initialSearch={this.state.search}
                         onSubmit={this.handleChange}/>
                 </div>
+                <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>
                         Spécialités {this.countCategories(this.state.search.categories)}
                     </a>
+                </div>
                 <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>
                         Jours d'ouverture {this.countCategories(this.state.search.days)}
                     </a>
                 </div>
+                <Selections 
+                    initialSearch={this.state.search}
+                    cat={this.state.filtersCategoryToDisplay}
+                    selections={this.props.selections}
+                    onClose={this.handleCloseMobileSubFilters}>
+
+                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'selections')}>
+                        Nos sélections de coiffeurs {this.countCategories(this.state.search.selections)}
+                    </a>
+                </Selections>
                 <div>
                     <PromoCheckbox
                         ref="promoCheckbox"
@@ -138,7 +151,7 @@ var MobileFilters = React.createClass({
     },
     countCategories: function (arrayToCount) {
         var tagClass = arrayToCount && arrayToCount.length > 0 ? 'tag-count' : null;
-        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return;
+        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return '';
         else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {

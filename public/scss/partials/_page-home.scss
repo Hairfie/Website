@@ -31,6 +31,7 @@
         margin-bottom: 40px;
         font-weight: $regular;
         letter-spacing: 4px;
+        font-family: $font-main;
     }
     .headline {
         margin: 70px auto 0;
@@ -166,7 +167,7 @@ section.how {
             color: $darkgrey;
             font-size: 1.4em;
             line-height: 1.2em;
-            letter-spacing: 1px;
+            // letter-spacing: 1px;
         }
     }
     @media screen and (max-width: $screen-sm-max) {
@@ -230,7 +231,7 @@ section.home-section {
     h2 {
         font-family: $font-second;
         font-weight: $regular;
-        letter-spacing: 3px;
+        // letter-spacing: 3px;
         padding: 30px 0 10px;
         margin: 0;
         @media screen and (max-width: $screen-xs-max) {
@@ -661,6 +662,9 @@ section.home-search {
     }
     .btn-whitered {
         margin-top: 20px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+        }
     }
     #style-content {
         z-index: 0;
@@ -836,6 +840,12 @@ section.home-search {
             }
         }
     }
+    .btn-whitered {
+        margin-top: 30px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+        }
+    }
 }
 
 #home section.blog-posts {
@@ -883,6 +893,12 @@ section.home-search {
         a.readmore, a.readmore:hover {
             text-decoration: underline;
             font-size: 14px;
+        }
+    }
+    .btn-whitered {
+        margin-top: 30px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
         }
     }
 }
