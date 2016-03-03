@@ -3,11 +3,128 @@
 ////////////////////////////////*/
 #content.reservation {
 	padding-bottom: 50px;
+
+	.breadcrumb-container {
+		font-size: 2em !important;
+		//FIXME
+		border-bottom: 1px dotted black;
+		background-color: white !important;	
+	}
+	.breadcrumb {
+		padding-left: 15px;
+		margin-bottom: 15px;
+		// border-radius: 0;
+		@media screen and (max-width: $screen-xs-max) {
+			padding-left: 0;
+		}
+	}
+	.booking-summary {
+		@media screen and (min-width: $screen-sm-min) {
+			&::before {			
+				border-top: 1px solid $grey2;
+				width: calc(100% - 45px);
+				display: block;
+				content: ' ';
+				margin: -20px 30px 0 30px;
+			}	
+		}
+		
+		.salon-bloc {
+			padding-top: 20px;
+			padding-left: 30px;
+			@media screen and (max-width: $screen-xs-max) {
+				padding-top: 0;
+				padding-left: 15px;
+				padding-bottom: 10px;
+				&:after {
+					width: 100%;
+					border-bottom: 1px solid $grey2;
+					display: block;
+					content: ' ';
+					height: 70px;
+				}
+			}
+			span .visible-xs {
+				margin-bottom: 10px;
+			}
+			img {
+				float: left;
+			}
+			.address-bloc {
+				padding-left: 10px;
+				float: left;
+				width: calc(100% - 55px);
+				h2 > a {
+					font-size: 1.6em;
+					text-transform: none;
+					letter-spacing: 0;
+					font-weight: $regular;
+					@media screen and (max-width: $screen-xs-max) {
+						font-size: 1.1em;
+					}
+				}
+				.address {
+					font-size: 1.5em;
+					letter-spacing: 0;
+					&:before {
+						content: ' ';
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						line-height: 25px;
+						background: url(../img/icons/localisation-red.svg) no-repeat center left;
+						background-size: contain;
+					}
+				}
+			}
+		}
+		.promo-bloc {
+			padding-top: 20px;
+			@media screen and (max-width: $screen-xs-max) {
+				padding-top: 0;
+			}
+			.selected-slot {
+				font-size: 1.4em;
+				&:before {
+					content: ' ';
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					line-height: 25px;
+					background: url(../img/resa/calendar.svg) no-repeat center left;
+					background-size: contain;
+					margin-right: 10px;
+				}
+			}
+			.promo {
+				font-size: 1.4em;
+				color: $promo-color;
+				font-weight: $regular;
+				&:before {
+					content: ' ';
+					display: block;
+					float: left;
+					width: 20px;
+					height: 20px;
+					line-height: 25px;
+					background: url(../img/resa/icon-promo.png) no-repeat center left;
+					background-size: contain;
+					margin-right: 10px;
+				}
+				.discount {
+					display: block;
+					float: left;
+					width: calc(100% - 30px);
+				}
+			}
+		}
+	}
 	@media screen and (max-width: $screen-xs-max) {
 		//padding-top: 75px;
 		.breadcrumb {
 			margin-top: 60px;
 			width: 200vw;
+			border-bottom: 1px dotted $grey;
 		}
 
 		&.confirmation {
@@ -17,75 +134,25 @@
 	@media screen and (min-width: $screen-md-min) {
 		padding-top: 0px;
 		.breadcrumb {
-			margin-left: -15px;
+			// margin-left: -15px;
 		}
 	}
 
-	.sidebar {
-		background: white;
-		padding: 20px;
-		@media screen and (max-width: $screen-sm-max) {
-			margin-bottom: 40px;
-		}
-		.salon-bloc {
-			a:first-child {
-				display: block;
-				width: 100%;
-				max-height: 185px;
-				overflow: hidden;
-				@media screen and (max-width: $screen-sm-max) {
-  					max-height: 255px;
-				}
-				img {
-					max-height: 185px;
-					width: auto; min-width: 100%;
-					margin: 0 auto;
-					@media screen and (max-width: $screen-sm-max) {
-						max-height: 255px;
-						min-width: auto;
-						height: 100%;
-					}
-				}
-			}
-			.address-bloc {margin-top: 20px;}
-		}
-		.promo {
-			margin-top: 20px; margin-bottom: 20px;
-			margin-left: -20px;
-
-			p {color: $promo-color;}
-		}
-		div:last-child {
-			p {
-				font-weight: $light;
-				font-size: 1.4em;
-				color: $font-color;
-				line-height: 20px;
-			}
-			div {
-				padding: 20px;
-				border:1px solid #c9c9c9;
-				h3 {
-					color: $font-color;
-					font-size: 1.6em;
-					margin: 0;
-					font-weight: $semiBold;
-				}
-				ul {
-					margin-top: 10px;
-					li {
-						font-size: 1.6em;
-						padding-left: 15px;
-					}
-				}
-			}
-		}
-	}
 	.main-content {
 		padding-left: 30px;
+		&::before {			
+			border-top: 1px solid $grey2;
+			width: 100%;
+			display: block;
+			content: ' ';
+			@media screen and (max-width: $screen-xs-max) {
+				width: 100%;
+			}
+		}
+		margin-top: 20px;
 		@media screen and (max-width: $screen-sm-max) {
 			padding-left: 15px;
-			float: none !important;
+			// float: none !important;
 		}
 		.legend {
 			color: $font-color;
@@ -116,7 +183,7 @@
 					font-weight: $regular;
 					color: $font-color;
 					margin: 20px 0;
-					text-decoration: underline;
+					letter-spacing: 0;
 				}
 				td {
 					width: 50px;
@@ -124,12 +191,11 @@
 			}
 			> div:nth-child(1) {
 				@media screen and (max-width: 545px) {
-					float: none !important;
+					// float: none !important;
 					width: 100%;
 				}
 			}
 			> div:nth-child(2) {
-				padding-left: 62px;
 				padding-right: 0;
 				@media screen and (max-width: $screen-sm-max) {
 					padding-left: 0px;
@@ -141,7 +207,7 @@
 					padding-left: 15px;
 				}
 				@media screen and (max-width: 545px) {
-					float: none !important;
+					// float: none !important;
 					width: 100%;
 				}
 				.time-table table {
@@ -160,15 +226,15 @@
 					}
 
 					td {
-						height: 54px;
-						width: 74px;
+						height: 45px;
+						width: 65px;
 						position: relative;
-						display: inline-block;
+						@include flex-center;
 						float: left;
-						border:1px solid #e9e9e9;
+						border:1px solid #e5e5e5;
 						border-radius: 2px;
-						text-align: center;
-						margin: 3px; margin-left: 0;
+						// text-align: center;
+						margin: 0 10px 10px 0;
 
 						a {
 							position: relative;
@@ -184,9 +250,9 @@
 						}
 
 						p {
-							position: absolute;
-							top: 6px;
-							width: 100%;
+							// position: absolute;
+							// top: 6px;
+							// width: 100%;
 							font-size: 1em;
 						}
 
@@ -228,7 +294,7 @@
 		margin-top: -2em;
 		&:hover, &:active {color: $font-color}
 		@media screen and (max-width: $screen-xs-max) {
-			float: none !important;
+			// float: none !important;
 		}
 	}
 	.confirm-bloc-form {

@@ -156,20 +156,20 @@ a {
         }
 
     }
-    .promo {
-        padding-top: 0;padding-bottom: 0;
-        border-left: 15px solid $promo-color;
-        padding-left: 15px;
-        h4 {
-            font-size: 1.6em;
-            color: $promo-color;
-            font-weight: $regular;
-        }
-        p {
-            font-size: 1.4em;
-            color: $font-color;
-        }
-    }
+    // .promo {
+    //     padding-top: 0;padding-bottom: 0;
+    //     border-left: 15px solid $promo-color;
+    //     padding-left: 15px;
+    //     h4 {
+    //         font-size: 1.6em;
+    //         color: $promo-color;
+    //         font-weight: $regular;
+    //     }
+    //     p {
+    //         font-size: 1.4em;
+    //         color: $font-color;
+    //     }
+    // }
 }
 // Rating stars
 .stars {
