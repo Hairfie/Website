@@ -12,6 +12,10 @@ module.exports = React.createClass({
             displayIndex: 0
         }
     },
+    componentWillReceiveProps: function(nextProps) {
+        if(this.props.pictures != nextProps.pictures)
+            this.setState({displayIndex: 0});
+    },
     render: function () {
         var gallery = this.props.gallery ? <Gallery pictures={this.props.pictures} isOpen={this.state.openGallery} onClose={this.handleCloseGallery} /> : '';
 
