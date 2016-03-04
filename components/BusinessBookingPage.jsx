@@ -40,15 +40,14 @@ var BusinessBookingPage = React.createClass({
         var className = this.state.timeslotSelected ? "container reservation bookingForm" : "container reservation";
         return (
             <div className={className} id="content" >
-                <Breadcrumb business={this.props.business} />
-                <div className="row" >
-                    <BookingSummary 
-                        business={this.props.business} 
-                        discountObj={this.props.discountObj} 
-                        daySelected={this.state.daySelected}
-                        timeslotSelected={this.state.timeslotSelected}/>
-                    {formNode}
-                </div>
+            <Breadcrumb business={this.props.business} />
+                <BookingSummary 
+                    business={this.props.business}
+                    discountObj={this.props.discountObj} 
+                    daySelected={this.state.daySelected}
+                    timeslotSelected={this.state.timeslotSelected}
+                    modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)} />
+                {formNode}
             </div>
         );
     },
@@ -58,14 +57,14 @@ var BusinessBookingPage = React.createClass({
         if (this.state.daySelected)
             hourTitle = 'À quelle heure ?';
         return (
-            <div className="main-content col-sm-12 col-xs-12">
+            <div className="main-content row">
                 {this.renderIsBookable()}
                 <div className="row">
-                    <div className="col-xs-12 col-sm-4">
+                    <div className="col-xs-12 col-sm-6 col-md-4">
                         <h2>Quand êtes-vous disponible ?</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
-                    <div className="col-xs-12 col-sm-4" ref="timeSelectContainer">
+                    <div className="col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
                         <h2>{hourTitle}</h2>
                         <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
                     </div>
@@ -85,7 +84,7 @@ var BusinessBookingPage = React.createClass({
     },
     renderInfoForm: function() {
         return (
-            <div className="main-content col-sm-12 pull-right" ref="bookingContainer">
+            <div className="main-content row" ref="bookingContainer">
                 <InfoForm
                     ref="booking"
                     modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)}

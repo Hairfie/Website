@@ -3,47 +3,33 @@
 ////////////////////////////////*/
 #content.reservation {
 	padding-bottom: 50px;
-
-	.breadcrumb-container {
-		font-size: 2em !important;
-		//FIXME
-		border-bottom: 1px dotted black;
-		background-color: white !important;	
+	@media screen and (max-width: $screen-xs-max) {
+		padding-left: 0;
 	}
 	.breadcrumb {
-		padding-left: 15px;
+		// padding-left: 15px;
 		margin-bottom: 15px;
-		// border-radius: 0;
 		@media screen and (max-width: $screen-xs-max) {
-			padding-left: 0;
+			padding-left: 15px;
 		}
 	}
 	.booking-summary {
-		@media screen and (min-width: $screen-sm-min) {
-			&::before {			
-				border-top: 1px solid $grey2;
-				width: calc(100% - 45px);
-				display: block;
-				content: ' ';
-				margin: -20px 30px 0 30px;
-			}	
-		}
-		
+	    @include flex-center;
+	    text-align: inherit;
+	    flex-direction: row;
+	    border-top: 1px solid $grey2;
+	    border-bottom: 1px solid $grey2;
+	    padding: 15px 0;
+	    margin: 0 0px;
+	    align-items: center;
+		-webkit-align-items: center;	    
+	    @media screen and (max-width: $screen-xs-max) {
+	    	flex-direction: column;
+	    	margin: 0;
+	    	border-top: 0;
+	    	padding-top: 0;
+	    }
 		.salon-bloc {
-			padding-top: 20px;
-			padding-left: 30px;
-			@media screen and (max-width: $screen-xs-max) {
-				padding-top: 0;
-				padding-left: 15px;
-				padding-bottom: 10px;
-				&:after {
-					width: 100%;
-					border-bottom: 1px solid $grey2;
-					display: block;
-					content: ' ';
-					height: 70px;
-				}
-			}
 			span .visible-xs {
 				margin-bottom: 10px;
 			}
@@ -55,7 +41,7 @@
 				float: left;
 				width: calc(100% - 55px);
 				h2 > a {
-					font-size: 1.6em;
+					font-size: 1.2em;
 					text-transform: none;
 					letter-spacing: 0;
 					font-weight: $regular;
@@ -79,12 +65,12 @@
 			}
 		}
 		.promo-bloc {
-			padding-top: 20px;
 			@media screen and (max-width: $screen-xs-max) {
 				padding-top: 0;
 			}
 			.selected-slot {
 				font-size: 1.4em;
+				font-weight: $regular;
 				&:before {
 					content: ' ';
 					display: inline-block;
@@ -99,7 +85,7 @@
 			.promo {
 				font-size: 1.4em;
 				color: $promo-color;
-				font-weight: $regular;
+				font-weight: $light;
 				&:before {
 					content: ' ';
 					display: block;
@@ -118,9 +104,31 @@
 				}
 			}
 		}
+		.edit-bloc {
+			@media screen and (max-width: $screen-xs-max) {
+				width: 100%;
+			}
+			.edit {
+				@include flex-center;
+				float: right;
+				@media screen and (max-width: $screen-xs-max) {
+					justify-content: center;
+					float: none;
+				}
+				.btn-whitered {
+					text-transform: none;
+					font-weight: $light;
+				}
+			}
+		}
+		hr.visible-xs {
+			width: 100%;
+			height: 1px;
+			border-color: $grey2;
+			margin: 15px 0;
+		}
 	}
 	@media screen and (max-width: $screen-xs-max) {
-		//padding-top: 75px;
 		.breadcrumb {
 			margin-top: 60px;
 			width: 200vw;
@@ -134,25 +142,13 @@
 	@media screen and (min-width: $screen-md-min) {
 		padding-top: 0px;
 		.breadcrumb {
-			// margin-left: -15px;
 		}
 	}
 
 	.main-content {
-		padding-left: 30px;
-		&::before {			
-			border-top: 1px solid $grey2;
-			width: 100%;
-			display: block;
-			content: ' ';
-			@media screen and (max-width: $screen-xs-max) {
-				width: 100%;
-			}
-		}
-		margin-top: 20px;
+		 padding-left: 15px;
 		@media screen and (max-width: $screen-sm-max) {
 			padding-left: 15px;
-			// float: none !important;
 		}
 		.legend {
 			color: $font-color;
@@ -275,6 +271,96 @@
 
 	color: $font-color;
 	hr {border-color: #9a9a9a;}
+	.main-content {
+		.info-form {
+			.title {
+				width: 300px;
+    			font-size: 1.8em;
+    			font-weight: 400;
+    			border-bottom: 1px solid $grey2;
+    			padding-bottom: 10px;
+    			margin-bottom: 10px;
+    			span:nth-child(1) {
+    				float: left;
+    			}
+    			.connect {
+    				float: right;
+    				line-height: 25px;
+    			}
+			}
+			.form-group {
+				input[type="text"], input[type="email"], input[type="password"] {
+					border-radius: 0;
+					height: 50px;
+					width: 300px;
+				}
+			}
+			.customer-infos {
+				@include flex-center;
+    			flex-direction: column;
+    			align-items: center;
+    			padding-top: 25px;
+				.radio-inline {
+					margin-bottom: 15px;
+					font-weight: $light;
+				}
+				.form-group {
+					margin-bottom: 0;
+				}
+				.connect-bloc {
+					width: 300px;
+					margin-bottom: 20px;
+					.facebook {
+						margin: 0;
+					}
+					p {
+						display: none;
+					}
+					input {
+						font-size: 1.4em;
+					}
+					input[type="email"] {
+						margin-top: 15px;
+					}
+					input[type="password"] {
+						margin-bottom: 15px;
+					}
+					.btn-red {
+						width: 300px;
+						border-radius: 0;
+						letter-spacing: 0;
+						font-size: 1.6em;
+						height: 40px;
+						@include flex-center;
+						justify-content: center;
+					}
+				}
+			}
+			.cut-infos {
+				padding-top: 25px;
+				div.radio-group {
+					@include flex-center;
+				    justify-content: space-around;
+    				width: 300px;
+    				input[type="radio"] {
+    					width: 12px;
+    					height: 13px;
+    				}
+				}
+				label.firstTimeCustomer {
+					margin-left: 20px;
+					> span {
+						font-weight: $light;
+					}
+				}
+			}
+			.form-end {
+				@include flex-center;
+				-webkit-align-items: center;
+				align-items: flex-start;
+			}
+		}
+	}
 	.legend.conf {
 		p {
 			margin-bottom: 10px;

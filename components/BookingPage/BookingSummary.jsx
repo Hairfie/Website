@@ -15,7 +15,7 @@ var BookingSummary = React.createClass({
         var displayAddress = business.address ? business.address.street + ' ' + business.address.zipCode + ' ' + business.address.city : null;
 
         return (
-            <div className="booking-summary">
+            <div className="booking-summary row">
                 <div className="salon-bloc col-xs-12 col-sm-4">
                     <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                         <Picture picture={business.pictures[0]}
@@ -33,6 +33,7 @@ var BookingSummary = React.createClass({
                         </Link>
                     </div>
                 </div>
+                <hr className="visible-xs" />
                 <div className="promo-bloc col-xs-12 col-sm-4">
                     {this.renderSelectedSlot()}
                     {this.renderDiscountsNode()}
@@ -40,14 +41,18 @@ var BookingSummary = React.createClass({
                         {this.renderDiscountsConditions()}
                     </div>
                 </div>
+                {this.renderEditButton()}
             </div>
         )
     },
     renderEditButton: function() {
         if (!this.props.daySelected || !this.props.timeslotSelected) return null;
         return (
-            <div>
-                <button className="btn btn-whitered">Modifier le RDV</button>
+            <div className='edit-bloc  col-xs-12 col-sm-4'>
+                <hr className="visible-xs" />
+                <div className="edit">
+                    <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>
+                </div>
             </div>
         );
     },
@@ -66,7 +71,7 @@ var BookingSummary = React.createClass({
         var business = this.props.business,
             discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
 
-        if(!discounts || discounts.length === 0) {
+        if(_.isEmpty(discounts)) {
             return null;
         }
 
