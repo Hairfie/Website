@@ -10,6 +10,7 @@ var TagSubFilters = require('./TagSubFilters.jsx');
 var CategorySubFilters = require('./CategorySubFilters.jsx');
 var PromoCheckbox = require('./PromoCheckbox.jsx');
 var OpeningDays = require('./OpeningDays.jsx');
+var PriceFilterMobile = require('./PriceFilterMobile.jsx');
 var Selections = require('./Selections.jsx');
 var BusinessNameInput = require('./BusinessNameInput.jsx');
 var LocationInput = require('./LocationInput.jsx');
@@ -75,6 +76,10 @@ var MobileFilters = React.createClass({
                     initialSearch={this.state.search}
                     cat={this.state.filtersCategoryToDisplay}
                     onClose={this.handleCloseMobileSubFilters} />
+                <PriceFilterMobile
+                    initialSearch={this.state.search}
+                    cat={this.state.filtersCategoryToDisplay}
+                    onClose={this.handleCloseMobileSubFilters} />
                 <div className="filter-header">Filtrer par:</div>
                 <div>
                     <LocationInput 
@@ -108,6 +113,11 @@ var MobileFilters = React.createClass({
                         Nos sélections de coiffeurs {this.countCategories(this.state.search.selections)}
                     </a>
                 </Selections>
+                <div>
+                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'PriceFilterMobile')}>
+                        Prix {this.countCategories(this.state.search.priceLevel)}
+                    </a>
+                </div>
                 <div>
                     <PromoCheckbox
                         ref="promoCheckbox"
