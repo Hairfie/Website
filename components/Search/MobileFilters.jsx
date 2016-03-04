@@ -2,7 +2,6 @@
 
 var React = require('react');
 var _ = require('lodash');
-var PriceFilter = require('./PriceFilter.jsx');
 var RadiusFilter = require('./RadiusFilter.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
