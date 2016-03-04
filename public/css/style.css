@@ -10943,8 +10943,7 @@ footer {
 footer.mobile {
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 20px;
-  padding-bottom: 85px; }
+  padding-top: 20px; }
   footer.mobile .btn-red {
     font-size: 1.42em;
     letter-spacing: 0;
@@ -13730,7 +13729,7 @@ section.home-search .home-search-mobile {
       position: absolute;
       z-index: 1;
       top: 32.5%;
-      left: calc(100% + 2.5vw);
+      left: 100%;
       padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
     .hairfie-singleView.PopUpHairfie span.quit {

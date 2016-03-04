@@ -76,11 +76,6 @@ var MobileFilters = React.createClass({
                     initialSearch={this.state.search}
                     cat={this.state.filtersCategoryToDisplay}
                     onClose={this.handleCloseMobileSubFilters} />
-                <Selections 
-                    initialSearch={this.state.search}
-                    cat={this.state.filtersCategoryToDisplay}
-                    selections={this.props.selections}
-                    onClose={this.handleCloseMobileSubFilters} />
                 <div className="filter-header">Filtrer par:</div>
                 <div>
                     <LocationInput 
@@ -94,19 +89,26 @@ var MobileFilters = React.createClass({
                         initialSearch={this.state.search}
                         onSubmit={this.handleChange}/>
                 </div>
+                <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'businessCategories')}>
                         Spécialités {this.countCategories(this.state.search.categories)}
                     </a>
+                </div>
                 <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'OpeningDays')}>
                         Jours d'ouverture {this.countCategories(this.state.search.days)}
                     </a>
                 </div>
-                <div>
+                <Selections 
+                    initialSearch={this.state.search}
+                    cat={this.state.filtersCategoryToDisplay}
+                    selections={this.props.selections}
+                    onClose={this.handleCloseMobileSubFilters}>
+
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'selections')}>
                         Nos sélections de coiffeurs {this.countCategories(this.state.search.selections)}
                     </a>
-                </div>
+                </Selections>
                 <div>
                     <PromoCheckbox
                         ref="promoCheckbox"
@@ -149,7 +151,7 @@ var MobileFilters = React.createClass({
     },
     countCategories: function (arrayToCount) {
         var tagClass = arrayToCount && arrayToCount.length > 0 ? 'tag-count' : null;
-        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return;
+        if (typeof arrayToCount === 'undefined' || arrayToCount.length == 0) return '';
         else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {

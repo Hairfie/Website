@@ -16,7 +16,13 @@ var Selections = React.createClass ({
         }
     },
     render: function() {
-        if(this.props.cat != 'selections') return null;
+        if(_.isEmpty(this.props.selections)) return null;
+
+        if(this.props.cat != 'selections') return (
+            <div>
+                {this.props.children}
+            </div>
+        );
 
         return (
             <div className="new-filters subfilters">
