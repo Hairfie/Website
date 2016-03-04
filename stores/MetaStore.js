@@ -151,12 +151,10 @@ module.exports = createStore({
                     description = 'Découvrez les hairfies du salon ' + title + ' et Prenez RDV en ligne';
                 }
 
-                description = description.substring(0, 190) +  ' | Photos, Hairfies, Avis, Horaires & réservation chez ce coiffeur';
-
                 break;
             case 'business_reviews':
                 title = 'Les avis sur ' + title;
-                description = 'Les avis des internautes sur ' + business.name;
+                description = 'Les avis des clients sur ' + business.name;
                 break;
             case 'business_hairfies':
                 title = 'Les Hairfies de ' + title;
@@ -166,6 +164,8 @@ module.exports = createStore({
                 title = 'Réservez chez ' + title;
                 break;
         }
+
+        description = description.substring(0, 190) +  ' | Photos, Hairfies, Avis, Horaires & RDV en ligne chez ce coiffeur';
 
         title += ' | Prendre RDV en ligne sur Hairfie';
         var url = this._getUrl(routeName, { businessId: business.id, businessSlug: business.slug });
