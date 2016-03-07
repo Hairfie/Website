@@ -8,7 +8,6 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout  = require('./PublicLayout.jsx');
 var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 var TimeSelect = require('./BookingPage/TimeSelectComponent.jsx');
-// var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var BookingSummary = require('./BookingPage/BookingSummary.jsx');
 var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./Partial/Breadcrumb.jsx');
@@ -30,7 +29,7 @@ var BusinessBookingPage = React.createClass({
     render: function () {
         var loading = _.isUndefined(this.props.business);
         return (
-            <PublicLayout loading={loading} customClass="booking">
+            <PublicLayout loading={loading} customClass="booking bg-white">
                 {this.renderBookingForm()}
             </PublicLayout>
         );
@@ -40,7 +39,6 @@ var BusinessBookingPage = React.createClass({
         var className = this.state.timeslotSelected ? "container reservation bookingForm" : "container reservation";
         var booking = {};
         booking.timeslot = this.state.timeslotSelected ? this.state.timeslotSelected : null;
-        console.log('FIRST BOOKING', booking);
         return (
             <div className={className} id="content" >
                 <Breadcrumb business={this.props.business} />
@@ -63,11 +61,11 @@ var BusinessBookingPage = React.createClass({
             <div className="main-content row">
                 {this.renderIsBookable()}
                 <div className="row">
-                    <div className="col-xs-12 col-sm-6 col-md-4">
+                    <div className="calendar col-xs-12 col-sm-6 col-md-4">
                         <h2>Quand êtes-vous disponible ?</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
-                    <div className="col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
+                    <div className="calendar col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
                         <h2>{hourTitle}</h2>
                         <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
                     </div>
@@ -103,7 +101,7 @@ var BusinessBookingPage = React.createClass({
     },
     scrollTo: function(toRef) {
         var target = ReactDOM.findDOMNode(this.refs[toRef]);
-        if (window.innerWidth <= 768)
+        if (window.innerWidth <= 768 && target)
             TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
     },
     scrollToTop: function() {

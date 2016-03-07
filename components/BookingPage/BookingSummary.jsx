@@ -5,6 +5,7 @@ var _ = require('lodash');
 var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var moment = require('moment');
+var BookingStatus = require('../../constants/BookingConstants').Status;
 
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var orderWeekDays = DateTimeConstants.orderWeekDays;
@@ -13,8 +14,9 @@ var weekDayLabel = DateTimeConstants.weekDayLabelFR;
 var BookingSummary = React.createClass({
     render: function () {
         var business = this.props.business;
+        var booking = this.props.booking;
+        var phoneNumber = booking && booking.status == BookingStatus.CONFIRMED ? booking.business.phoneNumber : null;
         var displayAddress = business.address ? business.address.street + ' ' + business.address.zipCode + ' ' + business.address.city : null;
-
         return (
             <div className="booking-summary row">
                 <div className="salon-bloc col-xs-12 col-sm-4">
@@ -32,6 +34,7 @@ var BookingSummary = React.createClass({
                         <Link className="address" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
                             {displayAddress}
                         </Link>
+                        <a className="phone" href={"tel:" + phoneNumber}>{phoneNumber}</a>
                     </div>
                 </div>
                 <hr className="visible-xs" />
@@ -43,24 +46,31 @@ var BookingSummary = React.createClass({
                         {this.renderDiscountsConditions()}
                     </div>
                 </div>
-                {this.renderEditButton()}
+                {this.renderButtons()}
             </div>
         )
     },
-    renderEditButton: function() {
+    renderButtons: function() {
         if (!this.props.booking && !this.props.timeslotSelected) return null;
-        var button;
+        var cancelButton, button;
+        var booking = this.props.booking;
+        if(booking && (booking.status == BookingStatus.REQUEST || booking.status == BookingStatus.IN_PROCESS || booking.status == BookingStatus.CONFIRMED)) {
+            cancelButton = (<button role="button" className="btn-whitered" onClick={this.props.cancelled}>Je veux annuler mon RDV</button>);
+        }
+        console.log('cancel', cancelButton);
         if (this.props.timeslotSelected) {
             button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
         }
         if (this.props.booking) {
-            button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
+            //FIXME
+            // button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
         }
         return (
             <div className='edit-bloc  col-xs-12 col-sm-4'>
                 <hr className="visible-xs" />
                 <div className="edit">
                     {button}
+                    {cancelButton}
                 </div>
             </div>
         );

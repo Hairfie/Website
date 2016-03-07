@@ -1,10 +1,13 @@
 
 .cal {
-    max-width: 100%;
     display: block;
-    width: 100%;
-    $border-color: #e5e5e5;
     width: 350px;
+    $border-color: #e5e5e5;
+    @media screen and (max-width: $screen-xs-max) {
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
+    }
 
     a { 
         text-decoration: none; 
