@@ -170,7 +170,7 @@ var BookingConfirmationPage = React.createClass({
             newsletter: this.props.booking.newsletter
         });
     },
-    bookingStatusMessage(booking) {
+    bookingStatusMessage: function(booking) {
         var title, content, color;
         switch (booking.status) {
             case BookingStatus.CONFIRMED:
