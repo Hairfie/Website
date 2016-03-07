@@ -100,15 +100,11 @@ var Filters = React.createClass({
         return <RadiusFilter min={500} max={10000} defaultValue={this.props.search.radius} onChange={this.handleRadiusChange} />;
     },
     renderPrice: function () {
-        var min = 0, max = 1000;
-
         return <PriceFilter
-            min={min}
-            max={max}
-            defaultMin={this.props.search.priceMin || min}
-            defaultMax={this.props.search.priceMax || max}
             onChange={this.handlePriceChange} 
             expandedFilters={this.state.expandedFilters}
+            priceLevel={this.props.search.priceLevel}
+            categoryCount={this.countCategories(this.props.search.priceLevel)}
             toggleExpandedFilters={this.toggleExpandedFilters.bind(this, 'price')}/>;
     },
     renderQ: function () {
@@ -338,8 +334,8 @@ var Filters = React.createClass({
     handleRadiusChange: function (nextRadius) {
         this.props.onChange({radius: nextRadius});
     },
-    handlePriceChange: function (nextPrice) {
-        this.props.onChange({price: nextPrice});
+    handlePriceChange: function (nextPriceArr) {
+        this.props.onChange({priceLevel: nextPriceArr});
     }
 });
 

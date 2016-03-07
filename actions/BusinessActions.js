@@ -73,6 +73,10 @@ module.exports = {
             query['facetFilters[selectionsSlug]['+i+']'] = selection;
         });
 
+        _.forEach(search.priceLevel, function (priceLevel, i) {
+            query['facetFilters[priceLevel]['+i+']'] = priceLevel;
+        });
+
         return context.hairfieApi
             .get('/businesses/search', { query: query })
             .then(function (result) {
