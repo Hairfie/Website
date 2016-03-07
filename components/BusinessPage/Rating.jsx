@@ -19,7 +19,7 @@ module.exports = React.createClass({
                 </div>
             );
         }
-        else if (business.yelpObject.review_count > 0) {
+        else if (business.yelpObject.review_count > 0 && business.shouldDisplayYelp) {
             return (
                 <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" className="yelp-rating" />
             );
