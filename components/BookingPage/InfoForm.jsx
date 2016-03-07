@@ -110,91 +110,23 @@ module.exports = React.createClass({
                             </div>
                         </div>
                     </Input>
-                    <label className="firstTimeCustomer">
-                        <input type="checkbox" name='firstTimeCustomer' checked={this.state.firstTimeCustomer == true} onChange={this.handleFirstTimeChanged}/>
-                        <span></span>
-                        Je suis un nouveau client dans ce salon
-                    </label>
                     <Input ref="service" name="service" type="text" placeholder="Prestation demandée *" onChange={formValidation.required} onFocus={formValidation.required}/>
                     <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
+                    <label className="firstTimeCustomer">
+                        <input type="checkbox" name='firstTimeCustomer' checked={this.state.firstTimeCustomer == true} onChange={this.handleFirstTimeChanged}/>
+                        Je suis un nouveau client dans ce salon
+                    </label>
                 </div>
-                <div className="form-end col-xs-12">
+                <div className="form-end col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
                     {this.renderNewsletter()}
                     <label>
                         <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
                         Je reconnais avoir pris connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                 </div>
-                <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
-            </div>
-        );
-    },
-    renderOLD: function() {
-        return (
-            <div className="info-form">
-                {this.renderIfNotConnected()}
-                <div>
-                    <div className="col-sm-8 confirm-bloc-form">
-                        <div className="form-group">
-                            <form role="form" className="form">
-                                <Input className="radio">
-                                    <label className="radio-inline">
-                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
-                                      Homme
-                                    </label>
-                                    <label className="radio-inline" style={{marginLeft: '0px'}}>
-                                      <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
-                                      Femme
-                                    </label>
-                                </Input>
-                                <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom *" value={this.state.firstName} onChange={this.handleFirstNameChanged} onFocus={formValidation.required} />
-                                <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom *" value={this.state.lastName} onChange={this.handleLastNameChanged} onFocus={formValidation.required} />
-                                <Input ref="userEmail" name="userEmail" type="email" placeholder="Email *" value={this.state.email} onChange={this.handleEmailChanged} onFocus={formValidation.email} />
-                                <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Numéro de portable (un code validation vous sera envoyé par SMS) *" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged} onFocus={formValidation.phoneNumber}/>
-                                <p>Longueur de vos cheveux * </p>
-                                <Input className="radio">
-                                    <div className="col-xs-3 text-center">
-                                      <input data-tip="Au-dessus des épaules" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
-                                      <br />
-                                        <p data-tip="Au-dessus des épaules">Courts</p>
-                                    </div>
-                                    <div className="col-xs-3 text-center">
-                                      <input data-tip="Au niveau des épaules" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.MID_SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.MID_SHORT} />
-                                      <br />
-                                      <p data-tip="Au niveau des épaules">Mi-Longs</p>
-                                    </div>
-                                    <div className="col-xs-3 text-center">
-                                      <input data-tip="Au niveau des omoplates" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.LONG} />
-                                      <br />
-                                      <p data-tip="Au niveau des omoplates">Longs</p>
-                                    </div>
-                                    <div className="col-xs-3 text-center">
-                                      <input data-tip="Au niveau du bas du dos" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.VERY_LONG} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.VERY_LONG} />
-                                      <br />
-                                      <p data-tip="Au niveau du bas du dos">Très longs</p>
-                                    </div>
-                                </Input>
-                                <label className="firstTimeCustomer">
-                                    <input type="checkbox" name='firstTimeCustomer' checked={this.state.firstTimeCustomer == true} onChange={this.handleFirstTimeChanged}/>
-                                    <span></span>
-                                    Je suis un nouveau client dans ce salon
-                                </label>
-                                <Input ref="service" name="service" type="text" placeholder="Prestation demandée *" onChange={formValidation.required} onFocus={formValidation.required}/>
-                                <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
-                            </form>
-                        </div>
-                    </div>
-                    <div className="clearfix"></div>
-                    <hr />
-                    {this.renderNewsletter()}
-                    <label style={{paddingLeft: '15px'}}>
-                        <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
-                        <span></span>
-                        Je reconnais avoir pris connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
-                    </label>
+                <div className="col-xs-12">
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
-                </div>
-                <ReactTooltip />
+                </div>    
             </div>
         );
     },

@@ -38,9 +38,12 @@ var BusinessBookingPage = React.createClass({
     renderBookingForm: function() {
         var formNode = this.state.timeslotSelected ? this.renderInfoForm() : this.renderDateAndTimeForm();
         var className = this.state.timeslotSelected ? "container reservation bookingForm" : "container reservation";
+        var booking = {};
+        booking.timeslot = this.state.timeslotSelected ? this.state.timeslotSelected : null;
+        console.log('FIRST BOOKING', booking);
         return (
             <div className={className} id="content" >
-            <Breadcrumb business={this.props.business} />
+                <Breadcrumb business={this.props.business} />
                 <BookingSummary 
                     business={this.props.business}
                     discountObj={this.props.discountObj} 

@@ -15,6 +15,8 @@ var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var BookingStatus = require('../constants/BookingConstants').Status;
 var AddToCalendarButton = require('./Partial/AddToCalendarButton.jsx');
+var BookingSummary = require('./BookingPage/BookingSummary.jsx');
+var Breadcrumb = require('./Partial/Breadcrumb.jsx');
 
 
 var BookingConfirmationPage = React.createClass({
@@ -25,15 +27,17 @@ var BookingConfirmationPage = React.createClass({
         var booking  = this.props.booking;
         var business = booking.business;
         var address  = business.address;
+        console.log('BOOKING CONFIRMATION', booking);
         return (
             <PublicLayout context={this.props.context} customClass="booking confirmation">
                 <div className="container reservation confirmation" id="content" >
+                    <Breadcrumb business={this.props.business} />
+                    <BookingSummary business={business} booking={booking} />
                     <div className="row">
-                        <div className="main-content col-md-9 col-sm-12 pull-right">
+                        <div className="main-content col-sm-8">
                             {this.renderVerif(booking)}
                             {this.renderInfoFrame(booking, business, address)}
                         </div>
-                        <LeftColumn context={this.props.context} business={business} />
                     </div>
                 </div>
                 <div className="row" />
@@ -46,72 +50,82 @@ var BookingConfirmationPage = React.createClass({
         }
     },
     renderVerif: function(booking) {
-        if (booking.status == BookingStatus.REQUEST) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
-                    </p>
-                    <p>
-                        En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.NOT_CONFIRMED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande a bien été prise en compte,
-                        cependant, par mesure de sécurité,
-                        nous allons vérifier vos coordonnées en vous envoyant un code par sms
-                        que vous devrez entrer dans le petit formulaire ci-dessous.
-                    </p>
-                    <Input ref="checkCode" type="text" placeholder="Code SMS" />
-                    <br />
-                    <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CANCELLED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre RDV a bien été annulé
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CANCEL_REQUEST) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
-
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.IN_PROCESS) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande a bien été transmise au salon. Nous attendons actuellement la confirmation de sa disponibilité sur ce créneaux. Vous recevrez une confirmation par email dans les plus brefs délais !
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CONFIRMED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        {"Félicitations ! Vous allez chez " + this.props.booking.business.name + " qui a bien confirmé votre RDV."}
-                    </p>
-                </div>
-            );
-        }
+        var status = this.bookingStatusMessage(booking);
+        console.log('STATUS', status);
+        return (
+            <div className="legend conf">
+                <h3 className={status.color}>{status.title}</h3>
+                {status.content}
+            </div>
+        );
     },
+    // renderVerifOLD: function(booking) {
+    //     if (booking.status == BookingStatus.REQUEST) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3>{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
+    //                 </p>
+    //                 <p>
+    //                     En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
+    //                 </p>
+    //             </div>
+    //         );
+    //     } else if (booking.status == BookingStatus.NOT_CONFIRMED) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3>{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     Votre demande a bien été prise en compte,
+    //                     cependant, par mesure de sécurité,
+    //                     nous allons vérifier vos coordonnées en vous envoyant un code par sms
+    //                     que vous devrez entrer dans le petit formulaire ci-dessous.
+    //                 </p>
+    //                 <Input ref="checkCode" type="text" placeholder="Code SMS" />
+    //                 <br />
+    //                 <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
+    //             </div>
+    //         );
+    //     } else if (booking.status == BookingStatus.CANCELLED) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3>{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     Votre RDV a bien été annulé
+    //                 </p>
+    //             </div>
+    //         );
+    //     } else if (booking.status == BookingStatus.CANCEL_REQUEST) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3>{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
+
+    //                 </p>
+    //             </div>
+    //         );
+    //     } else if (booking.status == BookingStatus.IN_PROCESS) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3>{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     Votre demande a bien été transmise au salon. Nous attendons actuellement la confirmation de sa disponibilité sur ce créneaux. Vous recevrez une confirmation par email dans les plus brefs délais !
+    //                 </p>
+    //             </div>
+    //         );
+    //     } else if (booking.status == BookingStatus.CONFIRMED) {
+    //         return (
+    //             <div className="legend conf">
+    //                 <h3 className="green">{bookingStatusMessage(booking)}</h3>
+    //                 <p>
+    //                     {"Félicitations ! Vous allez chez " + this.props.booking.business.name + " qui a bien confirmé votre RDV."}
+    //                 </p>
+    //             </div>
+    //         );
+    //     }
+    // },
     renderInfoFrame: function(booking, business, address) {
         if (booking.status == BookingStatus.NOT_CONFIRMED) return;
         return (
@@ -155,7 +169,7 @@ var BookingConfirmationPage = React.createClass({
         if (booking.status == BookingStatus.CANCELLED)
             status = <h4 className="red">{bookingStatusMessage(booking)}</h4>
         if (booking.discount)
-            discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
+            discount = <li>Avec {'-' + booking.discount + '% sur toutes les prestations'}</li>;
         return (
             <div className="col-xs-8 separate">
                 {status}
@@ -178,16 +192,6 @@ var BookingConfirmationPage = React.createClass({
                 </div>
                 <Link route="business" className="btn btn-red businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>+ d'infos</Link>
                 <Link route="business_hairfies" className="btn btn-red pull-right businessButton" params={{ businessId: business.id, businessSlug: business.slug }}>Hairfies</Link>
-            </div>
-        );
-    },
-    renderDiscount: function(booking) {
-        if (!booking.discount) return;
-
-        return (
-            <div>
-                <dt>Votre promotion :</dt>
-                <dd>-{booking.discount} % sur toute la carte</dd>
             </div>
         );
     },
@@ -234,36 +238,88 @@ var BookingConfirmationPage = React.createClass({
             checkCode: this.refs.checkCode.getValue(),
             newsletter: this.props.booking.newsletter
         });
+    },
+    bookingStatusMessage(booking) {
+        var title, content, color;
+        switch (booking.status) {
+            case BookingStatus.CONFIRMED:
+                title = 'Votre RDV est confirmé';
+                color = 'green';
+                content = (
+                    <p>
+                        {"Félicitations ! Vous allez chez " + this.props.booking.business.name + " qui a bien confirmé votre RDV."}
+                    </p>
+                );
+                break;
+            case BookingStatus.NOT_CONFIRMED :
+                title = 'En attente de confirmation de votre numéro';
+                color = 'orange';
+                content = (
+                    <div>
+                        <p>
+                            Votre demande a bien été prise en compte,
+                            cependant, par mesure de sécurité,
+                            nous allons vérifier vos coordonnées en vous envoyant un code par sms
+                            que vous devrez entrer dans le petit formulaire ci-dessous.
+                        </p>
+                        <Input ref="checkCode" type="text" placeholder="Code SMS" />
+                        <br />
+                        <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
+                    </div>
+                );
+                break;
+            case BookingStatus.REQUEST :
+                title = 'Demande de RDV enregistrée';
+                color = 'green';
+                content = (
+                    <div>
+                        <p>
+                            Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
+                        </p>
+                        <p>
+                            En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
+                        </p>
+                    </div>
+                );
+                break;
+            case BookingStatus.IN_PROCESS :
+                title = 'Demande de RDV en cours de traitement';
+                color = 'green';
+                content = (
+                    <p>
+                        Votre demande a bien été transmise au salon. Nous attendons actuellement la confirmation de sa disponibilité sur ce créneaux. Vous recevrez une confirmation par email dans les plus brefs délais !
+                    </p>
+                );
+                break;
+            case BookingStatus.CANCEL_REQUEST :
+                title = "Demande d'annulation bien prise en compte";
+                color = 'orange';
+                content = (
+                    <p>
+                        Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
+                    </p>
+                );
+                break;
+            case BookingStatus.CANCELLED :
+                title = 'Votre RDV est annulé';
+                color = 'orange';
+                content = '';
+                break;
+            case BookingStatus.HONORED :
+                title = 'Votre RDV a bien eu lieu';
+                color = 'green';
+                content = '';
+                break;
+        }
+
+        return {
+            title: title,
+            content: content,
+            color: color
+        };
     }
 });
 
-function bookingStatusMessage(booking) {
-    var status = '';
-    switch (booking.status) {
-        case BookingStatus.CONFIRMED:
-            status = 'Votre RDV est confirmé';
-            break;
-        case BookingStatus.NOT_CONFIRMED :
-            status = 'En attente de confirmation de votre numéro';
-            break;
-        case BookingStatus.REQUEST :
-            status = 'Demande de RDV enregistrée';
-            break;
-        case BookingStatus.IN_PROCESS :
-            status = 'Demande de RDV en cours de traitement';
-            break;
-        case BookingStatus.CANCEL_REQUEST :
-            status = "Demande d'annulation bien prise en compte";
-            break;
-        case BookingStatus.CANCELLED :
-            status = 'Votre RDV est annulé';
-            break;
-        case BookingStatus.HONORED :
-            status = 'Votre RDV a bien eu lieu';
-            break;
-    }
-    return status;
-}
 
 BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     'BookingStore',

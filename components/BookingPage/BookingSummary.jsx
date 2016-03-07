@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
+var moment = require('moment');
 
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var orderWeekDays = DateTimeConstants.orderWeekDays;
@@ -37,6 +38,7 @@ var BookingSummary = React.createClass({
                 <div className="promo-bloc col-xs-12 col-sm-4">
                     {this.renderSelectedSlot()}
                     {this.renderDiscountsNode()}
+                    {this.renderBookingDiscount()}
                     <div>
                         {this.renderDiscountsConditions()}
                     </div>
@@ -46,30 +48,48 @@ var BookingSummary = React.createClass({
         )
     },
     renderEditButton: function() {
-        if (!this.props.daySelected || !this.props.timeslotSelected) return null;
+        if (!this.props.booking && !this.props.timeslotSelected) return null;
+        var button;
+        if (this.props.timeslotSelected) {
+            button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
+        }
+        if (this.props.booking) {
+            button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
+        }
         return (
             <div className='edit-bloc  col-xs-12 col-sm-4'>
                 <hr className="visible-xs" />
                 <div className="edit">
-                    <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>
+                    {button}
                 </div>
             </div>
         );
     },
     renderSelectedSlot: function() {
-        var selectSlot = 'Choisissez un rendez-vous';
-        if (this.props.daySelected && this.props.timeslotSelected) {
-            selectSlot = this.props.timeslotSelected.format("[Le] dddd D MMMM YYYY [ à ] HH:mm");
+        var selectedSlot = 'Choisissez un rendez-vous';
+        if (this.props.booking) {
+            selectedSlot = moment(this.props.booking.timeslot).format("[Le] dddd D MMMM YYYY [à] HH:mm");
+        }
+        else if (this.props.timeslotSelected) {
+            selectedSlot = this.props.timeslotSelected.format("[Le] dddd D MMMM YYYY [à] HH:mm");
         }
         return (
             <div className="selected-slot">
-                {selectSlot}
+                {selectedSlot}
             </div>
         );
     },
+    renderBookingDiscount: function() {
+        if (this.props.booking && this.props.booking.discount) {
+            return (
+                <div className="promo">
+                    {'-' + this.props.booking.discount + '% sur toutes les prestations'}
+                </div>
+            ); 
+        }
+    },
     renderDiscountsNode: function() {
-        var business = this.props.business,
-            discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
+        var discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
 
         if(_.isEmpty(discounts)) {
             return null;
