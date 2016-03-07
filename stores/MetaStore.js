@@ -165,7 +165,9 @@ module.exports = createStore({
                 break;
         }
 
-        description = description.substring(0, 190) +  ' | Photos, Hairfies, Avis, Horaires & RDV en ligne chez ce coiffeur';
+        if(description && !_.isUndefined(description))  {
+            description = description.substring(0, 190) +  ' | Photos, Hairfies, Avis, Horaires & RDV en ligne chez ce coiffeur';
+        }
 
         title += ' | Prendre RDV en ligne sur Hairfie';
         var url = this._getUrl(routeName, { businessId: business.id, businessSlug: business.slug });

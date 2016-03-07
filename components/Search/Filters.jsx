@@ -54,7 +54,6 @@ var Filters = React.createClass({
                 <section>
                     <form>
                     {this.renderAddress()}
-                    {/*this.renderRadius()*/}
                     {this.renderQ()}
                     {this.renderSelections()}
                     {this.renderCategories()}
@@ -109,7 +108,7 @@ var Filters = React.createClass({
     },
     renderQ: function () {
         if (!this.props.withQ) return;
-
+        
         return (
             <div className="business-name">
                 <h2 style={{borderBottom: 0}}>Nom du coiffeur</h2>
