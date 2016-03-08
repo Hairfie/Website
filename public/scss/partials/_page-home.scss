@@ -193,11 +193,11 @@ section.how {
             font-size: 1.6em;
             letter-spacing: 1px;
             text-align: center;
-            margin-bottom: 25px;
-            padding-top: 35px;
+            margin-bottom: 15px;
+            padding-top: 15px;
         }
         .row > div {
-            height: 80px;
+            height: 60px;
             color: $lightgrey;
             object {
                 margin-top: -20px;
@@ -617,7 +617,7 @@ section.home-search {
     }
     .background {
         @include flex-center;
-        justify-content: center;
+        @include justify-content(center);
         position: absolute;
         left: 0;
         right: 0;

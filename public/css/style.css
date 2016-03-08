@@ -11115,10 +11115,10 @@ section.how {
         font-size: 1.6em;
         letter-spacing: 1px;
         text-align: center;
-        margin-bottom: 25px;
-        padding-top: 35px; }
+        margin-bottom: 15px;
+        padding-top: 15px; }
       section.how .row > div {
-        height: 80px;
+        height: 60px;
         color: #898989; }
         section.how .row > div object {
           margin-top: -20px; }
