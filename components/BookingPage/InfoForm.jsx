@@ -158,7 +158,8 @@ module.exports = React.createClass({
                 );
     },
     renderConnectForm: function() {
-        if (!this.state.formConnect)
+        // debugger;
+        if (!this.state.formConnect || this.props.currentUser)
             return;
         return (
             <div className="connect-bloc">
@@ -217,13 +218,8 @@ module.exports = React.createClass({
         });  
     },
     handleFormConnectChanged: function () {
-        if (this.state.formConnect == true)
             this.setState({
-               formConnect: false
-            });
-        else
-            this.setState({
-                formConnect: true
+               formConnect: !this.state.formConnect
             });
     },
     modifyTimeslot: function (e) {

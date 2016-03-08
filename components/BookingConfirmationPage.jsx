@@ -39,7 +39,7 @@ var BookingConfirmationPage = React.createClass({
                             {this.renderVerif(booking)}
                             {/*this.renderInfoFrame(booking, business, address)*/}
                         </div>
-                        {this.renderRegistration(booking)}                          
+                        {this.renderRegistration()}                          
                     </div>
                 </div>
             </PublicLayout>
@@ -128,7 +128,7 @@ var BookingConfirmationPage = React.createClass({
         );
     },
     renderRegistration: function() {
-        if (!this.props.currentUser)
+        if (!this.props.currentUser && this.props.booking.status != BookingStatus.NOT_CONFIRMED)
             return (
                 <div className="col-xs-12 registration">
                     <h4 className="orang">Finalisez votre inscription sur Hairfie. Choisissez un mot de passe</h4>

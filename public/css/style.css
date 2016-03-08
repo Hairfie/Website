@@ -14717,7 +14717,8 @@ section.home-search .home-search-mobile {
         border-top: 1px solid #dfdfdf; } }
   #content.reservation.confirmation .row .legend, .confirmation.review-confirmation .row .legend {
     padding-top: 20px;
-    padding-left: 15px; }
+    padding-left: 15px;
+    padding-right: 15px; }
     #content.reservation.confirmation .row .legend h3, .confirmation.review-confirmation .row .legend h3 {
       letter-spacing: 0;
       font-size: 1.6em;
@@ -14726,6 +14727,11 @@ section.home-search .home-search-mobile {
       letter-spacing: 0;
       font-size: 1.2em;
       font-weight: 200; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .row .legend .btn-red, .confirmation.review-confirmation .row .legend .btn-red {
+        width: 100%;
+        border-radius: 2px;
+        margin-bottom: 10px; } }
   #content.reservation.confirmation .row input[type="text"], .confirmation.review-confirmation .row input[type="text"] {
     height: 50px;
     border-radius: 0; }
