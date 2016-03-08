@@ -950,10 +950,10 @@ iframe {
 
 input:not(:focus) {
     &.valid {
-        border: 2px solid #3c763d !important;
+        border: 1px solid #3c763d !important;
     }
     &.error {
-        border: 2px solid #a94442 !important;
+        border: 1px solid #a94442 !important;
     }
 }
 
