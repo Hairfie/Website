@@ -6,6 +6,7 @@ var Link = require('../Link.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var moment = require('moment');
 var BookingStatus = require('../../constants/BookingConstants').Status;
+var AddToCalendarButton = require('../Partial/AddToCalendarButton.jsx');
 
 var DateTimeConstants = require('../../constants/DateTimeConstants');
 var orderWeekDays = DateTimeConstants.orderWeekDays;
@@ -51,6 +52,23 @@ var BookingSummary = React.createClass({
             </div>
         )
     },
+    renderCalendarButton: function() {
+        console.log('kikoo');
+        var booking = this.props.booking;
+        if(!booking || booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
+        var address = booking.business.address;
+        return (
+            <AddToCalendarButton
+                    className="btn-whitered"
+                    eventTitle={"Hairfie : votre RDV chez " + booking.business.name}
+                    description={"RDV au " + address.street + ' ' + address.zipCode + ' ' + address.city + " le " + moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}
+                    date={booking.timeslot}
+                    duration={60}
+                    address={address.street + ' ' + address.zipCode + ' ' + address.city}>
+                    Ajouter à mon calendrier
+                </AddToCalendarButton>
+        );
+    },
     renderCutInfos: function() {
         var booking = this.props.booking;
         if (booking) {
@@ -85,6 +103,7 @@ var BookingSummary = React.createClass({
                 <div className="edit">
                     {button}
                     {cancelButton}
+                    {this.renderCalendarButton()}
                 </div>
             </div>
         );

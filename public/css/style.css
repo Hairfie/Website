@@ -1549,13 +1549,13 @@ pre {
   .row:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p {
   float: left; }
 
 .col-xs-1 {
@@ -1564,7 +1564,7 @@ pre {
 .col-xs-2 {
   width: 16.6666666667%; }
 
-.col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
+.col-xs-3 {
   width: 25%; }
 
 .col-xs-4 {
@@ -14172,23 +14172,35 @@ section.home-search .home-search-mobile {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      -moz-align-items: center;
-      align-items: center;
-      float: right; }
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      -webkit-align-items: flex-end;
+      -moz-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center; }
       @media screen and (max-width: 767px) {
         #content.reservation .booking-summary .edit-bloc .edit, .review-confirmation .booking-summary .edit-bloc .edit {
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          -webkit-justify-content: center;
-          -moz-justify-content: center;
-          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
+          align-items: center;
           float: none; } }
       #content.reservation .booking-summary .edit-bloc .edit .btn-whitered, .review-confirmation .booking-summary .edit-bloc .edit .btn-whitered {
         text-transform: none;
-        font-weight: 200; }
+        font-weight: 200;
+        margin-bottom: 5px;
+        margin-top: 5px; }
     #content.reservation .booking-summary hr.visible-xs, .review-confirmation .booking-summary hr.visible-xs {
       width: 100%;
       height: 1px;
@@ -14219,8 +14231,6 @@ section.home-search .home-search-mobile {
         vertical-align: middle;
         margin-top: -2px;
         border-radius: 1px; }
-      #content.reservation .main-content .legend p:nth-child(2), .review-confirmation .main-content .legend p:nth-child(2) {
-        line-height: 25px; }
   #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
     font-size: 2.1em;
     font-weight: 400;
@@ -14674,22 +14684,38 @@ section.home-search .home-search-mobile {
       #content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
         width: 100%; } }
   #content.reservation.confirmation .row div.calendarPanel, .confirmation.review-confirmation .row div.calendarPanel {
-    overflow: auto;
     width: 100%;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+    padding-left: 20px; }
     #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
       text-align: center;
       display: inline-block;
       font-size: 1.3em;
-      font-weight: bold;
+      font-weight: 200;
       left: 10px; }
       #content.reservation.confirmation .row div.calendarPanel a:before, .confirmation.review-confirmation .row div.calendarPanel a:before {
         content: " ";
-        position: absolute;
+        display: inline-block;
         width: 20px;
         height: 20px;
-        display: block;
-        left: -10px; }
+        left: -10px;
+        margin-right: 10px; }
     #content.reservation.confirmation .row div.calendarPanel a:first-child:before, .confirmation.review-confirmation .row div.calendarPanel a:first-child:before {
       background: url(../img/icons/googleCalendar.png) no-repeat center center;
       background-size: contain; }

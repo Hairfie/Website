@@ -43,7 +43,7 @@ var AddToCalendarButton =  React.createClass({
 
         return (
             <Link href={href} target="_blank">
-                {this.props.googleText || 'Ajouter au calendrier Google'}
+                {this.props.googleText || 'Calendrier Google'}
             </Link>
         );
     },
@@ -71,7 +71,7 @@ var AddToCalendarButton =  React.createClass({
 
         return (
             <Link href={href} target="_blank">
-                {this.props.yahooText || 'Ajouter au calendrier Yahoo'}
+                {this.props.yahooText || 'Calendrier Yahoo'}
             </Link>
         );
     },
@@ -95,7 +95,7 @@ var AddToCalendarButton =  React.createClass({
 
         return (
             <Link target="_blank" href={href}>
-                {this.props.outlookText || 'Ajouter au calendrier Outlook'}
+                {this.props.outlookText || 'Calendrier Outlook'}
             </Link>
         );
     },
@@ -119,7 +119,7 @@ var AddToCalendarButton =  React.createClass({
 
         return (
             <Link target="_blank" href={href}>
-                {this.props.icalsText || 'Ajouter au calendrier ICals'}
+                {this.props.icalsText || 'Calendrier ICals'}
             </Link>
         );
     },
