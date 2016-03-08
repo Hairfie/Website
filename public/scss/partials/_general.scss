@@ -641,14 +641,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
             background-size: auto;
             width: 20%;
             height: 20%;
-            display: -webkit-flexbox;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-flex-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
+            @include flexbox;
+            @include align-items(center);
             text-align: center;
         }
 

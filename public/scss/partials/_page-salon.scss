@@ -533,8 +533,8 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 10px;
-            justify-content: center;
-            display: inline-flex;
+            @include inline-flex;
+            @include justify-content(center);
             width: inherit;
             font-size: 1.3em;
             @media screen and (max-width: $screen-xs-max){
