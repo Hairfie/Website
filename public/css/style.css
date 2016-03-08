@@ -9321,6 +9321,10 @@ div.connect-button .facebook {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
     justify-content: center;
     background: #f8f8f7;
     position: relative;

@@ -22,7 +22,7 @@
         text-align: center;
         @include flexbox;
         @include align-items(center);
-        justify-content: center;
+        @include justify-content(center);
         background: $grey9;
         position: relative;
         border: 1px solid $border-color;
