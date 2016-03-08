@@ -47,6 +47,7 @@ var BusinessBookingPage = React.createClass({
                     discountObj={this.props.discountObj} 
                     daySelected={this.state.daySelected}
                     timeslotSelected={this.state.timeslotSelected}
+                    discountOnSelection={this.state.discount}
                     modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)} />
                 {formNode}
             </div>

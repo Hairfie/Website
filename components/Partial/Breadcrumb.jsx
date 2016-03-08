@@ -76,6 +76,7 @@ var BreadCrumb = React.createClass({
                 crumbs = crumbs.concat(businessCrumbs);
                 break;
             case 'business_booking':
+            case 'booking_confirmation':
                 crumbs = crumbs.concat(businessCrumbs).concat(businessBookingCrumb);
                 break;
             case 'newsletter':

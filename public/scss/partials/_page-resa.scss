@@ -108,6 +108,11 @@
                     width: calc(100% - 30px);
                 }
             }
+            .booking-infos {
+                padding-left: 30px;
+                font-size: 1.4em;
+                font-weight: $regular;
+            }
         }
         .edit-bloc {
             @media screen and (max-width: $screen-xs-max) {
@@ -136,7 +141,6 @@
     }
     @media screen and (max-width: $screen-xs-max) {
         .breadcrumb {
-            margin-top: 60px;
             width: 200vw;
             border-bottom: 1px dotted $grey;
         }
@@ -152,10 +156,6 @@
     }
 
     .main-content {
-         // padding-left: 15px;
-        @media screen and (max-width: $screen-sm-max) {
-            // padding-left: 15px;
-        }
         .legend {
             color: $font-color;
             font-weight: $regular;

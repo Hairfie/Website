@@ -29,6 +29,7 @@ var BookingConfirmationPage = React.createClass({
         return (
             <PublicLayout context={this.props.context} customClass="booking confirmation bg-white">
                 <div className="container reservation confirmation" id="content" >
+                    <Breadcrumb business={business} />
                     <BookingSummary 
                         business={business} 
                         booking={booking} 

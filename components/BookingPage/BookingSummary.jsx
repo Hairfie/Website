@@ -17,9 +17,6 @@ var BookingSummary = React.createClass({
         var booking = this.props.booking;
         var phoneNumber = booking && booking.status == BookingStatus.CONFIRMED ? booking.business.phoneNumber : null;
         var displayAddress = business.address ? business.address.street + ' ' + business.address.zipCode + ' ' + business.address.city : null;
-        // debugger;
-        console.log('RENDER BS booking', booking);
-        console.log('RENDER BS timeslot', this.props.timeslotSelected);
         return (
             <div className="booking-summary row">
                 <div className="salon-bloc col-xs-12 col-sm-4">
@@ -42,6 +39,7 @@ var BookingSummary = React.createClass({
                 </div>
                 <hr className="visible-xs" />
                 <div className="promo-bloc col-xs-12 col-sm-4">
+                    {this.renderCutInfos()}    
                     {this.renderSelectedSlot()}
                     {this.renderDiscountsNode()}
                     {this.renderBookingDiscount()}
@@ -52,6 +50,20 @@ var BookingSummary = React.createClass({
                 {this.renderButtons()}
             </div>
         )
+    },
+    renderCutInfos: function() {
+        var booking = this.props.booking;
+        if (booking) {
+            var civ = booking.gender == 'MALE' ? 'M. ' : 'Mme ';
+            var prestation = booking.service ? 'Prestation : ' + booking.service : null;
+            return (
+                <div className="booking-infos">
+                    <div>{'Nom : ' + civ + booking.firstName + ' ' + booking.lastName}</div>
+                    <div>{prestation}</div>
+                    <div>{booking.comment}</div>
+                </div>
+            );
+        }
     },
     renderButtons: function() {
         if (!this.props.booking && !this.props.timeslotSelected) return null;
@@ -95,19 +107,24 @@ var BookingSummary = React.createClass({
         if (this.props.booking && this.props.booking.discount) {
             return (
                 <div className="promo">
-                    {'-' + this.props.booking.discount + 'A% sur toutes les prestations'}
+                    {'-' + this.props.booking.discount + '% sur toutes les prestations'}
                 </div>
             ); 
         }
     },
     renderDiscountsNode: function() {
         var discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
-        console.log('DISCOUNT', discounts);
-        // debugger;
         if(_.isEmpty(discounts)) {
             return null;
         }
-
+        else if (this.props.timeslotSelected) {
+            if (!this.props.discountOnSelection) return;
+            return (
+                <div className="promo">
+                        {'-' + this.props.discountOnSelection + '% sur toutes les prestations'}
+                </div>
+            );
+        }
         return (
             <div className="promo">
                 { _.map(discounts, this.renderDiscountNode, this) }

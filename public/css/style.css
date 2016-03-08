@@ -14159,6 +14159,10 @@ section.home-search .home-search-mobile {
         display: block;
         float: left;
         width: calc(100% - 30px); }
+    #content.reservation .booking-summary .promo-bloc .booking-infos, .review-confirmation .booking-summary .promo-bloc .booking-infos {
+      padding-left: 30px;
+      font-size: 1.4em;
+      font-weight: 400; }
     @media screen and (max-width: 767px) {
       #content.reservation .booking-summary .edit-bloc, .review-confirmation .booking-summary .edit-bloc {
         width: 100%; } }
@@ -14192,7 +14196,6 @@ section.home-search .home-search-mobile {
       margin: 15px 0; }
   @media screen and (max-width: 767px) {
     #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
-      margin-top: 60px;
       width: 200vw;
       border-bottom: 1px dotted #c4c4c4; }
     #content.reservation.confirmation, .confirmation.review-confirmation {
