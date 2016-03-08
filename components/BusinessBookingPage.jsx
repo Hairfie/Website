@@ -103,7 +103,7 @@ var BusinessBookingPage = React.createClass({
     scrollTo: function(toRef) {
         var target = ReactDOM.findDOMNode(this.refs[toRef]);
         if (window.innerWidth <= 768 && target)
-            TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
+            TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop - 65}, ease:Power2.easeOut});
     },
     scrollToTop: function() {
         TweenMax.to(window, 0.5, {scrollTo:{y:0}, ease:Power2.easeOut});

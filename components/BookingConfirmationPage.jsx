@@ -39,9 +39,9 @@ var BookingConfirmationPage = React.createClass({
                             {this.renderVerif(booking)}
                             {/*this.renderInfoFrame(booking, business, address)*/}
                         </div>
+                        {this.renderRegistration(booking)}                          
                     </div>
                 </div>
-                <div className="row" />
             </PublicLayout>
         );
     },
@@ -130,10 +130,12 @@ var BookingConfirmationPage = React.createClass({
     renderRegistration: function() {
         if (!this.props.currentUser)
             return (
-                <div>
-                    <h4 className="orange">Complétez votre inscription en 1 clic</h4>
-                    <Input type="password" ref="password" placeholder="Choisissez un mot de passe" className="registration"/>
-                    <Button onClick={this.handleRegisterClick} className="btn-red pull-right col-xs-4">S'inscrire</Button>
+                <div className="col-xs-12 registration">
+                    <h4 className="orang">Finalisez votre inscription sur Hairfie. Choisissez un mot de passe</h4>
+                    <Input type="password" ref="password" placeholder="Mot de passe" className="registration"/>
+                    <div>
+                    <button onClick={this.handleRegisterClick} className="btn-red">Valider</button>
+                    </div>
                 </div>
             );
     },

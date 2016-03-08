@@ -112,12 +112,19 @@ module.exports = React.createClass({
                     </Input>
                     <Input ref="service" name="service" type="text" placeholder="Prestation demandée *" onChange={formValidation.required} onFocus={formValidation.required}/>
                     <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
-                    <label className="firstTimeCustomer">
-                        <input type="checkbox" name='firstTimeCustomer' checked={this.state.firstTimeCustomer == true} onChange={this.handleFirstTimeChanged}/>
-                        Je suis un nouveau client dans ce salon
-                    </label>
+                    <Input className="radio">
+                        <div className="first-time">Première visite ?</div>
+                        <label className="radio-inline">
+                            <input type="radio" name="firstTimeCustomer" checked={this.state.firstTimeCustomer === true} onChange={this.handleFirstTimeChanged}/>
+                            Oui
+                        </label>
+                        <label className="radio-inline">
+                            <input type="radio" name="firstTimeCustomer" checked={this.state.firstTimeCustomer === false} onChange={this.handleFirstTimeChanged}/>
+                            Non
+                        </label>
+                    </Input>
                 </div>
-                <div className="form-end col-xs-10 col-sm-offset-3 col-sm-6">
+                <div className="form-end col-xs-12">
                     {this.renderNewsletter()}
                     <label>
                         <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
@@ -206,7 +213,7 @@ module.exports = React.createClass({
     },
     handleFirstTimeChanged: function(e) {
         this.setState({
-            firstTimeCustomer: e.currentTarget.checked
+            firstTimeCustomer: !this.state.firstTimeCustomer
         });  
     },
     handleFormConnectChanged: function () {

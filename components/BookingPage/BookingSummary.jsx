@@ -40,10 +40,10 @@ var BookingSummary = React.createClass({
                 </div>
                 <hr className="visible-xs" />
                 <div className="promo-bloc col-xs-12 col-sm-4">
-                    {this.renderCutInfos()}    
                     {this.renderSelectedSlot()}
                     {this.renderDiscountsNode()}
                     {this.renderBookingDiscount()}
+                    {this.renderCutInfos()}    
                     <div>
                         {this.renderDiscountsConditions()}
                     </div>
@@ -54,7 +54,7 @@ var BookingSummary = React.createClass({
     },
     renderCalendarButton: function() {
         var booking = this.props.booking;
-        if(!booking || booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
+        if(!booking || booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED || booking.status == BookingStatus.NOT_CONFIRMED || booking.status == BookingStatus.CANCEL_REQUEST) return;
         var address = booking.business.address;
         return (
             <AddToCalendarButton
@@ -92,9 +92,9 @@ var BookingSummary = React.createClass({
         if (this.props.timeslotSelected) {
             button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
         }
-        if (this.props.booking && booking.status == BookingStatus.NOT_CONFIRMED ) {
-            button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
-        }
+        // if (this.props.booking && booking.status == BookingStatus.NOT_CONFIRMED ) {
+        //     button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
+        // }
         return (
             <div className='edit-bloc  col-xs-12 col-sm-4'>
                 <hr className="visible-xs" />

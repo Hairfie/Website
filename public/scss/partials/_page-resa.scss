@@ -7,6 +7,7 @@
     @media screen and (max-width: $screen-xs-max) {
         padding-left: 0;
         padding-right: 0;
+        padding-top: 65px;
     }
     .breadcrumb {
         margin-bottom: 15px;
@@ -53,6 +54,7 @@
                 .address {
                     font-size: 1.5em;
                     letter-spacing: 0;
+                    @include flexbox;
                     &:before {
                         content: ' ';
                         display: inline-block;
@@ -76,6 +78,7 @@
             .selected-slot {
                 font-size: 1.4em;
                 font-weight: $regular;
+                @include flexbox;
                 &:before {
                     content: ' ';
                     display: inline-block;
@@ -91,6 +94,7 @@
                 font-size: 1.4em;
                 color: $promo-color;
                 font-weight: $light;
+                @include flexbox;
                 &:before {
                     content: ' ';
                     display: block;
@@ -149,7 +153,7 @@
         }
 
         &.confirmation {
-            margin-top: 65px;
+            // margin-top: 65px;
         }
     }
     @media screen and (min-width: $screen-md-min) {
@@ -238,6 +242,7 @@
                     td {
                         height: 45px;
                         width: 65px;
+                        max-width: 65px;
                         position: relative;
                         @include flexbox;
                         @include align-items(center);
@@ -324,6 +329,9 @@
                 .form-group {
                     margin-bottom: 0;
                 }
+                .form-group:nth-child(2) {
+                    margin-right: 120px;
+                }
                 .connect-bloc {
                     width: 300px;
                     margin-bottom: 20px;
@@ -359,6 +367,9 @@
                 @include align-items(center);
                 @include flex-direction(column);
                 padding-top: 25px;
+                > p {
+                    margin-right: 150px;
+                }
                 div.radio-group {
                     @include flexbox;
                     @include align-items(center);
@@ -368,6 +379,16 @@
                         width: 12px;
                         height: 13px;
                     }
+                }
+                .form-group:nth-child(6) {
+                    @include flexbox;
+                    @include align-items(center);
+                    margin-right: 70px;
+                }
+                .first-time {
+                    font-size: 1.4em;
+                    display: inline-block;
+                    margin-right: 15px;
                 }
                 label.firstTimeCustomer {
                     margin-left: 35px;
@@ -384,8 +405,16 @@
                 @include flex-direction(column);
                 @include align-items(flex-start);
                 margin-bottom: 20px;
+                padding-left: 50px;
+                width: 720px;
+                border-top: 1px solid $grey2;
+                border-bottom: 1px solid $grey2;
+                padding: 10px 0 10px 50px;
+                margin-left: 15px;
+                margin: 10px 0 20px 15px;
                 @media screen and (max-width: $screen-xs-max) {
-                    margin-left: 35px;
+                    width: calc(100% - 30px);
+                    border: 0;
                 }
                 label {
                     font-weight: $light;
@@ -400,6 +429,7 @@
                 width: 250px;
                 height: auto;
                 line-height: 30px;
+                border-radius: 2px;
             }
         }
     }
@@ -609,10 +639,6 @@
             height: 50px;
             border-radius: 0;
         }
-        input.registration {
-            width: 60%;
-            float: left;
-        }
         a.btn-white, a.btn-blue {
             margin-top: 10px;
             width: 48%;
@@ -741,6 +767,52 @@
                     clear: both;
                     margin-left: 35%;
                 }
+            }
+        }
+        .registration {
+            @include flexbox;
+            @include align-items(center);
+            padding-top: 10px;
+            padding-left: 30px;
+            @media screen and (max-width: $screen-xs-max) {
+                @include flex-direction(column);
+                @include align-items(center);
+                padding-left: 0;
+                h4 {
+                    padding-left: 30px;
+                }
+                .form-group {
+                    margin: 20px 0 20px 0;
+                    input {
+                        width: 300px;
+                    }
+                }
+                .btn-red {
+                    margin: 10px;
+                    width: 300px;
+                }
+            }
+            h4 {
+                letter-spacing: 0;
+            }
+            .form-group {
+                margin-bottom: 0;      
+                margin-left: 15px;
+                margin-right: 15px;
+                input {
+                    height: 40px;
+                    width: 300px;
+                    border-radius: 0;
+                    padding-left: 15px;
+                }
+            }
+            .btn-red {
+                height: 40px;
+                line-height: 40px;
+                padding: 0px 12px;
+                border-radius: 0;
+                letter-spacing: 0;
+                font-weight: $light;
             }
         }
     }
