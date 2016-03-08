@@ -58,10 +58,10 @@ var BusinessBookingPage = React.createClass({
         if (this.state.daySelected)
             hourTitle = 'À quelle heure ?';
         return (
-            <div className="main-content row">
+            <div className="main-content">
                 {this.renderIsBookable()}
                 <div className="row">
-                    <div className="calendar col-xs-12 col-sm-6 col-md-4">
+                    <div className="calendar col-xs-12 col-sm-6 col-md-5">
                         <h2>Quand êtes-vous disponible ?</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>

@@ -10365,6 +10365,10 @@ div.shadow.inactive {
 
 .bg-white {
   background-color: white; }
+  .bg-white header.white.hidden-xs {
+    -webkit-box-shadow: 0 -2px 12px #c4c4c4;
+    -moz-box-shadow: 0 -2px 12px #c4c4c4;
+    box-shadow: 0 -2px 12px #c4c4c4; }
 
 header {
   position: relative;
@@ -14196,109 +14200,101 @@ section.home-search .home-search-mobile {
   @media screen and (min-width: 992px) {
     #content.reservation, .review-confirmation {
       padding-top: 0px; } }
-  #content.reservation .main-content, .review-confirmation .main-content {
-    padding-left: 15px; }
+  #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
+    color: #595959;
+    font-weight: 400;
+    font-size: 1.231em; }
+    #content.reservation .main-content .legend p, .review-confirmation .main-content .legend p {
+      margin-bottom: 20px;
+      letter-spacing: 1px; }
+      #content.reservation .main-content .legend p span, .review-confirmation .main-content .legend p span {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        background: #f39c12;
+        margin-right: 5px;
+        vertical-align: middle;
+        margin-top: -2px;
+        border-radius: 1px; }
+      #content.reservation .main-content .legend p:nth-child(2), .review-confirmation .main-content .legend p:nth-child(2) {
+        line-height: 25px; }
+  #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
+    font-size: 2.1em;
+    font-weight: 400;
+    color: #595959;
+    margin: 20px 0;
+    letter-spacing: 0; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
+        margin-left: 15px; } }
+  #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
+    max-width: 50px; }
+  @media screen and (max-width: 545px) {
+    #content.reservation .main-content .row > div:nth-child(1), .review-confirmation .main-content .row > div:nth-child(1) {
+      width: 100%; } }
+  #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+    padding-right: 0; }
     @media screen and (max-width: 991px) {
-      #content.reservation .main-content, .review-confirmation .main-content {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+        padding-left: 0px; } }
+    @media screen and (max-width: 991px) {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+        margin-right: -50px; } }
+    @media screen and (max-width: 767px) {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
         padding-left: 15px; } }
-    #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
-      color: #595959;
-      font-weight: 400;
-      font-size: 1.231em; }
-      #content.reservation .main-content .legend p, .review-confirmation .main-content .legend p {
-        margin-bottom: 20px;
-        letter-spacing: 1px; }
-        #content.reservation .main-content .legend p span, .review-confirmation .main-content .legend p span {
-          width: 25px;
-          height: 25px;
-          display: inline-block;
-          background: #f39c12;
-          margin-right: 5px;
-          vertical-align: middle;
-          margin-top: -2px;
-          border-radius: 1px; }
-        #content.reservation .main-content .legend p:nth-child(2), .review-confirmation .main-content .legend p:nth-child(2) {
-          line-height: 25px; }
-    #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
-      font-size: 2.1em;
-      font-weight: 400;
-      color: #595959;
-      margin: 20px 0;
-      letter-spacing: 0; }
-      @media screen and (max-width: 767px) {
-        #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
-          margin-left: 15px; } }
-    #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
-      width: 50px; }
-      @media screen and (max-width: 767px) {
-        #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
-          width: calc(100% / 7); } }
     @media screen and (max-width: 545px) {
-      #content.reservation .main-content .row > div:nth-child(1), .review-confirmation .main-content .row > div:nth-child(1) {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
         width: 100%; } }
-    #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-      padding-right: 0; }
-      @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          padding-left: 0px; } }
-      @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          margin-right: -50px; } }
-      @media screen and (max-width: 767px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          padding-left: 15px; } }
-      @media screen and (max-width: 545px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          width: 100%; } }
-      #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
+    #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
+      width: 100%; }
+      #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
+        display: block;
+        margin-right: -10px;
+        border: none;
         width: 100%; }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
-          display: block;
-          margin-right: -10px;
-          border: none;
-          width: 100%; }
-          @media screen and (max-width: 991px) {
-            #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
-              margin-right: -50px; } }
-          @media screen and (max-width: 767px) {
-            #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
-              margin-left: 10px; } }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table td, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td {
-          height: 45px;
-          width: 65px;
+        @media screen and (max-width: 991px) {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
+            margin-right: -50px; } }
+        @media screen and (max-width: 767px) {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
+            margin-left: 10px; } }
+      #content.reservation .main-content .row > div:nth-child(2) .time-table table td, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td {
+        height: 45px;
+        width: 65px;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        float: left;
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        margin: 0 10px 10px 0; }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td a, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a {
           position: relative;
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          -webkit-align-items: center;
-          -moz-align-items: center;
-          align-items: center;
-          float: left;
-          border: 1px solid #e5e5e5;
-          border-radius: 2px;
-          margin: 0 10px 10px 0; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td a, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a {
-            position: relative;
-            line-height: 1.2; }
-            @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
-                bottom: 2px; } }
-            @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
-                bottom: -28px; } }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td p, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td p {
-            font-size: 1em; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td.disabled {
-            background: #efeff0;
-            border-color: #efeff0;
-            cursor: not-allowed;
-            opacity: .7; }
-    #content.reservation .main-content h3, .review-confirmation .main-content h3 {
-      margin: 0; }
+          line-height: 1.2; }
+          @media screen and (max-width: 991px) {
+            #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
+              bottom: 2px; } }
+          @media screen and (max-width: 991px) {
+            #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
+              bottom: -28px; } }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td p, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td p {
+          font-size: 1em; }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td.disabled {
+          background: #efeff0;
+          border-color: #efeff0;
+          cursor: not-allowed;
+          opacity: .7; }
+  #content.reservation .main-content h3, .review-confirmation .main-content h3 {
+    margin: 0; }
 
 #content.reservation.bookingForm, .bookingForm.review-confirmation {
   color: #595959; }
@@ -14420,7 +14416,7 @@ section.home-search .home-search-mobile {
         width: 12px;
         height: 13px; }
     #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer {
-      margin-left: 20px; }
+      margin-left: 35px; }
       #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer > span, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer > span {
         font-weight: 200; }
       @media screen and (max-width: 767px) {
@@ -14446,7 +14442,7 @@ section.home-search .home-search-mobile {
     margin-bottom: 20px; }
     @media screen and (max-width: 767px) {
       #content.reservation.bookingForm .main-content .info-form .form-end, .bookingForm.review-confirmation .main-content .info-form .form-end {
-        margin-left: 20px; } }
+        margin-left: 35px; } }
     #content.reservation.bookingForm .main-content .info-form .form-end label, .bookingForm.review-confirmation .main-content .info-form .form-end label {
       font-weight: 200; }
   #content.reservation.bookingForm .main-content .info-form .btn-red, .bookingForm.review-confirmation .main-content .info-form .btn-red {

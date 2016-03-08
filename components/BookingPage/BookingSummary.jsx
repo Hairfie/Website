@@ -17,6 +17,9 @@ var BookingSummary = React.createClass({
         var booking = this.props.booking;
         var phoneNumber = booking && booking.status == BookingStatus.CONFIRMED ? booking.business.phoneNumber : null;
         var displayAddress = business.address ? business.address.street + ' ' + business.address.zipCode + ' ' + business.address.city : null;
+        // debugger;
+        console.log('RENDER BS booking', booking);
+        console.log('RENDER BS timeslot', this.props.timeslotSelected);
         return (
             <div className="booking-summary row">
                 <div className="salon-bloc col-xs-12 col-sm-4">
@@ -57,7 +60,6 @@ var BookingSummary = React.createClass({
         if(booking && (booking.status == BookingStatus.REQUEST || booking.status == BookingStatus.IN_PROCESS || booking.status == BookingStatus.CONFIRMED)) {
             cancelButton = (<button role="button" className="btn-whitered" onClick={this.props.cancelled}>Je veux annuler mon RDV</button>);
         }
-        console.log('cancel', cancelButton);
         if (this.props.timeslotSelected) {
             button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
         }
@@ -93,14 +95,15 @@ var BookingSummary = React.createClass({
         if (this.props.booking && this.props.booking.discount) {
             return (
                 <div className="promo">
-                    {'-' + this.props.booking.discount + '% sur toutes les prestations'}
+                    {'-' + this.props.booking.discount + 'A% sur toutes les prestations'}
                 </div>
             ); 
         }
     },
     renderDiscountsNode: function() {
         var discounts = this.props.discountObj && this.props.discountObj.discountsAvailable;
-
+        console.log('DISCOUNT', discounts);
+        // debugger;
         if(_.isEmpty(discounts)) {
             return null;
         }

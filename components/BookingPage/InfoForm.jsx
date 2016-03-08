@@ -117,7 +117,7 @@ module.exports = React.createClass({
                         Je suis un nouveau client dans ce salon
                     </label>
                 </div>
-                <div className="form-end col-xs-12 col-sm-offset-3 col-sm-6">
+                <div className="form-end col-xs-10 col-sm-offset-3 col-sm-6">
                     {this.renderNewsletter()}
                     <label>
                         <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>

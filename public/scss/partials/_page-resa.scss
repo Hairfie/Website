@@ -152,9 +152,9 @@
     }
 
     .main-content {
-         padding-left: 15px;
+         // padding-left: 15px;
         @media screen and (max-width: $screen-sm-max) {
-            padding-left: 15px;
+            // padding-left: 15px;
         }
         .legend {
             color: $font-color;
@@ -191,9 +191,9 @@
                     }
                 }
                 td {
-                    width: 50px;
+                    max-width: 50px;
                     @media screen and (max-width: $screen-xs-max) {
-                        width: calc(100% / 7);
+                        // width: calc(100% / 7);
                     }
                 }
             }
@@ -370,7 +370,7 @@
                     }
                 }
                 label.firstTimeCustomer {
-                    margin-left: 20px;
+                    margin-left: 35px;
                     > span {
                         font-weight: $light;
                     }
@@ -385,7 +385,7 @@
                 @include align-items(flex-start);
                 margin-bottom: 20px;
                 @media screen and (max-width: $screen-xs-max) {
-                    margin-left: 20px;
+                    margin-left: 35px;
                 }
                 label {
                     font-weight: $light;
