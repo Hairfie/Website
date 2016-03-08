@@ -53,7 +53,6 @@ var BookingSummary = React.createClass({
         )
     },
     renderCalendarButton: function() {
-        console.log('kikoo');
         var booking = this.props.booking;
         if(!booking || booking.status == BookingStatus.CANCELLED || booking.status == BookingStatus.HONORED) return;
         var address = booking.business.address;
@@ -93,9 +92,8 @@ var BookingSummary = React.createClass({
         if (this.props.timeslotSelected) {
             button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
         }
-        if (this.props.booking) {
-            //FIXME
-            // button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
+        if (this.props.booking && booking.status == BookingStatus.NOT_CONFIRMED ) {
+            button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
         }
         return (
             <div className='edit-bloc  col-xs-12 col-sm-4'>
