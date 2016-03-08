@@ -29,8 +29,9 @@ var Filters = React.createClass({
         });
 
         return {
-            location: "",
+            location: this.props.place && this.props.place.name,
             activeLocation: false,
+            q: this.props.search.q,
             expandedFilters: states
         };
     },
@@ -45,6 +46,10 @@ var Filters = React.createClass({
             this.setState({
                 location: newProps.place.name
             });
+        }
+        console.log("newProps", newProps.search.q);
+        if(!_.isUndefined(newProps.search.q) || !_.isUndefined(this.state.q) ) {
+            this.setState({q: newProps.search.q});
         }
     },
     render: function () {
@@ -113,12 +118,16 @@ var Filters = React.createClass({
             <div className="business-name">
                 <h2 style={{borderBottom: 0}}>Nom du coiffeur</h2>
                 <div className="input-group">
-                    <input className="form-control" ref="query" type="text" defaultValue={this.props.search.q}
-                        onKeyPress={this.handleKey}/>
+                    <input className="form-control" ref="query" type="text" value={this.state.q}
+                        onChange={this.handleQueryChange}
+                        onKeyPress={this.handleKey} />
                     <div className="input-group-addon"><a role="button" onClick={this.handleChange}></a></div>
                 </div>
             </div>
         );
+    },
+    handleQueryChange: function(e) {
+        this.setState({q: e.target.value});
     },
     renderAddress: function() {
         if (!this.props.withQ) return;
@@ -132,7 +141,7 @@ var Filters = React.createClass({
                         />
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
-                <a className="btn btn-around" role="button" onClick={this.findMe} title="Me localiser" >Autour de moi</a>
+                <a className="btn btn-around" role="button" onClick={this.findMe} title="Me localiser">Autour de moi</a>
             </div>
         );
     },
@@ -315,12 +324,12 @@ var Filters = React.createClass({
     removeWithDiscount: function () {
         this.props.onChange({withDiscount: false});
     },
-    handleChange: _.debounce(function () {
+    handleChange: function () {
         this.props.onChange({
-            q: this.refs.query.value,
+            q: this.state.q,
             address: this.refs.address.getFormattedAddress()
         });
-    }, 500),
+    },
     handleKey: function (e) {
         if(event.keyCode == 13){
             e.preventDefault();
