@@ -4,7 +4,6 @@ var React = require('react');
 var moment = require('moment');
 var _ = require('lodash');
 var PublicLayout  = require('./PublicLayout.jsx');
-var LeftColumn = require('./BookingPage/LeftColumn.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var ga = require('../services/analytics');
 var Input = require('react-bootstrap').Input;
@@ -15,6 +14,8 @@ var Link = require('./Link.jsx');
 var Picture = require('./Partial/Picture.jsx');
 var BookingStatus = require('../constants/BookingConstants').Status;
 var AddToCalendarButton = require('./Partial/AddToCalendarButton.jsx');
+var BookingSummary = require('./BookingPage/BookingSummary.jsx');
+var Breadcrumb = require('./Partial/Breadcrumb.jsx');
 
 
 var BookingConfirmationPage = React.createClass({
@@ -26,17 +27,21 @@ var BookingConfirmationPage = React.createClass({
         var business = booking.business;
         var address  = business.address;
         return (
-            <PublicLayout context={this.props.context} customClass="booking confirmation">
+            <PublicLayout context={this.props.context} customClass="booking confirmation bg-white">
                 <div className="container reservation confirmation" id="content" >
+                    <Breadcrumb business={business} />
+                    <BookingSummary 
+                        business={business} 
+                        booking={booking} 
+                        cancelled={this.cancelled}/>
                     <div className="row">
-                        <div className="main-content col-md-9 col-sm-12 pull-right">
+                        <div className="main-content col-sm-8">
                             {this.renderVerif(booking)}
-                            {this.renderInfoFrame(booking, business, address)}
+                            {/*this.renderInfoFrame(booking, business, address)*/}
                         </div>
-                        <LeftColumn context={this.props.context} business={business} />
+                        {this.renderRegistration()}                          
                     </div>
                 </div>
-                <div className="row" />
             </PublicLayout>
         );
     },
@@ -46,71 +51,13 @@ var BookingConfirmationPage = React.createClass({
         }
     },
     renderVerif: function(booking) {
-        if (booking.status == BookingStatus.REQUEST) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
-                    </p>
-                    <p>
-                        En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.NOT_CONFIRMED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande a bien été prise en compte,
-                        cependant, par mesure de sécurité,
-                        nous allons vérifier vos coordonnées en vous envoyant un code par sms
-                        que vous devrez entrer dans le petit formulaire ci-dessous.
-                    </p>
-                    <Input ref="checkCode" type="text" placeholder="Code SMS" />
-                    <br />
-                    <Button onClick={this.handleSubmitCodeClick}>Soumettre</Button>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CANCELLED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre RDV a bien été annulé
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CANCEL_REQUEST) {
-            return (
-                <div className="legend conf">
-                    <h3 className="orange">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
-
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.IN_PROCESS) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        Votre demande a bien été transmise au salon. Nous attendons actuellement la confirmation de sa disponibilité sur ce créneaux. Vous recevrez une confirmation par email dans les plus brefs délais !
-                    </p>
-                </div>
-            );
-        } else if (booking.status == BookingStatus.CONFIRMED) {
-            return (
-                <div className="legend conf">
-                    <h3 className="green">{bookingStatusMessage(booking)}</h3>
-                    <p>
-                        {"Félicitations ! Vous allez chez " + this.props.booking.business.name + " qui a bien confirmé votre RDV."}
-                    </p>
-                </div>
-            );
-        }
+        var status = this.bookingStatusMessage(booking);
+        return (
+            <div className="legend conf">
+                <h3 className={status.color}>{status.title}</h3>
+                {status.content}
+            </div>
+        );
     },
     renderInfoFrame: function(booking, business, address) {
         if (booking.status == BookingStatus.NOT_CONFIRMED) return;
@@ -129,7 +76,7 @@ var BookingConfirmationPage = React.createClass({
     },
     renderCancelButton: function(booking) {
         if(booking.status == BookingStatus.REQUEST || booking.status == BookingStatus.IN_PROCESS || booking.status == BookingStatus.CONFIRMED) {
-            return (<a role="button" className="btn-white red col-xs-5" onClick={this.cancelled}>Je veux annuler mon RDV</a>);
+            return (<a role="button" className="btn-whitered col-xs-5" onClick={this.cancelled}>Je veux annuler mon RDV</a>);
         } else {
             return;
         }
@@ -151,14 +98,13 @@ var BookingConfirmationPage = React.createClass({
     },
     renderBookingInfo: function(booking) {
         var discount;
-        var status = <h4 className="green">{bookingStatusMessage(booking)}</h4>;
-        if (booking.status == BookingStatus.CANCELLED)
-            status = <h4 className="red">{bookingStatusMessage(booking)}</h4>
+        var status = this.bookingStatusMessage(booking);
+        var title = <h4 className={status.color}>{status.title}</h4>;
         if (booking.discount)
-            discount = <li>Avec -{booking.discount} % sur toute la carte</li>;
+            discount = <li>Avec {'-' + booking.discount + '% sur toutes les prestations'}</li>;
         return (
             <div className="col-xs-8 separate">
-                {status}
+                {title}
                 <ul>
                     <li>Le {moment(booking.timeslot).format("dddd D MMMM YYYY [à] HH:mm")}</li>
                     <li>{booking.service}</li>
@@ -181,23 +127,15 @@ var BookingConfirmationPage = React.createClass({
             </div>
         );
     },
-    renderDiscount: function(booking) {
-        if (!booking.discount) return;
-
-        return (
-            <div>
-                <dt>Votre promotion :</dt>
-                <dd>-{booking.discount} % sur toute la carte</dd>
-            </div>
-        );
-    },
     renderRegistration: function() {
-        if (!this.props.currentUser)
+        if (!this.props.currentUser && this.props.booking.status != BookingStatus.NOT_CONFIRMED)
             return (
-                <div>
-                    <h4 className="orange">Complétez votre inscription en 1 clic</h4>
-                    <Input type="password" ref="password" placeholder="Choisissez un mot de passe" className="registration"/>
-                    <Button onClick={this.handleRegisterClick} className="btn-red pull-right col-xs-4">S'inscrire</Button>
+                <div className="col-xs-12 registration">
+                    <h4 className="orang">Finalisez votre inscription sur Hairfie. Choisissez un mot de passe</h4>
+                    <Input type="password" ref="password" placeholder="Mot de passe" className="registration"/>
+                    <div>
+                    <button onClick={this.handleRegisterClick} className="btn-red">Valider</button>
+                    </div>
                 </div>
             );
     },
@@ -234,36 +172,88 @@ var BookingConfirmationPage = React.createClass({
             checkCode: this.refs.checkCode.getValue(),
             newsletter: this.props.booking.newsletter
         });
+    },
+    bookingStatusMessage: function(booking) {
+        var title, content, color;
+        switch (booking.status) {
+            case BookingStatus.CONFIRMED:
+                title = 'Votre RDV est confirmé';
+                color = 'green';
+                content = (
+                    <p>
+                        {"Félicitations ! Vous allez chez " + this.props.booking.business.name + " qui a bien confirmé votre RDV."}
+                    </p>
+                );
+                break;
+            case BookingStatus.NOT_CONFIRMED :
+                title = 'En attente de confirmation de votre numéro';
+                color = 'orange';
+                content = (
+                    <div>
+                        <p>
+                            Votre demande a bien été prise en compte,
+                            cependant, par mesure de sécurité,
+                            nous allons vérifier vos coordonnées en vous envoyant un code par sms
+                            que vous devrez entrer dans le petit formulaire ci-dessous.
+                        </p>
+                        <Input ref="checkCode" type="text" placeholder="Code SMS" />
+                        <br />
+                        <Button className='btn btn-red' onClick={this.handleSubmitCodeClick}>Soumettre</Button>
+                    </div>
+                );
+                break;
+            case BookingStatus.REQUEST :
+                title = 'Demande de RDV enregistrée';
+                color = 'green';
+                content = (
+                    <div>
+                        <p>
+                            Votre demande de RDV a bien été bien prise en compte. Nous transmettons cette demande au salon et vous confirmerons sa disponibilité dans les plus brefs délais.
+                        </p>
+                        <p>
+                            En cas d'insdisponibilité, nous vous proposerons d'autres créneaux par email et SMS.
+                        </p>
+                    </div>
+                );
+                break;
+            case BookingStatus.IN_PROCESS :
+                title = 'Demande de RDV en cours de traitement';
+                color = 'green';
+                content = (
+                    <p>
+                        Votre demande a bien été transmise au salon. Nous attendons actuellement la confirmation de sa disponibilité sur ce créneaux. Vous recevrez une confirmation par email dans les plus brefs délais !
+                    </p>
+                );
+                break;
+            case BookingStatus.CANCEL_REQUEST :
+                title = "Demande d'annulation bien prise en compte";
+                color = 'orange';
+                content = (
+                    <p>
+                        Nous avons bien pris en compte votre demande d'annulation. Elle sera transmise au salon dans les plus brefs délais. N'hésitez pas à prendre RDV pour une date ultérieure !
+                    </p>
+                );
+                break;
+            case BookingStatus.CANCELLED :
+                title = 'Votre RDV est annulé';
+                color = 'red';
+                content = '';
+                break;
+            case BookingStatus.HONORED :
+                title = 'Votre RDV a bien eu lieu';
+                color = 'green';
+                content = '';
+                break;
+        }
+
+        return {
+            title: title,
+            content: content,
+            color: color
+        };
     }
 });
 
-function bookingStatusMessage(booking) {
-    var status = '';
-    switch (booking.status) {
-        case BookingStatus.CONFIRMED:
-            status = 'Votre RDV est confirmé';
-            break;
-        case BookingStatus.NOT_CONFIRMED :
-            status = 'En attente de confirmation de votre numéro';
-            break;
-        case BookingStatus.REQUEST :
-            status = 'Demande de RDV enregistrée';
-            break;
-        case BookingStatus.IN_PROCESS :
-            status = 'Demande de RDV en cours de traitement';
-            break;
-        case BookingStatus.CANCEL_REQUEST :
-            status = "Demande d'annulation bien prise en compte";
-            break;
-        case BookingStatus.CANCELLED :
-            status = 'Votre RDV est annulé';
-            break;
-        case BookingStatus.HONORED :
-            status = 'Votre RDV a bien eu lieu';
-            break;
-    }
-    return status;
-}
 
 BookingConfirmationPage = connectToStores(BookingConfirmationPage, [
     'BookingStore',

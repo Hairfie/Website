@@ -617,7 +617,7 @@ section.home-search {
     }
     .background {
         @include flex-center;
-        justify-content: center;
+        @include justify-content(center);
         position: absolute;
         left: 0;
         right: 0;
