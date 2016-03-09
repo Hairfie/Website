@@ -8,7 +8,7 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var PublicLayout  = require('./PublicLayout.jsx');
 var BookingCalendar = require('./Form/BookingCalendarComponent.jsx');
 var TimeSelect = require('./BookingPage/TimeSelectComponent.jsx');
-var LeftColumn = require('./BookingPage/LeftColumn.jsx');
+var BookingSummary = require('./BookingPage/BookingSummary.jsx');
 var InfoForm = require('./BookingPage/InfoForm.jsx');
 var Breadcrumb = require('./Partial/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
@@ -29,7 +29,7 @@ var BusinessBookingPage = React.createClass({
     render: function () {
         var loading = _.isUndefined(this.props.business);
         return (
-            <PublicLayout loading={loading} customClass="booking">
+            <PublicLayout loading={loading} customClass="booking bg-white">
                 {this.renderBookingForm()}
             </PublicLayout>
         );
@@ -37,30 +37,37 @@ var BusinessBookingPage = React.createClass({
     renderBookingForm: function() {
         var formNode = this.state.timeslotSelected ? this.renderInfoForm() : this.renderDateAndTimeForm();
         var className = this.state.timeslotSelected ? "container reservation bookingForm" : "container reservation";
+        var booking = {};
+        booking.timeslot = this.state.timeslotSelected ? this.state.timeslotSelected : null;
         return (
             <div className={className} id="content" >
                 <Breadcrumb business={this.props.business} />
-                <div className="row" >
-                    {formNode}
-                    <LeftColumn business={this.props.business} discountObj={this.props.discountObj} />
-                </div>
+                <BookingSummary 
+                    business={this.props.business}
+                    discountObj={this.props.discountObj} 
+                    daySelected={this.state.daySelected}
+                    timeslotSelected={this.state.timeslotSelected}
+                    discountOnSelection={this.state.discount}
+                    modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)} />
+                {formNode}
             </div>
         );
     },
     renderDateAndTimeForm: function() {
         var timetable = this.props.business.timetable;
-
+        var hourTitle = null;
+        if (this.state.daySelected)
+            hourTitle = 'À quelle heure ?';
         return (
-            <div className="main-content col-md-9 col-sm-12 pull-right">
-                <h3 className="hidden-xs">Votre demande</h3>
+            <div className="main-content">
                 {this.renderIsBookable()}
                 <div className="row">
-                    <div className="col-xs-6">
-                        <h2>Choisissez votre date</h2>
+                    <div className="calendar col-xs-12 col-sm-6 col-md-5">
+                        <h2 className="dateTitle">Quand êtes-vous disponible ?</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
-                    <div className="col-xs-6" ref="timeSelectContainer">
-                        <h2>À quelle heure ?</h2>
+                    <div className="calendar col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
+                        <h2 className="hourTitle">{hourTitle}</h2>
                         <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
                     </div>
                 </div>
@@ -79,7 +86,7 @@ var BusinessBookingPage = React.createClass({
     },
     renderInfoForm: function() {
         return (
-            <div className="main-content col-md-9 col-sm-12 pull-right" ref="bookingContainer">
+            <div className="main-content row" ref="bookingContainer">
                 <InfoForm
                     ref="booking"
                     modifyTimeslot={this.handleDaySelectedChange.bind(null, this.state.daySelected)}
@@ -95,7 +102,8 @@ var BusinessBookingPage = React.createClass({
     },
     scrollTo: function(toRef) {
         var target = ReactDOM.findDOMNode(this.refs[toRef]);
-        TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop}, ease:Power2.easeOut});
+        if (window.innerWidth <= 768 && target)
+            TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop - 65}, ease:Power2.easeOut});
     },
     scrollToTop: function() {
         TweenMax.to(window, 0.5, {scrollTo:{y:0}, ease:Power2.easeOut});

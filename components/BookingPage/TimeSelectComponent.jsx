@@ -30,7 +30,7 @@ var TimeSelectComponent = React.createClass({
     },
 
     render: function() {
-        if (!this.props.timeslots) return null;
+        if (!this.props.timeslots || !this.props.daySelected) return null;
         if (!this.props.daySelected) {
             return (<p>Commencez par choisir un jour</p>);
         }
@@ -62,7 +62,7 @@ var TimeSelectComponent = React.createClass({
             discountNode = (<span className="promo-day">{discount}%</span>);
         }
 
-        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)} key={hour + '-' + discount}><a role="button"><p>{label}</p>{discountNode}</a>
+        return <td className={cls} onClick={this.timeSlotCallback.bind(null, timeslot, discount)} key={hour + '-' + discount}><a role="button">{label}{discountNode}</a>
             </td>;
     },
     timeSlotCallback: function(timeslot, discount, e) {
