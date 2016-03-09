@@ -107,7 +107,7 @@ var BookingSummary = React.createClass({
         );
     },
     renderSelectedSlot: function() {
-        var selectedSlot = 'Choisissez un rendez-vous';
+        var selectedSlot = 'Choisissez une date et un horaire';
         if (this.props.booking) {
             selectedSlot = moment(this.props.booking.timeslot).format("[Le] dddd D MMMM YYYY [à] HH:mm");
         }

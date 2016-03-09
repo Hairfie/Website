@@ -192,6 +192,9 @@
                     letter-spacing: 0;
                     @media screen and (max-width: $screen-xs-max) {
                         margin-left: 15px;
+                        &.dateTitle {
+                            display: none;
+                        }
                     }
                 }
                 td {

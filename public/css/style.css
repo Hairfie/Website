@@ -14265,7 +14265,9 @@ section.home-search .home-search-mobile {
     letter-spacing: 0; }
     @media screen and (max-width: 767px) {
       #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
-        margin-left: 15px; } }
+        margin-left: 15px; }
+        #content.reservation .main-content .row > div h2.dateTitle, .review-confirmation .main-content .row > div h2.dateTitle {
+          display: none; } }
   #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
     max-width: 50px; }
   @media screen and (max-width: 545px) {

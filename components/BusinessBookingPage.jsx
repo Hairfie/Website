@@ -63,11 +63,11 @@ var BusinessBookingPage = React.createClass({
                 {this.renderIsBookable()}
                 <div className="row">
                     <div className="calendar col-xs-12 col-sm-6 col-md-5">
-                        <h2>Quand êtes-vous disponible ?</h2>
+                        <h2 className="dateTitle">Quand êtes-vous disponible ?</h2>
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
                     <div className="calendar col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
-                        <h2>{hourTitle}</h2>
+                        <h2 className="hourTitle">{hourTitle}</h2>
                         <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
                     </div>
                 </div>
