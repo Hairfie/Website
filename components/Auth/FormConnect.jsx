@@ -29,7 +29,7 @@ module.exports = React.createClass({
 		return (
         <form className="form hidden-xs">
             <p>* Adresse mail :</p>
-            <Input type="email" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={this.handleEmailChange} value={this.state.email} />
+            <Input type="email" name="connectEmail" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onFocus={formValidation.email} onChange={this.handleEmailChange} value={this.state.email} />
             <p>* Mot de passe :</p>
             <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onFocus={formValidation.password} onChange={this.handlePasswordChange} value={this.state.password} />
             <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>

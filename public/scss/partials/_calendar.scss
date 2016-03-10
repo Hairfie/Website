@@ -1,207 +1,206 @@
 
 .cal {
-  max-width: 100%;
-  display: block;
-  width: 100%;
-  $border-color: #e5e5e5;
-
-  /* Small devices (tablets, 768px and up) */
-  @media (min-width: $screen-sm-min) {
-    width: 248px;
-  }
-
-  /* Medium devices (desktops, 992px and up) */
-  @media (min-width: $screen-md-min) {
-    width: 324px;
-  }
-
-  /* Large devices (large desktops, 1200px and up) */
-  @media (min-width: $screen-lg-min) {
-    width: 388px;
-  }
-
-  a { text-decoration: none; }
-
-  caption {
-    line-height: 3.2em;
-    font-family: $font-second;
-    font-weight: $latoBold;
-    font-size: 2.1em;
-    color: white;
-    text-align: center;
-    letter-spacing: 2px;
-
     display: block;
-    background: #343434;
-    position: relative;
-    
+    width: 350px;
+    $border-color: #e5e5e5;
     @media screen and (max-width: $screen-xs-max) {
-      max-width: 350px;
-    }
-
-    a {
-      display: block;
-      line-height: 4.2em;
-      padding: 0 10px;
-      font-size: 15px;
-      color: #e2e2e2;
-      height: 100%;
-
-      &:hover { color: white; }
-    }
-
-    .prev { 
-      background: url(../img/arrow-left.png) no-repeat center center; 
-      background-size: 11px 20px;
-      width: 11px; height: 20px;
-
-      position: absolute; top: 50%; margin-top: -10px;
-      left: 24px;      
-    }
-    .next { 
-      background: url(../img/arrow-right.png) no-repeat center center; 
-      background-size: 11px 20px;
-      width: 11px; height: 20px;
-
-      position: absolute; top: 50%; margin-top: -10px;
-      right: 24px;      
-    }
-  }
-  thead {
-    border-top:2px solid $border-color;
-    border-left:2px solid $border-color;
-    border-right:2px solid $border-color;
-    th {
-      height: 20px;
-      font-size: 1.6em;
-      font-weight: $latoBold;
-      color: #353535;
-      text-transform: none;
-      @media (max-width: $screen-md-min) {
-      width: 50px;
-      }
-    }
-  }
-  tbody {
-    border: 2px solid $border-color;
-  }
-  th, td {
-    text-align: center;
-    background: white;
-
-    &:first-child { border-left: 0; }
-    /* Small devices (tablets, 768px and up) */
-    @media (min-width: $screen-sm-min) {
-      width: 248px;
-      height: 36px; // 248/7
-    }
-
-    /* Medium devices (desktops, 992px and up) */
-    @media (min-width: $screen-md-min) {
-      width: 324px;
-      height: 47px; // 324/7
-    }
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media (min-width: $screen-lg-min) {
-      width: 388px;
-      height: 56px; // 388/7
-    }
-  }
-
-  th {
-    line-height: 20px;
-    font-size: 1.6em;
-    color: #353535;
-    text-transform: uppercase;
-    background: white;
-    border-left: 2px solid $border-color;
-  }
-
-  td {
-    font-size: 1.6em;
-    font-weight: $latoBold;
-    height: 50px;
-    border-top: 2px solid $border-color;
-    border-left: 2px solid $border-color;
-    @include transition(all 0.1s ease-in-out);
-    @media screen and (max-width: $screen-sm-max) {
-      line-height: 40px;
-      height: 40px;
-    }
-
-    a {
-      clear: both;
-      display: block;
-      position: relative;
-      width:100%; height: 100%;
-      line-height: 50px;
-      color: #666;
-      margin: 0 auto;
-      .promo-day {
         width: 100%;
-        position: absolute;
-        bottom: 2px; left: 0;
-        font-size: .938em;
-        height: .938em;
-        line-height: .938em;
-        color: $promo-color;
-        @media screen and (max-width: $screen-md-max) {
-          bottom: -2px;
-        }
-        @media screen and (max-width: $screen-sm-max) {
-          bottom: -11px;
-        }
-
-      }
-      @media screen and (max-width: $screen-md-max) {
-        line-height: 40px;
-      }
-      @media screen and (max-width: $screen-sm-max) {
-        line-height: 20px ;
-        height: 20px;
-      }
+        max-width: 350px;
+        margin: auto;
     }
 
-    &.off { 
-      background: #f3f3f3;
-      cursor: not-allowed;
-     }
-
-    &.off a { color: #dbdddf; }
-
-    &.today, &.today:hover {
-      background-color: $grey;
+    a { 
+        text-decoration: none; 
     }
-    
-    &.active, &:active {
-      background-color: $red !important;
-      line-height: 2.2em;
-      a {
-        color: white;
-        // border-bottom: 2px solid white;
+
+    caption {
+        line-height: 55px;
+        font-family: $font-second;
+        font-weight: $regular;
+        font-size: 1.8em;
+        color: $darkgrey;
+        text-align: center;
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+        background: $grey9;
         position: relative;
-        // &:after {
-        //   content: " ";
-        //   height: 2px; width: 70%;
-        //   background-color: white;
-          
-        //   position: absolute;
-        //   bottom: 5px; left: 15%;
-        // }
-        .promo-day {
-          color: white;
-          opacity: .6;
+        border: 1px solid $border-color;
+        border-bottom: 0;
+        @media screen and (max-width: $screen-xs-max) {
+            max-width: 350px;
         }
-      }
-    }
-    &:hover {
-      background-color: $border-color;
-      @include transition(all 0.1s ease-in-out);
-    }
-    &.active:first-child a, &:first-child a:active { border-left: 0; margin-left: 0; }
-    &.active:last-child a, &:last-child a:active { border-right: 0; margin-right: 0; }
-  }
 
-  tr:last-child { td.active a, td a:active { border-bottom: 0; margin-bottom: 0; } }
+        a {
+            display: block;
+            line-height: 4.2em;
+            padding: 0 10px;
+            font-size: 15px;
+            color: #e2e2e2;
+            height: 100%;
+
+            &:hover { 
+                color: white; 
+            }
+        }
+            .prev, .next {
+            width: 9px; height: 15px;
+            position: absolute; top: 50%; margin-top: -10px;
+        }
+        .prev { 
+            background: url(../img/resa/arrow-left.png) no-repeat center center; 
+            background-size: 9px 15px;
+            left: 24px;      
+        }
+        .next { 
+            background: url(../img/resa/arrow-right.png) no-repeat center center; 
+            background-size: 9px 15px;
+            right: 24px;      
+        }
+    }
+    thead {
+        border-top:1px solid $border-color;
+        border-left:1px solid $border-color;
+        border-right:1px solid $border-color;
+        th {
+            height: 20px;
+            font-size: 1.4em;
+            font-weight: $regular;
+            color: $darkgrey;
+            text-transform: none;
+            border: 0;
+            background-color: $grey9;
+            @media (max-width: $screen-md-min) {
+                width: 50px;
+                border-left: 0;
+            }
+        }
+    }
+    tbody {
+        border: 1px solid $border-color;
+        td {
+            
+        }
+    }
+    th, td {
+        text-align: center;
+        background: white;
+
+        &:first-child { border-left: 0; }
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: $screen-sm-min) {
+            width: 248px;
+            height: 36px; // 248/7
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: $screen-md-min) {
+            width: 324px;
+            height: 47px; // 324/7
+        }
+
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: $screen-lg-min) {
+            width: 388px;
+            height: 56px; // 388/7
+        }
+    }
+
+    th {
+        line-height: 20px;
+        font-size: 1.6em;
+        color: #353535;
+        text-transform: uppercase;
+        background: white;
+        border-left: 1px solid $border-color;
+    }
+
+    td {
+        font-size: 1.6em;
+        font-weight: $regular;
+        height: 40px;
+        border-top: 1px solid $border-color;
+        border-left: 1px solid $border-color;
+        @include transition(all 0.1s ease-in-out);
+        @media screen and (max-width: $screen-sm-max) {
+            line-height: 40px;
+            height: 40px;
+        }
+
+        a {
+            clear: both;
+            display: block;
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            @include justify-content(center);
+            width:100%; height: 100%;
+            color: #666;
+            margin: 0 auto;
+            .promo-day {
+                width: 100%;
+                bottom: 2px; left: 0;
+                font-size: .938em;
+                font-weight: $light;
+                margin-top: -1px;
+                height: .938em;
+                line-height: .938em;
+                color: $promo-color;
+                @media screen and (max-width: $screen-md-max) {
+                    bottom: -2px;
+                }
+                @media screen and (max-width: $screen-sm-max) {
+                    bottom: -11px;
+                }
+            }
+            @media screen and (max-width: $screen-md-max) {
+                line-height: 40px;
+            }
+            @media screen and (max-width: $screen-sm-max) {
+                line-height: 20px ;
+                height: 20px;
+            }
+        }
+
+        &.off { 
+            background: $grey9;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        &.off a { color: #dbdddf; }
+
+        &.today, &.today:hover {
+            background-color: $grey;
+        }
+
+        &.active, &:active {
+            background-color: $hairfie !important;
+            a {
+                color: white;
+                // border-bottom: 2px solid white;
+                position: relative;
+                // &:after {
+                //   content: " ";
+                //   height: 2px; width: 70%;
+                //   background-color: white;
+
+                //   position: absolute;
+                //   bottom: 5px; left: 15%;
+                // }
+                .promo-day {
+                    color: white;
+                    opacity: .6;
+                }
+            }
+        }
+        &:hover {
+            background-color: $border-color;
+            @include transition(all 0.1s ease-in-out);
+        }
+        &.active:first-child a, &:first-child a:active { border-left: 0; margin-left: 0; }
+        &.active:last-child a, &:last-child a:active { border-right: 0; margin-right: 0; }
+    }
+
+    tr:last-child { td.active a, td a:active { border-bottom: 0; margin-bottom: 0; } }
 }

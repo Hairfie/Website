@@ -11,7 +11,7 @@ module.exports = React.createClass({
     displayName: 'PublicLayout',
     render: function () {
         return (
-            <div className="front">
+            <div className={'front ' + this.props.customClass}>
                 <Notifications />
                 <PageProgress context={this.props.context} />
                 <Header context={this.props.context} withProLink={this.props.withProLink || true} />

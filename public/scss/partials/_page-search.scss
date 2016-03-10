@@ -987,7 +987,7 @@
             border-radius: 2px;
             margin: 15px 25px 0 25px;
             @include flex-center;
-            justify-content: center;
+            @include justify-content(center);
             &:before {
                 content: ' ';
                 background: url(../img/search/location-new.svg) no-repeat center center;

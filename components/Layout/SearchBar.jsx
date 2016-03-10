@@ -17,7 +17,6 @@ var SearchBar = React.createClass({
     },
     getInitialState: function () {
         return {
-            displaySearchBar: false,
             selectedCategories: "",
             location: "",
             activeLocation: false
@@ -88,7 +87,7 @@ var SearchBar = React.createClass({
                     </div>
                 </div>
             </div>
-            );
+        );
     },
     renderSelect: function() {
         return  (
@@ -118,10 +117,6 @@ var SearchBar = React.createClass({
             this.submit();
         }
     },
-    handleDisplaySearchBar: function(e) {
-        e.preventDefault();
-        this.setState({displaySearchBar: !this.state.displaySearchBar});
-    },
     handleSelectCategoriesChange: function (newVal) {
         this.setState({selectedCategories: newVal});
     },
@@ -143,12 +138,11 @@ var SearchBar = React.createClass({
         }
     },
     submit: function () {
-        if (this.props.close) {
-            this.props.close();
-        }
+        if (this.props.close) this.props.close();
+
         var search = {
             address : this.refs.address && this.refs.address.getFormattedAddress(),
-            q       : this.refs.query.value
+            q       : this.refs.query.value ? this.refs.query.value : ""
         };
         if (this.state.selectedCategories) {
             search['categories'] = this.state.selectedCategories.split(',');

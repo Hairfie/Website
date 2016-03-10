@@ -64,6 +64,11 @@ var BreadCrumb = React.createClass({
                 label: 'Hairfie'
             }
         ];
+        var resaCrumb = [
+            {
+                label: 'Ma réservation'
+            }
+        ];
         if(this.props.searchedPlace) {
             var placeCrumb = {
                 label: (this.props.searchedPlace.name || '').split(',')[0]
@@ -77,6 +82,9 @@ var BreadCrumb = React.createClass({
                 break;
             case 'business_booking':
                 crumbs = crumbs.concat(businessCrumbs).concat(businessBookingCrumb);
+                break;
+            case 'booking_confirmation':
+                crumbs = crumbs.concat(resaCrumb);
                 break;
             case 'newsletter':
                 crumbs = crumbs.concat(newsletterCrumb);

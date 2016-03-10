@@ -17,7 +17,6 @@ var BusinessNameInput = React.createClass ({
     },
     render: function() {
         return (
-            
             <div className="business-name">
                 Nom du salon
                 <div className="input-group">

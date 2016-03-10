@@ -44,7 +44,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} close={this.close}/> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} close={this.mobileClose}/> : this.renderMobileMenu()}
             </div>
         );
     },
@@ -54,11 +54,11 @@ var Header = React.createClass({
                 <ul>
                     <User mobile={true} />
                     <a role="button"><li onClick={this.handleDisplaySearch} className="search-nav">Recherche</li></a>
-                    <Link route="business_search" params={{address: 'France'}}><li className="salon" onClick={this.close}>Tous les coiffeurs</li></Link>
-                    <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.close}>Tous les hairfies</li></Link>
+                    <Link route="business_search" params={{address: 'France'}}><li className="salon" onClick={this.mobileClose}>Tous les coiffeurs</li></Link>
+                    <Link route="hairfie_search" params={{address: 'France'}}><li className="hairfies" onClick={this.mobileClose}>Tous les hairfies</li></Link>
                     <a href="http://blog.hairfie.com" target="_blank"><li className="blog">Le blog d'Hairfie</li></a>
-                    <Link route="home_pro"><li className="salon" onClick={this.close}>Gérez votre salon</li></Link>
-                    <Link route="newsletter"><li className="blog" onClick={this.close}>Newsletter</li></Link>
+                    <Link route="home_pro"><li className="salon" onClick={this.mobileClose}>Gérez votre salon</li></Link>
+                    <Link route="newsletter"><li className="blog" onClick={this.mobileClose}>Newsletter</li></Link>
                 </ul>
                 {/*<div className="download">
                     <p>Téléchargez l'application pour poster un Hairfie !</p>
@@ -111,7 +111,7 @@ var Header = React.createClass({
                     </div>
                 </header>
                 <div className="container">
-                    {this.props.home ? null : <SearchBar mobile={false} displaySearch={this.state.displaySearch} />}
+                    {this.props.home ? null : <SearchBar mobile={false} displaySearch={this.state.displaySearch} close={this.desktopClose} />}
                 </div>
             </div>
         );
@@ -133,11 +133,14 @@ var Header = React.createClass({
     handleDisplayMenu: function() {
         this.setState({displaySearch: false});
     },
-    close: function() {
+    mobileClose: function() {
         this.setState({displaySearch: false});
         $('body').removeClass('locked');
         $('.menu-trigger').removeClass('close');
         TweenMax.to('.mobile-menu', 0, {height: '0', minHeight:'0', ease:Power2.easeOut});
+    },
+    desktopClose: function() {
+        this.setState({displaySearch: false});
     },
     componentDidMount: function() {
         $('.menu-trigger').on("click", function() {

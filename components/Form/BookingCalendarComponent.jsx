@@ -81,7 +81,7 @@ var BookingCalendarComponent = React.createClass({
                     <caption>
                         <span className="prev" onClick={this.prevMonth}><a role="button"></a></span>
                         <span className="next" onClick={this.nextMonth}><a role="button"></a></span>
-                        {m.format('MMMM YYYY')}
+                        {_.capitalize(m.format('MMMM YYYY'))}
                     </caption>
                     <thead>
                         <tr>
@@ -131,7 +131,7 @@ var BookingCalendarComponent = React.createClass({
                 }
             });
             if(discount) {
-                discountNode = (<span className="promo-day">{discount}%</span>);
+                discountNode = (<span className="promo-day">{discount + '%'}</span>);
                 cls += ' discount';
             }
         }
@@ -141,7 +141,7 @@ var BookingCalendarComponent = React.createClass({
 
         if(isOpen) {
             cls += ' bookable'
-            return <td className={cls} key={d.get('date')} onClick={this.dayCallback.bind(this, d.format('YYYY-MM-DD'))}><a role="button">{discountNode}{d.get('date')}</a></td>;
+            return <td className={cls} key={d.get('date')} onClick={this.dayCallback.bind(this, d.format('YYYY-MM-DD'))}><a role="button">{d.get('date')}{discountNode}</a></td>;
         }
         else {
             cls += ' off';

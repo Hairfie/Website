@@ -1549,13 +1549,13 @@ pre {
   .row:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, #content.search .hairfie-search-newsletter .newsletter-banner p, .hairfie-newsletter .newsletter-banner p {
   float: left; }
 
 .col-xs-1 {
@@ -1564,7 +1564,7 @@ pre {
 .col-xs-2 {
   width: 16.6666666667%; }
 
-.col-xs-3, #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
+.col-xs-3 {
   width: 25%; }
 
 .col-xs-4 {
@@ -2324,12 +2324,7 @@ output {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+  border-radius: 4px; }
   .form-control:focus {
     border-color: #66afe9;
     outline: 0;
@@ -3040,9 +3035,7 @@ select[multiple].input-lg,
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-success .form-control:focus {
-    border-color: #2b542c;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
+    border-color: #2b542c; }
 
 .has-success .input-group-addon {
   color: #3c763d;
@@ -3069,9 +3062,7 @@ select[multiple].input-lg,
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-warning .form-control:focus {
-    border-color: #66512c;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
+    border-color: #66512c; }
 
 .has-warning .input-group-addon {
   color: #8a6d3b;
@@ -3098,9 +3089,7 @@ select[multiple].input-lg,
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-error .form-control:focus {
-    border-color: #843534;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
+    border-color: #843534; }
 
 .has-error .input-group-addon {
   color: #a94442;
@@ -4858,7 +4847,7 @@ tbody.collapse.in {
   margin-bottom: 20px;
   list-style: none;
   background-color: #f5f5f5;
-  border-radius: 4px; }
+  border-radius: 0; }
   .breadcrumb > li {
     display: inline-block; }
     .breadcrumb > li + li:before {
@@ -9295,34 +9284,41 @@ div.connect-button .facebook {
     border-top-color: #595959; }
 
 .cal {
-  max-width: 100%;
   display: block;
-  width: 100%;
-  /* Small devices (tablets, 768px and up) */
-  /* Medium devices (desktops, 992px and up) */
-  /* Large devices (large desktops, 1200px and up) */ }
-  @media (min-width: 768px) {
+  width: 350px; }
+  @media screen and (max-width: 767px) {
     .cal {
-      width: 248px; } }
-  @media (min-width: 992px) {
-    .cal {
-      width: 324px; } }
-  @media (min-width: 1200px) {
-    .cal {
-      width: 388px; } }
+      width: 100%;
+      max-width: 350px;
+      margin: auto; } }
   .cal a {
     text-decoration: none; }
   .cal caption {
-    line-height: 3.2em;
+    line-height: 55px;
     font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-size: 2.1em;
-    color: white;
+    font-weight: 400;
+    font-size: 1.8em;
+    color: #595959;
     text-align: center;
-    letter-spacing: 2px;
-    display: block;
-    background: #343434;
-    position: relative; }
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    background: #f8f8f7;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    border-bottom: 0; }
     @media screen and (max-width: 767px) {
       .cal caption {
         max-width: 350px; } }
@@ -9335,39 +9331,38 @@ div.connect-button .facebook {
       height: 100%; }
       .cal caption a:hover {
         color: white; }
-    .cal caption .prev {
-      background: url(../img/arrow-left.png) no-repeat center center;
-      background-size: 11px 20px;
-      width: 11px;
-      height: 20px;
+    .cal caption .prev, .cal caption .next {
+      width: 9px;
+      height: 15px;
       position: absolute;
       top: 50%;
-      margin-top: -10px;
+      margin-top: -10px; }
+    .cal caption .prev {
+      background: url(../img/resa/arrow-left.png) no-repeat center center;
+      background-size: 9px 15px;
       left: 24px; }
     .cal caption .next {
-      background: url(../img/arrow-right.png) no-repeat center center;
-      background-size: 11px 20px;
-      width: 11px;
-      height: 20px;
-      position: absolute;
-      top: 50%;
-      margin-top: -10px;
+      background: url(../img/resa/arrow-right.png) no-repeat center center;
+      background-size: 9px 15px;
       right: 24px; }
   .cal thead {
-    border-top: 2px solid #e5e5e5;
-    border-left: 2px solid #e5e5e5;
-    border-right: 2px solid #e5e5e5; }
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5; }
     .cal thead th {
       height: 20px;
-      font-size: 1.6em;
-      font-weight: 700;
-      color: #353535;
-      text-transform: none; }
+      font-size: 1.4em;
+      font-weight: 400;
+      color: #595959;
+      text-transform: none;
+      border: 0;
+      background-color: #f8f8f7; }
       @media (max-width: 992px) {
         .cal thead th {
-          width: 50px; } }
+          width: 50px;
+          border-left: 0; } }
   .cal tbody {
-    border: 2px solid #e5e5e5; }
+    border: 1px solid #e5e5e5; }
   .cal th, .cal td {
     text-align: center;
     background: white;
@@ -9394,13 +9389,13 @@ div.connect-button .facebook {
     color: #353535;
     text-transform: uppercase;
     background: white;
-    border-left: 2px solid #e5e5e5; }
+    border-left: 1px solid #e5e5e5; }
   .cal td {
     font-size: 1.6em;
-    font-weight: 700;
-    height: 50px;
-    border-top: 2px solid #e5e5e5;
-    border-left: 2px solid #e5e5e5;
+    font-weight: 400;
+    height: 40px;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;
@@ -9412,18 +9407,38 @@ div.connect-button .facebook {
     .cal td a {
       clear: both;
       display: block;
-      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
-      line-height: 50px;
       color: #666;
       margin: 0 auto; }
       .cal td a .promo-day {
         width: 100%;
-        position: absolute;
         bottom: 2px;
         left: 0;
         font-size: .938em;
+        font-weight: 200;
+        margin-top: -1px;
         height: .938em;
         line-height: .938em;
         color: #f39c12; }
@@ -9441,15 +9456,15 @@ div.connect-button .facebook {
           line-height: 20px;
           height: 20px; } }
     .cal td.off {
-      background: #f3f3f3;
-      cursor: not-allowed; }
+      background: #f8f8f7;
+      cursor: not-allowed;
+      text-decoration: line-through; }
     .cal td.off a {
       color: #dbdddf; }
     .cal td.today, .cal td.today:hover {
       background-color: #c4c4c4; }
     .cal td.active, .cal td:active {
-      background-color: #fc5a5f !important;
-      line-height: 2.2em; }
+      background-color: #fe5b5f !important; }
       .cal td.active a, .cal td:active a {
         color: white;
         position: relative; }
@@ -9624,18 +9639,6 @@ a {
       letter-spacing: 2px; }
       #content .address-bloc h2 a:hover, #content .address-bloc h3 a:hover, #content .address-bloc h4 a:hover {
         text-decoration: none; }
-  #content .promo {
-    padding-top: 0;
-    padding-bottom: 0;
-    border-left: 15px solid #f39c12;
-    padding-left: 15px; }
-    #content .promo h4 {
-      font-size: 1.6em;
-      color: #f39c12;
-      font-weight: 400; }
-    #content .promo p {
-      font-size: 1.4em;
-      color: #595959; }
 
 .stars {
   height: 3.9em;
@@ -10078,13 +10081,15 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     background-size: auto;
     width: 20%;
     height: 20%;
-    display: -webkit-flexbox;
-    display: -ms-flexbox;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-align: center;
+    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
+    -moz-align-items: center;
     align-items: center;
     text-align: center; }
   .hairfies .single-hairfie .price {
@@ -10336,10 +10341,10 @@ iframe {
   *width: 100% !important; }
 
 input:not(:focus).valid {
-  border: 2px solid #3c763d !important; }
+  border: 1px solid #3c763d !important; }
 
 input:not(:focus).error {
-  border: 2px solid #a94442 !important; }
+  border: 1px solid #a94442 !important; }
 
 div.shadow.active {
   position: fixed;
@@ -10352,6 +10357,13 @@ div.shadow.active {
 
 div.shadow.inactive {
   display: none; }
+
+.bg-white {
+  background-color: white; }
+  .bg-white header.white.hidden-xs {
+    -webkit-box-shadow: 0 -2px 12px #c4c4c4;
+    -moz-box-shadow: 0 -2px 12px #c4c4c4;
+    box-shadow: 0 -2px 12px #c4c4c4; }
 
 header {
   position: relative;
@@ -10943,6 +10955,9 @@ footer {
     position: relative;
     margin-left: auto;
     margin-right: auto; }
+  footer .heap {
+    position: absolute;
+    right: 0; }
 
 footer.mobile {
   padding-left: 10px;
@@ -11484,6 +11499,10 @@ section.home-search .home-search-mobile {
   -webkit-align-items: center;
   align-items: center;
   text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
   justify-content: center;
   position: absolute;
   left: 0;
@@ -12673,6 +12692,10 @@ section.home-search .home-search-mobile {
     -webkit-align-items: center;
     align-items: center;
     text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
     justify-content: center; }
     #content.search .sidebar .btn-around:before {
       content: ' ';
@@ -13211,8 +13234,16 @@ section.home-search .home-search-mobile {
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
-      justify-content: center;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -moz-inline-flex;
+      display: -ms-inline-flexbox;
       display: inline-flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
       width: inherit;
       font-size: 1.3em; }
       @media screen and (max-width: 767px) {
@@ -13807,13 +13838,15 @@ section.home-search .home-search-mobile {
         background-repeat: no-repeat;
         width: 14%;
         height: 14%;
-        display: -webkit-flexbox;
-        display: -ms-flexbox;
+        display: -webkit-box;
         display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
         display: flex;
-        -webkit-flex-align: center;
+        -webkit-box-align: center;
         -ms-flex-align: center;
         -webkit-align-items: center;
+        -moz-align-items: center;
         align-items: center;
         text-align: center; }
         .hairfie-singleView .single-view #carousel-hairfie .pricetag .price {
@@ -14027,173 +14060,479 @@ section.home-search .home-search-mobile {
       padding-left: 0; }
 
 /*////////////////////////////////
-	    P A G E  R E S A
+        P A G E  R E S A
 ////////////////////////////////*/
 #content.reservation, .review-confirmation {
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  background-color: white; }
+  @media screen and (max-width: 767px) {
+    #content.reservation, .review-confirmation {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 65px; } }
+  #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
+    margin-bottom: 15px;
+    background-color: white; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
+        padding-left: 15px; } }
+  #content.reservation .booking-summary, .review-confirmation .booking-summary {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    text-align: inherit;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 15px 0;
+    margin: 0 0px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .booking-summary, .review-confirmation .booking-summary {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin: 0;
+        border-top: 0;
+        padding-top: 0; } }
+    #content.reservation .booking-summary .salon-bloc span .visible-xs, .review-confirmation .booking-summary .salon-bloc span .visible-xs {
+      margin-bottom: 10px; }
+    #content.reservation .booking-summary .salon-bloc img, .review-confirmation .booking-summary .salon-bloc img {
+      float: left; }
+    #content.reservation .booking-summary .salon-bloc .address-bloc, .review-confirmation .booking-summary .salon-bloc .address-bloc {
+      padding-left: 10px;
+      float: left;
+      width: calc(100% - 55px); }
+      #content.reservation .booking-summary .salon-bloc .address-bloc h2 > a, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > a {
+        font-size: 1.2em;
+        text-transform: none;
+        letter-spacing: 0;
+        font-weight: 400; }
+        @media screen and (max-width: 767px) {
+          #content.reservation .booking-summary .salon-bloc .address-bloc h2 > a, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > a {
+            font-size: 1.1em; } }
+      #content.reservation .booking-summary .salon-bloc .address-bloc .address, .review-confirmation .booking-summary .salon-bloc .address-bloc .address {
+        font-size: 1.5em;
+        letter-spacing: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #content.reservation .booking-summary .salon-bloc .address-bloc .address:before, .review-confirmation .booking-summary .salon-bloc .address-bloc .address:before {
+          content: ' ';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          line-height: 25px;
+          background: url(../img/icons/localisation-red.svg) no-repeat center left;
+          background-size: contain; }
+      #content.reservation .booking-summary .salon-bloc .address-bloc .phone, .review-confirmation .booking-summary .salon-bloc .address-bloc .phone {
+        display: block;
+        font-size: 1.4em; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .booking-summary .promo-bloc, .review-confirmation .booking-summary .promo-bloc {
+        padding-top: 0; } }
+    #content.reservation .booking-summary .promo-bloc .selected-slot, .review-confirmation .booking-summary .promo-bloc .selected-slot {
+      font-size: 1.4em;
+      font-weight: 400;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.reservation .booking-summary .promo-bloc .selected-slot:before, .review-confirmation .booking-summary .promo-bloc .selected-slot:before {
+        content: ' ';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 25px;
+        background: url(../img/resa/calendar.svg) no-repeat center left;
+        background-size: contain;
+        margin-right: 10px; }
+    #content.reservation .booking-summary .promo-bloc .promo, .review-confirmation .booking-summary .promo-bloc .promo {
+      font-size: 1.4em;
+      color: #f39c12;
+      font-weight: 200;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.reservation .booking-summary .promo-bloc .promo:before, .review-confirmation .booking-summary .promo-bloc .promo:before {
+        content: ' ';
+        display: block;
+        float: left;
+        width: 20px;
+        height: 20px;
+        line-height: 25px;
+        background: url(../img/resa/icon-promo.png) no-repeat center left;
+        background-size: contain;
+        margin-right: 10px; }
+      #content.reservation .booking-summary .promo-bloc .promo .discount, .review-confirmation .booking-summary .promo-bloc .promo .discount {
+        display: block;
+        float: left;
+        width: calc(100% - 30px); }
+    #content.reservation .booking-summary .promo-bloc .booking-infos, .review-confirmation .booking-summary .promo-bloc .booking-infos {
+      padding-left: 30px;
+      font-size: 1.4em;
+      font-weight: 400; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .booking-summary .edit-bloc, .review-confirmation .booking-summary .edit-bloc {
+        width: 100%; } }
+    #content.reservation .booking-summary .edit-bloc .edit, .review-confirmation .booking-summary .edit-bloc .edit {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      -webkit-align-items: flex-end;
+      -moz-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center; }
+      @media screen and (max-width: 767px) {
+        #content.reservation .booking-summary .edit-bloc .edit, .review-confirmation .booking-summary .edit-bloc .edit {
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
+          align-items: center;
+          float: none; } }
+      #content.reservation .booking-summary .edit-bloc .edit .btn-whitered, .review-confirmation .booking-summary .edit-bloc .edit .btn-whitered {
+        text-transform: none;
+        font-weight: 200;
+        margin-bottom: 5px;
+        margin-top: 5px; }
+    #content.reservation .booking-summary hr.visible-xs, .review-confirmation .booking-summary hr.visible-xs {
+      width: 100%;
+      height: 1px;
+      border-color: #dfdfdf;
+      margin: 15px 0; }
   @media screen and (max-width: 767px) {
     #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
-      margin-top: 60px;
-      width: 200vw; }
-    #content.reservation.confirmation, .confirmation.review-confirmation {
-      margin-top: 65px; } }
+      width: 200vw;
+      border-bottom: 1px dotted #c4c4c4; } }
   @media screen and (min-width: 992px) {
     #content.reservation, .review-confirmation {
-      padding-top: 0px; }
-      #content.reservation .breadcrumb, .review-confirmation .breadcrumb {
-        margin-left: -15px; } }
-  #content.reservation .sidebar, .review-confirmation .sidebar {
-    background: white;
-    padding: 20px; }
-    @media screen and (max-width: 991px) {
-      #content.reservation .sidebar, .review-confirmation .sidebar {
-        margin-bottom: 40px; } }
-    #content.reservation .sidebar .salon-bloc a:first-child, .review-confirmation .sidebar .salon-bloc a:first-child {
-      display: block;
-      width: 100%;
-      max-height: 185px;
-      overflow: hidden; }
-      @media screen and (max-width: 991px) {
-        #content.reservation .sidebar .salon-bloc a:first-child, .review-confirmation .sidebar .salon-bloc a:first-child {
-          max-height: 255px; } }
-      #content.reservation .sidebar .salon-bloc a:first-child img, .review-confirmation .sidebar .salon-bloc a:first-child img {
-        max-height: 185px;
-        width: auto;
-        min-width: 100%;
-        margin: 0 auto; }
-        @media screen and (max-width: 991px) {
-          #content.reservation .sidebar .salon-bloc a:first-child img, .review-confirmation .sidebar .salon-bloc a:first-child img {
-            max-height: 255px;
-            min-width: auto;
-            height: 100%; } }
-    #content.reservation .sidebar .salon-bloc .address-bloc, .review-confirmation .sidebar .salon-bloc .address-bloc {
-      margin-top: 20px; }
-    #content.reservation .sidebar .promo, .review-confirmation .sidebar .promo {
-      margin-top: 20px;
+      padding-top: 0px; } }
+  #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
+    color: #595959;
+    font-weight: 400;
+    font-size: 1.231em; }
+    #content.reservation .main-content .legend p, .review-confirmation .main-content .legend p {
       margin-bottom: 20px;
-      margin-left: -20px; }
-      #content.reservation .sidebar .promo p, .review-confirmation .sidebar .promo p {
-        color: #f39c12; }
-    #content.reservation .sidebar div:last-child p, .review-confirmation .sidebar div:last-child p {
-      font-weight: 200;
-      font-size: 1.4em;
-      color: #595959;
-      line-height: 20px; }
-    #content.reservation .sidebar div:last-child div, .review-confirmation .sidebar div:last-child div {
-      padding: 20px;
-      border: 1px solid #c9c9c9; }
-      #content.reservation .sidebar div:last-child div h3, .review-confirmation .sidebar div:last-child div h3 {
-        color: #595959;
-        font-size: 1.6em;
-        margin: 0;
-        font-weight: 600; }
-      #content.reservation .sidebar div:last-child div ul, .review-confirmation .sidebar div:last-child div ul {
-        margin-top: 10px; }
-        #content.reservation .sidebar div:last-child div ul li, .review-confirmation .sidebar div:last-child div ul li {
-          font-size: 1.6em;
-          padding-left: 15px; }
-  #content.reservation .main-content, .review-confirmation .main-content {
-    padding-left: 30px; }
+      letter-spacing: 1px; }
+      #content.reservation .main-content .legend p span, .review-confirmation .main-content .legend p span {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        background: #f39c12;
+        margin-right: 5px;
+        vertical-align: middle;
+        margin-top: -2px;
+        border-radius: 1px; }
+  #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
+    font-size: 2.1em;
+    font-weight: 400;
+    color: #595959;
+    margin: 20px 0;
+    letter-spacing: 0; }
+    @media screen and (max-width: 767px) {
+      #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
+        margin-left: 15px; }
+        #content.reservation .main-content .row > div h2.dateTitle, .review-confirmation .main-content .row > div h2.dateTitle {
+          display: none; } }
+  #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
+    max-width: 50px; }
+  @media screen and (max-width: 545px) {
+    #content.reservation .main-content .row > div:nth-child(1), .review-confirmation .main-content .row > div:nth-child(1) {
+      width: 100%; } }
+  #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+    padding-right: 0; }
     @media screen and (max-width: 991px) {
-      #content.reservation .main-content, .review-confirmation .main-content {
-        padding-left: 15px;
-        float: none !important; } }
-    #content.reservation .main-content .legend, .review-confirmation .main-content .legend {
-      color: #595959;
-      font-weight: 400;
-      font-size: 1.231em; }
-      #content.reservation .main-content .legend p, .review-confirmation .main-content .legend p {
-        margin-bottom: 20px;
-        letter-spacing: 1px; }
-        #content.reservation .main-content .legend p span, .review-confirmation .main-content .legend p span {
-          width: 25px;
-          height: 25px;
-          display: inline-block;
-          background: #f39c12;
-          margin-right: 5px;
-          vertical-align: middle;
-          margin-top: -2px;
-          border-radius: 1px; }
-        #content.reservation .main-content .legend p:nth-child(2), .review-confirmation .main-content .legend p:nth-child(2) {
-          line-height: 25px; }
-    #content.reservation .main-content .row > div h2, .review-confirmation .main-content .row > div h2 {
-      font-size: 2.1em;
-      font-weight: 400;
-      color: #595959;
-      margin: 20px 0;
-      text-decoration: underline; }
-    #content.reservation .main-content .row > div td, .review-confirmation .main-content .row > div td {
-      width: 50px; }
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+        padding-left: 0px; } }
+    @media screen and (max-width: 991px) {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+        margin-right: -50px; } }
+    @media screen and (max-width: 767px) {
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
+        padding-left: 15px; } }
     @media screen and (max-width: 545px) {
-      #content.reservation .main-content .row > div:nth-child(1), .review-confirmation .main-content .row > div:nth-child(1) {
-        float: none !important;
+      #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
         width: 100%; } }
-    #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-      padding-left: 62px;
-      padding-right: 0; }
-      @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          padding-left: 0px; } }
-      @media screen and (max-width: 991px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          margin-right: -50px; } }
-      @media screen and (max-width: 767px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          padding-left: 15px; } }
-      @media screen and (max-width: 545px) {
-        #content.reservation .main-content .row > div:nth-child(2), .review-confirmation .main-content .row > div:nth-child(2) {
-          float: none !important;
-          width: 100%; } }
-      #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
+    #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
+      width: 100%; }
+      #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
+        display: block;
+        margin-right: -10px;
+        border: none;
         width: 100%; }
         @media screen and (max-width: 991px) {
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table, .review-confirmation .main-content .row > div:nth-child(2) .time-table table {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
             margin-right: -50px; } }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
-          display: block;
-          margin-right: -10px;
-          border: none;
-          width: 100%; }
-          @media screen and (max-width: 991px) {
-            #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
-              margin-right: -50px; } }
-        #content.reservation .main-content .row > div:nth-child(2) .time-table table td, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td {
-          height: 54px;
-          width: 74px;
+        @media screen and (max-width: 767px) {
+          #content.reservation .main-content .row > div:nth-child(2) .time-table table tbody, .review-confirmation .main-content .row > div:nth-child(2) .time-table table tbody {
+            margin-left: 10px; } }
+      #content.reservation .main-content .row > div:nth-child(2) .time-table table td, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td {
+        height: 45px;
+        width: 65px;
+        max-width: 65px;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        float: left;
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        margin: 0 10px 10px 0; }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td a, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a {
           position: relative;
-          display: inline-block;
-          float: left;
-          border: 1px solid #e9e9e9;
-          border-radius: 2px;
-          text-align: center;
-          margin: 3px;
-          margin-left: 0; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td a, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a {
-            position: relative;
-            line-height: 1.2; }
-            @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
-                bottom: 2px; } }
-            @media screen and (max-width: 991px) {
-              #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
-                bottom: -28px; } }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td p, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td p {
-            position: absolute;
-            top: 6px;
-            width: 100%;
-            font-size: 1em; }
-          #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td.disabled {
-            background: #efeff0;
-            border-color: #efeff0;
-            cursor: not-allowed;
-            opacity: .7; }
-    #content.reservation .main-content h3, .review-confirmation .main-content h3 {
-      margin: 0; }
+          line-height: 1.2; }
+          @media screen and (max-width: 991px) {
+            #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
+              bottom: 2px; } }
+          @media screen and (max-width: 991px) {
+            #content.reservation .main-content .row > div:nth-child(2) .time-table table td a span, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td a span {
+              bottom: -28px; } }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td p, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td p {
+          font-size: 1em; }
+        #content.reservation .main-content .row > div:nth-child(2) .time-table table td.disabled, .review-confirmation .main-content .row > div:nth-child(2) .time-table table td.disabled {
+          background: #efeff0;
+          border-color: #efeff0;
+          cursor: not-allowed;
+          opacity: .7; }
+  #content.reservation .main-content h3, .review-confirmation .main-content h3 {
+    margin: 0; }
 
 #content.reservation.bookingForm, .bookingForm.review-confirmation {
   color: #595959; }
   #content.reservation.bookingForm hr, .bookingForm.review-confirmation hr {
     border-color: #9a9a9a; }
+  #content.reservation.bookingForm .main-content .info-form .title, .bookingForm.review-confirmation .main-content .info-form .title {
+    width: 300px;
+    font-size: 1.8em;
+    font-weight: 400;
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 10px;
+    margin-bottom: 10px; }
+    #content.reservation.bookingForm .main-content .info-form .title span:nth-child(1), .bookingForm.review-confirmation .main-content .info-form .title span:nth-child(1) {
+      float: left; }
+    #content.reservation.bookingForm .main-content .info-form .title .connect, .bookingForm.review-confirmation .main-content .info-form .title .connect {
+      float: right;
+      line-height: 25px; }
+  #content.reservation.bookingForm .main-content .info-form .form-group input[type="text"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="text"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="email"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="email"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="password"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="password"] {
+    border-radius: 0;
+    height: 50px;
+    width: 300px; }
+  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userEmail"],
+  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userFirstName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userFirstName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userLastName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="connectEmail"] {
+    border-bottom: 0; }
+  #content.reservation.bookingForm .main-content .info-form .customer-infos, .bookingForm.review-confirmation .main-content .info-form .customer-infos {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 25px; }
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .radio-inline, .bookingForm.review-confirmation .main-content .info-form .customer-infos .radio-inline {
+      margin-bottom: 15px;
+      font-weight: 200; }
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group, .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group {
+      margin-bottom: 0; }
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group:nth-child(2), .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group:nth-child(2) {
+      margin-right: 120px; }
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc {
+      width: 300px;
+      margin-bottom: 20px; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc .facebook, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc .facebook {
+        margin: 0; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc p, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc p {
+        display: none; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc input, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc input {
+        font-size: 1.4em; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc input[type="email"], .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc input[type="email"] {
+        margin-top: 15px; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc input[type="password"], .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc input[type="password"] {
+        margin-bottom: 15px; }
+      #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc .btn-red, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc .btn-red {
+        width: 300px;
+        border-radius: 0;
+        letter-spacing: 0;
+        font-size: 1.6em;
+        height: 40px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center; }
+  #content.reservation.bookingForm .main-content .info-form .cut-infos, .bookingForm.review-confirmation .main-content .info-form .cut-infos {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 25px; }
+    #content.reservation.bookingForm .main-content .info-form .cut-infos > p, .bookingForm.review-confirmation .main-content .info-form .cut-infos > p {
+      margin-right: 150px; }
+    #content.reservation.bookingForm .main-content .info-form .cut-infos div.radio-group, .bookingForm.review-confirmation .main-content .info-form .cut-infos div.radio-group {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      -ms-flex-pack: distribute;
+      -webkit-justify-content: space-around;
+      -moz-justify-content: space-around;
+      justify-content: space-around;
+      width: 300px; }
+      #content.reservation.bookingForm .main-content .info-form .cut-infos div.radio-group input[type="radio"], .bookingForm.review-confirmation .main-content .info-form .cut-infos div.radio-group input[type="radio"] {
+        width: 12px;
+        height: 13px; }
+    #content.reservation.bookingForm .main-content .info-form .cut-infos .form-group:nth-child(6), .bookingForm.review-confirmation .main-content .info-form .cut-infos .form-group:nth-child(6) {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      margin-right: 70px; }
+    #content.reservation.bookingForm .main-content .info-form .cut-infos .first-time, .bookingForm.review-confirmation .main-content .info-form .cut-infos .first-time {
+      font-size: 1.4em;
+      display: inline-block;
+      margin-right: 15px; }
+    #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer {
+      margin-left: 35px; }
+      #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer > span, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer > span {
+        font-weight: 200; }
+      @media screen and (max-width: 767px) {
+        #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer {
+          margin-right: auto; } }
+  #content.reservation.bookingForm .main-content .info-form .form-end, .bookingForm.review-confirmation .main-content .info-form .form-end {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    width: 720px;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 10px 0 10px 50px;
+    margin-left: 15px;
+    margin: 10px 0 20px 15px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.bookingForm .main-content .info-form .form-end, .bookingForm.review-confirmation .main-content .info-form .form-end {
+        width: calc(100% - 30px);
+        border: 0; } }
+    #content.reservation.bookingForm .main-content .info-form .form-end label, .bookingForm.review-confirmation .main-content .info-form .form-end label {
+      font-weight: 200; }
+  #content.reservation.bookingForm .main-content .info-form .btn-red, .bookingForm.review-confirmation .main-content .info-form .btn-red {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 200;
+    width: 250px;
+    height: auto;
+    line-height: 30px;
+    border-radius: 2px; }
   #content.reservation.bookingForm .legend.conf p, .bookingForm.review-confirmation .legend.conf p {
     margin-bottom: 10px; }
     #content.reservation.bookingForm .legend.conf p:first-child, .bookingForm.review-confirmation .legend.conf p:first-child {
@@ -14210,9 +14549,6 @@ section.home-search .home-search-mobile {
     margin-top: -2em; }
     #content.reservation.bookingForm .legend.conf + a:hover, .bookingForm.review-confirmation .legend.conf + a:hover, #content.reservation.bookingForm .legend.conf + a:active, .bookingForm.review-confirmation .legend.conf + a:active {
       color: #595959; }
-    @media screen and (max-width: 767px) {
-      #content.reservation.bookingForm .legend.conf + a, .bookingForm.review-confirmation .legend.conf + a {
-        float: none !important; } }
   #content.reservation.bookingForm .confirm-bloc-form, .bookingForm.review-confirmation .confirm-bloc-form {
     float: none;
     margin: 0 auto; }
@@ -14358,100 +14694,206 @@ section.home-search .home-search-mobile {
         width: 90%;
         font-size: 1.5em; } }
 
-#content.reservation.confirmation .row input.registration, .confirmation.review-confirmation .row input.registration {
-  width: 60%;
-  float: left; }
-
-#content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
-  margin-top: 10px;
-  width: 48%;
-  margin-bottom: 10px; }
+#content.reservation.confirmation, .confirmation.review-confirmation {
+  min-height: 400px; }
   @media screen and (max-width: 767px) {
-    #content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
-      width: 100%; } }
-
-#content.reservation.confirmation .row div.calendarPanel, .confirmation.review-confirmation .row div.calendarPanel {
-  overflow: auto;
-  width: 100%;
-  margin-bottom: 10px; }
-  #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
-    text-align: center;
-    display: inline-block;
-    font-size: 1.3em;
-    font-weight: bold;
-    left: 10px; }
-    #content.reservation.confirmation .row div.calendarPanel a:before, .confirmation.review-confirmation .row div.calendarPanel a:before {
-      content: " ";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      display: block;
-      left: -10px; }
-  #content.reservation.confirmation .row div.calendarPanel a:first-child:before, .confirmation.review-confirmation .row div.calendarPanel a:first-child:before {
-    background: url(../img/icons/googleCalendar.png) no-repeat center center;
-    background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(2):before {
-    background: url(../img/icons/yahooCalendar.png) no-repeat center center;
-    background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(3):before {
-    background: url(../img/icons/outlook.png) no-repeat center center;
-    background-size: contain; }
-  #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(4):before {
-    background: url(../img/icons/icals.png) no-repeat center center;
-    background-size: contain; }
-
-#content.reservation.confirmation .row .infoFrame, .confirmation.review-confirmation .row .infoFrame {
-  margin-top: 25px;
-  border-color: #c4c4c4;
-  border-width: 1px;
-  border-style: solid;
-  padding: 10px; }
-  #content.reservation.confirmation .row .infoFrame p, .confirmation.review-confirmation .row .infoFrame p {
-    font-size: 1.2em; }
-  #content.reservation.confirmation .row .infoFrame ul, .confirmation.review-confirmation .row .infoFrame ul {
-    list-style: initial;
-    list-style-position: inside; }
-    #content.reservation.confirmation .row .infoFrame ul li, .confirmation.review-confirmation .row .infoFrame ul li {
-      font-size: 1.2em; }
-  #content.reservation.confirmation .row .infoFrame a, .confirmation.review-confirmation .row .infoFrame a {
-    margin-top: 5px;
-    width: 48%; }
-  @media screen and (max-width: 767px) {
-    #content.reservation.confirmation .row .infoFrame a.businessButton, .confirmation.review-confirmation .row .infoFrame a.businessButton {
-      width: 100%; } }
-  #content.reservation.confirmation .row .infoFrame div.separate:first-child, .confirmation.review-confirmation .row .infoFrame div.separate:first-child {
-    border-right: solid;
-    border-width: 1px;
-    border-color: #c4c4c4; }
-  #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2), .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) {
-    border-left: solid;
-    border-width: 1px;
-    border-color: #c4c4c4;
-    left: -1px;
-    padding-right: 0; }
-    #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) a, .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) a {
-      font-size: 1.4em; }
-
-#content.reservation.confirmation .row .buttonPanel a, .confirmation.review-confirmation .row .buttonPanel a {
-  margin-top: 5px;
-  text-align: center; }
-  #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child {
-    margin-right: 4%; }
-  #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child, #content.reservation.confirmation .row .buttonPanel a:nth-child(2), .confirmation.review-confirmation .row .buttonPanel a:nth-child(2) {
+    #content.reservation.confirmation, .confirmation.review-confirmation {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      #content.reservation.confirmation .booking-summary, .confirmation.review-confirmation .booking-summary {
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        -moz-order: 2;
+        -ms-flex-order: 2;
+        order: 2;
+        padding-top: 20px;
+        border-top: 1px solid #dfdfdf; } }
+  #content.reservation.confirmation .row .legend, .confirmation.review-confirmation .row .legend {
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    #content.reservation.confirmation .row .legend h3, .confirmation.review-confirmation .row .legend h3 {
+      letter-spacing: 0;
+      font-size: 1.6em;
+      font-weight: 400; }
+    #content.reservation.confirmation .row .legend p, .confirmation.review-confirmation .row .legend p {
+      letter-spacing: 0;
+      font-size: 1.2em;
+      font-weight: 200; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .row .legend .btn-red, .confirmation.review-confirmation .row .legend .btn-red {
+        width: 100%;
+        border-radius: 2px;
+        margin-bottom: 10px; } }
+  #content.reservation.confirmation .row input[type="text"], .confirmation.review-confirmation .row input[type="text"] {
+    height: 50px;
+    border-radius: 0; }
+  #content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
+    margin-top: 10px;
     width: 48%;
-    float: left; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3) {
-    margin-left: 16%;
-    margin-right: 8%; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3), #content.reservation.confirmation .row .buttonPanel a:nth-child(4), .confirmation.review-confirmation .row .buttonPanel a:nth-child(4) {
-    width: 30%;
-    margin-bottom: 5px;
-    float: left; }
-  #content.reservation.confirmation .row .buttonPanel a:nth-child(5), .confirmation.review-confirmation .row .buttonPanel a:nth-child(5) {
-    width: 30%;
-    display: block;
-    clear: both;
-    margin-left: 35%; }
+    margin-bottom: 10px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .row a.btn-white, .confirmation.review-confirmation .row a.btn-white, #content.reservation.confirmation .row a.btn-blue, .confirmation.review-confirmation .row a.btn-blue {
+        width: 100%; } }
+  #content.reservation.confirmation .row div.calendarPanel, .confirmation.review-confirmation .row div.calendarPanel {
+    width: 100%;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+    padding-left: 20px; }
+    #content.reservation.confirmation .row div.calendarPanel a, .confirmation.review-confirmation .row div.calendarPanel a {
+      text-align: center;
+      display: inline-block;
+      font-size: 1.3em;
+      font-weight: 200;
+      left: 10px; }
+      #content.reservation.confirmation .row div.calendarPanel a:before, .confirmation.review-confirmation .row div.calendarPanel a:before {
+        content: " ";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        left: -10px;
+        margin-right: 10px; }
+    #content.reservation.confirmation .row div.calendarPanel a:first-child:before, .confirmation.review-confirmation .row div.calendarPanel a:first-child:before {
+      background: url(../img/icons/googleCalendar.png) no-repeat center center;
+      background-size: contain; }
+    #content.reservation.confirmation .row div.calendarPanel a:nth-child(2):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(2):before {
+      background: url(../img/icons/yahooCalendar.png) no-repeat center center;
+      background-size: contain; }
+    #content.reservation.confirmation .row div.calendarPanel a:nth-child(3):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(3):before {
+      background: url(../img/icons/outlook.png) no-repeat center center;
+      background-size: contain; }
+    #content.reservation.confirmation .row div.calendarPanel a:nth-child(4):before, .confirmation.review-confirmation .row div.calendarPanel a:nth-child(4):before {
+      background: url(../img/icons/icals.png) no-repeat center center;
+      background-size: contain; }
+  #content.reservation.confirmation .row .infoFrame, .confirmation.review-confirmation .row .infoFrame {
+    margin-top: 25px;
+    border-color: #c4c4c4;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px; }
+    #content.reservation.confirmation .row .infoFrame p, .confirmation.review-confirmation .row .infoFrame p {
+      font-size: 1.2em; }
+    #content.reservation.confirmation .row .infoFrame ul, .confirmation.review-confirmation .row .infoFrame ul {
+      list-style: initial;
+      list-style-position: inside; }
+      #content.reservation.confirmation .row .infoFrame ul li, .confirmation.review-confirmation .row .infoFrame ul li {
+        font-size: 1.2em; }
+    #content.reservation.confirmation .row .infoFrame a, .confirmation.review-confirmation .row .infoFrame a {
+      margin-top: 5px;
+      width: 48%; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .row .infoFrame a.businessButton, .confirmation.review-confirmation .row .infoFrame a.businessButton {
+        width: 100%; } }
+    #content.reservation.confirmation .row .infoFrame div.separate:first-child, .confirmation.review-confirmation .row .infoFrame div.separate:first-child {
+      border-right: solid;
+      border-width: 1px;
+      border-color: #c4c4c4; }
+    #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2), .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) {
+      border-left: solid;
+      border-width: 1px;
+      border-color: #c4c4c4;
+      left: -1px;
+      padding-right: 0; }
+      #content.reservation.confirmation .row .infoFrame div.separate:nth-child(2) a, .confirmation.review-confirmation .row .infoFrame div.separate:nth-child(2) a {
+        font-size: 1.4em; }
+  #content.reservation.confirmation .row .buttonPanel a, .confirmation.review-confirmation .row .buttonPanel a {
+    margin-top: 5px;
+    text-align: center; }
+    #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child {
+      margin-right: 4%; }
+    #content.reservation.confirmation .row .buttonPanel a:first-child, .confirmation.review-confirmation .row .buttonPanel a:first-child, #content.reservation.confirmation .row .buttonPanel a:nth-child(2), .confirmation.review-confirmation .row .buttonPanel a:nth-child(2) {
+      width: 48%;
+      float: left; }
+    #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3) {
+      margin-left: 16%;
+      margin-right: 8%; }
+    #content.reservation.confirmation .row .buttonPanel a:nth-child(3), .confirmation.review-confirmation .row .buttonPanel a:nth-child(3), #content.reservation.confirmation .row .buttonPanel a:nth-child(4), .confirmation.review-confirmation .row .buttonPanel a:nth-child(4) {
+      width: 30%;
+      margin-bottom: 5px;
+      float: left; }
+    #content.reservation.confirmation .row .buttonPanel a:nth-child(5), .confirmation.review-confirmation .row .buttonPanel a:nth-child(5) {
+      width: 30%;
+      display: block;
+      clear: both;
+      margin-left: 35%; }
+  #content.reservation.confirmation .row .registration, .confirmation.review-confirmation .row .registration {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 30px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.confirmation .row .registration, .confirmation.review-confirmation .row .registration {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        padding-left: 0; }
+        #content.reservation.confirmation .row .registration h4, .confirmation.review-confirmation .row .registration h4 {
+          padding-left: 30px; }
+        #content.reservation.confirmation .row .registration .form-group, .confirmation.review-confirmation .row .registration .form-group {
+          margin: 20px 0 20px 0; }
+          #content.reservation.confirmation .row .registration .form-group input, .confirmation.review-confirmation .row .registration .form-group input {
+            width: 300px; }
+        #content.reservation.confirmation .row .registration .btn-red, .confirmation.review-confirmation .row .registration .btn-red {
+          margin: 10px;
+          width: 300px; } }
+    #content.reservation.confirmation .row .registration h4, .confirmation.review-confirmation .row .registration h4 {
+      letter-spacing: 0; }
+    #content.reservation.confirmation .row .registration .form-group, .confirmation.review-confirmation .row .registration .form-group {
+      margin-bottom: 0;
+      margin-left: 15px;
+      margin-right: 15px; }
+      #content.reservation.confirmation .row .registration .form-group input, .confirmation.review-confirmation .row .registration .form-group input {
+        height: 40px;
+        width: 300px;
+        border-radius: 0;
+        padding-left: 15px; }
+    #content.reservation.confirmation .row .registration .btn-red, .confirmation.review-confirmation .row .registration .btn-red {
+      height: 40px;
+      line-height: 40px;
+      padding: 0px 12px;
+      border-radius: 0;
+      letter-spacing: 0;
+      font-weight: 200; }
 
 .container.user#content .main-content {
   margin-top: 20px;
