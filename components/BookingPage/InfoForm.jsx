@@ -13,14 +13,29 @@ var Input = require('react-bootstrap').Input;
 var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');
 var formValidation = require('../../lib/formValidation');
+var validation = require('react-validation-mixin');
+var strategy = require('react-validatorjs-strategy');
+var classNames = require('classnames');
 
-module.exports = React.createClass({
+var InfoForm = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func
     },
     propTypes: {
         modifyTimeslot: React.PropTypes.func,
-        onSubmit: React.PropTypes.func
+        onSubmit: React.PropTypes.func,
+        errors: React.PropTypes.object,
+        validate: React.PropTypes.func,
+        isValid: React.PropTypes.func,
+        handleValidation: React.PropTypes.func,
+        getValidationMessages: React.PropTypes.func,
+        clearValidations: React.PropTypes.func
+    },
+    getValidatorData() {
+        return {
+            userGender: this.state.userGender,
+            userFirstName: this.refs.userFirstName.value
+        };
     },
     getDefaultProps: function () {
         return {
@@ -40,6 +55,19 @@ module.exports = React.createClass({
         });
     },
     getInitialState: function() {
+        this.validatorTypes = strategy.createSchema(
+        {
+            userGender: 'required',
+            userFirstName: 'required'
+        },
+        {
+             "required.email": "Email obligatoire",
+             "email.email": "L'email saisi est incorrect",
+             "required.password": "Saisissez votre mot de passe"
+        },
+        function (validator) {
+            validator.lang = 'fr';
+        })
         if (!this.props.currentUser) {
             return {
                 formConnect: false,
@@ -48,6 +76,7 @@ module.exports = React.createClass({
                 firstTimeCustomer: true
             };
         }
+        
         return {
             formConnect: false,
             cgu: true,
@@ -60,6 +89,9 @@ module.exports = React.createClass({
         };
     },
     render : function() {
+        var userFirstNameStyle = classNames({'error': !_.isEmpty(this.props.getValidationMessages('userFirstName'))});
+        // debugger;
+        console.log('userfns', userFirstNameStyle);
         return (
             <div className="info-form">
                 <div className="customer-infos col-sm-6 col-xs-12">
@@ -70,20 +102,22 @@ module.exports = React.createClass({
                         </span>
                     </div>
                     {this.renderConnectForm()}
-                    <Input className="radio">
-                        <label className="radio-inline" style={{marginLeft: '0px'}}>
-                            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
-                            Femme
-                        </label>
-                        <label className="radio-inline">
-                            <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
-                            Homme
-                        </label>
-                    </Input>
-                    <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom*" value={this.state.firstName} onChange={this.handleFirstNameChanged} onFocus={formValidation.required} />
-                    <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom*" value={this.state.lastName} onChange={this.handleLastNameChanged} onFocus={formValidation.required} />
-                    <Input ref="userEmail" name="userEmail" type="email" placeholder="Email*" value={this.state.email} onChange={this.handleEmailChanged} onFocus={formValidation.email} />
-                    <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Téléphone*" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged} onFocus={formValidation.phoneNumber}/>
+                    <div className="gender-radio">
+                        <Input className="radio">
+                            <label className="radio-inline" style={{marginLeft: '0px'}}>
+                                <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
+                                Femme
+                            </label>
+                            <label className="radio-inline">
+                                <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
+                                Homme
+                            </label>
+                        </Input>
+                    </div>
+                    <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom*" value={this.state.firstName} onChange={this.handleFirstNameChanged} bsStyle={userFirstNameStyle} hasFeedback/>
+                    <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom*" value={this.state.lastName} onChange={this.handleLastNameChanged} />
+                    <Input ref="userEmail" name="userEmail" type="email" placeholder="Email*" value={this.state.email} onChange={this.handleEmailChanged} />
+                    <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Téléphone*" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged} />
                 </div>
                 <div className="cut-infos col-sm-6 col-xs-12">
                     <div className="title">
@@ -169,25 +203,21 @@ module.exports = React.createClass({
         );
     },
     handleFirstNameChanged: function (e) {
-        formValidation.required(e);
         this.setState({
             firstName: e.currentTarget.value
         });
     },
     handleLastNameChanged: function (e) {
-        formValidation.required(e);
         this.setState({
             lastName: e.currentTarget.value
         });
     },
     handleEmailChanged: function (e) {
-        formValidation.email(e);
         this.setState({
             email: e.currentTarget.value
         });
     },
     handlePhoneNumberChanged: function (e) {
-        formValidation.phoneNumber(e);
         this.setState({
             phoneNumber: e.currentTarget.value
         });
@@ -247,32 +277,43 @@ module.exports = React.createClass({
         return this.state.cgu;
     },
     submit: function (e) {
-        if (
-            !this.refs.userFirstName.getValue() ||
-            !this.refs.userLastName.getValue() ||
-            !this.refs.userEmail.getValue() ||
-            !this.refs.userPhoneNumber.getValue() ||
-            !this.state.hairLength ||
-            !this.refs.service.getValue()
-            ) {
-            return this.context.executeAction(
-                NotificationActions.notifyWarning,
-                {
-                    title: 'Information',
-                    message: "Certains champs obligatoires n'ont pas été remplis"
-                }
-            );
-        }
-        else if (!this.state.cgu) {
-            return this.context.executeAction(
-                NotificationActions.notifyWarning,
-                {
-                    title: "Conditions Générales D'utilisation",
-                    message: "Vous devez accepter les conditions générales d'utilisation"
-                }
-            );
-        }
         e.preventDefault();
-        this.props.onSubmit();
+        // if (
+        //     !this.refs.userFirstName.getValue() ||
+        //     !this.refs.userLastName.getValue() ||
+        //     !this.refs.userEmail.getValue() ||
+        //     !this.refs.userPhoneNumber.getValue() ||
+        //     !this.state.hairLength ||
+        //     !this.refs.service.getValue()
+        //     ) {
+        //     return this.context.executeAction(
+        //         NotificationActions.notifyWarning,
+        //         {
+        //             title: 'Information',
+        //             message: "Certains champs obligatoires n'ont pas été remplis"
+        //         }
+        //     );
+        // }
+        // else if (!this.state.cgu) {
+        //     return this.context.executeAction(
+        //         NotificationActions.notifyWarning,
+        //         {
+        //             title: "Conditions Générales D'utilisation",
+        //             message: "Vous devez accepter les conditions générales d'utilisation"
+        //         }
+        //     );
+        // }
+        this.props.validate(function(error) {
+            if (error) {
+                //form has errors; do not submit
+                console.log('error', error);
+
+            } else {
+                //no errors; submit form
+                this.props.onSubmit();
+            }
+        }.bind(this));
     }
 });
+
+module.exports = validation(strategy)(InfoForm);

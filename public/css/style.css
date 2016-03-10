@@ -9448,13 +9448,10 @@ div.connect-button .facebook {
         @media screen and (max-width: 991px) {
           .cal td a .promo-day {
             bottom: -11px; } }
-      @media screen and (max-width: 1199px) {
-        .cal td a {
-          line-height: 40px; } }
       @media screen and (max-width: 991px) {
         .cal td a {
           line-height: 20px;
-          height: 20px; } }
+          height: 40px; } }
     .cal td.off {
       background: #f8f8f7;
       cursor: not-allowed;
@@ -14358,10 +14355,10 @@ section.home-search .home-search-mobile {
     border-radius: 0;
     height: 50px;
     width: 300px; }
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userEmail"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userFirstName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userFirstName"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userLastName"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="connectEmail"] {
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userEmail"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userFirstName"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userFirstName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userLastName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"] {
     border-bottom: 0; }
   #content.reservation.bookingForm .main-content .info-form .customer-infos, .bookingForm.review-confirmation .main-content .info-form .customer-infos {
     display: -webkit-box;
@@ -14386,7 +14383,7 @@ section.home-search .home-search-mobile {
       font-weight: 200; }
     #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group, .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group {
       margin-bottom: 0; }
-    #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group:nth-child(2), .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group:nth-child(2) {
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .gender-radio > .form-group, .bookingForm.review-confirmation .main-content .info-form .customer-infos .gender-radio > .form-group {
       margin-right: 120px; }
     #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc {
       width: 300px;

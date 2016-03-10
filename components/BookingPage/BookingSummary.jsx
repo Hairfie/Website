@@ -151,7 +151,7 @@ var BookingSummary = React.createClass({
     renderDiscountNode: function(days, amount) {
         if (!_.isArray(days)) days = [days];
         return (
-            <span className="discount">
+            <span className="discount" key={days.toString() + '-' + amount.toString()}>
                 {amount}% sur toutes les prestations et tous les achats.
                 Disponible {_.map(orderWeekDays(days), weekDayLabel, this).join(' ')}.
             </span>
