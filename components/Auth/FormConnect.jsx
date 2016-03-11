@@ -7,9 +7,7 @@ var AuthActions = require('../../actions/AuthActions');
 var NavigationActions = require('../../actions/NavigationActions');
 var Input = require('react-bootstrap').Input;
 var Link = require('../Link.jsx');
-// var Joi = require('joi');
 var validation = require('react-validation-mixin');
-// var strategy = require('joi-validation-strategy');
 var strategy = require('react-validatorjs-strategy');
 var classNames = require('classnames');
 
@@ -38,9 +36,9 @@ var FormConnect = React.createClass({
                 password: 'required'
             },
             {
-                 "required.email": "Email obligatoire",
-                 "email.email": "L'email saisi est incorrect",
-                 "required.password": "Saisissez votre mot de passe"
+                "required.email": "Email obligatoire",
+                "email.email": "L'email saisi est incorrect",
+                "required.password": "Saisissez votre mot de passe"
             },
             function (validator) {
                 validator.lang = 'fr';
@@ -54,17 +52,50 @@ var FormConnect = React.createClass({
         var bsStyle = {};
         var inputs = ['email', 'password'];
         _.map(inputs, function(name){return bsStyle[name] = !_.isEmpty(this.props.getValidationMessages(name))}, this);
-        debugger;
         return (
             <form className="form">
-                <Input type="email" name="connectEmail" ref="email" onKeyPress={this.handleKey} placeholder="Adresse Email *" onChange={this.handleEmailChange} value={this.state.email} onBlur={this.props.handleValidation('email')} bsStyle={emailStyle} hasFeedback/>
-                <Input type="password" ref="password" onKeyPress={this.handleKey} placeholder="Mot de Passe *" onChange={this.handlePasswordChange} value={this.state.password} onBlur={this.props.handleValidation('password')} bsStyle={passStyle} hasFeedback/>
-                {this.props.getValidationMessages('email')}
-                {this.props.getValidationMessages('password')}
+                <div className={this.getClasses('email')}>
+                    <input 
+                        type="email"
+                        name="connectEmail"
+                        ref="email"
+                        className="form-control"
+                        onKeyPress={this.handleKey}
+                        placeholder="Adresse Email *"
+                        onChange={this.handleEmailChange}
+                        value={this.state.email}
+                        onBlur={this.props.handleValidation('email')}/>
+                </div>
+                <div className={this.getClasses('password')}>
+                    <input 
+                        type="password"
+                        ref="password"
+                        className="form-control"
+                        onKeyPress={this.handleKey}
+                        placeholder="Mot de Passe *"
+                        onChange={this.handlePasswordChange}
+                        value={this.state.password}
+                        onBlur={this.props.handleValidation('password')} />
+                </div>
+                {this.renderErrorMessages()}
                 <a role="button" onClick={this.submit} className="btn btn-red full">Se connecter</a>
                 <a role="button" onClick={this.resetPassword} className="forgot-password">Mot de passe oublié ?</a>
             </form>
         );
+    },
+    renderErrorMessages: function() {
+        if (_.isEmpty(this.props.getValidationMessages())) return;
+        return (
+            <div className="validation-errors alert col-xs-12">
+                {this.props.getValidationMessages()}
+            </div>
+        );
+    },
+    getClasses(field) {
+        return classNames({
+            'form-group': true,
+            'has-error': !this.props.isValid(field)
+        });
     },
     handleKey: function(e) {
         if(e.keyCode == 13) {
@@ -93,11 +124,8 @@ var FormConnect = React.createClass({
         event.preventDefault();
         this.props.validate(function(error) {
             if (error) {
-                //form has errors; do not submit
-                console.log('error', error);
-
+                return;
             } else {
-                //no errors; submit form
                 this.context.executeAction(AuthActions.emailConnect, {
                     email: this.state.email,
                     password: this.state.password,

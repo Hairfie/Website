@@ -34,7 +34,12 @@ var InfoForm = React.createClass({
     getValidatorData() {
         return {
             userGender: this.state.userGender,
-            userFirstName: this.refs.userFirstName.value
+            userFirstName: this.refs.userFirstName.value,
+            userLastName: this.refs.userLastName.value,
+            userEmail: this.refs.userEmail.value,
+            userPhoneNumber: this.refs.userPhoneNumber.value,
+            service: this.refs.service.value,
+            cgu: this.state.cgu
         };
     },
     getDefaultProps: function () {
@@ -50,7 +55,7 @@ var InfoForm = React.createClass({
             firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
             lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "",
             email: nextProps.currentUser.email ? nextProps.currentUser.email : "",
-            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : "",
+            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : this.state.phoneNumber,
             userGender: nextProps.currentUser.gender ? nextProps.currentUser.gender : ""
         });
     },
@@ -58,12 +63,22 @@ var InfoForm = React.createClass({
         this.validatorTypes = strategy.createSchema(
         {
             userGender: 'required',
-            userFirstName: 'required'
+            userFirstName: 'required',
+            userLastName: 'required',
+            userEmail: 'email|required',
+            userPhoneNumber: 'required',
+            service: 'required',
+            cgu: 'accepted'
         },
         {
-             "required.email": "Email obligatoire",
-             "email.email": "L'email saisi est incorrect",
-             "required.password": "Saisissez votre mot de passe"
+            "required.userGender": "Vous devez choisir votre genre",
+            "required.userFirstName": "Vous devez saisir votre prénom",
+            "required.userLastName": "Vous devez saisir votre nom",
+            "required.userEmail": "Vous devez saisir un email",
+            "email.userEmail": "L'email saisi est incorrect",
+            "required.userPhoneNumber": "Vous devez saisir un n° de téléphone portable",
+            "required.service": "Vous devez indiquer la prestation souhaitée",
+            "accepted.cgu": "Vous devez accepter les CGU"
         },
         function (validator) {
             validator.lang = 'fr';
@@ -71,27 +86,28 @@ var InfoForm = React.createClass({
         if (!this.props.currentUser) {
             return {
                 formConnect: false,
-                cgu: true,
+                cgu: 1,
                 newsletter: true,
-                firstTimeCustomer: true
+                firstTimeCustomer: true,
+                userGender: UserConstants.Genders.FEMALE,
+                hairLength: UserConstants.Hairs.SHORT
             };
         }
         
         return {
             formConnect: false,
-            cgu: true,
+            cgu: 1,
             firstTimeCustomer: true,
             firstName: this.props.currentUser.firstName ? this.props.currentUser.firstName : "",
             lastName: this.props.currentUser.lastName ? this.props.currentUser.lastName : "",
             email: this.props.currentUser.email ? this.props.currentUser.email : "",
             phoneNumber: this.props.currentUser.phoneNumber ? this.props.currentUser.phoneNumber : "",
-            userGender: this.props.currentUser.gender ? this.props.currentUser.gender : ""
+            userGender: this.props.currentUser.gender ? this.props.currentUser.gender : UserConstants.Genders.FEMALE,
+            hairLength: UserConstants.Hairs.SHORT
+
         };
     },
     render : function() {
-        var userFirstNameStyle = classNames({'error': !_.isEmpty(this.props.getValidationMessages('userFirstName'))});
-        // debugger;
-        console.log('userfns', userFirstNameStyle);
         return (
             <div className="info-form">
                 <div className="customer-infos col-sm-6 col-xs-12">
@@ -114,10 +130,50 @@ var InfoForm = React.createClass({
                             </label>
                         </Input>
                     </div>
-                    <Input ref="userFirstName" name="userFirstName" type="text"  placeholder="Prénom*" value={this.state.firstName} onChange={this.handleFirstNameChanged} bsStyle={userFirstNameStyle} hasFeedback/>
-                    <Input ref="userLastName" name="userLastName" type="text" placeholder="Nom*" value={this.state.lastName} onChange={this.handleLastNameChanged} />
-                    <Input ref="userEmail" name="userEmail" type="email" placeholder="Email*" value={this.state.email} onChange={this.handleEmailChanged} />
-                    <Input ref="userPhoneNumber" name="userPhoneNumber" type="text" placeholder="Téléphone*" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChanged} />
+                    <div className={this.getClasses('userFirstName')}>
+                        <input 
+                            ref="userFirstName" 
+                            name="userFirstName" 
+                            type="text"  
+                            className="form-control"
+                            placeholder="Prénom*" 
+                            value={this.state.firstName} 
+                            onChange={this.handleFirstNameChanged}
+                            onBlur={this.props.handleValidation('userFirstName')}/>
+                    </div>
+                    <div className={this.getClasses('userLastName')}>
+                        <input 
+                            ref="userLastName" 
+                            name="userLastName" 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Nom*" 
+                            value={this.state.lastName} 
+                            onChange={this.handleLastNameChanged} 
+                            onBlur={this.props.handleValidation('userLastName')}/>
+                    </div>
+                    <div className={this.getClasses('userEmail')}>
+                        <input 
+                            ref="userEmail" 
+                            name="userEmail" 
+                            type="email" 
+                            className="form-control"
+                            placeholder="Email*" 
+                            value={this.state.email} 
+                            onChange={this.handleEmailChanged} 
+                            onBlur={this.props.handleValidation('userEmail')}/>
+                    </div>
+                    <div className={this.getClasses('userPhoneNumber')}>
+                        <input 
+                            ref="userPhoneNumber" 
+                            name="userPhoneNumber" 
+                            type="text"
+                            className="form-control" 
+                            placeholder="Téléphone portable*" 
+                            value={this.state.phoneNumber} 
+                            onChange={this.handlePhoneNumberChanged} 
+                            onBlur={this.props.handleValidation('userPhoneNumber')}/>
+                    </div>
                 </div>
                 <div className="cut-infos col-sm-6 col-xs-12">
                     <div className="title">
@@ -144,7 +200,15 @@ var InfoForm = React.createClass({
                             </div>
                         </div>
                     </Input>
-                    <Input ref="service" name="service" type="text" placeholder="Prestation demandée *" onChange={formValidation.required} onFocus={formValidation.required}/>
+                    <div className={this.getClasses('service')}>
+                        <input 
+                        ref="service" 
+                        name="service" 
+                        type="text" 
+                        className="form-control"
+                        placeholder="Prestation demandée *" 
+                        onBlur={this.props.handleValidation('service')}/>
+                    </div>
                     <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
                     <Input className="radio">
                         <div className="first-time">Première visite ?</div>
@@ -158,16 +222,25 @@ var InfoForm = React.createClass({
                         </label>
                     </Input>
                 </div>
+                {this.renderErrorMessages()}
                 <div className="form-end col-xs-12">
                     {this.renderNewsletter()}
                     <label>
-                        <input type="checkbox" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
+                        <input type="checkbox" ref="cgu" name='cgu' defaultChecked={true} onChange={this.handleCGUChanged}/>
                         Je reconnais avoir pris connaissance des <a href="http://api.hairfie.com/public/mentions_legales_v3_fr.pdf" target="_blank" style={{textDecoration: "underline"}}>conditions générales d'{/* ' */}utilisation</a> de hairfie.
                     </label>
                 </div>
                 <div className="col-xs-12">
                     <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
                 </div>    
+            </div>
+        );
+    },
+    renderErrorMessages: function() {
+        if (_.isEmpty(this.props.getValidationMessages())) return;
+        return (
+            <div className="validation-errors alert col-xs-12 col-sm-offset-2 col-sm-8">
+                {this.props.getValidationMessages()}
             </div>
         );
     },
@@ -192,7 +265,6 @@ var InfoForm = React.createClass({
                 );
     },
     renderConnectForm: function() {
-        // debugger;
         if (!this.state.formConnect || this.props.currentUser)
             return;
         return (
@@ -201,6 +273,12 @@ var InfoForm = React.createClass({
                 <FormConnect withNavigate={false}/>
             </div>
         );
+    },
+    getClasses(field) {
+        return classNames({
+            'form-group': true,
+            'has-error': !this.props.isValid(field)
+        });
     },
     handleFirstNameChanged: function (e) {
         this.setState({
@@ -234,7 +312,7 @@ var InfoForm = React.createClass({
     },
     handleCGUChanged: function (e) {
         this.setState({
-            cgu: e.currentTarget.checked
+            cgu: e.currentTarget.checked ? 1 : 0
         });
     },
     handleNewsletterChanged: function (e) {
@@ -278,38 +356,10 @@ var InfoForm = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
-        // if (
-        //     !this.refs.userFirstName.getValue() ||
-        //     !this.refs.userLastName.getValue() ||
-        //     !this.refs.userEmail.getValue() ||
-        //     !this.refs.userPhoneNumber.getValue() ||
-        //     !this.state.hairLength ||
-        //     !this.refs.service.getValue()
-        //     ) {
-        //     return this.context.executeAction(
-        //         NotificationActions.notifyWarning,
-        //         {
-        //             title: 'Information',
-        //             message: "Certains champs obligatoires n'ont pas été remplis"
-        //         }
-        //     );
-        // }
-        // else if (!this.state.cgu) {
-        //     return this.context.executeAction(
-        //         NotificationActions.notifyWarning,
-        //         {
-        //             title: "Conditions Générales D'utilisation",
-        //             message: "Vous devez accepter les conditions générales d'utilisation"
-        //         }
-        //     );
-        // }
         this.props.validate(function(error) {
             if (error) {
-                //form has errors; do not submit
-                console.log('error', error);
-
+                return;
             } else {
-                //no errors; submit form
                 this.props.onSubmit();
             }
         }.bind(this));

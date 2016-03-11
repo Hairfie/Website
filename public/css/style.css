@@ -14179,7 +14179,8 @@ section.home-search .home-search-mobile {
         line-height: 25px;
         background: url(../img/resa/icon-promo.png) no-repeat center left;
         background-size: contain;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-top: 4px; }
       #content.reservation .booking-summary .promo-bloc .promo .discount, .review-confirmation .booking-summary .promo-bloc .promo .discount {
         display: block;
         float: left;
@@ -14334,6 +14335,16 @@ section.home-search .home-search-mobile {
           opacity: .7; }
   #content.reservation .main-content h3, .review-confirmation .main-content h3 {
     margin: 0; }
+  #content.reservation .main-content .has-error > input, .review-confirmation .main-content .has-error > input {
+    border-color: #fe5b5f;
+    color: #fe5b5f; }
+    #content.reservation .main-content .has-error > input::-moz-placeholder, .review-confirmation .main-content .has-error > input::-moz-placeholder {
+      color: #fe5b5f;
+      opacity: 1; }
+    #content.reservation .main-content .has-error > input:-ms-input-placeholder, .review-confirmation .main-content .has-error > input:-ms-input-placeholder {
+      color: #fe5b5f; }
+    #content.reservation .main-content .has-error > input::-webkit-input-placeholder, .review-confirmation .main-content .has-error > input::-webkit-input-placeholder {
+      color: #fe5b5f; }
 
 #content.reservation.bookingForm, .bookingForm.review-confirmation {
   color: #595959; }
@@ -14360,6 +14371,8 @@ section.home-search .home-search-mobile {
   #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userLastName"],
   #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"] {
     border-bottom: 0; }
+  #content.reservation.bookingForm .main-content .info-form .form-group.has-error + .form-group.has-error input, .bookingForm.review-confirmation .main-content .info-form .form-group.has-error + .form-group.has-error input {
+    border-top: 0; }
   #content.reservation.bookingForm .main-content .info-form .customer-infos, .bookingForm.review-confirmation .main-content .info-form .customer-infos {
     display: -webkit-box;
     display: -webkit-flex;
@@ -14481,6 +14494,30 @@ section.home-search .home-search-mobile {
       @media screen and (max-width: 767px) {
         #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer {
           margin-right: auto; } }
+  #content.reservation.bookingForm .main-content .info-form .validation-errors, .bookingForm.review-confirmation .main-content .info-form .validation-errors {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 1.4em;
+    color: #fe5b5f;
+    border-color: #fe5b5f;
+    background-color: MistyRose;
+    border-radius: 0; }
+  #content.reservation.bookingForm .main-content .info-form .cut-infos + .validation-errors, .bookingForm.review-confirmation .main-content .info-form .cut-infos + .validation-errors {
+    margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.bookingForm .main-content .info-form .cut-infos + .validation-errors, .bookingForm.review-confirmation .main-content .info-form .cut-infos + .validation-errors {
+        width: 300px;
+        margin-left: calc((100% - 300px) / 2);
+        margin-top: 0; } }
   #content.reservation.bookingForm .main-content .info-form .form-end, .bookingForm.review-confirmation .main-content .info-form .form-end {
     display: -webkit-box;
     display: -webkit-flex;
@@ -14499,8 +14536,8 @@ section.home-search .home-search-mobile {
     -moz-align-items: flex-start;
     align-items: flex-start;
     margin-bottom: 20px;
-    padding-left: 50px;
-    width: 720px;
+    padding-left: 350px;
+    width: calc(100% - 30px);
     border-top: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
     padding: 10px 0 10px 50px;
