@@ -12,8 +12,7 @@ var Selections = React.createClass({
                 <div>
                     <h2>Nos sélections de salons</h2>
                     <p>
-                        L'équipe Hairfie partage ses bonnes adresses. Des pépites de coiffeurs, coloristes et barbiers&nbsp;
-                        à ne manquer sous aucun prétexte !
+                        L'équipe Hairfie partage ses bonnes adresses. Des pépites de coiffeurs, coloristes et barbiers&nbsp;à ne manquer sous aucun prétexte !
                     </p>
                     <div className="flex-selections">
                         <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-bons-plans'}}>
