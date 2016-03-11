@@ -8,14 +8,7 @@ module.exports = React.createClass({
         return (
             <section className="home-section how">
                 <div className="row">
-                    <h2 className="col-sm-3 col-xs-12">Hairfie comment ça marche&nbsp;?</h2>
-                    <div className="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-2">
-                        <Picture picture={{url: "/img/home/photo-red.svg"}} svg={true} style={{width: 40, height: 100, float: 'left'}} alt="Trouvez votre coupe" />
-                        <div className="how-txt">
-                            <h3>S’inspirer</h3>
-                            <p>des hairfies postés et trouver son coiffeur</p>
-                        </div>
-                    </div>
+                    <h2 className="col-sm-3 col-xs-12">Comment ça marche&nbsp;?</h2>
                     <div className="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-2">
                         <Picture picture={{url: "/img/icons/calendar.svg"}} svg={true} style={{width: 40, height: 100, float: 'left'}} alt="Prenez RDV avec votre coiffeur" />
                         <div className="how-txt">
@@ -24,10 +17,17 @@ module.exports = React.createClass({
                         </div>
                     </div>
                     <div className="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-2">
+                        <Picture picture={{url: "/img/howitworks/new-hairfie.svg"}} svg={true} style={{width: 40, height: 100, float: 'left'}} alt="Trouvez votre coupe" />
+                        <div className="how-txt">
+                            <h3>Découvrir</h3>
+                            <p>des nouvelles coupes postées par notre communauté</p>
+                        </div>
+                    </div>
+                    <div className="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-2">
                         <Picture picture={{url: "/img/icons/heart.svg"}} svg={true} style={{width: 40, height: 100, float: 'left'}} alt="Partagez votre #Hairfie" />
                         <div className="how-txt">
                             <h3>Partager</h3>
-                            <p>son expérience.<br />Poster un hairfie et un avis.</p>
+                            <p>votre expérience en postant un avis & un hairfie</p>
                         </div>
                     </div>
                 </div>
