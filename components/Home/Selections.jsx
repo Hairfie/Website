@@ -16,26 +16,20 @@ var Selections = React.createClass({
                         à ne manquer sous aucun prétexte !
                     </p>
                     <div className="flex-selections">
-                        <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-bons-plans'}}>
-                            <div className="selection-item">
+                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-bons-plans'}} className="selection-item">
                                 <div className="img les-bons-plans" />
                                 <h4>Les bons plans</h4>
-                                <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-bons-plans'}}>Voir les salons</Link>
-                            </div>
+                                Voir les salons
                         </Link>
-                        <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-meilleurs-coloristes'}}>
-                            <div className="selection-item">
+                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-meilleurs-coloristes'}} className="selection-item">
                                 <div className="img les-meilleurs-coloristes" />
                                 <h4>Nos coloristes</h4>
-                                <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-meilleurs-coloristes'}}>Voir les salons</Link>
-                            </div>
+                                Voir les salons
                         </Link>
-                        <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-barbershops'}}>
-                            <div className="selection-item">
+                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-barbershops'}} className="selection-item">
                                 <div className="img les-barbershops" />
                                 <h4>Nos barbiers</h4>
-                                <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-barbershops'}}>Voir les salons</Link>
-                            </div>
+                                Voir les salons
                         </Link>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
         header {
             background-color: inherit;
         }
-        height: 500px;
+        height: 520px;
         background: url(../img/home/photo-bg.jpg) no-repeat top center;
         background-size: cover;
     }
@@ -38,6 +38,7 @@
         color: white;
         font-size: 2em;
         font-weight: $light;
+        margin-bottom: 50px;
     }
     .headline {
         margin: 70px auto 0;
@@ -245,9 +246,13 @@ section.selections {
                 height: 215px;
                 margin-bottom: 20px;
             }
+            &:hover, &:active, &:focus, &:visited {
+                color: inherit;
+                text-decoration: none;
+            }
             h4 {
                 text-transform: uppercase;
-                font-size: 1.3em;
+                font-size: 2em;
                 font-weight: $light;
                 margin-top: 20px;
                 text-align: center;
@@ -256,15 +261,12 @@ section.selections {
                     margin-bottom: 5px;
                 }
             }
-            a {
+            span {
                 font-size: 1.8em;
+                font-weight: 100;
                 width: 100%;
-                height: 100%;
                 text-align: center;
-                &:hover {
-                    color: inherit;
-                    text-decoration: none;
-                }
+
             }
             .img {
                 width: 100%;
@@ -372,6 +374,7 @@ section.home-section {
     margin: 90px 15px 60px 15px;
     height: 80px;
     border: 1px solid $grey;
+    width: calc(100% - 30px);
     > a:nth-child(1) {
         margin-right: 10px;
     }
@@ -567,6 +570,7 @@ section.home-search {
     
     .main-searchbar {
         margin: 0;
+        margin-left: 15px;
     }
 
     @media screen and (max-width: $screen-xs-max) {
