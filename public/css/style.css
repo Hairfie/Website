@@ -14361,7 +14361,8 @@ section.home-search .home-search-mobile {
       float: left; }
     #content.reservation.bookingForm .main-content .info-form .title .connect, .bookingForm.review-confirmation .main-content .info-form .title .connect {
       float: right;
-      line-height: 25px; }
+      line-height: 25px;
+      text-decoration: underline; }
   #content.reservation.bookingForm .main-content .info-form .form-group input[type="text"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="text"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="email"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="email"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="password"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="password"] {
     border-radius: 0;
     height: 50px;

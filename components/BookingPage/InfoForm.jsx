@@ -231,7 +231,7 @@ var InfoForm = React.createClass({
                     </label>
                 </div>
                 <div className="col-xs-12">
-                    <a role="button" onClick={this.submit} className="btn btn-red">Terminer la réservation</a>
+                    <a role="button" onClick={this.submit} className="btn btn-red">Confirmer ma demande</a>
                 </div>    
             </div>
         );
