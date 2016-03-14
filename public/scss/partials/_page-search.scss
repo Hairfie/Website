@@ -262,6 +262,15 @@
             line-height: 40px;
         }
     }
+
+    .result-top-bar {
+        background-color: $bg2;
+        @include flexbox;
+        @include align-items(center);
+        padding: 14px 10px;
+        font-size: 1.6em;
+        font-weight: $regular;
+    }
     .main-content {
 
         .search-content {

@@ -13,6 +13,7 @@ var Rating = require('../Partial/Rating.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Loading = require('../Partial/Loading.jsx');
 var ReactFitText = require('react-fittext');
+var ResultTopBar = require('./ResultTopBar.jsx');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -235,9 +236,10 @@ var BusinessResult = React.createClass({
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
-                        {searchedSelectionsLabels}
-                        {searchedCategoriesLabels}
-                    </div>
+                    <ResultTopBar result={this.props.result} kind="salon" />
+                    {searchedSelectionsLabels}
+                    {searchedCategoriesLabels}
+                </div>
                 <div className="row">
                     {_.map(result.hits, function (business) {
                         return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
@@ -270,6 +272,7 @@ var BusinessResult = React.createClass({
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
+                    <ResultTopBar result={this.props.result} kind="salon" />
                     {searchedCategoriesLabels}
                     {searchedSelectionsLabels}
                 </div>
