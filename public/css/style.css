@@ -11224,7 +11224,8 @@ section.selections .flex-selections {
       font-size: 1.8em;
       font-weight: 100;
       width: 100%;
-      text-align: center; }
+      text-align: center;
+      text-decoration: underline; }
     section.selections .flex-selections .selection-item .img {
       width: 100%;
       height: 185px;
