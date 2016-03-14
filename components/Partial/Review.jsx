@@ -41,7 +41,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-xs-9 col-sm-10">
                     <div className="title">
-                        <p>{displayName(review)}{symbol}</p>
+                        <p>{_.capitalize(displayName(review))}{symbol}</p>
                         <Rating rating={review.rating} min={true} className="review-rating" />
                     </div>
                     {this.verified(review)}

@@ -1098,7 +1098,6 @@
         div.title {
             p {
                 color: $grey4;
-                text-transform: uppercase;
                 font-weight: $regular;
                 .gender-symbol {
                     display: none;
@@ -1117,6 +1116,9 @@
         .yelp-date {
             color: $grey;
             font-size: 1.2em;
+        }
+        a {
+            text-decoration: underline;
         }
         a:hover {
             color: inherit;
