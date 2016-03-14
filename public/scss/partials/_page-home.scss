@@ -389,6 +389,8 @@ section.home-section {
         height: 60px;line-height: 60px;
         margin-right: 0px; margin-left: -5px;
         border: 1px solid $grey5;
+        border-radius: 0;
+        -webkit-appearance: none;
         font-weight: $regular;
         letter-spacing: 0px;
         font-size: 1.6em;

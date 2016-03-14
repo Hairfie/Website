@@ -231,7 +231,7 @@ a {
         border: 2px solid #e6e6e6;
         font-family: $font-second;
         font-weight: $latoBold;
-        font-size: 1.4em; letter-spacing: 2px;
+        font-size: 1.4em;
         color: $grey;
         &:focus {
             outline:0;
@@ -393,7 +393,8 @@ a {
         margin-right: 10px;
         height: 40px;line-height: 40px;
         border-width: 1px;
-
+        border-radius: 0;
+        -webkit-appearance: none;
     }
     div.input-group {
         float: left;

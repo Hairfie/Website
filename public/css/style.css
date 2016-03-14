@@ -9115,7 +9115,6 @@ div#app {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 1.6em;
-  letter-spacing: 1px;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -9699,7 +9698,6 @@ a {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 1.4em;
-  letter-spacing: 2px;
   color: #c4c4c4; }
   .searchbar input:focus {
     outline: 0; }
@@ -9847,7 +9845,9 @@ a {
     margin-right: 10px;
     height: 40px;
     line-height: 40px;
-    border-width: 1px; }
+    border-width: 1px;
+    border-radius: 0;
+    -webkit-appearance: none; }
   .searchbar.small-search div.input-group {
     float: left;
     padding-right: 15px; }
@@ -11332,6 +11332,8 @@ section.home-section {
     margin-right: 0px;
     margin-left: -5px;
     border: 1px solid #e6e6e6;
+    border-radius: 0;
+    -webkit-appearance: none;
     font-weight: 400;
     letter-spacing: 0px;
     font-size: 1.6em; }
