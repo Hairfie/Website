@@ -335,7 +335,6 @@ var InfoForm = React.createClass({
         this.props.modifyTimeslot();
     },
     getBookingInfo: function() {
-        debugger;
         return {
             businessId  : this.props.business.id,
             gender      : this.state.userGender,
