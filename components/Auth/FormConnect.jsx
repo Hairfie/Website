@@ -91,7 +91,7 @@ var FormConnect = React.createClass({
             </div>
         );
     },
-    getClasses(field) {
+    getClasses: function(field) {
         return classNames({
             'form-group': true,
             'has-error': !this.props.isValid(field)

@@ -31,7 +31,7 @@ var InfoForm = React.createClass({
         getValidationMessages: React.PropTypes.func,
         clearValidations: React.PropTypes.func
     },
-    getValidatorData() {
+    getValidatorData: function() {
         return {
             userGender: this.state.userGender,
             userFirstName: this.refs.userFirstName.value,
@@ -274,7 +274,7 @@ var InfoForm = React.createClass({
             </div>
         );
     },
-    getClasses(field) {
+    getClasses: function(field) {
         return classNames({
             'form-group': true,
             'has-error': !this.props.isValid(field)
