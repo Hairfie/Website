@@ -105,6 +105,7 @@
                     background: url(../img/resa/icon-promo.png) no-repeat center left;
                     background-size: contain;
                     margin-right: 10px;
+                    margin-top: 4px;
                 }
                 .discount {
                     display: block;
@@ -284,6 +285,11 @@
         h3 {
             margin: 0;
         }
+        .has-error > input {
+            border-color: $hairfie;
+            color: $hairfie;
+            @include placeholder($hairfie);
+        }
     }
 }
 #content.reservation.bookingForm {
@@ -305,6 +311,7 @@
                 .connect {
                     float: right;
                     line-height: 25px;
+                    text-decoration: underline;
                 }
             }
             .form-group {
@@ -313,12 +320,17 @@
                     height: 50px;
                     width: 300px;
                 }
+            }
+            .form-group:not(.has-error) {
                 input[name="userEmail"], 
                 input[name="userFirstName"],
                 input[name="userLastName"],
                 input[name="connectEmail"] {
                     border-bottom: 0;
                 }
+            }
+            .form-group.has-error + .form-group.has-error {
+                input {border-top : 0};
             }
             .customer-infos {
                 @include flexbox;
@@ -332,7 +344,7 @@
                 .form-group {
                     margin-bottom: 0;
                 }
-                .form-group:nth-child(2) {
+                .gender-radio > .form-group {
                     margin-right: 120px;
                 }
                 .connect-bloc {
@@ -403,13 +415,30 @@
                     }
                 }
             }
+            .validation-errors {
+                @include inline-flex;
+                @include flex-direction(column);
+                font-size: 1.4em;
+                color: $hairfie;
+                border-color: $hairfie;
+                background-color: MistyRose;
+                border-radius: 0;
+            }
+            .cut-infos + .validation-errors {
+                margin-top: 20px;
+                @media screen and (max-width: $screen-xs-max) {
+                    width: 300px;
+                    margin-left: calc((100% - 300px) / 2);
+                    margin-top: 0;
+                }
+            }
             .form-end {
                 @include flexbox;
                 @include flex-direction(column);
                 @include align-items(flex-start);
                 margin-bottom: 20px;
-                padding-left: 50px;
-                width: 720px;
+                padding-left: 350px;
+                width: calc(100% - 30px);
                 border-top: 1px solid $grey2;
                 border-bottom: 1px solid $grey2;
                 padding: 10px 0 10px 50px;

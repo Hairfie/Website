@@ -6,6 +6,13 @@
     header {
         div.dark-header {
             background-color: rgba(255, 255, 255, 0.2);
+            div.container div div.user .dropdown-menu {
+                margin-top: 9px;
+                background-color: rgba(255, 255, 255, 0.2);
+                a:hover {
+                    background-color: $grey;
+                }
+            }
         }
     }
     width: 100vw;
@@ -200,11 +207,11 @@ section.how {
             font-size: 1.6em;
             letter-spacing: 1px;
             text-align: center;
-            margin-bottom: 25px;
-            padding-top: 35px;
+            margin-bottom: 15px;
+            padding-top: 15px;
         }
         .row > div {
-            height: 80px;
+            height: 60px;
             color: $lightgrey;
             object {
                 margin-top: -20px;
@@ -705,9 +712,9 @@ section.home-search {
         @include flex-center;
         @include justify-content(center);
         position: absolute;
+        top: 0;
         left: 0;
         right: 0;
-        top: 0;
         bottom: 0;
         margin: 10px;
         &:hover {
@@ -735,12 +742,12 @@ section.home-search {
         display: block;
         position: absolute;
         left: 0;
+        top: 0;
         height: 100%;
         width: 100%;
         opacity: 0.3;
         background: black;
         @include transition(opacity 0.2s);
-
     }
 
     .background:hover:before {

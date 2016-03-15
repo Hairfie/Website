@@ -27,6 +27,9 @@ header {
 				}
 				.dropdown-menu {
 					background-color: $dark-header;
+					a:hover {
+						background-color: $darkgrey;
+					}
 				}
 				img, object {
 					background-color: white;

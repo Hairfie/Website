@@ -154,11 +154,11 @@
                 }
             }
             @media screen and (max-width: $screen-md-max) {
-                line-height: 40px;
+                // line-height: 40px;
             }
             @media screen and (max-width: $screen-sm-max) {
                 line-height: 20px ;
-                height: 20px;
+                height: 40px;
             }
         }
 
