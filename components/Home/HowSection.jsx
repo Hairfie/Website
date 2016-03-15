@@ -8,7 +8,7 @@ module.exports = React.createClass({
         return (
             <section className="home-section how">
                 <div className="row">
-                    <h2 className="col-sm-3 col-xs-12">Comment ça marche&nbsp;?</h2>
+                    <h2 className="col-sm-3 col-xs-12">Hairfie comment ça marche&nbsp;?</h2>
                     <div className="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-2">
                         <Picture picture={{url: "/img/icons/calendar.svg"}} svg={true} style={{width: 40, height: 100, float: 'left'}} alt="Prenez RDV avec votre coiffeur" />
                         <div className="how-txt">
