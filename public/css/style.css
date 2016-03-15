@@ -10982,6 +10982,11 @@ footer.mobile {
   position: relative; }
   .landing header div.dark-header {
     background-color: rgba(255, 255, 255, 0.2); }
+    .landing header div.dark-header div.container div div.user .dropdown-menu {
+      margin-top: 9px;
+      background-color: rgba(255, 255, 255, 0.2); }
+      .landing header div.dark-header div.container div div.user .dropdown-menu a:hover {
+        background-color: #c4c4c4; }
   @media screen and (min-width: 768px) {
     .landing {
       height: 500px;
