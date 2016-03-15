@@ -9115,7 +9115,6 @@ div#app {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 1.6em;
-  letter-spacing: 1px;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -9448,13 +9447,10 @@ div.connect-button .facebook {
         @media screen and (max-width: 991px) {
           .cal td a .promo-day {
             bottom: -11px; } }
-      @media screen and (max-width: 1199px) {
-        .cal td a {
-          line-height: 40px; } }
       @media screen and (max-width: 991px) {
         .cal td a {
           line-height: 20px;
-          height: 20px; } }
+          height: 40px; } }
     .cal td.off {
       background: #f8f8f7;
       cursor: not-allowed;
@@ -9699,7 +9695,6 @@ a {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 1.4em;
-  letter-spacing: 2px;
   color: #c4c4c4; }
   .searchbar input:focus {
     outline: 0; }
@@ -9847,7 +9842,9 @@ a {
     margin-right: 10px;
     height: 40px;
     line-height: 40px;
-    border-width: 1px; }
+    border-width: 1px;
+    border-radius: 0;
+    -webkit-appearance: none; }
   .searchbar.small-search div.input-group {
     float: left;
     padding-right: 15px; }
@@ -10368,7 +10365,7 @@ div.shadow.inactive {
 header {
   position: relative;
   z-index: 20;
-  letter-spacing: 1px; }
+  font-weight: 200; }
   header div.dark-header {
     background-color: #343434;
     height: 35px;
@@ -10377,7 +10374,7 @@ header {
       display: inline-block;
       text-align: start;
       font-size: 1.4em;
-      font-weight: bold; }
+      font-weight: 400; }
       header div.dark-header div.container div a {
         color: white;
         text-decoration: none;
@@ -10392,6 +10389,8 @@ header {
           font-size: 14px; }
         header div.dark-header div.container div div.user .dropdown-menu {
           background-color: #343434; }
+          header div.dark-header div.container div div.user .dropdown-menu a:hover {
+            background-color: #595959; }
         header div.dark-header div.container div div.user img, header div.dark-header div.container div div.user object {
           background-color: white;
           height: 40px;
@@ -10512,6 +10511,16 @@ header {
     header:not(.white) .btn-search {
       display: none; }
   header ul.white-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
     margin: 0;
     z-index: 1; }
     header ul.white-header li {
@@ -10983,9 +10992,14 @@ footer.mobile {
   position: relative; }
   .landing header div.dark-header {
     background-color: rgba(255, 255, 255, 0.2); }
+    .landing header div.dark-header div.container div div.user .dropdown-menu {
+      margin-top: 9px;
+      background-color: rgba(255, 255, 255, 0.2); }
+      .landing header div.dark-header div.container div div.user .dropdown-menu a:hover {
+        background-color: #c4c4c4; }
   @media screen and (min-width: 768px) {
     .landing {
-      height: 500px;
+      height: 520px;
       background: url(../img/home/photo-bg.jpg) no-repeat top center;
       background-size: cover; }
       .landing header {
@@ -10998,9 +11012,15 @@ footer.mobile {
     width: 100%;
     color: white;
     margin-bottom: 40px;
-    font-weight: 400;
-    letter-spacing: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 5em;
     font-family: "Source Sans Pro", sans-serif; }
+  .landing h4 {
+    color: white;
+    font-size: 2em;
+    font-weight: 200;
+    margin-bottom: 50px; }
   .landing .headline {
     margin: 70px auto 0;
     float: none !important; }
@@ -11116,9 +11136,9 @@ section.how {
     section.how h2.col-sm-3 {
       font-size: 1.6em; }
     section.how .row > div h3 {
-      font-size: 1.3em; }
+      font-size: 1.8em; }
     section.how .row > div p {
-      font-size: 1.1em;
+      font-size: 1.4em;
       letter-spacing: 0; } }
   @media screen and (max-width: 767px) {
     section.how {
@@ -11130,10 +11150,10 @@ section.how {
         font-size: 1.6em;
         letter-spacing: 1px;
         text-align: center;
-        margin-bottom: 25px;
-        padding-top: 35px; }
+        margin-bottom: 15px;
+        padding-top: 15px; }
       section.how .row > div {
-        height: 80px;
+        height: 60px;
         color: #898989; }
         section.how .row > div object {
           margin-top: -20px; }
@@ -11144,6 +11164,88 @@ section.how {
           letter-spacing: 0; }
         section.how .row > div .how-txt {
           padding-top: 10px; } }
+
+section.selections p {
+  font-size: 1.6em;
+  margin-bottom: 20px; }
+
+section.selections .flex-selections {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media screen and (max-width: 767px) {
+    section.selections .flex-selections {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
+  section.selections .flex-selections .selection-item {
+    width: calc((100% - 40px) / 3);
+    height: 280px;
+    margin-right: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-shadow: 0 4px 6px #dfdfdf;
+    -moz-box-shadow: 0 4px 6px #dfdfdf;
+    box-shadow: 0 4px 6px #dfdfdf; }
+    @media screen and (max-width: 767px) {
+      section.selections .flex-selections .selection-item {
+        width: 100%;
+        height: 215px;
+        margin-bottom: 20px; } }
+    section.selections .flex-selections .selection-item:hover, section.selections .flex-selections .selection-item:active, section.selections .flex-selections .selection-item:focus, section.selections .flex-selections .selection-item:visited {
+      color: inherit;
+      text-decoration: none; }
+    section.selections .flex-selections .selection-item h4 {
+      text-transform: uppercase;
+      font-size: 2em;
+      font-weight: 200;
+      margin-top: 20px;
+      text-align: center; }
+      @media screen and (max-width: 767px) {
+        section.selections .flex-selections .selection-item h4 {
+          margin-top: 10px;
+          margin-bottom: 5px; } }
+    section.selections .flex-selections .selection-item span {
+      font-size: 1.8em;
+      font-weight: 100;
+      width: 100%;
+      text-align: center;
+      text-decoration: underline; }
+    section.selections .flex-selections .selection-item .img {
+      width: 100%;
+      height: 185px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #fe5b5f; }
+      @media screen and (max-width: 767px) {
+        section.selections .flex-selections .selection-item .img {
+          height: 140px; } }
+    section.selections .flex-selections .selection-item .les-bons-plans {
+      background-image: url(../img/selections/les-bons-plans.jpg); }
+    section.selections .flex-selections .selection-item .les-meilleurs-coloristes {
+      background-image: url(../img/selections/les-meilleurs-coloristes.jpg); }
+    section.selections .flex-selections .selection-item .les-barbershops {
+      background-image: url(../img/selections/les-barbershops.jpg); }
 
 section.home-section {
   position: relative; }
@@ -11221,7 +11323,8 @@ section.home-section {
   padding: 10px;
   margin: 90px 15px 60px 15px;
   height: 80px;
-  border: 1px solid #c4c4c4; }
+  border: 1px solid #c4c4c4;
+  width: calc(100% - 30px); }
   .landing .main-searchbar > a:nth-child(1), .home-search .main-searchbar > a:nth-child(1) {
     margin-right: 10px; }
   .landing .main-searchbar > div, .home-search .main-searchbar > div {
@@ -11234,6 +11337,8 @@ section.home-section {
     margin-right: 0px;
     margin-left: -5px;
     border: 1px solid #e6e6e6;
+    border-radius: 0;
+    -webkit-appearance: none;
     font-weight: 400;
     letter-spacing: 0px;
     font-size: 1.6em; }
@@ -11384,7 +11489,8 @@ section.home-search .home-search-desktop li {
     border-top-right-radius: 3px; }
 
 section.home-search .main-searchbar {
-  margin: 0; }
+  margin: 0;
+  margin-left: 15px; }
 
 @media screen and (max-width: 767px) {
   section.home-search {
@@ -11505,9 +11611,9 @@ section.home-search .home-search-mobile {
   -moz-justify-content: center;
   justify-content: center;
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
   bottom: 0;
   margin: 10px; }
   #home section.styles .background:hover {
@@ -11535,6 +11641,7 @@ section.home-search .home-search-mobile {
   display: block;
   position: absolute;
   left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
   opacity: 0.3;
@@ -12790,7 +12897,6 @@ section.home-search .home-search-mobile {
     margin-top: 5px; }
   #content.search .top-reviews div.title p {
     color: #b0b0b0;
-    text-transform: uppercase;
     font-weight: 400; }
     #content.search .top-reviews div.title p .gender-symbol {
       display: none; }
@@ -12802,6 +12908,8 @@ section.home-search .home-search-mobile {
   #content.search .top-reviews .yelp-date {
     color: #c4c4c4;
     font-size: 1.2em; }
+  #content.search .top-reviews a {
+    text-decoration: underline; }
   #content.search .top-reviews a:hover {
     color: inherit;
     text-decoration: none; }
@@ -14182,7 +14290,8 @@ section.home-search .home-search-mobile {
         line-height: 25px;
         background: url(../img/resa/icon-promo.png) no-repeat center left;
         background-size: contain;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-top: 4px; }
       #content.reservation .booking-summary .promo-bloc .promo .discount, .review-confirmation .booking-summary .promo-bloc .promo .discount {
         display: block;
         float: left;
@@ -14337,6 +14446,16 @@ section.home-search .home-search-mobile {
           opacity: .7; }
   #content.reservation .main-content h3, .review-confirmation .main-content h3 {
     margin: 0; }
+  #content.reservation .main-content .has-error > input, .review-confirmation .main-content .has-error > input {
+    border-color: #fe5b5f;
+    color: #fe5b5f; }
+    #content.reservation .main-content .has-error > input::-moz-placeholder, .review-confirmation .main-content .has-error > input::-moz-placeholder {
+      color: #fe5b5f;
+      opacity: 1; }
+    #content.reservation .main-content .has-error > input:-ms-input-placeholder, .review-confirmation .main-content .has-error > input:-ms-input-placeholder {
+      color: #fe5b5f; }
+    #content.reservation .main-content .has-error > input::-webkit-input-placeholder, .review-confirmation .main-content .has-error > input::-webkit-input-placeholder {
+      color: #fe5b5f; }
 
 #content.reservation.bookingForm, .bookingForm.review-confirmation {
   color: #595959; }
@@ -14353,16 +14472,19 @@ section.home-search .home-search-mobile {
       float: left; }
     #content.reservation.bookingForm .main-content .info-form .title .connect, .bookingForm.review-confirmation .main-content .info-form .title .connect {
       float: right;
-      line-height: 25px; }
+      line-height: 25px;
+      text-decoration: underline; }
   #content.reservation.bookingForm .main-content .info-form .form-group input[type="text"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="text"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="email"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="email"], #content.reservation.bookingForm .main-content .info-form .form-group input[type="password"], .bookingForm.review-confirmation .main-content .info-form .form-group input[type="password"] {
     border-radius: 0;
     height: 50px;
     width: 300px; }
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userEmail"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userFirstName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userFirstName"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="userLastName"],
-  #content.reservation.bookingForm .main-content .info-form .form-group input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group input[name="connectEmail"] {
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userEmail"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userFirstName"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userFirstName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="userLastName"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="userLastName"],
+  #content.reservation.bookingForm .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"], .bookingForm.review-confirmation .main-content .info-form .form-group:not(.has-error) input[name="connectEmail"] {
     border-bottom: 0; }
+  #content.reservation.bookingForm .main-content .info-form .form-group.has-error + .form-group.has-error input, .bookingForm.review-confirmation .main-content .info-form .form-group.has-error + .form-group.has-error input {
+    border-top: 0; }
   #content.reservation.bookingForm .main-content .info-form .customer-infos, .bookingForm.review-confirmation .main-content .info-form .customer-infos {
     display: -webkit-box;
     display: -webkit-flex;
@@ -14386,7 +14508,7 @@ section.home-search .home-search-mobile {
       font-weight: 200; }
     #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group, .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group {
       margin-bottom: 0; }
-    #content.reservation.bookingForm .main-content .info-form .customer-infos .form-group:nth-child(2), .bookingForm.review-confirmation .main-content .info-form .customer-infos .form-group:nth-child(2) {
+    #content.reservation.bookingForm .main-content .info-form .customer-infos .gender-radio > .form-group, .bookingForm.review-confirmation .main-content .info-form .customer-infos .gender-radio > .form-group {
       margin-right: 120px; }
     #content.reservation.bookingForm .main-content .info-form .customer-infos .connect-bloc, .bookingForm.review-confirmation .main-content .info-form .customer-infos .connect-bloc {
       width: 300px;
@@ -14484,6 +14606,30 @@ section.home-search .home-search-mobile {
       @media screen and (max-width: 767px) {
         #content.reservation.bookingForm .main-content .info-form .cut-infos label.firstTimeCustomer, .bookingForm.review-confirmation .main-content .info-form .cut-infos label.firstTimeCustomer {
           margin-right: auto; } }
+  #content.reservation.bookingForm .main-content .info-form .validation-errors, .bookingForm.review-confirmation .main-content .info-form .validation-errors {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 1.4em;
+    color: #fe5b5f;
+    border-color: #fe5b5f;
+    background-color: MistyRose;
+    border-radius: 0; }
+  #content.reservation.bookingForm .main-content .info-form .cut-infos + .validation-errors, .bookingForm.review-confirmation .main-content .info-form .cut-infos + .validation-errors {
+    margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      #content.reservation.bookingForm .main-content .info-form .cut-infos + .validation-errors, .bookingForm.review-confirmation .main-content .info-form .cut-infos + .validation-errors {
+        width: 300px;
+        margin-left: calc((100% - 300px) / 2);
+        margin-top: 0; } }
   #content.reservation.bookingForm .main-content .info-form .form-end, .bookingForm.review-confirmation .main-content .info-form .form-end {
     display: -webkit-box;
     display: -webkit-flex;
@@ -14502,8 +14648,8 @@ section.home-search .home-search-mobile {
     -moz-align-items: flex-start;
     align-items: flex-start;
     margin-bottom: 20px;
-    padding-left: 50px;
-    width: 720px;
+    padding-left: 350px;
+    width: calc(100% - 30px);
     border-top: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
     padding: 10px 0 10px 50px;

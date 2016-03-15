@@ -8,5 +8,6 @@ module.exports = {
     HowSection: require('./HowSection.jsx'),
 	DownloadSection: require('./DownloadSection.jsx'),
     SearchSection: require('./SearchSection.jsx'),
-    BlogPosts: require('./BlogPostsSection.jsx')
+    BlogPosts: require('./BlogPostsSection.jsx'),
+    Selections: require('./Selections.jsx')
 };

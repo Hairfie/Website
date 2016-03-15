@@ -90,7 +90,7 @@ var BookingSummary = React.createClass({
             cancelButton = (<button role="button" className="btn-whitered" onClick={this.props.cancelled}>Je veux annuler mon RDV</button>);
         }
         if (this.props.timeslotSelected) {
-            button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier le RDV</button>;
+            button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier la date et l'heure</button>;
         }
         // if (this.props.booking && booking.status == BookingStatus.NOT_CONFIRMED ) {
         //     button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
@@ -151,7 +151,7 @@ var BookingSummary = React.createClass({
     renderDiscountNode: function(days, amount) {
         if (!_.isArray(days)) days = [days];
         return (
-            <span className="discount">
+            <span className="discount" key={days.toString() + '-' + amount.toString()}>
                 {amount}% sur toutes les prestations et tous les achats.
                 Disponible {_.map(orderWeekDays(days), weekDayLabel, this).join(' ')}.
             </span>

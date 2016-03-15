@@ -115,8 +115,8 @@ var BusinessBookingPage = React.createClass({
         this.scrollToTop();
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
     },
-    handleSubmit: function() {
-        var booking = this.refs.booking.getBookingInfo();
+    handleSubmit: function(booking) {
+        //var booking = this.refs.booking.getBookingInfo();
         this.context.executeAction(BookingActions.submitBooking, booking);
     }
 });

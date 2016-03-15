@@ -1,7 +1,7 @@
 header {
 	position: relative;
 	z-index: 20;
-	letter-spacing: 1px;
+	font-weight: $light;
 	div.dark-header {
 		background-color: $dark-header;
 		height: 35px;
@@ -10,7 +10,7 @@ header {
 			display: inline-block;
 			text-align: start;
     		font-size: 1.4em;
-    		font-weight: bold;
+    		font-weight: $regular;
 	    	a {
 				color: white;
 				text-decoration: none;
@@ -27,6 +27,9 @@ header {
 				}
 				.dropdown-menu {
 					background-color: $dark-header;
+					a:hover {
+						background-color: $darkgrey;
+					}
 				}
 				img, object {
 					background-color: white;
@@ -166,6 +169,8 @@ header {
 		}
 	}
 	ul.white-header {
+		@include flexbox;
+		@include justify-content(center);
 		margin: 0;
 		z-index: 1;
 		li {

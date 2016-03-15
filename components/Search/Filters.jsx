@@ -47,7 +47,6 @@ var Filters = React.createClass({
                 location: newProps.place.name
             });
         }
-        console.log("newProps", newProps.search.q);
         if(!_.isUndefined(newProps.search.q) || !_.isUndefined(this.state.q) ) {
             this.setState({q: newProps.search.q});
         }
