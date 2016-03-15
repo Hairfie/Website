@@ -7,7 +7,7 @@ var SearchUtils = require('../../lib/search-utils');
 var Hairfie = require('../Partial/Hairfie.jsx');
 var Newsletter = require('../Partial/Newsletter.jsx');
 var Loading = require('../Partial/Loading.jsx');
-
+var ResultTopBar = require('./ResultTopBar.jsx');
 
 var HairfieResult = React.createClass({
     render: function () {
@@ -33,6 +33,7 @@ var HairfieResult = React.createClass({
 
                 <section>
                     <div>
+                        <ResultTopBar result={this.props.result} kind="Hairfie" />
                         {searchedCategoriesLabels}
                     </div>
                     <div className="salon-hairfies hairfies">
@@ -63,6 +64,7 @@ var HairfieResult = React.createClass({
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
+                    <ResultTopBar result={this.props.result} kind="Hairfie" />
                     {searchedCategoriesLabels}
                 </div>
                 <div className="row">
