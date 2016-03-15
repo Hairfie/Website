@@ -23,7 +23,7 @@ var FormConnect = React.createClass({
         getValidationMessages: React.PropTypes.func,
         clearValidations: React.PropTypes.func
     },
-    getValidatorData() {
+    getValidatorData: function() {
         return {
             email: this.state.email,
             password: this.state.password
