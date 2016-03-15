@@ -13,7 +13,7 @@
         header {
             background-color: inherit;
         }
-        height: 500px;
+        height: 520px;
         background: url(../img/home/photo-bg.jpg) no-repeat top center;
         background-size: cover;
     }
@@ -29,9 +29,16 @@
         width: 100%;
         color: white;
         margin-bottom: 40px;
-        font-weight: $regular;
-        letter-spacing: 4px;
+        font-weight: $semiBold;
+        letter-spacing: 1px;
+        font-size: 5em;
         font-family: $font-main;
+    }
+    h4 {
+        color: white;
+        font-size: 2em;
+        font-weight: $light;
+        margin-bottom: 50px;
     }
     .headline {
         margin: 70px auto 0;
@@ -176,10 +183,10 @@ section.how {
         }
         .row > div {
             h3 {
-                font-size: 1.3em;
+                font-size: 1.8em;
             }
             p {
-                font-size: 1.1em;
+                font-size: 1.4em;
                 letter-spacing: 0;
             }
         }
@@ -211,6 +218,81 @@ section.how {
             }
             .how-txt {
                 padding-top: 10px;
+            }
+        }
+    }
+}
+
+section.selections {
+    p {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .flex-selections {
+        @include flexbox;
+        @media screen and (max-width: $screen-xs-max) {
+            @include flex-direction(column);
+        }
+        .selection-item {
+            width: calc((100% - 40px) / 3);
+            height: 280px;
+            margin-right: 20px;
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            @include box-shadow (0 4px 6px $grey2);
+            @media screen and (max-width: $screen-xs-max) {
+                width: 100%;
+                height: 215px;
+                margin-bottom: 20px;
+            }
+            &:hover, &:active, &:focus, &:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+            h4 {
+                text-transform: uppercase;
+                font-size: 2em;
+                font-weight: $light;
+                margin-top: 20px;
+                text-align: center;
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                }
+            }
+            span {
+                font-size: 1.8em;
+                font-weight: 100;
+                width: 100%;
+                text-align: center;
+                text-decoration: underline;
+
+            }
+            .img {
+                width: 100%;
+                height: 185px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                border-bottom: 1px solid $hairfie;
+                @media screen and (max-width: $screen-xs-max) {
+                    height: 140px;
+                }
+                //FIXME : transition
+                // &:hover {
+                //     @include transition(background-size 0.5s ease-out);
+                //     background-size: 250%;
+                // }
+            }
+            .les-bons-plans {
+                background-image: url(../img/selections/les-bons-plans.jpg);
+            }
+            .les-meilleurs-coloristes {
+                background-image: url(../img/selections/les-meilleurs-coloristes.jpg);
+            }
+            .les-barbershops {
+                background-image: url(../img/selections/les-barbershops.jpg);
             }
         }
     }
@@ -293,6 +375,7 @@ section.home-section {
     margin: 90px 15px 60px 15px;
     height: 80px;
     border: 1px solid $grey;
+    width: calc(100% - 30px);
     > a:nth-child(1) {
         margin-right: 10px;
     }
@@ -307,6 +390,8 @@ section.home-section {
         height: 60px;line-height: 60px;
         margin-right: 0px; margin-left: -5px;
         border: 1px solid $grey5;
+        border-radius: 0;
+        -webkit-appearance: none;
         font-weight: $regular;
         letter-spacing: 0px;
         font-size: 1.6em;
@@ -488,6 +573,7 @@ section.home-search {
     
     .main-searchbar {
         margin: 0;
+        margin-left: 15px;
     }
 
     @media screen and (max-width: $screen-xs-max) {

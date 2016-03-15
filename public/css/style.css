@@ -9115,7 +9115,6 @@ div#app {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 1.6em;
-  letter-spacing: 1px;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -9699,7 +9698,6 @@ a {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 1.4em;
-  letter-spacing: 2px;
   color: #c4c4c4; }
   .searchbar input:focus {
     outline: 0; }
@@ -9847,7 +9845,9 @@ a {
     margin-right: 10px;
     height: 40px;
     line-height: 40px;
-    border-width: 1px; }
+    border-width: 1px;
+    border-radius: 0;
+    -webkit-appearance: none; }
   .searchbar.small-search div.input-group {
     float: left;
     padding-right: 15px; }
@@ -10368,7 +10368,7 @@ div.shadow.inactive {
 header {
   position: relative;
   z-index: 20;
-  letter-spacing: 1px; }
+  font-weight: 200; }
   header div.dark-header {
     background-color: #343434;
     height: 35px;
@@ -10377,7 +10377,7 @@ header {
       display: inline-block;
       text-align: start;
       font-size: 1.4em;
-      font-weight: bold; }
+      font-weight: 400; }
       header div.dark-header div.container div a {
         color: white;
         text-decoration: none;
@@ -10512,6 +10512,16 @@ header {
     header:not(.white) .btn-search {
       display: none; }
   header ul.white-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
     margin: 0;
     z-index: 1; }
     header ul.white-header li {
@@ -10985,7 +10995,7 @@ footer.mobile {
     background-color: rgba(255, 255, 255, 0.2); }
   @media screen and (min-width: 768px) {
     .landing {
-      height: 500px;
+      height: 520px;
       background: url(../img/home/photo-bg.jpg) no-repeat top center;
       background-size: cover; }
       .landing header {
@@ -10998,9 +11008,15 @@ footer.mobile {
     width: 100%;
     color: white;
     margin-bottom: 40px;
-    font-weight: 400;
-    letter-spacing: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 5em;
     font-family: "Source Sans Pro", sans-serif; }
+  .landing h4 {
+    color: white;
+    font-size: 2em;
+    font-weight: 200;
+    margin-bottom: 50px; }
   .landing .headline {
     margin: 70px auto 0;
     float: none !important; }
@@ -11116,9 +11132,9 @@ section.how {
     section.how h2.col-sm-3 {
       font-size: 1.6em; }
     section.how .row > div h3 {
-      font-size: 1.3em; }
+      font-size: 1.8em; }
     section.how .row > div p {
-      font-size: 1.1em;
+      font-size: 1.4em;
       letter-spacing: 0; } }
   @media screen and (max-width: 767px) {
     section.how {
@@ -11144,6 +11160,88 @@ section.how {
           letter-spacing: 0; }
         section.how .row > div .how-txt {
           padding-top: 10px; } }
+
+section.selections p {
+  font-size: 1.6em;
+  margin-bottom: 20px; }
+
+section.selections .flex-selections {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media screen and (max-width: 767px) {
+    section.selections .flex-selections {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
+  section.selections .flex-selections .selection-item {
+    width: calc((100% - 40px) / 3);
+    height: 280px;
+    margin-right: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-shadow: 0 4px 6px #dfdfdf;
+    -moz-box-shadow: 0 4px 6px #dfdfdf;
+    box-shadow: 0 4px 6px #dfdfdf; }
+    @media screen and (max-width: 767px) {
+      section.selections .flex-selections .selection-item {
+        width: 100%;
+        height: 215px;
+        margin-bottom: 20px; } }
+    section.selections .flex-selections .selection-item:hover, section.selections .flex-selections .selection-item:active, section.selections .flex-selections .selection-item:focus, section.selections .flex-selections .selection-item:visited {
+      color: inherit;
+      text-decoration: none; }
+    section.selections .flex-selections .selection-item h4 {
+      text-transform: uppercase;
+      font-size: 2em;
+      font-weight: 200;
+      margin-top: 20px;
+      text-align: center; }
+      @media screen and (max-width: 767px) {
+        section.selections .flex-selections .selection-item h4 {
+          margin-top: 10px;
+          margin-bottom: 5px; } }
+    section.selections .flex-selections .selection-item span {
+      font-size: 1.8em;
+      font-weight: 100;
+      width: 100%;
+      text-align: center;
+      text-decoration: underline; }
+    section.selections .flex-selections .selection-item .img {
+      width: 100%;
+      height: 185px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #fe5b5f; }
+      @media screen and (max-width: 767px) {
+        section.selections .flex-selections .selection-item .img {
+          height: 140px; } }
+    section.selections .flex-selections .selection-item .les-bons-plans {
+      background-image: url(../img/selections/les-bons-plans.jpg); }
+    section.selections .flex-selections .selection-item .les-meilleurs-coloristes {
+      background-image: url(../img/selections/les-meilleurs-coloristes.jpg); }
+    section.selections .flex-selections .selection-item .les-barbershops {
+      background-image: url(../img/selections/les-barbershops.jpg); }
 
 section.home-section {
   position: relative; }
@@ -11221,7 +11319,8 @@ section.home-section {
   padding: 10px;
   margin: 90px 15px 60px 15px;
   height: 80px;
-  border: 1px solid #c4c4c4; }
+  border: 1px solid #c4c4c4;
+  width: calc(100% - 30px); }
   .landing .main-searchbar > a:nth-child(1), .home-search .main-searchbar > a:nth-child(1) {
     margin-right: 10px; }
   .landing .main-searchbar > div, .home-search .main-searchbar > div {
@@ -11234,6 +11333,8 @@ section.home-section {
     margin-right: 0px;
     margin-left: -5px;
     border: 1px solid #e6e6e6;
+    border-radius: 0;
+    -webkit-appearance: none;
     font-weight: 400;
     letter-spacing: 0px;
     font-size: 1.6em; }
@@ -11384,7 +11485,8 @@ section.home-search .home-search-desktop li {
     border-top-right-radius: 3px; }
 
 section.home-search .main-searchbar {
-  margin: 0; }
+  margin: 0;
+  margin-left: 15px; }
 
 @media screen and (max-width: 767px) {
   section.home-search {

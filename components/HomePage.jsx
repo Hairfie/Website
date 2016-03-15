@@ -31,7 +31,8 @@ var HomePage = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="headline col-md-12">
-                                <h1>Faites du bien à vos cheveux,<br className="title-break" /> Trouvez leur le bon coiffeur&nbsp;!</h1>
+                                <h1>Prenez RDV avec le<br className="title-break" /> coiffeur qui vous correspond</h1>
+                                <h4 className="hidden-xs">Le meilleur de la coiffure, de la coloration, du lissage, des barbiers...</h4>
                             </div>
                         </div>
                         <div className="row">
@@ -50,6 +51,7 @@ var HomePage = React.createClass({
                 <div className="container">
                     <div className="main-content" id="home">
                         <Home.HowSection />
+                        <Home.Selections />
                         <Home.Styles />
                         <Home.Deals deals={this.props.deals} />
                         <Home.BlogPosts posts={this.props.posts} />

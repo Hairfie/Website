@@ -23,11 +23,14 @@ var TabSection = React.createClass({
         var tabTitle2 = <div><span className="icon-photo"/>Inspirez-vous de nos photos</div>;
 
         return (
-            <Tabs defaultActiveKey={1} animation={false}>
-                <Tab eventKey={1} title={tabTitle1}><SearchBar home={true} {...this.props} /></Tab>
-                <Tab eventKey={2} title={tabTitle2}><GenderChoice /></Tab>
-          </Tabs>
-       );
+            <SearchBar home={true} {...this.props} />
+        );
+       //  return (
+       //      <Tabs defaultActiveKey={1} animation={false}>
+       //          <Tab eventKey={1} title={tabTitle1}><SearchBar home={true} {...this.props} /></Tab>
+       //          <Tab eventKey={2} title={tabTitle2}><GenderChoice /></Tab>
+       //    </Tabs>
+       // );
     },
 });
 
