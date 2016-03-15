@@ -8,7 +8,7 @@ var ReactTooltip = require('react-tooltip');
 var UserConstants = require('../../constants/UserConstants');
 
 var Button = require('react-bootstrap').Button;
-var Input = require('react-bootstrap').Input;
+var BSInput = require('react-bootstrap').Input;
 
 var FacebookButton = require('../Auth/FacebookButton.jsx');
 var FormConnect = require('../Auth/FormConnect.jsx');
@@ -119,7 +119,7 @@ var InfoForm = React.createClass({
                     </div>
                     {this.renderConnectForm()}
                     <div className="gender-radio">
-                        <Input className="radio">
+                        <BSInput className="radio">
                             <label className="radio-inline" style={{marginLeft: '0px'}}>
                                 <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.FEMALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.FEMALE} />
                                 Femme
@@ -128,7 +128,7 @@ var InfoForm = React.createClass({
                                 <input type="radio" name="gender" checked={this.state.userGender === UserConstants.Genders.MALE} onChange={this.handleGenderChanged} value={UserConstants.Genders.MALE} />
                                 Homme
                             </label>
-                        </Input>
+                        </BSInput>
                     </div>
                     <div className={this.getClasses('userFirstName')}>
                         <input 
@@ -180,7 +180,7 @@ var InfoForm = React.createClass({
                         Informations sur la prestation
                     </div>
                     <p>Longueur de vos cheveux * </p>
-                    <Input className="radio">
+                    <BSInput className="radio">
                         <div className="radio-group">
                             <div className="text-center ">
                                 <input data-tip="Au-dessus des épaules" type="radio" name="hairLength" checked={this.state.hairLength === UserConstants.Hairs.SHORT} onChange={this.handleHairLengthChanged} value={UserConstants.Hairs.SHORT} />
@@ -199,7 +199,7 @@ var InfoForm = React.createClass({
                                 <p data-tip="Au niveau du bas du dos">Très longs</p>
                             </div>
                         </div>
-                    </Input>
+                    </BSInput>
                     <div className={this.getClasses('service')}>
                         <input 
                         ref="service" 
@@ -209,8 +209,8 @@ var InfoForm = React.createClass({
                         placeholder="Prestation demandée *" 
                         onBlur={this.props.handleValidation('service')}/>
                     </div>
-                    <Input ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
-                    <Input className="radio">
+                    <BSInput ref="userComment" name="userComment" type="text" placeholder="Demande particulière (ex : coiffeur habituel)" />
+                    <BSInput className="radio">
                         <div className="first-time">Première visite ?</div>
                         <label className="radio-inline">
                             <input type="radio" name="firstTimeCustomer" checked={this.state.firstTimeCustomer === true} onChange={this.handleFirstTimeChanged}/>
@@ -220,7 +220,7 @@ var InfoForm = React.createClass({
                             <input type="radio" name="firstTimeCustomer" checked={this.state.firstTimeCustomer === false} onChange={this.handleFirstTimeChanged}/>
                             Non
                         </label>
-                    </Input>
+                    </BSInput>
                 </div>
                 {this.renderErrorMessages()}
                 <div className="form-end col-xs-12">
@@ -335,16 +335,17 @@ var InfoForm = React.createClass({
         this.props.modifyTimeslot();
     },
     getBookingInfo: function() {
+        debugger;
         return {
             businessId  : this.props.business.id,
             gender      : this.state.userGender,
-            firstName   : this.refs.userFirstName.getValue(),
-            lastName    : this.refs.userLastName.getValue(),
-            email       : this.refs.userEmail.getValue(),
-            phoneNumber : this.refs.userPhoneNumber.getValue(),
+            firstName   : this.refs.userFirstName.value,
+            lastName    : this.refs.userLastName.value,
+            email       : this.refs.userEmail.value,
+            phoneNumber : this.refs.userPhoneNumber.value,
             hairLength  : this.state.hairLength,
-            service     : this.refs.service.getValue(),
-            comment     : this.refs.userComment.getValue(),
+            service     : this.refs.service.value,
+            comment     : this.refs.userComment.value,
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount,
             newsletter  : this.state.newsletter,
@@ -360,7 +361,7 @@ var InfoForm = React.createClass({
             if (error) {
                 return;
             } else {
-                this.props.onSubmit();
+                this.props.onSubmit(this.getBookingInfo());
             }
         }.bind(this));
     }
