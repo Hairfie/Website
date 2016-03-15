@@ -10389,6 +10389,8 @@ header {
           font-size: 14px; }
         header div.dark-header div.container div div.user .dropdown-menu {
           background-color: #343434; }
+          header div.dark-header div.container div div.user .dropdown-menu a:hover {
+            background-color: #595959; }
         header div.dark-header div.container div div.user img, header div.dark-header div.container div div.user object {
           background-color: white;
           height: 40px;
