@@ -146,11 +146,10 @@ module.exports = createStore({
         switch (routeName) {
             case 'business':
                 if(business.description) {
-                    description = 'Prendre RDV en ligne dans ce salon de coiffure. ' + business.description.businessTitle + ' - ' + business.description.businessText + ' - ' + business.description.geoTitle;
+                    description = 'Prendre RDV en ligne dans ce salon de coiffure. ' + business.description.proTitle + ' - ' + business.description.proText + ' - ' + business.description.geoTitle;
                 } else {
                     description = 'Découvrez les hairfies du salon ' + title + ' et Prenez RDV en ligne';
                 }
-
                 break;
             case 'business_reviews':
                 title = 'Les avis sur ' + title;
@@ -225,9 +224,9 @@ module.exports = createStore({
             page: page
         };
 
-        var title = SearchUtils.searchToTitle(search, place, "business", allCategories);
-        var description = SearchUtils.searchToDescription(search, place);
-        if(query.withDiscount) title = 'Promotions à ' + address;
+        var title = SearchUtils.businessSearchToTitle(search, place, route.url, allCategories);
+        var description = SearchUtils.searchToDescription(search, place, route.url);
+        //if(query.withDiscount) title = 'Promotions à ' + address;
 
         title += ' | Prendre RDV en ligne sur Hairfie';
 
@@ -255,8 +254,8 @@ module.exports = createStore({
             page: page
         };
 
-        var title = SearchUtils.searchToTitle(search, place, "hairfie");
-        var description = SearchUtils.searchToDescription(search, place);
+        var title = SearchUtils.hairfieSearchToTitle(search, place, route.url);
+        var description = SearchUtils.searchToDescription(search, place, route.url);
 
         if(!description) {
             description = "Les meilleurs Hairfies de " + title;

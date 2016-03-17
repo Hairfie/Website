@@ -20,7 +20,11 @@ module.exports = React.createClass({
         this.context.getGoogleMapsScript().then(function (google) {
             var input = this.refs.input;
 
-            var options = {};
+            var options = {
+                components: {
+                    country: 'fr'
+                }
+            };
             options.types = this.props.types;
 
             this.autocomplete = new google.maps.places.Autocomplete(input, options);

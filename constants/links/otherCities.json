@@ -1,0 +1,71 @@
+[
+    {
+        "displayName": "Coiffeur Pau",
+        "address": "Pau--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Pau--France"
+    },
+    {
+        "displayName": "Coiffeur Brest",
+        "address": "Brest--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Brest--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Nice",
+        "address": "Nice--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Nice--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Nantes",
+        "address": "Nantes--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Nantes--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Reims",
+        "address": "Reims--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Reims--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Toulon",
+        "address": "Toulon--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Toulon--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Dijon",
+        "address": "Dijon--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Dijon--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Villeurbanne",
+        "address": "Villeurbanne--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Villeurbanne--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Limoges",
+        "address": "Limoges--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Limoges--France",
+        "changefreq": "monthly"
+    },
+    {
+        "displayName": "Coiffeur Amiens",
+        "address": "Amiens--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Amiens--France",
+        "changefreq": "monthly"
+    }
+]

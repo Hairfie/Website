@@ -7,6 +7,9 @@ var Link = require('../Link.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 
 var BreadCrumb = React.createClass({
+    contextTypes: {
+        getStore: React.PropTypes.func
+    },
     render: function () {
         var crumbs = [];
         var business = this.props.business;
@@ -69,10 +72,20 @@ var BreadCrumb = React.createClass({
                 label: 'Ma réservation'
             }
         ];
-        if(this.props.searchedPlace) {
-            var placeCrumb = {
-                label: (this.props.searchedPlace.name || '').split(',')[0]
-            };
+        if(this.props.place) {
+            var placeCrumbs = [];
+            var place  = this.props.place;
+
+            while (place) {
+                placeCrumbs.unshift({
+                    label: 'Coiffeur ' +  (place.name || '').split(',')[0],
+                    route: 'business_search',
+                    params: {
+                        address: SearchUtils.addressToUrlParameter(place.name)
+                    }
+                });
+                place = place.parent;
+            }
         }
         switch(currentRoute.name) {
             case 'business':
@@ -94,7 +107,7 @@ var BreadCrumb = React.createClass({
                 break;
             case 'business_search':
             case 'hairfie_search':
-                crumbs = crumbs.concat(placeCrumb);
+                crumbs = crumbs.concat(placeCrumbs);
                 break;
         }
         crumbs = _.compact(crumbs);
@@ -120,8 +133,31 @@ var BreadCrumb = React.createClass({
                         }
                     })}
                 </ol>
+                <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema(crumbs)}} />
             </div>
         );
+    },
+    getSchema: function(crumbs) {
+        crumbs = _.rest(crumbs);
+        var itemListElement = _.map(crumbs, function(crumb, i) {
+            var url = this.context.getStore('RouteStore').makeUrl(crumb.route, crumb.params);
+            return {
+                "@type": "ListItem",
+                "position": i,
+                "item": {
+                    "@id": url,
+                    "name": crumb.label
+                }
+            }
+        }, this)
+
+        var markup = {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": itemListElement
+        };
+
+        return JSON.stringify(markup);
     }
 });
 
