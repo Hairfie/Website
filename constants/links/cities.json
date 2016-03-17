@@ -1,0 +1,88 @@
+[
+    {
+        "displayName": "Coiffeur Paris",
+        "address": "Paris--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Paris--France",
+        "priority": 1
+    },
+    {
+        "displayName": "Coiffeur Bordeaux",
+        "address": "Bordeaux--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Bordeaux--France",
+        "priority": 1
+    },
+    {
+        "displayName": "Coiffeur Lyon",
+        "address": "Lyon--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Lyon--France"
+    },
+    {
+        "displayName": "Coiffeur Angers",
+        "address": "Angers--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Angers--France"
+    },
+    {
+        "displayName": "Coiffeur Tours",
+        "address": "Tours--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Tours--France"
+    },
+    {
+        "displayName": "Coiffeur Lille",
+        "address": "Lille--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Lille--France"
+    },
+    {
+        "displayName": "Coiffeur Strasbourg",
+        "address": "Strasbourg--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Strasbourg--France"
+    },
+    {
+        "displayName": "Coiffeur Toulouse",
+        "address": "Toulouse--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Toulouse--France"
+    },
+    {
+        "displayName": "Coiffeur Nantes",
+        "address": "Nantes--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Nantes--France"
+    },
+    {
+        "displayName": "Coiffeur Angers",
+        "address": "Angers--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Angers--France"
+    },
+    {
+        "displayName": "Coiffeur Marseille",
+        "address": "Marseille--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Marseille--France"
+    },
+    {
+        "displayName": "Coiffeur Grenoble",
+        "address": "Grenoble--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Grenoble--France"
+    },
+    {
+        "displayName": "Coiffeur Reims",
+        "address": "Reims--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Reims--France"
+    },
+    {
+        "displayName": "Coiffeur Rouen",
+        "address": "Rouen--France",
+        "category": "",
+        "url": "/fr/coiffeurs/Rouen--France"
+    }
+]
