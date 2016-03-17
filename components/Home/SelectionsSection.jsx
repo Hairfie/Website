@@ -15,19 +15,19 @@ var Selections = React.createClass({
                         L'équipe Hairfie partage ses bonnes adresses. Des pépites de coiffeurs, coloristes et barbiers&nbsp;à ne manquer sous aucun prétexte !
                     </p>
                     <div className="flex-selections">
-                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-bons-plans'}} className="selection-item">
+                        <Link route="business_search" params={{address: 'Paris, France'}} query={{selections: 'les-bons-plans'}} className="selection-item">
                                 <div className="img les-bons-plans" />
-                                <h4>Les bons plans</h4>
+                                <h4>Les bons plans à Paris</h4>
                                 Voir les salons
                         </Link>
-                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-meilleurs-coloristes'}} className="selection-item">
+                        <Link route="business_search" params={{address: 'Paris, France'}} query={{selections: 'les-meilleurs-coloristes'}} className="selection-item">
                                 <div className="img les-meilleurs-coloristes" />
-                                <h4>Nos coloristes</h4>
+                                <h4>Les meilleurs coloristes parisiens</h4>
                                 Voir les salons
                         </Link>
-                        <Link route="business_search" params={{address: 'France'}} query={{selections: 'les-barbershops'}} className="selection-item">
+                        <Link route="business_search" params={{address: 'Paris, France'}} query={{selections: 'les-barbershops'}} className="selection-item">
                                 <div className="img les-barbershops" />
-                                <h4>Nos barbiers</h4>
+                                <h4>Les barbershops à Paris</h4>
                                 Voir les salons
                         </Link>
                     </div>
