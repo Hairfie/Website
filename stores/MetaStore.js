@@ -225,9 +225,9 @@ module.exports = createStore({
             page: page
         };
 
-        var title = SearchUtils.searchToTitle(search, place, "business", allCategories);
+        var title = SearchUtils.businessSearchToTitle(search, place, route.url, allCategories);
         var description = SearchUtils.searchToDescription(search, place);
-        if(query.withDiscount) title = 'Promotions à ' + address;
+        //if(query.withDiscount) title = 'Promotions à ' + address;
 
         title += ' | Prendre RDV en ligne sur Hairfie';
 
@@ -255,7 +255,7 @@ module.exports = createStore({
             page: page
         };
 
-        var title = SearchUtils.searchToTitle(search, place, "hairfie");
+        var title = SearchUtils.hairfieSearchToTitle(search, place, route.url);
         var description = SearchUtils.searchToDescription(search, place);
 
         if(!description) {

@@ -10,6 +10,7 @@ var Picture = require('../Partial/Picture.jsx');
 var MobileFilters = require('./MobileFilters.jsx');
 var ReactDOM = require('react-dom');
 var HairfieActions = require('../../actions/HairfieActions');
+var Header = require('./Header.jsx');
 
 var Layout = React.createClass({
     contextTypes: {
@@ -17,8 +18,7 @@ var Layout = React.createClass({
     },
     getInitialState: function () {
         return {
-            displayMobileFilters: false,
-            isExpanded: false
+            displayMobileFilters: false
         };
     },
     render: function () {
@@ -46,7 +46,7 @@ var Layout = React.createClass({
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
-                                {this.renderHeader()}
+                                <Header search={this.props.search} tab={this.props.tab} place={this.props.place} />
                                 <div className="row">
                                     <div role="tabpanel" className="bg-white-xs">
                                         <div className="row">
@@ -63,49 +63,6 @@ var Layout = React.createClass({
                 </div>
             </PublicLayout>
         );
-    },
-    renderHeader: function () {
-        var place = this.props.place || {};
-        var search = this.props.search || {};
-        var coverImage, btnExpand, descriptionNodeDesktop, descriptionNodeMobile;
-
-        if(!_.isEmpty(SearchUtils.searchToDescription(search, place))) {
-            var btnExpand = <span className={this.state.isExpanded ? 'btn-expand hidden' : 'btn-expand'} ref="expand" onClick={this.expandText}>...</span>;
-
-            var description = SearchUtils.searchToDescription(search, place);
-            if (!this.state.isExpanded) {
-                description = _.trunc(description, {
-                    'length': 120,
-                    'separator': ' ',
-                    'omission': ' '
-                });
-            }
-
-            descriptionNodeDesktop =  <p ref="description" className="hidden-xs">{SearchUtils.searchToDescription(search, place)}</p>
-
-            descriptionNodeMobile = (<span ref="description" className="visible-xs mobile-description">
-                    {description}
-                    {btnExpand}
-                </span>);
-        }
-
-        if (place.picture) {
-            coverImage = <Picture picture={{url: place.picture.url}} alt={place.name} className="cover" />;
-        }
-        
-        return (
-            <div className="row">
-                <div className="col-xs-12 header-part">
-                    {coverImage}
-                    <h1>{SearchUtils.searchToTitle(search, place, this.props.tab, this.props.categories)}</h1>
-                    {descriptionNodeDesktop}
-                    {descriptionNodeMobile}
-                </div>
-            </div>
-       );
-    },
-    expandText: function (e) {
-        this.setState({isExpanded: true});
     },
     renderTabs: function () {
         var address = SearchUtils.addressToUrlParameter(this.props.address);
