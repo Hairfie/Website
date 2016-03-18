@@ -24,7 +24,7 @@ var HairdresserPicture = React.createClass({
                             alt={this.getAlt()} {...this.props} />;
     },
     renderDefault: function () {
-        return <img src={'http://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
+        return <img src={'https://placehold.it/120x120&text='+initials(this.props.hairdresser)} alt={this.getAlt()} />;
     },
     getAlt: function () {
         return 'Photo de '+displayName(this.props.hairdresser);

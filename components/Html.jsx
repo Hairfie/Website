@@ -65,8 +65,8 @@ var Html = React.createClass({
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
                 <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
-                <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
-                <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+                <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
+                <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
                 <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
 
