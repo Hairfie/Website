@@ -36,6 +36,9 @@ var provideContext  = require('fluxible-addons-react/provideContext');
 var Html = provideContext(require('./components/Html.jsx'), require('./context'));
 var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('./context'));
 
+server.get('/.well-known/acme-challenge/-qfLtHyaNwXxcDiW-MsfH9rXKFmBqBepyXNAZNpdmYk', function(req, res) {
+    res.send("-qfLtHyaNwXxcDiW-MsfH9rXKFmBqBepyXNAZNpdmYk.LaMLYQ6kM-wS31BrznCVQ3yyp-NbNOB_yZo6YpGMmvI");
+});
 
 // Gzip compression
 server.use(compress());
@@ -112,7 +115,7 @@ server.use(function (req, res, next) {
 });
 
 server.use(function (err, req, res, next) { // try localized page
-    if('/assets/' !== req.url.substr(0, 8) && !(req.url.indexOf('sitemap') > -1) && '/fr/' !== req.url.substr(0, 4)) {
+    if('/assets/' !== req.url.substr(0, 8) && !(req.url.indexOf('sitemap') > -1) && !(req.url.indexOf('acme-challenge') > -1) && '/fr/' !== req.url.substr(0, 4)) {
         res.redirect(302, '/fr'+req.url);
     } else {
         next(err);
