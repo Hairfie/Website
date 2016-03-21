@@ -30,7 +30,6 @@ module.exports = React.createClass({
     },
     renderDeal: function (deal) {
         var displayAddress = deal.business.address ? deal.business.address.street + ' ' + deal.business.address.city : null;
-        console.log('deal', deal);
         var discount = deal.discount > 0 ? <span className="icon-promo">{deal.discount + '%'}</span> : null;
 
         return (
