@@ -142,7 +142,9 @@
 }
 
 section.how {
-    height: 100px;
+    @media screen and (min-width: $screen-md-min) {        
+        height: 100px;
+    }
     h2.col-sm-3 {
         padding-top: 24px;
         padding-bottom: 0;

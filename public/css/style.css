@@ -11097,73 +11097,79 @@ footer.mobile {
     padding-right: 25px;
     margin-bottom: 30px; }
 
-section.how {
-  height: 100px; }
+@media screen and (min-width: 992px) {
+  section.how {
+    height: 100px; } }
+
+section.how h2.col-sm-3 {
+  padding-top: 24px;
+  padding-bottom: 0;
+  letter-spacing: 1px; }
+
+section.how object {
+  display: inline-block; }
+
+section.how .row > div {
+  margin-bottom: 0; }
+  section.how .row > div img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto 40px; }
+  section.how .row > div svg {
+    margin: 10px 0 10px 0; }
+  section.how .row > div h3 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color: #595959;
+    text-transform: uppercase;
+    font-size: 1.6em;
+    display: inline-block;
+    margin: 0; }
+  section.how .row > div .how-txt {
+    height: 100px;
+    float: left;
+    width: calc(100% - 40px);
+    padding: 25px 5px 25px 10px; }
+  section.how .row > div p {
+    font-weight: 200;
+    color: #595959;
+    font-size: 1.4em;
+    line-height: 1.2em; }
+
+@media screen and (max-width: 991px) {
   section.how h2.col-sm-3 {
-    padding-top: 24px;
-    padding-bottom: 0;
-    letter-spacing: 1px; }
-  section.how object {
-    display: inline-block; }
-  section.how .row > div {
-    margin-bottom: 0; }
-    section.how .row > div img {
-      width: 100px;
-      height: 100px;
-      display: block;
-      margin: 0 auto 40px; }
-    section.how .row > div svg {
-      margin: 10px 0 10px 0; }
-    section.how .row > div h3 {
-      font-family: "Source Sans Pro", sans-serif;
-      font-weight: 400;
-      color: #595959;
+    font-size: 1.6em; }
+  section.how .row > div h3 {
+    font-size: 1.8em; }
+  section.how .row > div p {
+    font-size: 1.4em;
+    letter-spacing: 0; } }
+
+@media screen and (max-width: 767px) {
+  section.how {
+    height: auto;
+    padding-bottom: 10px; }
+    section.how h2.col-sm-3 {
+      color: #898989;
       text-transform: uppercase;
       font-size: 1.6em;
-      display: inline-block;
-      margin: 0; }
-    section.how .row > div .how-txt {
-      height: 100px;
-      float: left;
-      width: calc(100% - 40px);
-      padding: 25px 5px 25px 10px; }
-    section.how .row > div p {
-      font-weight: 200;
-      color: #595959;
-      font-size: 1.4em;
-      line-height: 1.2em; }
-  @media screen and (max-width: 991px) {
-    section.how h2.col-sm-3 {
-      font-size: 1.6em; }
-    section.how .row > div h3 {
-      font-size: 1.8em; }
-    section.how .row > div p {
-      font-size: 1.4em;
-      letter-spacing: 0; } }
-  @media screen and (max-width: 767px) {
-    section.how {
-      height: auto;
-      padding-bottom: 10px; }
-      section.how h2.col-sm-3 {
-        color: #898989;
-        text-transform: uppercase;
-        font-size: 1.6em;
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 15px;
-        padding-top: 15px; }
-      section.how .row > div {
-        height: 60px;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 15px;
+      padding-top: 15px; }
+    section.how .row > div {
+      height: 60px;
+      color: #898989; }
+      section.how .row > div object {
+        margin-top: -20px; }
+      section.how .row > div h3 {
         color: #898989; }
-        section.how .row > div object {
-          margin-top: -20px; }
-        section.how .row > div h3 {
-          color: #898989; }
-        section.how .row > div p {
-          color: #898989;
-          letter-spacing: 0; }
-        section.how .row > div .how-txt {
-          padding-top: 10px; } }
+      section.how .row > div p {
+        color: #898989;
+        letter-spacing: 0; }
+      section.how .row > div .how-txt {
+        padding-top: 10px; } }
 
 section.selections p {
   font-size: 1.6em;
