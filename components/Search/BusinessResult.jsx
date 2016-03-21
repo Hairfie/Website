@@ -13,6 +13,7 @@ var Rating = require('../Partial/Rating.jsx');
 var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Loading = require('../Partial/Loading.jsx');
 var ReactFitText = require('react-fittext');
+var SearchLabels = require('./SearchLabels.jsx');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -214,30 +215,13 @@ var BusinessResult = React.createClass({
         var date   = this.props.search && this.props.search.date;
         var searchedSelections = this.props.searchedSelections;
         var searchedCategories = this.props.searchedCategories;
-        var searchedCategoriesLabels = null;
-        var searchedSelectionsLabels = null;
-        if (searchedCategories) {
-            searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
-                return (
-                    <span key={cat.id} className="business-label" onClick={this.removeCategory.bind(this, cat)}>{cat.label}&times;</span>
-                );
-            }, this)
-        }
-        if (searchedSelections) {
-            searchedSelectionsLabels = _.map(searchedSelections, function(selection){
-                return (
-                    <span key={selection.id} className="business-label" onClick={this.removeSelection.bind(this, selection.slug)}>{selection.label}&times;</span>
-                );
-            }, this);
-        }
         if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels, searchedSelectionsLabels);
 
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
-                        {searchedSelectionsLabels}
-                        {searchedCategoriesLabels}
-                    </div>
+                    <SearchLabels search={this.props.search} {...this.props}/>
+                </div>
                 <div className="row">
                     {_.map(result.hits, function (business) {
                         return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
@@ -270,8 +254,7 @@ var BusinessResult = React.createClass({
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
-                    {searchedCategoriesLabels}
-                    {searchedSelectionsLabels}
+                    <SearchLabels search={this.props.search} {...this.props}/>
                 </div>
                 <div className="row">
                     <p className="text-center">
@@ -283,12 +266,7 @@ var BusinessResult = React.createClass({
             </div>
         );
     },
-    removeCategory: function (category) {
-        this.props.onChange({categories: _.without(this.props.search.categories, category.slug)});
-    },
-    removeSelection: function (selectionSlug) {
-        this.props.onChange({selections: _.without(this.props.search.selections, selectionSlug)});
-    }
+    
 });
 
 module.exports = BusinessResult;
