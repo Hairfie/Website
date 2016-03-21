@@ -22,12 +22,12 @@ var Selections = React.createClass({
                         </Link>
                         <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-meilleurs-coloristes'}} className="selection-item">
                                 <div className="img les-meilleurs-coloristes" />
-                                <h4>Les meilleurs coloristes parisiens</h4>
+                                <h4>Les coloristes parisiens</h4>
                                 Voir les salons
                         </Link>
                         <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-barbershops'}} className="selection-item">
                                 <div className="img les-barbershops" />
-                                <h4>Les barbershops à Paris</h4>
+                                <h4>Les barbiers à Paris</h4>
                                 Voir les salons
                         </Link>
                     </div>
