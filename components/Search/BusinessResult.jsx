@@ -153,7 +153,8 @@ var Business = React.createClass({
         );
     },
     renderRating: function () {
-        if (!this.props.business.numReviews && !this.props.business.yelpObject) return;
+        debugger;
+        if (!this.props.business.numReviews && (!this.props.business.yelpObject || this.props.business.displayYelp == false )) return;
         else if (this.props.business.numReviews) {
             var query  = this.props.date ? { date: this.props.date } : {};
 
