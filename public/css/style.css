@@ -11171,87 +11171,96 @@ section.how .row > div {
       section.how .row > div .how-txt {
         padding-top: 10px; } }
 
-section.selections p {
-  font-size: 1.6em;
-  margin-bottom: 20px; }
-
-section.selections .flex-selections {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  @media screen and (max-width: 767px) {
-    section.selections .flex-selections {
+section.selections {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  section.selections p {
+    font-size: 1.6em;
+    margin-bottom: 20px; }
+  section.selections .flex-selections {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    @media screen and (max-width: 767px) {
+      section.selections .flex-selections {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column; } }
+    section.selections .flex-selections .selection-item {
+      width: calc((100% - 40px) / 3);
+      height: 280px;
+      margin-right: 20px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
       -webkit-box-direction: normal;
       -webkit-box-orient: vertical;
       -webkit-flex-direction: column;
       -moz-flex-direction: column;
       -ms-flex-direction: column;
-      flex-direction: column; } }
-  section.selections .flex-selections .selection-item {
-    width: calc((100% - 40px) / 3);
-    height: 280px;
-    margin-right: 20px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    -webkit-box-shadow: 0 4px 6px #dfdfdf;
-    -moz-box-shadow: 0 4px 6px #dfdfdf;
-    box-shadow: 0 4px 6px #dfdfdf; }
-    @media screen and (max-width: 767px) {
-      section.selections .flex-selections .selection-item {
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      border: 1px solid #e6e6e6; }
+      section.selections .flex-selections .selection-item:hover {
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        -ms-transition: all 0.25s ease-out;
+        -o-transition: all 0.25s ease-out;
+        -webkit-box-shadow: 0 2px 4px #dfdfdf;
+        -moz-box-shadow: 0 2px 4px #dfdfdf;
+        box-shadow: 0 2px 4px #dfdfdf; }
+      @media screen and (max-width: 767px) {
+        section.selections .flex-selections .selection-item {
+          width: 100%;
+          height: 215px;
+          margin-bottom: 20px; } }
+      section.selections .flex-selections .selection-item:hover, section.selections .flex-selections .selection-item:active, section.selections .flex-selections .selection-item:focus, section.selections .flex-selections .selection-item:visited {
+        color: inherit;
+        text-decoration: none; }
+      section.selections .flex-selections .selection-item h4 {
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: 200;
+        margin-top: 25px;
+        margin-bottom: 0;
+        text-align: center; }
+        @media screen and (max-width: 767px) {
+          section.selections .flex-selections .selection-item h4 {
+            margin-top: 10px;
+            margin-bottom: 5px; } }
+      section.selections .flex-selections .selection-item span {
+        font-size: 1.8em;
+        font-weight: 100;
         width: 100%;
-        height: 215px;
-        margin-bottom: 20px; } }
-    section.selections .flex-selections .selection-item:hover, section.selections .flex-selections .selection-item:active, section.selections .flex-selections .selection-item:focus, section.selections .flex-selections .selection-item:visited {
-      color: inherit;
-      text-decoration: none; }
-    section.selections .flex-selections .selection-item h4 {
-      text-transform: uppercase;
-      font-size: 2em;
-      font-weight: 200;
-      margin-top: 20px;
-      text-align: center; }
-      @media screen and (max-width: 767px) {
-        section.selections .flex-selections .selection-item h4 {
-          margin-top: 10px;
-          margin-bottom: 5px; } }
-    section.selections .flex-selections .selection-item span {
-      font-size: 1.8em;
-      font-weight: 100;
-      width: 100%;
-      text-align: center;
-      text-decoration: underline; }
-    section.selections .flex-selections .selection-item .img {
-      width: 100%;
-      height: 185px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid #fe5b5f; }
-      @media screen and (max-width: 767px) {
-        section.selections .flex-selections .selection-item .img {
-          height: 140px; } }
-    section.selections .flex-selections .selection-item .les-bons-plans {
-      background-image: url(../img/selections/les-bons-plans.jpg); }
-    section.selections .flex-selections .selection-item .les-meilleurs-coloristes {
-      background-image: url(../img/selections/les-meilleurs-coloristes.jpg); }
-    section.selections .flex-selections .selection-item .les-barbershops {
-      background-image: url(../img/selections/les-barbershops.jpg); }
+        text-align: center;
+        color: #c4c4c4; }
+      section.selections .flex-selections .selection-item .img {
+        width: 100%;
+        height: 185px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid #fe5b5f; }
+        @media screen and (max-width: 767px) {
+          section.selections .flex-selections .selection-item .img {
+            height: 140px; } }
+      section.selections .flex-selections .selection-item .les-bons-plans {
+        background-image: url(../img/selections/les-bons-plans.jpg); }
+      section.selections .flex-selections .selection-item .les-meilleurs-coloristes {
+        background-image: url(../img/selections/les-meilleurs-coloristes.jpg); }
+      section.selections .flex-selections .selection-item .les-barbershops {
+        background-image: url(../img/selections/les-barbershops.jpg); }
 
 section.home-section {
   position: relative; }
@@ -11281,12 +11290,13 @@ section.home-section {
     margin-left: 0;
     margin-right: 0; }
   section.home-section h2 {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 200;
     padding: 30px 0 10px;
     margin: 0;
-    font-size: 2.4em;
-    color: #595959; }
+    font-size: 2.5em;
+    color: #595959;
+    text-transform: uppercase; }
     @media screen and (max-width: 767px) {
       section.home-section h2 {
         font-size: 2.2em; } }
@@ -15208,7 +15218,6 @@ section.home-search .home-search-mobile {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 1.4em;
-  letter-spacing: 2px;
   color: #c4c4c4; }
   .Select-control:focus {
     outline: 0; }
@@ -15371,7 +15380,6 @@ section.home-search .home-search-mobile {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 1.2em;
-  letter-spacing: 2px;
   color: #c4c4c4;
   text-align: left; }
 
