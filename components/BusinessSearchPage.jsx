@@ -66,6 +66,7 @@ var BusinessSearchPage = React.createClass({
             result={this.props.result} 
             searchedCategories={searchedCategories}
             searchedSelections={searchedSelections}
+            selections={this.props.selections}
             onChange={this.handleSearchChange}/>;
     },
     renderTopReviews: function() {

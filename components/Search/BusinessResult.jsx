@@ -133,6 +133,7 @@ var Business = React.createClass({
                     <div className="business-price-rating">
                         {this.renderPricing()}
                     </div>
+                    {this.renderIsInSelection()}
                     <div className="business-promo">
                         {this.renderDiscount()}
                     </div>
@@ -143,6 +144,22 @@ var Business = React.createClass({
                     </div>
                 </div>
             </section>
+        );
+    },
+    renderIsInSelection: function() {
+        var selections = _.map(
+                            _.filter(this.props.selections, function (sel) { 
+                                return _.include(this.props.business.selections, sel.id)
+                            }, this), 
+                            function(sel) {
+                                return <div key={sel.id} className="btn btn-selection hidden-xs">{sel.name}</div>
+
+                            }
+                        );
+        return (
+            <div>
+                {selections}
+            </div>
         );
     },
     renderAllHairfiesButton: function () {
@@ -215,7 +232,7 @@ var BusinessResult = React.createClass({
         var date   = this.props.search && this.props.search.date;
         var searchedSelections = this.props.searchedSelections;
         var searchedCategories = this.props.searchedCategories;
-        if (result.hits.length == 0) return this.renderNoResult(searchedCategoriesLabels, searchedSelectionsLabels);
+        if (result.hits.length == 0) return this.renderNoResult();
 
         return (
             <div className="tab-pane active" id="salons">
@@ -224,7 +241,12 @@ var BusinessResult = React.createClass({
                 </div>
                 <div className="row">
                     {_.map(result.hits, function (business) {
-                        return <Business key={business.id} business={business} date={date} searchedCategories={searchedCategories}/>
+                        return <Business 
+                            key={business.id} 
+                            business={business} 
+                            date={date} 
+                            searchedCategories={searchedCategories}
+                            selections={this.props.selections}/>
                     }, this)}
                 </div>
                 {this.renderPagination()}
@@ -250,7 +272,7 @@ var BusinessResult = React.createClass({
             query={params.query}
             />
     },
-    renderNoResult: function (searchedCategoriesLabels, searchedSelectionsLabels) {
+    renderNoResult: function () {
         return (
             <div className="tab-pane active" id="salons">
                 <div className="row">
