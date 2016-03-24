@@ -38,8 +38,8 @@
     {
         "displayName": "Coiffeur Afro Paris",
         "address": "Paris--France",
-        "category": "ethnique",
-        "url": "/fr/coiffeurs/Paris--France?categories=ethnique"
+        "category": "afro",
+        "url": "/fr/coiffeurs/Paris--France?categories=afro"
     },
     {
         "displayName": "Extensions à Paris",
