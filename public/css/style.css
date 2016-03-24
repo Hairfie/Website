@@ -10677,6 +10677,9 @@ header {
         .mobile-nav .mobile-menu ul li.hairfies:before {
           background: url(../img/icons/mobile/hairfie-menu.svg) no-repeat center center;
           background-size: contain; }
+        .mobile-nav .mobile-menu ul li.sms:before {
+          background: url(../img/icons/avis.svg) no-repeat center center;
+          background-size: contain; }
         .mobile-nav .mobile-menu ul li:hover {
           background-color: #c4c4c4;
           color: white;
@@ -15582,6 +15585,33 @@ section.home-search .home-search-mobile {
         line-height: 25px; }
       #content.newsletter .spam-note {
         font-size: 1.3em; } }
+
+/*///////////////////////////////
+       P A G E    S M S
+///////////////////////////////*/
+#content.sms {
+  background-color: white;
+  margin-top: 55px;
+  padding: 5% 10% 5% 10%;
+  margin-bottom: 10%; }
+  #content.sms .flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center; }
+  #content.sms h3 {
+    color: #fe5b5f; }
+  #content.sms p {
+    font-size: 1.9em;
+    font-family: "Lato", sans-serif; }
 
 .connect-form {
   border: 1px solid #dfdfdf;
