@@ -12225,7 +12225,7 @@ section.home-search .home-search-mobile {
     width: 100%; }
   #content.search .main-content .header-part h1 {
     margin: 20px 0;
-    letter-spacing: 2px;
+    letter-spacing: 0;
     font-weight: 600;
     font-size: 21px;
     margin-top: 25px;
@@ -12238,7 +12238,6 @@ section.home-search .home-search-mobile {
   #content.search .main-content .header-part p {
     font-weight: 200;
     font-size: 1.4em;
-    letter-spacing: 1px;
     margin-bottom: 30px; }
   #content.search .main-content .header-part div {
     display: inline-block;
@@ -12594,6 +12593,25 @@ section.home-search .home-search-mobile {
     margin-right: 5px;
     margin-top: 5px;
     display: inline-block; }
+  #content.search .main-content .tab-pane#salons .info-bloc .btn-selection, #content.search .main-content .tab-pane#adom .info-bloc .btn-selection {
+    color: #595959;
+    background-color: white;
+    border: 1px solid #c4c4c4;
+    font-size: 1.6em;
+    padding: 5px 10px 5px 35px;
+    margin: 0px 5px 5px 0;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer; }
+    #content.search .main-content .tab-pane#salons .info-bloc .btn-selection:before, #content.search .main-content .tab-pane#adom .info-bloc .btn-selection:before {
+      content: ' ';
+      background: url(../img/search/star.svg) no-repeat center center;
+      background-size: contain;
+      width: 18px;
+      height: 18px;
+      left: 10px;
+      position: absolute; }
   #content.search .main-content .tab-pane#salons .info-bloc .book, #content.search .main-content .tab-pane#adom .info-bloc .book {
     bottom: 0px;
     position: absolute; }
@@ -12882,12 +12900,17 @@ section.home-search .home-search-mobile {
     width: 100%;
     top: 100%; }
 
+@media screen and (max-width: 767px) {
+  #content.search .label-container {
+    padding-left: 10px; } }
+
 #content.search .business-label {
   color: white;
   background-color: #fe5b5f;
   font-size: 1.6em;
-  padding: 5px 25px 5px 5px;
-  margin: 15px 5px 10px 0;
+  padding: 5px 35px 5px 10px;
+  margin: 0px 5px 5px 0;
+  border-radius: 3px;
   display: inline-block;
   position: relative;
   cursor: pointer; }
@@ -12896,11 +12919,7 @@ section.home-search .home-search-mobile {
     font-weight: 200;
     position: absolute;
     top: -3px;
-    right: 5px; }
-
-@media screen and (max-width: 767px) {
-  #content.search .business-label:first-child {
-    margin-left: 10px; } }
+    right: 10px; }
 
 #content.search .top-reviews {
   margin-top: -30px; }
