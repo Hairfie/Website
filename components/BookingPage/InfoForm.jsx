@@ -52,11 +52,11 @@ var InfoForm = React.createClass({
         if (!nextProps.currentUser)
             return;
         this.setState({
-            firstName: nextProps.currentUser.firstName ? nextProps.currentUser.firstName : "",
-            lastName: nextProps.currentUser.lastName ? nextProps.currentUser.lastName : "",
-            email: nextProps.currentUser.email ? nextProps.currentUser.email : "",
-            phoneNumber: nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : this.state.phoneNumber,
-            userGender: nextProps.currentUser.gender ? nextProps.currentUser.gender : ""
+            firstName: _.isEmpty(this.state.firstName) && nextProps.currentUser.firstName ? nextProps.currentUser.firstName : this.state.firstName,
+            lastName: _.isEmpty(this.state.lastName) && nextProps.currentUser.lastName ? nextProps.currentUser.lastName : this.state.lastName,
+            email: _.isEmpty(this.state.email) && nextProps.currentUser.email ? nextProps.currentUser.email : this.state.email,
+            phoneNumber: _.isEmpty(this.state.phoneNumber) && nextProps.currentUser.phoneNumber ? nextProps.currentUser.phoneNumber : this.state.phoneNumber,
+            userGender: _.isEmpty(this.state.userGender) && nextProps.currentUser.userGender ? nextProps.currentUser.userGender : this.state.userGender
         });
     },
     getInitialState: function() {

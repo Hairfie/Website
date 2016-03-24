@@ -34,7 +34,7 @@ var Sidebar = React.createClass({
         var business = this.props.business;
         if (!business || !business.isBookable) return;
         return (                
-            <Link className="btn btn-book" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+            <Link className="btn btn-book hidden-xs" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                 Prendre RDV
             </Link>
         );

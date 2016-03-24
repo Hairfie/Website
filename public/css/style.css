@@ -13242,11 +13242,22 @@ section.home-search .home-search-mobile {
           .salon#content .main-content section.salon-info .breadcrumb {
             display: block; } }
       .salon#content .main-content section.salon-info hr {
-        margin-top: -15px;
-        margin-bottom: 20px;
+        margin: -15px 0 5px 0;
         border: 0;
         border-top: 1px dashed #777777;
         width: calc(100vw - 30px); }
+      .salon#content .main-content section.salon-info .btn-book.btn-book-inside {
+        width: calc(100vw - 30px);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        font-weight: 400;
+        border-radius: 0;
+        height: 50px;
+        line-height: 40px;
+        font-size: 1.8em;
+        letter-spacing: 0.5px; }
   .salon#content section.salon-content {
     margin-bottom: 70px; }
     @media screen and (min-width: 767px) {
@@ -14260,13 +14271,13 @@ section.home-search .home-search-mobile {
       padding-left: 10px;
       float: left;
       width: calc(100% - 55px); }
-      #content.reservation .booking-summary .salon-bloc .address-bloc h2 > a, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > a {
+      #content.reservation .booking-summary .salon-bloc .address-bloc h2 > span, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > span {
         font-size: 1.2em;
         text-transform: none;
         letter-spacing: 0;
         font-weight: 400; }
         @media screen and (max-width: 767px) {
-          #content.reservation .booking-summary .salon-bloc .address-bloc h2 > a, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > a {
+          #content.reservation .booking-summary .salon-bloc .address-bloc h2 > span, .review-confirmation .booking-summary .salon-bloc .address-bloc h2 > span {
             font-size: 1.1em; } }
       #content.reservation .booking-summary .salon-bloc .address-bloc .address, .review-confirmation .booking-summary .salon-bloc .address-bloc .address {
         font-size: 1.5em;

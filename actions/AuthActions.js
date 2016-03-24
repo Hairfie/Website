@@ -146,26 +146,23 @@ module.exports = {
         return context.hairfieApi
             .post('/users/logout', token, { query: { access_token: token.id }})
             .then(function () {
-            context.executeAction(
-                NotificationActions.notifyInfo,
-                {
-                    title: 'Déconnexion',
-                    message: "Vous êtes à présent déconnecté"
-                }
-            );
-            return Promise.all([
-                context.dispatch(Actions.DELETE_TOKEN),
-                context.dispatch(Actions.DELETE_USER_INFO)
-                ]);
-            }, function () {
-                return context.executeAction(
-                    NotificationActions.notifyError,
+                context.executeAction(
+                    NotificationActions.notifyInfo,
                     {
-                        title: 'Echec de déconnexion',
-                        message: "Un problème est survenu"
+                        title: 'Déconnexion',
+                        message: "Vous êtes à présent déconnecté"
                     }
                 );
-            })
+                return Promise.all([
+                    context.dispatch(Actions.DELETE_TOKEN),
+                    context.dispatch(Actions.DELETE_USER_INFO)
+                    ]);
+                }, function () {
+                    return Promise.all([
+                        context.dispatch(Actions.DELETE_TOKEN),
+                        context.dispatch(Actions.DELETE_USER_INFO)
+                    ]);
+                })
     },
     register: function(context, payload) {
         var withNavigate = payload.withNavigate;

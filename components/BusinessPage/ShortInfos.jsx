@@ -71,6 +71,9 @@ module.exports = React.createClass({
                 </div>
                 <Breadcrumb business={business} />
                 <hr className="visible-xs" />
+                <Link className="btn btn-book btn-book-inside visible-xs" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                    Prendre RDV
+                </Link>
           </section>
         );
     },

@@ -21,20 +21,18 @@ var BookingSummary = React.createClass({
         return (
             <div className="booking-summary row">
                 <div className="salon-bloc col-xs-12 col-sm-4">
-                    <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                        <Picture picture={business.pictures[0]}
+                    <Picture picture={business.pictures[0]}
                            resolution={{width: 55, height: 55}}
                            placeholder="/img/placeholder-55.png" />
-                    </Link>
                     <div className="address-bloc">
                         <h2>
-                            <Link route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
-                                {business.name}
-                            </Link>
+                            <span>
+                            {business.name}
+                            </span>
                         </h2>
-                        <Link className="address" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                        <span className="address">
                             {displayAddress}
-                        </Link>
+                        </span>
                         <a className="phone" href={"tel:" + phoneNumber}>{phoneNumber}</a>
                     </div>
                 </div>
@@ -92,9 +90,6 @@ var BookingSummary = React.createClass({
         if (this.props.timeslotSelected) {
             button = <button className="btn btn-whitered" onClick={this.props.modifyTimeslot}>Modifier la date et l'heure</button>;
         }
-        // if (this.props.booking && booking.status == BookingStatus.NOT_CONFIRMED ) {
-        //     button = <Link route="business_booking" className="btn btn-whitered" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>Modifier le RDV </Link>;
-        // }
         return (
             <div className='edit-bloc  col-xs-12 col-sm-4'>
                 <hr className="visible-xs" />
