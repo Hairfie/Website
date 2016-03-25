@@ -15511,14 +15511,15 @@ section.home-search .home-search-mobile {
   margin-top: 30px;
   margin-bottom: -20px; }
 
-.container.write-review {
+#content.container.write-review {
+  background-color: white;
   margin-top: 65px;
   font-size: 1.3em; }
-  .container.write-review form.form .green {
+  #content.container.write-review form.form .green {
     float: left; }
-  .container.write-review div.stars {
+  #content.container.write-review div.stars {
     height: 1.9em; }
-  .container.write-review select {
+  #content.container.write-review select {
     width: 100%;
     background-color: white;
     height: 34px;
