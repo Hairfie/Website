@@ -4,7 +4,7 @@ var React = require('react');
 var PublicLayout = require('./PublicLayout.jsx');
 var Newsletter = require('./Partial/Newsletter.jsx');
 
-var NewsletterPage = React.createClass({
+var SMSPage = React.createClass({
     render: function () {
         return (
             <PublicLayout customClass="bg-white">
@@ -28,4 +28,4 @@ var NewsletterPage = React.createClass({
 });
 
 
-module.exports = NewsletterPage;
+module.exports = SMSPage;
