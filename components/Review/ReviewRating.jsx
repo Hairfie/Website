@@ -5,20 +5,23 @@ var _ = require('lodash');
 var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
 var RatingInput = require('./RatingInput.jsx');
+var classNames = require('classnames');
 
 var ReviewRating = React.createClass ({
     getDefaultProps: function () {
         return {
-            handleCriteria: _.noop
+            handleCriteria: _.noop,
+            review: _.noop
         }
     },
     render: function() {
+        var ratingIsDone = classNames({'hidden-sm': true, 'hidden-md':true, 'hidden-lg':true, 'hidden': !this.props.validateRating});
         return (
-            <div {...this.props}>
-                <RatingInput ref="business" label="Le salon (25% de la note)" className="interactive" onChange={this._handleRatingInputChange.bind(this, 'business')}/>
-                <RatingInput ref="businessMember" label="Le coiffeur" className="interactive" onChange={this._handleRatingInputChange.bind(this, 'businessMember')} />
-                <RatingInput ref="haircut" label="La coupe" className="interactive" onChange={this._handleRatingInputChange.bind(this, 'haircut')} />
-                <Button className="visible-xs" onClick={this.props.handlePage}>Suivant</Button>
+            <div {...this.props} className='review-rating'>
+                <RatingInput ref="business" label="Le salon (25% de la note)" subLabel='Décoration, propreté' className="interactive" onChange={this._handleRatingInputChange.bind(this, 'business')}/>
+                <RatingInput ref="businessMember" label="Le coiffeur (25% de la note)" subLabel='Accueil, écoute, amabilité' className="interactive" onChange={this._handleRatingInputChange.bind(this, 'businessMember')} />
+                <RatingInput ref="haircut" label="La coupe (50% de la note)" subLabel='Résultat final, style' className="interactive" onChange={this._handleRatingInputChange.bind(this, 'haircut')} />
+                <Button className={ratingIsDone} onClick={this.props.handlePage}>Suivant</Button>
             </div>
         );
     },

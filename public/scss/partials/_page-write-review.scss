@@ -1,33 +1,92 @@
 #content.container.write-review {
     background-color: white;
     margin-top: 65px;
-    font-size: 1.3em;
-    form.form {
-        .green {
-            float: left;
+    padding-bottom: 10px;
+    .business-infos {
+        h4 {
+            color: red;
+            font-size: 1.8em;
+            letter-spacing: 0;
+            font-weight: $light;
+        }
+        .flex-container {
+            @include flexbox;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            img {
+                max-width: 80px;
+                max-height: 80px;
+            }
+            .text-bloc {
+                padding-left: 10px;
+                font-size: 1.6em;
+                color: $darkgrey;
+                h5 {
+                    font-size: 1.2em;
+                    margin: 0;
+                }
+            }
         }
     }
-    div.stars {
-        height: 1.9em;
-    }
-    select {
-        width: 100%;
-        background-color: white;
-        height: 34px;
-        border: 2px solid #e6e6e6;
-        font-family: "Lato", sans-serif;
-        font-weight: 700;
-        font-size: 1.4em;
-        letter-spacing: 2px;
-        color: #c4c4c4;
-    }
-}
 
-.review-confirmation {
-    @extend #content.reservation;
-    .row {
-        button.registration {
-           width: 100%;
+    .review-rating {
+        @include flexbox;
+        @include flex-direction(column);
+        @include align-items(center);
+        .form-group {
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            width: 100%;
+            border-top: 1px solid $grey;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            label {
+                font-size: 1.7em;
+                color: red;
+                font-weight: $light;
+                margin-bottom: 0;
+            }
+            .sub-label {
+                font-size: 1.4em;
+            }
+            .stars {
+                .star {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+        }
+        button {
+            margin-bottom: 15px;
         }
     }
+//     form.form {
+//         .green {
+//             float: left;
+//         }
+//     }
+//     div.stars {
+//         height: 1.9em;
+//     }
+//     select {
+//         width: 100%;
+//         background-color: white;
+//         height: 34px;
+//         border: 2px solid #e6e6e6;
+//         font-family: "Lato", sans-serif;
+//         font-weight: 700;
+//         font-size: 1.4em;
+//         letter-spacing: 2px;
+//         color: #c4c4c4;
+//     }
+// }
+
+// .review-confirmation {
+//     @extend #content.reservation;
+//     .row {
+//         button.registration {
+//            width: 100%;
+//         }
+//     }
 }

@@ -18,8 +18,10 @@ var RatingInput = React.createClass({
         }
     },
     render: function () {
+        var subLabel = this.props.subLabel ? <div className='sub-label'>{this.props.subLabel}</div> : null;
         return (
             <Input {...this.props}>
+                {subLabel}
                 <div className="stars">
                     {[1, 2, 3, 4, 5].map(function (n) { return this.renderStar(n); }.bind(this))}
                 </div>
@@ -37,7 +39,7 @@ var RatingInput = React.createClass({
             off : !on
         });
 
-        return <a role="button" className={className} style={{margin: '2px'}} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
+        return <a role="button" key={n} className={className} style={{margin: '2px'}} onClick={this._selectStar.bind(this, n)} onMouseEnter={this._mouseEnterStar.bind(this, n)} onMouseLeave={this._mouseLeaveStar.bind(this, n)}></a>;
     },
     getValue: function () {
         return this.state.value;

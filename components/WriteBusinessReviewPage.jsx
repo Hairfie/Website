@@ -31,19 +31,26 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
     },
     render: function () {
         console.log('brr', this.props.businessReviewRequest);
+        console.log('business', this.props.business);
         console.log('kind', this.props.reviewKind);
         console.log('currentuser', this.props.currentUser);
         return( 
             <PublicLayout context={this.props.context} customClass="bg-white">
                 <ReviewForm 
                     businessReviewRequest={this.props.businessReviewRequest} 
-                    currentUser={this.props.currentUser} 
+                    currentUser={this.props.currentUser}
+                    reviewKind={this.props.reviewKind} 
                     business={this.props.business} 
-                    onSubmit={this.submitReview} />
+                    onSubmit={this.submitReview} 
+                    className="container write-review" 
+                    id="content"/>
             </PublicLayout>
         );
     },
-    submitReview: function (review) {
+    submitReview: function(review) {
+        debugger;
+        console.log('REVIEW POSTED', review);
+        return;
         this.context.executeAction(BusinessReviewActions.submitReview, {
             review: review,
             token: this.props.token

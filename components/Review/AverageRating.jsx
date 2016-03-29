@@ -5,14 +5,22 @@ var _ = require('lodash');
 var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
 var RatingInput = require('./RatingInput.jsx');
+var classNames = require('classnames');
 
 var ReviewRating = React.createClass ({
+    getDefaultProps: function () {
+        return {
+            handlePage: _.noop,
+            review: _.noop,
+            validateRating: _.noop
+        }
+    },
     render: function() {
+        var ratingIsDone = classNames({'hidden': !this.props.validateRating});
         return (
             <div {...this.props}>
                 {this.averageRating()}
-                <Button className="visible-xs">Suivant</Button>
-                <Button className="hidden-xs" onClick={this.props.handleDesktopReview}>Suivant</Button>
+                <Button className={ratingIsDone} onClick={this.props.handlePage}>Suivant</Button>
             </div>
         );
     },

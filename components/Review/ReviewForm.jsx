@@ -10,6 +10,8 @@ var Col = require('react-bootstrap').Col;
 var RatingInput = require('./RatingInput.jsx');
 var ReviewRating = require('./ReviewRating.jsx');
 var AverageRating = require('./AverageRating.jsx');
+var UserInfos = require('./Userinfos.jsx');
+var BusinessInfos = require('./BusinessInfos.jsx');
 var classNames = require('classnames');
 
 var RequiredAsterisk = React.createClass({
@@ -19,71 +21,140 @@ var RequiredAsterisk = React.createClass({
 });
 var ReviewForm = React.createClass({
     getInitialState: function() {
+        var brr = this.props.businessReviewRequest;
+        var cu = this.props.currentUser;
         return {
-            review: {
-                criteria: null,
-                comment: null
+            review  : {
+                businessId  : this.props.business.id,
+                requestId   : (brr && brr.id) || undefined,
+                authorId    : cu ? cu.id : undefined,
+                firstName   : (brr && brr.booking && brr.booking.firstName) || (cu && cu.firstName) || null,
+                lastName    : (brr && brr.booking && brr.booking.lastName) || (cu && cu.lastName) || null,
+                gender      : (brr && brr.booking && brr.booking.gender) || (cu && cu.gender) || null,
+                email       : (brr && brr.email) || (cu && cu.email) || null,
+                phoneNumber : (brr && brr.booking && brr.booking.phoneNumber) || (cu && cu.phoneNumber) || null,
+                criteria    : null,
+                comment     : null
             },
-            page: 1    
+            page    : 1,
+            error   : null
         };
+    },
+    componentWillReceiveProps: function(nextProps) {
+        console.log('NEXTPROPS', nextProps);
+        // debugger;
+        if (!nextProps.currentUser) return;
+        var review = this.state.review;
+        this.setState({
+            review: _.assign({}, this.state.review, {
+                firstName   : _.isNull(review.firstName) ? nextProps.currentUser.firstName : review.firstName, 
+                lastName    : _.isNull(review.lastName) ? nextProps.currentUser.lastName : review.lastName, 
+                gender      : _.isNull(review.gender) ? nextProps.currentUser.gender : review.gender, 
+                email       : _.isNull(review.firstName) ? nextProps.currentUser.email : review.email, 
+                phoneNumber : _.isNull(review.firstName) ? nextProps.currentUser.phoneNumber : review.phoneNumber
+            })
+        });
     },
     render: function () {
         console.log('review', this.state.review);
+        console.log('page', this.state.page);
         return (
-            <div>
+            <div {...this.props}>
                 {this.renderDesktop()}
                 {this.renderMobile()}
             </div>
         );
     },
     renderDesktop: function () {
+        var page1Class = classNames({'hidden': this.state.page != 1});
+        var page2Class = classNames({'hidden': this.state.page != 2});
         return (
             <div className="hidden-xs">
                 #JESUISBUREAU
+                <BusinessInfos 
+                    businessReviewRequest={this.props.businessReviewRequest} 
+                    business={this.props.business}/>
                 <ReviewRating
                     ref='reviewRating'
                     version='desktop'
                     handleCriteria={this.handleCriteria} 
-                    review={this.state.review}/>
+                    review={this.state.review}
+                    className={page1Class}/>
                 <AverageRating
                     version='desktop'
                     review={this.state.review} 
-                    handleDesktopReview={this.handleDesktopReview}/>
+                    handlePage={this.handlePage}
+                    validateRating={this.validateRating()}
+                    className={page1Class}/>
+                <UserInfos 
+                    review={this.state.review}
+                    currentUser={this.props.currentUser}
+                    handlePage={this.handlePage}
+                    className={page2Class}
+                    businessReviewRequest={this.props.businessReviewRequest}
+                    handleUserInfos={this.handleUserInfos} />
             </div>
         );
     },
     renderMobile: function () {
-        var reviewRatingClass = classNames({'hidden-xs': this.state.page != 1});
-        var avgRatingClass = classNames({'hidden-xs': this.state.page != 2});
+        var page1Class = classNames({'hidden': this.state.page != 1});
+        var page2Class = classNames({'hidden': this.state.page != 2});
+        var page3Class = classNames({'hidden': this.state.page != 3});
+        console.log('VALIDATRATING', this.validateRating());
         return (
-            <div className="visible-xs" style={{'marginTop': 150}}>
+            <div className="visible-xs">
                 #JESUISMOBILE
+                <BusinessInfos 
+                    businessReviewRequest={this.props.businessReviewRequest} 
+                    business={this.props.business}/>
                 <ReviewRating 
                     version='mobile'
                     handleCriteria={this.handleCriteria} 
                     review={this.state.review}
                     handlePage={this.handlePage}
-                    className={reviewRatingClass}/>
+                    validateRating={this.validateRating()}
+                    className={page1Class}/>
                 <AverageRating 
                     version='mobile'
                     review={this.state.review} 
-                    className={avgRatingClass}/>
+                    handlePage={this.handlePage}
+                    validateRating={this.validateRating()}
+                    className={page2Class}/>
+                <UserInfos 
+                    review={this.state.review}
+                    currentUser={this.props.currentUser}
+                    handlePage={this.handlePage}
+                    className={page3Class} 
+                    businessReviewRequest={this.props.businessReviewRequest}
+                    onSubmit={this.handleUserInfos} />
             </div>
         );
     },
-    handleCriteria: function (ratingKind, ratingValue) {
+    handleUserInfos: function(user) {
+        console.log('USER', user);
+    },
+    handleCriteria: function(ratingKind, ratingValue) {
         var criteria = 1;
         var rating = {};
         rating[ratingKind] = ratingValue;
-        console.log("%s has the value of %s", ratingKind, ratingValue);
-        this.setState({review: {criteria: _.assign({}, this.state.review.criteria, rating)}});
-        //this.setState({review: {criteria: criteria}});
+        this.setState({review: _.assign({}, this.state.review, {criteria: _.assign({}, this.state.review.criteria, rating)})});
     },
     handlePage: function() {
-        this.setState({page: (this.state.page + 1)})
+        if (this.props.reviewKind == 'BOOKING' && this.state.page == 2){
+            return this.props.onSubmit(this.state.review);
+        }
+        this.setState({page: (this.state.page + 1)});
     },
-    handleDesktopReview: function(review) {
-        debugger;
+    isPostResa: function() {
+        brr = this.props.businessReviewRequest;
+
+    },
+    validateRating: function() {
+        var criteria = this.state.review.criteria;
+        var result =  !(_.isNull(criteria) || _.isUndefined(criteria.business) 
+                                           || _.isUndefined(criteria.businessMember) 
+                                           || _.isUndefined(criteria.haircut));
+        return result;
     }
     // getInitialState: function () {
     //     if (this.props.businessReviewRequest && this.props.businessReviewRequest.booking) {
