@@ -44,19 +44,11 @@ module.exports = {
                 ga('send', 'event', 'Business Reviews', 'Submit');
                 context.executeAction(SubscriberActions.hasClosedBanner);
 
-                return context.executeAction(
-                    NotificationActions.notifySuccess,
-                    {
-                        title: 'Avis déposé',
-                        message: 'Votre avis a bien été pris en compte, merci !'
+                return context.executeAction(NavigationActions.navigate, {
+                    route: 'business_reviews_confirmation',
+                    params: {
+                        reviewId: businessReview.id
                     }
-                ).then(function () {
-                    return context.executeAction(NavigationActions.navigate, {
-                        route: 'business_reviews_confirmation',
-                        params: {
-                            reviewId: businessReview.id
-                        }
-                    });
                 });
             });
     },

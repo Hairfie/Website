@@ -11,16 +11,17 @@ var ReviewRating = React.createClass ({
     getDefaultProps: function () {
         return {
             handlePage: _.noop,
-            review: _.noop,
-            validateRating: _.noop
+            review: _.noop
         }
     },
     render: function() {
         var ratingIsDone = classNames({'hidden': !this.props.validateRating});
+        var button = this.props.reviewKind == 'BOOKING' ? <Button className={'btn btn-book ' + ratingIsDone} onClick={this.props.onSubmit.bind(null, this.props.review)}>Poster votre avis</Button> : <Button className={'btn btn-book ' + ratingIsDone} onClick={this.props.handlePage}>Suivant</Button>
         return (
             <div {...this.props}>
                 {this.averageRating()}
-                <Button className={ratingIsDone} onClick={this.props.handlePage}>Suivant</Button>
+                <Input ref="comment" type="textarea" placeholder="Un commentaire ? (facultatif)" onChange={this.props.handleComment} />
+                {button}
             </div>
         );
     },
@@ -32,7 +33,7 @@ var ReviewRating = React.createClass ({
     */
     averageRating: function() {
 
-        if (!this.props.review.criteria) return;
+        if (!this.props.validateRating) return;
         var business = this.props.review.criteria.business ? this.props.review.criteria.business : 0;
         var businessMember = this.props.review.criteria.businessMember ? this.props.review.criteria.businessMember : 0;
         var haircut = this.props.review.criteria.haircut ? this.props.review.criteria.haircut : 0;
@@ -46,8 +47,11 @@ var ReviewRating = React.createClass ({
         avg = Math.round(avg * 10) / 10;
 
         return (
-            <div>
-                {'Note globale ' + avg + ' / 5'}
+            <div className='flex-container'>
+                <div className='flex-container2'>
+                    <label>Note Globale</label>
+                    <div className="sub-label">{avg + ' / 5'}</div>
+                </div>
                 <div className="stars">
                     {[1, 2, 3, 4, 5].map(function (n) { return this.renderStar(n, avg); }.bind(this))}
                 </div>

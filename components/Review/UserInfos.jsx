@@ -70,7 +70,6 @@ var UserInfos = React.createClass ({
         };
     },
     componentWillReceiveProps: function(nextProps) {
-        console.log("componentWillReceiveProps");
         if (!nextProps.review)
             return;
         //FIXME GENDER STATE.........................
@@ -85,8 +84,12 @@ var UserInfos = React.createClass ({
     render: function() {
         return (
             <div {...this.props}>
-                #FORMINFO-USER
-                {this.renderIfNotConnected()}
+                <div className="title">
+                    Vos informations
+                    <span>
+                        {this.renderIfNotConnected()}
+                    </span>
+                </div>
                 {this.renderConnectForm()}
                  <div className="gender-radio">
                     <BSInput className="radio">
@@ -149,7 +152,7 @@ var UserInfos = React.createClass ({
                         />
                 </div>
                 {this.renderErrorMessages()}
-                <Button onClick={this.submit}>Suivant</Button>
+                <Button className='btn btn-book' onClick={this.submit}>Poster mon avis</Button>
             </div>
         );
     },
@@ -206,7 +209,7 @@ var UserInfos = React.createClass ({
     renderErrorMessages: function() {
         if (_.isEmpty(this.props.getValidationMessages())) return;
         return (
-            <div className="validation-errors alert col-xs-12 col-sm-offset-2 col-sm-8">
+            <div className="validation-errors alert">
                 {this.props.getValidationMessages()}
             </div>
         );

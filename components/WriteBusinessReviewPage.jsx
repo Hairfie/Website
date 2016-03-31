@@ -48,9 +48,7 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         );
     },
     submitReview: function(review) {
-        debugger;
         console.log('REVIEW POSTED', review);
-        return;
         this.context.executeAction(BusinessReviewActions.submitReview, {
             review: review,
             token: this.props.token

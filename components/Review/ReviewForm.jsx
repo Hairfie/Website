@@ -41,8 +41,6 @@ var ReviewForm = React.createClass({
         };
     },
     componentWillReceiveProps: function(nextProps) {
-        console.log('NEXTPROPS', nextProps);
-        // debugger;
         if (!nextProps.currentUser) return;
         var review = this.state.review;
         this.setState({
@@ -58,72 +56,34 @@ var ReviewForm = React.createClass({
     render: function () {
         console.log('review', this.state.review);
         console.log('page', this.state.page);
+        var validateRating = this.validateRating();
         return (
             <div {...this.props}>
-                {this.renderMobile()}
-                            {this.renderDesktop()}
-
-            </div>
-        );
-    },
-    renderDesktop: function () {
-        var page1Class = classNames({'hidden': this.state.page != 1});
-        var page2Class = classNames({'hidden': this.state.page != 2});
-        return (
-            <div className="hidden-xs">
-                #JESUISBUREAU
                 <BusinessInfos 
                     businessReviewRequest={this.props.businessReviewRequest} 
                     business={this.props.business}
-                    className={'business-infos'}/>
+                    className={'page' + this.state.page + ' business-infos'}/>
                 <ReviewRating
                     ref='reviewRating'
                     handleCriteria={this.handleCriteria} 
                     review={this.state.review}
-                    className={page1Class + ' review-rating'}/>
+                    handlePage={this.handlePage}
+                    validateRating={validateRating}
+                    className={'page' + this.state.page + ' review-rating'}/>
                 <AverageRating
+                    ref='averageRating'
                     review={this.state.review} 
                     handlePage={this.handlePage}
-                    validateRating={this.validateRating}
-                    className={page1Class}/>
+                    validateRating={validateRating}
+                    reviewKind={this.props.reviewKind}
+                    handleComment={this.handleComment}
+                    onSubmit={this.props.onSubmit}
+                    className={'page' + this.state.page + ' average-rating'}/>
                 <UserInfos 
                     review={this.state.review}
                     currentUser={this.props.currentUser}
                     handlePage={this.handlePage}
-                    className={page2Class}
-                    businessReviewRequest={this.props.businessReviewRequest}
-                    handleUserInfos={this.handleUserInfos} />
-            </div>
-        );
-    },
-    renderMobile: function () {
-        var page1Class = classNames({'hidden': this.state.page != 1});
-        var page2Class = classNames({'hidden': this.state.page != 2});
-        var page3Class = classNames({'hidden': this.state.page != 3});
-        console.log('VALIDATRATING', this.validateRating());
-        return (
-            <div className="visible-xs">
-                #JESUISMOBILE
-                <BusinessInfos 
-                    businessReviewRequest={this.props.businessReviewRequest} 
-                    business={this.props.business}
-                    className={page1Class + ' business-infos'}/>
-                <ReviewRating 
-                    handleCriteria={this.handleCriteria} 
-                    review={this.state.review}
-                    handlePage={this.handlePage}
-                    validateRating={this.validateRating}
-                    className={page1Class + ' review-rating'}/>
-                <AverageRating 
-                    review={this.state.review} 
-                    handlePage={this.handlePage}
-                    validateRating={this.validateRating}
-                    className={page2Class}/>
-                <UserInfos 
-                    review={this.state.review}
-                    currentUser={this.props.currentUser}
-                    handlePage={this.handlePage}
-                    className={page3Class} 
+                    className={'page' + this.state.page + ' user-infos'}
                     businessReviewRequest={this.props.businessReviewRequest}
                     onSubmit={this.handleUserInfos} />
             </div>
@@ -131,6 +91,17 @@ var ReviewForm = React.createClass({
     },
     handleUserInfos: function(user) {
         console.log('USER', user);
+        this.setState({review: _.assign({}, this.state.review, {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            gender: user.gender,
+            email: user.email,
+            phoneNumber: user.phoneNumber
+        })}, function() {this.props.onSubmit(this.state.review)});
+
+    },
+    handleComment: function() {
+        this.setState({review: _.assign({}, this.state.review, {comment: this.refs.averageRating.refs.comment.getValue()})});
     },
     handleCriteria: function(ratingKind, ratingValue) {
         var criteria = 1;
@@ -139,14 +110,8 @@ var ReviewForm = React.createClass({
         this.setState({review: _.assign({}, this.state.review, {criteria: _.assign({}, this.state.review.criteria, rating)})});
     },
     handlePage: function() {
-        if (this.props.reviewKind == 'BOOKING' && this.state.page == 2){
-            return this.props.onSubmit(this.state.review);
-        }
         this.setState({page: (this.state.page + 1)});
-    },
-    isPostResa: function() {
-        brr = this.props.businessReviewRequest;
-
+        this.scrollToTop();
     },
     validateRating: function() {
         var criteria = this.state.review.criteria;
@@ -154,6 +119,14 @@ var ReviewForm = React.createClass({
                                            || _.isUndefined(criteria.businessMember) 
                                            || _.isUndefined(criteria.haircut));
         return result;
+    },
+    scrollTo: function(toRef) {
+        var target = ReactDOM.findDOMNode(this.refs[toRef]);
+        if (window.innerWidth <= 768 && target)
+            TweenMax.to(window, 0.5, {scrollTo:{y:target.offsetTop - 65}, ease:Power2.easeOut});
+    },
+    scrollToTop: function() {
+        TweenMax.to(window, 0.5, {scrollTo:{y:0}, ease:Power2.easeOut});
     }
     // getInitialState: function () {
     //     if (this.props.businessReviewRequest && this.props.businessReviewRequest.booking) {
