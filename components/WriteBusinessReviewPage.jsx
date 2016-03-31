@@ -30,10 +30,6 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         return null;
     },
     render: function () {
-        console.log('brr', this.props.businessReviewRequest);
-        console.log('business', this.props.business);
-        console.log('kind', this.props.reviewKind);
-        console.log('currentuser', this.props.currentUser);
         return( 
             <PublicLayout context={this.props.context} customClass="bg-white">
                 <ReviewForm 

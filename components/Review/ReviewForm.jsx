@@ -54,8 +54,6 @@ var ReviewForm = React.createClass({
         });
     },
     render: function () {
-        console.log('review', this.state.review);
-        console.log('page', this.state.page);
         var validateRating = this.validateRating();
         return (
             <div {...this.props}>
@@ -90,7 +88,6 @@ var ReviewForm = React.createClass({
         );
     },
     handleUserInfos: function(user) {
-        console.log('USER', user);
         this.setState({review: _.assign({}, this.state.review, {
             firstName: user.firstName,
             lastName: user.lastName,

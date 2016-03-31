@@ -147,7 +147,6 @@ module.exports = React.createClass({
     });
   },
 	handleGenderChanged: function (e) {
-    console.log(e.currentTarget.value);
     this.setState({
       userGender: e.currentTarget.value
     });

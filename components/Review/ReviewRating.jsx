@@ -15,7 +15,6 @@ var ReviewRating = React.createClass ({
         }
     },
     render: function() {
-        console.log('VALIDATERATING', this.props.validateRating);
         var ratingIsDone = classNames({'btn btn-book': true, 'hidden-sm': true, 'hidden-md':true, 'hidden-lg':true, 'hidden-xs': !this.props.validateRating});
         return (
             <div {...this.props}>

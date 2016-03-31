@@ -30,8 +30,7 @@ var UserInfos = React.createClass ({
             gender              : this.state.gender,
             userFirstName       : this.refs.userFirstName.value,
             userLastName        : this.refs.userLastName.value,
-            userEmail           : this.refs.userEmail.value,
-            userPhoneNumber     : this.refs.userPhoneNumber.value
+            userEmail           : this.refs.userEmail.value
         };
     },
     getDefaultProps: function () {
@@ -45,16 +44,14 @@ var UserInfos = React.createClass ({
             gender              : 'required',
             userFirstName       : 'required',
             userLastName        : 'required',
-            userEmail           : 'email|required',
-            userPhoneNumber     : 'required'
+            userEmail           : 'email|required'
         },
         {
             "required.gender": "Vous devez choisir votre genre",
             "required.userFirstName": "Vous devez saisir votre prénom",
             "required.userLastName": "Vous devez saisir votre nom",
             "required.userEmail": "Vous devez saisir un email",
-            "email.userEmail": "L'email saisi est incorrect",
-            "required.userPhoneNumber": "Vous devez saisir un n° de téléphone portable"
+            "email.userEmail": "L'email saisi est incorrect"
         },
         function (validator) {
             validator.lang = 'fr';
@@ -145,7 +142,7 @@ var UserInfos = React.createClass ({
                         name="userPhoneNumber" 
                         type="text"
                         className="form-control" 
-                        placeholder="Téléphone portable*" 
+                        placeholder="Téléphone portable(facultatif)" 
                         value={this.state.phoneNumber} 
                         onChange={this.handlePhoneNumberChanged} 
                         onBlur={this.props.handleValidation('userPhoneNumber')}
