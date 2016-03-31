@@ -16,6 +16,7 @@
             img {
                 max-width: 80px;
                 max-height: 80px;
+                border-radius: 2px;
             }
             .text-bloc {
                 padding-left: 10px;
@@ -33,6 +34,9 @@
         @include flexbox;
         @include flex-direction(column);
         @include align-items(center);
+        @media screen and (min-width: $screen-sm-min) {
+            display: block;
+        }
         .form-group {
             @include flexbox;
             @include flex-direction(column);
@@ -41,20 +45,40 @@
             border-top: 1px solid $grey;
             padding-top: 10px;
             padding-bottom: 10px;
+            @media screen and (min-width: $screen-sm-min) {
+                display: block;
+                width: 600px;
+            }
             label {
                 font-size: 1.7em;
                 color: red;
                 font-weight: $light;
                 margin-bottom: 0;
+                @media screen and (min-width: $screen-sm-min) {
+                    float: left;
+                }
             }
             .sub-label {
                 font-size: 1.4em;
+                @media screen and (min-width: $screen-sm-min) {
+                    float: left;
+                    margin-top: -5px;
+                }
             }
             .stars {
+                @media screen and (min-width: $screen-sm-min) {
+                    float: right;
+                    margin-top: -23px;
+                }
                 .star {
                     width: 45px;
                     height: 45px;
+                    @media screen and (min-width: $screen-sm-min) {
+                        width: 25px;
+                        height: 25px;
+                    }
                 }
+
             }
         }
         button {

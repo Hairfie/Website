@@ -12,7 +12,7 @@ var BusinessInfos = React.createClass ({
         var business = this.props.business;
         var displayAddress = business.address ? business.address.street + ' ' + business.address.zipCode + ' ' + business.address.city : null;
         return (
-            <div className='business-infos'>
+            <div {...this.props}>
                 <h4>{'Votre avis sur ' + business.name}</h4>
                 <div className="flex-container">
                     <Picture picture={business.pictures[0]}

@@ -15530,7 +15530,8 @@ section.home-search .home-search-mobile {
     margin-bottom: 15px; }
     #content.container.write-review .business-infos .flex-container img {
       max-width: 80px;
-      max-height: 80px; }
+      max-height: 80px;
+      border-radius: 2px; }
     #content.container.write-review .business-infos .flex-container .text-bloc {
       padding-left: 10px;
       font-size: 1.6em;
@@ -15555,6 +15556,9 @@ section.home-search .home-search-mobile {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center; }
+    @media screen and (min-width: 768px) {
+      #content.container.write-review .review-rating {
+        display: block; } }
     #content.container.write-review .review-rating .form-group {
       display: -webkit-box;
       display: -webkit-flex;
@@ -15576,16 +15580,35 @@ section.home-search .home-search-mobile {
       border-top: 1px solid #c4c4c4;
       padding-top: 10px;
       padding-bottom: 10px; }
+      @media screen and (min-width: 768px) {
+        #content.container.write-review .review-rating .form-group {
+          display: block;
+          width: 600px; } }
       #content.container.write-review .review-rating .form-group label {
         font-size: 1.7em;
         color: red;
         font-weight: 200;
         margin-bottom: 0; }
+        @media screen and (min-width: 768px) {
+          #content.container.write-review .review-rating .form-group label {
+            float: left; } }
       #content.container.write-review .review-rating .form-group .sub-label {
         font-size: 1.4em; }
+        @media screen and (min-width: 768px) {
+          #content.container.write-review .review-rating .form-group .sub-label {
+            float: left;
+            margin-top: -5px; } }
+      @media screen and (min-width: 768px) {
+        #content.container.write-review .review-rating .form-group .stars {
+          float: right;
+          margin-top: -23px; } }
       #content.container.write-review .review-rating .form-group .stars .star {
         width: 45px;
         height: 45px; }
+        @media screen and (min-width: 768px) {
+          #content.container.write-review .review-rating .form-group .stars .star {
+            width: 25px;
+            height: 25px; } }
     #content.container.write-review .review-rating button {
       margin-bottom: 15px; }
 

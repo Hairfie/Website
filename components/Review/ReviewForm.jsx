@@ -60,8 +60,9 @@ var ReviewForm = React.createClass({
         console.log('page', this.state.page);
         return (
             <div {...this.props}>
-                {this.renderDesktop()}
                 {this.renderMobile()}
+                            {this.renderDesktop()}
+
             </div>
         );
     },
@@ -73,18 +74,17 @@ var ReviewForm = React.createClass({
                 #JESUISBUREAU
                 <BusinessInfos 
                     businessReviewRequest={this.props.businessReviewRequest} 
-                    business={this.props.business}/>
+                    business={this.props.business}
+                    className={'business-infos'}/>
                 <ReviewRating
                     ref='reviewRating'
-                    version='desktop'
                     handleCriteria={this.handleCriteria} 
                     review={this.state.review}
-                    className={page1Class}/>
+                    className={page1Class + ' review-rating'}/>
                 <AverageRating
-                    version='desktop'
                     review={this.state.review} 
                     handlePage={this.handlePage}
-                    validateRating={this.validateRating()}
+                    validateRating={this.validateRating}
                     className={page1Class}/>
                 <UserInfos 
                     review={this.state.review}
@@ -106,19 +106,18 @@ var ReviewForm = React.createClass({
                 #JESUISMOBILE
                 <BusinessInfos 
                     businessReviewRequest={this.props.businessReviewRequest} 
-                    business={this.props.business}/>
+                    business={this.props.business}
+                    className={page1Class + ' business-infos'}/>
                 <ReviewRating 
-                    version='mobile'
                     handleCriteria={this.handleCriteria} 
                     review={this.state.review}
                     handlePage={this.handlePage}
-                    validateRating={this.validateRating()}
-                    className={page1Class}/>
+                    validateRating={this.validateRating}
+                    className={page1Class + ' review-rating'}/>
                 <AverageRating 
-                    version='mobile'
                     review={this.state.review} 
                     handlePage={this.handlePage}
-                    validateRating={this.validateRating()}
+                    validateRating={this.validateRating}
                     className={page2Class}/>
                 <UserInfos 
                     review={this.state.review}

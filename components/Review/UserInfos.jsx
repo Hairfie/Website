@@ -70,6 +70,7 @@ var UserInfos = React.createClass ({
         };
     },
     componentWillReceiveProps: function(nextProps) {
+        console.log("componentWillReceiveProps");
         if (!nextProps.review)
             return;
         //FIXME GENDER STATE.........................
@@ -82,8 +83,6 @@ var UserInfos = React.createClass ({
         });
     },
     render: function() {
-         // debugger;
-        console.log('GENDER', this.state.gender);
         return (
             <div {...this.props}>
                 #FORMINFO-USER

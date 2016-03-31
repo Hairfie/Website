@@ -24,19 +24,47 @@ var ReviewRating = React.createClass ({
             </div>
         );
     },
+    /*
+    ** Calcul de la moyenne:
+    ** business -> 25%
+    ** businessMember -> 25%
+    ** haircut -> 50%
+    */
     averageRating: function() {
 
         if (!this.props.review.criteria) return;
         var business = this.props.review.criteria.business ? this.props.review.criteria.business : 0;
         var businessMember = this.props.review.criteria.businessMember ? this.props.review.criteria.businessMember : 0;
         var haircut = this.props.review.criteria.haircut ? this.props.review.criteria.haircut : 0;
-        var div;
+        var div, avg, res, i;
+
         div = business > 0 ? 1 : 0;
         div = businessMember > 0 ? div + 1 : div + 0;
-        div = haircut > 0 ? div + 1 : div + 0;
-        var avg = ( business + businessMember + haircut) / (div * 20);
+        div = haircut > 0 ? div + 2 : div + 0;
+
+        avg = ( business + businessMember + haircut * 2) / (div * 20);
         avg = Math.round(avg * 10) / 10;
-        return 'Moyenne : ' + avg;
+
+        return (
+            <div>
+                {'Note globale ' + avg + ' / 5'}
+                <div className="stars">
+                    {[1, 2, 3, 4, 5].map(function (n) { return this.renderStar(n, avg); }.bind(this))}
+                </div>
+            </div>
+        );
+    },
+    renderStar: function(n, avg) {
+
+        var on = n <= Math.round(avg);
+        var className = classNames({
+            star: true,
+            full: on,
+            on  : on,
+            off : !on
+        });
+        return <a role="button" key={n} className={className} style={{margin: '3px'}}></a>;
+
     }
 
 });
