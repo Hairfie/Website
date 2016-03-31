@@ -10,7 +10,7 @@ var Col = require('react-bootstrap').Col;
 var RatingInput = require('./RatingInput.jsx');
 var ReviewRating = require('./ReviewRating.jsx');
 var AverageRating = require('./AverageRating.jsx');
-var UserInfos = require('./Userinfos.jsx');
+var UserInfos = require('./UserInfos.jsx');
 var BusinessInfos = require('./BusinessInfos.jsx');
 var classNames = require('classnames');
 
