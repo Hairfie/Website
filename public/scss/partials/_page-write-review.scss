@@ -198,14 +198,16 @@
         textarea {
             margin-top: 30px;
             border-radius: 0;
+            margin-bottom: 40px;
             @media screen and (min-width: $screen-sm-min) {
                 margin-top: 70px;
             }
         }
         .btn-book {
-            margin-top: 15px;
-            margin-right: auto;
-            margin-left: auto;
+            @media screen and (max-width: $screen-xs-max) {
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
     }
 
@@ -340,25 +342,40 @@
         }
         .btn-book {
             display: block;
-            margin-top: 20px;
             margin-bottom: 20px;
+            @media screen and (max-width: $screen-xs-max) {                        
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
     }
-    .dots {
-        margin-top: -20px;
+    .btn-book {
+        padding: 8px 20px;
+        font-size: 1.8em;
     }
-    .red-dot, .grey-dot {
-        font-size: 3em;
-        margin: 2px;
-        @media screen and (min-width: $screen-sm-min) {
-            @include hide;
+    .bottom-bar {
+        width: 100%;
+        margin-top: 20px;
+        @media screen and (max-width: $screen-xs-max) {            
+            text-align: center;
         }
-    }
-    .red-dot {
-        color: $hairfie;
-    }
-    .grey-dot {
-        color: $grey;
+        .dots {
+            position: absolute;
+            left: 15px;
+        }
+        .red-dot, .grey-dot {
+            font-size: 4em;
+            margin: 2px;
+            @media screen and (min-width: $screen-sm-min) {
+                @include hide;
+            }
+        }
+        .red-dot {
+            color: $hairfie;
+        }
+        .grey-dot {
+            color: $grey;
+        }
     }
 }
 #content.container.review-confirmation {

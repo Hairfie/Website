@@ -9501,7 +9501,7 @@ body {
     body {
       position: relative; } }
 
-input, textarea {
+input:not[type="radio"], textarea {
   -webkit-appearance: none; }
 
 .locked {
@@ -15737,14 +15737,15 @@ section.home-search .home-search-mobile {
             width: 25px; } }
   #content.container.write-review .average-rating textarea {
     margin-top: 30px;
-    border-radius: 0; }
+    border-radius: 0;
+    margin-bottom: 40px; }
     @media screen and (min-width: 768px) {
       #content.container.write-review .average-rating textarea {
         margin-top: 70px; } }
-  #content.container.write-review .average-rating .btn-book {
-    margin-top: 15px;
-    margin-right: auto;
-    margin-left: auto; }
+  @media screen and (max-width: 767px) {
+    #content.container.write-review .average-rating .btn-book {
+      margin-right: auto;
+      margin-left: auto; } }
   @media screen and (min-width: 768px) {
     #content.container.write-review .user-infos:not(.page2) {
       display: none !important; } }
@@ -15879,20 +15880,33 @@ section.home-search .home-search-mobile {
     border-radius: 0; }
   #content.container.write-review .user-infos .btn-book {
     display: block;
-    margin-top: 20px;
     margin-bottom: 20px; }
-  #content.container.write-review .dots {
-    margin-top: -20px; }
-  #content.container.write-review .red-dot, #content.container.write-review .grey-dot {
-    font-size: 3em;
-    margin: 2px; }
-    @media screen and (min-width: 768px) {
-      #content.container.write-review .red-dot, #content.container.write-review .grey-dot {
-        display: none !important; } }
-  #content.container.write-review .red-dot {
-    color: #fe5b5f; }
-  #content.container.write-review .grey-dot {
-    color: #c4c4c4; }
+    @media screen and (max-width: 767px) {
+      #content.container.write-review .user-infos .btn-book {
+        margin-right: auto;
+        margin-left: auto; } }
+  #content.container.write-review .btn-book {
+    padding: 8px 20px;
+    font-size: 1.8em; }
+  #content.container.write-review .bottom-bar {
+    width: 100%;
+    margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      #content.container.write-review .bottom-bar {
+        text-align: center; } }
+    #content.container.write-review .bottom-bar .dots {
+      position: absolute;
+      left: 15px; }
+    #content.container.write-review .bottom-bar .red-dot, #content.container.write-review .bottom-bar .grey-dot {
+      font-size: 4em;
+      margin: 2px; }
+      @media screen and (min-width: 768px) {
+        #content.container.write-review .bottom-bar .red-dot, #content.container.write-review .bottom-bar .grey-dot {
+          display: none !important; } }
+    #content.container.write-review .bottom-bar .red-dot {
+      color: #fe5b5f; }
+    #content.container.write-review .bottom-bar .grey-dot {
+      color: #c4c4c4; }
 
 #content.container.review-confirmation {
   background-color: white;
