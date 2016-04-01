@@ -9,7 +9,7 @@ var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
 var AuthActions = require('../actions/AuthActions');
 var Link = require('./Link.jsx');
-var BreadCrumb = require('./Partial/BreadCrumb.jsx');
+var BreadCrumb = require('./Partial/Breadcrumb.jsx');
 
 var WriteBusinessReviewConfirmationPage = React.createClass({
     contextTypes: {

@@ -13,7 +13,7 @@ var AverageRating = require('./AverageRating.jsx');
 var UserInfos = require('./UserInfos.jsx');
 var BusinessInfos = require('./BusinessInfos.jsx');
 var classNames = require('classnames');
-var BreadCrumb = require('../Partial/BreadCrumb.jsx');
+var BreadCrumb = require('../Partial/Breadcrumb.jsx');
 
 var RequiredAsterisk = React.createClass({
     render: function () {
