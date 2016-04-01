@@ -1,0 +1,45 @@
+/*///////////////////////////////
+       P A G E    S M S
+///////////////////////////////*/
+
+#content.sms {
+    background-color: white;
+    margin-top: 55px;
+    padding: 5% 0% 5% 0%;
+    margin-bottom: 10%;
+    .flex-container {
+        @include flexbox;
+        @include flex-direction(column);
+        @include align-items(center);
+        text-align: center;
+    }
+    h3 {
+        color: $hairfie;
+        letter-spacing: 0;
+        @media screen and (max-width: 320px) {
+            margin-top: 0;
+        }
+    }
+    .hr {
+        width: 20px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    p {
+        font-size: 1.6em;
+        margin-top: 20px;
+        font-family: $font-second;
+        @media screen and (max-width: 320px) {
+            font-size: 1.3em;
+        }
+    }
+    .btn-book {
+        width: 180px;
+        height: 50px;
+        margin-top: 20px;
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+        font-size: 2em;
+    }
+}
