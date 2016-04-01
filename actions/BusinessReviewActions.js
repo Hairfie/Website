@@ -19,6 +19,12 @@ module.exports = {
         return context.hairfieApi
             .get('/businessReviewRequests/'+requestId)
             .then(function (request) {
+                if (!request.canWrite) {
+                    return context.executeAction(NavigationActions.navigate, {
+                        route: 'business_reviews',
+                        params: { businessId: request.business.id, businessSlug: request.business.slug }
+                    });
+                }
                 context.dispatch(Actions.RECEIVE_BUSINESS_REVIEW_REQUEST, request);
                 return request;
             });

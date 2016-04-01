@@ -21,7 +21,9 @@ var ReviewRating = React.createClass ({
             <div {...this.props}>
                 {this.averageRating()}
                 <Input ref="comment" type="textarea" placeholder="Un commentaire ? (facultatif)" onChange={this.props.handleComment} />
-                {button}
+                <div className='flex-container'>
+                    {button}
+                </div>
             </div>
         );
     },

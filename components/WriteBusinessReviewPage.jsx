@@ -14,8 +14,7 @@ var FacebookButton = require('./Auth/FacebookButton.jsx');
 var FormConnect = require('./Auth/FormConnect.jsx');
 var RatingInput = require('./Review/RatingInput.jsx');
 var ReviewForm = require('./Review/ReviewForm.jsx');
-
-
+var NavigationActions = require('../actions/NavigationActions');
 
 var WriteVerifiedBusinessReviewPage = React.createClass({
     contextTypes: {
@@ -44,7 +43,6 @@ var WriteVerifiedBusinessReviewPage = React.createClass({
         );
     },
     submitReview: function(review) {
-        console.log('REVIEW POSTED', review);
         this.context.executeAction(BusinessReviewActions.submitReview, {
             review: review,
             token: this.props.token
@@ -60,7 +58,8 @@ WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPag
 ], function (context, props) {
     var token = context.getStore('AuthStore').getToken();
     var businessReviewRequest = context.getStore('BusinessReviewRequestStore').getById(props.route.query.requestId) || null;
-    
+    var business = context.getStore('BusinessStore').getById(props.route.query.businessId);
+
     var reviewKind;
     if (!businessReviewRequest) reviewKind = "FREE";
     else if (_.isEmpty(businessReviewRequest.booking)) reviewKind = "HAIRFIE";
@@ -69,7 +68,7 @@ WriteVerifiedBusinessReviewPage = connectToStores(WriteVerifiedBusinessReviewPag
     return {
         token: token,
         currentUser: context.getStore('UserStore').getById(token.userId),
-        business: context.getStore('BusinessStore').getById(props.route.query.businessId),
+        business: business,
         businessReviewRequest: businessReviewRequest,
         reviewKind: reviewKind
     };

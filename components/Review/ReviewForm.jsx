@@ -13,6 +13,7 @@ var AverageRating = require('./AverageRating.jsx');
 var UserInfos = require('./UserInfos.jsx');
 var BusinessInfos = require('./BusinessInfos.jsx');
 var classNames = require('classnames');
+var BreadCrumb = require('../Partial/BreadCrumb.jsx');
 
 var RequiredAsterisk = React.createClass({
     render: function () {
@@ -57,6 +58,7 @@ var ReviewForm = React.createClass({
         var validateRating = this.validateRating();
         return (
             <div {...this.props}>
+                <BreadCrumb business={this.props.business} />
                 <BusinessInfos 
                     businessReviewRequest={this.props.businessReviewRequest} 
                     business={this.props.business}
@@ -84,6 +86,17 @@ var ReviewForm = React.createClass({
                     className={'page' + this.state.page + ' user-infos'}
                     businessReviewRequest={this.props.businessReviewRequest}
                     onSubmit={this.handleUserInfos} />
+                {this.renderDotPagination()}
+            </div>
+        );
+    },
+    renderDotPagination: function() {
+        var pages = this.props.reviewKind == 'BOOKING' ? [1, 2] : [1, 2, 3];
+        return (
+            <div className='dots'>
+                {_.map(pages, function(page) {
+                    return <span className={page == this.state.page ? 'red-dot' : 'grey-dot'}>&bull;</span>;
+                }, this)}
             </div>
         );
     },
