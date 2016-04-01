@@ -13,6 +13,13 @@
         @media screen and (max-width: $screen-xs-max) {            
             padding: 0;
             margin-bottom: 0;
+            @include flexbox;
+            li:nth-child(3) {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100px;
+                white-space: nowrap;
+            }
         }
         @media screen and (max-width: 330px) {
             font-size: 1.2em;

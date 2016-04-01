@@ -15527,7 +15527,17 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 767px) {
       #content.container.write-review .breadcrumb {
         padding: 0;
-        margin-bottom: 0; } }
+        margin-bottom: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #content.container.write-review .breadcrumb li:nth-child(3) {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 100px;
+          white-space: nowrap; } }
     @media screen and (max-width: 330px) {
       #content.container.write-review .breadcrumb {
         font-size: 1.2em; } }
