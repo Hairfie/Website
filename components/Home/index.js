@@ -9,5 +9,6 @@ module.exports = {
 	DownloadSection: require('./DownloadSection.jsx'),
     SearchSection: require('./SearchSection.jsx'),
     BlogPosts: require('./BlogPostsSection.jsx'),
-    Selections: require('./SelectionsSection.jsx')
+    Selections: require('./SelectionsSection.jsx'),
+    Press: require('./Press.jsx')
 };
