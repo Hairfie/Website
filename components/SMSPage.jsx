@@ -6,7 +6,6 @@ var OSDetector = require('../services/OSDetector');
 
 var SMSPage = React.createClass({
     render: function () {
-        debugger;
         return (
             <PublicLayout customClass="bg-white">
                 <div className="container">
@@ -30,7 +29,6 @@ var SMSPage = React.createClass({
         var detector = OSDetector();
         var SMSLink = "sms:+33644600250?body=Salut Hairfie,";
         var replaceBody = false;
-        debugger;
         if (detector) {
             console.log('version', detector.version());
             console.log('os', detector.os());
