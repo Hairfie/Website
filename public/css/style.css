@@ -15599,12 +15599,16 @@ section.home-search .home-search-mobile {
       align-items: center;
       width: 100%;
       border-top: 1px solid #c4c4c4;
-      padding-top: 10px;
-      padding-bottom: 10px; }
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 0; }
       @media screen and (min-width: 768px) {
         #content.container.write-review .review-rating .form-group {
           display: block;
-          width: 600px; } }
+          width: 600px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          margin-bottom: 15px; } }
       @media screen and (max-width: 330px) {
         #content.container.write-review .review-rating .form-group {
           margin-bottom: 0; } }
@@ -15627,8 +15631,8 @@ section.home-search .home-search-mobile {
           float: right;
           margin-top: -23px; } }
       #content.container.write-review .review-rating .form-group .stars .star {
-        width: 45px;
-        height: 45px; }
+        width: 35px;
+        height: 35px; }
         @media screen and (max-width: 330px) {
           #content.container.write-review .review-rating .form-group .stars .star {
             height: 35px;
@@ -15880,50 +15884,62 @@ section.home-search .home-search-mobile {
 
 #content.container.review-confirmation {
   background-color: white;
-  min-height: 500px;
-  padding-top: 150px;
-  color: #20af69;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center; }
-  #content.container.review-confirmation .check {
+  min-height: 500px; }
+  #content.container.review-confirmation .breadcrumb {
+    background-color: white;
+    padding-left: 15px; }
+    @media screen and (max-width: 767px) {
+      #content.container.review-confirmation .breadcrumb {
+        margin-top: 65px;
+        padding: 0;
+        margin-bottom: 0; } }
+    @media screen and (max-width: 330px) {
+      #content.container.review-confirmation .breadcrumb {
+        font-size: 1.2em; } }
+  #content.container.review-confirmation .flex-container {
+    padding-top: 100px;
+    color: #20af69;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    font-size: 3em;
-    border: 3px solid #20af69;
-    border-radius: 100%; }
-  #content.container.review-confirmation p {
-    font-weight: 400;
-    font-size: 1.6em;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px; }
-  #content.container.review-confirmation .btn-red {
-    font-weight: 200;
-    border-radius: 2px; }
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center; }
+    #content.container.review-confirmation .flex-container .check {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      font-size: 3em;
+      border: 3px solid #20af69;
+      border-radius: 100%; }
+    #content.container.review-confirmation .flex-container p {
+      font-weight: 400;
+      font-size: 1.6em;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px; }
+    #content.container.review-confirmation .flex-container .btn-red {
+      font-weight: 200;
+      border-radius: 2px; }
 
 /*//////////////////////////////////////////
        P A G E    N E W S L E T T E R

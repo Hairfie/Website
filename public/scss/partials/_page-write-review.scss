@@ -67,11 +67,15 @@
             @include align-items(center);
             width: 100%;
             border-top: 1px solid $grey;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 0;
             @media screen and (min-width: $screen-sm-min) {
                 display: block;
                 width: 600px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
             }
             @media screen and (max-width: 330px) {
                 margin-bottom: 0;
@@ -98,8 +102,8 @@
                     margin-top: -23px;
                 }
                 .star {
-                    width: 45px;
-                    height: 45px;
+                    width: 35px;
+                    height: 35px;
                     @media screen and (max-width: 330px) {
                         height: 35px;
                         width: 35px;
@@ -350,30 +354,44 @@
 #content.container.review-confirmation {
     background-color: white;
     min-height: 500px;
-    padding-top: 150px;
-    color: $green;
-    @include flexbox;
-    @include flex-direction(column);
-    @include align-items(center);
-    .check {
+    .breadcrumb {
+        background-color: white;
+        padding-left: 15px;
+        @media screen and (max-width: $screen-xs-max) {
+            margin-top: 65px;          
+            padding: 0;
+            margin-bottom: 0;
+        }
+        @media screen and (max-width: 330px) {
+            font-size: 1.2em;
+        }
+    }
+    .flex-container {
+        padding-top: 100px;
+        color: $green;
         @include flexbox;
-        @include justify-content(center);
-        width: 50px;
-        height: 50px;
-        font-size: 3em;
-        border: 3px solid $green;
-        border-radius: 100%;
-    }
-    p {
-        font-weight: $regular;
-        font-size: 1.6em;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-    .btn-red {
-        font-weight: $light;
-        border-radius: 2px;
+        @include flex-direction(column);
+        @include align-items(center);
+        .check {
+            @include flexbox;
+            @include justify-content(center);
+            width: 50px;
+            height: 50px;
+            font-size: 3em;
+            border: 3px solid $green;
+            border-radius: 100%;
+        }
+        p {
+            font-weight: $regular;
+            font-size: 1.6em;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .btn-red {
+            font-weight: $light;
+            border-radius: 2px;
+        }
     }
 }
 

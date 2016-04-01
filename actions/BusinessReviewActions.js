@@ -13,6 +13,7 @@ module.exports = {
             .get('/businessReviews/'+reviewId)
             .then(function (review) {
                 context.dispatch(Actions.RECEIVE_REVIEW, review);
+                return review;
             });
     },
     loadRequest: function (context, requestId) {
