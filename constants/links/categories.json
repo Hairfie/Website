@@ -6,6 +6,11 @@
         "url": "/fr/coiffeurs/Paris--France?categories=femme"
     },
     {
+        "displayName": "Coiffeur ouvert le dimanche",
+        "address": "France",
+        "url": "/fr/coiffeurs/France?days=SUN"
+    },
+    {
         "displayName": "Hairfies et Coiffures",
         "address": "Paris--France",
         "category": "coloration",

@@ -1,21 +1,17 @@
 [
     {
         "displayName": "Barbershop et Barbier à Paris",
-        "address": "Paris--France", 
-        "url": "/fr/coiffeurs/France?selections=les-barbershops",
+        "url": "/fr/coiffeurs/Paris--France?selections=les-barbershops",
         "priority": 1
     },
     {
         "displayName": "Les meilleurs coloristes de Paris",
-        "address": "Paris--France",
-        "category": "coloration",
-        "url": "/fr/coiffeurs/France?selections=les-meilleurs-coloristes",
+        "url": "/fr/coiffeurs/Paris--France?selections=les-meilleurs-coloristes",
         "priority": 1
     },
     {
         "displayName": "Bons Plans Coiffure",
-        "address": "Paris--France",
-        "url": "/fr/coiffeurs/France?selections=les-bons-plans",
+        "url": "/fr/coiffeurs/Paris--France?selections=les-bons-plans",
         "priority": 1
     }
 ]

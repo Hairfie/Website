@@ -28,7 +28,7 @@ var PopUp = React.createClass({
                     <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'coloration'}}>Coloration à Paris</Link>
                     <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'balayage-tie-and-dye'}}>Balayage à Paris</Link>
                     <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'lissage'}}>Lissage à Paris</Link>
-                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'ethnique'}}>Afro à Paris</Link>
+                    <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'afro'}}>Afro à Paris</Link>
                     <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'mariage'}}>Coiffure de Mariage</Link>
                     <Link route="business_search" params={{address: 'Paris--France'}} query={{categories: 'barbier'}}>Barbiers à Paris</Link>
                     <Link className="color-hairfie" route="business_search" params={{address: 'France'}}>Voir tous nos coiffeurs</Link>

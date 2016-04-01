@@ -26,11 +26,9 @@ module.exports = React.createClass({
         );
     },
     renderLink: function(link, i) {
-        var query = link.category ? {categories: link.category} : {};
-
         return (
             <p key={link.address}>
-                <Link route="business_search" params={{ address: link.address }} query={query}>
+                <Link href={link.url}>
                     <span>{link.displayName}</span>
                 </Link>
             </p>
