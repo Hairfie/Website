@@ -149,7 +149,10 @@ var UserInfos = React.createClass ({
                         />
                 </div>
                 {this.renderErrorMessages()}
-                <Button className='btn btn-book' onClick={this.submit}>Poster mon avis</Button>
+                <div className="bottom-bar">
+                    {this.props.dots()}
+                    <Button className='btn btn-book' onClick={this.submit}>Poster mon avis</Button>
+                </div>
             </div>
         );
     },

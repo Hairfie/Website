@@ -21,7 +21,8 @@ var ReviewRating = React.createClass ({
             <div {...this.props}>
                 {this.averageRating()}
                 <Input ref="comment" type="textarea" placeholder="Un commentaire ? (facultatif)" onChange={this.props.handleComment} />
-                <div className='flex-container'>
+                <div className="bottom-bar">
+                    {this.props.dots()}
                     {button}
                 </div>
             </div>
@@ -69,7 +70,7 @@ var ReviewRating = React.createClass ({
             on  : on,
             off : !on
         });
-        return <a role="button" key={n} className={className} style={{margin: '3px'}}></a>;
+        return <a key={n} className={className} style={{margin: '3px'}}></a>;
 
     }
 

@@ -9501,7 +9501,7 @@ body {
     body {
       position: relative; } }
 
-input, textarea {
+input:not[type="radio"], textarea {
   -webkit-appearance: none; }
 
 .locked {
@@ -10680,6 +10680,12 @@ header {
         .mobile-nav .mobile-menu ul li.hairfies:before {
           background: url(../img/icons/mobile/hairfie-menu.svg) no-repeat center center;
           background-size: contain; }
+        .mobile-nav .mobile-menu ul li.sms {
+          color: white;
+          background-color: #fe5b5f; }
+          .mobile-nav .mobile-menu ul li.sms:before {
+            background: url(../img/icons/avis-white.svg) no-repeat center center;
+            background-size: contain; }
         .mobile-nav .mobile-menu ul li:hover {
           background-color: #c4c4c4;
           color: white;
@@ -15527,10 +15533,22 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 767px) {
       #content.container.write-review .breadcrumb {
         padding: 0;
-        margin-bottom: 0; } }
+        margin-bottom: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #content.container.write-review .breadcrumb li:nth-child(3) {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 100px;
+          white-space: nowrap; } }
     @media screen and (max-width: 330px) {
       #content.container.write-review .breadcrumb {
-        font-size: 1.2em; } }
+        font-size: 1.2em; }
+        #content.container.write-review .breadcrumb li:nth-child(3) {
+          width: 85px; } }
   @media screen and (max-width: 767px) {
     #content.container.write-review .business-infos:not(.page1) {
       display: none !important; } }
@@ -15725,14 +15743,15 @@ section.home-search .home-search-mobile {
             width: 25px; } }
   #content.container.write-review .average-rating textarea {
     margin-top: 30px;
-    border-radius: 0; }
+    border-radius: 0;
+    margin-bottom: 40px; }
     @media screen and (min-width: 768px) {
       #content.container.write-review .average-rating textarea {
         margin-top: 70px; } }
-  #content.container.write-review .average-rating .btn-book {
-    margin-top: 15px;
-    margin-right: auto;
-    margin-left: auto; }
+  @media screen and (max-width: 767px) {
+    #content.container.write-review .average-rating .btn-book {
+      margin-right: auto;
+      margin-left: auto; } }
   @media screen and (min-width: 768px) {
     #content.container.write-review .user-infos:not(.page2) {
       display: none !important; } }
@@ -15867,20 +15886,33 @@ section.home-search .home-search-mobile {
     border-radius: 0; }
   #content.container.write-review .user-infos .btn-book {
     display: block;
-    margin-top: 20px;
     margin-bottom: 20px; }
-  #content.container.write-review .dots {
-    margin-top: -20px; }
-  #content.container.write-review .red-dot, #content.container.write-review .grey-dot {
-    font-size: 3em;
-    margin: 2px; }
-    @media screen and (min-width: 768px) {
-      #content.container.write-review .red-dot, #content.container.write-review .grey-dot {
-        display: none !important; } }
-  #content.container.write-review .red-dot {
-    color: #fe5b5f; }
-  #content.container.write-review .grey-dot {
-    color: #c4c4c4; }
+    @media screen and (max-width: 767px) {
+      #content.container.write-review .user-infos .btn-book {
+        margin-right: auto;
+        margin-left: auto; } }
+  #content.container.write-review .btn-book {
+    padding: 8px 20px;
+    font-size: 1.8em; }
+  #content.container.write-review .bottom-bar {
+    width: 100%;
+    margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      #content.container.write-review .bottom-bar {
+        text-align: center; } }
+    #content.container.write-review .bottom-bar .dots {
+      position: absolute;
+      left: 15px; }
+    #content.container.write-review .bottom-bar .red-dot, #content.container.write-review .bottom-bar .grey-dot {
+      font-size: 4em;
+      margin: 2px; }
+      @media screen and (min-width: 768px) {
+        #content.container.write-review .bottom-bar .red-dot, #content.container.write-review .bottom-bar .grey-dot {
+          display: none !important; } }
+    #content.container.write-review .bottom-bar .red-dot {
+      color: #fe5b5f; }
+    #content.container.write-review .bottom-bar .grey-dot {
+      color: #c4c4c4; }
 
 #content.container.review-confirmation {
   background-color: white;
@@ -15991,6 +16023,70 @@ section.home-search .home-search-mobile {
         line-height: 25px; }
       #content.newsletter .spam-note {
         font-size: 1.3em; } }
+
+/*///////////////////////////////
+       P A G E    S M S
+///////////////////////////////*/
+#content.sms {
+  background-color: white;
+  margin-top: 55px;
+  padding: 5% 0% 5% 0%;
+  margin-bottom: 10%; }
+  #content.sms .flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    text-align: center; }
+  #content.sms h3 {
+    color: #fe5b5f;
+    letter-spacing: 0; }
+    @media screen and (max-width: 320px) {
+      #content.sms h3 {
+        margin-top: 0; } }
+  #content.sms .hr {
+    width: 20px;
+    margin-top: 0;
+    margin-bottom: 0; }
+  #content.sms p {
+    font-size: 1.6em;
+    margin-top: 20px;
+    font-family: "Lato", sans-serif; }
+    @media screen and (max-width: 320px) {
+      #content.sms p {
+        font-size: 1.3em; } }
+  #content.sms .btn-book {
+    width: 180px;
+    height: 50px;
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    font-size: 2em; }
 
 .connect-form {
   border: 1px solid #dfdfdf;

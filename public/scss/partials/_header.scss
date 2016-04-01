@@ -381,6 +381,14 @@ header {
             			background-size: contain;
         			}
 				}
+				&.sms {
+					color: white;
+					background-color: $hairfie;
+					&:before {
+            			background: url(../img/icons/avis-white.svg) no-repeat center center;
+        				background-size: contain;
+        			}
+				}
 				&:hover {
 					background-color: $grey;
 					color: white;

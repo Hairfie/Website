@@ -183,5 +183,11 @@ module.exports = {
         path: '/fr/newsletter',
         method: 'get',
         handler: require('./components/NewsletterPage.jsx')
+    },
+    sms_us: {
+        title: 'Prendre RDV par SMS',
+        path: '/fr/sms',
+        method: 'get',
+        handler: require('./components/SMSPage.jsx')
     }
 };
