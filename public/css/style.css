@@ -10677,9 +10677,12 @@ header {
         .mobile-nav .mobile-menu ul li.hairfies:before {
           background: url(../img/icons/mobile/hairfie-menu.svg) no-repeat center center;
           background-size: contain; }
-        .mobile-nav .mobile-menu ul li.sms:before {
-          background: url(../img/icons/avis.svg) no-repeat center center;
-          background-size: contain; }
+        .mobile-nav .mobile-menu ul li.sms {
+          color: white;
+          background-color: #fe5b5f; }
+          .mobile-nav .mobile-menu ul li.sms:before {
+            background: url(../img/icons/avis-white.svg) no-repeat center center;
+            background-size: contain; }
         .mobile-nav .mobile-menu ul li:hover {
           background-color: #c4c4c4;
           color: white;
