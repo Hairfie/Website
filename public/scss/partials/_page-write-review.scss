@@ -23,6 +23,9 @@
         }
         @media screen and (max-width: 330px) {
             font-size: 1.2em;
+            li:nth-child(3) {
+                width: 85px;
+            }
         }
     }
     .business-infos {

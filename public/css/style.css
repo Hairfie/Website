@@ -15540,7 +15540,9 @@ section.home-search .home-search-mobile {
           white-space: nowrap; } }
     @media screen and (max-width: 330px) {
       #content.container.write-review .breadcrumb {
-        font-size: 1.2em; } }
+        font-size: 1.2em; }
+        #content.container.write-review .breadcrumb li:nth-child(3) {
+          width: 85px; } }
   @media screen and (max-width: 767px) {
     #content.container.write-review .business-infos:not(.page1) {
       display: none !important; } }
