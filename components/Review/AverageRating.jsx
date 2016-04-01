@@ -70,7 +70,7 @@ var ReviewRating = React.createClass ({
             on  : on,
             off : !on
         });
-        return <a role="button" key={n} className={className} style={{margin: '3px'}}></a>;
+        return <a key={n} className={className} style={{margin: '3px'}}></a>;
 
     }
 

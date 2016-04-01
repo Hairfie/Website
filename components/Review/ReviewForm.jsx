@@ -98,7 +98,7 @@ var ReviewForm = React.createClass({
         return (
             <div className='dots'>
                 {_.map(pages, function(page) {
-                    return <span className={page == this.state.page ? 'red-dot' : 'grey-dot'}>&bull;</span>;
+                    return <span key={'page'+page} className={page == this.state.page ? 'red-dot' : 'grey-dot'}>&bull;</span>;
                 }, this)}
             </div>
         );
