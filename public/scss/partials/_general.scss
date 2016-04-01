@@ -24,6 +24,10 @@ body {
     // }
 }
 
+input, textarea {
+    -webkit-appearance: none;
+}
+
 .locked {
     overflow: hidden !important;
     overflow-x: hidden !important;

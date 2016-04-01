@@ -61,7 +61,6 @@ var SearchLabels = React.createClass ({
         this.props.onChange({q: undefined});
     },
     renderPlaceLabel: function() {
-        // debugger;
         var address = this.props.search.address;
         if (address == 'France') return;
         return (

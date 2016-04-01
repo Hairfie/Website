@@ -49,6 +49,10 @@ var BreadCrumb = React.createClass({
                     businessSlug: business.slug
                 }
             };
+            var writeReviewCrumb = {
+                label: 'Dépôt d\'avis',
+                route: 'write_business_review'
+            };
         }
 
         var newsletterCrumb = {
@@ -108,6 +112,10 @@ var BreadCrumb = React.createClass({
             case 'business_search':
             case 'hairfie_search':
                 crumbs = crumbs.concat(placeCrumbs);
+                break;
+            case 'write_business_review':
+            case 'business_reviews_confirmation':
+                crumbs = crumbs.concat(businessCrumbs).concat(writeReviewCrumb);
                 break;
         }
         crumbs = _.compact(crumbs);

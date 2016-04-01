@@ -13,12 +13,19 @@ module.exports = {
             .get('/businessReviews/'+reviewId)
             .then(function (review) {
                 context.dispatch(Actions.RECEIVE_REVIEW, review);
+                return review;
             });
     },
     loadRequest: function (context, requestId) {
         return context.hairfieApi
             .get('/businessReviewRequests/'+requestId)
             .then(function (request) {
+                if (!request.canWrite) {
+                    return context.executeAction(NavigationActions.navigate, {
+                        route: 'business_reviews',
+                        params: { businessId: request.business.id, businessSlug: request.business.slug }
+                    });
+                }
                 context.dispatch(Actions.RECEIVE_BUSINESS_REVIEW_REQUEST, request);
                 return request;
             });
@@ -44,19 +51,11 @@ module.exports = {
                 ga('send', 'event', 'Business Reviews', 'Submit');
                 context.executeAction(SubscriberActions.hasClosedBanner);
 
-                return context.executeAction(
-                    NotificationActions.notifySuccess,
-                    {
-                        title: 'Avis déposé',
-                        message: 'Votre avis a bien été pris en compte, merci !'
+                return context.executeAction(NavigationActions.navigate, {
+                    route: 'business_reviews_confirmation',
+                    params: {
+                        reviewId: businessReview.id
                     }
-                ).then(function () {
-                    return context.executeAction(NavigationActions.navigate, {
-                        route: 'business_reviews_confirmation',
-                        params: {
-                            reviewId: businessReview.id
-                        }
-                    });
                 });
             });
     },
