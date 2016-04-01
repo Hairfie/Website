@@ -201,9 +201,10 @@ module.exports = {
         ]);
     },
     writeBusinessReviewConfirmation: function(context, route) {
-        return Promise.all([
-            context.executeAction(BusinessReviewActions.loadReview, route.params.reviewId)
-        ]);
+            return context.executeAction(BusinessReviewActions.loadReview, route.params.reviewId)
+            .then(function(review) {
+                return review.business.id ? context.executeAction(BusinessActions.loadBusiness, review.business.id) : ''
+            });
     }
 };
 
