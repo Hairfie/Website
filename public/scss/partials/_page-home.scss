@@ -149,6 +149,7 @@ section.how {
         padding-top: 24px;
         padding-bottom: 0;
         letter-spacing: 1px;
+        text-transform: inherit;
     }
     object {
         display: inline-block;
@@ -946,6 +947,40 @@ section.home-search {
         margin-top: 30px;
         @media screen and (max-width: $screen-xs-max) {
             margin-bottom: 20px;
+        }
+    }
+}
+
+#home section.press {
+    padding: 0;
+    height: 140px;
+    @include flexbox;
+    @include align-items(center);
+    @media screen and (max-width: $screen-xs-max) {
+        @include flex-direction(column);
+        @include justify-content(space-around);
+    }
+    h2 {
+        text-transform: none;
+        margin-right: 100px;
+        padding: 0;
+        @media screen and (max-width: $screen-sm-max) {
+            margin-right: 50px;
+            margin-right: 0;
+        }
+    }
+    .flex-container {
+        @include flexbox;
+        @include justify-content(space-around);
+        img {
+            max-height: 40px;
+            @include filter(grayscale(100%));
+            margin-left: 30px;
+            opacity: 0.6;
+            @media screen and (max-width: $screen-sm-max) {
+                margin-left: 10px;
+                max-height: 25px;
+            }
         }
     }
 }

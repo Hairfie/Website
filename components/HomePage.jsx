@@ -54,6 +54,7 @@ var HomePage = React.createClass({
                         <Home.Selections />
                         <Home.Styles />
                         <Home.Deals deals={this.props.deals} />
+                        <Home.Press />
                         <Home.BlogPosts posts={this.props.posts} />
                         <Home.DownloadSection />
                     </div>
