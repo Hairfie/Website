@@ -14030,20 +14030,18 @@ section.home-search .home-search-mobile {
       height: 100%;
       position: relative;
       margin-left: -15px; }
-      @media screen and (min-width: 992px) {
-        .hairfie-singleView .single-view #carousel-hairfie .carousel-control, .hairfie-singleView .single-view #carousel-hairfie .indice-control {
-          display: none; } }
-      @media screen and (min-width: 992px) {
-        .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) {
-          display: block;
-          position: absolute;
-          bottom: 3%;
-          right: 3%;
-          width: 20%;
-          border: 2px white solid;
-          z-index: 1; }
-          .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) .pricetag {
-            display: none; } }
+      .hairfie-singleView .single-view #carousel-hairfie .carousel-control, .hairfie-singleView .single-view #carousel-hairfie .indice-control {
+        display: none; }
+      .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) {
+        display: block;
+        position: absolute;
+        bottom: 3%;
+        right: 3%;
+        width: 20%;
+        border: 2px white solid;
+        z-index: 1; }
+        .hairfie-singleView .single-view #carousel-hairfie .item:not(.active) .pricetag {
+          display: none; }
       .hairfie-singleView .single-view #carousel-hairfie .item img {
         background-repeat: no-repeat;
         background-size: cover;
