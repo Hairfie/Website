@@ -51,6 +51,7 @@ module.exports = {
                 ga('send', 'event', 'Business Reviews', 'Submit');
                 context.executeAction(SubscriberActions.hasClosedBanner);
 
+                context.dispatch(Actions.RECEIVE_REVIEW, businessReview);
                 return context.executeAction(NavigationActions.navigate, {
                     route: 'business_reviews_confirmation',
                     params: {
