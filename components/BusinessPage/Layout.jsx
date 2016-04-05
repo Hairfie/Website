@@ -155,13 +155,13 @@ var Layout = React.createClass({
           "description": description.content
         };
 
-        if(business.numReviews > 0 || (business.yelpObject && business.yelpObject.review_count > 0)) {
+        if(business.numReviews > 0 || business.shouldDisplayYelp) {
             var numReviews = business.numReviews + business.review_count;
             var rating, numReviews;
             if(business.rating) {
                 rating = business.rating/100*5;
                 numReviews = business.numReviews;
-            } else if (business.yelpObject.review_count ) {
+            } else if (business.yelpObject.review_count && business.shouldDisplayYelp) {
                 rating = business.yelpObject.rating;
                 numReviews = business.yelpObject.review_count;
             }
