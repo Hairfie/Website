@@ -17,7 +17,9 @@
         color: $hairfie;
         letter-spacing: 0;
         @media screen and (max-width: 320px) {
-            margin-top: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 2.1em;
         }
     }
     .hr {
@@ -31,6 +33,9 @@
         font-family: $font-second;
         @media screen and (max-width: 320px) {
             font-size: 1.3em;
+        }
+        &.legend {
+            text-align: left;
         }
     }
     .btn-book {

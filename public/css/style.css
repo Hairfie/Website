@@ -16113,7 +16113,9 @@ section.home-search .home-search-mobile {
     letter-spacing: 0; }
     @media screen and (max-width: 320px) {
       #content.sms h3 {
-        margin-top: 0; } }
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 2.1em; } }
   #content.sms .hr {
     width: 20px;
     margin-top: 0;
@@ -16125,6 +16127,8 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 320px) {
       #content.sms p {
         font-size: 1.3em; } }
+    #content.sms p.legend {
+      text-align: left; }
   #content.sms .btn-book {
     width: 180px;
     height: 50px;
