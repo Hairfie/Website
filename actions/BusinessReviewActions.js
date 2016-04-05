@@ -21,9 +21,15 @@ module.exports = {
             .get('/businessReviewRequests/'+requestId)
             .then(function (request) {
                 if (!request.canWrite) {
+                    // return context.executeAction(NavigationActions.navigate, {
+                    //     route: 'business_reviews',
+                    //     params: { businessId: request.business.id, businessSlug: request.business.slug }
+                    // });
                     return context.executeAction(NavigationActions.navigate, {
-                        route: 'business_reviews',
-                        params: { businessId: request.business.id, businessSlug: request.business.slug }
+                        route: 'business_reviews_confirmation',
+                        params: {
+                            reviewId: request.reviewId
+                        }
                     });
                 }
                 context.dispatch(Actions.RECEIVE_BUSINESS_REVIEW_REQUEST, request);

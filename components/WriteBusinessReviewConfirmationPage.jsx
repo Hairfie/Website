@@ -23,7 +23,7 @@ var WriteBusinessReviewConfirmationPage = React.createClass({
                     <div className="flex-container">
                         <span className='check'>✓</span>
                         <p>
-                            Merci, votre avis est en cours <br/>de publication. À bientôt sur Hairfie !
+                            Merci, votre avis a bien été déposé. À bientôt sur Hairfie !
                         </p>
                         <Link className="btn btn-red" route="home">Retour sur la page d'accueil</Link>
                     </div>
