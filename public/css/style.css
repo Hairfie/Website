@@ -9696,7 +9696,7 @@ a {
   background-color: white;
   border: 2px solid #e6e6e6;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4em;
   color: #c4c4c4; }
   .searchbar input:focus {
@@ -15361,14 +15361,11 @@ section.home-search .home-search-mobile {
   background-color: white;
   border: 2px solid #e6e6e6;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4em;
   color: #c4c4c4; }
   .Select-control:focus {
     outline: 0; }
-  @media screen and (max-width: 992px) and (min-width: 768px) {
-    .Select-control {
-      font-size: 1.0em; } }
 
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
@@ -15523,8 +15520,8 @@ section.home-search .home-search-mobile {
   display: block;
   padding: 8px 10px;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-size: 1.2em;
+  font-weight: 400;
+  font-size: 1.4em;
   color: #c4c4c4;
   text-align: left; }
 
