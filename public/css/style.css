@@ -13386,6 +13386,21 @@ section.home-search .home-search-mobile {
         color: #595959;
         font-size: 1.8em;
         font-weight: bolder; }
+    @media screen and (max-width: 767px) {
+      .salon#content section.salon-content .comments .single-comment .user-profil {
+        padding: 0; }
+      .salon#content section.salon-content .comments .single-comment .user-infos {
+        padding: 0; }
+        .salon#content section.salon-content .comments .single-comment .user-infos .title p {
+          margin: 0; }
+        .salon#content section.salon-content .comments .single-comment .user-infos .title .stars {
+          margin-top: -5px;
+          margin-bottom: 0; }
+          .salon#content section.salon-content .comments .single-comment .user-infos .title .stars .star {
+            margin-right: -3px; } }
+    .salon#content section.salon-content .comments .green-check {
+      color: green;
+      font-size: 1.4em; }
     .salon#content section.salon-content .comments .note-yelp {
       width: 120px;
       margin-top: -6px; }
@@ -13393,21 +13408,26 @@ section.home-search .home-search-mobile {
       font-size: 1.8em;
       margin-left: 5px; }
     .salon#content section.salon-content .comments .yelp-date {
-      color: #c4c4c4;
+      color: #595959;
       display: block;
       font-size: 1.4em; }
+      @media screen and (max-width: 767px) {
+        .salon#content section.salon-content .comments .yelp-date {
+          margin-top: -5px; } }
     .salon#content section.salon-content .comments .review-rating {
       float: right; }
     .salon#content section.salon-content .comments a:hover {
       color: inherit; }
     .salon#content section.salon-content .comments .review {
       letter-spacing: 0;
-      text-align: justify; }
+      text-align: justify;
+      padding-top: 10px; }
     @media screen and (max-width: 767px) {
       .salon#content section.salon-content .comments .single-comment div div.title p {
         display: inherit; }
       .salon#content section.salon-content .comments .single-comment p.review {
-        padding: 0; } }
+        padding: 0;
+        padding-top: 10px; } }
     @media screen and (min-width: 767px) {
       .salon#content section.salon-content .bottom-tab {
         display: none !important; } }
@@ -13450,7 +13470,7 @@ section.home-search .home-search-mobile {
         margin-right: 5px;
         margin-left: 5px; }
       .salon#content section.salon-content .comments .single-comment {
-        padding: 20px 0 0 0; } }
+        padding: 15px 0 0 0; } }
     .salon#content section.salon-content .btn-review {
       margin-left: auto;
       margin-right: auto;

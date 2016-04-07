@@ -455,6 +455,32 @@
             }
         }
         .comments {
+            .single-comment {
+                @media screen and (max-width: $screen-xs-max) {
+                    .user-profil {
+                        padding: 0;
+                    }
+                    .user-infos {
+                        padding: 0;
+                        .title {
+                            p {
+                                margin: 0;
+                            }
+                            .stars {
+                                margin-top: -5px;
+                                margin-bottom: 0;
+                                .star {
+                                    margin-right: -3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .green-check {
+                color: green;
+                font-size: 1.4em;
+            }
             .note-yelp {
                 width: 120px;
                 margin-top: -6px;
@@ -464,9 +490,12 @@
                 margin-left: 5px;
             }
             .yelp-date {
-                color: $grey;
+                color: $darkgrey;
                 display: block;
                 font-size: 1.4em;
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-top: -5px;
+                }
             }
             .review-rating {
                 float: right;
@@ -477,6 +506,7 @@
             .review {
                 letter-spacing: 0;
                 text-align: justify;
+                padding-top: 10px;
             }
             @media screen and (max-width: $screen-xs-max) {
                 .single-comment div div.title p {
@@ -486,6 +516,7 @@
                 .single-comment {
                     p.review {
                         padding: 0;
+                        padding-top: 10px;
                     }
                 }
             }
@@ -538,7 +569,7 @@
                     margin-left: 5px;
                 }
                 .single-comment {
-                    padding: 20px 0 0 0;
+                    padding: 15px 0 0 0;
                 }
             }
         }
