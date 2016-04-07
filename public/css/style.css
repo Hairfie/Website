@@ -13211,6 +13211,7 @@ section.home-search .home-search-mobile {
       z-index: -1; }
     .salon#content .main-content section.salon-info {
       margin-left: -15px;
+      margin-right: -15px;
       position: relative;
       width: 100%;
       padding-top: 10px; }
@@ -13304,10 +13305,23 @@ section.home-search .home-search-mobile {
             margin-left: 0px; } }
       .salon#content .main-content section.salon-info .breadcrumb {
         background-color: #FFF;
-        padding-left: 0; }
+        padding-left: 0;
+        padding-right: 0; }
         @media screen and (max-width: 767px) {
           .salon#content .main-content section.salon-info .breadcrumb {
-            display: block; } }
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex; }
+            .salon#content .main-content section.salon-info .breadcrumb li:nth-child(3) {
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: 180px;
+              white-space: nowrap; } }
+    @media screen and (max-width: 767px) and (max-width: 330px) {
+      .salon#content .main-content section.salon-info .breadcrumb li:nth-child(3) {
+        width: 140px; } }
       .salon#content .main-content section.salon-info hr {
         margin: -15px 0 5px 0;
         border: 0;
@@ -13464,7 +13478,11 @@ section.home-search .home-search-mobile {
         display: block; }
       .salon#content section.salon-content .comments .yelp-date {
         display: inline-block;
-        width: 100%; }
+        width: 100%; } }
+  @media screen and (max-width: 767px) and (max-width: 330px) {
+    .salon#content section.salon-content .comments .yelp-date {
+      font-size: 1.3em; } }
+    @media screen and (max-width: 767px) {
       .salon#content section.salon-content .comments .mini-yelp {
         width: 40px;
         margin-right: 5px;
@@ -14316,7 +14334,20 @@ section.home-search .home-search-mobile {
     background-color: white; }
     @media screen and (max-width: 767px) {
       #content.reservation .breadcrumb {
-        padding-left: 15px; } }
+        padding-left: 15px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #content.reservation .breadcrumb li:nth-child(3) {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 120px;
+          white-space: nowrap; } }
+    @media screen and (max-width: 767px) and (max-width: 330px) {
+      #content.reservation .breadcrumb li:nth-child(3) {
+        width: 75px; } }
   #content.reservation .booking-summary {
     display: -webkit-box;
     display: -webkit-flex;

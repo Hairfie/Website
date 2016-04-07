@@ -249,6 +249,7 @@
                 margin-bottom: 0px;
             }
             margin-left: -15px;
+            margin-right: -15px;
             position: relative;
             width: 100%;
             padding-top: 10px;
@@ -364,9 +365,18 @@
             .breadcrumb {
                 background-color: #FFF; 
                 padding-left: 0;
-
+                padding-right: 0;
                 @media screen and (max-width: $screen-xs-max) {
-                    display: block;
+                    @include flexbox;
+                    li:nth-child(3) {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        width: 180px;
+                        white-space: nowrap;
+                        @media screen and (max-width: 330px) {
+                            width: 140px;
+                        }
+                    }
                 }
             }
 
@@ -562,6 +572,9 @@
                 .yelp-date {
                     display: inline-block;
                     width: 100%;
+                    @media screen and (max-width: 330px) {
+                        font-size: 1.3em;
+                    }
                 }
                 .mini-yelp {
                     width: 40px;
