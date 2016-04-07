@@ -10413,11 +10413,8 @@ header {
     width: 28px;
     height: 28px;
     margin-right: 15px; }
-    @media screen and (max-width: 767px) {
-      header a.menu-search {
-        margin-top: 25px; } }
     header a.menu-search.close {
-      background: url(../img/icons/mobile-menu/cross.svg) no-repeat center center;
+      background: url(../img/icons/mobile-menu/croix.svg) no-repeat center center;
       background-size: 80%;
       opacity: 1; }
   header a.menu-trigger {
