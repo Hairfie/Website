@@ -32,7 +32,7 @@ var Selections = React.createClass ({
                         Nos sélections de coiffeurs
                     </div>
                 </div>
-                {_.map(this.props.selections, function (selection) {
+                {_.map(_.indexBy(this.props.selections, 'position'), function (selection) {
                         var active   = this.state.search && (this.state.search.selections || []).indexOf(selection.slug) > -1;
                         var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
