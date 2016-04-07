@@ -15861,6 +15861,16 @@ section.home-search .home-search-mobile {
     #content.container.write-review .average-rating .btn-book {
       margin-right: auto;
       margin-left: auto; } }
+  #content.container.write-review .average-rating .btn-grey {
+    color: white;
+    background-color: #c4c4c4;
+    padding: 8px 20px;
+    font-size: 1.8em;
+    margin-right: 10px;
+    border: none; }
+    @media screen and (min-width: 768px) {
+      #content.container.write-review .average-rating .btn-grey {
+        display: none !important; } }
   @media screen and (min-width: 768px) {
     #content.container.write-review .user-infos:not(.page2) {
       display: none !important; } }

@@ -209,6 +209,17 @@
                 margin-left: auto;
             }
         }
+        .btn-grey {
+            color: white;
+            background-color: $grey;
+            padding: 8px 20px;
+            font-size: 1.8em;
+            margin-right: 10px;
+            border: none;
+            @media screen and (min-width: $screen-sm-min) {
+                @include hide;
+            }
+        }
     }
 
     .user-infos {
