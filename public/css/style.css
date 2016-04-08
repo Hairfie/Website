@@ -9696,7 +9696,7 @@ a {
   background-color: white;
   border: 2px solid #e6e6e6;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4em;
   color: #c4c4c4; }
   .searchbar input:focus {
@@ -10413,11 +10413,8 @@ header {
     width: 28px;
     height: 28px;
     margin-right: 15px; }
-    @media screen and (max-width: 767px) {
-      header a.menu-search {
-        margin-top: 25px; } }
     header a.menu-search.close {
-      background: url(../img/icons/mobile-menu/cross.svg) no-repeat center center;
+      background: url(../img/icons/mobile-menu/croix.svg) no-repeat center center;
       background-size: 80%;
       opacity: 1; }
   header a.menu-trigger {
@@ -13211,6 +13208,7 @@ section.home-search .home-search-mobile {
       z-index: -1; }
     .salon#content .main-content section.salon-info {
       margin-left: -15px;
+      margin-right: -15px;
       position: relative;
       width: 100%;
       padding-top: 10px; }
@@ -13304,10 +13302,23 @@ section.home-search .home-search-mobile {
             margin-left: 0px; } }
       .salon#content .main-content section.salon-info .breadcrumb {
         background-color: #FFF;
-        padding-left: 0; }
+        padding-left: 0;
+        padding-right: 0; }
         @media screen and (max-width: 767px) {
           .salon#content .main-content section.salon-info .breadcrumb {
-            display: block; } }
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex; }
+            .salon#content .main-content section.salon-info .breadcrumb li:nth-child(3) {
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: 180px;
+              white-space: nowrap; } }
+    @media screen and (max-width: 767px) and (max-width: 330px) {
+      .salon#content .main-content section.salon-info .breadcrumb li:nth-child(3) {
+        width: 140px; } }
       .salon#content .main-content section.salon-info hr {
         margin: -15px 0 5px 0;
         border: 0;
@@ -13386,6 +13397,21 @@ section.home-search .home-search-mobile {
         color: #595959;
         font-size: 1.8em;
         font-weight: bolder; }
+    @media screen and (max-width: 767px) {
+      .salon#content section.salon-content .comments .single-comment .user-profil {
+        padding: 0; }
+      .salon#content section.salon-content .comments .single-comment .user-infos {
+        padding: 0; }
+        .salon#content section.salon-content .comments .single-comment .user-infos .title p {
+          margin: 0; }
+        .salon#content section.salon-content .comments .single-comment .user-infos .title .stars {
+          margin-top: -5px;
+          margin-bottom: 0; }
+          .salon#content section.salon-content .comments .single-comment .user-infos .title .stars .star {
+            margin-right: -3px; } }
+    .salon#content section.salon-content .comments .green-check {
+      color: green;
+      font-size: 1.4em; }
     .salon#content section.salon-content .comments .note-yelp {
       width: 120px;
       margin-top: -6px; }
@@ -13393,21 +13419,26 @@ section.home-search .home-search-mobile {
       font-size: 1.8em;
       margin-left: 5px; }
     .salon#content section.salon-content .comments .yelp-date {
-      color: #c4c4c4;
+      color: #595959;
       display: block;
       font-size: 1.4em; }
+      @media screen and (max-width: 767px) {
+        .salon#content section.salon-content .comments .yelp-date {
+          margin-top: -5px; } }
     .salon#content section.salon-content .comments .review-rating {
       float: right; }
     .salon#content section.salon-content .comments a:hover {
       color: inherit; }
     .salon#content section.salon-content .comments .review {
       letter-spacing: 0;
-      text-align: justify; }
+      text-align: justify;
+      padding-top: 10px; }
     @media screen and (max-width: 767px) {
       .salon#content section.salon-content .comments .single-comment div div.title p {
         display: inherit; }
       .salon#content section.salon-content .comments .single-comment p.review {
-        padding: 0; } }
+        padding: 0;
+        padding-top: 10px; } }
     @media screen and (min-width: 767px) {
       .salon#content section.salon-content .bottom-tab {
         display: none !important; } }
@@ -13444,13 +13475,17 @@ section.home-search .home-search-mobile {
         display: block; }
       .salon#content section.salon-content .comments .yelp-date {
         display: inline-block;
-        width: 100%; }
+        width: 100%; } }
+  @media screen and (max-width: 767px) and (max-width: 330px) {
+    .salon#content section.salon-content .comments .yelp-date {
+      font-size: 1.3em; } }
+    @media screen and (max-width: 767px) {
       .salon#content section.salon-content .comments .mini-yelp {
         width: 40px;
         margin-right: 5px;
         margin-left: 5px; }
       .salon#content section.salon-content .comments .single-comment {
-        padding: 20px 0 0 0; } }
+        padding: 15px 0 0 0; } }
     .salon#content section.salon-content .btn-review {
       margin-left: auto;
       margin-right: auto;
@@ -14296,7 +14331,20 @@ section.home-search .home-search-mobile {
     background-color: white; }
     @media screen and (max-width: 767px) {
       #content.reservation .breadcrumb {
-        padding-left: 15px; } }
+        padding-left: 15px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        #content.reservation .breadcrumb li:nth-child(3) {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 120px;
+          white-space: nowrap; } }
+    @media screen and (max-width: 767px) and (max-width: 330px) {
+      #content.reservation .breadcrumb li:nth-child(3) {
+        width: 75px; } }
   #content.reservation .booking-summary {
     display: -webkit-box;
     display: -webkit-flex;
@@ -15313,14 +15361,11 @@ section.home-search .home-search-mobile {
   background-color: white;
   border: 2px solid #e6e6e6;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4em;
   color: #c4c4c4; }
   .Select-control:focus {
     outline: 0; }
-  @media screen and (max-width: 992px) and (min-width: 768px) {
-    .Select-control {
-      font-size: 1.0em; } }
 
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
@@ -15475,8 +15520,8 @@ section.home-search .home-search-mobile {
   display: block;
   padding: 8px 10px;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-size: 1.2em;
+  font-weight: 400;
+  font-size: 1.4em;
   color: #c4c4c4;
   text-align: left; }
 
@@ -15810,6 +15855,16 @@ section.home-search .home-search-mobile {
     #content.container.write-review .average-rating .btn-book {
       margin-right: auto;
       margin-left: auto; } }
+  #content.container.write-review .average-rating .btn-grey {
+    color: white;
+    background-color: #c4c4c4;
+    padding: 8px 20px;
+    font-size: 1.8em;
+    margin-right: 10px;
+    border: none; }
+    @media screen and (min-width: 768px) {
+      #content.container.write-review .average-rating .btn-grey {
+        display: none !important; } }
   @media screen and (min-width: 768px) {
     #content.container.write-review .user-infos:not(.page2) {
       display: none !important; } }

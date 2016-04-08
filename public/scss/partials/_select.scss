@@ -20,14 +20,14 @@
   background-color: white;
   border: 2px solid #e6e6e6;
   font-family: $font-second;
-  font-weight: $latoBold;
+  font-weight: $regular;
   font-size: 1.4em; 
   color: $grey;
   &:focus {
     outline:0;
   }
   @media screen and (max-width: $screen-md-min) and (min-width: $screen-sm-min) {
-    font-size: 1.0em;
+    // font-size: 1.0em;
   }
 }
 .Select-control:hover {
@@ -190,8 +190,8 @@
   display: block;
   padding: 8px 10px;
   font-family: $font-second;
-  font-weight: $latoBold;
-  font-size: 1.2em; 
+  font-weight: $regular;
+  font-size: 1.4em; 
   color: $grey;
   text-align: left;
 }

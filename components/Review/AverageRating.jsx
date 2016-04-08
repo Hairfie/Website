@@ -23,6 +23,7 @@ var ReviewRating = React.createClass ({
                 <Input ref="comment" type="textarea" placeholder="Comment s'est déroulé votre RDV ? (facultatif)" onChange={this.props.handleComment} />
                 <div className="bottom-bar">
                     {this.props.dots()}
+                    <Button className="btn btn-grey" onClick={this.props.backPage}>Retour</Button>
                     {button}
                 </div>
             </div>

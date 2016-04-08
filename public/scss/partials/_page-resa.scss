@@ -14,6 +14,16 @@
         background-color: white;
         @media screen and (max-width: $screen-xs-max) {
             padding-left: 15px;
+            @include flexbox;
+            li:nth-child(3) {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 120px;
+                white-space: nowrap;
+                @media screen and (max-width: 330px) {
+                    width: 75px;
+                }
+            }
         }
     }
     .booking-summary {

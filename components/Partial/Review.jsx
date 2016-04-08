@@ -33,13 +33,13 @@ module.exports = React.createClass({
 
         return (
             <div className="single-comment col-xs-12">
-                <div className="user-profil col-xs-3 col-sm-2">
+                <div className="user-profil col-xs-2 col-sm-2">
                     <UserProfilePicture className={"ProfilePicture" + (review && review.author && review.author.picture ? '' : ' placeholder')}
                     picture={review && review.author ? review.author.picture : ''}
                     options={options} 
                     gender={review ? review.gender : ''}/>
                 </div>
-                <div className="col-xs-9 col-sm-10">
+                <div className="user-infos col-xs-9 col-sm-10">
                     <div className="title">
                         <p>{_.capitalize(displayName(review))}{symbol}</p>
                         <Rating rating={review.rating} min={true} className="review-rating" />
@@ -52,8 +52,8 @@ module.exports = React.createClass({
         );
     },
     verified: function(review) {
-        if (review && !review.verified) return (<span className="yelp-date">Avis libre déposé le {moment(review.createdAt).format('LL')}</span>);;
-        return (<span className="yelp-date ed">Avis vérifié déposé le {moment(review.createdAt).format('LL')}</span>);
+        if (review && !review.verified) return (<span className="yelp-date" style={{'paddingTop': 3}}>Avis libre déposé le {moment(review.createdAt).format('LL')}</span>);;
+        return (<span className="yelp-date ed"> <span className='green-check'>✓</span> Avis vérifié déposé le {moment(review.createdAt).format('LL')}</span>);
     },
     renderBusinessLink: function() {
         var review = this.props.review;

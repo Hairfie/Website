@@ -80,6 +80,7 @@ var ReviewForm = React.createClass({
                     handleComment={this.handleComment}
                     dots={this.renderDotPagination}
                     onSubmit={this.props.onSubmit}
+                    backPage={this.backPage}
                     className={'page' + this.state.page + ' average-rating'}/>
                 <UserInfos 
                     review={this.state.review}
@@ -124,6 +125,10 @@ var ReviewForm = React.createClass({
     },
     handlePage: function() {
         this.setState({page: (this.state.page + 1)});
+        this.scrollToTop();
+    },
+    backPage: function() {
+        this.setState({page: (this.state.page - 1)});
         this.scrollToTop();
     },
     validateRating: function() {

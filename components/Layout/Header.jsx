@@ -9,6 +9,7 @@ var SearchBar = require('./SearchBar.jsx');
 var Picture = require('../Partial/Picture.jsx');
 var PopUp = require('./PopUp.jsx');
 var Button = require('react-bootstrap').Button;
+var classNames = require('classnames');
 
 var Header = React.createClass({
     contextTypes: {
@@ -35,12 +36,17 @@ var Header = React.createClass({
         );
     },
     renderMobile: function (withProLink) {
+        var searchClass = classNames({
+            'col-xs-4 menu-search pull-right': true,
+            'close': this.state.displaySearch
+        });
         return (
             <div className="mobile-nav visible-xs">
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
                         <nav className='col-md-8 pull-right menu-button'>
                             <a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>
+                            <a className={searchClass} role="button" onClick={this.handleDisplaySearch}></a>
                         </nav>
                     
                 </header>

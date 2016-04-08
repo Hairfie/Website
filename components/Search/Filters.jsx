@@ -72,7 +72,6 @@ var Filters = React.createClass({
     },
     renderSelections: function () {
         if(_.isEmpty(this.props.selections)) return null;
-
         return (
             <div className={this.state.expandedFilters.selections ? '' : 'closed'}>
                 <h2 onClick={this.toggleExpandedFilters.bind(this, 'selections')}>
@@ -80,7 +79,7 @@ var Filters = React.createClass({
                     <span className="chevron">›</span>
                 </h2>
                 <div className='tag-list'>
-                    {_.map(this.props.selections, function (selection) {
+                    {_.map(_.indexBy(this.props.selections, 'position'), function (selection) {
                         var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.slug) > -1;
                         var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
