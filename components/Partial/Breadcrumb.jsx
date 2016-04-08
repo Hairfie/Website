@@ -81,8 +81,9 @@ var BreadCrumb = React.createClass({
             var place  = this.props.place;
 
             while (place) {
+                var kind = currentRoute.name == 'hairfie_search' ? 'Hairfies ' : 'Coiffeurs ';
                 placeCrumbs.unshift({
-                    label: 'Coiffeur ' +  (place.name || '').split(',')[0],
+                    label: kind +  (place.name || '').split(',')[0],
                     route: 'business_search',
                     params: {
                         address: SearchUtils.addressToUrlParameter(place.name)
