@@ -21,6 +21,7 @@ module.exports = React.createClass({
                     Prix {this.props.categoryCount}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className='tag-list'>
                     {_.times(4, function(i){
                         return (

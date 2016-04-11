@@ -16,10 +16,10 @@ var Filters = React.createClass({
     },
     getInitialState: function () {
         var states = {
-            price: false,
-            openDays: false,
+            price: true,
+            openDays: true,
             categories: true,
-            selections: false
+            selections: true
         };
         _.map(this.props.tagCategories, function(cat, i){
             if (i < 2)
@@ -57,14 +57,14 @@ var Filters = React.createClass({
                 <h4>Filtrer les résultats de la recherche</h4>
                 <section>
                     <form>
-                    {this.renderAddress()}
-                    {this.renderQ()}
                     {this.renderSelections()}
+                    {this.renderAddress()}
+                    {this.renderDiscount()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderOpenDays()}
                     {this.renderPrice()}
-                    {this.renderDiscount()}
+                    {this.renderQ()}
                     </form>
                 </section>
             </div>
@@ -78,6 +78,7 @@ var Filters = React.createClass({
                     Nos sélections de coiffeurs
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className='tag-list'>
                     {_.map(_.indexBy(this.props.selections, 'position'), function (selection) {
                         var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.slug) > -1;
@@ -115,6 +116,7 @@ var Filters = React.createClass({
         return (
             <div className="business-name">
                 <h2 style={{borderBottom: 0}}>Nom du coiffeur</h2>
+                <hr className='underliner'/>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" value={this.state.q}
                         onChange={this.handleQueryChange}
@@ -155,6 +157,7 @@ var Filters = React.createClass({
                     Spécialités {this.countCategories(this.props.search.categories)}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className="tag-list">
                     {_.map(categories, function (category, i) {
                         var active   = this.props.search && (this.props.search.categories || []).indexOf(category.slug) > -1;
@@ -180,7 +183,8 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <div  className="tag-list">
+                <hr className='underliner discount'/>
+                <div className="tag-list">
                     <label className="checkbox-inline">
                         <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
                         <span />
@@ -236,6 +240,7 @@ var Filters = React.createClass({
                     Ouvert le {this.countCategories(this.props.search.days)}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className="tag-list">
                     {_.map(DateTimeConstants.weekDaysNumber, function(day) {
                         if (_.isEmpty(_.intersection([day], displayDays))) return null;

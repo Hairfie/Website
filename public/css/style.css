@@ -12088,8 +12088,7 @@ section.home-search .home-search-mobile {
     #content.search .new-filters .filter-header .header-title {
       max-width: 60%; }
   #content.search .new-filters .location, #content.search .new-filters .business-name {
-    padding: 15px 10px 20px 10px;
-    border-bottom: 1px solid #e6e6e6; }
+    padding: 15px 10px 20px 10px; }
     #content.search .new-filters .location input, #content.search .new-filters .business-name input {
       border-top-width: 1px;
       outline: none;
@@ -12512,6 +12511,8 @@ section.home-search .home-search-mobile {
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
         margin: 0; } }
+  #content.search .main-content .tab-pane section .btn-book {
+    padding: 6px 16px; }
   #content.search .main-content .tab-pane section .salon-hairfies ul {
     display: block;
     width: 100%;
@@ -12720,6 +12721,8 @@ section.home-search .home-search-mobile {
         #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection {
           font-size: 2em;
           margin-bottom: 0; } }
+      #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection:hover, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection:hover {
+        text-decoration: none; }
       #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection:before, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection:before {
         content: ' ';
         background: url(../img/search/star.svg) no-repeat center center;
@@ -12749,7 +12752,7 @@ section.home-search .home-search-mobile {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 400;
-    padding: 6px 12px; }
+    padding: 6px 16px; }
     #content.search .main-content .tab-pane#salons .info-bloc .btn-hairfies:hover, #content.search .main-content .tab-pane#adom .info-bloc .btn-hairfies:hover {
       -webkit-transition: 0.25s ease-in-out;
       -moz-transition: 0.25s ease-in-out;
@@ -12853,9 +12856,12 @@ section.home-search .home-search-mobile {
       z-index: 149; } }
   #content.search .sidebar .underliner {
     height: 1px;
-    width: 310px;
+    width: calc(100% - 50px);
     border-color: #a9aeb1;
-    margin-top: -13px; }
+    margin-top: -10px; }
+    #content.search .sidebar .underliner.discount {
+      margin-top: 10px;
+      margin-bottom: 0; }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {
@@ -12880,6 +12886,8 @@ section.home-search .home-search-mobile {
       cursor: pointer; }
     #content.search .sidebar h2 .chevron {
       float: right;
+      font-weight: 200;
+      margin-right: 15px;
       font-size: 2em;
       -webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
@@ -12910,7 +12918,6 @@ section.home-search .home-search-mobile {
     #content.search .sidebar label span {
       padding-top: 1px; }
   #content.search .sidebar .business-name {
-    border-bottom: 1px solid #f7f7f7;
     padding-bottom: 15px; }
   #content.search .sidebar div.input-group {
     padding: 0px 25px;

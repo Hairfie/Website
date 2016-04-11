@@ -81,7 +81,7 @@
         }
         .location, .business-name {
             padding: 15px 10px 20px 10px;
-            border-bottom: 1px solid $grey5;
+            // border-bottom: 1px solid $grey5;
             input {
                 border-top-width: 1px;
                 outline: none;
@@ -550,6 +550,9 @@
                     margin: 0;
                 }
             }
+            .btn-book {
+                padding: 6px 16px;
+            }
             .salon-hairfies {
                 ul {
                     display: block;
@@ -765,6 +768,9 @@
                             font-size: 2em;
                             margin-bottom: 0;
                         }
+                        &:hover {
+                            text-decoration: none;
+                        }
                         &:before {
                             content: ' ';
                             background: url(../img/search/star.svg) no-repeat center center;
@@ -800,7 +806,7 @@
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-weight: $regular;
-                    padding: 6px 12px;
+                    padding: 6px 16px;
                     &:hover {
                         @include transition(.25s ease-in-out);
                         color: white;
@@ -929,10 +935,13 @@
         }
         .underliner {
             height: 1px;
-            //FIX WIDTH
-            width: 310px;
+            width: calc(100% - 50px);
             border-color: $grey3;
-            margin-top: -13px;
+            margin-top: -10px;
+            &.discount {
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
         }
 
         .filter-recap {
@@ -965,6 +974,8 @@
             }
             .chevron {
                 float: right;
+                font-weight: $light;
+                margin-right: 15px;
                 font-size: 2em;
                 @include rotate(90deg);
             }
@@ -1003,7 +1014,7 @@
             }
         }
         .business-name {
-            border-bottom: 1px solid $bg4;
+            // border-bottom: 1px solid $bg4;
             padding-bottom: 15px;
         }
         div.input-group {
