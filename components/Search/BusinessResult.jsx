@@ -138,14 +138,13 @@ var Business = React.createClass({
                     <div className="business-price-rating">
                         {this.renderPricing()}
                     </div>
-                    {this.renderIsInSelection()}
+                    {this.renderIsInSelection(searchedCategoriesLabels)}
                     <div className="description hidden-xs">
                         {description}
                     </div>
                     <div className="business-promo">
                         {this.renderDiscount()}
                     </div>
-                    {searchedCategoriesLabels}
                     <div className="book">
                         {booking_button}
                         <span className="hidden-xs">{this.renderAllHairfiesButton()}</span>
@@ -154,7 +153,7 @@ var Business = React.createClass({
             </section>
         );
     },
-    renderIsInSelection: function() {
+    renderIsInSelection: function(searchedCategoriesLabels) {
         var selections = _.map(
                             _.filter(this.props.selections, function (sel) { 
                                 return _.include(this.props.business.selections, sel.id)
@@ -166,7 +165,8 @@ var Business = React.createClass({
                         );
         return (
             <div>
-                {selections}
+                {selections} 
+                {searchedCategoriesLabels}
             </div>
         );
     },
