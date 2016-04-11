@@ -614,26 +614,35 @@
                 margin-left: 0; margin-right: 0;
                 margin-bottom: 20px;
                 background-color: white;
-                padding: 15px;
-                height: 250px;
+                padding: 20px 30px 20px 20px;
+                // height: 270px;
+                min-height: 207px;
+                width: 620px;
                 cursor:pointer;
+                border: 1px solid $grey2;
+                @include flexbox;
                 &:hover {
                     @include box-shadow(0px 4px 5px 0px $grey);
                     @include transition (all 0.5s ease-out);
                 }
                 @media screen and (max-width: $screen-xs-max) {
-                    padding: 16px 10px;
-                    height: 156px;
+                    @include flex-direction(column);
+                    padding: 10px 10px;
+                    // height: 156px;
+                    width: 100%;
                     margin-bottom: 0px;
-                    border-bottom: 1px solid $grey;
+                    border-bottom: 0;
                 }
             }
             .image-bloc {
                 display: inline-block;
                 float: left;
-                width: 220px;
+                width: 167px;
+                height: 167px;
                 @media screen and (max-width: $screen-xs-max) {
-                    width: 110px;
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 5px;
                     position: relative;
                     .icon-promo {
                         position: absolute;
@@ -651,7 +660,7 @@
                     height: 220px;
                     width: 220px;
                     @media screen and (max-width: $screen-xs-max) {
-                        width: 110px;
+                        width: 100%;
                         height: 124px;                    
                 }
             }
@@ -660,31 +669,37 @@
                 display: inline-block;
                 position: relative;
                 float: left;
-                height: 220px;
-                width: calc(100% - 240px);
+                // height: 220px;
+                width: calc(100% - 187px);
                 margin-left: 20px;
+                @include flexbox;
+                @include flex-direction(column);
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-left: 0;
+                    width: 100%;
+                }
                 .business-name > a {
                     text-decoration: none;
                     h3 {
-                        font-size: 2.1em;
+                        font-size: 1.8em;
                         margin: 0 0 3px;
-                        letter-spacing: 2px;
+                        letter-spacing: 0;
                         color: $darkgrey;
                         text-transform: uppercase;
-                        font-weight: $semiBold;
+                        font-weight: $regular;
                         width: calc(100% - 75px);
                     }
                 }
                 .business-address {
-                    font-size: 1.4em;
-                    letter-spacing: 1px;
+                    font-size: 1.6em;
+                    letter-spacing: 0;
                 }
                 .business-price-rating {
                     position: absolute;
                     right: 0;
                     top: 0;
                     p {
-                        font-size: 1.8em;
+                        font-size: 1.6em;
                     }
                 }
                 .business-reviews {
@@ -703,14 +718,18 @@
                         display: inline;
                     }
                     .mobile {
-                        @include hide;
+                        @media screen and (min-width: $screen-sm-min) {
+                            @include hide;
+                        }
                     }
                     @media screen and (max-width: $screen-xs-max) {
                         .desktop {
                             @include hide;
                         }
                         .mobile {
-                            display: block !important;
+                            @include flexbox;
+                            @include align-items(center);
+                            // display: block !important;
                         }
                     }
                 }
@@ -726,14 +745,20 @@
                 .btn-selection {
                     color: $darkgrey;
                     background-color: white;
-                    border: 1px solid $grey;
-                    font-size: 1.6em;
-                    padding: 5px 10px 5px 35px;
+                    border: 1px solid $grey2;
+                    font-size: 1.5em;
+                    font-weight: $light;
+                    text-transform: uppercase;
+                    padding: 2px 10px 2px 35px;
                     margin: 0px 5px 5px 0;
                     border-radius: 3px;
                     display: inline-block;
                     position: relative;
                     cursor: pointer;
+                    @media screen and (max-width: $screen-xs-max) {
+                        font-size: 2em;
+                        margin-bottom: 0;
+                    }
                     &:before {
                         content: ' ';
                         background: url(../img/search/star.svg) no-repeat center center;
@@ -744,13 +769,17 @@
                         position: absolute;
                     }
                 }
+                .description {
+                    font-size: 1.3em;
+                }
                 .book {
-                    bottom: 0px;
-                    position: absolute;
+                    margin-top: 15px;
+                    @media screen and (max-width: $screen-xs-max) {
+                        margin-top: 10px;
+                    }
                 }
                 .btn-hairfies {
                     @extend .btn;
-                    //width: calc(50% - 5px);
                     border-radius: 0;
                     height: 39px;
                     background-color: white;
@@ -771,13 +800,17 @@
                     }
                 }
                 @media screen and (max-width: $screen-xs-max) {
-                    height: 124px;
-                    width: calc(100% - 130px);
                     padding-left: 0;
                     padding-right: 0;
                     font-size: 0.8em;
-                    .btn-red, .btn-book {
+                    .btn-red {
                         display: block;
+                    }
+                    .btn-book {
+                        padding: 9px 12px;
+                        font-size: 2em;
+                        font-weight: $regular;
+                        margin-bottom: 10px;
                     }
                     p {
                         float: left;
@@ -792,21 +825,20 @@
                             height: 15px;
                             position: absolute;
                             margin-left: -15px;
-                            //top: -5px;
                         }
                     }
                     .business-name > a {
                         h3 {
-                            font-size: 2em;
+                            font-size: 2.6em;
                             text-transform: none;
                             letter-spacing: 0;
                             font-weight: $regular;
-                            margin-bottom: 0;
-                            width: 100%;
+                            margin-bottom: 3px;
+                            width: 80%;
                         }
                     }
                     .business-address {
-                        font-size: 1.5em;
+                        font-size: 2.5em;
                         letter-spacing: 0;
                         font-weight: $light;
                         line-height: 12px;
@@ -816,28 +848,32 @@
                     }
                     .business-reviews {
                         margin: 0 0 5px;
+                        > a {
+                            @include flexbox;
+                            @include align-items(center);
+                        }
                         a > img, > a > span, img, .stars {
                             float: left;
                             margin-right: 5px;
                         }
                         img {
-                            width: 80px;
-                            margin-top: 1px;
+                            width: 120px;
+                            margin-top: 3px;
                         }
                         .yelp {
                             width: 40px;
                             margin-top: -5px;
                         }
-                        .star.min {
-                            background-size: 95%;
-                        }
-                        .star {
-                            height: 16px;
-                            width: 16px;
-                        }
-                        .stars {
-                            height: 16px;
-                        }
+                        // .star.min {
+                        //     background-size: 95%;
+                        // }
+                        // .star {
+                        //     height: 16px;
+                        //     width: 16px;
+                        // }
+                        // .stars {
+                        //     height: 16px;
+                        // }
                         > a > span {
                             line-height: 16px;
                             font-size: 1.8em;
@@ -845,7 +881,8 @@
                         }
                     }
                     .business-price-rating {
-                        position: initial;
+                        font-size: 1.2em;
+                        // position: initial;
                     }
                 }
             }
@@ -1083,6 +1120,7 @@
         }
     }
     .label-container {
+        background-color: $bg3;
         @media screen and (max-width: $screen-xs-max) {            
             padding-left: 10px;
         }
