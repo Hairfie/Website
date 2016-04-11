@@ -164,7 +164,7 @@ var Business = React.createClass({
                             }
                         );
         return (
-            <div>
+            <div className='label-container'>
                 {selections} 
                 {searchedCategoriesLabels}
             </div>
@@ -190,14 +190,14 @@ var Business = React.createClass({
                         {' - ' + this.props.business.numReviews + ' avis'}
                     </span>
                     <span className="mobile">
-                        <Rating rating={this.props.business.rating} min={true} />{' (' + this.props.business.numReviews + ')'}
+                        <Rating rating={this.props.business.rating} min={true} />{' - ' + this.props.business.numReviews + ' avis'}
                     </span>
                 </Link>
             );
         } else if (this.props.business.yelpObject.review_count > 0) {
             return (
                 <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' (' + this.props.business.yelpObject.review_count + ')'}
+                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' - ' + this.props.business.yelpObject.review_count + ' avis'}
                     <Picture picture={{url: "/img/search/yelp.png"}} className="visible-xs yelp"/>
                     <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
                 </Link>

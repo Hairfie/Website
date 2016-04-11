@@ -277,10 +277,10 @@
             h1 {
                 margin: 20px 0;
                 letter-spacing: 0;
-                font-weight: $semiBold;
-                font-size: 21px;
-                margin-top:25px;
-                margin-bottom:25px;
+                font-weight: $regular;
+                font-size: 2.5em;
+                margin-top:5px;
+                margin-bottom:10px;
                 @media screen and (max-width: $screen-xs-max) {
                     margin: 5px 0 20px 10px;
                     margin-top:5px;
@@ -290,7 +290,9 @@
             p {
                 font-weight: $light;
                 font-size: 1.4em;
-                margin-bottom: 30px;
+                margin-bottom: 0;
+                width: calc(100% - 15px);
+                text-align: justify;
             }
             div {
                 display: inline-block;
@@ -541,8 +543,8 @@
 
             .btn-red, .btn-book {
                 text-transform: uppercase;
-                letter-spacing: 1px;
-                font-weight: $light;
+                letter-spacing: 0;
+                font-weight: $regular;
                 font-size: 1.9em;
                 @media screen and (max-width: $screen-xs-max) {
                     margin: 0;
@@ -602,7 +604,7 @@
                 margin: 0;
                 &:first-child {
                     @media screen and (min-width: $screen-sm-min) {
-                        margin-top: 5px;                        
+                        margin-top: 15px;                        
                     }
                 }
             }
@@ -617,7 +619,7 @@
                 padding: 20px 30px 20px 20px;
                 // height: 270px;
                 min-height: 207px;
-                width: 620px;
+                width: calc(100% - 15px);
                 cursor:pointer;
                 border: 1px solid $grey2;
                 @include flexbox;
@@ -733,44 +735,50 @@
                         }
                     }
                 }
-                .business-label {
-                    color: white;
-                    background-color: $hairfie;
-                    font-size: 1.6em;
-                    padding: 2px 10px;
-                    margin-right: 5px;
-                    margin-top: 5px;
-                    display: inline-block;
-                }
-                .btn-selection {
-                    color: $darkgrey;
+                .label-container {
+                    overflow: hidden;
+                    height: 35px;
                     background-color: white;
-                    border: 1px solid $grey2;
-                    font-size: 1.5em;
-                    font-weight: $light;
-                    text-transform: uppercase;
-                    padding: 2px 10px 2px 35px;
-                    margin: 0px 5px 5px 0;
-                    border-radius: 3px;
-                    display: inline-block;
-                    position: relative;
-                    cursor: pointer;
-                    @media screen and (max-width: $screen-xs-max) {
-                        font-size: 2em;
-                        margin-bottom: 0;
+                    .business-label {
+                        color: white;
+                        background-color: $hairfie;
+                        font-size: 1.6em;
+                        padding: 2px 10px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                        display: inline-block;
                     }
-                    &:before {
-                        content: ' ';
-                        background: url(../img/search/star.svg) no-repeat center center;
-                        background-size: contain;
-                        width: 18px;
-                        height: 18px;
-                        left: 10px;
-                        position: absolute;
+                    .btn-selection {
+                        color: $darkgrey;
+                        background-color: white;
+                        border: 1px solid $grey2;
+                        font-size: 1.5em;
+                        font-weight: $light;
+                        text-transform: uppercase;
+                        padding: 2px 10px 2px 35px;
+                        margin: 0px 5px 5px 0;
+                        border-radius: 3px;
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        @media screen and (max-width: $screen-xs-max) {
+                            font-size: 2em;
+                            margin-bottom: 0;
+                        }
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/star.svg) no-repeat center center;
+                            background-size: contain;
+                            width: 18px;
+                            height: 18px;
+                            left: 10px;
+                            position: absolute;
+                        }
                     }
                 }
                 .description {
                     font-size: 1.3em;
+                    margin-top: 10px;
                 }
                 .book {
                     margin-top: 15px;
@@ -918,7 +926,13 @@
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
             z-index: 149;
-
+        }
+        .underliner {
+            height: 1px;
+            //FIX WIDTH
+            width: 310px;
+            border-color: $grey3;
+            margin-top: -13px;
         }
 
         .filter-recap {
@@ -941,11 +955,11 @@
             line-height: 50px;
             margin: 0;
             color: $font-color;
-            font-weight: $light;
+            font-weight: $regular;
             font-size: 1.6em;
             letter-spacing: 1px;
             padding: 0 10px 0 25px;
-            border-bottom: 1px solid $bg4;
+            // border-bottom: 1px solid $bg4;
             &:hover {
                 cursor: pointer;
             }
@@ -956,9 +970,9 @@
             }
         }
         h4 {
-            color: $font-color;
+            color: $grey1;
             padding: 25px;
-            border-bottom: 1px solid $bg4;
+            // border-bottom: 1px solid $bg4;
             margin-bottom: 0;
         }
         div.closed {
@@ -973,7 +987,7 @@
         }
         .tag-list {
             padding: 10px 25px;
-            border-bottom: 1px solid $bg4;
+            // border-bottom: 1px solid $bg4;
         }
         label {            
             color: $font-color;
@@ -1148,16 +1162,26 @@
         .single-comment {
             border-bottom: 1px solid $grey5;
             padding: 15px 0;
+            .user-infos {
+                padding-left: 0px;
+            }
+            .review {
+                width: 100%;
+            }
         }
         .ProfilePicture {
             width: 50px;
             height: 50px;
             margin-top: 5px;
+            &.placeholder {
+                border-width: 1px;
+            }
         }
         div.title {
             p {
-                color: $grey4;
-                font-weight: $regular;
+                color: $darkgrey;
+                font-weight: $light;
+                letter-spacing: 0;
                 .gender-symbol {
                     display: none;
                 }
@@ -1171,6 +1195,9 @@
                     }
                 }
             }
+        }
+        div.col-sm-offset-2.col-sm-10 {
+            margin-left: 0;
         }
         .yelp-date {
             color: $grey;

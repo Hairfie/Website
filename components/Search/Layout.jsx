@@ -36,7 +36,7 @@ var Layout = React.createClass({
                     </div>
                     <div className="row">
                         <Breadcrumb place={this.props.place} />
-                        <div className="col-md-4 col-sm-12 hidden-xs hidden-sm">
+                        <div className="col-md-4 col-sm-12 hidden-xs hidden-sm" style={{paddingRight: 30}}>
                             {this.props.filters}
                             {this.props.topReviews}
                         </div>

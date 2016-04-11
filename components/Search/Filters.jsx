@@ -133,6 +133,7 @@ var Filters = React.createClass({
         return (
             <div>
                 <h2 style={{borderBottom: 0}}>Localisation</h2>
+                <hr className='underliner'/>
                 <div className="input-group">
                     <GeoInput className="form-control" ref="address" type="text"
                         value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
