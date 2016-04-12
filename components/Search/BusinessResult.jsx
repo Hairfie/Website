@@ -78,14 +78,6 @@ var Business = React.createClass({
                 'omission': ' ...'
             });
         }
-        /**
-        * best discount over picture for mobile
-        */
-        if (business.bestDiscount) {
-            promo_icon = (
-                    <i className="visible-xs icon-promo">{business.bestDiscount + ' %'}</i>
-                );
-        }
         if (business.isBookable) {
             booking_button = (
                 <Link className="btn btn-book full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
@@ -104,21 +96,21 @@ var Business = React.createClass({
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
+                        {this.renderDiscount()}
                         <Picture
                             picture={_.first(business.pictures)}
                             className="hidden-xs"
-                            options={{ width: 220, height: 220, crop: 'thumb' }}
-                            placeholder="/img/placeholder-220.png"
+                            options={{ width: 167, height: 167, crop: 'thumb' }}
+                            placeholder="/img/placeholder.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
                          <Picture
                             picture={_.first(business.pictures)}
                             className="visible-xs"
                             options={{ width: 400, height: 124, crop: 'thumb' }}
-                            placeholder="/img/placeholder-124.png"
+                            placeholder="/img/placeholder-mobile.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
-                        {promo_icon}
                 </div>
                 <div className="info-bloc">
                     <div className="business-name">
@@ -143,7 +135,6 @@ var Business = React.createClass({
                         {description}
                     </div>
                     <div className="business-promo">
-                        {this.renderDiscount()}
                     </div>
                     <div className="book">
                         {booking_button}
@@ -214,10 +205,7 @@ var Business = React.createClass({
     renderDiscount: function () {
         if (!this.props.business.bestDiscount) return null;
         return (
-            <div className="inline-promo">
-                <span className="icon-promo">%</span>
-                {'-' + this.props.business.bestDiscount + '% dans tout le salon*'}
-            </div>
+            <div className='promo-bloc'>{'-' + this.props.business.bestDiscount + ' %'}</div>
         );
     }
 });

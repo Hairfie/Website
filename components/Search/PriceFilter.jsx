@@ -29,7 +29,8 @@ module.exports = React.createClass({
                             <label key={i} className="checkbox-inline">
                                 <input type="checkbox" align="baseline" onChange={this.handleChange.bind(this, i)} checked={_.includes(this.props.priceLevel, (i+1).toString())} />
                                 <span />
-                                {this.renderPriceLevel(i + 1)} {'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }
+                                {this.renderPriceLevel(i + 1)} 
+                                <span className='price-notice'>{'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }</span>
                             </label>
                         )
                     }, this)}
@@ -41,7 +42,7 @@ module.exports = React.createClass({
         return (
             <span>
                 {_.times(i, function(i){
-                    return <i key={i} className="glyphicon glyphicon-euro" />
+                    return '€'
                 })}
             </span>
         );

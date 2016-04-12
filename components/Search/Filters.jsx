@@ -58,7 +58,6 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                <h4>Filtrer les résultats de la recherche</h4>
                 <section>
                     <form>
                     {this.renderSelections()}
@@ -156,13 +155,12 @@ var Filters = React.createClass({
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
                 <a className="btn btn-around" role="button" onClick={this.getMyPosition} title="Me localiser">{aroundText}</a>
-                {/*<div className='suggestions'>Suggestions:</div>
-                <label className="checkbox-inline promo-line">
+                {/* FIXME CHOISIR SUGGESTIONS
+                <div className='suggestions'>Suggestions:</div>
                     <a onClick={this.goToLocation.bind(this, "Paris, France")}>Paris</a>
                     <a onClick={this.goToLocation.bind(this, "17e Arrondissement, 75017 Paris, France")}>Paris 17</a>
                     <a onClick={this.goToLocation.bind(this, "18e Arrondissement, 75018 Paris, France")}>Paris 18</a>
-
-                </label>*/}
+                */}
             </div>
         );
     },

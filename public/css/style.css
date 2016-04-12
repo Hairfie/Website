@@ -9440,7 +9440,7 @@ div.connect-button .facebook {
         margin-top: -1px;
         height: .938em;
         line-height: .938em;
-        color: #f39c12; }
+        color: #ffc400; }
         @media screen and (max-width: 1199px) {
           .cal td a .promo-day {
             bottom: -2px; } }
@@ -9926,7 +9926,7 @@ p.inline-promo {
   line-height: 34px;
   font-size: 2.1em;
   font-weight: 400;
-  color: #f39c12;
+  color: #ffc400;
   text-align: right;
   display: block;
   width: 70%;
@@ -9955,24 +9955,24 @@ input[type="checkbox"]:checked + span:before {
   height: 17px;
   background: white;
   border-radius: 3px;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+  border: 1px solid #c4c4c4; }
 
 /* Aspect général de la coche */
 input[type="checkbox"]:not(:checked) + span:after,
 input[type="checkbox"]:checked + span:after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -18px;
-  width: 14px;
-  height: 15px;
-  background: url(../img/sign-checkbox.png) no-repeat center center;
+  top: 2px;
+  left: -20px;
+  width: 17px;
+  height: 17px;
+  background: url(../img/search/check.png) no-repeat center center;
+  background-size: cover;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
-  -o-transition: all 0.2s; }
+  -o-transition: all 0.2s;
+  border-radius: 3px; }
 
 /* Aspect si "pas cochée" */
 input[type="checkbox"]:not(:checked) + span:after {
@@ -9982,7 +9982,8 @@ input[type="checkbox"]:not(:checked) + span:after {
 /* Aspect si "cochée" */
 input[type="checkbox"]:checked + span:after {
   opacity: 1;
-  transform: scale(1); }
+  transform: scale(1);
+  background-color: #fe5b5f; }
 
 input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type="checkbox"].checkbox-disabled:checked + span:after {
   content: '';
@@ -10240,7 +10241,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   z-index: 150;
   min-width: 100%;
   width: 100vw;
-  height: 46px;
+  height: 0px;
   bottom: 0; }
 
 .btn-mobile-fixed {
@@ -12070,9 +12071,9 @@ section.home-search .home-search-mobile {
   font-size: 1.5em; }
   #content.search .new-filters .filter-header {
     background-color: #f7f7f7;
-    font-size: 0.8em;
+    color: #595959;
+    font-size: 1.2em;
     height: 60px;
-    text-transform: uppercase;
     padding-left: 10px;
     display: -webkit-flexbox;
     display: -ms-flexbox;
@@ -12252,6 +12253,12 @@ section.home-search .home-search-mobile {
       -webkit-align-items: center;
       align-items: center;
       text-align: center; }
+  #content.search .new-filters .btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fe5b5f;
+    font-size: 2em; }
 
 #content.search .subfilters {
   z-index: 202;
@@ -12494,7 +12501,7 @@ section.home-search .home-search-mobile {
     line-height: 34px;
     font-size: 1.6em;
     font-weight: 400;
-    color: #f39c12;
+    color: #ffc400;
     display: block; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane section .inline-promo {
@@ -12599,6 +12606,7 @@ section.home-search .home-search-mobile {
   float: left;
   width: 167px;
   height: 167px;
+  position: relative;
   overflow: hidden; }
   @media screen and (max-width: 767px) {
     #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
@@ -12622,6 +12630,15 @@ section.home-search .home-search-mobile {
       #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
         width: 100%;
         height: 124px; } }
+  #content.search .main-content .tab-pane#salons .image-bloc .promo-bloc, #content.search .main-content .tab-pane#adom .image-bloc .promo-bloc {
+    background-color: #ffc400;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 400;
+    position: absolute;
+    padding: 5px 10px;
+    right: 0;
+    top: 15px; }
 
 #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
   display: inline-block;
@@ -12941,8 +12958,8 @@ section.home-search .home-search-mobile {
           content: ' ';
           background: url(../img/search/icon-promo.png) no-repeat center center;
           background-size: contain;
-          width: 18px;
-          height: 18px;
+          width: 20px;
+          height: 20px;
           position: absolute;
           left: 28px; }
   #content.search .sidebar label {
@@ -12966,10 +12983,10 @@ section.home-search .home-search-mobile {
     #content.search .sidebar div.input-group input {
       height: 45px;
       -webkit-appearance: none;
-      border: 0;
       border: 1px solid #e6e6e6;
       box-shadow: none !important;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      border-radius: 2px; }
       #content.search .sidebar div.input-group input:focus {
         outline: none !important; }
     #content.search .sidebar div.input-group .input-group-addon {
@@ -12978,6 +12995,7 @@ section.home-search .home-search-mobile {
       border: 1px solid #e6e6e6;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      border-radius: 2px;
       border-color: #e6e6e6; }
     #content.search .sidebar div.input-group .input-group-addon:last-child {
       padding: 0;
@@ -13096,6 +13114,12 @@ section.home-search .home-search-mobile {
       -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+  #content.search .sidebar .price > .tag-list > label {
+    font-size: 1.6em; }
+    #content.search .sidebar .price > .tag-list > label .price-notice {
+      font-size: 0.8em;
+      color: #c4c4c4;
+      margin-left: 5px; }
 
 #content.search .mobile-search {
   position: relative;
@@ -14067,7 +14091,7 @@ section.home-search .home-search-mobile {
         .salon#content .sidebar .related-content .rival p:nth-child(3) {
           line-height: 26px;
           font-weight: 400;
-          color: #f39c12;
+          color: #ffc400;
           text-align: left;
           padding-top: 45px;
           margin-bottom: 0px; }
@@ -14594,7 +14618,7 @@ section.home-search .home-search-mobile {
         margin-right: 10px; }
     #content.reservation .booking-summary .promo-bloc .promo {
       font-size: 1.4em;
-      color: #f39c12;
+      color: #ffc400;
       font-weight: 200;
       display: -webkit-box;
       display: -webkit-flex;
@@ -14681,7 +14705,7 @@ section.home-search .home-search-mobile {
         width: 25px;
         height: 25px;
         display: inline-block;
-        background: #f39c12;
+        background: #ffc400;
         margin-right: 5px;
         vertical-align: middle;
         margin-top: -2px;
@@ -15005,7 +15029,7 @@ section.home-search .home-search-mobile {
       color: #fc5a5f; }
   #content.reservation.bookingForm .legend.conf .promo {
     border: 0;
-    color: #f39c12;
+    color: #ffc400;
     padding-left: 0; }
   #content.reservation.bookingForm p, #content.reservation.bookingForm a, #content.reservation.bookingForm label, #content.reservation.bookingForm select {
     font-size: 14px;
