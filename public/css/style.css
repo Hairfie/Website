@@ -12854,14 +12854,21 @@ section.home-search .home-search-mobile {
     #content.search .sidebar {
       padding-top: 0;
       z-index: 149; } }
+  #content.search .sidebar > h4 {
+    padding-bottom: 10px; }
   #content.search .sidebar .underliner {
     height: 1px;
     width: calc(100% - 50px);
     border-color: #a9aeb1;
-    margin-top: -10px; }
+    margin-top: -10px;
+    margin-bottom: 0; }
     #content.search .sidebar .underliner.discount {
-      margin-top: 10px;
+      margin-top: 20px;
       margin-bottom: 0; }
+    #content.search .sidebar .underliner.location {
+      margin-bottom: 20px; }
+    #content.search .sidebar .underliner.q {
+      margin-bottom: 20px; }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {
@@ -12905,7 +12912,39 @@ section.home-search .home-search-mobile {
   #content.search .sidebar div.closed > div {
     display: none; }
   #content.search .sidebar .tag-list {
-    padding: 10px 25px; }
+    padding: 10px 25px 0px 25px; }
+    #content.search .sidebar .tag-list.selections label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.search .sidebar .tag-list.selections label span:nth-child(3) {
+        margin-left: 25px; }
+        #content.search .sidebar .tag-list.selections label span:nth-child(3):before {
+          content: ' ';
+          background: url(../img/search/star-red.svg) no-repeat center center;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          left: 28px; }
+    #content.search .sidebar .tag-list.discount label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.search .sidebar .tag-list.discount label span:nth-child(3) {
+        margin-left: 25px; }
+        #content.search .sidebar .tag-list.discount label span:nth-child(3):before {
+          content: ' ';
+          background: url(../img/search/icon-promo.png) no-repeat center center;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          left: 28px; }
   #content.search .sidebar label {
     color: #595959;
     background-color: white;
@@ -12975,7 +13014,7 @@ section.home-search .home-search-mobile {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
-    #content.search .sidebar .btn-around:before {
+    #content.search .sidebar .btn-around .around-text:before {
       content: ' ';
       background: url(../img/search/location-new.svg) no-repeat center center;
       background-size: contain;
@@ -12983,6 +13022,42 @@ section.home-search .home-search-mobile {
       height: 18px;
       position: absolute;
       left: calc(50% - 65px); }
+  #content.search .sidebar .spinner {
+    width: 70px;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  #content.search .sidebar .spinner > div {
+    width: 15px;
+    height: 15px;
+    background-color: #c4c4c4;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+  #content.search .sidebar .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s; }
+  #content.search .sidebar .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
   #content.search .sidebar .tag-count {
     color: white;
     font-weight: 400;

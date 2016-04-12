@@ -933,14 +933,24 @@
             padding-top: 0;
             z-index: 149;
         }
+        >h4 {
+            padding-bottom: 10px;
+        }
         .underliner {
             height: 1px;
             width: calc(100% - 50px);
             border-color: $grey3;
             margin-top: -10px;
+            margin-bottom: 0;
             &.discount {
-                margin-top: 10px;
+                margin-top: 20px;
                 margin-bottom: 0;
+            }
+            &.location {
+                margin-bottom: 20px;
+            }
+            &.q {
+                margin-bottom: 20px;
             }
         }
 
@@ -968,7 +978,6 @@
             font-size: 1.6em;
             letter-spacing: 1px;
             padding: 0 10px 0 25px;
-            // border-bottom: 1px solid $bg4;
             &:hover {
                 cursor: pointer;
             }
@@ -983,7 +992,6 @@
         h4 {
             color: $grey1;
             padding: 25px;
-            // border-bottom: 1px solid $bg4;
             margin-bottom: 0;
         }
         div.closed {
@@ -997,8 +1005,41 @@
             }
         }
         .tag-list {
-            padding: 10px 25px;
-            // border-bottom: 1px solid $bg4;
+            padding: 10px 25px 0px 25px;
+            &.selections {
+                label {
+                    @include flexbox;
+                    span:nth-child(3) {
+                        margin-left: 25px;
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/star-red.svg) no-repeat center center;
+                            background-size: contain;
+                            width: 18px;
+                            height: 18px;
+                            position: absolute;
+                            left: 28px;
+                        }
+                    }
+                }
+            }
+            &.discount {
+                label {
+                    @include flexbox;
+                    span:nth-child(3) {
+                        margin-left: 25px;
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/icon-promo.png) no-repeat center center;
+                            background-size: contain;
+                            width: 18px;
+                            height: 18px;
+                            position: absolute;
+                            left: 28px;
+                        }
+                    }
+                }
+            }
         }
         label {            
             color: $font-color;
@@ -1070,7 +1111,7 @@
             margin: 15px 25px 0 25px;
             @include flex-center;
             @include justify-content(center);
-            &:before {
+            .around-text:before {
                 content: ' ';
                 background: url(../img/search/location-new.svg) no-repeat center center;
                 background-size: contain;
@@ -1078,6 +1119,47 @@
                 height: 18px;
                 position: absolute;
                 left: calc(50% - 65px);
+            }
+        }
+        .spinner {
+            width: 70px;
+            text-align: center;
+            @include flexbox;
+        }
+
+        .spinner > div {
+            width: 15px;
+            height: 15px;
+            background-color: $grey;
+
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+
+        .spinner .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        .spinner .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+
+        @-webkit-keyframes sk-bouncedelay {
+            0%, 80%, 100% { -webkit-transform: scale(0) }
+            40% { -webkit-transform: scale(1.0) }
+        }
+
+        @keyframes sk-bouncedelay {
+            0%, 80%, 100% { 
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            } 40% { 
+                -webkit-transform: scale(1.0);
+                transform: scale(1.0);
             }
         }
         .tag-count {

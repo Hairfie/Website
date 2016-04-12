@@ -64,7 +64,7 @@ var SearchLabels = React.createClass ({
         var address = this.props.search.address;
         if (address == 'France') return;
         return (
-            <span key={address} className="business-label" onClick={this.removePlace}>{'Localisation : ' + address}&times;</span>
+            <span key={address} className="business-label" onClick={this.removePlace}>{'Localisation : ' + decodeURI(address)}&times;</span>
         );
     },
     removePlace: function() {
