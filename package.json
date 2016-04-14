@@ -48,6 +48,7 @@
     "grunt-react": "^0.12.2",
     "grunt-sass": "^1.0.0",
     "grunt-watchify": "git://github.com/goodeggs/grunt-watchify#release",
+    "http-proxy-middleware": "^0.13.0",
     "i18n": "^0.5.0",
     "intl": "^1.0.0",
     "joi": "^8.0.4",
