@@ -13212,8 +13212,10 @@ section.home-search .home-search-mobile {
   #content.search .top-reviews div.col-sm-offset-2.col-sm-10 {
     margin-left: 0; }
   #content.search .top-reviews .yelp-date {
-    color: #c4c4c4;
+    color: #595959;
     font-size: 1.2em; }
+  #content.search .top-reviews .green-check {
+    color: #20af69; }
   #content.search .top-reviews a {
     text-decoration: underline; }
   #content.search .top-reviews a:hover {

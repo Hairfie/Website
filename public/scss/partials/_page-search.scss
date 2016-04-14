@@ -1331,8 +1331,11 @@
             margin-left: 0;
         }
         .yelp-date {
-            color: $grey;
+            color: $darkgrey;
             font-size: 1.2em;
+        }
+        .green-check {
+            color: $green;
         }
         a {
             text-decoration: underline;
