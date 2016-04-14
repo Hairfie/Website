@@ -2,6 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var classNames = require('classnames');
 
 module.exports = React.createClass({
     propTypes: {
@@ -12,10 +13,18 @@ module.exports = React.createClass({
             onChange: _.noop
         };
     },
+    getInitialState: function() {
+        return {
+            displayPrices: false
+        };
+    },
     render: function () {
         var displayClass = this.props.expandedFilters.price ? 'price' : 'price closed';
-        var men = ['0-20€', '21-30€', '31-49€', '> 50€'];
-        var women = ['0-30€', '31-50€', '51-79€', '> 79€'];
+        var displayPrices = classNames({
+            'prices': true,
+            'hidden': !this.state.displayPrices
+        });
+        console.log('displayPrices', this.state.displayPrices);
         return (
             <div className={displayClass}>
                 <h2 onClick={this.props.toggleExpandedFilters}>
@@ -30,13 +39,24 @@ module.exports = React.createClass({
                                 <input type="checkbox" align="baseline" onChange={this.handleChange.bind(this, i)} checked={_.includes(this.props.priceLevel, (i+1).toString())} />
                                 <span />
                                 {this.renderPriceLevel(i + 1)} 
-                                <span className='price-notice'>{'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }</span>
                             </label>
                         )
                     }, this)}
+                    <div className='price-details'>
+                        <a onClick={this.displayPrices}>Voir le détail</a>
+                        <div className={displayPrices}>
+                            <span>Homme &lt; 20€ / Femme &lt; 30€</span>
+                            <span>Homme &lt; 30€ / Femme &lt; 50€</span>
+                            <span>Homme &lt; 49€ / Femme &lt; 79€</span>
+                            <span>Homme &gt; 50€ / Femme &gt; 80€</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
+    },
+    displayPrices: function() {
+        this.setState({displayPrices: !this.state.displayPrices});
     },
     renderPriceLevel: function(i) {
         return (

@@ -2,6 +2,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var classNames = require('classnames');
 
 var PriceFilterMobile = React.createClass ({
     getInitialState: function () {
@@ -13,13 +14,16 @@ var PriceFilterMobile = React.createClass ({
     getStateFromProps: function(props) {
         return {
             search: props.initialSearch,
-            selectAll: false
+            selectAll: false,
+            displayPrices: false
         }
     },
     render: function() {
         if(this.props.cat != 'PriceFilterMobile') return null;
-        var men = ['0-20€', '21-30€', '31-49€', '> 50€'];
-        var women = ['0-30€', '31-50€', '51-79€', '> 79€'];
+        var displayPrices = classNames({
+            'prices': true,
+            'hidden': !this.state.displayPrices
+        });
         return (
             <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red previous">Précédent</button>
@@ -37,15 +41,26 @@ var PriceFilterMobile = React.createClass ({
                             <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
                             <span />
                             {this.renderPriceLevel(i + 1)}
-                            <span className='price-notice'>{'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }</span>
                         </label>
                     )
                 }, this)}
+                <div className='price-details'>
+                    <a onClick={this.displayPrices}>Voir le détail</a>
+                    <div className={displayPrices}>
+                        <span>Homme &lt; 20€ / Femme &lt; 30€</span>
+                        <span>Homme &lt; 30€ / Femme &lt; 50€</span>
+                        <span>Homme &lt; 49€ / Femme &lt; 79€</span>
+                        <span>Homme &gt; 50€ / Femme &gt; 80€</span>
+                    </div>
+                </div>
                 <div className="filter-footer">
                     <button onClick={this.handleClose} className="btn btn-red full">Valider</button>
                 </div>
             </div>
         );
+    },
+    displayPrices: function() {
+        this.setState({displayPrices: !this.state.displayPrices});
     },
     renderPriceLevel: function(i) {
         return (

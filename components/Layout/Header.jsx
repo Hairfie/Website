@@ -75,7 +75,6 @@ var Header = React.createClass({
     },
     renderDesktop: function () {
         var headerClassName = this.props.home ? 'home' : 'white';
-        console.log('displaysuSpport', this.props.displaySupport);
         var support = null;
         if (_.isUndefined(this.props.displaySupport) || this.props.displaySupport != false)
             support = <a href="tel://+33185089169">Support : +33 1 85 08 91 69</a>;
