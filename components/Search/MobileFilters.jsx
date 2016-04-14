@@ -38,7 +38,6 @@ var MobileFilters = React.createClass({
         var displayClass = 'new-filters ';
         if (!this.state.displayMobileFilters)
             displayClass += 'hidden';
-        console.log('state', this.state.search);
         return (
             <div>
                 <div className="mobile-screen hidden-md hidden-lg">

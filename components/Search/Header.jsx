@@ -45,7 +45,6 @@ var Header = React.createClass({
             var selection = _.find(this.props.selections, function(sel) {
                                 return sel.slug == this.props.search.selections;
                             }, this);
-            console.log('selection', selection);
             if (selection.picture)
                 coverImage = <Picture picture={{url: selection.picture.url}} alt={selection.name} className="cover" />;
         }
