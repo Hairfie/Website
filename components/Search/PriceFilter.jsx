@@ -14,20 +14,23 @@ module.exports = React.createClass({
     },
     render: function () {
         var displayClass = this.props.expandedFilters.price ? 'price' : 'price closed';
-
+        var men = ['0-20€', '21-30€', '31-49€', '> 50€'];
+        var women = ['0-30€', '31-50€', '51-79€', '> 79€'];
         return (
             <div className={displayClass}>
                 <h2 onClick={this.props.toggleExpandedFilters}>
                     Prix {this.props.categoryCount}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className='tag-list'>
                     {_.times(4, function(i){
                         return (
                             <label key={i} className="checkbox-inline">
                                 <input type="checkbox" align="baseline" onChange={this.handleChange.bind(this, i)} checked={_.includes(this.props.priceLevel, (i+1).toString())} />
                                 <span />
-                                {this.renderPriceLevel(i + 1)}
+                                {this.renderPriceLevel(i + 1)} 
+                                <span className='price-notice'>{'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }</span>
                             </label>
                         )
                     }, this)}
@@ -39,7 +42,7 @@ module.exports = React.createClass({
         return (
             <span>
                 {_.times(i, function(i){
-                    return <i key={i} className="glyphicon glyphicon-euro" />
+                    return '€'
                 })}
             </span>
         );

@@ -44,7 +44,7 @@ var MobileFilters = React.createClass({
                     <a role="button" className="btn-red btn-mobile-fixed" onClick={this.handleDisplayMobileFilters}>Filtres</a>
                 </div>
                 <div className={displayClass}>
-                    <button onClick={this.handleDisplayMobileFilters} className="btn btn-red close-filters">Fermer X</button>
+                    <a onClick={this.handleDisplayMobileFilters} className="btn-close close-filters">✕</a>
                     {this.renderHairfiesFilters()}
                     {this.renderBusinessFilters()}
                     <div className="filter-footer">
@@ -81,11 +81,24 @@ var MobileFilters = React.createClass({
                     cat={this.state.filtersCategoryToDisplay}
                     onClose={this.handleCloseMobileSubFilters} />
                 <div className="filter-header">Filtrer par:</div>
+                <Selections 
+                    initialSearch={this.state.search}
+                    cat={this.state.filtersCategoryToDisplay}
+                    selections={this.props.selections}
+                    handleSelectionChange={this.handleSelectionChange}
+                    onClose={this.handleCloseMobileSubFilters}/>
                 <div>
                     <LocationInput 
                         ref="locationInput"
                         initialSearch={this.state.search}
                         currentPosition={this.props.currentPosition} />
+                </div>
+                <div>
+                    <hr className='underliner'/>
+                    <PromoCheckbox
+                        ref="promoCheckbox"
+                        initialSearch={this.state.search} 
+                        onChange={this.handlePromoChange}/>
                 </div>
                 <div>
                     <BusinessNameInput 
@@ -103,26 +116,11 @@ var MobileFilters = React.createClass({
                         Jours d'ouverture {this.countCategories(this.state.search.days)}
                     </a>
                 </div>
-                <Selections 
-                    initialSearch={this.state.search}
-                    cat={this.state.filtersCategoryToDisplay}
-                    selections={this.props.selections}
-                    onClose={this.handleCloseMobileSubFilters}>
-
-                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'selections')}>
-                        Nos sélections de coiffeurs {this.countCategories(this.state.search.selections)}
-                    </a>
-                </Selections>
+                
                 <div>
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'PriceFilterMobile')}>
                         Prix {this.countCategories(this.state.search.priceLevel)}
                     </a>
-                </div>
-                <div>
-                    <PromoCheckbox
-                        ref="promoCheckbox"
-                        initialSearch={this.state.search} 
-                        onChange={this.handlePromoChange}/>
                 </div>
             </div>
         );
@@ -175,6 +173,12 @@ var MobileFilters = React.createClass({
         }
         this.handleDisplayMobileFilters();
 
+    },
+    handleSelectionChange: function(selection) {
+        if (this.state.search && (this.state.search.selections || []).indexOf(selection) > -1)
+            this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
+        else
+            this.setState({search: _.assign({}, this.state.search,{selections: _.union(this.state.search.selections || [], [selection])})});
     },
     handlePromoChange: function() {
         this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});

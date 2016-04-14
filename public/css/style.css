@@ -9440,7 +9440,7 @@ div.connect-button .facebook {
         margin-top: -1px;
         height: .938em;
         line-height: .938em;
-        color: #f39c12; }
+        color: #ffc400; }
         @media screen and (max-width: 1199px) {
           .cal td a .promo-day {
             bottom: -2px; } }
@@ -9926,7 +9926,7 @@ p.inline-promo {
   line-height: 34px;
   font-size: 2.1em;
   font-weight: 400;
-  color: #f39c12;
+  color: #ffc400;
   text-align: right;
   display: block;
   width: 70%;
@@ -9955,24 +9955,24 @@ input[type="checkbox"]:checked + span:before {
   height: 17px;
   background: white;
   border-radius: 3px;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+  border: 1px solid #c4c4c4; }
 
 /* Aspect général de la coche */
 input[type="checkbox"]:not(:checked) + span:after,
 input[type="checkbox"]:checked + span:after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -18px;
-  width: 14px;
-  height: 15px;
-  background: url(../img/sign-checkbox.png) no-repeat center center;
+  top: 2px;
+  left: -20px;
+  width: 17px;
+  height: 17px;
+  background: url(../img/search/check.png) no-repeat center center;
+  background-size: cover;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
-  -o-transition: all 0.2s; }
+  -o-transition: all 0.2s;
+  border-radius: 3px; }
 
 /* Aspect si "pas cochée" */
 input[type="checkbox"]:not(:checked) + span:after {
@@ -9982,7 +9982,8 @@ input[type="checkbox"]:not(:checked) + span:after {
 /* Aspect si "cochée" */
 input[type="checkbox"]:checked + span:after {
   opacity: 1;
-  transform: scale(1); }
+  transform: scale(1);
+  background-color: #fe5b5f; }
 
 input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type="checkbox"].checkbox-disabled:checked + span:after {
   content: '';
@@ -10240,7 +10241,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   z-index: 150;
   min-width: 100%;
   width: 100vw;
-  height: 46px;
+  height: 0px;
   bottom: 0; }
 
 .btn-mobile-fixed {
@@ -12066,13 +12067,13 @@ section.home-search .home-search-mobile {
   width: 100%;
   font-size: 1em;
   background-color: white;
-  color: #9a9a9a;
+  color: #595959;
   font-size: 1.5em; }
   #content.search .new-filters .filter-header {
     background-color: #f7f7f7;
-    font-size: 0.8em;
+    color: #595959;
+    font-size: 1.2em;
     height: 60px;
-    text-transform: uppercase;
     padding-left: 10px;
     display: -webkit-flexbox;
     display: -ms-flexbox;
@@ -12087,9 +12088,25 @@ section.home-search .home-search-mobile {
     border-bottom: 1px solid #e6e6e6; }
     #content.search .new-filters .filter-header .header-title {
       max-width: 60%; }
+  #content.search .new-filters span.title {
+    color: #595959;
+    font-size: 1.1em;
+    font-weight: 400; }
+  #content.search .new-filters .selections {
+    padding: 5px 10px; }
+    #content.search .new-filters .selections label span:nth-child(3) {
+      margin-left: 25px; }
+      #content.search .new-filters .selections label span:nth-child(3):before {
+        content: ' ';
+        background: url(../img/search/star-red.svg) no-repeat center center;
+        background-size: contain;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        left: 37px;
+        top: 7px; }
   #content.search .new-filters .location, #content.search .new-filters .business-name {
-    padding: 15px 10px 20px 10px;
-    border-bottom: 1px solid #e6e6e6; }
+    padding: 5px 10px 20px 10px; }
     #content.search .new-filters .location input, #content.search .new-filters .business-name input {
       border-top-width: 1px;
       outline: none;
@@ -12138,13 +12155,13 @@ section.home-search .home-search-mobile {
       margin-top: 10px; }
     #content.search .new-filters .location .btn-around, #content.search .new-filters .business-name .btn-around {
       background-color: #f7f7f7;
-      color: #9a9a9a;
+      color: #595959;
       font-weight: 200;
       width: 100%;
       height: 40px;
       border: 1px solid #e6e6e6;
       border-radius: 2px; }
-      #content.search .new-filters .location .btn-around:before, #content.search .new-filters .business-name .btn-around:before {
+      #content.search .new-filters .location .btn-around .around-text:before, #content.search .new-filters .business-name .btn-around .around-text:before {
         content: ' ';
         background: url(../img/search/location-new.svg) no-repeat center center;
         background-size: contain;
@@ -12159,7 +12176,7 @@ section.home-search .home-search-mobile {
     line-height: 50px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #9a9a9a; }
+    color: #595959; }
     #content.search .new-filters .filters-category:hover {
       text-decoration: none; }
     #content.search .new-filters .filters-category:after {
@@ -12184,8 +12201,7 @@ section.home-search .home-search-mobile {
     margin-left: 0; }
   #content.search .new-filters .promo-line {
     height: 50px;
-    line-height: 50px;
-    border-bottom: 1px solid #e6e6e6; }
+    line-height: 50px; }
     #content.search .new-filters .promo-line input[type="checkbox"] + span {
       padding-left: 25px; }
     #content.search .new-filters .promo-line:before {
@@ -12253,6 +12269,21 @@ section.home-search .home-search-mobile {
       -webkit-align-items: center;
       align-items: center;
       text-align: center; }
+  #content.search .new-filters .btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fe5b5f;
+    font-size: 2em; }
+  #content.search .new-filters .price-notice {
+    color: #c4c4c4;
+    margin-left: 10px;
+    font-size: 0.8em; }
+  #content.search .new-filters .underliner {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-color: #595959;
+    opacity: 0.3; }
 
 #content.search .subfilters {
   z-index: 202;
@@ -12284,25 +12315,24 @@ section.home-search .home-search-mobile {
 #content.search .main-content .header-part {
   padding: 0; }
   #content.search .main-content .header-part .cover {
-    border-radius: 3px;
     display: block;
-    width: 100%; }
+    width: calc(100% - 15px); }
   #content.search .main-content .header-part h1 {
     margin: 20px 0;
     letter-spacing: 0;
-    font-weight: 600;
-    font-size: 21px;
-    margin-top: 25px;
-    margin-bottom: 25px; }
+    font-weight: 400;
+    font-size: 2.5em;
+    margin-top: 5px;
+    margin-bottom: 10px; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .header-part h1 {
-        margin: 5px 0 20px 10px;
-        margin-top: 5px;
-        margin-bottom: 20px; } }
+        margin: 5px 0 10px 10px; } }
   #content.search .main-content .header-part p {
     font-weight: 200;
     font-size: 1.4em;
-    margin-bottom: 30px; }
+    margin-bottom: 0;
+    width: calc(100% - 15px);
+    text-align: justify; }
   #content.search .main-content .header-part div {
     display: inline-block;
     float: left;
@@ -12493,7 +12523,7 @@ section.home-search .home-search-mobile {
     line-height: 34px;
     font-size: 1.6em;
     font-weight: 400;
-    color: #f39c12;
+    color: #ffc400;
     display: block; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane section .inline-promo {
@@ -12504,12 +12534,14 @@ section.home-search .home-search-mobile {
       margin-left: 3px; }
   #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 200;
+    letter-spacing: 0;
+    font-weight: 400;
     font-size: 1.9em; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane section .btn-red, #content.search .main-content .tab-pane section .btn-book {
         margin: 0; } }
+  #content.search .main-content .tab-pane section .btn-book {
+    padding: 6px 16px; }
   #content.search .main-content .tab-pane section .salon-hairfies ul {
     display: block;
     width: 100%;
@@ -12549,7 +12581,7 @@ section.home-search .home-search-mobile {
   margin: 0; }
   @media screen and (min-width: 768px) {
     #content.search .main-content .tab-pane#salons .row:first-child, #content.search .main-content .tab-pane#adom .row:first-child {
-      margin-top: 5px; } }
+      margin-top: 15px; } }
 
 #content.search .main-content .tab-pane#salons a.extend-search, #content.search .main-content .tab-pane#adom a.extend-search {
   font-weight: 400;
@@ -12560,9 +12592,16 @@ section.home-search .home-search-mobile {
   margin-right: 0;
   margin-bottom: 20px;
   background-color: white;
-  padding: 15px;
-  height: 250px;
-  cursor: pointer; }
+  padding: 20px 30px 20px 20px;
+  min-height: 207px;
+  width: calc(100% - 15px);
+  cursor: pointer;
+  border: 1px solid #dfdfdf;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
   #content.search .main-content .tab-pane#salons .business-result:hover, #content.search .main-content .tab-pane#adom .business-result:hover {
     -webkit-box-shadow: 0px 4px 5px 0px #c4c4c4;
     -moz-box-shadow: 0px 4px 5px 0px #c4c4c4;
@@ -12573,20 +12612,31 @@ section.home-search .home-search-mobile {
     -o-transition: all 0.5s ease-out; }
   @media screen and (max-width: 767px) {
     #content.search .main-content .tab-pane#salons .business-result, #content.search .main-content .tab-pane#adom .business-result {
-      padding: 16px 10px;
-      height: 156px;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding: 10px 10px;
+      width: 100%;
       margin-bottom: 0px;
-      border-bottom: 1px solid #c4c4c4; } }
+      border-bottom: 0; } }
 
 #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
   display: inline-block;
   float: left;
-  width: 220px;
+  width: 167px;
+  height: 167px;
+  position: relative;
   overflow: hidden; }
   @media screen and (max-width: 767px) {
     #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
-      width: 110px;
-      position: relative; }
+      width: 100%;
+      height: 124px;
+      margin-bottom: 5px;
+      position: relative;
+      overflow: hidden; }
       #content.search .main-content .tab-pane#salons .image-bloc .icon-promo, #content.search .main-content .tab-pane#adom .image-bloc .icon-promo {
         position: absolute;
         top: 5px;
@@ -12596,40 +12646,82 @@ section.home-search .home-search-mobile {
   #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
     display: block;
     min-height: 0;
-    max-height: none;
-    height: 220px;
-    width: 220px; }
+    max-height: none; }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
-        width: 110px;
-        height: 124px; } }
+        width: 100%;
+        margin-top: -150px; } }
+    @media screen and (max-width: 700px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
+        margin-top: -120px; } }
+    @media screen and (max-width: 540px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
+        margin-top: -50px; } }
+    @media screen and (max-width: 435px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img, #content.search .main-content .tab-pane#adom .image-bloc img {
+        margin-top: -15px; } }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img.placeholder, #content.search .main-content .tab-pane#adom .image-bloc img.placeholder {
+        margin-top: -50px; } }
+    @media screen and (max-width: 700px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img.placeholder, #content.search .main-content .tab-pane#adom .image-bloc img.placeholder {
+        margin-top: -30px; } }
+    @media screen and (max-width: 540px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img.placeholder, #content.search .main-content .tab-pane#adom .image-bloc img.placeholder {
+        margin-top: -15px; } }
+    @media screen and (max-width: 435px) {
+      #content.search .main-content .tab-pane#salons .image-bloc img.placeholder, #content.search .main-content .tab-pane#adom .image-bloc img.placeholder {
+        margin-top: 0px; } }
+  #content.search .main-content .tab-pane#salons .image-bloc .promo-bloc, #content.search .main-content .tab-pane#adom .image-bloc .promo-bloc {
+    background-color: #ffc400;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 400;
+    position: absolute;
+    padding: 5px 10px;
+    right: 0;
+    top: 15px; }
 
 #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
   display: inline-block;
   position: relative;
   float: left;
-  height: 220px;
-  width: calc(100% - 240px);
-  margin-left: 20px; }
+  width: calc(100% - 187px);
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  @media screen and (max-width: 767px) {
+    #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
+      margin-left: 0;
+      width: 100%; } }
   #content.search .main-content .tab-pane#salons .info-bloc .business-name > a, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a {
     text-decoration: none; }
     #content.search .main-content .tab-pane#salons .info-bloc .business-name > a h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a h3 {
-      font-size: 2.1em;
+      font-size: 1.8em;
       margin: 0 0 3px;
-      letter-spacing: 2px;
+      letter-spacing: 0;
       color: #595959;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 400;
       width: calc(100% - 75px); }
   #content.search .main-content .tab-pane#salons .info-bloc .business-address, #content.search .main-content .tab-pane#adom .info-bloc .business-address {
-    font-size: 1.4em;
-    letter-spacing: 1px; }
+    font-size: 1.6em;
+    letter-spacing: 0; }
   #content.search .main-content .tab-pane#salons .info-bloc .business-price-rating, #content.search .main-content .tab-pane#adom .info-bloc .business-price-rating {
     position: absolute;
     right: 0;
     top: 0; }
     #content.search .main-content .tab-pane#salons .info-bloc .business-price-rating p, #content.search .main-content .tab-pane#adom .info-bloc .business-price-rating p {
-      font-size: 1.8em; }
+      font-size: 1.6em; }
   #content.search .main-content .tab-pane#salons .info-bloc .business-reviews, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews {
     margin: 5px 0 5px 0; }
     #content.search .main-content .tab-pane#salons .info-bloc .business-reviews div, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews div {
@@ -12642,43 +12734,70 @@ section.home-search .home-search-mobile {
       width: 120px;
       margin: 0;
       display: inline; }
-    #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .mobile, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .mobile {
-      display: none !important; }
+    @media screen and (min-width: 768px) {
+      #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .mobile, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .mobile {
+        display: none !important; } }
     @media screen and (max-width: 767px) {
       #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .desktop, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .desktop {
         display: none !important; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .mobile, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .mobile {
-        display: block !important; } }
-  #content.search .main-content .tab-pane#salons .info-bloc .business-label, #content.search .main-content .tab-pane#adom .info-bloc .business-label {
-    color: white;
-    background-color: #fe5b5f;
-    font-size: 1.6em;
-    padding: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    display: inline-block; }
-  #content.search .main-content .tab-pane#salons .info-bloc .btn-selection, #content.search .main-content .tab-pane#adom .info-bloc .btn-selection {
-    color: #595959;
-    background-color: white;
-    border: 1px solid #c4c4c4;
-    font-size: 1.6em;
-    padding: 5px 10px 5px 35px;
-    margin: 0px 5px 5px 0;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer; }
-    #content.search .main-content .tab-pane#salons .info-bloc .btn-selection:before, #content.search .main-content .tab-pane#adom .info-bloc .btn-selection:before {
-      content: ' ';
-      background: url(../img/search/star.svg) no-repeat center center;
-      background-size: contain;
-      width: 18px;
-      height: 18px;
-      left: 10px;
-      position: absolute; }
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center; } }
+  #content.search .main-content .tab-pane#salons .info-bloc .label-container, #content.search .main-content .tab-pane#adom .info-bloc .label-container {
+    overflow: hidden;
+    max-height: 35px;
+    background-color: white; }
+    #content.search .main-content .tab-pane#salons .info-bloc .label-container .business-label, #content.search .main-content .tab-pane#adom .info-bloc .label-container .business-label {
+      color: white;
+      background-color: #fe5b5f;
+      font-size: 1.6em;
+      padding: 2px 10px;
+      margin-right: 5px;
+      margin-top: 5px;
+      display: inline-block; }
+    #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection {
+      color: #595959;
+      background-color: white;
+      border: 1px solid #dfdfdf;
+      font-size: 1.5em;
+      font-weight: 200;
+      text-transform: uppercase;
+      padding: 2px 10px 2px 35px;
+      margin: 0px 5px 5px 0;
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+      cursor: pointer; }
+      @media screen and (max-width: 767px) {
+        #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection {
+          font-size: 2em;
+          margin-bottom: 0; } }
+      #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection:hover, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection:hover {
+        text-decoration: none; }
+      #content.search .main-content .tab-pane#salons .info-bloc .label-container .btn-selection:before, #content.search .main-content .tab-pane#adom .info-bloc .label-container .btn-selection:before {
+        content: ' ';
+        background: url(../img/search/star.svg) no-repeat center center;
+        background-size: contain;
+        width: 18px;
+        height: 18px;
+        left: 10px;
+        position: absolute; }
+  #content.search .main-content .tab-pane#salons .info-bloc .description, #content.search .main-content .tab-pane#adom .info-bloc .description {
+    font-size: 1.3em;
+    margin-top: 10px; }
   #content.search .main-content .tab-pane#salons .info-bloc .book, #content.search .main-content .tab-pane#adom .info-bloc .book {
-    bottom: 0px;
-    position: absolute; }
+    margin-top: 15px; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane#salons .info-bloc .book, #content.search .main-content .tab-pane#adom .info-bloc .book {
+        margin-top: 10px; } }
   #content.search .main-content .tab-pane#salons .info-bloc .btn-hairfies, #content.search .main-content .tab-pane#adom .info-bloc .btn-hairfies {
     border-radius: 0;
     height: 39px;
@@ -12692,23 +12811,25 @@ section.home-search .home-search-mobile {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 400;
-    padding: 6px 12px; }
+    padding: 6px 16px; }
     #content.search .main-content .tab-pane#salons .info-bloc .btn-hairfies:hover, #content.search .main-content .tab-pane#adom .info-bloc .btn-hairfies:hover {
       -webkit-transition: 0.25s ease-in-out;
       -moz-transition: 0.25s ease-in-out;
       -ms-transition: 0.25s ease-in-out;
       -o-transition: 0.25s ease-in-out;
-      color: white;
-      background-color: #fe5b5f; }
+      opacity: 0.8; }
   @media screen and (max-width: 767px) {
     #content.search .main-content .tab-pane#salons .info-bloc, #content.search .main-content .tab-pane#adom .info-bloc {
-      height: 124px;
-      width: calc(100% - 130px);
       padding-left: 0;
       padding-right: 0;
       font-size: 0.8em; }
-      #content.search .main-content .tab-pane#salons .info-bloc .btn-red, #content.search .main-content .tab-pane#salons .info-bloc .btn-book, #content.search .main-content .tab-pane#adom .info-bloc .btn-red, #content.search .main-content .tab-pane#adom .info-bloc .btn-book {
+      #content.search .main-content .tab-pane#salons .info-bloc .btn-red, #content.search .main-content .tab-pane#adom .info-bloc .btn-red {
         display: block; }
+      #content.search .main-content .tab-pane#salons .info-bloc .btn-book, #content.search .main-content .tab-pane#adom .info-bloc .btn-book {
+        padding: 9px 12px;
+        font-size: 2em;
+        font-weight: 400;
+        margin-bottom: 10px; }
       #content.search .main-content .tab-pane#salons .info-bloc p, #content.search .main-content .tab-pane#adom .info-bloc p {
         float: left;
         font-size: 1.6em; }
@@ -12722,14 +12843,14 @@ section.home-search .home-search-mobile {
           position: absolute;
           margin-left: -15px; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-name > a h3, #content.search .main-content .tab-pane#adom .info-bloc .business-name > a h3 {
-        font-size: 2em;
+        font-size: 2.6em;
         text-transform: none;
         letter-spacing: 0;
         font-weight: 400;
-        margin-bottom: 0;
-        width: 100%; }
+        margin-bottom: 3px;
+        width: 80%; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-address, #content.search .main-content .tab-pane#adom .info-bloc .business-address {
-        font-size: 1.5em;
+        font-size: 2.5em;
         letter-spacing: 0;
         font-weight: 200;
         line-height: 12px;
@@ -12738,28 +12859,32 @@ section.home-search .home-search-mobile {
         width: 100%; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-reviews, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews {
         margin: 0 0 5px; }
+        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
+          align-items: center; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .stars, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews a > img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .stars {
           float: left;
           margin-right: 5px; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews img, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews img {
-          width: 80px;
-          margin-top: 1px; }
+          width: 120px;
+          margin-top: 3px; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .yelp, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .yelp {
           width: 40px;
           margin-top: -5px; }
-        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star.min, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star.min {
-          background-size: 95%; }
-        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .star, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .star {
-          height: 16px;
-          width: 16px; }
-        #content.search .main-content .tab-pane#salons .info-bloc .business-reviews .stars, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews .stars {
-          height: 16px; }
         #content.search .main-content .tab-pane#salons .info-bloc .business-reviews > a > span, #content.search .main-content .tab-pane#adom .info-bloc .business-reviews > a > span {
           line-height: 16px;
           font-size: 1.8em;
           color: #595959; }
       #content.search .main-content .tab-pane#salons .info-bloc .business-price-rating, #content.search .main-content .tab-pane#adom .info-bloc .business-price-rating {
-        position: initial; } }
+        font-size: 1.2em; } }
 
 #content.search .main-content .tab-pane#hairfies section:after {
   content: none; }
@@ -12787,6 +12912,22 @@ section.home-search .home-search-mobile {
     #content.search .sidebar {
       padding-top: 0;
       z-index: 149; } }
+  #content.search .sidebar > h4 {
+    padding-bottom: 10px; }
+  #content.search .sidebar .underliner {
+    height: 1px;
+    width: calc(100% - 50px);
+    border-color: #595959;
+    opacity: 0.3;
+    margin-top: -10px;
+    margin-bottom: 0; }
+    #content.search .sidebar .underliner.discount {
+      margin-top: 20px;
+      margin-bottom: 0; }
+    #content.search .sidebar .underliner.location {
+      margin-bottom: 20px; }
+    #content.search .sidebar .underliner.q {
+      margin-bottom: 20px; }
   #content.search .sidebar .filter-recap h2 {
     line-height: 50px; }
   #content.search .sidebar .checkbox-inline + .checkbox-inline {
@@ -12803,24 +12944,24 @@ section.home-search .home-search-mobile {
     line-height: 50px;
     margin: 0;
     color: #595959;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 1.6em;
     letter-spacing: 1px;
-    padding: 0 10px 0 25px;
-    border-bottom: 1px solid #f7f7f7; }
+    padding: 0 10px 0 25px; }
     #content.search .sidebar h2:hover {
       cursor: pointer; }
     #content.search .sidebar h2 .chevron {
       float: right;
+      font-weight: 200;
+      margin-right: 15px;
       font-size: 2em;
       -webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       -o-transform: rotate(90deg); }
   #content.search .sidebar h4 {
-    color: #595959;
+    color: #aaaaaa;
     padding: 25px;
-    border-bottom: 1px solid #f7f7f7;
     margin-bottom: 0; }
   #content.search .sidebar div.closed > h2 .chevron {
     -webkit-transform: rotate(0deg);
@@ -12830,8 +12971,39 @@ section.home-search .home-search-mobile {
   #content.search .sidebar div.closed > div {
     display: none; }
   #content.search .sidebar .tag-list {
-    padding: 10px 25px;
-    border-bottom: 1px solid #f7f7f7; }
+    padding: 10px 25px 0px 25px; }
+    #content.search .sidebar .tag-list.selections label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.search .sidebar .tag-list.selections label span:nth-child(3) {
+        margin-left: 25px; }
+        #content.search .sidebar .tag-list.selections label span:nth-child(3):before {
+          content: ' ';
+          background: url(../img/search/star-red.svg) no-repeat center center;
+          background-size: contain;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          left: 28px; }
+    #content.search .sidebar .tag-list.discount label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      #content.search .sidebar .tag-list.discount label span:nth-child(3) {
+        margin-left: 25px; }
+        #content.search .sidebar .tag-list.discount label span:nth-child(3):before {
+          content: ' ';
+          background: url(../img/search/icon-promo.png) no-repeat center center;
+          background-size: contain;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          left: 28px; }
   #content.search .sidebar label {
     color: #595959;
     background-color: white;
@@ -12844,7 +13016,6 @@ section.home-search .home-search-mobile {
     #content.search .sidebar label span {
       padding-top: 1px; }
   #content.search .sidebar .business-name {
-    border-bottom: 1px solid #f7f7f7;
     padding-bottom: 15px; }
   #content.search .sidebar div.input-group {
     padding: 0px 25px;
@@ -12854,10 +13025,10 @@ section.home-search .home-search-mobile {
     #content.search .sidebar div.input-group input {
       height: 45px;
       -webkit-appearance: none;
-      border: 0;
       border: 1px solid #e6e6e6;
       box-shadow: none !important;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      border-radius: 2px; }
       #content.search .sidebar div.input-group input:focus {
         outline: none !important; }
     #content.search .sidebar div.input-group .input-group-addon {
@@ -12866,6 +13037,7 @@ section.home-search .home-search-mobile {
       border: 1px solid #e6e6e6;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      border-radius: 2px;
       border-color: #e6e6e6; }
     #content.search .sidebar div.input-group .input-group-addon:last-child {
       padding: 0;
@@ -12902,7 +13074,7 @@ section.home-search .home-search-mobile {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
-    #content.search .sidebar .btn-around:before {
+    #content.search .sidebar .btn-around .around-text:before {
       content: ' ';
       background: url(../img/search/location-new.svg) no-repeat center center;
       background-size: contain;
@@ -12910,6 +13082,27 @@ section.home-search .home-search-mobile {
       height: 18px;
       position: absolute;
       left: calc(50% - 65px); }
+  #content.search .sidebar .suggestions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-left: 25px;
+    font-size: 1.4em;
+    padding-top: 10px; }
+    #content.search .sidebar .suggestions a:hover {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer; }
+    #content.search .sidebar .suggestions > a:nth-child(2) {
+      margin-top: 5px; }
   #content.search .sidebar .tag-count {
     color: white;
     font-weight: 400;
@@ -12948,6 +13141,12 @@ section.home-search .home-search-mobile {
       -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+  #content.search .sidebar .price > .tag-list > label {
+    font-size: 1.6em; }
+    #content.search .sidebar .price > .tag-list > label .price-notice {
+      font-size: 0.8em;
+      color: #c4c4c4;
+      margin-left: 5px; }
 
 #content.search .mobile-search {
   position: relative;
@@ -12964,9 +13163,8 @@ section.home-search .home-search-mobile {
     width: 100%;
     top: 100%; }
 
-@media screen and (max-width: 767px) {
-  #content.search .label-container {
-    padding-left: 10px; } }
+#content.search .label-container {
+  background-color: #f4f4f4; }
 
 #content.search .business-label {
   color: white;
@@ -12990,13 +13188,20 @@ section.home-search .home-search-mobile {
   #content.search .top-reviews .single-comment {
     border-bottom: 1px solid #e6e6e6;
     padding: 15px 0; }
+    #content.search .top-reviews .single-comment .user-infos {
+      padding-left: 0px; }
+    #content.search .top-reviews .single-comment .review {
+      width: 100%; }
   #content.search .top-reviews .ProfilePicture {
     width: 50px;
     height: 50px;
     margin-top: 5px; }
+    #content.search .top-reviews .ProfilePicture.placeholder {
+      border-width: 1px; }
   #content.search .top-reviews div.title p {
-    color: #b0b0b0;
-    font-weight: 400; }
+    color: #595959;
+    font-weight: 200;
+    letter-spacing: 0; }
     #content.search .top-reviews div.title p .gender-symbol {
       display: none; }
   #content.search .top-reviews div.title .stars .star {
@@ -13004,6 +13209,8 @@ section.home-search .home-search-mobile {
     width: 20px; }
     #content.search .top-reviews div.title .stars .star.min {
       background-size: 80%; }
+  #content.search .top-reviews div.col-sm-offset-2.col-sm-10 {
+    margin-left: 0; }
   #content.search .top-reviews .yelp-date {
     color: #c4c4c4;
     font-size: 1.2em; }
@@ -13012,6 +13219,51 @@ section.home-search .home-search-mobile {
   #content.search .top-reviews a:hover {
     color: inherit;
     text-decoration: none; }
+
+#content.search .spinner {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center; }
+
+#content.search .spinner > div {
+  width: 15px;
+  height: 15px;
+  background-color: #c4c4c4;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+#content.search .spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+#content.search .spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 
 @media screen and (max-width: 767px) {
   .bg-white-xs {
@@ -13908,7 +14160,7 @@ section.home-search .home-search-mobile {
         .salon#content .sidebar .related-content .rival p:nth-child(3) {
           line-height: 26px;
           font-weight: 400;
-          color: #f39c12;
+          color: #ffc400;
           text-align: left;
           padding-top: 45px;
           margin-bottom: 0px; }
@@ -14433,7 +14685,7 @@ section.home-search .home-search-mobile {
         margin-right: 10px; }
     #content.reservation .booking-summary .promo-bloc .promo {
       font-size: 1.4em;
-      color: #f39c12;
+      color: #ffc400;
       font-weight: 200;
       display: -webkit-box;
       display: -webkit-flex;
@@ -14447,7 +14699,7 @@ section.home-search .home-search-mobile {
         width: 20px;
         height: 20px;
         line-height: 25px;
-        background: url(../img/resa/icon-promo.png) no-repeat center left;
+        background: url(../img/search/icon-promo.png) no-repeat center left;
         background-size: contain;
         margin-right: 10px;
         margin-top: 4px; }
@@ -14520,7 +14772,7 @@ section.home-search .home-search-mobile {
         width: 25px;
         height: 25px;
         display: inline-block;
-        background: #f39c12;
+        background: #ffc400;
         margin-right: 5px;
         vertical-align: middle;
         margin-top: -2px;
@@ -14844,7 +15096,7 @@ section.home-search .home-search-mobile {
       color: #fc5a5f; }
   #content.reservation.bookingForm .legend.conf .promo {
     border: 0;
-    color: #f39c12;
+    color: #ffc400;
     padding-left: 0; }
   #content.reservation.bookingForm p, #content.reservation.bookingForm a, #content.reservation.bookingForm label, #content.reservation.bookingForm select {
     font-size: 14px;

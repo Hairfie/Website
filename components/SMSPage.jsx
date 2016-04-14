@@ -33,8 +33,6 @@ var SMSPage = React.createClass({
         var SMSLink = "sms:+33644600250?body=Salut Hairfie,";
         var replaceBody = false;
         if (detector) {
-            console.log('version', detector.version());
-            console.log('os', detector.os());
             switch (detector.os()) {
                 case 'iOS':
                     if (parseFloat(detector.version()) <= 8) {
