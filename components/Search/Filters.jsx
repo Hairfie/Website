@@ -156,12 +156,13 @@ var Filters = React.createClass({
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
                 <a className="btn btn-around" role="button" onClick={this.getMyPosition} title="Me localiser">{aroundText}</a>
-                {/* FIXME CHOISIR SUGGESTIONS
-                <div className='suggestions'>Suggestions:</div>
+
+                <div className='suggestions'>
+                    Suggestions:
                     <a onClick={this.goToLocation.bind(this, "Paris, France")}>Paris</a>
                     <a onClick={this.goToLocation.bind(this, "17e Arrondissement, 75017 Paris, France")}>Paris 17</a>
                     <a onClick={this.goToLocation.bind(this, "18e Arrondissement, 75018 Paris, France")}>Paris 18</a>
-                */}
+                </div>
             </div>
         );
     },
