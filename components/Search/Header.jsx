@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var SearchUtils = require('../../lib/search-utils');
+var Picture = require('../Partial/Picture.jsx');
 
 var Header = React.createClass({
     getInitialState: function () {
@@ -40,7 +41,14 @@ var Header = React.createClass({
         if (place.picture) {
             coverImage = <Picture picture={{url: place.picture.url}} alt={place.name} className="cover" />;
         }
-
+        else if (this.props.search.selections.length == 1 ) {
+            var selection = _.find(this.props.selections, function(sel) {
+                                return sel.slug == this.props.search.selections;
+                            }, this);
+            console.log('selection', selection);
+            if (selection.picture)
+                coverImage = <Picture picture={{url: selection.picture.url}} alt={selection.name} className="cover" />;
+        }
         var title;
         if(this.props.tab == "business") {
             title = SearchUtils.businessSearchToTitle(search, place, this.props.currentRoute.url, this.props.categories);

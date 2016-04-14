@@ -307,8 +307,8 @@
         .header-part {
             padding:0;
             .cover {
-                border-radius: 3px;
-                display: block; width: 100%;
+                display: block; 
+                width: calc(100% - 15px);
             }
             h1 {
                 margin: 20px 0;

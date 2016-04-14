@@ -12311,9 +12311,8 @@ section.home-search .home-search-mobile {
 #content.search .main-content .header-part {
   padding: 0; }
   #content.search .main-content .header-part .cover {
-    border-radius: 3px;
     display: block;
-    width: 100%; }
+    width: calc(100% - 15px); }
   #content.search .main-content .header-part h1 {
     margin: 20px 0;
     letter-spacing: 0;

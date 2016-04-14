@@ -83,7 +83,7 @@ var Filters = React.createClass({
                 </h2>
                 <hr className='underliner'/>
                 <div className='tag-list selections'>
-                    {_.map(_.indexBy(this.props.selections, 'position'), function (selection) {
+                    {_.map(_.sortByOrder(this.props.selections, 'position'), function (selection) {
                         var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.slug) > -1;
                         var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
