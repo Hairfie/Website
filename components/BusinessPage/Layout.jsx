@@ -82,7 +82,7 @@ var Layout = React.createClass({
         var numHairfies = business.numHairfies > 0 ? business.numHairfies : null;
 
         return (
-            <ParentLayout>
+            <ParentLayout displaySupport={false}>
                 <div className={"salon " + (business.accountType && business.accountType.toLowerCase())} id="content">
                     <div id="carousel-salon">
                     <Carousel id="carousel-salon" className={_.isEmpty(business.pictures) ? "noPicture" : ""} backgroundStyle={true} gallery={true} backgroundProps="linear-gradient(transparent, rgba(0,0,0,0.4)),"  pictures={business.pictures} alt={business.name + ' | Hairfie'}/>
