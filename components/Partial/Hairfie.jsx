@@ -88,7 +88,7 @@ module.exports = React.createClass({
     openPopup: function (hairfieId, e) {
         if (!this.props.popup) return;
         if (this.state.popup) {
-            //window.history.replaceState("", "", this.state.defaultUrl);
+            window.history.replaceState("", "", this.state.defaultUrl);
         }
         this.setState({
             hairfieId: hairfieId || null,
