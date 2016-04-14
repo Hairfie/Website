@@ -29,7 +29,8 @@ var LocationInput = React.createClass ({
 
         return (
             <div className="location">
-                Localisation
+                <span className='title'>Localisation</span>
+                <hr className='underliner'/>
                 <div className="input-group">
                     <GeoInput className="form-control" ref="address" type="text" 
                         onChange={this.handleLocationChange} 

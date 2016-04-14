@@ -107,7 +107,7 @@ var Business = React.createClass({
                          <Picture
                             picture={_.first(business.pictures)}
                             className="visible-xs"
-                            options={{ width: 400, height: 124, crop: 'thumb' }}
+                            options={{ width: 600, height: 300, crop: 'thumb' }}
                             placeholder="/img/placeholder-mobile.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />

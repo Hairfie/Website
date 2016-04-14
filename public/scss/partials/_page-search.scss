@@ -51,6 +51,7 @@
             margin-left: 10px;
         }
     }
+    //mobile
     .new-filters {
         position: fixed;
         z-index: 201;
@@ -64,7 +65,7 @@
         width: 100%;
         font-size: 1em;
         background-color: white;
-        color: $grey7;
+        color: $darkgrey;
         font-size: 1.5em;
         .filter-header {
             background-color: $bg4;
@@ -77,6 +78,29 @@
             border-bottom: 1px solid $grey5;
             .header-title {
                 max-width: 60%;
+            }
+        }
+        span.title {
+            color: $darkgrey;
+            font-size: 1.1em;
+            font-weight: $regular;
+        }
+        .selections {
+            padding: 5px 10px;
+            label {
+                span:nth-child(3) {
+                    margin-left: 25px;
+                    &:before {
+                        content: ' ';
+                        background: url(../img/search/star-red.svg) no-repeat center center;
+                        background-size: contain;
+                        width: 18px;
+                        height: 18px;
+                        position: absolute;
+                        left: 37px;
+                        top: 7px;
+                    }
+                }
             }
         }
         .location, .business-name {
@@ -138,7 +162,7 @@
             }
             .btn-around {
                 background-color: $bg4;
-                color: $grey7;
+                color: $darkgrey;
                 font-weight: $light;
                 width: 100%;
                 height: 40px;
@@ -162,7 +186,7 @@
             line-height: 50px;
             padding-left: 10px;
             padding-right: 10px;
-            color: $grey7;
+            color: $darkgrey;
             &:hover {
                 text-decoration: none;
             }
@@ -194,7 +218,6 @@
         .promo-line {
             height: 50px;
             line-height: 50px;
-            border-bottom: 1px solid $grey5;
             input[type="checkbox"] + span {
                 padding-left: 25px;
             }
@@ -260,6 +283,12 @@
             top: 10px;
             color: $hairfie;
             font-size: 2em;
+        }
+        .underliner {
+            margin-top: 0px;
+            margin-bottom: 5px;
+            border-color: $darkgrey;
+            opacity: 0.3;
         }
     }
     .subfilters {
@@ -654,9 +683,10 @@
                 position: relative;
                 @media screen and (max-width: $screen-xs-max) {
                     width: 100%;
-                    height: auto;
+                    height: 124px;
                     margin-bottom: 5px;
                     position: relative;
+                    overflow: hidden;
                     .icon-promo {
                         position: absolute;
                         top: 5px;
@@ -670,12 +700,14 @@
                     display: block;
                     min-height: 0;
                     max-height: none;
-                    height: 220px;
-                    width: 220px;
                     @media screen and (max-width: $screen-xs-max) {
                         width: 100%;
-                        height: 124px;                    
+                        margin-top: -150px;
                     }
+                    @media screen and (max-width: 700px) {margin-top: -120px;}
+                    @media screen and (max-width: 540px) {margin-top: -50px;}
+                    @media screen and (max-width: 435px) {margin-top: -15px;}
+
                 }
                 .promo-bloc {
                     background-color: $promo-color;
@@ -758,7 +790,7 @@
                 }
                 .label-container {
                     overflow: hidden;
-                    height: 35px;
+                    max-height: 35px;
                     background-color: white;
                     .business-label {
                         color: white;
@@ -957,7 +989,8 @@
         .underliner {
             height: 1px;
             width: calc(100% - 50px);
-            border-color: $grey3;
+            border-color: $darkgrey;
+            opacity: 0.3;
             margin-top: -10px;
             margin-bottom: 0;
             &.discount {

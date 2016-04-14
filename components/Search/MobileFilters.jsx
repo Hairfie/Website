@@ -38,6 +38,7 @@ var MobileFilters = React.createClass({
         var displayClass = 'new-filters ';
         if (!this.state.displayMobileFilters)
             displayClass += 'hidden';
+        console.log('state', this.state.search);
         return (
             <div>
                 <div className="mobile-screen hidden-md hidden-lg">
@@ -85,12 +86,8 @@ var MobileFilters = React.createClass({
                     initialSearch={this.state.search}
                     cat={this.state.filtersCategoryToDisplay}
                     selections={this.props.selections}
-                    onClose={this.handleCloseMobileSubFilters}>
-
-                    <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'selections')}>
-                        Nos sélections de coiffeurs {this.countCategories(this.state.search.selections)}
-                    </a>
-                </Selections>
+                    handleSelectionChange={this.handleSelectionChange}
+                    onClose={this.handleCloseMobileSubFilters}/>
                 <div>
                     <LocationInput 
                         ref="locationInput"
@@ -176,6 +173,12 @@ var MobileFilters = React.createClass({
         }
         this.handleDisplayMobileFilters();
 
+    },
+    handleSelectionChange: function(selection) {
+        if (this.state.search && (this.state.search.selections || []).indexOf(selection) > -1)
+            this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
+        else
+            this.setState({search: _.assign({}, this.state.search,{selections: _.union(this.state.search.selections || [], [selection])})});
     },
     handlePromoChange: function() {
         this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});

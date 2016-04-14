@@ -18,7 +18,8 @@ var BusinessNameInput = React.createClass ({
     render: function() {
         return (
             <div className="business-name">
-                Nom du salon
+                <span className='title'>Nom du salon</span>
+                <hr className='underliner'/>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" defaultValue={this.state.search.q}/>
                     <div className="input-group-addon"><a role="button" onClick={this.handleSubmit}> </a></div>
