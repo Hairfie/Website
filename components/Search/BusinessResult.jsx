@@ -14,6 +14,7 @@ var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Loading = require('../Partial/Loading.jsx');
 var ReactFitText = require('react-fittext');
 var SearchLabels = require('./SearchLabels.jsx');
+var classNames = require('classnames');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -93,6 +94,10 @@ var Business = React.createClass({
                 return <span key={cat.id} className="business-label hidden-xs">{cat.label}</span>
             });
         }
+        var placeholderClass = classNames({
+            'visible-xs': true,
+            'placeholder': business.pictures.length == 0
+        });
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
@@ -106,7 +111,7 @@ var Business = React.createClass({
                             />
                          <Picture
                             picture={_.first(business.pictures)}
-                            className="visible-xs"
+                            className={placeholderClass}
                             options={{ width: 600, height: 300, crop: 'thumb' }}
                             placeholder="/img/placeholder-mobile.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}

@@ -104,8 +104,7 @@
             }
         }
         .location, .business-name {
-            padding: 15px 10px 20px 10px;
-            // border-bottom: 1px solid $grey5;
+            padding: 5px 10px 20px 10px;
             input {
                 border-top-width: 1px;
                 outline: none;
@@ -168,7 +167,7 @@
                 height: 40px;
                 border: 1px solid $grey5;
                 border-radius: 2px;
-                &:before {
+                .around-text:before {
                     content: ' ';
                     background: url(../img/search/location-new.svg) no-repeat center center;
                     background-size: contain;
@@ -284,6 +283,11 @@
             color: $hairfie;
             font-size: 2em;
         }
+        .price-notice {
+            color: $grey;
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
         .underliner {
             margin-top: 0px;
             margin-bottom: 5px;
@@ -318,9 +322,7 @@
                 margin-top:5px;
                 margin-bottom:10px;
                 @media screen and (max-width: $screen-xs-max) {
-                    margin: 5px 0 20px 10px;
-                    margin-top:5px;
-                    margin-bottom:20px;
+                    margin: 5px 0 10px 10px;
                 }
             }
             p {
@@ -707,6 +709,12 @@
                     @media screen and (max-width: 700px) {margin-top: -120px;}
                     @media screen and (max-width: 540px) {margin-top: -50px;}
                     @media screen and (max-width: 435px) {margin-top: -15px;}
+                    &.placeholder {
+                        @media screen and (max-width: $screen-xs-max) {margin-top: -50px;}
+                        @media screen and (max-width: 700px) {margin-top: -30px;}
+                        @media screen and (max-width: 540px) {margin-top: -15px;}
+                        @media screen and (max-width: 435px) {margin-top: 0px;}
+                    }
 
                 }
                 .promo-bloc {
@@ -859,8 +867,7 @@
                     padding: 6px 16px;
                     &:hover {
                         @include transition(.25s ease-in-out);
-                        color: white;
-                        background-color: $hairfie;
+                        opacity: 0.8;
                     }
                 }
                 @media screen and (max-width: $screen-xs-max) {
@@ -1173,47 +1180,6 @@
                 left: calc(50% - 65px);
             }
         }
-        .spinner {
-            width: 70px;
-            text-align: center;
-            @include flexbox;
-        }
-
-        .spinner > div {
-            width: 15px;
-            height: 15px;
-            background-color: $grey;
-
-            border-radius: 100%;
-            display: inline-block;
-            -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-        }
-
-        .spinner .bounce1 {
-            -webkit-animation-delay: -0.32s;
-            animation-delay: -0.32s;
-        }
-
-        .spinner .bounce2 {
-            -webkit-animation-delay: -0.16s;
-            animation-delay: -0.16s;
-        }
-
-        @-webkit-keyframes sk-bouncedelay {
-            0%, 80%, 100% { -webkit-transform: scale(0) }
-            40% { -webkit-transform: scale(1.0) }
-        }
-
-        @keyframes sk-bouncedelay {
-            0%, 80%, 100% { 
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            } 40% { 
-                -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-            }
-        }
         .tag-count {
             color: white;
             font-weight: $regular;
@@ -1288,9 +1254,6 @@
     }
     .label-container {
         background-color: $bg3;
-        @media screen and (max-width: $screen-xs-max) {            
-            padding-left: 10px;
-        }
     }
     .business-label {
         color: white;
@@ -1362,6 +1325,47 @@
         a:hover {
             color: inherit;
             text-decoration: none;
+        }
+    }
+    .spinner {
+        width: 100%;
+        text-align: center;
+        @include flexbox;
+        @include justify-content(center);
+    }
+
+    .spinner > div {
+        width: 15px;
+        height: 15px;
+        background-color: $grey;
+
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+    @-webkit-keyframes sk-bouncedelay {
+        0%, 80%, 100% { -webkit-transform: scale(0) }
+        40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bouncedelay {
+        0%, 80%, 100% { 
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        } 40% { 
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
         }
     }
 }

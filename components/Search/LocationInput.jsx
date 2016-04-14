@@ -17,6 +17,7 @@ var LocationInput = React.createClass ({
         this.setState(this.getStateFromProps(nextProps));
         if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
             this.refs.address.refs.input.value = nextProps.currentPosition;
+            this.setState({isGeolocated: false});
         }
     },
     getStateFromProps: function(props) {
@@ -26,7 +27,16 @@ var LocationInput = React.createClass ({
         }
     },
     render: function () {
-
+        var aroundText = <span className='around-text'>Autour de moi</span>;
+        if (this.state.isGeolocated) {
+            aroundText = (
+                <div className="spinner">
+                    <div className="bounce1"></div>
+                    <div className="bounce2"></div>
+                    <div className="bounce3"></div>
+                </div>
+            );
+        }
         return (
             <div className="location">
                 <span className='title'>Localisation</span>
@@ -38,7 +48,7 @@ var LocationInput = React.createClass ({
                     <div className="input-group-addon"><a role="button" onClick={this.props.onSubmit}> </a></div>
                 </div>
                 <div>
-                    <button className="btn btn-around" onClick={this.locateMe}>Autour de moi</button>
+                    <button className="btn btn-around" onClick={this.locateMe}>{aroundText}</button>
                 </div>
             </div>
         );

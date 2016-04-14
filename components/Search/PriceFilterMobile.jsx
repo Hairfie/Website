@@ -18,7 +18,8 @@ var PriceFilterMobile = React.createClass ({
     },
     render: function() {
         if(this.props.cat != 'PriceFilterMobile') return null;
-
+        var men = ['0-20€', '21-30€', '31-49€', '> 50€'];
+        var women = ['0-30€', '31-50€', '51-79€', '> 79€'];
         return (
             <div className="new-filters subfilters">
                 <button onClick={this.handleClose} className="btn btn-red previous">Précédent</button>
@@ -36,6 +37,7 @@ var PriceFilterMobile = React.createClass ({
                             <input type="checkbox" align="baseline" onChange={onChange} checked={active} />
                             <span />
                             {this.renderPriceLevel(i + 1)}
+                            <span className='price-notice'>{'(Hommes: ' + men[i] + ') - (Femmes : ' + women[i] + ')' }</span>
                         </label>
                     )
                 }, this)}
@@ -49,7 +51,7 @@ var PriceFilterMobile = React.createClass ({
         return (
             <span>
                 {_.times(i, function(i){
-                    return <i key={i} className="glyphicon glyphicon-euro" />
+                    return '€'
                 })}
             </span>
         );

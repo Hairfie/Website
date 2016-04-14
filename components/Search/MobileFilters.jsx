@@ -94,6 +94,13 @@ var MobileFilters = React.createClass({
                         currentPosition={this.props.currentPosition} />
                 </div>
                 <div>
+                    <hr className='underliner'/>
+                    <PromoCheckbox
+                        ref="promoCheckbox"
+                        initialSearch={this.state.search} 
+                        onChange={this.handlePromoChange}/>
+                </div>
+                <div>
                     <BusinessNameInput 
                         ref="businessNameInput"
                         initialSearch={this.state.search}
@@ -114,12 +121,6 @@ var MobileFilters = React.createClass({
                     <a role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, 'PriceFilterMobile')}>
                         Prix {this.countCategories(this.state.search.priceLevel)}
                     </a>
-                </div>
-                <div>
-                    <PromoCheckbox
-                        ref="promoCheckbox"
-                        initialSearch={this.state.search} 
-                        onChange={this.handlePromoChange}/>
                 </div>
             </div>
         );

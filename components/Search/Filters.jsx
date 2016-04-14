@@ -123,6 +123,7 @@ var Filters = React.createClass({
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" value={this.state.q}
                         onChange={this.handleQueryChange}
+                        placeholder='Nom du salon'
                         onKeyPress={this.handleKey} />
                     <div className="input-group-addon"><a role="button" onClick={this.handleChange}></a></div>
                 </div>

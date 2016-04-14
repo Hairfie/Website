@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="24" viewBox="0 0 35 24">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="25" viewBox="0 0 35 25">
   <defs>
     <style>
       .cls-1 {
@@ -7,5 +7,5 @@
       }
     </style>
   </defs>
-  <path d="M0.000,14.000 L-0.000,10.000 L35.000,10.000 L35.000,14.000 L0.000,14.000 ZM0.000,4.000 L-0.000,0.000 L35.000,0.000 L35.000,4.000 L0.000,4.000 ZM35.000,24.000 L0.000,24.000 L-0.000,20.000 L35.000,20.000 L35.000,24.000 Z" class="cls-1"/>
+  <path d="M-0.000,25.000 L-0.000,23.000 L35.000,23.000 L35.000,25.000 L-0.000,25.000 ZM-0.000,12.000 L35.000,12.000 L35.000,14.000 L-0.000,14.000 L-0.000,12.000 ZM-0.000,0.000 L35.000,0.000 L35.000,2.000 L-0.000,2.000 L-0.000,0.000 Z" class="cls-1"/>
 </svg>
