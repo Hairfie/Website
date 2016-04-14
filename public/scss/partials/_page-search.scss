@@ -51,6 +51,7 @@
             margin-left: 10px;
         }
     }
+    //mobile
     .new-filters {
         position: fixed;
         z-index: 201;
@@ -64,13 +65,13 @@
         width: 100%;
         font-size: 1em;
         background-color: white;
-        color: $grey7;
+        color: $darkgrey;
         font-size: 1.5em;
         .filter-header {
             background-color: $bg4;
-            font-size: 0.8em;
+            color: $darkgrey;
+            font-size: 1.2em;
             height: 60px;
-            text-transform: uppercase;
             padding-left: 10px;
             @include flex-center;
             text-align: left;
@@ -79,9 +80,31 @@
                 max-width: 60%;
             }
         }
+        span.title {
+            color: $darkgrey;
+            font-size: 1.1em;
+            font-weight: $regular;
+        }
+        .selections {
+            padding: 5px 10px;
+            label {
+                span:nth-child(3) {
+                    margin-left: 25px;
+                    &:before {
+                        content: ' ';
+                        background: url(../img/search/star-red.svg) no-repeat center center;
+                        background-size: contain;
+                        width: 18px;
+                        height: 18px;
+                        position: absolute;
+                        left: 37px;
+                        top: 7px;
+                    }
+                }
+            }
+        }
         .location, .business-name {
-            padding: 15px 10px 20px 10px;
-            border-bottom: 1px solid $grey5;
+            padding: 5px 10px 20px 10px;
             input {
                 border-top-width: 1px;
                 outline: none;
@@ -138,13 +161,13 @@
             }
             .btn-around {
                 background-color: $bg4;
-                color: $grey7;
+                color: $darkgrey;
                 font-weight: $light;
                 width: 100%;
                 height: 40px;
                 border: 1px solid $grey5;
                 border-radius: 2px;
-                &:before {
+                .around-text:before {
                     content: ' ';
                     background: url(../img/search/location-new.svg) no-repeat center center;
                     background-size: contain;
@@ -162,7 +185,7 @@
             line-height: 50px;
             padding-left: 10px;
             padding-right: 10px;
-            color: $grey7;
+            color: $darkgrey;
             &:hover {
                 text-decoration: none;
             }
@@ -194,7 +217,6 @@
         .promo-line {
             height: 50px;
             line-height: 50px;
-            border-bottom: 1px solid $grey5;
             input[type="checkbox"] + span {
                 padding-left: 25px;
             }
@@ -254,6 +276,24 @@
                 @include flex-center;
             }
         }
+        .btn-close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: $hairfie;
+            font-size: 2em;
+        }
+        .price-notice {
+            color: $grey;
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+        .underliner {
+            margin-top: 0px;
+            margin-bottom: 5px;
+            border-color: $darkgrey;
+            opacity: 0.3;
+        }
     }
     .subfilters {
         z-index: 202;
@@ -271,26 +311,26 @@
         .header-part {
             padding:0;
             .cover {
-                border-radius: 3px;
-                display: block; width: 100%;
+                display: block; 
+                width: calc(100% - 15px);
             }
             h1 {
                 margin: 20px 0;
                 letter-spacing: 0;
-                font-weight: $semiBold;
-                font-size: 21px;
-                margin-top:25px;
-                margin-bottom:25px;
+                font-weight: $regular;
+                font-size: 2.5em;
+                margin-top:5px;
+                margin-bottom:10px;
                 @media screen and (max-width: $screen-xs-max) {
-                    margin: 5px 0 20px 10px;
-                    margin-top:5px;
-                    margin-bottom:20px;
+                    margin: 5px 0 10px 10px;
                 }
             }
             p {
                 font-weight: $light;
                 font-size: 1.4em;
-                margin-bottom: 30px;
+                margin-bottom: 0;
+                width: calc(100% - 15px);
+                text-align: justify;
             }
             div {
                 display: inline-block;
@@ -541,12 +581,15 @@
 
             .btn-red, .btn-book {
                 text-transform: uppercase;
-                letter-spacing: 1px;
-                font-weight: $light;
+                letter-spacing: 0;
+                font-weight: $regular;
                 font-size: 1.9em;
                 @media screen and (max-width: $screen-xs-max) {
                     margin: 0;
                 }
+            }
+            .btn-book {
+                padding: 6px 16px;
             }
             .salon-hairfies {
                 ul {
@@ -602,7 +645,7 @@
                 margin: 0;
                 &:first-child {
                     @media screen and (min-width: $screen-sm-min) {
-                        margin-top: 5px;                        
+                        margin-top: 15px;                        
                     }
                 }
             }
@@ -614,27 +657,38 @@
                 margin-left: 0; margin-right: 0;
                 margin-bottom: 20px;
                 background-color: white;
-                padding: 15px;
-                height: 250px;
+                padding: 20px 30px 20px 20px;
+                // height: 270px;
+                min-height: 207px;
+                width: calc(100% - 15px);
                 cursor:pointer;
+                border: 1px solid $grey2;
+                @include flexbox;
                 &:hover {
                     @include box-shadow(0px 4px 5px 0px $grey);
                     @include transition (all 0.5s ease-out);
                 }
                 @media screen and (max-width: $screen-xs-max) {
-                    padding: 16px 10px;
-                    height: 156px;
+                    @include flex-direction(column);
+                    padding: 10px 10px;
+                    // height: 156px;
+                    width: 100%;
                     margin-bottom: 0px;
-                    border-bottom: 1px solid $grey;
+                    border-bottom: 0;
                 }
             }
             .image-bloc {
                 display: inline-block;
                 float: left;
-                width: 220px;
+                width: 167px;
+                height: 167px;
+                position: relative;
                 @media screen and (max-width: $screen-xs-max) {
-                    width: 110px;
+                    width: 100%;
+                    height: 124px;
+                    margin-bottom: 5px;
                     position: relative;
+                    overflow: hidden;
                     .icon-promo {
                         position: absolute;
                         top: 5px;
@@ -648,43 +702,67 @@
                     display: block;
                     min-height: 0;
                     max-height: none;
-                    height: 220px;
-                    width: 220px;
                     @media screen and (max-width: $screen-xs-max) {
-                        width: 110px;
-                        height: 124px;                    
+                        width: 100%;
+                        margin-top: -150px;
+                    }
+                    @media screen and (max-width: 700px) {margin-top: -120px;}
+                    @media screen and (max-width: 540px) {margin-top: -50px;}
+                    @media screen and (max-width: 435px) {margin-top: -15px;}
+                    &.placeholder {
+                        @media screen and (max-width: $screen-xs-max) {margin-top: -50px;}
+                        @media screen and (max-width: 700px) {margin-top: -30px;}
+                        @media screen and (max-width: 540px) {margin-top: -15px;}
+                        @media screen and (max-width: 435px) {margin-top: 0px;}
+                    }
+
                 }
-            }
+                .promo-bloc {
+                    background-color: $promo-color;
+                    color: white;
+                    font-size: 1.5em;
+                    font-weight: $regular;
+                    position: absolute;
+                    padding: 5px 10px;
+                    right: 0;
+                    top: 15px;
+                }
             }
             .info-bloc {
                 display: inline-block;
                 position: relative;
                 float: left;
-                height: 220px;
-                width: calc(100% - 240px);
+                // height: 220px;
+                width: calc(100% - 187px);
                 margin-left: 20px;
+                @include flexbox;
+                @include flex-direction(column);
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-left: 0;
+                    width: 100%;
+                }
                 .business-name > a {
                     text-decoration: none;
                     h3 {
-                        font-size: 2.1em;
+                        font-size: 1.8em;
                         margin: 0 0 3px;
-                        letter-spacing: 2px;
+                        letter-spacing: 0;
                         color: $darkgrey;
                         text-transform: uppercase;
-                        font-weight: $semiBold;
+                        font-weight: $regular;
                         width: calc(100% - 75px);
                     }
                 }
                 .business-address {
-                    font-size: 1.4em;
-                    letter-spacing: 1px;
+                    font-size: 1.6em;
+                    letter-spacing: 0;
                 }
                 .business-price-rating {
                     position: absolute;
                     right: 0;
                     top: 0;
                     p {
-                        font-size: 1.8em;
+                        font-size: 1.6em;
                     }
                 }
                 .business-reviews {
@@ -703,54 +781,77 @@
                         display: inline;
                     }
                     .mobile {
-                        @include hide;
+                        @media screen and (min-width: $screen-sm-min) {
+                            @include hide;
+                        }
                     }
                     @media screen and (max-width: $screen-xs-max) {
                         .desktop {
                             @include hide;
                         }
                         .mobile {
-                            display: block !important;
+                            @include flexbox;
+                            @include align-items(center);
+                            // display: block !important;
                         }
                     }
                 }
-                .business-label {
-                    color: white;
-                    background-color: $hairfie;
-                    font-size: 1.6em;
-                    padding: 5px;
-                    margin-right: 5px;
-                    margin-top: 5px;
-                    display: inline-block;
-                }
-                .btn-selection {
-                    color: $darkgrey;
+                .label-container {
+                    overflow: hidden;
+                    max-height: 35px;
                     background-color: white;
-                    border: 1px solid $grey;
-                    font-size: 1.6em;
-                    padding: 5px 10px 5px 35px;
-                    margin: 0px 5px 5px 0;
-                    border-radius: 3px;
-                    display: inline-block;
-                    position: relative;
-                    cursor: pointer;
-                    &:before {
-                        content: ' ';
-                        background: url(../img/search/star.svg) no-repeat center center;
-                        background-size: contain;
-                        width: 18px;
-                        height: 18px;
-                        left: 10px;
-                        position: absolute;
+                    .business-label {
+                        color: white;
+                        background-color: $hairfie;
+                        font-size: 1.6em;
+                        padding: 2px 10px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                        display: inline-block;
+                    }
+                    .btn-selection {
+                        color: $darkgrey;
+                        background-color: white;
+                        border: 1px solid $grey2;
+                        font-size: 1.5em;
+                        font-weight: $light;
+                        text-transform: uppercase;
+                        padding: 2px 10px 2px 35px;
+                        margin: 0px 5px 5px 0;
+                        border-radius: 3px;
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        @media screen and (max-width: $screen-xs-max) {
+                            font-size: 2em;
+                            margin-bottom: 0;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                        }
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/star.svg) no-repeat center center;
+                            background-size: contain;
+                            width: 18px;
+                            height: 18px;
+                            left: 10px;
+                            position: absolute;
+                        }
                     }
                 }
+                .description {
+                    font-size: 1.3em;
+                    margin-top: 10px;
+                }
                 .book {
-                    bottom: 0px;
-                    position: absolute;
+                    margin-top: 15px;
+                    @media screen and (max-width: $screen-xs-max) {
+                        margin-top: 10px;
+                    }
                 }
                 .btn-hairfies {
                     @extend .btn;
-                    //width: calc(50% - 5px);
                     border-radius: 0;
                     height: 39px;
                     background-color: white;
@@ -763,21 +864,24 @@
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-weight: $regular;
-                    padding: 6px 12px;
+                    padding: 6px 16px;
                     &:hover {
                         @include transition(.25s ease-in-out);
-                        color: white;
-                        background-color: $hairfie;
+                        opacity: 0.8;
                     }
                 }
                 @media screen and (max-width: $screen-xs-max) {
-                    height: 124px;
-                    width: calc(100% - 130px);
                     padding-left: 0;
                     padding-right: 0;
                     font-size: 0.8em;
-                    .btn-red, .btn-book {
+                    .btn-red {
                         display: block;
+                    }
+                    .btn-book {
+                        padding: 9px 12px;
+                        font-size: 2em;
+                        font-weight: $regular;
+                        margin-bottom: 10px;
                     }
                     p {
                         float: left;
@@ -792,21 +896,20 @@
                             height: 15px;
                             position: absolute;
                             margin-left: -15px;
-                            //top: -5px;
                         }
                     }
                     .business-name > a {
                         h3 {
-                            font-size: 2em;
+                            font-size: 2.6em;
                             text-transform: none;
                             letter-spacing: 0;
                             font-weight: $regular;
-                            margin-bottom: 0;
-                            width: 100%;
+                            margin-bottom: 3px;
+                            width: 80%;
                         }
                     }
                     .business-address {
-                        font-size: 1.5em;
+                        font-size: 2.5em;
                         letter-spacing: 0;
                         font-weight: $light;
                         line-height: 12px;
@@ -816,28 +919,32 @@
                     }
                     .business-reviews {
                         margin: 0 0 5px;
+                        > a {
+                            @include flexbox;
+                            @include align-items(center);
+                        }
                         a > img, > a > span, img, .stars {
                             float: left;
                             margin-right: 5px;
                         }
                         img {
-                            width: 80px;
-                            margin-top: 1px;
+                            width: 120px;
+                            margin-top: 3px;
                         }
                         .yelp {
                             width: 40px;
                             margin-top: -5px;
                         }
-                        .star.min {
-                            background-size: 95%;
-                        }
-                        .star {
-                            height: 16px;
-                            width: 16px;
-                        }
-                        .stars {
-                            height: 16px;
-                        }
+                        // .star.min {
+                        //     background-size: 95%;
+                        // }
+                        // .star {
+                        //     height: 16px;
+                        //     width: 16px;
+                        // }
+                        // .stars {
+                        //     height: 16px;
+                        // }
                         > a > span {
                             line-height: 16px;
                             font-size: 1.8em;
@@ -845,7 +952,8 @@
                         }
                     }
                     .business-price-rating {
-                        position: initial;
+                        font-size: 1.2em;
+                        // position: initial;
                     }
                 }
             }
@@ -881,7 +989,27 @@
         @media screen and (max-width: $screen-xs-max) {
             padding-top: 0;
             z-index: 149;
-
+        }
+        >h4 {
+            padding-bottom: 10px;
+        }
+        .underliner {
+            height: 1px;
+            width: calc(100% - 50px);
+            border-color: $darkgrey;
+            opacity: 0.3;
+            margin-top: -10px;
+            margin-bottom: 0;
+            &.discount {
+                margin-top: 20px;
+                margin-bottom: 0;
+            }
+            &.location {
+                margin-bottom: 20px;
+            }
+            &.q {
+                margin-bottom: 20px;
+            }
         }
 
         .filter-recap {
@@ -904,24 +1032,24 @@
             line-height: 50px;
             margin: 0;
             color: $font-color;
-            font-weight: $light;
+            font-weight: $regular;
             font-size: 1.6em;
             letter-spacing: 1px;
             padding: 0 10px 0 25px;
-            border-bottom: 1px solid $bg4;
             &:hover {
                 cursor: pointer;
             }
             .chevron {
                 float: right;
+                font-weight: $light;
+                margin-right: 15px;
                 font-size: 2em;
                 @include rotate(90deg);
             }
         }
         h4 {
-            color: $font-color;
+            color: $grey1;
             padding: 25px;
-            border-bottom: 1px solid $bg4;
             margin-bottom: 0;
         }
         div.closed {
@@ -935,8 +1063,41 @@
             }
         }
         .tag-list {
-            padding: 10px 25px;
-            border-bottom: 1px solid $bg4;
+            padding: 10px 25px 0px 25px;
+            &.selections {
+                label {
+                    @include flexbox;
+                    span:nth-child(3) {
+                        margin-left: 25px;
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/star-red.svg) no-repeat center center;
+                            background-size: contain;
+                            width: 18px;
+                            height: 18px;
+                            position: absolute;
+                            left: 28px;
+                        }
+                    }
+                }
+            }
+            &.discount {
+                label {
+                    @include flexbox;
+                    span:nth-child(3) {
+                        margin-left: 25px;
+                        &:before {
+                            content: ' ';
+                            background: url(../img/search/icon-promo.png) no-repeat center center;
+                            background-size: contain;
+                            width: 20px;
+                            height: 20px;
+                            position: absolute;
+                            left: 28px;
+                        }
+                    }
+                }
+            }
         }
         label {            
             color: $font-color;
@@ -952,7 +1113,7 @@
             }
         }
         .business-name {
-            border-bottom: 1px solid $bg4;
+            // border-bottom: 1px solid $bg4;
             padding-bottom: 15px;
         }
         div.input-group {
@@ -964,10 +1125,10 @@
             input {
                 height: 45px;
                 -webkit-appearance: none;
-                border:0;
                 border: 1px solid $grey5;
                 box-shadow: none !important;
                 letter-spacing: 1px;
+                border-radius: 2px;
                 // border-right: 0;
                 &:focus {
                     outline: none !important;
@@ -980,6 +1141,7 @@
                 border: 1px solid $grey5;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
+                border-radius: 2px;
                 border-color: $grey5;
             }
             .input-group-addon:last-child {
@@ -1008,7 +1170,7 @@
             margin: 15px 25px 0 25px;
             @include flex-center;
             @include justify-content(center);
-            &:before {
+            .around-text:before {
                 content: ' ';
                 background: url(../img/search/location-new.svg) no-repeat center center;
                 background-size: contain;
@@ -1016,6 +1178,21 @@
                 height: 18px;
                 position: absolute;
                 left: calc(50% - 65px);
+            }
+        }
+        .suggestions {
+            @include flexbox;
+            @include flex-direction(column);
+            margin-left: 25px;
+            font-size: 1.4em;
+            padding-top: 10px;
+            a:hover {
+                color: inherit;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            > a:nth-child(2) {
+                margin-top: 5px;
             }
         }
         .tag-count {
@@ -1062,6 +1239,14 @@
                 }
             }
         }
+        .price > .tag-list > label {
+            font-size: 1.6em;
+            .price-notice {
+                font-size: 0.8em;
+                color: $grey;
+                margin-left: 5px;
+            }
+        }
     }
     .mobile-search {
         position: relative;
@@ -1083,9 +1268,7 @@
         }
     }
     .label-container {
-        @media screen and (max-width: $screen-xs-max) {            
-            padding-left: 10px;
-        }
+        background-color: $bg3;
     }
     .business-label {
         color: white;
@@ -1110,16 +1293,26 @@
         .single-comment {
             border-bottom: 1px solid $grey5;
             padding: 15px 0;
+            .user-infos {
+                padding-left: 0px;
+            }
+            .review {
+                width: 100%;
+            }
         }
         .ProfilePicture {
             width: 50px;
             height: 50px;
             margin-top: 5px;
+            &.placeholder {
+                border-width: 1px;
+            }
         }
         div.title {
             p {
-                color: $grey4;
-                font-weight: $regular;
+                color: $darkgrey;
+                font-weight: $light;
+                letter-spacing: 0;
                 .gender-symbol {
                     display: none;
                 }
@@ -1134,6 +1327,9 @@
                 }
             }
         }
+        div.col-sm-offset-2.col-sm-10 {
+            margin-left: 0;
+        }
         .yelp-date {
             color: $grey;
             font-size: 1.2em;
@@ -1144,6 +1340,47 @@
         a:hover {
             color: inherit;
             text-decoration: none;
+        }
+    }
+    .spinner {
+        width: 100%;
+        text-align: center;
+        @include flexbox;
+        @include justify-content(center);
+    }
+
+    .spinner > div {
+        width: 15px;
+        height: 15px;
+        background-color: $grey;
+
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+    @-webkit-keyframes sk-bouncedelay {
+        0%, 80%, 100% { -webkit-transform: scale(0) }
+        40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bouncedelay {
+        0%, 80%, 100% { 
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        } 40% { 
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
         }
     }
 }

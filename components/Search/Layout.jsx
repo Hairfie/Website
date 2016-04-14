@@ -36,7 +36,7 @@ var Layout = React.createClass({
                     </div>
                     <div className="row">
                         <Breadcrumb place={this.props.place} />
-                        <div className="col-md-4 col-sm-12 hidden-xs hidden-sm">
+                        <div className="col-md-4 col-sm-12 hidden-xs hidden-sm" style={{paddingRight: 30}}>
                             {this.props.filters}
                             {this.props.topReviews}
                         </div>
@@ -46,7 +46,7 @@ var Layout = React.createClass({
                         </div>
                         <div className="main-content col-md-8 col-sm-12">
                             <section className="search-content">
-                                <Header search={this.props.search} tab={this.props.tab} place={this.props.place} />
+                                <Header search={this.props.search} tab={this.props.tab} place={this.props.place} selections={this.props.selections} />
                                 <div className="row">
                                     <div role="tabpanel" className="bg-white-xs">
                                         <div className="row">
