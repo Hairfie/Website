@@ -24,7 +24,6 @@ module.exports = React.createClass({
             'prices': true,
             'hidden': !this.state.displayPrices
         });
-        console.log('displayPrices', this.state.displayPrices);
         return (
             <div className={displayClass}>
                 <h2 onClick={this.props.toggleExpandedFilters}>
