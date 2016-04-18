@@ -160,6 +160,10 @@ var Filters = React.createClass({
                 <div className='suggestions'>
                     Suggestions:
                     <a onClick={this.goToLocation.bind(this, "Paris, France")}>Paris</a>
+                    <a onClick={this.goToLocation.bind(this, "1er Arrondissement, 75001 Paris, France")}>Paris 1</a>                    
+                    <a onClick={this.goToLocation.bind(this, "2e Arrondissement, 75002 Paris, France")}>Paris 2</a>                    
+                    <a onClick={this.goToLocation.bind(this, "15e Arrondissement, 75015 Paris, France")}>Paris 15</a>
+                    <a onClick={this.goToLocation.bind(this, "16e Arrondissement, 75016 Paris, France")}>Paris 16</a>
                     <a onClick={this.goToLocation.bind(this, "17e Arrondissement, 75017 Paris, France")}>Paris 17</a>
                     <a onClick={this.goToLocation.bind(this, "18e Arrondissement, 75018 Paris, France")}>Paris 18</a>
                 </div>
