@@ -20,7 +20,7 @@ var Header = React.createClass({
         var mobileDescription = description;
 
         if(description) {
-            var btnExpand = <span className={this.state.isExpanded ? 'btn-expand hidden' : 'btn-expand'} ref="expand" onClick={this.expandText}>...</span>;
+            var btnExpand = <span className={this.state.isExpanded ? 'btn-expand hidden' : 'btn-expand'} ref="expand" onClick={this.expandText}/>;
 
             if (!this.state.isExpanded) {
                 mobileDescription = _.trunc(description, {

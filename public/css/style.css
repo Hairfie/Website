@@ -12348,7 +12348,11 @@ section.home-search .home-search-mobile {
     font-size: 1.4em;
     color: white;
     border-radius: 5px;
-    padding: 0px 5px 0px 5px; }
+    padding: 5px 10px 10px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background: url(../img/search/dots.png) no-repeat center center;
+    background-size: contain; }
 
 @media screen and (max-width: 767px) {
   #content.search .main-content .nav {
@@ -12753,7 +12757,7 @@ section.home-search .home-search-mobile {
         align-items: center; } }
   #content.search .main-content .tab-pane#salons .info-bloc .label-container, #content.search .main-content .tab-pane#adom .info-bloc .label-container {
     overflow: hidden;
-    max-height: 35px;
+    max-height: 28px;
     background-color: white; }
     #content.search .main-content .tab-pane#salons .info-bloc .label-container .business-label, #content.search .main-content .tab-pane#adom .info-bloc .label-container .business-label {
       color: white;
@@ -13190,7 +13194,11 @@ section.home-search .home-search-mobile {
   #content.search .top-reviews .single-comment {
     border-bottom: 1px solid #e6e6e6;
     padding: 15px 0; }
+    #content.search .top-reviews .single-comment .user-profil {
+      width: 60px;
+      padding: 0; }
     #content.search .top-reviews .single-comment .user-infos {
+      width: calc(100% - 60px);
       padding-left: 0px; }
     #content.search .top-reviews .single-comment .review {
       width: 100%; }

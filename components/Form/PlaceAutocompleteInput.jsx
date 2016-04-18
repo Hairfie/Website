@@ -21,7 +21,7 @@ module.exports = React.createClass({
             var input = this.refs.input;
 
             var options = {
-                components: {
+                componentRestrictions: {
                     country: 'fr'
                 }
             };
