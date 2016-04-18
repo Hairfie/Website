@@ -1374,8 +1374,8 @@
     }
 
     .spinner > div {
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         background-color: $grey;
 
         border-radius: 100%;
@@ -1405,6 +1405,26 @@
         } 40% { 
             -webkit-transform: scale(1.0);
             transform: scale(1.0);
+        }
+    }
+    .btn-flex-container {
+        width: 100%;
+        @include flexbox;
+        @include justify-content(center);
+        padding-top: 20px;
+        .btn-loadmore {
+            height: 95px;
+            width: 95px;
+            border-radius: 50%;
+            background-color: $bg3;
+            border: 3px solid $grey;
+            text-transform: uppercase;
+            padding-top: 27px;
+            &.flex{
+                @include flexbox;
+                @include align-items(center);
+                padding-top: 0;
+            }
         }
     }
 }

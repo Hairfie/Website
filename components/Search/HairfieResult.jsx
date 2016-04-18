@@ -10,14 +10,19 @@ var Loading = require('../Partial/Loading.jsx');
 
 
 var HairfieResult = React.createClass({
+    getInitialState: function() {
+        return {
+            loading: false
+        };
+    },
+    componentWillReceiveProps: function(newProps) {
+        this.setState({loading: false});
+    },
     render: function () {
         if (!this.props.result) return <Loading />;
-        // OLD Newsletter
-        //<div className="hairfie-search-newsletter">
-        //    <Newsletter />
-        //</div>
+
         var searchedCategories = this.props.searchedCategories;
-        var searchedCategoriesLabels;
+        var searchedCategoriesLabels, loadMoreBtn, loader;
         if (searchedCategories) {
             searchedCategoriesLabels = _.map(searchedCategories, function(cat) {
                 return (
@@ -28,6 +33,17 @@ var HairfieResult = React.createClass({
 
         if (this.props.result.numHits == 0) return this.renderNoResult(searchedCategoriesLabels);
 
+        loader = (
+            <div className="spinner">
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+            </div>
+        );
+        if (this.props.isFullyLoaded) loadMoreBtn = null;
+        else
+            loadMoreBtn = this.state.loading ? <div className='btn btn-loadmore flex' onClick={this.loadMore}>{loader}</div> : <div className='btn btn-loadmore' onClick={this.loadMore}>En voir<br/>plus</div>;
+        
         return (
             <div className="tab-pane active">
 
@@ -42,10 +58,16 @@ var HairfieResult = React.createClass({
                             }.bind(this))}
                         </div>
                     </div>
-                    {this.renderPagination()}
+                    <div className='btn-flex-container'>
+                        {loadMoreBtn}
+                    </div>
                 </section>
             </div>
         );
+    },
+    loadMore: function() {
+        this.setState({loading: true});
+        this.props.loadMore();
     },
     renderPagination: function () {
         var numPages = Math.ceil(this.props.result.numHits / 16);
