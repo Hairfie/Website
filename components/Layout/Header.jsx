@@ -75,7 +75,9 @@ var Header = React.createClass({
     },
     renderDesktop: function () {
         var headerClassName = this.props.home ? 'home' : 'white';
-
+        var support = null;
+        if (_.isUndefined(this.props.displaySupport) || this.props.displaySupport != false)
+            support = <a href="tel://+33185089169">Support : +33 1 85 08 91 69</a>;
         return (
             <div>
                 <div className={"hidden-xs shadow " + (this.state.tab ? ' active' : ' inactive')} onClick={this.handleTabChange.bind(null, "")}/>
@@ -86,7 +88,7 @@ var Header = React.createClass({
                                 <Link route="home_pro">Vous gérez un salon ?</Link>
                             </div>
                             <div className="col-sm-8 col-md-8 col-lg-7" style={{textAlign: "end", paddingRight: 0}}>
-                                <a href="tel://+33185089169">Support : +33 1 85 08 91 69</a>
+                                {support}
                                 <Link  route="howitworks_page">Comment ça marche ?</Link>
                                 <User />
                             </div>

@@ -36,6 +36,8 @@ var provideContext  = require('fluxible-addons-react/provideContext');
 var Html = provideContext(require('./components/Html.jsx'), require('./context'));
 var ErrorPage = provideContext(require('./components/ErrorPage.jsx'), require('./context'));
 
+var proxyMiddleware = require('http-proxy-middleware');
+
 server.get('/.well-known/acme-challenge/-qfLtHyaNwXxcDiW-MsfH9rXKFmBqBepyXNAZNpdmYk', function(req, res) {
     res.send("-qfLtHyaNwXxcDiW-MsfH9rXKFmBqBepyXNAZNpdmYk.LaMLYQ6kM-wS31BrznCVQ3yyp-NbNOB_yZo6YpGMmvI");
 });
@@ -65,15 +67,16 @@ server.get('/sitemap.xml', function(req, res) {
 
 // NEW RELIC FORMATTING
 
-// server.use(function(req, res, next) {
-//   if (newrelic) {
-//     var url = req.url.substring(1);
-//     console.log("url", url);
-
-//     newrelic.setTransactionName(url);
-//   }
-//   next();
-// });
+var context = '/mag';
+var options = {
+        target: 'http://blog.hairfie.com',
+        changeOrigin: true, 
+        pathRewrite: {
+            '^/mag/' : '/'       // remove path 
+        }
+    };
+var proxy = proxyMiddleware(context, options);
+server.use(proxy);
 
 // serve application
 server.use(function (req, res, next) {

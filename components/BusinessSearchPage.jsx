@@ -29,6 +29,7 @@ var BusinessSearchPage = React.createClass({
             filters={this.renderFilters()}
             mobileFilters={this.renderMobileFilters()}
             results={this.renderResults()} 
+            selections={this.props.selections}
             topReviews={this.renderTopReviews()}/>;
     },
     renderFilters: function () {

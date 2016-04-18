@@ -14,6 +14,7 @@ var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 var Loading = require('../Partial/Loading.jsx');
 var ReactFitText = require('react-fittext');
 var SearchLabels = require('./SearchLabels.jsx');
+var classNames = require('classnames');
 
 var Hairfies = React.createClass({
     contextTypes: {
@@ -68,18 +69,15 @@ var Business = React.createClass({
     },
     mixins: [NavToLinkMixin],
     render: function () {
-        var booking_button = null;
+        var booking_button, promo_icon, searchedCategoriesLabels, description = null;
         var business = this.props.business;
-        var promo_icon = null;
         var searchedCategories = this.props.searchedCategories;
-        var searchedCategoriesLabels = null;
-        /**
-        * best discount over picture for mobile
-        */
-        if (business.bestDiscount) {
-            promo_icon = (
-                    <i className="visible-xs icon-promo">{business.bestDiscount + ' %'}</i>
-                );
+        if (business.description) {
+            description = _.trunc(business.description.proText, {
+                'length': 180,
+                'separator': ' ',
+                'omission': ' ...'
+            });
         }
         if (business.isBookable) {
             booking_button = (
@@ -96,24 +94,28 @@ var Business = React.createClass({
                 return <span key={cat.id} className="business-label hidden-xs">{cat.label}</span>
             });
         }
+        var placeholderClass = classNames({
+            'visible-xs': true,
+            'placeholder': business.pictures.length == 0
+        });
         return (
             <section className="row business-result" onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug}, null)}>
                 <div className="image-bloc">
+                        {this.renderDiscount()}
                         <Picture
                             picture={_.first(business.pictures)}
                             className="hidden-xs"
-                            options={{ width: 220, height: 220, crop: 'thumb' }}
-                            placeholder="/img/placeholder-220.png"
+                            options={{ width: 167, height: 167, crop: 'thumb' }}
+                            placeholder="/img/placeholder.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
                          <Picture
                             picture={_.first(business.pictures)}
-                            className="visible-xs"
-                            options={{ width: 100, height: 124, crop: 'thumb' }}
-                            placeholder="/img/placeholder-124.png"
+                            className={placeholderClass}
+                            options={{ width: 600, height: 300, crop: 'thumb' }}
+                            placeholder="/img/placeholder-mobile.jpg"
                             alt={business.pictures.length > 0 ? business.name : ""}
                             />
-                        {promo_icon}
                 </div>
                 <div className="info-bloc">
                     <div className="business-name">
@@ -121,7 +123,7 @@ var Business = React.createClass({
                             <h3>{business.name}</h3>
                         </Link>
                     </div>
-                    <ReactFitText compressor={1.55} maxFontSize={14}>
+                    <ReactFitText compressor={1.55} maxFontSize={16}>
                         <div className="business-address">
                             {business.address.street + ', ' + business.address.zipCode + ' ' + business.address.city}    
                         </div>
@@ -133,11 +135,12 @@ var Business = React.createClass({
                     <div className="business-price-rating">
                         {this.renderPricing()}
                     </div>
-                    {this.renderIsInSelection()}
-                    <div className="business-promo">
-                        {this.renderDiscount()}
+                    {this.renderIsInSelection(searchedCategoriesLabels)}
+                    <div className="description hidden-xs">
+                        {description}
                     </div>
-                    {searchedCategoriesLabels}
+                    <div className="business-promo">
+                    </div>
                     <div className="book">
                         {booking_button}
                         <span className="hidden-xs">{this.renderAllHairfiesButton()}</span>
@@ -146,19 +149,20 @@ var Business = React.createClass({
             </section>
         );
     },
-    renderIsInSelection: function() {
+    renderIsInSelection: function(searchedCategoriesLabels) {
         var selections = _.map(
                             _.filter(this.props.selections, function (sel) { 
                                 return _.include(this.props.business.selections, sel.id)
                             }, this), 
                             function(sel) {
-                                return <div key={sel.id} className="btn btn-selection hidden-xs">{sel.name}</div>
+                                return <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: sel.slug}} key={sel.id} className="btn-selection">{sel.name}</Link>
 
                             }
                         );
         return (
-            <div>
-                {selections}
+            <div className='label-container'>
+                {selections} 
+                {searchedCategoriesLabels}
             </div>
         );
     },
@@ -182,14 +186,14 @@ var Business = React.createClass({
                         {' - ' + this.props.business.numReviews + ' avis'}
                     </span>
                     <span className="mobile">
-                        <Rating rating={this.props.business.rating} min={true} />{' (' + this.props.business.numReviews + ')'}
+                        <Rating rating={this.props.business.rating} min={true} />{' - ' + this.props.business.numReviews + ' avis'}
                     </span>
                 </Link>
             );
         } else if (this.props.business.yelpObject.review_count > 0) {
             return (
                 <Link route="business_reviews" params={{ businessId: this.props.business.id, businessSlug: this.props.business.slug }}>
-                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' (' + this.props.business.yelpObject.review_count + ')'}
+                    <img src={this.props.business.yelpObject.rating_img_url_large} alt="yelp" />{' - ' + this.props.business.yelpObject.review_count + ' avis'}
                     <Picture picture={{url: "/img/search/yelp.png"}} className="visible-xs yelp"/>
                     <Picture picture={{url: "/img/search/yelp_review.png"}} style={{marginLeft: '5px'}} className="hidden-xs"/>
                 </Link>
@@ -200,27 +204,14 @@ var Business = React.createClass({
             return (
                 <div>
                     <PriceRating business={this.props.business} />
-                    {this.renderNumHairfies()}
                 </div>
             );
     },
     renderDiscount: function () {
         if (!this.props.business.bestDiscount) return null;
         return (
-            <div className="inline-promo">
-                <span className="icon-promo">%</span>
-                {'-' + this.props.business.bestDiscount + '% dans tout le salon*'}
-            </div>
+            <div className='promo-bloc'>{'-' + this.props.business.bestDiscount + ' %'}</div>
         );
-    },
-    renderNumHairfies: function () {
-        if (this.props.business.numHairfies) {
-            return (
-                <p>
-                    <span className="visible-xs numHairfies"><i className="hairfie-icon" />{this.props.business.numHairfies + ' Hairfies'}</span>
-                </p>
-            );
-        }
     }
 });
 

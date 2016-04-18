@@ -16,10 +16,10 @@ var Filters = React.createClass({
     },
     getInitialState: function () {
         var states = {
-            price: false,
-            openDays: false,
+            price: true,
+            openDays: true,
             categories: true,
-            selections: false
+            selections: true
         };
         _.map(this.props.tagCategories, function(cat, i){
             if (i < 2)
@@ -30,17 +30,21 @@ var Filters = React.createClass({
 
         return {
             location: this.props.place && this.props.place.name,
-            activeLocation: false,
+            isGeoActivated: false,
             q: this.props.search.q,
             expandedFilters: states
         };
     },
     componentWillReceiveProps: function(newProps) {
-        if (newProps.location && this.state.activeLocation) {
+        if (newProps.currentPosition && this.state.isGeoActivated) {
             this.setState({
-                location: newProps.location
+                location: newProps.currentPosition,
+                isGeoActivated: false
+            }, function() {
+                 this.props.onChange({
+                    address: newProps.currentPosition
+                });
             });
-            this.handleChange();
         }
         else if (newProps.place && newProps.place.name) {
             this.setState({
@@ -54,17 +58,16 @@ var Filters = React.createClass({
     render: function () {
         return (
             <div className="sidebar">
-                <h4>Filtrer les résultats de la recherche</h4>
                 <section>
                     <form>
-                    {this.renderAddress()}
-                    {this.renderQ()}
                     {this.renderSelections()}
+                    {this.renderAddress()}
+                    {this.renderDiscount()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderOpenDays()}
                     {this.renderPrice()}
-                    {this.renderDiscount()}
+                    {this.renderQ()}
                     </form>
                 </section>
             </div>
@@ -78,8 +81,9 @@ var Filters = React.createClass({
                     Nos sélections de coiffeurs
                     <span className="chevron">›</span>
                 </h2>
-                <div className='tag-list'>
-                    {_.map(_.indexBy(this.props.selections, 'position'), function (selection) {
+                <hr className='underliner'/>
+                <div className='tag-list selections'>
+                    {_.map(_.sortByOrder(this.props.selections, 'position'), function (selection) {
                         var active   = this.props.search && (this.props.search.selections || []).indexOf(selection.slug) > -1;
                         var onChange = active ? this.removeSelection.bind(this, selection.slug) : this.addSelection.bind(this, selection.slug);
 
@@ -115,9 +119,11 @@ var Filters = React.createClass({
         return (
             <div className="business-name">
                 <h2 style={{borderBottom: 0}}>Nom du coiffeur</h2>
+                <hr className='underliner q'/>
                 <div className="input-group">
                     <input className="form-control" ref="query" type="text" value={this.state.q}
                         onChange={this.handleQueryChange}
+                        placeholder='Nom du salon'
                         onKeyPress={this.handleKey} />
                     <div className="input-group-addon"><a role="button" onClick={this.handleChange}></a></div>
                 </div>
@@ -129,17 +135,38 @@ var Filters = React.createClass({
     },
     renderAddress: function() {
         if (!this.props.withQ) return;
-
+        var aroundText = <span className='around-text'>Autour de moi</span>;
+        if (this.state.isGeoActivated) {
+            aroundText = (
+                <div className="spinner">
+                    <div className="bounce1"></div>
+                    <div className="bounce2"></div>
+                    <div className="bounce3"></div>
+                </div>
+            );
+        }
         return (
             <div>
                 <h2 style={{borderBottom: 0}}>Localisation</h2>
+                <hr className='underliner location'/>
                 <div className="input-group">
                     <GeoInput className="form-control" ref="address" type="text"
                         value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
                         />
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
-                <a className="btn btn-around" role="button" onClick={this.findMe} title="Me localiser">Autour de moi</a>
+                <a className="btn btn-around" role="button" onClick={this.getMyPosition} title="Me localiser">{aroundText}</a>
+
+                <div className='suggestions'>
+                    Suggestions:
+                    <a onClick={this.goToLocation.bind(this, "Paris, France")}>Paris</a>
+                    <a onClick={this.goToLocation.bind(this, "1er Arrondissement, 75001 Paris, France")}>Paris 1</a>                    
+                    <a onClick={this.goToLocation.bind(this, "2e Arrondissement, 75002 Paris, France")}>Paris 2</a>                    
+                    <a onClick={this.goToLocation.bind(this, "15e Arrondissement, 75015 Paris, France")}>Paris 15</a>
+                    <a onClick={this.goToLocation.bind(this, "16e Arrondissement, 75016 Paris, France")}>Paris 16</a>
+                    <a onClick={this.goToLocation.bind(this, "17e Arrondissement, 75017 Paris, France")}>Paris 17</a>
+                    <a onClick={this.goToLocation.bind(this, "18e Arrondissement, 75018 Paris, France")}>Paris 18</a>
+                </div>
             </div>
         );
     },
@@ -154,6 +181,7 @@ var Filters = React.createClass({
                     Spécialités {this.countCategories(this.props.search.categories)}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className="tag-list">
                     {_.map(categories, function (category, i) {
                         var active   = this.props.search && (this.props.search.categories || []).indexOf(category.slug) > -1;
@@ -179,7 +207,8 @@ var Filters = React.createClass({
 
         return (
             <div>
-                <div  className="tag-list">
+                <hr className='underliner discount'/>
+                <div className="tag-list discount">
                     <label className="checkbox-inline">
                         <input type="checkbox" align="baseline" onChange={onChange} checked={withDiscount} />
                         <span />
@@ -235,6 +264,7 @@ var Filters = React.createClass({
                     Ouvert le {this.countCategories(this.props.search.days)}
                     <span className="chevron">›</span>
                 </h2>
+                <hr className='underliner'/>
                 <div className="tag-list">
                     {_.map(DateTimeConstants.weekDaysNumber, function(day) {
                         if (_.isEmpty(_.intersection([day], displayDays))) return null;
@@ -279,18 +309,14 @@ var Filters = React.createClass({
             location: e.currentTarget.value
         });
     },
-    findMe: function (e) {
+    goToLocation: function(newLocationString) {
+        this.props.onChange({address: newLocationString})
+    },
+    getMyPosition: function (e) {
         this.setState({
-            activeLocation: true
+            isGeoActivated: true
         });
-        if (this.props.location) {
-            this.setState({
-                location: this.props.location
-            });
-        }
-        else {
-            this.context.executeAction(PlaceActions.getPlaceByGeolocation);
-        }
+        this.context.executeAction(PlaceActions.getPlaceByGeolocation);
     },
     addCategory: function (category) {
         this.props.onChange({categories: _.union(this.props.search.categories || [], [category])});
@@ -349,7 +375,7 @@ Filters = connectToStores(Filters, [
     'PlaceStore'
 ], function (context, props) {
     return _.assign({}, {
-        location: context.getStore('PlaceStore').getCurrentPosition()
+        currentPosition: context.getStore('PlaceStore').getCurrentPosition()
     }, props);
 });
 
