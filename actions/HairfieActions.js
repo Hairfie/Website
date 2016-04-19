@@ -91,7 +91,7 @@ module.exports = {
         });
     },
     loadSearchResult: function (context, search) {
-        var query = { pageSize: 16 };
+        var query = { pageSize: 14 };
         query.page = search.page;
         _.forEach(search.tags, function (tag, i) {
             query['tags['+i+']'] = tag;

@@ -53,6 +53,7 @@ var HairfieSearchPage = React.createClass({
         return <Search.HairfieResult 
             search={this.props.search} 
             result={this.props.result} 
+            mixedResult={this.props.mixedResult} 
             searchedCategories={this.props.search.tags}
             loadMore={this.loadMore}
             isFullyLoaded = {this.props.isFullyLoaded}
@@ -78,12 +79,17 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'PlaceStore',
     'HairfieStore',
     'CategoryStore',
-    'TagStore'
+    'TagStore',
+    'DealStore',
+    'BusinessStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
     var search = {};
-    var result, currentPage, isFullyLoaded;
+    var result, currentPage, isFullyLoaded, tags, i, j, k, mixedResult, businessesToAddToMixedResult;
+    j = 0;
+    k = 0;
+    mixedResult = [];
 
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
@@ -91,8 +97,20 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         currentPage = result && result.currentPage ? result.currentPage : 1;
         isFullyLoaded = result && result.hits.length == result.numHits ? true : false;
     }
+    tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
 
-    var tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
+    // businessesToAddToMixedResult = context.getStore('DealStore').getTop();
+    businessesToAddToMixedResult = context.getStore('BusinessStore').getBusinessesForHairfieSearch();
+    debugger;
+    for (i = 0; i < result.hits.length; i++) { 
+        mixedResult[j++]= result.hits[i];
+        if (i % 14 == 3 || i % 14 == 9){
+            // mixedResult[j++] = 'business';
+            mixedResult[j++] = businessesToAddToMixedResult[k % 6].business;
+            k++;
+        }
+    }
+    // console.log('mixedResult', mixedResult);
 
     var searchTagsId;
     if (search && !(_.isEmpty(tags))) {
@@ -107,6 +125,7 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         place: place,
         search: search,
         result: result,
+        mixedResult: mixedResult,
         currentPage: currentPage,
         isFullyLoaded: isFullyLoaded,
         tagCategories: context.getStore('TagStore').getTagCategories(),

@@ -44,43 +44,23 @@ module.exports = React.createClass({
     },
     renderLink: function (noNav, className) {
         var hairfie = this.props.hairfie;
-        var hairdresser = <p></p>;
-        if (hairfie.hairdresser) {
-            hairdresser = <p><span className="underline">Coiffeur</span> : {displayName(hairfie.hairdresser)}</p>;
-        }
-        var salon = <p></p>;
+        var salon = null;
+        
         if (hairfie.business && hairfie.business.name) {
-            salon = <p><span className="underline">Salon</span> : {hairfie.business.name}</p>;
+            salon = <div><span className="business-name">Salon de coiffure&nbsp;:</span>{hairfie.business.name}</div>;
         }
 
-        var price;
-        if (hairfie.price) {
-            price = (
-                <div className="pricetag">
-                    <ReactFitText compressor={0.33}>
-                        <span className="price">{hairfie.price.amount+'€'}</span>
-                    </ReactFitText>
-                </div>
-            );
-        }
-
-        var tags;
-        if (hairfie.tags) {
-            tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
-        }
         return (
             <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup ? noNav : false} className={className}>
                 <Picture picture={_.last(hairfie.pictures)}
-                        resolution={{width: 320, height: 320}}
-                        placeholder="/img/placeholder-220.png"
-                        alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
+                    resolution={{width: 320, height: 320}}
+                    placeholder="/img/placeholder-220.png"
+                    alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
                 />
-                {price}
+                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} className='hairfie-min' /> : null}
+
                 <figcaption>
                     {salon}
-                    {hairdresser}
-                    {tags}    
-                    {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                 </figcaption>
             </Link>
         )

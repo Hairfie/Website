@@ -9639,6 +9639,9 @@ a {
       #content .address-bloc h2 a:hover, #content .address-bloc h3 a:hover, #content .address-bloc h4 a:hover {
         text-decoration: none; }
 
+.ratinstars  {
+  background-color: red; }
+
 .stars {
   height: 3.9em;
   padding-left: 0; }
@@ -12291,6 +12294,10 @@ section.home-search .home-search-mobile {
   #content.search .subfilters .filter-line {
     line-height: 40px; }
 
+@media screen and (max-width: 767px) {
+  #content.search .main-content {
+    padding-right: 10px; } }
+
 #content.search .main-content .search-content {
   position: relative; }
   #content.search .main-content .search-content:before {
@@ -12311,6 +12318,89 @@ section.home-search .home-search-mobile {
     top: 0;
     background: #f4f4f4;
     z-index: -1; }
+  #content.search .main-content .search-content .hairfies > .row {
+    margin-left: -5px;
+    margin-right: 10px; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .search-content .hairfies > .row {
+        margin-left: 5px;
+        margin-top: 5px; } }
+    #content.search .main-content .search-content .hairfies > .row .single-hairfie {
+      padding: 5px; }
+      #content.search .main-content .search-content .hairfies > .row .single-hairfie .hairfie-min {
+        position: absolute;
+        width: 20%;
+        bottom: 5px;
+        right: 5px;
+        border: 1px solid white; }
+    #content.search .main-content .search-content .hairfies > .row .single-business {
+      position: relative;
+      padding: 5px;
+      padding-bottom: calc(33.333333% - 5px); }
+      @media screen and (max-width: 767px) {
+        #content.search .main-content .search-content .hairfies > .row .single-business {
+          padding-bottom: 49%; } }
+      #content.search .main-content .search-content .hairfies > .row .single-business .business {
+        position: absolute;
+        width: calc(100% - 10px);
+        height: calc(100% - 11px);
+        overflow: hidden; }
+        #content.search .main-content .search-content .hairfies > .row .single-business .business .background-image {
+          background-size: cover;
+          width: 101%;
+          height: 100%; }
+        #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: rgba(35, 35, 35, 0.7);
+          width: 60%;
+          height: 100%;
+          color: white;
+          padding: 20px 50px;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-direction: normal;
+          -webkit-box-orient: vertical;
+          -webkit-flex-direction: column;
+          -moz-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .name {
+            text-transform: uppercase;
+            font-size: 2em;
+            font-weight: 400; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .city {
+            font-size: 1.8em; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars {
+            width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            align-items: center;
+            font-size: 1.6em; }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars .stars {
+              height: auto; }
+              #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars .stars .star {
+                width: 20px;
+                height: 20px; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level {
+            font-size: 2.4em;
+            font-weight: 200; }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level .grey {
+              color: #c4c4c4; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .btn-book {
+            padding: 5px 6px;
+            width: 150px; }
 
 #content.search .main-content .header-part {
   padding: 0; }

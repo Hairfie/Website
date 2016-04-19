@@ -14,24 +14,28 @@ module.exports = createStore({
     handlers: makeHandlers({
         onReceiveBusiness: Actions.RECEIVE_BUSINESS,
         onReceiveSimilarBusinesses: Actions.RECEIVE_SIMILAR_BUSINESSES,
-        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT
+        onReceiveBusinessSearchResult: Actions.RECEIVE_BUSINESS_SEARCH_RESULT,
+        onReceiveBusinessForHairfieSearch: Actions.RECEIVE_BUSINESS_FOR_HAIRFIE_SEARCH
     }),
     initialize: function () {
         this.businesses = {};
         this.similarIds = {};
         this.searchResults = {};
+        this.businessesForHairfieSearch = {};
     },
     dehydrate: function () {
         return {
             businesses: this.businesses,
             similarIds: this.similarIds,
-            searchResults: this.searchResults
+            searchResults: this.searchResults,
+            businessesForHairfieSearch: this.businessesForHairfieSearch
         };
     },
     rehydrate: function (state) {
         this.businesses = state.businesses;
         this.similarIds = state.similarIds;
         this.searchResults = state.searchResults;
+        this.businessesForHairfieSearch = state.businessesForHairfieSearch;
         this.timeslots = state.timeslots;
     },
     onReceiveBusiness: function (business) {
@@ -49,6 +53,10 @@ module.exports = createStore({
         this.searchResults[searchKey(payload.search)] = _.assign({}, payload.result, {
             hits: _.pluck(payload.result.hits, 'id')
         });
+        this.emitChange();
+    },
+    onReceiveBusinessForHairfieSearch: function(payload) {
+        this.businessesForHairfieSearch = payload;
         this.emitChange();
     },
     // TODO: move discount code into a discount store
@@ -95,6 +103,9 @@ module.exports = createStore({
         }
 
         return _.assign({}, result, { hits: _.map(result.hits, this.getById, this) });
+    },
+    getBusinessesForHairfieSearch: function() {
+        return this.businessesForHairfieSearch;
     }
 });
 

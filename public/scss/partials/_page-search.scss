@@ -303,9 +303,92 @@
         }
     }
     .main-content {
-
+        @media screen and (max-width: $screen-xs-max) {
+            padding-right: 10px;
+        }
         .search-content {
             @include fullWidthBg($bg3);
+            .hairfies > .row {
+                margin-left: -5px;
+                margin-right: 10px;
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-left: 5px;
+                    margin-top: 5px;
+                }
+                .single-hairfie{
+                    padding: 5px;
+                    .hairfie-min {
+                        position: absolute;
+                        width: 20%;
+                        bottom: 5px;
+                        right: 5px;
+                        border: 1px solid white;
+                    }
+                }
+                .single-business {
+                    position: relative;
+                    padding: 5px;
+                    padding-bottom: calc(33.333333% - 5px);
+                    @media screen and (max-width: $screen-xs-max) {
+                        padding-bottom: 49%;
+                    }
+                    .business {
+                        position: absolute;
+                        width: calc(100% - 10px);
+                        height: calc(100% - 11px);
+                        overflow: hidden;
+                        .background-image {
+                            background-size: cover;
+                            width: 101%;
+                            height: 100%;
+                        }
+                        .business-infos {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            background-color: rgba(35, 35, 35, 0.7);
+                            width: 60%;
+                            height: 100%;
+                            color: white;
+                            padding: 20px 50px;
+                            @include flexbox;
+                            @include flex-direction(column);
+                            .name {
+                                text-transform: uppercase;
+                                font-size: 2em;
+                                font-weight: $regular;
+                            }
+                            .city {
+                                font-size: 1.8em;
+                            }
+                            .rating-stars {
+                                width: 100%;
+                                @include flexbox;
+                                @include align-items(center);
+                                font-size: 1.6em;
+                                .stars {
+                                    height: auto;
+                                    .star {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                            }
+                            .price-level {
+                                font-size: 2.4em;
+                                font-weight: $light;
+                                .grey {
+                                    color: $grey;
+                                }
+                            }
+                            .btn-book {
+                                padding: 5px 6px;
+                                width: 150px;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .header-part {
