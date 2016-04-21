@@ -12,7 +12,12 @@ var BusinessForHairfies = React.createClass ({
     render: function() {
         var business = this.props.business;
         // console.log('business', business);
-        // console.log('SELECTIONS', this.props.selections);
+
+        var ratingClass = classNames({
+            'rating-stars': true,
+            'hidden': _.isNull(business.rating)
+        });
+        // console.log('RATING', business.rating)
         return (
             <div className='col-xs-12 col-sm-8 single-business'>
                 <div className='business'>
@@ -20,13 +25,25 @@ var BusinessForHairfies = React.createClass ({
                     <div className='business-infos'>
                         <span className='name'>{business.name}</span>
                         <span className='city'>{business.address.zipCode + ' ' + business.address.city}</span>
-                        <div className='rating-stars'>{this.averageRating()} {' - ' + business.numReviews + ' avis'}</div>
+                        <div className={ratingClass}>{this.averageRating()} {' - ' + business.numReviews + ' avis'}</div>
                         <span className='price'>{this.priceLevel()}</span>
-                        <span className='selection'></span>
+                            {this.renderSelection()}
                         <button className='btn btn-book'>Voir le salon</button>
                     </div>
                 </div>
             </div>
+        );
+    },
+    renderSelection: function() {
+        if (!this.props.business.selections) return null;
+        var selection = _.filter(this.props.selections, function (sel) { 
+                                return _.include(this.props.business.selections, sel.id)
+                            }, this);
+        // console.log('test', selection);
+        return (
+            <span className='selection-container'>
+                <span className='selection'>{_.first(selection).label}</span>
+            </span>
         );
     },
     priceLevel: function() {
@@ -59,7 +76,7 @@ var BusinessForHairfies = React.createClass ({
             on  : on,
             off : !on
         });
-        return <a key={n} className={className} style={{margin: '3px'}}></a>;
+        return <a key={n} className={className}></a>;
 
     }
 });

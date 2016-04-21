@@ -8,11 +8,13 @@ var Hairfie = require('../Partial/Hairfie.jsx');
 var Newsletter = require('../Partial/Newsletter.jsx');
 var Loading = require('../Partial/Loading.jsx');
 var Business = require('./BusinessForHairfies.jsx');
+var Select = require('react-select');
 
 var HairfieResult = React.createClass({
     getInitialState: function() {
         return {
-            loading: false
+            loading: false,
+            order: 'LIKE'
         };
     },
     componentWillReceiveProps: function(newProps) {
@@ -52,6 +54,23 @@ var HairfieResult = React.createClass({
                         {searchedCategoriesLabels}
                     </div>
                     <div className="salon-hairfies hairfies">
+                        <div className='filter-bar'>
+                            <span className='filter-title'>Trier par :</span>
+                            <span className='filters'>
+                                <Select ref="categories"
+                                    name="Tri"
+
+                                    onChange={this.handleSelectOrderChange}
+                                    placeholder="Spécialité"
+                                    allowCreate={false}
+                                    options={[{value: 'LIKE', label: 'Les plus likés'},
+                                        {value: 'DATE', label: 'Date de création'}]}
+                                    multi={false}
+                                    searchable={false}
+                                    clearable={false}
+                                />
+                            </span>
+                        </div>
                         <div className="row">
                             {_.map(this.props.mixedResult, function (item, i) {
                                 if (item.accountType) {
@@ -90,6 +109,11 @@ var HairfieResult = React.createClass({
                 </section>
             </div>
         );
+    },
+    handleSelectOrderChange: function(order) {
+        console.log('youhou', order);
+        // this.setState({sort: order});
+        this.props.onChange({sort: order});
     },
     loadMore: function() {
         this.setState({loading: true});

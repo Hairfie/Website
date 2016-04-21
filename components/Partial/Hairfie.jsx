@@ -6,7 +6,6 @@ var Picture = require('./Picture.jsx');
 var Link = require('../Link.jsx');
 var PopUpHairfie = require('./PopUpHairfie.jsx');
 var NavigationActions = require('../../actions/NavigationActions');
-var ReactFitText = require('react-fittext');
 
 function displayName(u) { var u = u || {}; return u.firstName; }
 
@@ -36,8 +35,8 @@ module.exports = React.createClass({
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
                 {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
-                    {this.renderLink(true, 'hidden-xs hidden-sm')}
-                    {this.renderLink(false, 'hidden-md hidden-lg')}
+                    {this.renderLink(true, 'hidden-xs')}
+                    {this.renderLink(false, ' hidden-sm hidden-md hidden-lg')}
                 </figure>
             </div>
         );
@@ -45,9 +44,14 @@ module.exports = React.createClass({
     renderLink: function (noNav, className) {
         var hairfie = this.props.hairfie;
         var salon = null;
-        
+
         if (hairfie.business && hairfie.business.name) {
-            salon = <div><span className="business-name">Salon de coiffure&nbsp;:</span>{hairfie.business.name}</div>;
+            salon = (
+                <div className='infos'>
+                    <span className="business-title">Salon de coiffure&nbsp;:</span>
+                    <span className="business-name">{hairfie.business.name}</span>
+                </div>
+            );
         }
 
         return (
@@ -62,6 +66,13 @@ module.exports = React.createClass({
                 <figcaption>
                     {salon}
                 </figcaption>
+                <div className='infos-mobile visible-xs'>
+                    <span className="business-title">Salon de coiffure&nbsp;:</span>
+                    <br/>
+                    <span className="business-name">
+                       {hairfie.business && hairfie.business.name}
+                    </span>
+                </div>
             </Link>
         )
     },

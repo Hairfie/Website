@@ -28,7 +28,7 @@ module.exports = {
     },
     loadSomeBusinessesForHairfieSearch: function (context, payload) {
         return context.hairfieApi
-            .get('/tops/deals', { query: { limit: 6 }})
+            .get('/tops/businesses', { query: { limit: 6 }})
             .then(function (businesses) {
                 context.dispatch(Actions.RECEIVE_BUSINESS_FOR_HAIRFIE_SEARCH, businesses);
             });
