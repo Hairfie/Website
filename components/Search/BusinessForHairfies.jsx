@@ -11,13 +11,11 @@ var BusinessForHairfies = React.createClass ({
 
     render: function() {
         var business = this.props.business;
-        // console.log('business', business);
 
         var ratingClass = classNames({
             'rating-stars': true,
             'hidden': _.isNull(business.rating)
         });
-        // console.log('RATING', business.rating)
         return (
             <div className='col-xs-12 col-sm-8 single-business'>
                 <div className='business'>
@@ -39,7 +37,6 @@ var BusinessForHairfies = React.createClass ({
         var selection = _.filter(this.props.selections, function (sel) { 
                                 return _.include(this.props.business.selections, sel.id)
                             }, this);
-        // console.log('test', selection);
         return (
             <span className='selection-container'>
                 <span className='selection'>{_.first(selection).label}</span>

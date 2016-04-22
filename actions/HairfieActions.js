@@ -93,10 +93,10 @@ module.exports = {
     loadSearchResult: function (context, search) {
         var query = { pageSize: 14 };
         query.page = search.page;
-        if (search.sort == 'LIKE' || !search.sort)
+        if (!search.sort)
             query.sort='numLikes';
         else 
-            query.sort = null;
+            query.sort = search.sort;
         _.forEach(search.tags, function (tag, i) {
             query['tags['+i+']'] = tag;
         });

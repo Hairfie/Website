@@ -55,7 +55,6 @@ module.exports = {
                 var search = SearchUtils.searchFromRouteAndPlace(route, place);
 
                 return Promise.all([
-                    context.executeAction(DealActions.loadTopDeals),
                     context.executeAction(HairfieActions.loadSearchResult, search),
                     context.executeAction(SelectionActions.loadAll),
                     context.executeAction(BusinessActions.loadSomeBusinessesForHairfieSearch)

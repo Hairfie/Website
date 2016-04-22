@@ -12348,6 +12348,8 @@ section.home-search .home-search-mobile {
           padding: 8px 30px 8px 10px; }
         #content.search .main-content .search-content .filter-bar .filters .Select > .Select-control .Select-arrow {
           top: 22px; }
+      #content.search .main-content .search-content .filter-bar .filters .Select-option {
+        font-weight: 200; }
   #content.search .main-content .search-content .hairfies > .row {
     margin-left: -5px;
     margin-right: 10px; }

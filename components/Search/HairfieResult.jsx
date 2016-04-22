@@ -13,8 +13,7 @@ var Select = require('react-select');
 var HairfieResult = React.createClass({
     getInitialState: function() {
         return {
-            loading: false,
-            order: 'LIKE'
+            loading: false
         };
     },
     componentWillReceiveProps: function(newProps) {
@@ -45,7 +44,6 @@ var HairfieResult = React.createClass({
         if (this.props.isFullyLoaded) loadMoreBtn = null;
         else
             loadMoreBtn = this.state.loading ? <div className='btn btn-loadmore flex' onClick={this.loadMore}>{loader}</div> : <div className='btn btn-loadmore' onClick={this.loadMore}>En voir<br/>plus</div>;
-        // console.log('RESULT', this.props.result.hits);
         return (
             <div className="tab-pane active">
 
@@ -59,12 +57,12 @@ var HairfieResult = React.createClass({
                             <span className='filters'>
                                 <Select ref="categories"
                                     name="Tri"
-
+                                    value={this.props.search.sort || 'numLikes'}
                                     onChange={this.handleSelectOrderChange}
                                     placeholder="Spécialité"
                                     allowCreate={false}
-                                    options={[{value: 'LIKE', label: 'Les plus likés'},
-                                        {value: 'DATE', label: 'Date de création'}]}
+                                    options={[{value: 'numLikes', label: 'Les plus likés'},
+                                        {value: 'createdAt', label: 'Date de création'}]}
                                     multi={false}
                                     searchable={false}
                                     clearable={false}
@@ -111,8 +109,6 @@ var HairfieResult = React.createClass({
         );
     },
     handleSelectOrderChange: function(order) {
-        console.log('youhou', order);
-        // this.setState({sort: order});
         this.props.onChange({sort: order});
     },
     loadMore: function() {

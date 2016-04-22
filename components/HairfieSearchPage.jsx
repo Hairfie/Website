@@ -71,7 +71,6 @@ var HairfieSearchPage = React.createClass({
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
-        console.log("search", search);
         this.context.executeAction(HairfieActions.submitSearch, search);
     }
 });
@@ -100,18 +99,16 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
     }
     tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
 
-    // businessesToAddToMixedResult = context.getStore('DealStore').getTop();
     businessesToAddToMixedResult = context.getStore('BusinessStore').getBusinessesForHairfieSearch();
-    // debugger;
-    for (i = 0; i < result.hits.length; i++) { 
-        mixedResult[j++]= result.hits[i];
-        if (i % 14 == 3 || i % 14 == 9){
-            // mixedResult[j++] = 'business';
-            mixedResult[j++] = businessesToAddToMixedResult[k % 6];
-            k++;
+    if (result) {
+        for (i = 0; i < result.hits.length; i++) { 
+            mixedResult[j++]= result.hits[i];
+            if (i % 14 == 3 || i % 14 == 9){
+                mixedResult[j++] = businessesToAddToMixedResult[k % 6];
+                k++;
+            }
         }
     }
-    // console.log('mixedResult', mixedResult);
 
     var searchTagsId;
     if (search && !(_.isEmpty(tags))) {
