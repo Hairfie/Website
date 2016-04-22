@@ -38,6 +38,7 @@ var MobileFilters = React.createClass({
         var displayClass = 'new-filters ';
         if (!this.state.displayMobileFilters)
             displayClass += 'hidden';
+        console.log('search', this.state.search);
         return (
             <div>
                 <div className="mobile-screen hidden-md hidden-lg">
@@ -63,7 +64,9 @@ var MobileFilters = React.createClass({
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     renderBusinessFilters: function() {
+
         if (this.props.tab != 'business') return;
+        console.log("renderBusinessFilters", this.state.search);
         return (
             <div>
                 <CategorySubFilters 
@@ -162,6 +165,7 @@ var MobileFilters = React.createClass({
         else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {
+        console.log('VALUE', this.refs.locationInput.getValue());
         if (this.props.tab == 'business') {
             this.setState({search: _.assign({}, this.state.search, 
                 {q: this.refs.businessNameInput.getValue(), address: this.refs.locationInput.getValue()})}, function() {
@@ -177,8 +181,12 @@ var MobileFilters = React.createClass({
     handleSelectionChange: function(selection) {
         if (this.state.search && (this.state.search.selections || []).indexOf(selection) > -1)
             this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
-        else
-            this.setState({search: _.assign({}, this.state.search,{selections: _.union(this.state.search.selections || [], [selection])})});
+        else {
+            // debugger;
+            this.refs.locationInput.refs.address.setPlace('Paris', function() {
+                this.setState({search: _.assign({}, this.state.search,{address: "Paris, France", selections: _.union(this.state.search.selections || [], [selection])})});
+            }.bind(this));
+        }
     },
     handlePromoChange: function() {
         this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});

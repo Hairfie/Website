@@ -16,6 +16,7 @@ var Selections = React.createClass ({
         }
     },
     render: function() {
+        // console.log('selections search', this.state.search);
         if(_.isEmpty(this.props.selections)) return null;
         return (
             <div className='selections'>
@@ -43,7 +44,7 @@ var Selections = React.createClass ({
         this.props.onClose(this.state.search);
     },
     addSelection: function (selection) {
-        this.setState({search: _.assign({}, this.state.search,{selections: _.union(this.state.search.selections || [], [selection])})});
+        this.setState({search: _.assign({}, this.state.search,{address: "Paris, France", selections: _.union(this.state.search.selections || [], [selection])})});
     },
     removeSelection: function (selection) {
         this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});

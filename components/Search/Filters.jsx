@@ -145,6 +145,8 @@ var Filters = React.createClass({
                 </div>
             );
         }
+        console.log('loca', this.state.location);
+        //FIX value input après pick d'une proposition de l'autocomplete
         return (
             <div>
                 <h2 style={{borderBottom: 0}}>Localisation</h2>
@@ -337,7 +339,7 @@ var Filters = React.createClass({
         this.props.onChange({days: _.without(this.props.search.days, day)});
     },
     addSelection: function (selection) {
-        this.props.onChange({selections: _.union(this.props.search.selections || [], [selection])});
+        this.props.onChange({address:  "Paris, France", selections: _.union(this.props.search.selections || [], [selection])});
     },
     removeSelection: function (selection) {
         this.props.onChange({selections: _.without(this.props.search.selections, selection)});

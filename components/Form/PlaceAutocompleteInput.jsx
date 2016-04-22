@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Promise = require('q');
 
 module.exports = React.createClass({
     contextTypes: {
@@ -9,6 +10,11 @@ module.exports = React.createClass({
     propTypes: {
         types: React.PropTypes.array,
         onPlaceChanged: React.PropTypes.func
+    },
+    getInitialState: function() {
+        return {
+            place: null
+        };
     },
     getDefaultProps: function () {
         return {
@@ -28,6 +34,8 @@ module.exports = React.createClass({
             options.types = this.props.types;
 
             this.autocomplete = new google.maps.places.Autocomplete(input, options);
+            this.service = new google.maps.places.AutocompleteService();
+
             google.maps.event.addListener(this.autocomplete, 'place_changed', this.handlePlaceChanged);
         }.bind(this));
     },
@@ -36,14 +44,28 @@ module.exports = React.createClass({
     },
     handlePlaceChanged: function () {
         var place = this.autocomplete.getPlace();
+        // console.log('PLACE', place);
+        this.setState({place: null});
         this.props.onPlaceChanged(place);
     },
     getFormattedAddress: function () {
+        if(this.state.place) return this.state.place.description;
+        // var place = this.state.place;
         var place = this.autocomplete.getPlace();
+        console.log("getFormattedAddress", place);
         if(!place) return this.refs.input.value;
         return place.formatted_address;
     },
     getPlace: function () {
         return this.autocomplete.getPlace();
+    },
+    setPlace: function(city, callback) {
+        var request = {
+           input: city,
+           componentRestrictions: {country: 'fr'},
+        };
+        this.service.getPlacePredictions(request, function(res) {
+            this.setState({place: res[0]}, callback);
+        }.bind(this));
     }
 });

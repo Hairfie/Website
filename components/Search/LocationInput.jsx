@@ -14,11 +14,14 @@ var LocationInput = React.createClass ({
         return this.getStateFromProps(this.props);
     },
     componentWillReceiveProps: function(nextProps) {
+        // console.log('nextProps', nextProps);
         this.setState(this.getStateFromProps(nextProps));
         if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
             this.refs.address.refs.input.value = nextProps.currentPosition;
             this.setState({isGeolocated: false});
         }
+        else 
+            this.refs.address.refs.input.value = nextProps.initialSearch.address;
     },
     getStateFromProps: function(props) {
         return {
@@ -27,6 +30,7 @@ var LocationInput = React.createClass ({
         }
     },
     render: function () {
+        // console.log('coucou', this.state);
         var aroundText = <span className='around-text'>Autour de moi</span>;
         if (this.state.isGeolocated) {
             aroundText = (
@@ -54,7 +58,9 @@ var LocationInput = React.createClass ({
         );
     },
     getValue: function () {
-        if (this.refs.address.refs.input.value == '') return 'France';
+        console.log("this.refs.address.refs.input.value", this.refs.address.refs.input.value);
+        console.log("this.refs.address.refs.input.value", this.refs.address.getFormattedAddress());
+
         return this.refs.address.getFormattedAddress();
     },
     locateMe: function() {
