@@ -376,7 +376,7 @@
                         .infos {
                             @include flexbox;
                             @include flex-direction(column);
-                            @include justify-content(center);
+                            @include justify-content(flex-end);
                             height: 100%;
                             .business-title {
                                 color: $grey1;
@@ -384,9 +384,9 @@
                                 font-size: 1.6em;
                             }
                             .business-name {
-                                margin-top: 10px;
+                                margin-top: 5px;
                                 color: white;
-                                font-size: 2.2em;
+                                font-size: 1.8em;
                             }
                         }
                     }
@@ -439,11 +439,12 @@
                             @media screen and (max-width: $screen-xs-max) {
                                 width: 55%;
                                 right: 5%;
-                                padding: 18px 10px;
+                                padding: 5px 10px;
                             }
                             .name {
                                 text-transform: uppercase;
                                 font-size: 2em;
+                                line-height: 14px;
                                 font-weight: $regular;
                                 @media screen and (max-width: $screen-xs-max) {
                                     font-size: 1.6em;
@@ -451,6 +452,7 @@
                             }
                             .city {
                                 font-size: 1.8em;
+                                margin-top: 3px;
                                 @media screen and (max-width: $screen-xs-max) {
                                     font-size: 1.4em;
                                 }
@@ -480,6 +482,7 @@
                             .price-level {
                                 font-size: 2.4em;
                                 font-weight: $light;
+                                margin-bottom: 5px;
                                 @media screen and (max-width: $screen-xs-max) {
                                     font-size: 1.8em;
                                     span {
@@ -501,6 +504,9 @@
                                     border-radius: 2px;
                                     margin-bottom: 10px;
                                     padding-left: 35px;
+                                    @media screen and (max-width: $screen-xs-max) {
+                                        font-size: 1.4em;
+                                    }
                                     &:before {
                                         content: ' ';
                                         background: url(../img/search/star.svg) no-repeat center center;
@@ -521,9 +527,9 @@
                                 font-size: 1.5em;
                                 font-weight: $light;
                                 @media screen and (max-width: $screen-xs-max) {
-                                    font-size: 1.4em;
+                                    font-size: 1.3em;
                                     padding: 7px 10px;
-                                    width: 110px;
+                                    width: 100px;
                                 }
                             }
                         }

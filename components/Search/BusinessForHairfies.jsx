@@ -6,6 +6,7 @@ var Input = require('react-bootstrap').Input;
 var Button = require('react-bootstrap').Button;
 var classNames = require('classnames');
 var connectToStores = require('fluxible-addons-react/connectToStores');
+var Link = require('../Link.jsx');
 
 var BusinessForHairfies = React.createClass ({
 
@@ -25,21 +26,22 @@ var BusinessForHairfies = React.createClass ({
                         <span className='city'>{business.address.zipCode + ' ' + business.address.city}</span>
                         <div className={ratingClass}>{this.averageRating()} {' - ' + business.numReviews + ' avis'}</div>
                         <span className='price'>{this.priceLevel()}</span>
-                            {this.renderSelection()}
-                        <button className='btn btn-book'>Voir le salon</button>
+                        {this.renderSelection()}
+                        <Link route="business" className="btn btn-book" params={{ businessId: business.id, businessSlug: business.slug }}>Voir le salon</Link>
                     </div>
                 </div>
             </div>
         );
     },
     renderSelection: function() {
-        if (!this.props.business.selections) return null;
-        var selection = _.filter(this.props.selections, function (sel) { 
+        if (!this.props.business.selections || _.isEmpty(this.props.business.selections)) return null;
+        var selections = _.filter(this.props.selections, function (sel) { 
                                 return _.include(this.props.business.selections, sel.id)
                             }, this);
+        var selection = _.first(selections);
         return (
             <span className='selection-container'>
-                <span className='selection'>{_.first(selection).label}</span>
+                <span className='selection'>{selection.label}</span>
             </span>
         );
     },
