@@ -27,7 +27,7 @@ module.exports = React.createClass({
     },
     renderLink: function(link, i) {
         return (
-            <p key={link.address}>
+            <p key={link.address + i}>
                 <Link href={link.url}>
                     <span>{link.displayName}</span>
                 </Link>
