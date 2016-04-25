@@ -183,7 +183,7 @@ var MobileFilters = React.createClass({
             this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
         else {
             // debugger;
-            this.refs.locationInput.refs.address.setPlace('Paris', function() {
+            this.refs.locationInput.refs.address.setPlace('Paris, France', function() {
                 this.setState({search: _.assign({}, this.state.search,{address: "Paris, France", selections: _.union(this.state.search.selections || [], [selection])})});
             }.bind(this));
         }

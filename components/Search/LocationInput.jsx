@@ -20,8 +20,9 @@ var LocationInput = React.createClass ({
             this.refs.address.refs.input.value = nextProps.currentPosition;
             this.setState({isGeolocated: false});
         }
-        else 
+        else {
             this.refs.address.refs.input.value = nextProps.initialSearch.address;
+        }
     },
     getStateFromProps: function(props) {
         return {

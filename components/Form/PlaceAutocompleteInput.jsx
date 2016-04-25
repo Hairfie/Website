@@ -44,15 +44,17 @@ module.exports = React.createClass({
     },
     handlePlaceChanged: function () {
         var place = this.autocomplete.getPlace();
-        // console.log('PLACE', place);
-        this.setState({place: null});
+        this.setState({place: null}, function() {
+            console.log("place", place);
+            this.refs.input.value = place.formatted_address;
+        });
         this.props.onPlaceChanged(place);
     },
     getFormattedAddress: function () {
         if(this.state.place) return this.state.place.description;
-        // var place = this.state.place;
+
         var place = this.autocomplete.getPlace();
-        console.log("getFormattedAddress", place);
+
         if(!place) return this.refs.input.value;
         return place.formatted_address;
     },
