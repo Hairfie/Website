@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var GeoSuggest = require('react-geosuggest').default;
 
 module.exports = React.createClass({
     contextTypes: {
@@ -16,32 +17,53 @@ module.exports = React.createClass({
             onPlaceChanged: function () {}
         };
     },
+    getInitialState: function() {
+        return {
+            google: null,
+            place: this.props.initialValue
+        }
+    },
     componentDidMount: function () {
         this.context.getGoogleMapsScript().then(function (google) {
-            var input = this.refs.input;
-
-            var options = {
-                componentRestrictions: {
-                    country: 'fr'
-                }
-            };
-            options.types = this.props.types;
-
-            this.autocomplete = new google.maps.places.Autocomplete(input, options);
-            google.maps.event.addListener(this.autocomplete, 'place_changed', this.handlePlaceChanged);
+            this.setState({google: google});
         }.bind(this));
     },
     render: function () {
-        return <input ref="input" {...this.props} type="search" className={this.props.className} />
+        // console.log("google", this.state.google);
+        if(!this.state.google) {
+            return null;
+        } else {
+            return (
+                <div>
+                    <GeoSuggest
+                        type='search'
+                        ref='geoSuggest'
+                        placeholder="Start typing!"
+                        {...this.props}
+                        onSuggestSelect={this.onSuggestSelect}
+                        googleMaps={this.state.google.maps} />
+                </div>
+            );
+        }
+    },
+    onSuggestSelect: function(suggest) {
+        console.log('Suggest', suggest);
+        this.setState({place: suggest});
+        // debugger;
     },
     handlePlaceChanged: function () {
         var place = this.autocomplete.getPlace();
         this.props.onPlaceChanged(place);
     },
     getFormattedAddress: function () {
-        var place = this.autocomplete.getPlace();
-        if(!place) return this.refs.input.value;
-        return place.formatted_address;
+        console.log('getFormattedAddress', this.state.place);
+        return this.state.place.label;
+        // var place = this.autocomplete.getPlace();
+        // if(!place) return this.refs.input.value;
+        // return place.formatted_address;
+    },
+    getValue: function() {
+        return this.getFormattedAddress();
     },
     getPlace: function () {
         return this.autocomplete.getPlace();

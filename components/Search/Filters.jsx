@@ -145,13 +145,14 @@ var Filters = React.createClass({
                 </div>
             );
         }
+        console.log('renderAddress', this.state.location);
         return (
             <div>
                 <h2 style={{borderBottom: 0}}>Localisation</h2>
                 <hr className='underliner location'/>
                 <div className="input-group">
-                    <GeoInput className="form-control" ref="address" type="text"
-                        value={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
+                    <GeoInput ref="address" type="text"
+                        initialValue={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
                         />
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
@@ -306,7 +307,7 @@ var Filters = React.createClass({
     },
     handleLocationChange: function(e) {
         this.setState({
-            location: e.currentTarget.value
+            location: this.refs.address.getValue()
         });
     },
     goToLocation: function(newLocationString) {
@@ -337,6 +338,7 @@ var Filters = React.createClass({
         this.props.onChange({days: _.without(this.props.search.days, day)});
     },
     addSelection: function (selection) {
+        this.refs.address.refs.geoSuggest.update('Paris, France');
         this.props.onChange({selections: _.union(this.props.search.selections || [], [selection])});
     },
     removeSelection: function (selection) {

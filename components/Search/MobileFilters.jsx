@@ -177,8 +177,11 @@ var MobileFilters = React.createClass({
     handleSelectionChange: function(selection) {
         if (this.state.search && (this.state.search.selections || []).indexOf(selection) > -1)
             this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
-        else
-            this.setState({search: _.assign({}, this.state.search,{selections: _.union(this.state.search.selections || [], [selection])})});
+        else {
+            this.refs.locationInput.refs.address.setPlace('Paris', function() {
+                this.setState({search: _.assign({}, this.state.search, {address: "Paris, France", selections: _.union(this.state.search.selections || [], [selection])})});
+            }.bind(this));
+        }
     },
     handlePromoChange: function() {
         this.setState({search: _.assign({}, this.state.search, {withDiscount: !this.state.search.withDiscount})});
