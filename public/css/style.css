@@ -12405,10 +12405,15 @@ section.home-search .home-search-mobile {
         #content.search .main-content .search-content .hairfies > .row .single-hairfie .infos-mobile .business-title {
           color: #c4c4c4;
           text-transform: uppercase;
-          font-size: 1.4em; }
+          font-size: 1.3em; }
         #content.search .main-content .search-content .hairfies > .row .single-hairfie .infos-mobile .business-name {
           color: black;
-          font-size: 1.6em; }
+          font-size: 1.6em;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 100%;
+          display: inline-block; }
     #content.search .main-content .search-content .hairfies > .row .single-business {
       position: relative;
       padding: 5px;

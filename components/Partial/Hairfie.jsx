@@ -53,11 +53,7 @@ module.exports = React.createClass({
                 </div>
             );
         }
-        var businessName = _.trunc(hairfie.business && hairfie.business.name, {
-                'length': 35,
-                'separator': ' ',
-                'omission': ' ...'
-            });
+
         return (
             <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup ? noNav : false} className={className}>
                 <Picture picture={_.last(hairfie.pictures)}
@@ -74,7 +70,7 @@ module.exports = React.createClass({
                     <span className="business-title">Salon de coiffure&nbsp;:</span>
                     <br/>
                     <span className="business-name">
-                       {businessName}
+                       {hairfie.business && hairfie.business.name}
                     </span>
                 </div>
             </Link>

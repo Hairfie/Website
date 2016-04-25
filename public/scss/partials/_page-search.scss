@@ -399,11 +399,16 @@
                         .business-title {
                             color: $grey;
                             text-transform: uppercase;
-                            font-size: 1.4em;
+                            font-size: 1.3em;
                         }
                         .business-name {
                             color: black;
                             font-size: 1.6em;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            width: 100%;
+                            display: inline-block;
                         }
                     }
                 }
