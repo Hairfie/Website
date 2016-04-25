@@ -6,7 +6,6 @@ var Picture = require('./Picture.jsx');
 var Link = require('../Link.jsx');
 var PopUpHairfie = require('./PopUpHairfie.jsx');
 var NavigationActions = require('../../actions/NavigationActions');
-var ReactFitText = require('react-fittext');
 
 function displayName(u) { var u = u || {}; return u.firstName; }
 
@@ -36,52 +35,44 @@ module.exports = React.createClass({
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
                 {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
-                    {this.renderLink(true, 'hidden-xs hidden-sm')}
-                    {this.renderLink(false, 'hidden-md hidden-lg')}
+                    {this.renderLink(true, 'hidden-xs')}
+                    {this.renderLink(false, ' hidden-sm hidden-md hidden-lg')}
                 </figure>
             </div>
         );
     },
     renderLink: function (noNav, className) {
         var hairfie = this.props.hairfie;
-        var hairdresser = <p></p>;
-        if (hairfie.hairdresser) {
-            hairdresser = <p><span className="underline">Coiffeur</span> : {displayName(hairfie.hairdresser)}</p>;
-        }
-        var salon = <p></p>;
-        if (hairfie.business && hairfie.business.name) {
-            salon = <p><span className="underline">Salon</span> : {hairfie.business.name}</p>;
-        }
+        var salon = null;
 
-        var price;
-        if (hairfie.price) {
-            price = (
-                <div className="pricetag">
-                    <ReactFitText compressor={0.33}>
-                        <span className="price">{hairfie.price.amount+'€'}</span>
-                    </ReactFitText>
+        if (hairfie.business && hairfie.business.name) {
+            salon = (
+                <div className='infos'>
+                    <span className="business-title">Salon de coiffure&nbsp;:</span>
+                    <span className="business-name">{hairfie.business.name}</span>
                 </div>
             );
         }
 
-        var tags;
-        if (hairfie.tags) {
-            tags = <p>{_.map(hairfie.tags, 'name').join(', ')}</p>
-        }
         return (
             <Link route="hairfie" params={{ hairfieId: hairfie.id }} noNav={this.props.popup ? noNav : false} className={className}>
                 <Picture picture={_.last(hairfie.pictures)}
-                        resolution={{width: 320, height: 320}}
-                        placeholder="/img/placeholder-220.png"
-                        alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
+                    resolution={{width: 320, height: 320}}
+                    placeholder="/img/placeholder-220.png"
+                    alt={hairfie.tags.length > 0 ? _.map(hairfie.tags, 'name').join(", ") : ""}
                 />
-                {price}
+                {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} className='hairfie-min' /> : null}
+
                 <figcaption>
                     {salon}
-                    {hairdresser}
-                    {tags}    
-                    {hairfie.pictures.length > 1 ? <Picture picture={_.first(hairfie.pictures)} style={{position: 'absolute', width:'40%', top: '0px', right: '0px'}} /> : null}
                 </figcaption>
+                <div className='infos-mobile visible-xs'>
+                    <span className="business-title">Salon de coiffure&nbsp;:</span>
+                    <br/>
+                    <span className="business-name">
+                       {hairfie.business && hairfie.business.name}
+                    </span>
+                </div>
             </Link>
         )
     },

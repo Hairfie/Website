@@ -303,9 +303,244 @@
         }
     }
     .main-content {
-
+        @media screen and (max-width: $screen-xs-max) {
+            padding-right: 10px;
+        }
         .search-content {
             @include fullWidthBg($bg3);
+            .filter-bar {
+                width: calc(100% - 15px);
+                height: 50px;
+                background-color: white;
+                border: 1px solid $grey2;
+                margin-bottom: 10px;
+                .filter-title {
+                    padding: 3px 20px;
+                    height: 100%;
+                    line-height: 50px;
+                    width: 70%;
+                    font-size: 1.4em;
+                    text-transform: uppercase;
+                }
+                .filters {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    border-left: 1px solid $grey2;
+                    width: 200px;
+                    float: right;
+                    height: 100%;
+                    @media screen and (max-width: $screen-xs-max){
+                        width: 150px;
+                    }
+                    .Select > .Select-control {
+                        height: 48px;
+                        border: 0;
+                        .Select-placeholder {
+                            line-height: 32px;
+                            font-weight: $light;
+                            padding: 8px 30px 8px 10px;
+                        }
+                        .Select-arrow {
+                            top: 22px;
+                        }
+                    }
+                    .Select-option {
+                        font-weight: $light;
+                    }
+                }
+            }
+            .hairfies > .row {
+                margin-left: -5px;
+                margin-right: 10px;
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-left: 5px;
+                    margin-top: 5px;
+                }
+                .single-hairfie{
+                    padding: 5px;
+                    a:hover, a:focus {
+                        text-decoration: none;
+                    }
+                    .hairfie-min {
+                        position: absolute;
+                        width: 20%;
+                        bottom: 5px;
+                        right: 5px;
+                        border: 1px solid white;
+                        @media screen and (max-width: $screen-xs-max) {
+                            bottom: 55px;
+                        }
+                    }
+                    figcaption {
+                        .infos {
+                            @include flexbox;
+                            @include flex-direction(column);
+                            @include justify-content(flex-end);
+                            height: 100%;
+                            .business-title {
+                                color: $grey1;
+                                text-transform: uppercase;
+                                font-size: 1.6em;
+                            }
+                            .business-name {
+                                margin-top: 5px;
+                                color: white;
+                                font-size: 1.8em;
+                            }
+                        }
+                    }
+                    .infos-mobile {
+                        height: 50px;
+                        border: 1px solid $grey2;
+                        border-top: 0;
+                        padding: 3px 10px;
+                        background-color: white;
+                        .business-title {
+                            color: $grey;
+                            text-transform: uppercase;
+                            font-size: 1.3em;
+                        }
+                        .business-name {
+                            color: black;
+                            font-size: 1.6em;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            width: 100%;
+                            display: inline-block;
+                        }
+                    }
+                }
+                .single-business {
+                    position: relative;
+                    padding: 5px;
+                    padding-bottom: calc(33.333333% - 5px);
+                    @media screen and (max-width: $screen-xs-max) {
+                        padding-bottom: 63%;
+                    }
+                    .business {
+                        position: absolute;
+                        width: calc(100% - 10px);
+                        height: calc(100% - 11px);
+                        overflow: hidden;
+                        .background-image {
+                            background-size: cover;
+                            width: 101%;
+                            height: 100%;
+                        }
+                        .business-infos {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            background-color: rgba(35, 35, 35, 0.7);
+                            width: 60%;
+                            height: 100%;
+                            color: white;
+                            padding: 10px 0 10px 50px;
+                            @include flexbox;
+                            @include flex-direction(column);
+                            @include justify-content(center);
+                            @media screen and (max-width: $screen-xs-max) {
+                                width: 55%;
+                                right: 5%;
+                                padding: 5px 10px;
+                            }
+                            .name {
+                                text-transform: uppercase;
+                                font-size: 2em;
+                                line-height: 14px;
+                                font-weight: $regular;
+                                @media screen and (max-width: $screen-xs-max) {
+                                    font-size: 1.6em;
+                                }
+                            }
+                            .city {
+                                font-size: 1.8em;
+                                margin-top: 3px;
+                                @media screen and (max-width: $screen-xs-max) {
+                                    font-size: 1.4em;
+                                }
+                            }
+                            .rating-stars {
+                                width: 100%;
+                                @include flexbox;
+                                @include align-items(center);
+                                font-size: 1.4em;
+                                @media screen and (max-width: $screen-xs-max) {
+                                    font-size: 1.4em;
+                                }
+                                .stars {
+                                    height: auto;
+                                    .star {
+                                        width: 20px;
+                                        height: 20px;
+                                        margin: 2px;
+                                        @media screen and (max-width: $screen-xs-max) {
+                                            width: 16px;
+                                            height: 16px;
+                                            margin: 1px;
+                                        }
+                                    }
+                                }
+                            }
+                            .price-level {
+                                font-size: 2.4em;
+                                font-weight: $light;
+                                margin-bottom: 5px;
+                                @media screen and (max-width: $screen-xs-max) {
+                                    font-size: 1.8em;
+                                    span {
+                                        margin: 2px;
+                                    }
+                                }
+                                .grey {
+                                    color: $grey;
+                                }
+                            }
+                            .selection-container {
+                                margin-top: 5px;
+                                margin-bottom: 15px;
+                                .selection {
+                                    border: 1px solid white;
+                                    font-size: 1.6em;
+                                    text-transform: uppercase;
+                                    padding: 4px 10px;
+                                    border-radius: 2px;
+                                    margin-bottom: 10px;
+                                    padding-left: 35px;
+                                    @media screen and (max-width: $screen-xs-max) {
+                                        font-size: 1.4em;
+                                    }
+                                    &:before {
+                                        content: ' ';
+                                        background: url(../img/search/star.svg) no-repeat center center;
+                                        background-size: contain;
+                                        width: 18px;
+                                        height: 18px;
+                                        left: 60px;
+                                        position: absolute;
+                                        @media screen and (max-width: $screen-xs-max) {
+                                            left: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .btn-book {
+                                padding: 7px 3px;
+                                width: 120px;
+                                font-size: 1.5em;
+                                font-weight: $light;
+                                @media screen and (max-width: $screen-xs-max) {
+                                    font-size: 1.3em;
+                                    padding: 7px 10px;
+                                    width: 100px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .header-part {
@@ -1383,8 +1618,8 @@
     }
 
     .spinner > div {
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         background-color: $grey;
 
         border-radius: 100%;
@@ -1414,6 +1649,26 @@
         } 40% { 
             -webkit-transform: scale(1.0);
             transform: scale(1.0);
+        }
+    }
+    .btn-flex-container {
+        width: 100%;
+        @include flexbox;
+        @include justify-content(center);
+        padding-top: 20px;
+        .btn-loadmore {
+            height: 95px;
+            width: 95px;
+            border-radius: 50%;
+            background-color: $bg3;
+            border: 3px solid $grey;
+            text-transform: uppercase;
+            padding-top: 27px;
+            &.flex{
+                @include flexbox;
+                @include align-items(center);
+                padding-top: 0;
+            }
         }
     }
 }

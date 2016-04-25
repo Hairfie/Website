@@ -635,7 +635,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
             }
 
             &:hover {
-                @media screen and (min-width: $screen-md-min) {
+                @media screen and (min-width: $screen-sm-min) {
                     figcaption {
                         opacity: 1;
                     }

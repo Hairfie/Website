@@ -74,9 +74,16 @@ module.exports = createStore({
     },
     onReceiveHairfieSearchResult: function (payload) {
         var search = payload.search;
+        delete search.page;
         var result = payload.result;
+
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(result.hits, 'id'));
-        this.searchResults[searchKey(search)] = _.assign({}, result, { hits: _.pluck(result.hits, 'id') });
+        if (this.searchResults[searchKey(search)]) {
+            var newHits = _.uniq(this.searchResults[searchKey(search)].hits.concat(_.pluck(result.hits, 'id')));
+            this.searchResults[searchKey(search)] = _.assign({}, result, { hits: newHits, currentPage: newHits.length / 14 });
+        }
+        else
+            this.searchResults[searchKey(search)] = _.assign({}, result, { hits: _.pluck(result.hits, 'id'), currentPage: 1 });
         this.emitChange();
     },
     onReceiveBusinessHairfies: function (payload) {
@@ -237,8 +244,8 @@ module.exports = createStore({
         return this.businessTopIds[businessId] && _.map(this.businessTopIds[businessId], this.getById, this);
     },
     getSearchResult: function (search) {
+        delete search.page;
         var result = this.searchResults[searchKey(search)];
-
         if (result) {
             return _.assign({}, result, { hits: _.map(result.hits, this.getById, this) });
         }
