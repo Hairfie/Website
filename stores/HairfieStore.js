@@ -36,7 +36,6 @@ module.exports = createStore({
             userLikes: this.userLikes,
             hairdresserHairfies: this.hairdresserHairfies,
             topIds: this.topIds,
-            businessTopIds: this.businessTopIds,
             searchResults: this.searchResults
         };
     },
@@ -46,7 +45,6 @@ module.exports = createStore({
         this.userLikes = state.userLikes;
         this.hairdresserHairfies = state.hairdresserHairfies;
         this.topIds = state.topIds;
-        this.businessTopIds = state.businessTopIds;
         this.searchResults = state.searchResults;
     },
     onReceiveHairfie: function (hairfie) {
@@ -235,7 +233,8 @@ module.exports = createStore({
         return _.map(this.topIds, this.getById, this);
     },
     getBusinessTop: function (businessId) {
-        if (_.isUndefined(this.businessTopIds[businessId]) || _.isEmpty(this.businessTopIds[businessId])) {
+        console.log("getBusinessTop", this.businessTopIds[businessId]);
+        if (_.isUndefined(this.businessTopIds[businessId])) {
             this.getContext().executeAction(HairfieActions.loadBusinessTopHairfies, { limit: 4, businessId: businessId });
             this.businessTopIds[businessId] = new Array();
             this.emitChange();
