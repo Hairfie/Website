@@ -27,7 +27,6 @@ module.exports = {
         var query = {
             'limit': params.limit || 6
         };
-
         return context.hairfieApi
             .get('/tops/hairfies/'+ params.businessId, { query: query })
             .then(function (hairfies) {
@@ -91,29 +90,15 @@ module.exports = {
         });
     },
     loadSearchResult: function (context, search) {
-        var query = { pageSize: 16 };
+        var query = { pageSize: 14 };
         query.page = search.page;
-        if (search.location) {
-            query.location = [
-                search.location.lat,
-                search.location.lng
-            ].join(',');
-            query.radius = search.radius;
-        }
-        if (search.bounds) {
-            query.bounds = [
-                search.bounds.southWest.lat,
-                search.bounds.southWest.lng,
-                search.bounds.northEast.lat,
-                search.bounds.northEast.lng
-            ].join(',');
-        }
-
+        if (!search.sort)
+            query.sort='numLikes';
+        else 
+            query.sort = search.sort;
         _.forEach(search.tags, function (tag, i) {
             query['tags['+i+']'] = tag;
         });
-        if (search.priceMin) query.priceMin = search.priceMin;
-        if (search.priceMax) query.priceMax = search.priceMax;
 
         return context.hairfieApi
             .get('/hairfies/search', { query: query })

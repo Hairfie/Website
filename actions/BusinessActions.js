@@ -26,6 +26,13 @@ module.exports = {
                 context.dispatch(Actions.RECEIVE_SIMILAR_BUSINESSES, { businessId: businessId, businesses: businesses });
             });
     },
+    loadSomeBusinessesForHairfieSearch: function (context, payload) {
+        return context.hairfieApi
+            .get('/tops/businesses', { query: { limit: 6 }})
+            .then(function (businesses) {
+                context.dispatch(Actions.RECEIVE_BUSINESS_FOR_HAIRFIE_SEARCH, businesses);
+            });
+    },
     submitSearch: function (context, search) {
         var search = search;
         if (!search.address) {

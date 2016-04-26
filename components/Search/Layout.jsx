@@ -48,7 +48,7 @@ var Layout = React.createClass({
                             <section className="search-content">
                                 <Header search={this.props.search} tab={this.props.tab} place={this.props.place} selections={this.props.selections} />
                                 <div className="row">
-                                    <div role="tabpanel" className="bg-white-xs">
+                                    <div role="tabpanel">
                                         <div className="row">
                                             {/*this.renderTabs()*/}
                                         </div>

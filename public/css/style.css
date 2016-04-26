@@ -10030,6 +10030,43 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
 .hairfies .single-hairfie {
   padding: 5px; }
+  .hairfies .single-hairfie a:hover, .hairfies .single-hairfie a:focus {
+    text-decoration: none; }
+  .hairfies .single-hairfie .hairfie-min {
+    position: absolute;
+    width: 20%;
+    bottom: 5px;
+    right: 5px;
+    border: 1px solid white; }
+    @media screen and (max-width: 767px) {
+      .hairfies .single-hairfie .hairfie-min {
+        bottom: 55px; } }
+  .hairfies .single-hairfie figcaption .infos {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
+    height: 100%; }
+    .hairfies .single-hairfie figcaption .infos .business-title {
+      color: #aaaaaa;
+      text-transform: uppercase;
+      font-size: 1.6em; }
+    .hairfies .single-hairfie figcaption .infos .business-name {
+      margin-top: 5px;
+      color: white;
+      font-size: 1.8em; }
   @media screen and (min-width: 992px) {
     .hairfies .single-hairfie {
       padding: 5px 10px 5px 0; } }
@@ -10070,7 +10107,7 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
         font-weight: 400;
         font-size: 1.2em;
         padding: 10px 8px; }
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 768px) {
       .hairfies .single-hairfie figure:hover figcaption {
         opacity: 1; } }
   .hairfies .single-hairfie .pricetag {
@@ -12293,6 +12330,9 @@ section.home-search .home-search-mobile {
     font-size: 1em; }
     #content.search .subfilters .filter-line {
       line-height: 40px; }
+  @media screen and (max-width: 767px) {
+    #content.search .main-content {
+      padding-right: 10px; } }
   #content.search .main-content .search-content {
     position: relative; }
     #content.search .main-content .search-content:before {
@@ -12313,6 +12353,238 @@ section.home-search .home-search-mobile {
       top: 0;
       background: #f4f4f4;
       z-index: -1; }
+    #content.search .main-content .search-content .filter-bar {
+      width: calc(100% - 15px);
+      height: 50px;
+      background-color: white;
+      border: 1px solid #dfdfdf;
+      margin-bottom: 10px; }
+      #content.search .main-content .search-content .filter-bar .filter-title {
+        padding: 3px 20px;
+        height: 100%;
+        line-height: 50px;
+        width: 70%;
+        font-size: 1.4em;
+        text-transform: uppercase; }
+      #content.search .main-content .search-content .filter-bar .filters {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-left: 1px solid #dfdfdf;
+        width: 200px;
+        float: right;
+        height: 100%; }
+        @media screen and (max-width: 767px) {
+          #content.search .main-content .search-content .filter-bar .filters {
+            width: 150px; } }
+        #content.search .main-content .search-content .filter-bar .filters .Select > .Select-control {
+          height: 48px;
+          border: 0; }
+          #content.search .main-content .search-content .filter-bar .filters .Select > .Select-control .Select-placeholder {
+            line-height: 32px;
+            font-weight: 200;
+            padding: 8px 30px 8px 10px; }
+          #content.search .main-content .search-content .filter-bar .filters .Select > .Select-control .Select-arrow {
+            top: 22px; }
+        #content.search .main-content .search-content .filter-bar .filters .Select-option {
+          font-weight: 200; }
+    #content.search .main-content .search-content .hairfies > .row {
+      margin-left: -5px;
+      margin-right: 10px; }
+      @media screen and (max-width: 767px) {
+        #content.search .main-content .search-content .hairfies > .row {
+          margin-left: 5px;
+          margin-top: 5px; } }
+      #content.search .main-content .search-content .hairfies > .row .single-hairfie {
+        padding: 5px; }
+        #content.search .main-content .search-content .hairfies > .row .single-hairfie a:hover, #content.search .main-content .search-content .hairfies > .row .single-hairfie a:focus {
+          text-decoration: none; }
+        #content.search .main-content .search-content .hairfies > .row .single-hairfie .hairfie-min {
+          position: absolute;
+          width: 20%;
+          bottom: 5px;
+          right: 5px;
+          border: 1px solid white; }
+          @media screen and (max-width: 767px) {
+            #content.search .main-content .search-content .hairfies > .row .single-hairfie .hairfie-min {
+              bottom: 55px; } }
+        #content.search .main-content .search-content .hairfies > .row .single-hairfie figcaption .infos {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-direction: normal;
+          -webkit-box-orient: vertical;
+          -webkit-flex-direction: column;
+          -moz-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          -webkit-justify-content: flex-end;
+          -moz-justify-content: flex-end;
+          justify-content: flex-end;
+          height: 100%; }
+          #content.search .main-content .search-content .hairfies > .row .single-hairfie figcaption .infos .business-title {
+            color: #aaaaaa;
+            text-transform: uppercase;
+            font-size: 1.6em; }
+          #content.search .main-content .search-content .hairfies > .row .single-hairfie figcaption .infos .business-name {
+            margin-top: 5px;
+            color: white;
+            font-size: 1.8em; }
+        #content.search .main-content .search-content .hairfies > .row .single-hairfie .infos-mobile {
+          height: 50px;
+          border: 1px solid #dfdfdf;
+          border-top: 0;
+          padding: 3px 10px;
+          background-color: white; }
+          #content.search .main-content .search-content .hairfies > .row .single-hairfie .infos-mobile .business-title {
+            color: #c4c4c4;
+            text-transform: uppercase;
+            font-size: 1.3em; }
+          #content.search .main-content .search-content .hairfies > .row .single-hairfie .infos-mobile .business-name {
+            color: black;
+            font-size: 1.6em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+            display: inline-block; }
+      #content.search .main-content .search-content .hairfies > .row .single-business {
+        position: relative;
+        padding: 5px;
+        padding-bottom: calc(33.333333% - 5px); }
+        @media screen and (max-width: 767px) {
+          #content.search .main-content .search-content .hairfies > .row .single-business {
+            padding-bottom: 63%; } }
+        #content.search .main-content .search-content .hairfies > .row .single-business .business {
+          position: absolute;
+          width: calc(100% - 10px);
+          height: calc(100% - 11px);
+          overflow: hidden; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .background-image {
+            background-size: cover;
+            width: 101%;
+            height: 100%; }
+          #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(35, 35, 35, 0.7);
+            width: 60%;
+            height: 100%;
+            color: white;
+            padding: 10px 0 10px 50px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-direction: normal;
+            -webkit-box-orient: vertical;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            -moz-justify-content: center;
+            justify-content: center; }
+            @media screen and (max-width: 767px) {
+              #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos {
+                width: 55%;
+                right: 5%;
+                padding: 5px 10px; } }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .name {
+              text-transform: uppercase;
+              font-size: 2em;
+              line-height: 14px;
+              font-weight: 400; }
+              @media screen and (max-width: 767px) {
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .name {
+                  font-size: 1.6em; } }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .city {
+              font-size: 1.8em;
+              margin-top: 3px; }
+              @media screen and (max-width: 767px) {
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .city {
+                  font-size: 1.4em; } }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars {
+              width: 100%;
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -moz-flex;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              -webkit-align-items: center;
+              -moz-align-items: center;
+              align-items: center;
+              font-size: 1.4em; }
+              @media screen and (max-width: 767px) {
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars {
+                  font-size: 1.4em; } }
+              #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars .stars {
+                height: auto; }
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars .stars .star {
+                  width: 20px;
+                  height: 20px;
+                  margin: 2px; }
+                  @media screen and (max-width: 767px) {
+                    #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .rating-stars .stars .star {
+                      width: 16px;
+                      height: 16px;
+                      margin: 1px; } }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level {
+              font-size: 2.4em;
+              font-weight: 200;
+              margin-bottom: 5px; }
+              @media screen and (max-width: 767px) {
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level {
+                  font-size: 1.8em; }
+                  #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level span {
+                    margin: 2px; } }
+              #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .price-level .grey {
+                color: #c4c4c4; }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container {
+              margin-top: 5px;
+              margin-bottom: 15px; }
+              #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection {
+                border: 1px solid white;
+                font-size: 1.6em;
+                text-transform: uppercase;
+                padding: 4px 10px;
+                border-radius: 2px;
+                margin-bottom: 10px;
+                padding-left: 35px; }
+                @media screen and (max-width: 767px) {
+                  #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection {
+                    font-size: 1.4em; } }
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection:before {
+                  content: ' ';
+                  background: url(../img/search/star.svg) no-repeat center center;
+                  background-size: contain;
+                  width: 18px;
+                  height: 18px;
+                  left: 60px;
+                  position: absolute; }
+                  @media screen and (max-width: 767px) {
+                    #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection:before {
+                      left: 20px; } }
+            #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .btn-book {
+              padding: 7px 3px;
+              width: 120px;
+              font-size: 1.5em;
+              font-weight: 200; }
+              @media screen and (max-width: 767px) {
+                #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .btn-book {
+                  font-size: 1.3em;
+                  padding: 7px 10px;
+                  width: 100px; } }
   #content.search .main-content .header-part {
     padding: 0; }
     #content.search .main-content .header-part .cover {
@@ -13333,8 +13605,8 @@ section.home-search .home-search-mobile {
     -moz-justify-content: center;
     justify-content: center; }
   #content.search .spinner > div {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     background-color: #c4c4c4;
     border-radius: 100%;
     display: inline-block;
@@ -13360,6 +13632,39 @@ section.home-search .home-search-mobile {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+  #content.search .btn-flex-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    padding-top: 20px; }
+    #content.search .btn-flex-container .btn-loadmore {
+      height: 95px;
+      width: 95px;
+      border-radius: 50%;
+      background-color: #f4f4f4;
+      border: 3px solid #c4c4c4;
+      text-transform: uppercase;
+      padding-top: 27px; }
+      #content.search .btn-flex-container .btn-loadmore.flex {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        padding-top: 0; }
 
 @media screen and (max-width: 767px) {
   .bg-white-xs {
@@ -14328,6 +14633,10 @@ section.home-search .home-search-mobile {
               background-color: transparent !important; }
               .salon#content .sidebar .networks .social-links li a:hover:after {
                 opacity: 1; }
+  .salon#content .single-hairfie .hairfie-min {
+    bottom: 5px; }
+  .salon#content .single-hairfie .infos-mobile {
+    display: none !important; }
 
 /*////////////////////////////////
       P A G E  H A I R F I E
@@ -15676,6 +15985,10 @@ section.home-search .home-search-mobile {
       margin-bottom: 20px;
       position: relative;
       background: white; }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie .hairfie-min {
+        bottom: 5px; }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie .infos-mobile {
+        display: none !important; }
       @media screen and (min-width: 1200px) {
         .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie {
           width: 20%; } }

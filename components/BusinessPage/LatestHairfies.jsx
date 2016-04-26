@@ -31,7 +31,7 @@ var LatestHairfies = React.createClass({
                 <h3>Les derniers hairfies</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
-                        return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
+                        return <Hairfie className="col-xs-6 col-sm-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                     })}
                     <Link route="hairfie_search" params={{ address: 'France'}} 
                     className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
@@ -52,7 +52,7 @@ var LatestHairfies = React.createClass({
                 <h3>Les derniers hairfies de ce salon de coiffure</h3>
                 <div className="hairfies">
                     {hairfies == -1 ? this.renderLoader() : _.map(hairfies, function (hairfie) {
-                        return <Hairfie className="col-xs-6 col-md-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
+                        return <Hairfie className="col-xs-6 col-sm-3 single-hairfie" key={hairfie.id} hairfie={hairfie} />;
                     })}
                     <Link Link route="business_hairfies" params={{ businessId: business.id, businessSlug: business.slug }} 
                     className="more col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4"> En voir +</Link>
@@ -75,8 +75,7 @@ LatestHairfies = connectToStores(LatestHairfies, [
     var hairfies = null;
     if (!props.business) hairfies = null;
     else if (props.business.accountType == businessAccountTypes.FREE) hairfies = context.getStore('HairfieStore').getTop();
-    else hairfies = hairfies = context.getStore('HairfieStore').getBusinessTop(props.business.id);
-
+    else hairfies = context.getStore('HairfieStore').getBusinessTop(props.business.id);
 
     return _.assign({}, {
         hairfies: _.compact(hairfies)

@@ -1138,4 +1138,12 @@
             }
         }
     }
+    .single-hairfie {
+        .hairfie-min {
+            bottom: 5px;
+        }
+        .infos-mobile {
+            @include hide;
+        }
+    }
 }

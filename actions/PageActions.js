@@ -19,6 +19,7 @@ var UserActions = require('./UserActions');
 var TagActions = require('./TagActions');
 var CategoryActions = require('./CategoryActions');
 var BlogPostActions = require('./BlogPostActions');
+var SelectionActions = require('./SelectionActions');
 var SearchUtils = require('../lib/search-utils');
 
 var RouteStore = require('../stores/RouteStore');
@@ -53,7 +54,11 @@ module.exports = {
                 var place  = context.getStore('PlaceStore').getByAddress(address);
                 var search = SearchUtils.searchFromRouteAndPlace(route, place);
 
-                return context.executeAction(HairfieActions.loadSearchResult, search);
+                return Promise.all([
+                    context.executeAction(HairfieActions.loadSearchResult, search),
+                    context.executeAction(SelectionActions.loadAll),
+                    context.executeAction(BusinessActions.loadSomeBusinessesForHairfieSearch)
+                ]);
             }, function(e) {
                 var error = new Error('Invalid URL');
                 error.status = 301;

@@ -50,7 +50,14 @@ var HairfieSearchPage = React.createClass({
             onChange={this.handleSearchChange} />
     },
     renderResults: function () {
-        return <Search.HairfieResult search={this.props.search} result={this.props.result} searchedCategories={this.props.search.tags} onChange={this.handleSearchChange} />;
+        return <Search.HairfieResult 
+            search={this.props.search} 
+            result={this.props.result} 
+            mixedResult={this.props.mixedResult} 
+            searchedCategories={this.props.search.tags}
+            loadMore={this.loadMore}
+            isFullyLoaded = {this.props.isFullyLoaded}
+            onChange={this.handleSearchChange} />;
     },
     handleDisplayMobileFilters: function() {
         if(this.state.displayMobileFilters == false)
@@ -58,6 +65,9 @@ var HairfieSearchPage = React.createClass({
         else
             $('body').removeClass('locked');
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
+    },
+    loadMore: function() {
+        this.context.executeAction(HairfieActions.loadSearchResult, _.assign({}, this.props.search, {page: this.props.currentPage + 1 }))
     },
     handleSearchChange: function (nextSearch) {
         console.log('nextSearch', nextSearch);
@@ -70,19 +80,36 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
     'PlaceStore',
     'HairfieStore',
     'CategoryStore',
-    'TagStore'
+    'TagStore',
+    'DealStore',
+    'BusinessStore'
 ], function (context, props) {
     var address = SearchUtils.addressFromUrlParameter(props.route.params.address);
     var place = context.getStore('PlaceStore').getByAddress(address);
     var search = {};
-    var result;
+    var result, currentPage, isFullyLoaded, tags, i, j, k, mixedResult, businessesToAddToMixedResult;
+    j = 0;
+    k = 0;
+    mixedResult = [];
 
     if (place) {
         search = SearchUtils.searchFromRouteAndPlace(props.route, place);
         result = context.getStore('HairfieStore').getSearchResult(search);
+        currentPage = result && result.currentPage ? result.currentPage : 1;
+        isFullyLoaded = result && result.hits.length == result.numHits ? true : false;
     }
+    tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
 
-    var tags = result ? context.getStore('TagStore').getTagsByName(_.keys(result.tags)) : '';
+    businessesToAddToMixedResult = context.getStore('BusinessStore').getBusinessesForHairfieSearch();
+    if (result) {
+        for (i = 0; i < result.hits.length; i++) { 
+            mixedResult[j++]= result.hits[i];
+            if (i % 14 == 3 || i % 14 == 9){
+                mixedResult[j++] = businessesToAddToMixedResult[k % 6];
+                k++;
+            }
+        }
+    }
 
     var searchTagsId;
     if (search && !(_.isEmpty(tags))) {
@@ -97,6 +124,9 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         place: place,
         search: search,
         result: result,
+        mixedResult: mixedResult,
+        currentPage: currentPage,
+        isFullyLoaded: isFullyLoaded,
         tagCategories: context.getStore('TagStore').getTagCategories(),
         tags: context.getStore('TagStore').getAllTags(),
         categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId)
