@@ -35,6 +35,8 @@ module.exports = React.createClass({
                 <div className="carousel-inner" role="listbox">
                     {items}
                 </div>
+                {this.renderControlLeft()}
+                {this.renderControlRight()}
                 {this.renderIndice()}
                 {this.renderBeforeAfter()}
                 {gallery}
@@ -45,6 +47,24 @@ module.exports = React.createClass({
         if(typeof window !== 'undefined') {
             window.dispatchEvent(new Event('resize'));
         }
+    },
+    renderControlLeft: function() {
+        if(!this.props.pictures || this.props.pictures.length < 2) return null;
+        return (
+            <a className="left carousel-control" href="#carousel-salon" role="button" onClick={this.handleLeftClick}>
+                <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span className="sr-only">Précédent</span>
+            </a>
+        );
+    },
+    renderControlRight: function() {
+        if (!this.props.pictures || this.props.pictures.length < 2) return null;
+        return (
+            <a className="right carousel-control" href="#carousel-salon" role="button" onClick={this.handleRightClick}>
+                <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span className="sr-only">Suivant</span>
+            </a>
+        );
     },
     renderIndice: function() {
         if (!this.props.pictures || this.props.pictures.length < 2 || !this.props.indice) return null;
