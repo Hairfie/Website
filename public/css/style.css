@@ -12566,7 +12566,7 @@ section.home-search .home-search-mobile {
               padding: 4px 10px;
               border-radius: 2px;
               margin-bottom: 10px;
-              padding-left: 35px; }
+              padding-left: 30px; }
               @media screen and (max-width: 767px) {
                 #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection {
                   font-size: 1.4em; } }
@@ -12576,7 +12576,7 @@ section.home-search .home-search-mobile {
                 background-size: contain;
                 width: 18px;
                 height: 18px;
-                left: 60px;
+                left: 37px;
                 position: absolute; }
                 @media screen and (max-width: 767px) {
                   #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .selection-container .selection:before {
