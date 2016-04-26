@@ -12128,6 +12128,9 @@ section.home-search .home-search-mobile {
           -o-transition: none;
           transition: none;
           margin-top: 0px; }
+        #content.search .new-filters .location .input-group input, #content.search .new-filters .business-name .input-group input {
+          font-size: 0.7em;
+          height: 40px; }
         #content.search .new-filters .location .input-group .input-group-addon, #content.search .new-filters .business-name .input-group .input-group-addon {
           border-radius: 2px;
           border-top-left-radius: 0;
@@ -13236,15 +13239,15 @@ section.home-search .home-search-mobile {
     text-align: left; }
   #content.search .geosuggest__input {
     width: 100%;
-    border: 2px solid transparent;
-    box-shadow: 0 0 1px #3d464d;
+    -webkit-appearance: none;
+    border: 1px solid #e6e6e6;
+    box-shadow: none !important;
     padding: .5em 2.3em .5em 1em;
     -webkit-transition: border 0.2s, box-shadow 0.2s;
     transition: border 0.2s, box-shadow 0.2s;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0; }
   #content.search .geosuggest__input:focus {
-    border-color: #267dc0;
     box-shadow: 0 0 0 transparent; }
   #content.search .geosuggest__suggests {
     position: absolute;
@@ -13263,6 +13266,9 @@ section.home-search .home-search-mobile {
     z-index: 5;
     -webkit-transition: max-height 0.2s, border 0.2s;
     transition: max-height 0.2s, border 0.2s; }
+    @media screen and (max-width: 767px) {
+      #content.search .geosuggest__suggests {
+        width: calc(100% + 35px); } }
   #content.search .geosuggest__suggests--hidden {
     max-height: 0;
     overflow: hidden;
@@ -13306,6 +13312,10 @@ section.home-search .home-search-mobile {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center; }
+    @media screen and (max-width: 767px) {
+      #content.search .clear-geo {
+        top: 10px;
+        right: 45px; } }
     #content.search .clear-geo:hover {
       text-decoration: none;
       cursor: pointer; }

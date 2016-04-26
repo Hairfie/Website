@@ -72,6 +72,7 @@ module.exports = React.createClass({
         this.refs.geoSuggest.clear();
     },
     handleChange: function(userInput) {
+        console.log('handleChange', userInput);
         this.setState({place: {label: userInput}});
     },
     onSuggestSelect: function(suggest) {

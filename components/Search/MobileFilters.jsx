@@ -91,6 +91,7 @@ var MobileFilters = React.createClass({
                     <LocationInput 
                         ref="locationInput"
                         initialSearch={this.state.search}
+                        onSubmit={this.handleChange}
                         currentPosition={this.props.currentPosition} />
                 </div>
                 <div>
@@ -162,6 +163,7 @@ var MobileFilters = React.createClass({
         else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {
+        // debugger;
         if (this.props.tab == 'business') {
             this.setState({search: _.assign({}, this.state.search, 
                 {q: this.refs.businessNameInput.getValue(), address: this.refs.locationInput.getValue()})}, function() {
