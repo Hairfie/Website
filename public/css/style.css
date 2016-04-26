@@ -15928,6 +15928,10 @@ section.home-search .home-search-mobile {
       margin-bottom: 20px;
       position: relative;
       background: white; }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie .hairfie-min {
+        bottom: 5px; }
+      .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie .infos-mobile {
+        display: none !important; }
       @media screen and (min-width: 1200px) {
         .container.hairdresser#content .main-content section.hairdresser-content section div.hairfies div.row div.single-hairfie {
           width: 20%; } }
