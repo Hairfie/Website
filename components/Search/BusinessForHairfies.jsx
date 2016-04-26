@@ -7,9 +7,10 @@ var Button = require('react-bootstrap').Button;
 var classNames = require('classnames');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var Link = require('../Link.jsx');
+var NavToLinkMixin = require('../mixins/NavToLink.jsx');
 
 var BusinessForHairfies = React.createClass ({
-
+    mixins: [NavToLinkMixin],
     render: function() {
         var business = this.props.business;
 
@@ -19,7 +20,7 @@ var BusinessForHairfies = React.createClass ({
         });
         return (
             <div className='col-xs-12 col-sm-8 single-business'>
-                <div className='business'>
+                <div className='business' onClick={this.navToLink.bind(this, "business", {businessId: business.id, businessSlug: business.slug})}>
                     <div className='background-image' style={{backgroundImage: 'url(' + business.pictures[0].url + ')'}}/>
                     <div className='business-infos'>
                         <span className='name'>{business.name}</span>

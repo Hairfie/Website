@@ -27,7 +27,6 @@ module.exports = {
         var query = {
             'limit': params.limit || 6
         };
-
         return context.hairfieApi
             .get('/tops/hairfies/'+ params.businessId, { query: query })
             .then(function (hairfies) {
