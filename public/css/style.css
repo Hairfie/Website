@@ -12462,7 +12462,14 @@ section.home-search .home-search-mobile {
         position: absolute;
         width: calc(100% - 10px);
         height: calc(100% - 11px);
-        overflow: hidden; }
+        overflow: hidden;
+        cursor: pointer; }
+        #content.search .main-content .search-content .hairfies > .row .single-business .business:hover {
+          opacity: 0.9;
+          -webkit-transition: all 0.1s ease-in-out;
+          -moz-transition: all 0.1s ease-in-out;
+          -ms-transition: all 0.1s ease-in-out;
+          -o-transition: all 0.1s ease-in-out; }
         #content.search .main-content .search-content .hairfies > .row .single-business .business .background-image {
           background-size: cover;
           width: 101%;
@@ -12475,7 +12482,7 @@ section.home-search .home-search-mobile {
           width: 60%;
           height: 100%;
           color: white;
-          padding: 10px 0 10px 50px;
+          padding: 10px 5px 10px 30px;
           display: -webkit-box;
           display: -webkit-flex;
           display: -moz-flex;
