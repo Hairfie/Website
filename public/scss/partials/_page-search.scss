@@ -1130,11 +1130,9 @@
                 -webkit-appearance: none;
                 border: 1px solid $grey5;
                 box-shadow: none !important;
-                letter-spacing: 1px;
                 border-radius: 2px;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-                // border-right: 0;
                 &:focus {
                     outline: none !important;
                 }
@@ -1388,7 +1386,7 @@
         width: 100%;
         border: 2px solid transparent;
         box-shadow: 0 0 1px #3d464d;
-        padding: .5em 1em;
+        padding: .5em 2.3em .5em 1em;
         -webkit-transition: border 0.2s, box-shadow 0.2s;
         transition: border 0.2s, box-shadow 0.2s;
         border-top-right-radius: 0;
@@ -1401,13 +1399,15 @@
     .geosuggest__suggests {
         position: absolute;
         top: 100%;
+        width: 295px;
         left: 0;
         right: 0;
-        max-height: 25em;
+        // max-height: 25em;
         padding: 0;
         margin-top: -1px;
         background: #fff;
-        border: 2px solid #267dc0;
+        // border: 2px solid #267dc0;
+        border: 1px solid $grey5;
         border-top-width: 0;
         overflow-x: hidden;
         overflow-y: auto;
@@ -1427,23 +1427,42 @@
     */
     .geosuggest-item {
         font-size: 18px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: .5em .65em;
         cursor: pointer;
+        border-top: 1px solid $grey5;
     }
     .geosuggest-item:hover,
     .geosuggest-item:focus {
         background: #f5f5f5;
     }
     .geosuggest-item--active {
-        background: #267dc0;
+        background: $hairfie;
         color: #fff;
     }
     .geosuggest-item--active:hover,
     .geosuggest-item--active:focus {
         background: #ccc;
     }
-
+    .clear-geo {
+        position: absolute;
+        top: 30%;
+        right: 85px;
+        background-color: $grey;
+        color: white;
+        // border: 1px solid $grey5;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        // font-size: 1.3em;
+        @include flexbox;
+        @include justify-content(center);
+        @include align-items(center);
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
     //CSS SPINNER
     .spinner {
         width: 100%;

@@ -37,6 +37,7 @@ var Filters = React.createClass({
     },
     componentWillReceiveProps: function(newProps) {
         if (newProps.currentPosition && this.state.isGeoActivated) {
+            this.refs.address.refs.geoSuggest.update(newProps.currentPosition);
             this.setState({
                 location: newProps.currentPosition,
                 isGeoActivated: false
@@ -50,6 +51,8 @@ var Filters = React.createClass({
             this.setState({
                 location: newProps.place.name
             });
+            this.refs.address.refs.geoSuggest.update(newProps.place.name);
+
         }
         if(!_.isUndefined(newProps.search.q) || !_.isUndefined(this.state.q) ) {
             this.setState({q: newProps.search.q});
@@ -145,29 +148,18 @@ var Filters = React.createClass({
                 </div>
             );
         }
-        console.log('renderAddress', this.state.location);
         return (
             <div>
                 <h2 style={{borderBottom: 0}}>Localisation</h2>
                 <hr className='underliner location'/>
                 <div className="input-group">
                     <GeoInput ref="address" type="text"
-                        initialValue={this.state.location} onChange={this.handleLocationChange} onKeyPress={this.handleKey}
+                        onKeyPress={this.handleKey}
+                        onSuggestChange={this.handleChange}
                         />
                     <div className="input-group-addon" onClick={this.handleChange}><a role="button"></a></div>
                 </div>
                 <a className="btn btn-around" role="button" onClick={this.getMyPosition} title="Me localiser">{aroundText}</a>
-
-                <div className='suggestions'>
-                    Suggestions:
-                    <a onClick={this.goToLocation.bind(this, "Paris, France")}>Paris</a>
-                    <a onClick={this.goToLocation.bind(this, "1er Arrondissement, 75001 Paris, France")}>Paris 1</a>                    
-                    <a onClick={this.goToLocation.bind(this, "2e Arrondissement, 75002 Paris, France")}>Paris 2</a>                    
-                    <a onClick={this.goToLocation.bind(this, "15e Arrondissement, 75015 Paris, France")}>Paris 15</a>
-                    <a onClick={this.goToLocation.bind(this, "16e Arrondissement, 75016 Paris, France")}>Paris 16</a>
-                    <a onClick={this.goToLocation.bind(this, "17e Arrondissement, 75017 Paris, France")}>Paris 17</a>
-                    <a onClick={this.goToLocation.bind(this, "18e Arrondissement, 75018 Paris, France")}>Paris 18</a>
-                </div>
             </div>
         );
     },
@@ -307,8 +299,8 @@ var Filters = React.createClass({
     },
     handleLocationChange: function(e) {
         this.setState({
-            location: this.refs.address.getValue()
-        });
+            location: e
+        }, this.handleChange());
     },
     goToLocation: function(newLocationString) {
         this.props.onChange({address: newLocationString})
@@ -339,7 +331,7 @@ var Filters = React.createClass({
     },
     addSelection: function (selection) {
         this.refs.address.refs.geoSuggest.update('Paris, France');
-        this.props.onChange({selections: _.union(this.props.search.selections || [], [selection])});
+        this.props.onChange({address: 'Paris, France', selections: _.union(this.props.search.selections || [], [selection])});
     },
     removeSelection: function (selection) {
         this.props.onChange({selections: _.without(this.props.search.selections, selection)});

@@ -60,6 +60,7 @@ var HairfieSearchPage = React.createClass({
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     handleSearchChange: function (nextSearch) {
+        console.log('nextSearch', nextSearch);
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
         this.context.executeAction(HairfieActions.submitSearch, search);
     }
