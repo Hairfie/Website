@@ -10030,6 +10030,43 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
 
 .hairfies .single-hairfie {
   padding: 5px; }
+  .hairfies .single-hairfie a:hover, .hairfies .single-hairfie a:focus {
+    text-decoration: none; }
+  .hairfies .single-hairfie .hairfie-min {
+    position: absolute;
+    width: 20%;
+    bottom: 5px;
+    right: 5px;
+    border: 1px solid white; }
+    @media screen and (max-width: 767px) {
+      .hairfies .single-hairfie .hairfie-min {
+        bottom: 55px; } }
+  .hairfies .single-hairfie figcaption .infos {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
+    height: 100%; }
+    .hairfies .single-hairfie figcaption .infos .business-title {
+      color: #aaaaaa;
+      text-transform: uppercase;
+      font-size: 1.6em; }
+    .hairfies .single-hairfie figcaption .infos .business-name {
+      margin-top: 5px;
+      color: white;
+      font-size: 1.8em; }
   @media screen and (min-width: 992px) {
     .hairfies .single-hairfie {
       padding: 5px 10px 5px 0; } }
@@ -14539,6 +14576,10 @@ section.home-search .home-search-mobile {
               background-color: transparent !important; }
               .salon#content .sidebar .networks .social-links li a:hover:after {
                 opacity: 1; }
+  .salon#content .single-hairfie .hairfie-min {
+    bottom: 5px; }
+  .salon#content .single-hairfie .infos-mobile {
+    display: none !important; }
 
 /*////////////////////////////////
       P A G E  H A I R F I E
