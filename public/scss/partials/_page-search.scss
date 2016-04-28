@@ -127,6 +127,11 @@
                     -o-transition: none;
                     transition: none;
                     margin-top: 0px;
+
+                }
+                input {
+                    font-size: 0.7em;
+                    height: 40px;
                 }
                 .input-group-addon {
                     border-radius: 2px;
@@ -282,6 +287,10 @@
             top: 10px;
             color: $hairfie;
             font-size: 2em;
+            &:hover, &:focus {
+                text-decoration: none;
+                cursor: pointer;
+            }
         }
         .price-notice {
             color: $grey;
@@ -1255,7 +1264,6 @@
                 margin-bottom: 20px;
             }
         }
-
         .filter-recap {
             h2{line-height: 50px; }
         }
@@ -1371,9 +1379,9 @@
                 -webkit-appearance: none;
                 border: 1px solid $grey5;
                 box-shadow: none !important;
-                letter-spacing: 1px;
                 border-radius: 2px;
-                // border-right: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
                 &:focus {
                     outline: none !important;
                 }
@@ -1383,9 +1391,9 @@
                 border: none;
                 background: transparent;
                 border: 1px solid $grey5;
+                border-radius: 2px;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
-                border-radius: 2px;
                 border-color: $grey5;
             }
             .input-group-addon:last-child {
@@ -1615,6 +1623,8 @@
             padding: 10px 0 0 10px;
         }
     }
+    
+    //CSS SPINNER
     .spinner {
         width: 100%;
         text-align: center;
@@ -1656,6 +1666,8 @@
             transform: scale(1.0);
         }
     }
+    //END CSS SPINNER
+
     .btn-flex-container {
         width: 100%;
         @include flexbox;

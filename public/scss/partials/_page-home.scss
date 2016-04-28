@@ -405,7 +405,8 @@ section.home-section {
     input {
         @include placeholder($grey);
         height: 60px;line-height: 60px;
-        margin-right: 0px; margin-left: -5px;
+        margin-right: 0px; 
+        //margin-left: -5px;
         border: 1px solid $grey5;
         border-radius: 0;
         -webkit-appearance: none;
@@ -413,12 +414,37 @@ section.home-section {
         letter-spacing: 0px;
         font-size: 1.6em;
         &:first-child {
-            margin-right: 10px;
+            // margin-right: 10px;
         }
         &:nth-child(2) {
             margin-left: -5px;
         }
         
+    }
+    .geosuggest {
+        font-size: 1em;
+        height: 60px;
+        li {
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .geosuggest__suggests {
+            width: calc(100% + 61px);
+            color: $grey;
+        }
+        .geosuggest-item--active:hover {
+            color: black;
+        }
+        .geosuggest__input {
+            padding: 8px 30px 8px 10px;
+        }
+
+    }
+    .clear-geo {
+        right: 65px;
+    }
+    .business-name {
+        border-left: 0;
     }
     &.searchbar input {
         color: black;
@@ -490,11 +516,12 @@ section.home-section {
         }
     }
     .btn-red, .btn-book {
-        height: 58px;
+        height: 60px;
         font-size: 1.4em;
         text-align: center;
-        padding: 0; margin-top: 1px;
+        padding: 0; //margin-top: 1px;
         margin-left: -5px;
+        width: calc(25% - 10px);
         line-height: 60px;
         @media screen and (max-width: $screen-md-max) and (min-width: $screen-md-min) {
             letter-spacing: 1px;
