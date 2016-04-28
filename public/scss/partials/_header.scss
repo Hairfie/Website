@@ -59,6 +59,7 @@ header {
 		height: 28px;
 		margin-right: 15px;
 		&.close {
+			@include hide;
 			background: url(../img/icons/cross.svg) no-repeat center center;
 			background-size: 80%;
 			opacity: 1;
@@ -316,7 +317,7 @@ header {
 	.mobile-menu {
 		background-color: white;
 		width: 100vw;
-		height: 0;
+		height: 100vh;
 		overflow-x: auto;
 
 		ul {
@@ -470,7 +471,7 @@ header {
 				font-family: $font-second;
 				font-size: 1.4em;
 				//color: #c4c4c4;
-				color: $darkgrey;
+				color: $grey;
 				@include placeholder($grey);
 				letter-spacing: 0;
 				option.is-disabled {

@@ -10556,6 +10556,7 @@ header {
     height: 28px;
     margin-right: 15px; }
     header a.menu-search.close {
+      display: none !important;
       background: url(../img/icons/cross.svg) no-repeat center center;
       background-size: 80%;
       opacity: 1; }
@@ -10776,7 +10777,7 @@ header {
   .mobile-nav .mobile-menu {
     background-color: white;
     width: 100vw;
-    height: 0;
+    height: 100vh;
     overflow-x: auto; }
     .mobile-nav .mobile-menu ul {
       margin: 0; }
@@ -10885,7 +10886,7 @@ header {
         font-weight: 400;
         font-family: "Lato", sans-serif;
         font-size: 1.4em;
-        color: #595959;
+        color: #c4c4c4;
         letter-spacing: 0; }
         .mobile-nav .search-menu .searchbar input::-moz-placeholder, .mobile-nav .search-menu .searchbar select::-moz-placeholder {
           color: #c4c4c4;
