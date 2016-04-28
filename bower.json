@@ -13,9 +13,7 @@
     "typeahead.js": "~0.10.5",
     "bootstrap-social": "~4.8.0",
     "fontawesome": "~4.2.0",
-    "nouislider": "~7.0.10",
     "gsap": "~1.16.1",
-    "modernizr": "~2.8.3",
     "blueimp-gallery": "~2.15.2"
   },
   "resolutions": {

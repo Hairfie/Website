@@ -47,7 +47,10 @@ var Html = React.createClass({
         var canonicalNode = canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null;
 
         //                 <meta name="apple-itunes-app" content="app-id=853590611" />
-
+        //                 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+        //                 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+        //                <script src={this.getAssetSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
+        //                <script src={this.getAssetSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
 
         return (
             <html className="no-js">
@@ -64,10 +67,7 @@ var Html = React.createClass({
 
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
-                <script src={this.getAssetSrc("/components/modernizr/modernizr.js")}></script>
-                <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
-                <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
-                <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+                <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Lato:300,400,700' rel='stylesheet' type='text/css' />
                 <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
 
                 <link rel="apple-touch-icon" sizes="57x57" href={this.getAssetSrc("/icons/apple-touch-icon-57x57.png")} />
@@ -101,14 +101,11 @@ var Html = React.createClass({
                 <script src={this.getAssetSrc("/components/jquery/dist/jquery.min.js")}></script>
                 <script src={this.getAssetSrc("/components/typeahead.js/dist/typeahead.jquery.min.js")}></script>
                 <script src={this.getAssetSrc("/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js")}></script>
-                <script src={this.getAssetSrc("/components/nouislider/distribute/jquery.nouislider.min.js")}></script>
                 <script src={this.getAssetSrc("/components/gsap/src/minified/TweenMax.min.js")}></script>
                 <script src={this.getAssetSrc("/components/gsap/src/minified/plugins/ScrollToPlugin.min.js")}></script>
 
                 <script src={this.getAssetSrc("/components/blueimp-gallery/js/jquery.blueimp-gallery.min.js")}></script>
-                <script src={this.getAssetSrc("/js/share.min.js")}></script>
                 <script dangerouslySetInnerHTML={{__html: this.getStateScript()}}></script>
-                <script src={this.getAssetSrc("/components/jquery-ui/jquery-ui.min.js")}></script>
                 <script src={this.getAssetSrc(this.getAppAsset())}></script>
 
                 <div className="heap" dangerouslySetInnerHTML={{__html: this.getHeapHtml()}} />

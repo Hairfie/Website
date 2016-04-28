@@ -16,7 +16,7 @@ module.exports = React.createClass({
                 <p className="subtitle">Pour trouver le bon salon de coiffure, vous êtes pile au bon endroit ! Faites confiance aux avis et jetez un coup d'oeil aux hairfies du salon (photos de coiffure) pour prendre rendez-vous avec le coiffeur qui vous correspond.</p>
                 {_.map(_.chunk(this.props.deals, 3), this.renderDealsRow)}
                 <div className="text-center">
-                    <Link className="btn btn-whitered" route="business_search" params={{address: 'France'}} query={{withDiscount: true}}>Voir plus de salons</Link>
+                    <Link className="btn btn-whitered" route="business_search" params={{address: 'France'}}>Voir plus de salons</Link>
                 </div>
             </section>
         );
@@ -35,7 +35,7 @@ module.exports = React.createClass({
         return (
             <div className="col-sm-4 col-xs-12" key={deal.business.id} onClick={this.navigate.bind(null, deal)}>
                 <figure>
-                    <Picture picture={deal.business.pictures[0]} resolution={{width: 640, height: 400}} placeholder="/img/placeholder-640.png" alt={deal.business.name} onClick={this.navToLink.bind(this, "business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
+                    <Picture picture={deal.business.pictures[0]} resolution={{width: 350, height: 275}} placeholder="/img/placeholder-mobile.jpg" alt={deal.business.name} onClick={this.navToLink.bind(this, "business", {businessId: deal.business.id, businessSlug: deal.business.slug}, null)} />
                     <figcaption>
                         <Link route="business" params={{ businessId: deal.business.id, businessSlug: deal.business.slug }}>
                             {deal.business.name}
