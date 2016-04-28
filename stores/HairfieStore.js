@@ -233,7 +233,6 @@ module.exports = createStore({
         return _.map(this.topIds, this.getById, this);
     },
     getBusinessTop: function (businessId) {
-        console.log("getBusinessTop", this.businessTopIds[businessId]);
         if (_.isUndefined(this.businessTopIds[businessId])) {
             this.getContext().executeAction(HairfieActions.loadBusinessTopHairfies, { limit: 4, businessId: businessId });
             this.businessTopIds[businessId] = new Array();

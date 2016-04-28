@@ -43,7 +43,6 @@ var Header = React.createClass({
         );
     },
     renderMobile: function (withProLink) {
-        console.log(this.state);
         var searchClass = classNames({
             'col-xs-4 menu-search pull-right': true,
             'close': this.state.displaySearch

@@ -9819,27 +9819,7 @@ a {
     letter-spacing: 2px; }
 
 .searchbar.small-search {
-  padding: 5px 15px;
-  background-color: #f0f0f1;
-  position: relative; }
-  .searchbar.small-search:before {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    left: -100vw;
-    top: 0;
-    background: #f0f0f1;
-    z-index: -1; }
-  .searchbar.small-search:after {
-    content: " ";
-    width: 200vw;
-    height: 100%;
-    position: absolute;
-    right: -100vw;
-    top: 0;
-    background: #f0f0f1;
-    z-index: -1; }
+  padding: 5px 0px; }
   .searchbar.small-search input {
     box-sizing: border-box;
     margin-right: 10px;
@@ -9847,7 +9827,10 @@ a {
     line-height: 40px;
     border-width: 1px;
     border-radius: 0;
+    font-weight: 200;
     -webkit-appearance: none; }
+  .searchbar.small-search .geosuggest__input {
+    font-size: 1em; }
   .searchbar.small-search div.input-group {
     float: left;
     padding-right: 15px; }
@@ -9860,14 +9843,18 @@ a {
       width: 50px;
       background-size: 40%;
       border: 1px solid #e6e6e6;
-      border-left: none; }
+      border-left: none;
+      border-radius: 0; }
+  .searchbar.small-search .Select-control {
+    border: 1px solid #e6e6e6;
+    font-weight: 200; }
   .searchbar.small-search .btn-red {
     height: 40px;
     line-height: 25px;
     border-radius: 0;
     margin-left: 0;
     padding: 6px 42px;
-    width: auto; }
+    width: 24%; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .searchbar.small-search .btn-red {
         padding: 6px 10px; } }
@@ -10507,6 +10494,51 @@ div.shadow.inactive {
     cursor: pointer;
     color: white; }
 
+.spinner {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center; }
+
+.spinner > div {
+  width: 10px;
+  height: 10px;
+  background-color: #c4c4c4;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
 header {
   position: relative;
   z-index: 20;
@@ -10636,7 +10668,7 @@ header {
         background: #fff;
         z-index: -1; }
     header.white .logo {
-      background: url(../img/logo-red.png) no-repeat center center;
+      background: url(../img/logo-red.png) no-repeat center left;
       background-size: 100%; }
   header:not(.white) {
     background-color: rgba(255, 255, 255, 0.2); }
@@ -11335,7 +11367,6 @@ section.how .row > div {
         padding-top: 10px; } }
 
 section.selections {
-  padding-top: 20px;
   padding-bottom: 20px; }
   section.selections p {
     font-size: 1.6em;
@@ -12085,7 +12116,7 @@ section.home-search .home-search-mobile {
 #home section.blog-posts .post h4 {
   font-size: 20px;
   display: block;
-  letter-spacing: 2px; }
+  letter-spacing: 0; }
   @media screen and (min-width: 767px) {
     #home section.blog-posts .post h4 {
       min-height: 70px; } }
@@ -12198,7 +12229,7 @@ section.home-search .home-search-mobile {
     padding-bottom: 60px; } }
 
 #content.search .breadcrumb {
-  margin: 15px 0 0 15px;
+  margin: 5px 0 5px 15px;
   padding-left: 0;
   font-size: 1.2em;
   letter-spacing: 1px;
@@ -12495,6 +12526,7 @@ section.home-search .home-search-mobile {
     height: 50px;
     background-color: white;
     border: 1px solid #dfdfdf;
+    margin-top: 10px;
     margin-bottom: 10px; }
     #content.search .main-content .search-content .filter-bar .filter-title {
       padding: 3px 20px;
@@ -13055,7 +13087,7 @@ section.home-search .home-search-mobile {
   overflow: hidden; }
   @media screen and (max-width: 767px) {
     #content.search .main-content .tab-pane#salons .image-bloc, #content.search .main-content .tab-pane#adom .image-bloc {
-      width: 100%;
+      width: calc(100% - 3px);
       height: 124px;
       margin-bottom: 5px;
       position: relative;
@@ -13176,7 +13208,7 @@ section.home-search .home-search-mobile {
         align-items: center; } }
   #content.search .main-content .tab-pane#salons .info-bloc .label-container, #content.search .main-content .tab-pane#adom .info-bloc .label-container {
     overflow: hidden;
-    max-height: 28px;
+    max-height: 32px;
     background-color: white; }
     #content.search .main-content .tab-pane#salons .info-bloc .label-container .business-label, #content.search .main-content .tab-pane#adom .info-bloc .label-container .business-label {
       color: white;
@@ -13676,51 +13708,6 @@ section.home-search .home-search-mobile {
     -ms-flex-direction: column;
     flex-direction: column;
     padding: 10px 0 0 10px; }
-
-#content.search .spinner {
-  width: 100%;
-  text-align: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  justify-content: center; }
-
-#content.search .spinner > div {
-  width: 10px;
-  height: 10px;
-  background-color: #c4c4c4;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
-
-#content.search .spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s; }
-
-#content.search .spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s; }
-
-@-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0); }
-  40% {
-    -webkit-transform: scale(1); } }
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-    transform: scale(0); }
-  40% {
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
 
 #content.search .btn-flex-container {
   width: 100%;

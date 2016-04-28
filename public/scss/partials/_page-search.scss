@@ -22,7 +22,7 @@
         padding-bottom: 60px;
     }
     .breadcrumb {
-        margin: 15px 0 0 15px;
+        margin: 5px 0 5px 15px;
         padding-left: 0;
         font-size: 1.2em;
         letter-spacing: 1px;
@@ -322,6 +322,7 @@
                 height: 50px;
                 background-color: white;
                 border: 1px solid $grey2;
+                margin-top: 10px;
                 margin-bottom: 10px;
                 .filter-title {
                     padding: 3px 20px;
@@ -938,7 +939,7 @@
                 height: 167px;
                 position: relative;
                 @media screen and (max-width: $screen-xs-max) {
-                    width: 100%;
+                    width: calc(100% - 3px);
                     height: 124px;
                     margin-bottom: 5px;
                     position: relative;
@@ -1052,7 +1053,7 @@
                 }
                 .label-container {
                     overflow: hidden;
-                    max-height: 28px;
+                    max-height: 32px;
                     background-color: white;
                     .business-label {
                         color: white;
@@ -1624,50 +1625,6 @@
             padding: 10px 0 0 10px;
         }
     }
-    
-    //CSS SPINNER
-    .spinner {
-        width: 100%;
-        text-align: center;
-        @include flexbox;
-        @include justify-content(center);
-    }
-
-    .spinner > div {
-        width: 10px;
-        height: 10px;
-        background-color: $grey;
-
-        border-radius: 100%;
-        display: inline-block;
-        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-    }
-
-    .spinner .bounce1 {
-        -webkit-animation-delay: -0.32s;
-        animation-delay: -0.32s;
-    }
-
-    .spinner .bounce2 {
-        -webkit-animation-delay: -0.16s;
-        animation-delay: -0.16s;
-    }
-    @-webkit-keyframes sk-bouncedelay {
-        0%, 80%, 100% { -webkit-transform: scale(0) }
-        40% { -webkit-transform: scale(1.0) }
-    }
-
-    @keyframes sk-bouncedelay {
-        0%, 80%, 100% { 
-            -webkit-transform: scale(0);
-            transform: scale(0);
-        } 40% { 
-            -webkit-transform: scale(1.0);
-            transform: scale(1.0);
-        }
-    }
-    //END CSS SPINNER
 
     .btn-flex-container {
         width: 100%;

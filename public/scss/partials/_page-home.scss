@@ -234,7 +234,6 @@ section.how {
 }
 
 section.selections {
-    padding-top: 20px;
     padding-bottom: 20px;
     p {
         font-size: 1.6em;
@@ -1042,7 +1041,7 @@ section.home-search {
         h4 {
             font-size: 20px;
             display: block;
-            letter-spacing: 2px;
+            letter-spacing: 0;
 
             @media screen and (min-width: $screen-xs-max) {
                 min-height: 70px;
