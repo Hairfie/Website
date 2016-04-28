@@ -11,14 +11,18 @@ var LocationInput = React.createClass ({
         executeAction: React.PropTypes.func.isRequired
     },
     getInitialState: function () {
-        return this.getStateFromProps(this.props);
+        return {
+            search: this.props.initialSearch,
+            isGeolocated: (this.state && this.state.isGeolocated) || false
+        }
     },
     componentWillReceiveProps: function(nextProps) {
-        this.setState(this.getStateFromProps(nextProps));
         if (this.state.isGeolocated && (nextProps.currentPosition != this.getValue())) {
-            // this.refs.address.refs.input.value = nextProps.currentPosition;
             this.refs.address.refs.geoSuggest.update(nextProps.currentPosition);
-            this.setState({isGeolocated: false});
+            this.setState({search: {address: this.props.currentPosition}, isGeolocated: false});
+        }
+        else if (!nextProps.currentPosition && nextProps.initialSearch.address != 'France') {
+            this.refs.address.refs.geoSuggest.update(nextProps.initialSearch.address);
         }
     },
     getStateFromProps: function(props) {
@@ -55,7 +59,6 @@ var LocationInput = React.createClass ({
         );
     },
     getValue: function () {
-        // if (this.refs.address.refs.input.value == '') return 'France';
         return this.refs.address.getFormattedAddress();
     },
     locateMe: function() {

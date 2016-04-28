@@ -70,7 +70,6 @@ var HairfieSearchPage = React.createClass({
         this.context.executeAction(HairfieActions.loadSearchResult, _.assign({}, this.props.search, {page: this.props.currentPage + 1 }))
     },
     handleSearchChange: function (nextSearch) {
-        console.log('nextSearch', nextSearch);
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
         this.context.executeAction(HairfieActions.submitSearch, search);
     }

@@ -163,7 +163,6 @@ var MobileFilters = React.createClass({
         else return <span className={tagClass}>{arrayToCount.length}</span>;
     },
     handleChange: function () {
-        // debugger;
         if (this.props.tab == 'business') {
             this.setState({search: _.assign({}, this.state.search, 
                 {q: this.refs.businessNameInput.getValue(), address: this.refs.locationInput.getValue()})}, function() {
@@ -180,9 +179,8 @@ var MobileFilters = React.createClass({
         if (this.state.search && (this.state.search.selections || []).indexOf(selection) > -1)
             this.setState({search: _.assign({}, this.state.search,{selections: _.without(this.state.search.selections, selection)})});
         else {
-            this.refs.locationInput.refs.address.setPlace('Paris', function() {
+                this.refs.locationInput.refs.address.refs.geoSuggest.update('Paris, France');
                 this.setState({search: _.assign({}, this.state.search, {address: "Paris, France", selections: _.union(this.state.search.selections || [], [selection])})});
-            }.bind(this));
         }
     },
     handlePromoChange: function() {

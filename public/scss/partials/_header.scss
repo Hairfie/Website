@@ -51,7 +51,7 @@ header {
 		background: url(../img/icons/mobile-menu/search.svg) no-repeat center center;
 		background-size: 90%;
 
-		margin-top: 15px;
+		margin-top: 18px;
 		@media screen and (max-width: $screen-xs-max) {
 			// margin-top: 25px;
 		}
@@ -59,7 +59,7 @@ header {
 		height: 28px;
 		margin-right: 15px;
 		&.close {
-			background: url(../img/icons/mobile-menu/croix.svg) no-repeat center center;
+			background: url(../img/icons/cross.svg) no-repeat center center;
 			background-size: 80%;
 			opacity: 1;
 		}
@@ -477,7 +477,7 @@ header {
 					color: $grey;
 				}
 			}
-			div {
+			> div {
 				&:before {
 					z-index: 1;
 				    position: absolute;
@@ -498,7 +498,7 @@ header {
 				}
 				&:nth-child(1) {
 					//input {
-						border-top: 1px solid #e6e6e6;
+						// border-top: 1px solid #e6e6e6;
 					//}
 				}
 				&.where {
@@ -511,6 +511,9 @@ header {
 						border: none;
 					}
 				}
+				&.where {
+						&:after {width: 0;}
+					}
 				&.name {
 					padding: 0;
 					&:before {
@@ -519,6 +522,9 @@ header {
 					}
 					margin-bottom: 20px;
 					border: none;
+					input {
+						border-bottom: 1px solid $grey5;
+					}
 				}
 				border-bottom: 1px solid #e6e6e6;
 				&.action {
@@ -544,6 +550,20 @@ header {
 			}
 			.where.input-group {
 				float: left;
+				border-top: 1px solid $grey5;
+				@media screen and (max-width: $screen-xs-max) {
+					height: 65px;
+					> div {
+						height: 65px;
+					}
+				}
+				.geosuggest {
+					font-size: 1em;
+				}
+				.clear-geo {
+					top: 22px;
+					right: 65px;
+				}
 				input {
 					width: 100%;
 					margin: 0;

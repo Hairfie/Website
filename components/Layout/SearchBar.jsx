@@ -22,6 +22,18 @@ var SearchBar = React.createClass({
             activeLocation: false
         };
     },
+    componentWillMount: function() {
+        if(this.props.findMe) {
+            this.findMe();
+        }
+    },
+    componentWillReceiveProps: function(newProps) {
+        if (newProps.location && this.state.activeLocation) {
+            this.setState({location: newProps.location}, function() {
+                this.refs.address.refs.geoSuggest.update(newProps.location);
+            });
+        }
+    },
     render: function() {
         if (this.props.mobile) return this.renderMobile();
         else if (this.props.home) return this.renderHomePage();
@@ -49,13 +61,13 @@ var SearchBar = React.createClass({
         return (
             <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-xs-4 input-group">
-                    <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} value={this.state.location} onChange={this.handleLocationChange} />
+                    <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} />
                     <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                 </div>
                 <div className="col-xs-2 homeSearch" style={{padding: '0'}}>
                     {this.renderSelect()}
                 </div>
-                <input className='col-xs-3' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
+                <input className='col-xs-3 business-name' onKeyPress={this.handleKey} ref="query" type="search" placeholder="Nom du coiffeur" />
                 <Button onClick={this.submit} className='btn btn-red col-xs-3'>Trouvez votre coiffeur</Button>
             </div>
        );
@@ -66,7 +78,7 @@ var SearchBar = React.createClass({
                 <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
                     <div className="col-xs-12 input-group where">
-                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onKeyPress={this.handleKey} onChange={this.handleLocationChange} />
+                        <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} />
                         <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
                     </div>
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
@@ -149,18 +161,6 @@ var SearchBar = React.createClass({
         }
 
         this.context.executeAction(BusinessActions.submitSearch, search);
-    },
-    componentWillMount: function() {
-        if(this.props.findMe) {
-            this.findMe();
-        }
-    },
-    componentWillReceiveProps: function(newProps) {
-        if (newProps.location && this.state.activeLocation) {
-            this.setState({
-                location: newProps.location
-            });
-        }
     }
 });
 

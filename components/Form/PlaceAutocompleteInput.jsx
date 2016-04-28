@@ -31,7 +31,6 @@ module.exports = React.createClass({
         }.bind(this));
     },
     render: function () {
-        if(this.refs.geoSuggest && this.state.place) console.log('render', this.state.place.label);
         if(!this.state.google) {
             return <input style={{width: '100%'}}/>;
         }
@@ -72,7 +71,6 @@ module.exports = React.createClass({
         this.refs.geoSuggest.clear();
     },
     handleChange: function(userInput) {
-        console.log('handleChange', userInput);
         this.setState({place: {label: userInput}});
     },
     onSuggestSelect: function(suggest) {

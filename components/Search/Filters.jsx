@@ -47,7 +47,7 @@ var Filters = React.createClass({
                 });
             });
         }
-        else if (newProps.place && newProps.place.name) {
+        else if (newProps.place && newProps.place.name && newProps.place.name != 'France') {
             this.setState({
                 location: newProps.place.name
             });
