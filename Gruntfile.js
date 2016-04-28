@@ -108,10 +108,16 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'public/build/js/app.min.js' : ['public/build/js/app.js']
+          'public/build/js/app.temp.js' : ['public/build/js/app.js']
         }
         // src: 'public/build/js/app.js',
         // dest: 'public/build/js/app.min.js'
+      }
+    },
+    min: {
+      build: {
+        src: 'public/build/js/app.temp.js',
+        dest: 'public/build/js/app.min.js'
       }
     },
     browserify: {
@@ -145,11 +151,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-yui-compressor');
 
   grunt.registerTask('default', ['concurrent']);
 
   grunt.registerTask('build', [
     'browserify',
-    'uglify'
+    'uglify',
+    'min'
   ]);
 };
