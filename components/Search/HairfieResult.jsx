@@ -62,7 +62,7 @@ var HairfieResult = React.createClass({
                                     placeholder="Spécialité"
                                     allowCreate={false}
                                     options={[{value: 'numLikes', label: 'Les plus likés'},
-                                        {value: 'createdAt', label: 'Date de création'}]}
+                                        {value: 'createdAt', label: 'Les plus récents'}]}
                                     multi={false}
                                     searchable={false}
                                     clearable={false}

@@ -141,6 +141,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-watchify');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['concurrent']);
 
