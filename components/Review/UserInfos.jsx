@@ -69,7 +69,6 @@ var UserInfos = React.createClass ({
     componentWillReceiveProps: function(nextProps) {
         if (!nextProps.review)
             return;
-        //FIXME GENDER STATE.........................
         this.setState({
             firstName   : _.isEmpty(this.state.firstName) && nextProps.review.firstName ? nextProps.review.firstName : this.state.firstName,
             lastName    : _.isEmpty(this.state.lastName) && nextProps.review.lastName ? nextProps.review.lastName : this.state.lastName,
