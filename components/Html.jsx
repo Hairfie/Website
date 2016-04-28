@@ -68,7 +68,6 @@ var Html = React.createClass({
                 <link rel="publisher" href="https://plus.google.com/+Hairfie" />
                 <link rel="stylesheet" href={this.getAssetSrc("/css/style.css")} />
                 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Lato:300,400,700' rel='stylesheet' type='text/css' />
-                <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
 
                 <link rel="apple-touch-icon" sizes="57x57" href={this.getAssetSrc("/icons/apple-touch-icon-57x57.png")} />
                 <link rel="apple-touch-icon" sizes="60x60" href={this.getAssetSrc("/icons/apple-touch-icon-60x60.png")} />
@@ -112,6 +111,7 @@ var Html = React.createClass({
                 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
                 <script type="text/javascript" dangerouslySetInnerHTML={{__html: crispHtml}} />
                 <div dangerouslySetInnerHTML={{__html: fbPixelHtml}} />
+                <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
             </body>
             </html>
 
