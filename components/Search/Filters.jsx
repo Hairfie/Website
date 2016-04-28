@@ -96,7 +96,7 @@ var Filters = React.createClass({
                                     onChange={onChange} 
                                     checked={active} />
                                 <span />
-                                {selection.label}
+                                {selection.label + ' à Paris'}
                             </label>
                         );
                     }, this)}
