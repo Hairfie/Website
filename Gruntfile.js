@@ -107,8 +107,11 @@ module.exports = function (grunt) {
         banner: '/*! Hairfie Website <%= grunt.template.today("yyyy-mm-dd - HH:mm:ss") %> */ '
       },
       build: {
-        src: 'public/build/js/app.js',
-        dest: 'public/build/js/app.min.js'
+        files: {
+          'public/build/js/app.min.js' : ['public/build/js/app.js']
+        }
+        // src: 'public/build/js/app.js',
+        // dest: 'public/build/js/app.min.js'
       }
     },
     browserify: {
