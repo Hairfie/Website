@@ -1020,7 +1020,6 @@ div.shadow {
 }
 
 //GEOSUGGEST INPUT STYLE
-    //CLEANME
 .geosuggest {
     font-size: 1.4em;
     position: relative;
@@ -1050,11 +1049,9 @@ div.shadow {
     width: calc(100% + 51px);
     left: 0;
     right: 0;
-    // max-height: 25em;
     padding: 0;
     margin-top: -1px;
     background: #fff;
-    // border: 2px solid #267dc0;
     border: 1px solid $grey5;
     border-top-width: 0;
     overflow-x: hidden;
@@ -1101,11 +1098,9 @@ div.shadow {
     right: 85px;
     background-color: $grey;
     color: white;
-    // border: 1px solid $grey5;
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    // font-size: 1.3em;
     @include flexbox;
     @include justify-content(center);
     @include align-items(center);

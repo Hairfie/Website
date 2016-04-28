@@ -18,6 +18,7 @@ var Header = React.createClass({
     getInitialState: function() {
         return {
             displaySearch: false,
+            displayMenu: false,
             tab: ""
         };
     },
@@ -26,6 +27,12 @@ var Header = React.createClass({
             this.setState({displaySearch: props.displaySearch}); 
         }
         this.setState({tab: ""});
+    },
+    componentDidUpdate: function() {
+        if (this.state.displayMenu || this.state.displaySearch)
+            $('body').addClass('locked');
+        else
+            $('body').removeClass('locked');        
     },
     render: function() {
         return (
@@ -36,16 +43,21 @@ var Header = React.createClass({
         );
     },
     renderMobile: function (withProLink) {
+        console.log(this.state);
         var searchClass = classNames({
             'col-xs-4 menu-search pull-right': true,
             'close': this.state.displaySearch
+        });
+        var triggerClass = classNames({
+            'col-xs-4 menu-trigger pull-right': true,
+            'close': this.state.displaySearch || this.state.displayMenu
         });
         return (
             <div className="mobile-nav visible-xs">
                 <header className="container white visible-xs">
                     <Link className="logo col-xs-4" route="home" />
                         <nav className='col-md-8 pull-right menu-button'>
-                            <a className="col-xs-4 menu-trigger pull-right" role="button" onClick={this.handleDisplayMenu}></a>
+                            <a className={triggerClass} role="button" onClick={this.handleDisplayMenu}></a>
                             <a className={searchClass} role="button" onClick={this.handleDisplaySearch}></a>
                         </nav>
                     
@@ -55,6 +67,7 @@ var Header = React.createClass({
         );
     },
     renderMobileMenu: function() {
+        if (!this.state.displayMenu) return;
         return (
             <div className="mobile-menu">
                 <ul>
@@ -67,9 +80,6 @@ var Header = React.createClass({
                     <Link route="newsletter"><li className="blog" onClick={this.mobileClose}>Newsletter</li></Link>
                     <Link route="sms_us"><li className="sms" onClick={this.mobileClose}>Prendre RDV par SMS</li></Link>
                 </ul>
-                {/*<div className="download">
-                    <p>Téléchargez l'application pour poster un Hairfie !</p>
-                </div>*/}
             </div>
         );
     },
@@ -140,7 +150,10 @@ var Header = React.createClass({
         this.setState({displaySearch: !this.state.displaySearch});
     },
     handleDisplayMenu: function() {
-        this.setState({displaySearch: false});
+        if (this.state.displayMenu || this.state.displaySearch)
+            this.setState({displayMenu: false, displaySearch: false});
+        else
+            this.setState({displayMenu: true});
     },
     mobileClose: function() {
         this.setState({displaySearch: false});
@@ -150,22 +163,6 @@ var Header = React.createClass({
     },
     desktopClose: function() {
         this.setState({displaySearch: false});
-    },
-    componentDidMount: function() {
-        $('.menu-trigger').on("click", function() {
-            if( $('.mobile-menu').height() == 0 && !jQuery('.mobile-filtres').hasClass('opened')) {
-                $('body').addClass('locked');
-                $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
-            } else {
-                $('body').removeClass('locked');
-                $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0, {height:'0', ease:Power2.easeOut});
-            }
-        });
-    },
-    componentWillUnmount: function() {
-        $('.menu-trigger').off("click");
     },
     disconnect: function() {
         this.context.executeAction(AuthActions.disconnect, this.props.token);
