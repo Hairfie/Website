@@ -11977,7 +11977,7 @@ section.home-search .home-search-mobile {
       font-size: 20px; }
     #home section.deals figure figcaption a:first-child, #home section.deals figure figcaption a:nth-child(2) {
       display: block;
-      letter-spacing: 2px; }
+      letter-spacing: 0px; }
     #home section.deals figure figcaption a:first-child {
       text-transform: uppercase;
       margin-top: 10px; }
@@ -11987,6 +11987,8 @@ section.home-search .home-search-mobile {
       font-weight: 400;
       font-size: .9em;
       margin-bottom: 5px; }
+      #home section.deals figure figcaption a:nth-child(2):hover, #home section.deals figure figcaption a:nth-child(2):focus {
+        text-decoration: none; }
     #home section.deals figure figcaption .icon-promo {
       position: absolute;
       top: -130%;
