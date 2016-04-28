@@ -12645,11 +12645,12 @@ section.home-search .home-search-mobile {
           #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .name {
             text-transform: uppercase;
             font-size: 2em;
-            line-height: 14px;
+            line-height: 20px;
             font-weight: 400; }
             @media screen and (max-width: 767px) {
               #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .name {
-                font-size: 1.6em; } }
+                font-size: 1.6em;
+                line-height: 16px; } }
           #content.search .main-content .search-content .hairfies > .row .single-business .business .business-infos .city {
             font-size: 1.8em;
             margin-top: 3px; }
