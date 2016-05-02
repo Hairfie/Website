@@ -1,6 +1,10 @@
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
+.like-group {
+    background-color: blue;
+    color: red;
+}   
 .hairfie-newsletter {
     margin-bottom: 10px;
     margin-left: -15px;
@@ -15,36 +19,6 @@
 .hairfie-singleView {
     margin: auto;
     &.PopUpHairfie {
-        span.before {
-            height: 35%;
-            width: 10vw;
-            position: absolute;
-            z-index: 1;
-            top: 32.5%;
-            right: calc(100% + 2.5vw);
-            padding-top: calc(9.5% - 25px);
-            padding-left: calc(5vw - 25px);
-        }
-        span.after {
-            height: 35%;
-            width: 10vw;
-            position: absolute;
-            z-index: 1;
-            top: 32.5%;
-            left: 100%;
-            padding-top: calc(9.5% - 25px);
-            padding-left: calc(5vw - 25px);
-        }
-        span.quit {
-            height: 40px;
-            width: 40px;
-            background: url(../img/icons/cross.svg) white no-repeat center center;
-            background-size: 50%;
-            position: absolute;
-            z-index: 1;
-            top: -50px;
-            right: 0;
-        }
         position: fixed;
         z-index: 10000;
         margin: 0;
@@ -56,6 +30,54 @@
         @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
             width: 80vw;
             left: 10vw;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+        span.before > img, span.after > img {
+            width: 50px;
+            height: 50px;
+            @media screen and (max-width: $screen-xs-max) {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        span.before {
+            position: absolute;
+            z-index: 1;
+            top: 32.5%;
+            right: calc(100% + 2.5vw);
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
+            @media screen and (max-width: $screen-xs-max) {
+                left: 1%;
+            }
+        }
+        span.after {
+            position: absolute;
+            z-index: 1;
+            top: 32.5%;
+            left: 100%;
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
+            @media screen and (max-width: $screen-xs-max) {
+                left: 89%;
+            }
+        }
+        span.quit {
+            height: 40px;
+            width: 40px;
+            background: url(../img/icons/cross.svg) white no-repeat center center;
+            background-size: 50%;
+            position: absolute;
+            z-index: 1;
+            top: -50px;
+            right: 0;
+            @media screen and (max-width: $screen-xs-max) {
+                top: 25px;
+            }
         }
         .row {
             border: none !important;
@@ -82,6 +104,51 @@
     }
     > a span.arrow-left {
         left: -50px !important;
+    }
+
+    .mobile-popup {
+        background-color: rgba(255, 255, 255, 0.9);
+        height: 100vh;
+        .single-view {
+            .business-box {
+                height: 90px;
+                padding: 0 10px;
+                @include flexbox;
+                @include align-items(center);
+                img {
+                    width: 50px !important;
+                    height: 50px !important;
+                    margin: 0 !important;
+                    border-radius: 2px;
+                }
+                .business-box-text-container {
+                    padding: 0 10px;
+                    @include flexbox;
+                    @include flex-direction(column);
+                    .title {
+                        text-transform: uppercase;
+                        color: $grey3;
+                        font-size: 1.4em;
+                    }
+                    .name {
+                        color: black;
+                        font-size: 1.6em;
+                        font-weight: $regular;
+                    }
+                }
+            }
+            div.col-xs-12.col-sm-6 {
+                background-color: green;    
+                padding: 0 10px 0 10px;
+                #carousel-hairfie {
+                    margin-left: 0;
+                }
+                .like-group {
+                    background-color: blue;
+                    color: red;
+                }
+            }
+        }
     }
 
     .single-view {

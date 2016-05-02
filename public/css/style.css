@@ -14720,6 +14720,10 @@ section.home-search .home-search-mobile {
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
+.like-group  {
+  background-color: blue;
+  color: red; }
+
 .hairfie-newsletter {
   margin-bottom: 10px;
   margin-left: -15px;
@@ -14741,24 +14745,42 @@ section.home-search .home-search-mobile {
     min-height: inherit;
     left: 15vw;
     top: 15vh; }
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 80vw;
+        left: 10vw; } }
+    @media screen and (max-width: 767px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 100%;
+        left: 0;
+        top: 0; } }
+    .hairfie-singleView.PopUpHairfie span.before > img, .hairfie-singleView.PopUpHairfie span.after > img {
+      width: 50px;
+      height: 50px; }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.before > img, .hairfie-singleView.PopUpHairfie span.after > img {
+          width: 25px;
+          height: 25px; } }
     .hairfie-singleView.PopUpHairfie span.before {
-      height: 35%;
-      width: 10vw;
       position: absolute;
       z-index: 1;
       top: 32.5%;
       right: calc(100% + 2.5vw);
       padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.before {
+          left: 1%; } }
     .hairfie-singleView.PopUpHairfie span.after {
-      height: 35%;
-      width: 10vw;
       position: absolute;
       z-index: 1;
       top: 32.5%;
       left: 100%;
       padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.after {
+          left: 89%; } }
     .hairfie-singleView.PopUpHairfie span.quit {
       height: 40px;
       width: 40px;
@@ -14768,10 +14790,9 @@ section.home-search .home-search-mobile {
       z-index: 1;
       top: -50px;
       right: 0; }
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
-      .hairfie-singleView.PopUpHairfie {
-        width: 80vw;
-        left: 10vw; } }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.quit {
+          top: 25px; } }
     .hairfie-singleView.PopUpHairfie .row {
       border: none !important;
       padding: initial !important;
@@ -14788,6 +14809,56 @@ section.home-search .home-search-mobile {
     right: -50px !important; }
   .hairfie-singleView > a span.arrow-left {
     left: -50px !important; }
+  .hairfie-singleView .mobile-popup {
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 100vh; }
+    .hairfie-singleView .mobile-popup .single-view .business-box {
+      height: 90px;
+      padding: 0 10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center; }
+      .hairfie-singleView .mobile-popup .single-view .business-box img {
+        width: 50px !important;
+        height: 50px !important;
+        margin: 0 !important;
+        border-radius: 2px; }
+      .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container {
+        padding: 0 10px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column; }
+        .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container .title {
+          text-transform: uppercase;
+          color: #a9aeb1;
+          font-size: 1.4em; }
+        .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container .name {
+          color: black;
+          font-size: 1.6em;
+          font-weight: 400; }
+    .hairfie-singleView .mobile-popup .single-view div.col-xs-12.col-sm-6 {
+      background-color: green;
+      padding: 0 10px 0 10px; }
+      .hairfie-singleView .mobile-popup .single-view div.col-xs-12.col-sm-6 #carousel-hairfie {
+        margin-left: 0; }
+      .hairfie-singleView .mobile-popup .single-view div.col-xs-12.col-sm-6 .like-group  {
+        background-color: blue;
+        color: red; }
   .hairfie-singleView .single-view {
     background-color: white; }
     .hairfie-singleView .single-view span.force-size {

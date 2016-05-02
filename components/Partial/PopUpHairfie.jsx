@@ -20,18 +20,45 @@ var PopupHairfie = React.createClass({
     render: function () {
         if (!this.props.hairfie) return null;
         return (
-            <div className="PopUpHairfie hairfie-singleView hidden-xs hidden-sm">
+            <div className="PopUpHairfie hairfie-singleView">
                 <span className="before" role="button" onClick={this.props.prev}>
-                    <Picture picture={{url: "/img/icons/left.svg"}} style={{width: 50, height: 50}} />
+                    <Picture picture={{url: "/img/icons/left.svg"}} />
+                </span>
+                <span className="after" role="button" onClick={this.props.next} >
+                    <Picture picture={{url: "/img/icons/right.svg"}} />
                 </span>
                 <span className="quit" role="button" onClick={this.props.close} />
+                {this.renderMobile()}
+                {this.renderDesktop()}
+            </div>
+        );
+    },
+    renderMobile: function() {
+        console.log('HAIRFIE', this.props.hairfie);
+        return (
+            <div className="mobile-popup hidden-md hidden-lg hidden-sm">
+                <div className="single-view row">
+                    <div className="business-box">
+                        <Picture picture={this.props.hairfie.business.pictures[0]}
+                           resolution={{width: 100, height: 100}}
+                           placeholder="/img/placeholder-124.png" />
+                        <div className="business-box-text-container">
+                            <span className="title">Le salon de coiffure&nbsp;:</span>
+                            <span className="name">{this.props.hairfie.business.name}</span>
+                        </div>
+                    </div>
+                    <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                </div>
+            </div>
+        );
+    },
+    renderDesktop: function() {
+        return (
+            <div className="hidden-xs">
                 <div className="single-view row">
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
-                <span className="after" role="button" onClick={this.props.next} >
-                    <Picture picture={{url: "/img/icons/right.svg"}} style={{width: 50, height: 50}} />
-                </span>
             </div>
         );
     },
