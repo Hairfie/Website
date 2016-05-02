@@ -36,15 +36,9 @@
             left: 0;
             top: 0;
         }
-        span.before > img, span.after > img {
-            width: 50px;
-            height: 50px;
-            @media screen and (max-width: $screen-xs-max) {
-                width: 25px;
-                height: 25px;
-            }
-        }
         span.before {
+            height: 35%;
+            width: 5vw;
             position: absolute;
             z-index: 1;
             top: 32.5%;
@@ -52,10 +46,12 @@
             padding-top: calc(9.5% - 25px);
             padding-left: calc(5vw - 25px);
             @media screen and (max-width: $screen-xs-max) {
-                left: 1%;
+                left: 15px;
             }
         }
         span.after {
+            height: 35%;
+            width: 5vw;
             position: absolute;
             z-index: 1;
             top: 32.5%;
@@ -63,7 +59,7 @@
             padding-top: calc(9.5% - 25px);
             padding-left: calc(5vw - 25px);
             @media screen and (max-width: $screen-xs-max) {
-                left: 89%;
+                left: calc(100% - 33.75px);
             }
         }
         span.quit {
@@ -107,9 +103,13 @@
     }
 
     .mobile-popup {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 1);
         height: 100vh;
+        width: calc(100% + 10px);
+        overflow: scroll;
         .single-view {
+            background-color: transparent;
+            width: calc(100% - 10px);
             .business-box {
                 height: 90px;
                 padding: 0 10px;
@@ -137,17 +137,33 @@
                     }
                 }
             }
-            div.col-xs-12.col-sm-6 {
-                background-color: green;    
+            .hairfie-single-container {
                 padding: 0 10px 0 10px;
+                float: none;
                 #carousel-hairfie {
                     margin-left: 0;
                 }
-                .like-group {
-                    background-color: blue;
-                    color: red;
-                }
             }
+        }
+        .like-group {
+            @include hide;
+        }
+        .tags {
+            padding: 10px;
+            .tag {
+                font-size: 1.6em;
+                margin: 3px 2px !important;              
+            }
+        }
+        .btn-book {
+            width: calc(100% - 20px);
+            height: 45px;
+            border-radius: 0;
+            padding: 10px 16px !important;
+            font-size: 1.4em !important;
+            margin-left: 10px !important;
+            bottom: 0;
+            left: 0;
         }
     }
 

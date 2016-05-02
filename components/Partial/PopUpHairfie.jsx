@@ -7,6 +7,7 @@ var HairfieSingle = require('../HairfiePage/HairfieSingle.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../../actions/UserActions');
 var Picture = require('./Picture.jsx');
+var Link = require('../Link.jsx');
 
 var PopupHairfie = React.createClass({
     contextTypes: {
@@ -27,7 +28,6 @@ var PopupHairfie = React.createClass({
                 <span className="after" role="button" onClick={this.props.next} >
                     <Picture picture={{url: "/img/icons/right.svg"}} />
                 </span>
-                <span className="quit" role="button" onClick={this.props.close} />
                 {this.renderMobile()}
                 {this.renderDesktop()}
             </div>
@@ -47,7 +47,16 @@ var PopupHairfie = React.createClass({
                             <span className="name">{this.props.hairfie.business.name}</span>
                         </div>
                     </div>
+                        <span className="quit" role="button" onClick={this.props.close} />    
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    <div className="tags">
+                    {_.map(this.props.hairfie.tags, function(tag) {
+                        return <span className="tag" hey={tag.id}>{tag.name}</span>
+                    })}
+                    </div>
+                    <Link className="btn btn-book full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                        voir le salon
+                    </Link>
                 </div>
             </div>
         );
@@ -56,6 +65,7 @@ var PopupHairfie = React.createClass({
         return (
             <div className="hidden-xs">
                 <div className="single-view row">
+                    <span className="quit" role="button" onClick={this.props.close} />                    
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
