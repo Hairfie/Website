@@ -77,6 +77,7 @@
     "react-modal": "dinodsaurus/react-modal",
     "react-notification-system": "^0.2.6",
     "react-select": "^0.9.1",
+    "react-swipeable": "^3.3.1",
     "react-tooltip": "^0.9.0",
     "react-validation-mixin": "^5.3.4",
     "react-validatorjs-strategy": "^0.1.10",

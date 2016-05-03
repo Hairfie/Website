@@ -8,6 +8,7 @@ var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../../actions/UserActions');
 var Picture = require('./Picture.jsx');
 var Link = require('../Link.jsx');
+var Swipeable = require('react-swipeable');
 
 var PopupHairfie = React.createClass({
     contextTypes: {
@@ -49,7 +50,20 @@ var PopupHairfie = React.createClass({
                         <span className="after" role="button" onClick={this.props.next} >
                             <Picture picture={{url: "/img/icons/right.svg"}} />
                         </span>
+                        <Swipeable
+        onSwiping={this.swiping}
+        onSwipingUp={this.swipingUp}
+        onSwipingRight={this.props.next}
+        onSwipingDown={this.swipingDown}
+        onSwipingLeft={this.props.prev}
+        onSwipedUp={this.swipedUp}
+        onSwipedRight={this.swipedRight}
+        onSwipedDown={this.swipedDown}
+        onSwipedLeft={this.swipedLeft}
+        onSwiped={this.handleSwipeAction}
+        preventDefaultTouchmoveEvent={false}>
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    </Swipeable>
                     </div>
                     <div className="tags">
                     {_.map(this.props.hairfie.tags, function(tag) {
@@ -62,6 +76,9 @@ var PopupHairfie = React.createClass({
                 </div>
             </div>
         );
+    },
+    test: function(e) {
+        console.log(e);
     },
     renderDesktop: function() {
         return (
