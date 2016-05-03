@@ -27,6 +27,7 @@ module.exports = React.createClass({
     },
     render: function () {
         var hairfie = this.props.hairfie;
+
         if (!hairfie) return null;
         return (
             <div key={hairfie.id} {...this.props}>
@@ -79,10 +80,12 @@ module.exports = React.createClass({
         if (this.state.popup) {
             window.history.replaceState("", "", this.state.defaultUrl);
         }
-        document.body.classList.toggle('locked');
+
         this.setState({
             hairfieId: hairfieId || null,
             popup: !this.state.popup
+        }, function() {
+            this.state.popup ? document.body.classList.add('locked') : document.body.classList.remove('locked');
         });
     },
     prev: function () {
@@ -99,7 +102,10 @@ module.exports = React.createClass({
     next: function () {
         var hairfies = this.props.hairfies;
         var index = _.indexOf(hairfies, this.state.hairfieId);
-
+        console.log('index', index);
+        if (index % 14 == 10) {
+            this.props.loadMore();
+        } 
         if (index < (hairfies.length - 1)) {
             return this.navigate(hairfies[(index + 1)]);
         }

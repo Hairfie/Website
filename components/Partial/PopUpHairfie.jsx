@@ -58,7 +58,7 @@ var PopupHairfie = React.createClass({
                     </div>
                     <div className="tags">
                     {_.map(this.props.hairfie.tags, function(tag) {
-                        return <span className="tag" hey={tag.id}>{tag.name}</span>
+                        return <span className="tag" key={tag.id}>{tag.name}</span>
                     })}
                     </div>
                     <Link className="btn btn-book full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
@@ -67,9 +67,6 @@ var PopupHairfie = React.createClass({
                 </div>
             </div>
         );
-    },
-    test: function(e) {
-        console.log(e);
     },
     renderDesktop: function() {
         return (
