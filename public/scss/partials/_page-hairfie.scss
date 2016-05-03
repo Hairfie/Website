@@ -105,11 +105,11 @@
     .mobile-popup {
         background-color: rgba(255, 255, 255, 1);
         height: 100vh;
-        width: calc(100% + 10px);
+        width: 100%;
         overflow: scroll;
         .single-view {
             background-color: transparent;
-            width: calc(100% - 10px);
+            width: 100%;
             .business-box {
                 height: 90px;
                 padding: 0 10px;
