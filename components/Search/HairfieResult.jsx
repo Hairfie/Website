@@ -123,7 +123,6 @@ var HairfieResult = React.createClass({
         this.props.onChange({sort: order});
     },
     loadMore: function() {
-        console.log('kikoo loadmore');
         this.setState({loading: true});
         this.props.loadMore();
     },

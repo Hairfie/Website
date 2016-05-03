@@ -102,8 +102,7 @@ module.exports = React.createClass({
     next: function () {
         var hairfies = this.props.hairfies;
         var index = _.indexOf(hairfies, this.state.hairfieId);
-        console.log('index', index);
-        if (index % 14 == 10) {
+        if (index > this.props.hairfies.length - 4) {
             this.props.loadMore();
         } 
         if (index < (hairfies.length - 1)) {

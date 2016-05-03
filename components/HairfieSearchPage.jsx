@@ -10,7 +10,8 @@ var Newsletter = require('./Partial/Newsletter.jsx');
 
 var HairfieSearchPage = React.createClass({
     contextTypes: {
-        executeAction: React.PropTypes.func.isRequired
+        executeAction: React.PropTypes.func.isRequired,
+        getStore: React.PropTypes.func
     },
     render: function () {
         var query = {};
@@ -67,7 +68,9 @@ var HairfieSearchPage = React.createClass({
         this.setState({displayMobileFilters: (!this.state.displayMobileFilters)});
     },
     loadMore: function() {
-        this.context.executeAction(HairfieActions.loadSearchResult, _.assign({}, this.props.search, {page: this.props.currentPage + 1 }))
+        if (this.context.getStore('HairfieStore').getLoadingStatusHairfieResult() == false) {
+            this.context.executeAction(HairfieActions.loadSearchResult, _.assign({}, this.props.search, {page: this.props.currentPage + 1 }))            
+        }
     },
     handleSearchChange: function (nextSearch) {
         var search = _.assign({}, this.props.search, nextSearch, { page: 1 });
@@ -128,7 +131,8 @@ HairfieSearchPage = connectToStores(HairfieSearchPage, [
         isFullyLoaded: isFullyLoaded,
         tagCategories: context.getStore('TagStore').getTagCategories(),
         tags: context.getStore('TagStore').getAllTags(),
-        categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId)
+        categories: context.getStore('CategoryStore').getCategoriesByTagsId(searchTagsId),
+        isLoadingHairfieSearchResult: context.getStore('HairfieStore').getLoadingStatusHairfieResult()
     };
 });
 
