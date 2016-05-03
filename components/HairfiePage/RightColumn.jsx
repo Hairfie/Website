@@ -43,7 +43,7 @@ module.exports = React.createClass({
         var address = business.address || {};
 
         return (
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-12 col-sm-6 right-column">
                 <div className="salon-infos">
                     <div className="row">
                         <div className="col-xs-3">
