@@ -123,6 +123,7 @@
                 }
                 .business-box-text-container {
                     padding: 0 10px;
+                    width: 80%;
                     @include flexbox;
                     @include flex-direction(column);
                     .title {
@@ -136,12 +137,32 @@
                         font-weight: $regular;
                     }
                 }
+                span.quit {
+                    background-image: url(../img/search/croix.svg);
+                    width: 50px;
+                    height: 50px;
+                    position: inherit;
+                }
             }
-            .hairfie-single-container {
+            .hairfie-container {
                 padding: 0 10px 0 10px;
                 float: none;
+                position: relative;
+                @include flexbox;
+                @include align-items(center);
+                span.before, span.after {
+                    @include flexbox;
+                    @include align-items(center);
+                    padding-top: 0;
+                }
+                .hairfie-single-container {
+                    padding: 0;
+                }
                 #carousel-hairfie {
                     margin-left: 0;
+                }
+                span.force-size {
+                    display: none;
                 }
             }
         }

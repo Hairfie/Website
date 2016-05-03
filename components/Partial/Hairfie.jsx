@@ -28,7 +28,7 @@ module.exports = React.createClass({
     render: function () {
         var hairfie = this.props.hairfie;
         if (!hairfie) return null;
-        
+        console.log('popup', this.state.popup);
         return (
             <div key={hairfie.id} {...this.props}>
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
@@ -80,6 +80,7 @@ module.exports = React.createClass({
         if (this.state.popup) {
             window.history.replaceState("", "", this.state.defaultUrl);
         }
+        document.body.classList.toggle('locked');
         this.setState({
             hairfieId: hairfieId || null,
             popup: !this.state.popup

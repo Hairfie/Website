@@ -22,12 +22,6 @@ var PopupHairfie = React.createClass({
         if (!this.props.hairfie) return null;
         return (
             <div className="PopUpHairfie hairfie-singleView">
-                <span className="before" role="button" onClick={this.props.prev}>
-                    <Picture picture={{url: "/img/icons/left.svg"}} />
-                </span>
-                <span className="after" role="button" onClick={this.props.next} >
-                    <Picture picture={{url: "/img/icons/right.svg"}} />
-                </span>
                 {this.renderMobile()}
                 {this.renderDesktop()}
             </div>
@@ -46,9 +40,17 @@ var PopupHairfie = React.createClass({
                             <span className="title">Le salon de coiffure&nbsp;:</span>
                             <span className="name">{this.props.hairfie.business.name}</span>
                         </div>
-                    </div>
                         <span className="quit" role="button" onClick={this.props.close} />    
-                    <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    </div>
+                    <div className="hairfie-container">
+                        <span className="before" role="button" onClick={this.props.prev}>
+                            <Picture picture={{url: "/img/icons/left.svg"}} />
+                        </span>
+                        <span className="after" role="button" onClick={this.props.next} >
+                            <Picture picture={{url: "/img/icons/right.svg"}} />
+                        </span>
+                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                    </div>
                     <div className="tags">
                     {_.map(this.props.hairfie.tags, function(tag) {
                         return <span className="tag" hey={tag.id}>{tag.name}</span>
@@ -65,6 +67,12 @@ var PopupHairfie = React.createClass({
         return (
             <div className="hidden-xs">
                 <div className="single-view row">
+                   <span className="before" role="button" onClick={this.props.prev}>
+                        <Picture picture={{url: "/img/icons/left.svg"}} />
+                    </span>
+                    <span className="after" role="button" onClick={this.props.next} >
+                        <Picture picture={{url: "/img/icons/right.svg"}} />
+                    </span>
                     <span className="quit" role="button" onClick={this.props.close} />                    
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
