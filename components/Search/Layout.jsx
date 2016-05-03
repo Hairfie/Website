@@ -30,7 +30,7 @@ var Layout = React.createClass({
                     <div className="mobile-search visible-sm visible-xs">
                         <div className="mobile-filtres">
                             <div className="col-xs-12">
-                                {this.props.filters}
+                                {/*this.props.filters*/}
                             </div>
                         </div>
                     </div>
