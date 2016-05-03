@@ -28,7 +28,6 @@ module.exports = React.createClass({
     render: function () {
         var hairfie = this.props.hairfie;
         if (!hairfie) return null;
-        console.log('popup', this.state.popup);
         return (
             <div key={hairfie.id} {...this.props}>
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>

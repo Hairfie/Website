@@ -29,7 +29,6 @@ var PopupHairfie = React.createClass({
         );
     },
     renderMobile: function() {
-        console.log('HAIRFIE', this.props.hairfie);
         return (
             <div className="mobile-popup hidden-md hidden-lg hidden-sm">
                 <div className="single-view row">
@@ -51,17 +50,9 @@ var PopupHairfie = React.createClass({
                             <Picture picture={{url: "/img/icons/right.svg"}} />
                         </span>
                         <Swipeable
-        onSwiping={this.swiping}
-        onSwipingUp={this.swipingUp}
-        onSwipingRight={this.props.next}
-        onSwipingDown={this.swipingDown}
-        onSwipingLeft={this.props.prev}
-        onSwipedUp={this.swipedUp}
-        onSwipedRight={this.swipedRight}
-        onSwipedDown={this.swipedDown}
-        onSwipedLeft={this.swipedLeft}
-        onSwiped={this.handleSwipeAction}
-        preventDefaultTouchmoveEvent={false}>
+                            onSwipedRight={this.props.next}
+                            onSwipedLeft={this.props.prev}
+                            preventDefaultTouchmoveEvent={false}>
                         <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     </Swipeable>
                     </div>
