@@ -12330,8 +12330,9 @@ section.home-search .home-search-mobile {
         transition: none;
         margin-top: 0px; }
       #content.search .new-filters .location .input-group input, #content.search .new-filters .business-name .input-group input {
-        font-size: 0.7em;
-        height: 40px; }
+        font-size: 1em;
+        height: 40px;
+        z-index: 0; }
       #content.search .new-filters .location .input-group .input-group-addon, #content.search .new-filters .business-name .input-group .input-group-addon {
         border-radius: 2px;
         border-top-left-radius: 0;
@@ -12374,6 +12375,8 @@ section.home-search .home-search-mobile {
         height: 18px;
         position: absolute;
         left: calc(50% - 65px); }
+  #content.search .new-filters .location input {
+    font-size: 0.7em !important; }
   #content.search .new-filters .filters-category {
     display: block;
     height: 50px;
@@ -13212,6 +13215,9 @@ section.home-search .home-search-mobile {
     overflow: hidden;
     max-height: 32px;
     background-color: white; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane#salons .info-bloc .label-container, #content.search .main-content .tab-pane#adom .info-bloc .label-container {
+        max-height: 28px; } }
     #content.search .main-content .tab-pane#salons .info-bloc .label-container .business-label, #content.search .main-content .tab-pane#adom .info-bloc .label-container .business-label {
       color: white;
       background-color: #fe5b5f;
@@ -14894,7 +14900,7 @@ section.home-search .home-search-mobile {
     .hairfie-singleView .mobile-popup .like-group {
       display: none !important; }
     .hairfie-singleView .mobile-popup .tags {
-      padding: 60px; }
+      padding: 10px; }
       .hairfie-singleView .mobile-popup .tags .tag {
         font-size: 1.6em;
         margin: 3px 2px !important; }
