@@ -9,6 +9,7 @@ var UserActions = require('../../actions/UserActions');
 var Picture = require('./Picture.jsx');
 var Link = require('../Link.jsx');
 var Swipeable = require('react-swipeable');
+var classNames = require('classnames');
 
 var PopupHairfie = React.createClass({
     contextTypes: {
@@ -17,7 +18,20 @@ var PopupHairfie = React.createClass({
     },
     getInitialState: function() {
         this.context.executeAction(UserActions.isLikedHairfie, this.props.hairfie);
-        return {};
+        return {
+            transition: false
+        };
+    },
+    componentWillUnmount: function() {
+        document.removeEventListener('keydown', this.keyListener);
+
+    },
+    componentDidUpdate: function(prevProps) {
+        if (this.props.hairfie != prevProps.hairfie && this.state.transition == true) 
+            setTimeout(function(){ this.setState({transition: false});}.bind(this), 200);
+    },
+    componentDidMount: function() {
+        document.addEventListener('keydown', this.keyListener);
     },
     render: function () {
         if (!this.props.hairfie) return null;
@@ -29,6 +43,14 @@ var PopupHairfie = React.createClass({
         );
     },
     renderMobile: function() {
+        var transitionClass = classNames({
+            'transition': true,
+            'on': this.state.transition,
+            'left': this.state.transitionDir == 'left',
+            'right': this.state.transitionDir == 'right',
+            'hide': this.state.transitionHide,
+
+        });
         return (
             <div className="mobile-popup hidden-md hidden-lg hidden-sm">
                 <div className="single-view row">
@@ -43,18 +65,19 @@ var PopupHairfie = React.createClass({
                         <span className="quit" role="button" onClick={this.props.close} />    
                     </div>
                     <div className="hairfie-container">
-                        <span className="before" role="button" onClick={this.props.prev}>
+                        <div className={transitionClass} />
+                        <span className="before" role="button" onClick={this._prev}>
                             <Picture picture={{url: "/img/icons/left.svg"}} />
                         </span>
-                        <span className="after" role="button" onClick={this.props.next} >
+                        <span className="after" role="button" onClick={this._next} >
                             <Picture picture={{url: "/img/icons/right.svg"}} />
                         </span>
                         <Swipeable
-                            onSwipedRight={this.props.next}
-                            onSwipedLeft={this.props.prev}
+                            onSwipedRight={this._next}
+                            onSwipedLeft={this._prev}
                             preventDefaultTouchmoveEvent={false}>
-                        <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
-                    </Swipeable>
+                            <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                        </Swipeable>
                     </div>
                     <div className="tags">
                     {_.map(this.props.hairfie.tags, function(tag) {
@@ -85,18 +108,26 @@ var PopupHairfie = React.createClass({
             </div>
         );
     },
+    _next: function() {
+        this.handleTransition();
+        setTimeout(function() {
+            this.props.next();
+        }.bind(this), 200);
+    },
+    _prev: function() {
+        this.handleTransition();
+        setTimeout(function() {
+            this.props.prev();
+        }.bind(this), 200);
+    },
+    handleTransition: function() {
+        this.setState({transition: true});
+    },
     likeHairfie: function() {
         if (!this.props.hairfieLiked)
             this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
         else
             this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
-    },
-    componentWillUnmount: function() {
-        document.removeEventListener('keydown', this.keyListener);
-
-    },
-    componentDidMount: function() {
-        document.addEventListener('keydown', this.keyListener);
     },
     keyListener: function (e) {
         if(e.keyCode == 37) {

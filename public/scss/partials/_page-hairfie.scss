@@ -40,7 +40,7 @@
             height: 35%;
             width: 5vw;
             position: absolute;
-            z-index: 1;
+            z-index: 3;
             top: 32.5%;
             right: calc(100% + 2.5vw);
             padding-top: calc(9.5% - 25px);
@@ -53,7 +53,7 @@
             height: 35%;
             width: 5vw;
             position: absolute;
-            z-index: 1;
+            z-index: 3;
             top: 32.5%;
             left: 100%;
             padding-top: calc(9.5% - 25px);
@@ -148,12 +148,27 @@
                 padding: 0 10px 0 10px;
                 float: none;
                 position: relative;
+                min-height: calc(100vw - 20px);
                 @include flexbox;
                 @include align-items(center);
                 span.before, span.after {
                     @include flexbox;
                     @include align-items(center);
                     padding-top: 0;
+                }
+                .transition {
+                    height: 100%;
+                    width: calc(100% - 20px);
+                    position: absolute;
+                    background-color: white;
+                    background-size: 100% 100%;
+                    @include transition(all 0.2s ease);
+                    z-index: 2;
+                    opacity: 0;
+                    pointer-events: none;
+                    &.on {
+                        opacity: 1;
+                    }
                 }
                 .hairfie-single-container {
                     padding: 0;
