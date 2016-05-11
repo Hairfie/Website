@@ -71,12 +71,18 @@ var HairfieResult = React.createClass({
                         </div>
                         <div className="row">
                             {_.map(this.props.mixedResult, function (item, i) {
-                                if (item.accountType) {
+                                if (item && item.accountType) {
                                     return (
-                                        <Business business={item} key={i + item.id} />
+                                        <Business business={item} key={item.id + i} />
                                     )
                                 } else {
-                                    return <Hairfie className="col-xs-6 col-sm-4 single-hairfie" key={item.id} hairfie={item} popup={true} hairfies={_.map(this.props.result.hits, 'id')} />;
+                                    return <Hairfie 
+                                        className="col-xs-6 col-sm-4 single-hairfie" 
+                                        key={item.id} 
+                                        hairfie={item} 
+                                        popup={true} 
+                                        loadMore={this.loadMore}
+                                        hairfies={_.map(this.props.result.hits, 'id')} />;
                                 }
                             }.bind(this))}
                         </div>
@@ -97,7 +103,12 @@ var HairfieResult = React.createClass({
                     <div className="salon-hairfies hairfies">
                         <div className="row">
                             {_.map(this.props.result.hits, function (hairfie) {
-                                return <Hairfie className="col-xs-6 col-md-4 single-hairfie" key={hairfie.id} hairfie={hairfie} popup={true} hairfies={_.map(this.props.result.hits, 'id')} />;
+                                return <Hairfie 
+                                    className="col-xs-6 col-md-4 single-hairfie" 
+                                    key={hairfie.id} 
+                                    hairfie={hairfie} 
+                                    popup={true} 
+                                    hairfies={_.map(this.props.result.hits, 'id')} />;
                             }.bind(this))}
                         </div>
                     </div>

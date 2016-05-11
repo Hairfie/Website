@@ -27,16 +27,15 @@ module.exports = React.createClass({
     },
     render: function () {
         var hairfie = this.props.hairfie;
-        if (!hairfie) return null;
 
-        
+        if (!hairfie) return null;
         return (
             <div key={hairfie.id} {...this.props}>
                 <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
-                {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} className="hidden-xs hidden-sm" prev={this.prev} next={this.next} close={this.openPopup} /> : null}
+                {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
                     {this.renderLink(true, 'hidden-xs')}
-                    {this.renderLink(false, ' hidden-sm hidden-md hidden-lg')}
+                    {this.renderLink(true, ' hidden-sm hidden-md hidden-lg')}
                 </figure>
             </div>
         );
@@ -81,9 +80,12 @@ module.exports = React.createClass({
         if (this.state.popup) {
             window.history.replaceState("", "", this.state.defaultUrl);
         }
+
         this.setState({
             hairfieId: hairfieId || null,
             popup: !this.state.popup
+        }, function() {
+            this.state.popup ? document.body.classList.add('locked') : document.body.classList.remove('locked');
         });
     },
     prev: function () {
@@ -100,7 +102,9 @@ module.exports = React.createClass({
     next: function () {
         var hairfies = this.props.hairfies;
         var index = _.indexOf(hairfies, this.state.hairfieId);
-
+        if (index > this.props.hairfies.length - 4) {
+            this.props.loadMore();
+        } 
         if (index < (hairfies.length - 1)) {
             return this.navigate(hairfies[(index + 1)]);
         }

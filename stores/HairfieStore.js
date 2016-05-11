@@ -13,6 +13,8 @@ module.exports = createStore({
         onReceiveTopHairfies: Actions.RECEIVE_TOP_HAIRFIES,
         onReceiveBusinessTopHairfies: Actions.RECEIVE_BUSINESS_TOP_HAIRFIES,
         onReceiveHairfieSearchResult: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT,
+        onReceiveHairfieSearchResultStart: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT_START,
+        onReceiveHairfieSearchResultFailed: Actions.RECEIVE_HAIRFIE_SEARCH_RESULT_FAILED,
         onReceiveBusinessHairfies: Actions.RECEIVE_BUSINESS_HAIRFIES,
         onReceiveUserHairfies: Actions.RECEIVE_USER_HAIRFIES,
         onReceiveUserLikes: Actions.RECEIVE_USER_LIKES,
@@ -28,6 +30,7 @@ module.exports = createStore({
         this.topIdsLoading = false;
         this.businessTopIds = {};
         this.searchResults = {};
+        this.hairfieSearchResultIsLoading = false;
     },
     dehydrate: function () {
         return {
@@ -76,12 +79,21 @@ module.exports = createStore({
         var result = payload.result;
 
         this.hairfies = _.assign({}, this.hairfies, _.indexBy(result.hits, 'id'));
+        this.onReceiveHairfieSearchResultFailed();
         if (this.searchResults[searchKey(search)]) {
             var newHits = _.uniq(this.searchResults[searchKey(search)].hits.concat(_.pluck(result.hits, 'id')));
             this.searchResults[searchKey(search)] = _.assign({}, result, { hits: newHits, currentPage: newHits.length / 14 });
         }
         else
             this.searchResults[searchKey(search)] = _.assign({}, result, { hits: _.pluck(result.hits, 'id'), currentPage: 1 });
+        this.emitChange();
+    },
+    onReceiveHairfieSearchResultStart: function() {
+        this.hairfieSearchResultIsLoading = true;
+        this.emitChange();
+    },
+    onReceiveHairfieSearchResultFailed: function() {
+        this.hairfieSearchResultIsLoading = false;
         this.emitChange();
     },
     onReceiveBusinessHairfies: function (payload) {
@@ -269,6 +281,9 @@ module.exports = createStore({
         }
         else
             return this.hairfies[id].similarHairfiesPage;
+    },
+    getLoadingStatusHairfieResult: function() {
+        return this.hairfieSearchResultIsLoading;
     },
     _generateDescriptions: function(hairfie) {
         var descriptions, tags = '', oldDescription = '', businessName = '';
