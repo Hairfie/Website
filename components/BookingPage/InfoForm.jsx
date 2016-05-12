@@ -344,7 +344,7 @@ var InfoForm = React.createClass({
             phoneNumber : this.refs.userPhoneNumber.value,
             hairLength  : this.state.hairLength,
             service     : this.refs.service.value,
-            comment     : this.refs.userComment.value,
+            comment     : this.refs.userComment.getValue(),
             timeslot    : this.props.timeslotSelected,
             discount    : this.props.discount,
             newsletter  : this.state.newsletter,
@@ -356,6 +356,7 @@ var InfoForm = React.createClass({
     },
     submit: function (e) {
         e.preventDefault();
+
         this.props.validate(function(error) {
             if (error) {
                 return;
