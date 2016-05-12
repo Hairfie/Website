@@ -8,7 +8,7 @@ var GeoInput = require('../Form/PlaceAutocompleteInput.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var PlaceActions = require('../../actions/PlaceActions');
 var DateTimeConstants = require('../../constants/DateTimeConstants');
-
+var AutosuggestInput = require('./AutosuggestInput.jsx');
 
 var Filters = React.createClass({
     contextTypes: {
@@ -66,6 +66,7 @@ var Filters = React.createClass({
                     {this.renderSelections()}
                     {this.renderAddress()}
                     {this.renderDiscount()}
+                    {this.renderTagsTypeahead()}
                     {this.renderCategories()}
                     {this.renderTags()}
                     {this.renderOpenDays()}
@@ -101,6 +102,17 @@ var Filters = React.createClass({
                         );
                     }, this)}
                 </div>
+            </div>
+        );
+    },
+    renderTagsTypeahead: function() {
+        if (this.props.tab != 'hairfie') return;
+        return (
+            <div>
+                <h2>Recherche de tags</h2>
+                <AutosuggestInput 
+                    addTag={this.addTag}
+                    tags={this.props.tags} />
             </div>
         );
     },
