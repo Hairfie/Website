@@ -1,6 +1,10 @@
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
+.like-group {
+    background-color: blue;
+    color: red;
+}   
 .hairfie-newsletter {
     margin-bottom: 10px;
     margin-left: -15px;
@@ -15,36 +19,6 @@
 .hairfie-singleView {
     margin: auto;
     &.PopUpHairfie {
-        span.before {
-            height: 35%;
-            width: 10vw;
-            position: absolute;
-            z-index: 1;
-            top: 32.5%;
-            right: calc(100% + 2.5vw);
-            padding-top: calc(9.5% - 25px);
-            padding-left: calc(5vw - 25px);
-        }
-        span.after {
-            height: 35%;
-            width: 10vw;
-            position: absolute;
-            z-index: 1;
-            top: 32.5%;
-            left: 100%;
-            padding-top: calc(9.5% - 25px);
-            padding-left: calc(5vw - 25px);
-        }
-        span.quit {
-            height: 40px;
-            width: 40px;
-            background: url(../img/icons/cross.svg) white no-repeat center center;
-            background-size: 50%;
-            position: absolute;
-            z-index: 1;
-            top: -50px;
-            right: 0;
-        }
         position: fixed;
         z-index: 10000;
         margin: 0;
@@ -56,6 +30,50 @@
         @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
             width: 80vw;
             left: 10vw;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+        span.before {
+            height: 35%;
+            width: 5vw;
+            position: absolute;
+            z-index: 3;
+            top: 32.5%;
+            right: calc(100% + 2.5vw);
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
+            @media screen and (max-width: $screen-xs-max) {
+                left: 15px;
+            }
+        }
+        span.after {
+            height: 35%;
+            width: 5vw;
+            position: absolute;
+            z-index: 3;
+            top: 32.5%;
+            left: 100%;
+            padding-top: calc(9.5% - 25px);
+            padding-left: calc(5vw - 25px);
+            @media screen and (max-width: $screen-xs-max) {
+                left: calc(100% - 33.75px);
+            }
+        }
+        span.quit {
+            height: 40px;
+            width: 40px;
+            background: url(../img/icons/cross.svg) white no-repeat center center;
+            background-size: 50%;
+            position: absolute;
+            z-index: 1;
+            top: -50px;
+            right: 0;
+            @media screen and (max-width: $screen-xs-max) {
+                top: 25px;
+            }
         }
         .row {
             border: none !important;
@@ -82,6 +100,108 @@
     }
     > a span.arrow-left {
         left: -50px !important;
+    }
+
+    .mobile-popup {
+        background-color: rgba(255, 255, 255, 1);
+        height: 100vh;
+        width: 100%;
+        overflow: scroll;
+        .single-view {
+            background-color: transparent;
+            width: 100%;
+            .business-box {
+                height: 90px;
+                padding: 0 10px;
+                @include flexbox;
+                @include align-items(center);
+                img {
+                    width: 50px !important;
+                    height: 50px !important;
+                    margin: 0 !important;
+                    border-radius: 2px;
+                }
+                .business-box-text-container {
+                    padding: 0 10px;
+                    width: 80%;
+                    @include flexbox;
+                    @include flex-direction(column);
+                    .title {
+                        text-transform: uppercase;
+                        color: $grey3;
+                        font-size: 1.4em;
+                    }
+                    .name {
+                        color: black;
+                        font-size: 1.6em;
+                        font-weight: $regular;
+                    }
+                }
+                span.quit {
+                    background-image: url(../img/search/croix.svg);
+                    width: 50px;
+                    height: 50px;
+                    position: inherit;
+                }
+            }
+            .hairfie-container {
+                padding: 0 10px 0 10px;
+                float: none;
+                position: relative;
+                min-height: calc(100vw - 20px);
+                @include flexbox;
+                @include align-items(center);
+                span.before, span.after {
+                    @include flexbox;
+                    @include align-items(center);
+                    padding-top: 0;
+                }
+                .transition {
+                    height: 100%;
+                    width: calc(100% - 20px);
+                    position: absolute;
+                    background-color: white;
+                    background-size: 100% 100%;
+                    @include transition(all 0.2s ease);
+                    z-index: 2;
+                    opacity: 0;
+                    pointer-events: none;
+                    &.on {
+                        opacity: 1;
+                    }
+                }
+                .hairfie-single-container {
+                    padding: 0;
+                }
+                #carousel-hairfie {
+                    margin-left: 0;
+                }
+                span.force-size {
+                    display: none;
+                }
+            }
+        }
+        .like-group {
+            @include hide;
+        }
+        .tags {
+            padding: 10px;
+            .tag {
+                font-size: 1.6em;
+                margin: 3px 2px !important;              
+            }
+        }
+        .btn-book {
+            width: calc(100% - 20px);
+            height: 45px;
+            border-radius: 0;
+            padding: 10px 16px !important;
+            font-size: 1.4em !important;
+            margin-left: 10px !important;
+            margin-bottom: 100px !important;
+            bottom: 0;
+            left: 0;
+        }
     }
 
     .single-view {
@@ -171,7 +291,7 @@
                 right: 20px;
             }
         }
-        > div:nth-child(2) {
+        > div:nth-child(2), .right-column {
             padding: 20px;
 
             .salon-infos {

@@ -7,6 +7,9 @@ var HairfieSingle = require('../HairfiePage/HairfieSingle.jsx');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var UserActions = require('../../actions/UserActions');
 var Picture = require('./Picture.jsx');
+var Link = require('../Link.jsx');
+var Swipeable = require('react-swipeable');
+var classNames = require('classnames');
 
 var PopupHairfie = React.createClass({
     contextTypes: {
@@ -15,38 +18,116 @@ var PopupHairfie = React.createClass({
     },
     getInitialState: function() {
         this.context.executeAction(UserActions.isLikedHairfie, this.props.hairfie);
-        return {};
+        return {
+            transition: false
+        };
+    },
+    componentWillUnmount: function() {
+        document.removeEventListener('keydown', this.keyListener);
+
+    },
+    componentDidUpdate: function(prevProps) {
+        if (this.props.hairfie != prevProps.hairfie && this.state.transition == true) 
+            setTimeout(function(){ this.setState({transition: false});}.bind(this), 200);
+    },
+    componentDidMount: function() {
+        document.addEventListener('keydown', this.keyListener);
     },
     render: function () {
         if (!this.props.hairfie) return null;
         return (
-            <div className="PopUpHairfie hairfie-singleView hidden-xs hidden-sm">
-                <span className="before" role="button" onClick={this.props.prev}>
-                    <Picture picture={{url: "/img/icons/left.svg"}} style={{width: 50, height: 50}} />
-                </span>
-                <span className="quit" role="button" onClick={this.props.close} />
+            <div className="PopUpHairfie hairfie-singleView">
+                {this.renderMobile()}
+                {this.renderDesktop()}
+            </div>
+        );
+    },
+    renderMobile: function() {
+        var transitionClass = classNames({
+            'transition': true,
+            'on': this.state.transition,
+            'left': this.state.transitionDir == 'left',
+            'right': this.state.transitionDir == 'right',
+            'hide': this.state.transitionHide,
+
+        });
+        return (
+            <div className="mobile-popup hidden-md hidden-lg hidden-sm">
                 <div className="single-view row">
+                    <div className="business-box">
+                        <Picture picture={this.props.hairfie.business.pictures[0]}
+                           resolution={{width: 100, height: 100}}
+                           placeholder="/img/placeholder-124.png" />
+                        <div className="business-box-text-container">
+                            <span className="title">Le salon de coiffure&nbsp;:</span>
+                            <span className="name">{this.props.hairfie.business.name}</span>
+                        </div>
+                        <span className="quit" role="button" onClick={this.props.close} />    
+                    </div>
+                    <div className="hairfie-container">
+                        <div className={transitionClass} />
+                        <span className="before" role="button" onClick={this._prev}>
+                            <Picture picture={{url: "/img/icons/left.svg"}} />
+                        </span>
+                        <span className="after" role="button" onClick={this._next} >
+                            <Picture picture={{url: "/img/icons/right.svg"}} />
+                        </span>
+                        <Swipeable
+                            onSwipedRight={this._next}
+                            onSwipedLeft={this._prev}
+                            preventDefaultTouchmoveEvent={false}>
+                            <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
+                        </Swipeable>
+                    </div>
+                    <div className="tags">
+                    {_.map(this.props.hairfie.tags, function(tag) {
+                        return <span className="tag" key={tag.id}>{tag.name}</span>
+                    })}
+                    </div>
+                    <Link className="btn btn-book full" route="business" params={{ businessId: this.props.hairfie.business.id, businessSlug: this.props.hairfie.business.slug }}>
+                        voir le salon
+                    </Link>
+                </div>
+            </div>
+        );
+    },
+    renderDesktop: function() {
+        return (
+            <div className="hidden-xs">
+                <div className="single-view row">
+                   <span className="before" role="button" onClick={this.props.prev}>
+                        <Picture picture={{url: "/img/icons/left.svg"}} />
+                    </span>
+                    <span className="after" role="button" onClick={this.props.next} >
+                        <Picture picture={{url: "/img/icons/right.svg"}} />
+                    </span>
+                    <span className="quit" role="button" onClick={this.props.close} />                    
                     <HairfieSingle hairfie={this.props.hairfie} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                     <RightColumn hairfie={this.props.hairfie} currentUser={this.props.currentUser} likeHairfie={{func: this.likeHairfie, state: this.props.hairfieLiked}}/>
                 </div>
-                <span className="after" role="button" onClick={this.props.next} >
-                    <Picture picture={{url: "/img/icons/right.svg"}} style={{width: 50, height: 50}} />
-                </span>
             </div>
         );
+    },
+    _next: function() {
+        this.handleTransition();
+        setTimeout(function() {
+            this.props.next();
+        }.bind(this), 200);
+    },
+    _prev: function() {
+        this.handleTransition();
+        setTimeout(function() {
+            this.props.prev();
+        }.bind(this), 200);
+    },
+    handleTransition: function() {
+        this.setState({transition: true});
     },
     likeHairfie: function() {
         if (!this.props.hairfieLiked)
             this.context.executeAction(UserActions.hairfieLike, this.props.hairfie);
         else
             this.context.executeAction(UserActions.hairfieUnlike, this.props.hairfie);
-    },
-    componentWillUnmount: function() {
-        document.removeEventListener('keydown', this.keyListener);
-
-    },
-    componentDidMount: function() {
-        document.addEventListener('keydown', this.keyListener);
     },
     keyListener: function (e) {
         if(e.keyCode == 37) {

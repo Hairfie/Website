@@ -12330,8 +12330,9 @@ section.home-search .home-search-mobile {
         transition: none;
         margin-top: 0px; }
       #content.search .new-filters .location .input-group input, #content.search .new-filters .business-name .input-group input {
-        font-size: 0.7em;
-        height: 40px; }
+        font-size: 1em;
+        height: 40px;
+        z-index: 0; }
       #content.search .new-filters .location .input-group .input-group-addon, #content.search .new-filters .business-name .input-group .input-group-addon {
         border-radius: 2px;
         border-top-left-radius: 0;
@@ -12374,6 +12375,8 @@ section.home-search .home-search-mobile {
         height: 18px;
         position: absolute;
         left: calc(50% - 65px); }
+  #content.search .new-filters .location input {
+    font-size: 0.7em !important; }
   #content.search .new-filters .filters-category {
     display: block;
     height: 50px;
@@ -13212,6 +13215,9 @@ section.home-search .home-search-mobile {
     overflow: hidden;
     max-height: 32px;
     background-color: white; }
+    @media screen and (max-width: 767px) {
+      #content.search .main-content .tab-pane#salons .info-bloc .label-container, #content.search .main-content .tab-pane#adom .info-bloc .label-container {
+        max-height: 28px; } }
     #content.search .main-content .tab-pane#salons .info-bloc .label-container .business-label, #content.search .main-content .tab-pane#adom .info-bloc .label-container .business-label {
       color: white;
       background-color: #fe5b5f;
@@ -14740,6 +14746,10 @@ section.home-search .home-search-mobile {
 /*////////////////////////////////
       P A G E  H A I R F I E
 ////////////////////////////////*/
+.like-group  {
+  background-color: blue;
+  color: red; }
+
 .hairfie-newsletter {
   margin-bottom: 10px;
   margin-left: -15px;
@@ -14761,24 +14771,39 @@ section.home-search .home-search-mobile {
     min-height: inherit;
     left: 15vw;
     top: 15vh; }
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 80vw;
+        left: 10vw; } }
+    @media screen and (max-width: 767px) {
+      .hairfie-singleView.PopUpHairfie {
+        width: 100%;
+        left: 0;
+        top: 0; } }
     .hairfie-singleView.PopUpHairfie span.before {
       height: 35%;
-      width: 10vw;
+      width: 5vw;
       position: absolute;
-      z-index: 1;
+      z-index: 3;
       top: 32.5%;
       right: calc(100% + 2.5vw);
       padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.before {
+          left: 15px; } }
     .hairfie-singleView.PopUpHairfie span.after {
       height: 35%;
-      width: 10vw;
+      width: 5vw;
       position: absolute;
-      z-index: 1;
+      z-index: 3;
       top: 32.5%;
       left: 100%;
       padding-top: calc(9.5% - 25px);
       padding-left: calc(5vw - 25px); }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.after {
+          left: calc(100% - 33.75px); } }
     .hairfie-singleView.PopUpHairfie span.quit {
       height: 40px;
       width: 40px;
@@ -14788,10 +14813,9 @@ section.home-search .home-search-mobile {
       z-index: 1;
       top: -50px;
       right: 0; }
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
-      .hairfie-singleView.PopUpHairfie {
-        width: 80vw;
-        left: 10vw; } }
+      @media screen and (max-width: 767px) {
+        .hairfie-singleView.PopUpHairfie span.quit {
+          top: 25px; } }
     .hairfie-singleView.PopUpHairfie .row {
       border: none !important;
       padding: initial !important;
@@ -14808,6 +14832,124 @@ section.home-search .home-search-mobile {
     right: -50px !important; }
   .hairfie-singleView > a span.arrow-left {
     left: -50px !important; }
+  .hairfie-singleView .mobile-popup {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll; }
+    .hairfie-singleView .mobile-popup .single-view {
+      background-color: transparent;
+      width: 100%; }
+      .hairfie-singleView .mobile-popup .single-view .business-box {
+        height: 90px;
+        padding: 0 10px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center; }
+        .hairfie-singleView .mobile-popup .single-view .business-box img {
+          width: 50px !important;
+          height: 50px !important;
+          margin: 0 !important;
+          border-radius: 2px; }
+        .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container {
+          padding: 0 10px;
+          width: 80%;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-direction: normal;
+          -webkit-box-orient: vertical;
+          -webkit-flex-direction: column;
+          -moz-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column; }
+          .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container .title {
+            text-transform: uppercase;
+            color: #a9aeb1;
+            font-size: 1.4em; }
+          .hairfie-singleView .mobile-popup .single-view .business-box .business-box-text-container .name {
+            color: black;
+            font-size: 1.6em;
+            font-weight: 400; }
+        .hairfie-singleView .mobile-popup .single-view .business-box span.quit {
+          background-image: url(../img/search/croix.svg);
+          width: 50px;
+          height: 50px;
+          position: inherit; }
+      .hairfie-singleView .mobile-popup .single-view .hairfie-container {
+        padding: 0 10px 0 10px;
+        float: none;
+        position: relative;
+        min-height: calc(100vw - 20px);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center; }
+        .hairfie-singleView .mobile-popup .single-view .hairfie-container span.before, .hairfie-singleView .mobile-popup .single-view .hairfie-container span.after {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
+          align-items: center;
+          padding-top: 0; }
+        .hairfie-singleView .mobile-popup .single-view .hairfie-container .transition {
+          height: 100%;
+          width: calc(100% - 20px);
+          position: absolute;
+          background-color: white;
+          background-size: 100% 100%;
+          -webkit-transition: all 0.2s ease;
+          -moz-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+          -o-transition: all 0.2s ease;
+          z-index: 2;
+          opacity: 0;
+          pointer-events: none; }
+          .hairfie-singleView .mobile-popup .single-view .hairfie-container .transition.on {
+            opacity: 1; }
+        .hairfie-singleView .mobile-popup .single-view .hairfie-container .hairfie-single-container {
+          padding: 0; }
+        .hairfie-singleView .mobile-popup .single-view .hairfie-container #carousel-hairfie {
+          margin-left: 0; }
+        .hairfie-singleView .mobile-popup .single-view .hairfie-container span.force-size {
+          display: none; }
+    .hairfie-singleView .mobile-popup .like-group {
+      display: none !important; }
+    .hairfie-singleView .mobile-popup .tags {
+      padding: 10px; }
+      .hairfie-singleView .mobile-popup .tags .tag {
+        font-size: 1.6em;
+        margin: 3px 2px !important; }
+    .hairfie-singleView .mobile-popup .btn-book {
+      width: calc(100% - 20px);
+      height: 45px;
+      border-radius: 0;
+      padding: 10px 16px !important;
+      font-size: 1.4em !important;
+      margin-left: 10px !important;
+      margin-bottom: 100px !important;
+      bottom: 0;
+      left: 0; }
   .hairfie-singleView .single-view {
     background-color: white; }
     .hairfie-singleView .single-view span.force-size {
@@ -14890,57 +15032,57 @@ section.home-search .home-search-mobile {
         color: white;
         font-size: 3em;
         right: 20px; }
-    .hairfie-singleView .single-view > div:nth-child(2) {
+    .hairfie-singleView .single-view > div:nth-child(2), .hairfie-singleView .single-view .right-column {
       padding: 20px; }
-      .hairfie-singleView .single-view > div:nth-child(2) .salon-infos {
+      .hairfie-singleView .single-view > div:nth-child(2) .salon-infos, .hairfie-singleView .single-view .right-column .salon-infos {
         height: auto;
         border-bottom: 1px solid #f9f9f9; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .col-xs-9 {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .col-xs-9, .hairfie-singleView .single-view .right-column .salon-infos .col-xs-9 {
           padding-left: 0; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child, .hairfie-singleView .single-view .right-column .salon-infos > div:first-child {
           padding-left: 0; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child, .hairfie-singleView .single-view .right-column .salon-infos > div:first-child > div:first-child {
             max-height: 95px; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a {
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a, .hairfie-singleView .single-view .right-column .salon-infos > div:first-child > div:first-child a {
               display: inline-block;
               width: 100%;
               height: auto;
               max-height: 95px;
               overflow: hidden; }
-              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a img {
+              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos > div:first-child > div:first-child a img, .hairfie-singleView .single-view .right-column .salon-infos > div:first-child > div:first-child a img {
                 width: 100%;
                 height: auto; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos h2 {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos h2, .hairfie-singleView .single-view .right-column .salon-infos h2 {
           font-size: 1.5em; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p, .hairfie-singleView .single-view .right-column .salon-infos p {
           letter-spacing: 1px;
           font-size: 1.3em;
           margin-bottom: 5px; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.address {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.address, .hairfie-singleView .single-view .right-column .salon-infos p.address {
             margin-top: 4px; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a, .hairfie-singleView .single-view .right-column .salon-infos p.likes a {
             float: none;
             text-decoration: none;
             font-size: 0.9em;
             color: #b9b9b9; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a:hover {
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a:hover, .hairfie-singleView .single-view .right-column .salon-infos p.likes a:hover {
               color: #a0a0a0; }
-            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red {
+            .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red, .hairfie-singleView .single-view .right-column .salon-infos p.likes a.red {
               color: #fe5b5f; }
-              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red:hover {
+              .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.likes a.red:hover, .hairfie-singleView .single-view .right-column .salon-infos p.likes a.red:hover {
                 color: #fe282e; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.more-info a {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p.more-info a, .hairfie-singleView .single-view .right-column .salon-infos p.more-info a {
             color: #595959;
             text-decoration: underline; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a, .hairfie-singleView .single-view .right-column .salon-infos p a {
           text-decoration: underline; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a:hover {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos p a:hover, .hairfie-singleView .single-view .right-column .salon-infos p a:hover {
             color: #343434; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .btn-book {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos .btn-book, .hairfie-singleView .single-view .right-column .salon-infos .btn-book {
           text-transform: uppercase;
           border-radius: 0;
           font-size: 1.3em; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2, .hairfie-singleView .single-view .right-column .salon-infos div.address-bloc h2 {
           padding: 0;
           font-weight: 600;
           text-transform: uppercase;
@@ -14948,15 +15090,15 @@ section.home-search .home-search-mobile {
           color: #595959;
           letter-spacing: 2px;
           font-size: 1.6em; }
-          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 a {
+          .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc h2 a, .hairfie-singleView .single-view .right-column .salon-infos div.address-bloc h2 a {
             letter-spacing: 2px;
             color: #595959;
             text-decoration: none; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc a {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc a, .hairfie-singleView .single-view .right-column .salon-infos div.address-bloc a {
           color: #595959;
           text-decoration: none;
           letter-spacing: 1px; }
-        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc p {
+        .hairfie-singleView .single-view > div:nth-child(2) .salon-infos div.address-bloc p, .hairfie-singleView .single-view .right-column .salon-infos div.address-bloc p {
           font-size: 1.4em; }
     .hairfie-singleView .single-view .tags {
       margin-left: -3px; }

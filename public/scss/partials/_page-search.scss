@@ -130,8 +130,9 @@
 
                 }
                 input {
-                    font-size: 0.7em;
+                    font-size: 1em;
                     height: 40px;
+                    z-index: 0;
                 }
                 .input-group-addon {
                     border-radius: 2px;
@@ -181,6 +182,11 @@
                     position: absolute;
                     left: calc(50% - 65px);
                 }
+            }
+        }
+        .location {
+            input {
+                font-size: 0.7em !important;
             }
         }
         .filters-category {
@@ -1047,7 +1053,6 @@
                         .mobile {
                             @include flexbox;
                             @include align-items(center);
-                            // display: block !important;
                         }
                     }
                 }
@@ -1055,6 +1060,9 @@
                     overflow: hidden;
                     max-height: 32px;
                     background-color: white;
+                    @media screen and (max-width: $screen-xs-max) {
+                        max-height: 28px;
+                    }
                     .business-label {
                         color: white;
                         background-color: $hairfie;

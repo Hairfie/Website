@@ -9,7 +9,7 @@ var ReactFitText = require('react-fittext');
 module.exports = React.createClass({
     render: function () {
         return (
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-12 col-sm-6 hairfie-single-container">
                 <span className="force-size"/>
                 <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}>
                     {this.renderPrice()}

@@ -100,6 +100,8 @@ module.exports = {
             query['tags['+i+']'] = tag;
         });
 
+        context.dispatch(Actions.RECEIVE_HAIRFIE_SEARCH_RESULT_START, {});
+
         return context.hairfieApi
             .get('/hairfies/search', { query: query })
             .then(function (result) {
@@ -107,6 +109,8 @@ module.exports = {
                     search: search,
                     result: result
                 });
+            }, function(){
+                context.dispatch(Actions.RECEIVE_HAIRFIE_SEARCH_RESULT_FAILED);
             });
     },
     loadHairdresserHairfies: function (context, params) {
