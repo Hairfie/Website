@@ -27,7 +27,11 @@ var HomePage = React.createClass({
                 <Notifications />
                 <PageProgress />
                 <section className="landing">
-                    <Header home={true} displaySearch={this.state.displaySearch} findMe={this.state.findMe} />
+                    <Header 
+                        ref='header'
+                        home={true} 
+                        displaySearch={this.state.displaySearch} 
+                        findMe={this.state.findMe} />
                     <div className="container">
                         <div className="row">
                             <div className="headline col-md-12">
@@ -64,6 +68,9 @@ var HomePage = React.createClass({
         );
     },
     searchHairdresser: function(withFindMe) {
+        // debugger;
+        this.refs.header.handleDisplaySearch();
+        // this.refs.header.refs.searchbar.findMe();
         var findMe = _.isBoolean(withFindMe) ? withFindMe : false;
         if($('.mobile-menu').is(':visible')) {
             if( $('.mobile-menu').height() == 0 ) {

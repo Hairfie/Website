@@ -35,6 +35,7 @@ var SearchBar = React.createClass({
         }
     },
     render: function() {
+        console.log('RENDER');
         if (this.props.mobile) return this.renderMobile();
         else if (this.props.home) return this.renderHomePage();
         else return this.renderSearchBar();
