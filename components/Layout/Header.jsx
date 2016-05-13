@@ -146,9 +146,7 @@ var Header = React.createClass({
         this.setState({tab: ""});
     },
     handleDisplaySearch: function() {
-        this.setState({displaySearch: !this.state.displaySearch}, function() {
-            debugger;
-        });
+        this.setState({displaySearch: !this.state.displaySearch});
     },
     handleDisplayMenu: function() {
         if (this.state.displayMenu || this.state.displaySearch)
