@@ -27,7 +27,11 @@ var HomePage = React.createClass({
                 <Notifications />
                 <PageProgress />
                 <section className="landing">
-                    <Header home={true} displaySearch={this.state.displaySearch} findMe={this.state.findMe} />
+                    <Header 
+                        ref='header'
+                        home={true} 
+                        displaySearch={this.state.displaySearch} 
+                        findMe={this.state.findMe} />
                     <div className="container">
                         <div className="row">
                             <div className="headline col-md-12">
@@ -64,22 +68,7 @@ var HomePage = React.createClass({
         );
     },
     searchHairdresser: function(withFindMe) {
-        var findMe = _.isBoolean(withFindMe) ? withFindMe : false;
-        if($('.mobile-menu').is(':visible')) {
-            if( $('.mobile-menu').height() == 0 ) {
-                this.setState({displaySearch: true, findMe: findMe});
-                $('body').toggleClass('locked');
-                $('.menu-trigger').addClass('close');
-                TweenMax.to('.mobile-menu', 0, {height:'100vh',ease:Power2.easeInOut});
-            } else {
-                this.setState({displaySearch: false, findMe: false});
-                $('body').toggleClass('locked');
-                $('.menu-trigger').removeClass('close');
-                TweenMax.to('.mobile-menu', 0, {height:0,ease:Power2.easeOut});
-            }
-        } else {
-            this.scrollTo("search");
-        }
+        this.refs.header.handleDisplaySearch();
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');

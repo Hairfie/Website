@@ -61,7 +61,7 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar mobile={true} findMe={this.props.findMe} close={this.mobileClose}/> : this.renderMobileMenu()}
+                {this.state.displaySearch ? <SearchBar ref='searchbar' mobile={true} findMe={this.props.findMe} close={this.mobileClose}/> : this.renderMobileMenu()}
             </div>
         );
     },
