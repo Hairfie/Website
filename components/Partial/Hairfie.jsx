@@ -31,7 +31,7 @@ module.exports = React.createClass({
         if (!hairfie) return null;
         return (
             <div key={hairfie.id} {...this.props}>
-                <div className={"hidden-xs hidden-sm shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
+                <div className={"hidden-xs shadow " + (this.state.popup ? 'active' : 'inactive')} onClick={this.openPopup}/>
                 {this.state.popup ? <PopUpHairfie hairfieId={this.state.hairfieId} prev={this.prev} next={this.next} close={this.openPopup} /> : null}
                 <figure onClick={this.openPopup.bind(null, hairfie.id)}>
                     {this.renderLink(true, 'hidden-xs')}

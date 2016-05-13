@@ -384,6 +384,10 @@
         }
         .tags {
             margin-left: -3px;
+            @media screen and (max-width: $screen-sm-max) and (min-width: $screen-sm-min) {
+                height: 24px;
+                overflow: hidden;
+            }
             .tag {
                 margin-bottom: 6px;
                 a {
