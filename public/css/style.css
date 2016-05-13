@@ -10054,6 +10054,24 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
       margin-top: 5px;
       color: white;
       font-size: 1.8em; }
+  .hairfies .single-hairfie .infos-mobile {
+    height: 50px;
+    border: 1px solid #dfdfdf;
+    border-top: 0;
+    padding: 3px 10px;
+    background-color: white; }
+    .hairfies .single-hairfie .infos-mobile .business-title {
+      color: #c4c4c4;
+      text-transform: uppercase;
+      font-size: 1.3em; }
+    .hairfies .single-hairfie .infos-mobile .business-name {
+      color: black;
+      font-size: 1.6em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      display: inline-block; }
   @media screen and (min-width: 992px) {
     .hairfies .single-hairfie {
       padding: 5px 10px 5px 0; } }
@@ -10378,7 +10396,7 @@ div.shadow.active {
   background-color: rgba(0, 0, 0, 0.6);
   left: 0;
   top: 0;
-  z-index: 5; }
+  z-index: 25; }
 
 div.shadow.inactive {
   display: none; }
@@ -15082,6 +15100,10 @@ section.home-search .home-search-mobile {
           font-size: 1.4em; }
     .hairfie-singleView .single-view .tags {
       margin-left: -3px; }
+      @media screen and (max-width: 991px) and (min-width: 768px) {
+        .hairfie-singleView .single-view .tags {
+          height: 24px;
+          overflow: hidden; } }
       .hairfie-singleView .single-view .tags .tag {
         margin-bottom: 6px; }
         .hairfie-singleView .single-view .tags .tag a {
