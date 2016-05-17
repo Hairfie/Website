@@ -28,6 +28,7 @@ var SearchBar = React.createClass({
         }
     },
     componentWillReceiveProps: function(newProps) {
+        if(newProps.findMe && this.props.findMe != newProps.findMe) this.findMe();
         if (newProps.location && this.state.activeLocation) {
             this.setState({location: newProps.location}, function() {
                 this.refs.address.refs.geoSuggest.update(newProps.location);
@@ -74,7 +75,7 @@ var SearchBar = React.createClass({
     },
     renderMobile: function() {
         return (
-            <div className="search-menu">
+            <div {...this.props}>
                 <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
                     <div className="col-xs-12 input-group where">
@@ -144,6 +145,7 @@ var SearchBar = React.createClass({
             this.setState({
                 location: this.props.location
             });
+            this.refs.address.refs.geoSuggest.update(this.state.location);
         }
         else {
             this.context.executeAction(PlaceActions.getPlaceByGeolocation);

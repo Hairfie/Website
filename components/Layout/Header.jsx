@@ -19,7 +19,8 @@ var Header = React.createClass({
         return {
             displaySearch: false,
             displayMenu: false,
-            tab: ""
+            tab: "",
+            findMe: false
         };
     },
     componentWillReceiveProps: function(props) {
@@ -51,6 +52,10 @@ var Header = React.createClass({
             'col-xs-4 menu-trigger pull-right': true,
             'close': this.state.displaySearch || this.state.displayMenu
         });
+        var searchBarClass = classNames({
+            'search-menu': true,
+            'hidden': !this.state.displaySearch
+        });
         return (
             <div className="mobile-nav visible-xs">
                 <header className="container white visible-xs">
@@ -61,7 +66,9 @@ var Header = React.createClass({
                         </nav>
                     
                 </header>
-                {this.state.displaySearch ? <SearchBar ref='searchbar' mobile={true} findMe={this.props.findMe} close={this.mobileClose}/> : this.renderMobileMenu()}
+                {/*this.state.displaySearch ? <SearchBar ref='searchbar' mobile={true} findMe={this.props.findMe} close={this.mobileClose}/> : this.renderMobileMenu()*/}
+                <SearchBar ref='searchbar' className={searchBarClass} mobile={true} findMe={this.state.findMe} close={this.mobileClose}/>
+                {this.renderMobileMenu()}
             </div>
         );
     },
@@ -145,7 +152,8 @@ var Header = React.createClass({
     desktopPopupClose: function() {
         this.setState({tab: ""});
     },
-    handleDisplaySearch: function() {
+    handleDisplaySearch: function(withFindMe) {
+        if(withFindMe) this.setState({findMe: true});
         this.setState({displaySearch: !this.state.displaySearch});
     },
     handleDisplayMenu: function() {
