@@ -298,6 +298,16 @@ a {
                 background-size: 40%;
                 border: 2px solid #e6e6e6;
                 border-left-width: 1px;
+                padding: 0;
+                .spinner {
+                    background-color: white;
+                    height: 58px;
+                    @include flexbox;
+                    @include align-items(center);
+                }
+                .bounce1, .bounce2, .bounce3 {
+                    background-color: $hairfie;
+                }
             }
         }
     &.open {
@@ -419,6 +429,16 @@ a {
             border: 1px solid #e6e6e6;
             border-left: none;
             border-radius: 0;
+            padding: 0;
+            .spinner {
+                background-color: white;
+                height: 38px;
+                @include flexbox;
+                @include align-items(center);
+            }
+            .bounce1, .bounce2, .bounce3 {
+                background-color: $hairfie;
+            }
         }
     }
     .Select-control {
