@@ -44,7 +44,7 @@ var HomePage = React.createClass({
                         </div>
                         <div className="row visible-xs">
                             <div className="search-group text-center">
-                                <a onClick={this.searchHairdresser} className="btn btn-where">Où? (Ville, salon de coiffure...)</a>
+                                <a onClick={this.searchHairdresser.bind(this, false)} className="btn btn-where">Où? (Ville, salon de coiffure...)</a>
                                 <span onClick={this.searchHairdresser.bind(this, true)} >
                                     <a className="btn btn-around">Autour<br/> de moi</a>
                                 </span>
@@ -68,7 +68,7 @@ var HomePage = React.createClass({
         );
     },
     searchHairdresser: function(withFindMe) {
-        this.refs.header.handleDisplaySearch();
+        this.refs.header.handleDisplaySearch(withFindMe);
     },
     componentWillUnmount: function() {
         $('body').removeClass('locked');

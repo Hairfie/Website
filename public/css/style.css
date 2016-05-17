@@ -10396,7 +10396,7 @@ div.shadow.active {
   background-color: rgba(0, 0, 0, 0.6);
   left: 0;
   top: 0;
-  z-index: 25; }
+  z-index: 20; }
 
 div.shadow.inactive {
   display: none; }
@@ -12325,6 +12325,35 @@ section.home-search .home-search-mobile {
         position: absolute;
         left: 37px;
         top: 7px; }
+  #content.search .new-filters h2 {
+    font-size: 1em;
+    letter-spacing: 0;
+    padding: 10px 0 0 10px; }
+  #content.search .new-filters .react-autosuggest__container {
+    width: 100%;
+    padding: 0 10px; }
+    #content.search .new-filters .react-autosuggest__container .react-autosuggest__input {
+      width: 100%;
+      height: 45px;
+      border: 1px solid #dfdfdf;
+      outline-width: 0;
+      font-size: 1em;
+      padding-left: 40px;
+      background: url(../img/search/search-slim.svg) no-repeat 12px;
+      background-size: 18px;
+      border-radius: 0; }
+    #content.search .new-filters .react-autosuggest__container .react-autosuggest__suggestions-container {
+      position: absolute;
+      width: calc(100% - 20px);
+      background-color: white; }
+    #content.search .new-filters .react-autosuggest__container .react-autosuggest__suggestion {
+      border: 1px solid #dfdfdf;
+      border-top: none;
+      font-size: 1em;
+      width: 100%;
+      padding: .5em .65em; }
+    #content.search .new-filters .react-autosuggest__container .react-autosuggest__suggestion--focused {
+      background-color: #f5f5f5; }
   #content.search .new-filters .location, #content.search .new-filters .business-name {
     padding: 5px 10px 20px 10px; }
     #content.search .new-filters .location input, #content.search .new-filters .business-name input {
@@ -13395,6 +13424,32 @@ section.home-search .home-search-mobile {
       z-index: 149; } }
   #content.search .sidebar > h4 {
     padding-bottom: 10px; }
+  #content.search .sidebar .react-autosuggest__container {
+    width: 100%;
+    padding: 0 25px;
+    position: relative; }
+    #content.search .sidebar .react-autosuggest__container .react-autosuggest__input {
+      width: 100%;
+      height: 45px;
+      border: 1px solid #dfdfdf;
+      outline-width: 0;
+      font-size: 1.4em;
+      padding-left: 40px;
+      background: url(../img/search/search-slim.svg) no-repeat 12px;
+      background-size: 18px; }
+    #content.search .sidebar .react-autosuggest__container .react-autosuggest__suggestions-container {
+      position: absolute;
+      width: calc(100% - 50px);
+      background-color: white;
+      z-index: 1; }
+    #content.search .sidebar .react-autosuggest__container .react-autosuggest__suggestion {
+      border: 1px solid #dfdfdf;
+      border-top: none;
+      font-size: 1.4em;
+      width: 100%;
+      padding: .5em .65em; }
+    #content.search .sidebar .react-autosuggest__container .react-autosuggest__suggestion--focused {
+      background-color: #f5f5f5; }
   #content.search .sidebar .underliner {
     height: 1px;
     width: calc(100% - 50px);

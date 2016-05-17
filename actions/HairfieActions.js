@@ -81,7 +81,7 @@ module.exports = {
     submitSearch: function (context, search) {
         var search = _.merge({ address: 'Paris, France' }, search);
         var params = SearchUtils.searchToRouteParams(search);
-
+        
         return context.executeAction(NavigationActions.navigate, {
             route: 'hairfie_search',
             params: params.path,

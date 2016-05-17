@@ -14,6 +14,7 @@ var PriceFilterMobile = require('./PriceFilterMobile.jsx');
 var Selections = require('./Selections.jsx');
 var BusinessNameInput = require('./BusinessNameInput.jsx');
 var LocationInput = require('./LocationInput.jsx');
+var AutosuggestInput = require('./AutosuggestInput.jsx');
 
 var MobileFilters = React.createClass({    
     getInitialState: function () {
@@ -128,6 +129,7 @@ var MobileFilters = React.createClass({
     },
     renderHairfiesFilters: function() {
         if (this.props.tab != 'hairfie') return;
+
         return (
             <div>
                 <TagSubFilters 
@@ -137,6 +139,10 @@ var MobileFilters = React.createClass({
                     allTags={this.props.allTags} 
                     initialSearch={this.state.search}/>
                 <div className="filter-header">Filtrer par:</div>
+                <h2>Recherche de tags</h2>
+                <AutosuggestInput 
+                    addTag={this.addTag}
+                    tags={this.props.allTags} />
                 {_.map(this.props.filterCategories, function (category) {
                         return <a key={category.id} role="button" className="filters-category" onClick={this.handleDisplayMobileSubFilters.bind(this, category)}>
                                     {category.name} 
@@ -145,6 +151,11 @@ var MobileFilters = React.createClass({
                     }.bind(this))}
             </div>
         );
+    },
+    addTag: function(tag) {
+        var newTags = _.isArray(this.state.search.tags) ? this.state.search.tags : [];
+        newTags.push(tag);
+        this.setState({search: _.assign({}, this.state.search, {tags: newTags})});
     },
     countTagsByCategory: function(category) {
         var categoryTags= _.map(_.groupBy(this.props.allTags, 'category.id')[category.id], function (filter) {
