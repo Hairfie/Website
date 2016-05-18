@@ -90,10 +90,14 @@ var Sidebar = React.createClass({
     trackCall: function(e) {
         e.preventDefault();
         if(ga) {
+            var eventAction = 'call';
+            if(this.props.business.accountType == 'BASIC') eventAction += ' BASIC';
+            if(this.props.business.accountType == 'FREE') eventAction += ' FREE';
+
             ga('send', {
               hitType: 'event',
               eventCategory: 'Call Booking',
-              eventAction: 'call',
+              eventAction: eventAction,
               eventLabel: this.props.business.name
             });
         }

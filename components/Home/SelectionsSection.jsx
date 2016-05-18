@@ -16,18 +16,18 @@ var Selections = React.createClass({
                     </p>
                     <div className="flex-selections">
                         <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-bons-plans'}} className="selection-item">
-                                <div className="img les-bons-plans" />
+                                <div className="img selection-bons-plans-hairfie" />
                                 <h4>Les bons plans</h4>
-                                Voir les salons
+                                Profiter des coiffeurs pas chers
                         </Link>
                         <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-meilleurs-coloristes'}} className="selection-item">
-                                <div className="img les-meilleurs-coloristes" />
+                                <div className="img selection-coloristes-hairfie" />
                                 <h4>Les meilleurs coloristes</h4>
                                 Voir les salons
                         </Link>
-                        <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'les-barbershops'}} className="selection-item">
-                                <div className="img les-barbershops" />
-                                <h4>Les meilleurs barbiers</h4>
+                        <Link route="business_search" params={{address: 'Paris--France'}} query={{selections: 'coiffeurs-visagistes'}} className="selection-item">
+                                <div className="img selection-visagistes-hairfie" />
+                                <h4>Choisir un coiffeur visagiste</h4>
                                 Voir les salons
                         </Link>
                     </div>
