@@ -576,8 +576,18 @@ header {
 					width: 60px;
 					background-size: 35%;
 					border: none;
+					padding: 0;
 				    //border-bottom: 1px solid #e6e6e6;
 					border-left: 1px solid #e6e6e6;
+					.spinner {
+						background-color: white;
+						height: 100%;
+						@include flexbox;
+						@include align-items(center);
+					}
+					.bounce1, .bounce2, .bounce3 {
+						background-color: $hairfie;
+					}
 				}
 			}
 			.mobile-categories {

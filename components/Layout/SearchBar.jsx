@@ -41,12 +41,22 @@ var SearchBar = React.createClass({
         else return this.renderSearchBar();
     },
     renderSearchBar: function() {
+        var findMeBtnContent = null;
+        if (this.state.location =='' && this.state.activeLocation) {
+            findMeBtnContent = (
+                        <div className="spinner">
+                            <div className="bounce1"></div>
+                            <div className="bounce2"></div>
+                            <div className="bounce3"></div>
+                        </div>
+            );
+        }
         if (this.props.displaySearch) {
             return (
                 <div className="searchbar small-search col-xs-12 hidden-xs">
                     <div className="col-xs-3 input-group">
-                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onChange={this.handleLocationChange} />
-                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                        <GeoInput ref="address" placeholder="Où ?" value={this.state.location} onSuggestChange={this.handleLocationChange} />
+                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" >{findMeBtnContent}</a>
                     </div>
                     <div className="col-xs-3" style={{paddingLeft: '0'}}>
                         {this.renderSelect()}
@@ -59,11 +69,21 @@ var SearchBar = React.createClass({
         return null;
     },
     renderHomePage: function() {
+        var findMeBtnContent = null;
+        if (this.state.location =='' && this.state.activeLocation) {
+            findMeBtnContent = (
+                        <div className="spinner">
+                            <div className="bounce1"></div>
+                            <div className="bounce2"></div>
+                            <div className="bounce3"></div>
+                        </div>
+            );
+        }
         return (
             <div className="searchbar main-searchbar hidden-xs">
                 <div className="col-xs-4 input-group">
                     <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} />
-                    <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                    <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" >{findMeBtnContent}</a>
                 </div>
                 <div className="col-xs-2 homeSearch" style={{padding: '0'}}>
                     {this.renderSelect()}
@@ -74,13 +94,23 @@ var SearchBar = React.createClass({
        );
     },
     renderMobile: function() {
+        var findMeBtnContent = null;
+        if (this.state.location =='' && this.state.activeLocation) {
+            findMeBtnContent = (
+                        <div className="spinner">
+                            <div className="bounce1"></div>
+                            <div className="bounce2"></div>
+                            <div className="bounce3"></div>
+                        </div>
+            );
+        }
         return (
             <div {...this.props}>
                 <h2>Trouvez le (bon) coiffeur !</h2>
                 <div className="searchbar">
                     <div className="col-xs-12 input-group where">
                         <GeoInput ref="address" placeholder="Où ?" onKeyPress={this.handleKey} />
-                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" />
+                        <a className="input-group-addon" role="button" onClick={this.findMe} title="Me localiser" >{findMeBtnContent}</a>
                     </div>
                     <div className="col-xs-12 mobile-categories" style={{textAlign: 'start'}}>
                         <select ref="mobileCategories" defaultValue="" placeholder="Spécialité" className="col-sm-3" onChange={this.handleMobileCategoriesChange}>
@@ -120,8 +150,9 @@ var SearchBar = React.createClass({
         );
     },
     handleLocationChange: function(e) {
+        console.log(e);
         this.setState({
-            location: e.currentTarget.value
+            location: e
         });
     },
     handleKey: function(e) {
