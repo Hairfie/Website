@@ -19,7 +19,7 @@ module.exports = React.createClass({
                 <div className="row">
                     {this.props.similarHairfies.length > 0 ? <h3 className="col-xs-12 text-center">Hairfies Similaires</h3> : ''}
                     {_.map(this.props.similarHairfies, function (hairfie) {
-                        return <Hairfie hairfie={hairfie} className="col-xs-6 col-sm-3 col-lg-2 single-hairfie" popup={true} hairfies={_.map(this.props.similarHairfies, 'id')} />;
+                        return <Hairfie key={hairfie.id} hairfie={hairfie} className="col-xs-6 col-sm-3 col-lg-2 single-hairfie" popup={true} hairfies={_.map(this.props.similarHairfies, 'id')} />;
                     }.bind(this))}
                 </div>
                 {this.renderMoreButton()}
