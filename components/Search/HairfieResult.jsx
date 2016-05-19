@@ -78,7 +78,7 @@ var HairfieResult = React.createClass({
                                 } else {
                                     return <Hairfie 
                                         className="col-xs-6 col-sm-4 single-hairfie" 
-                                        key={item.id} 
+                                        key={item && item.id ? item.id : Math.random() * i} 
                                         hairfie={item} 
                                         popup={true} 
                                         loadMore={this.loadMore}
