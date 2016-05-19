@@ -150,7 +150,6 @@ var SearchBar = React.createClass({
         );
     },
     handleLocationChange: function(e) {
-        console.log(e);
         this.setState({
             location: e
         });
