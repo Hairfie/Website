@@ -153,7 +153,7 @@ var Header = React.createClass({
         this.setState({tab: ""});
     },
     handleDisplaySearch: function(withFindMe) {
-        if(withFindMe) this.setState({findMe: true});
+        if(withFindMe == true) this.setState({findMe: true});
         this.setState({displaySearch: !this.state.displaySearch});
     },
     handleDisplayMenu: function() {

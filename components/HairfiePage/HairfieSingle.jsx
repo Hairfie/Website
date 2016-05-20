@@ -8,10 +8,17 @@ var ReactFitText = require('react-fittext');
 
 module.exports = React.createClass({
     render: function () {
+        var pics = Array();
+        if (this.props.hairfie.pictures.length == 2) {
+            pics[0] = this.props.hairfie.pictures[1];
+            pics[1] = this.props.hairfie.pictures[0];
+        }
+        else pics = this.props.hairfie.pictures;
+
         return (
             <div className="col-xs-12 col-sm-6 hairfie-single-container">
                 <span className="force-size"/>
-                <Carousel id="carousel-hairfie" pictures={this.props.hairfie.pictures} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}>
+                <Carousel id="carousel-hairfie" pictures={pics} indice={true} beforeAfter={this.props.hairfie.isBeforeAfter} alt={this.props.hairfie.tags.length > 0 ? _.map(this.props.hairfie.tags, 'name').join(", ") : ""}>
                     {this.renderPrice()}
                 </Carousel>
                 {this.renderBookingButton()}

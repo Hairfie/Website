@@ -10,6 +10,7 @@ var DateTimeConstants = require('../../constants/DateTimeConstants');
 var parseTimetable = require('../../lib/time').parseTimetable;
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 var Breadcrumb = require('../Partial/Breadcrumb.jsx');
+var classNames = require('classnames');
 moment.locale('fr');
 
 var ShareButton = React.createClass({
@@ -48,7 +49,11 @@ module.exports = React.createClass({
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
-
+        var btnRDVClass = classNames({
+            'btn btn-book btn-book-inside': true,
+            'visible-xs': business.isBookable,
+            'hidden': !business.isBookable
+        });
         return (
             <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
                 <div className="row">
@@ -71,7 +76,7 @@ module.exports = React.createClass({
                 </div>
                 <Breadcrumb business={business} />
                 <hr className="visible-xs" />
-                <Link className="btn btn-book btn-book-inside visible-xs" route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
+                <Link className={btnRDVClass} route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
           </section>
