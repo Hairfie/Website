@@ -288,8 +288,9 @@ section.selections {
                 width: 100%;
                 height: 185px;
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: contain;
                 background-position: center;
+                background-color: $hairfie;
                 border-bottom: 1px solid $hairfie;
                 @media screen and (max-width: $screen-xs-max) {
                     height: 140px;
@@ -308,6 +309,15 @@ section.selections {
             }
             .les-barbershops {
                 background-image: url(../img/selections/les-barbershops.jpg);
+            }
+            .selection-bons-plans-hairfie {
+                background-image: url(../img/selections/selection-bons-plans-hairfie.png);
+            }
+            .selection-coloristes-hairfie {
+                background-image: url(../img/selections/selection-coloristes-hairfie.png);
+            }
+            .selection-visagistes-hairfie {
+                background-image: url(../img/selections/selection-visagistes-hairfie.png);
             }
         }
     }
