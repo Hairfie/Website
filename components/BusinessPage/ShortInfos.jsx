@@ -11,6 +11,7 @@ var parseTimetable = require('../../lib/time').parseTimetable;
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 var Breadcrumb = require('../Partial/Breadcrumb.jsx');
 var classNames = require('classnames');
+var PhoneButton = require('./PhoneButton.jsx');
 moment.locale('fr');
 
 var ShareButton = React.createClass({
@@ -45,7 +46,7 @@ module.exports = React.createClass({
     render: function () {
         var business = this.props.business || {};
         var address  = business.address || {};
-
+        console.log(business)
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
@@ -54,6 +55,11 @@ module.exports = React.createClass({
             'visible-xs': business.isBookable,
             'hidden': !business.isBookable
         });
+        var btnPhoneClass = classNames ({
+            'hidden' : (business.isBookable && business.displayPhoneNumber),
+            'visible-xs visible-sm': !business.isBookable
+        });
+        // debugger;
         return (
             <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
                 <div className="row">
@@ -79,6 +85,9 @@ module.exports = React.createClass({
                 <Link className={btnRDVClass} route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
                     Prendre RDV
                 </Link>
+                <div className={btnPhoneClass}>
+                    <PhoneButton business={this.props.business} />
+                </div>
           </section>
         );
     },

@@ -10,7 +10,8 @@ var ga = require('../../services/analytics');
 var businessAccountTypes = require('../../constants/BusinessAccountTypes');
 var Picture = require('../Partial/Picture.jsx');
 var _ = require('lodash');
-
+var classNames = require('classnames');
+var PhoneButton = require('./PhoneButton.jsx');
 
 var Sidebar = React.createClass({
     mixins: [NavToLinkMixin],
@@ -26,7 +27,7 @@ var Sidebar = React.createClass({
                 {this.renderBestDiscount()}
                 {this.renderSimilarBusinesses()}
                 {this.renderLocation()}
-                {this.renderPhoneNumber()}
+                <PhoneButton business={this.props.business} />
             </div>
         );
     },
@@ -67,6 +68,7 @@ var Sidebar = React.createClass({
     },
     renderPhoneNumber: function() {
         var business = this.props.business;
+        console.log(business.accountType);
         if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
 
         var link = null;
@@ -113,8 +115,12 @@ var Sidebar = React.createClass({
         return null;
     },
     renderLocation: function () {
+        var business = this.props.business;
+        var orderClass = classNames({
+            'order2' : !business.isBookable && business.accountType != 'BASIC'
+        });
         return (
-            <section id="location">
+            <section id="location" className={orderClass}>
                 <h3>Comment s'y rendre ?</h3>
                 {this.renderStations()}
                 {this.renderMap()}
