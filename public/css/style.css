@@ -10328,7 +10328,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   left: 0;
   line-height: 34px;
   letter-spacing: 2px;
-  font-size: 2em; }
+  font-size: 2em;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
 
 .is-visible {
   display: none !important;
@@ -15245,7 +15247,7 @@ section.home-search .home-search-mobile {
           display: block;
           text-align: center;
           width: 65px;
-          height: 44px;
+          height: 46px;
           position: relative;
           border-right: 1px solid #f9f9f9; }
           .hairfie-singleView .single-view .like-group .like-btn a .glyphicon {
