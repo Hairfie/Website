@@ -32,7 +32,7 @@ var BusinessBookingPage = React.createClass({
     },
     render: function () {
         var loading = _.isUndefined(this.props.business);
-        console.log('daySelected', this.state.daySelected);
+
         return (
             <PublicLayout loading={loading} customClass="booking bg-white">
                 {this.renderBookingForm()}
@@ -75,7 +75,7 @@ var BusinessBookingPage = React.createClass({
         );
         if (_.isNull(this.state.daySelected))
             timeSelectZoneContent = this.renderPlaceholder();
-        if (this.state.daySelected == moment('2016-05-24').format('YYYY-MM-DD')) {
+        if (this.state.daySelected == moment().format('YYYY-MM-DD')) {
             timeSelectZoneContent = this.renderDisplayPhoneNumber();
         }
 

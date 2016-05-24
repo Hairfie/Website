@@ -46,7 +46,6 @@ module.exports = React.createClass({
     render: function () {
         var business = this.props.business || {};
         var address  = business.address || {};
-        console.log(business)
 
         var displayAddress = _.isEmpty(address) ? null : address.street + ', ' + address.zipCode + ', ' + address.city + '.';
         var displayProfilePicture = (business.profilePicture && business.accountType != businessAccountTypes.FREE);
@@ -56,10 +55,11 @@ module.exports = React.createClass({
             'hidden': !business.isBookable
         });
         var btnPhoneClass = classNames ({
+            'hidden-md hidden-lg' : true,
             'hidden' : (business.isBookable && business.displayPhoneNumber),
             'visible-xs visible-sm': !business.isBookable
         });
-        // debugger;
+
         return (
             <section className={"salon-info" + (this.state.displayTimetable ? ' open-timetable' : '')}>
                 <div className="row">

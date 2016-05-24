@@ -68,7 +68,7 @@ var Sidebar = React.createClass({
     },
     renderPhoneNumber: function() {
         var business = this.props.business;
-        console.log(business.accountType);
+
         if(business.accountType != businessAccountTypes.PREMIUM && !business.displayPhoneNumber) return null;
 
         var link = null;
