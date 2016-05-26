@@ -18,9 +18,9 @@ var Pagination = React.createClass({
         return (
             <div className="pagination">
                 <ul className="list-inline">
-                    {_.map(_.map(this.displayPage(), String), function (page) {
+                    {_.map(_.map(this.displayPage(), String), function (page, i) {
                         if (page == "space")
-                            return (<span key="space">...</span>);
+                            return (<span key={"space" + i}>...</span>);
                         return (
                             <li key={page}>
                                 <Link route={this.props.route} params={this.props.params} query={this.getQuery(page)} className={this.isCurrent(page) ? 'active' : ''}>

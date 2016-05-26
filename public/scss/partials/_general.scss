@@ -931,6 +931,8 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
     line-height: 34px;
     letter-spacing: 2px;
     font-size: 2em;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
     // @media screen and (max-width: $screen-xs-max) {
     //  width: $screen-xs-max;
     //  max-width: $screen-xs-max;

@@ -283,7 +283,39 @@
                     margin-left: 15px;
                 }
             }
+            .phone {
+                margin-bottom: 20px;
+                .btn-phone {
+                    position: relative;
+                    width: calc(100vw - 30px);
+                    height: 50px;
+                    color: $hairfie;
+                    font-size: 2em;
+                    border: $hairfie;
+                    border-width: 3px;
+                    border-style: solid;
+                    border-radius: 4px;
+                    &:after {
+                        content: " ";
+                        background: url(../img/phone-red.png) no-repeat center center;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        left: 50px;
+                        top: 10px;
 
+                        @media screen and (min-width: $screen-sm-max) and (max-width: $screen-md-max)  {
+                            left: 20px;
+                        }
+                        @media screen and (max-width: $screen-sm-min) {
+                            left: 20%;
+                        }
+                        @media screen and (max-width: $screen-xs-max) {
+                            left: 25px;
+                        }
+                    }
+                }
+            }
             .prix, .tags {
                 font-size: 1.077em;
                 letter-spacing: 1px;
@@ -873,6 +905,13 @@
         }
     }
     .sidebar {
+        margin-top: 12px;
+        @include fullWidthBg($bg3);
+        @include flexbox;
+        @include flex-direction(column);
+        .order2 {
+            @include order(2);
+        }
         .btn-red, .btn-book {
             height: 46px;
             display: block;
@@ -909,8 +948,6 @@
                 }
             }
         }
-        margin-top: 12px;
-        @include fullWidthBg($bg3);
         @media screen and (max-width: $screen-sm-max) {
             width: 100%;
         }

@@ -10328,7 +10328,9 @@ input[type="checkbox"].checkbox-disabled:not(:checked) + span:after, input[type=
   left: 0;
   line-height: 34px;
   letter-spacing: 2px;
-  font-size: 2em; }
+  font-size: 2em;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
 
 .is-visible {
   display: none !important;
@@ -14106,6 +14108,35 @@ section.home-search .home-search-mobile {
           margin-top: 5px;
           margin-bottom: -5px;
           margin-left: 15px; } }
+      .salon#content .main-content section.salon-info .phone {
+        margin-bottom: 20px; }
+        .salon#content .main-content section.salon-info .phone .btn-phone {
+          position: relative;
+          width: calc(100vw - 30px);
+          height: 50px;
+          color: #fe5b5f;
+          font-size: 2em;
+          border: #fe5b5f;
+          border-width: 3px;
+          border-style: solid;
+          border-radius: 4px; }
+          .salon#content .main-content section.salon-info .phone .btn-phone:after {
+            content: " ";
+            background: url(../img/phone-red.png) no-repeat center center;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            left: 50px;
+            top: 10px; }
+            @media screen and (min-width: 991px) and (max-width: 1199px) {
+              .salon#content .main-content section.salon-info .phone .btn-phone:after {
+                left: 20px; } }
+            @media screen and (max-width: 768px) {
+              .salon#content .main-content section.salon-info .phone .btn-phone:after {
+                left: 20%; } }
+            @media screen and (max-width: 767px) {
+              .salon#content .main-content section.salon-info .phone .btn-phone:after {
+                left: 25px; } }
       .salon#content .main-content section.salon-info .prix, .salon#content .main-content section.salon-info .tags {
         font-size: 1.077em;
         letter-spacing: 1px; }
@@ -14581,7 +14612,42 @@ section.home-search .home-search-mobile {
       padding-bottom: 0; }
   .salon#content .sidebar {
     margin-top: 12px;
-    position: relative; }
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .salon#content .sidebar:before {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      left: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    .salon#content .sidebar:after {
+      content: " ";
+      width: 200vw;
+      height: 100%;
+      position: absolute;
+      right: -100vw;
+      top: 0;
+      background: #f4f4f4;
+      z-index: -1; }
+    .salon#content .sidebar .order2 {
+      -webkit-box-ordinal-group: 3;
+      -webkit-order: 2;
+      -moz-order: 2;
+      -ms-flex-order: 2;
+      order: 2; }
     .salon#content .sidebar .btn-red, .salon#content .sidebar .btn-book {
       height: 46px;
       display: block;
@@ -14617,24 +14683,6 @@ section.home-search .home-search-mobile {
           float: right;
           padding-top: 100%;
           /* initial ratio of 1:1*/ }
-    .salon#content .sidebar:before {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      left: -100vw;
-      top: 0;
-      background: #f4f4f4;
-      z-index: -1; }
-    .salon#content .sidebar:after {
-      content: " ";
-      width: 200vw;
-      height: 100%;
-      position: absolute;
-      right: -100vw;
-      top: 0;
-      background: #f4f4f4;
-      z-index: -1; }
     @media screen and (max-width: 991px) {
       .salon#content .sidebar {
         width: 100%; } }
@@ -15245,7 +15293,7 @@ section.home-search .home-search-mobile {
           display: block;
           text-align: center;
           width: 65px;
-          height: 44px;
+          height: 46px;
           position: relative;
           border-right: 1px solid #f9f9f9; }
           .hairfie-singleView .single-view .like-group .like-btn a .glyphicon {
@@ -15548,11 +15596,49 @@ section.home-search .home-search-mobile {
           display: none; } }
   #content.reservation .main-content .row > div td {
     max-width: 50px; }
+  #content.reservation .main-content .row .timepicker-placeholder {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.6em;
+    padding: 20px; }
+    #content.reservation .main-content .row .timepicker-placeholder .date-icon {
+      content: ' ';
+      width: 40px;
+      height: 40px;
+      background: url(../img/resa/calendar.svg) no-repeat center left;
+      background-size: contain;
+      margin-bottom: 20px; }
+    #content.reservation .main-content .row .timepicker-placeholder .btn-red {
+      font-size: 1em;
+      margin-top: 20px;
+      border-radius: 0;
+      padding: 6px 12px; }
   @media screen and (max-width: 545px) {
     #content.reservation .main-content .row > div:nth-child(1) {
       width: 100%; } }
   #content.reservation .main-content .row > div:nth-child(2) {
-    padding-right: 0; }
+    padding-right: 0;
+    height: 403px; }
     @media screen and (max-width: 991px) {
       #content.reservation .main-content .row > div:nth-child(2) {
         padding-left: 0px; } }
@@ -15561,7 +15647,8 @@ section.home-search .home-search-mobile {
         margin-right: -50px; } }
     @media screen and (max-width: 767px) {
       #content.reservation .main-content .row > div:nth-child(2) {
-        padding-left: 15px; } }
+        padding-left: 15px;
+        height: 200px; } }
     @media screen and (max-width: 545px) {
       #content.reservation .main-content .row > div:nth-child(2) {
         width: 100%; } }

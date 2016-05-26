@@ -85,6 +85,12 @@ var Business = React.createClass({
                     Prendre RDV
                 </Link>
             );
+        } else {
+            booking_button = (
+                <Link className="btn btn-book full" route="business" params={{ businessId: business.id, businessSlug: business.slug }}>
+                    Voir le salon
+                </Link>
+            );
         }
         if (searchedCategories) {
             searchedCategoriesLabels = _.filter(searchedCategories, function(cat) {
