@@ -14,6 +14,9 @@ var Breadcrumb = require('./Partial/Breadcrumb.jsx');
 var BookingActions = require('../actions/BookingActions');
 var NotificationActions = require('../actions/NotificationActions');
 var BusinessActions = require('../actions/BusinessActions');
+var classNames = require('classnames');
+var PhoneButton = require('./BusinessPage/PhoneButton.jsx');
+var ga = require('../services/analytics');
 
 moment.locale('fr')
 
@@ -23,11 +26,13 @@ var BusinessBookingPage = React.createClass({
     },
     getInitialState: function () {
         return {
-            daySelected: this.props.daySelected
+            daySelected: this.props.daySelected,
+            displayPhoneNumber: false
         };
     },
     render: function () {
         var loading = _.isUndefined(this.props.business);
+
         return (
             <PublicLayout loading={loading} customClass="booking bg-white">
                 {this.renderBookingForm()}
@@ -58,6 +63,22 @@ var BusinessBookingPage = React.createClass({
         var hourTitle = null;
         if (this.state.daySelected)
             hourTitle = 'À quelle heure ?';
+        var timeSelectZoneContent = (
+            <div>
+                <h2 className="hourTitle">{hourTitle}</h2>
+                <TimeSelect 
+                    onTimeSlotChange={this.handleTimeSlotSelectedChange} 
+                    businessId={this.props.business.id} 
+                    daySelected={this.state.daySelected} 
+                    ref="timeSelect" />
+            </div>
+        );
+        if (_.isNull(this.state.daySelected))
+            timeSelectZoneContent = this.renderPlaceholder();
+        if (this.state.daySelected == moment().format('YYYY-MM-DD')) {
+            timeSelectZoneContent = this.renderDisplayPhoneNumber();
+        }
+
         return (
             <div className="main-content">
                 {this.renderIsBookable()}
@@ -67,10 +88,28 @@ var BusinessBookingPage = React.createClass({
                         <BookingCalendar onDayChange={this.handleDaySelectedChange} businessId={this.props.business.id} defaultDate={this.state.daySelected}/>
                     </div>
                     <div className="calendar col-xs-12 col-sm-6 col-md-4" ref="timeSelectContainer">
-                        <h2 className="hourTitle">{hourTitle}</h2>
-                        <TimeSelect onTimeSlotChange={this.handleTimeSlotSelectedChange} businessId={this.props.business.id} daySelected={this.state.daySelected} ref="timeSelect" />
+                        {timeSelectZoneContent}
                     </div>
                 </div>
+            </div>
+        );
+    },
+    renderPlaceholder: function() {
+        return (
+            <div className='timepicker-placeholder'>
+                <span className='date-icon'/>
+                <span className='text-center'>Pour commencer, sélectionnez la date<br/> qui vous convient.</span>
+            </div>
+        );
+    },
+    renderDisplayPhoneNumber: function() {
+        var phoneNumber = <a className='btn-red' onClick={this.handlePhoneNumber}>Afficher le numéro</a>;
+        if (this.state.displayPhoneNumber)
+            phoneNumber = <a href={"tel:" + this.props.business.phoneNumber.replace(/ /g,"")} className='btn-red'>{this.props.business.phoneNumber}</a>;
+        return (
+            <div className='timepicker-placeholder'>
+                <span className='text-center'>Pour les rendez-vous le jour même, nous vous conseillons d'appeler directement le salon de coiffure.</span>
+                {phoneNumber}
             </div>
         );
     },
@@ -115,8 +154,23 @@ var BusinessBookingPage = React.createClass({
         this.scrollToTop();
         this.setState({timeslotSelected: timeslotSelected, discount: discount});
     },
+    handlePhoneNumber: function(e) {
+        e.preventDefault();
+        if(ga) {
+            var eventAction = 'call';
+            if(this.props.business.accountType == 'BASIC') eventAction += ' BASIC';
+            if(this.props.business.accountType == 'FREE') eventAction += ' FREE';
+
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'Call Resa',
+              eventAction: eventAction,
+              eventLabel: this.props.business.name
+            });
+        }
+        this.setState({displayPhoneNumber: true});
+    },
     handleSubmit: function(booking) {
-        //var booking = this.refs.booking.getBookingInfo();
         this.context.executeAction(BookingActions.submitBooking, booking);
     }
 });

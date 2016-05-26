@@ -215,7 +215,29 @@
                     }
                 }
             }
-            
+            .timepicker-placeholder {
+                @include flexbox;
+                @include flex-direction(column);
+                @include align-items(center);
+                @include justify-content(center);
+                height: 100%;
+                font-size: 1.6em;
+                padding: 20px;
+                .date-icon {
+                    content: ' ';
+                    width: 40px;
+                    height: 40px;
+                    background: url(../img/resa/calendar.svg) no-repeat center left;
+                    background-size: contain;
+                    margin-bottom: 20px;
+                }
+                .btn-red {
+                    font-size: 1em;
+                    margin-top: 20px;
+                    border-radius: 0;
+                    padding: 6px 12px;
+                }
+            }
             > div:nth-child(1) {
                 @media screen and (max-width: 545px) {
                     width: 100%;
@@ -223,6 +245,7 @@
             }
             > div:nth-child(2) {
                 padding-right: 0;
+                height: 403px;
                 @media screen and (max-width: $screen-sm-max) {
                     padding-left: 0px;
                 }
@@ -231,6 +254,7 @@
                 }
                 @media screen and (max-width: $screen-xs-max) {
                     padding-left: 15px;
+                    height: 200px;
                 }
                 @media screen and (max-width: 545px) {
                     width: 100%;
