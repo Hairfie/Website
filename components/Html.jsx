@@ -109,7 +109,6 @@ var Html = React.createClass({
 
                 <div className="heap" dangerouslySetInnerHTML={{__html: this.getHeapHtml()}} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: this.getSchema()}} />
-                <script type="text/javascript" dangerouslySetInnerHTML={{__html: crispHtml}} />
                 <div dangerouslySetInnerHTML={{__html: fbPixelHtml}} />
                 <link href={this.getAssetSrc("/components/blueimp-gallery/css/blueimp-gallery.min.css")} rel="stylesheet" type="text/css" />
             </body>
