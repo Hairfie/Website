@@ -46,25 +46,26 @@ var Sidebar = React.createClass({
 
         if (!discount) return null;
         var business = this.props.business;
+        //<Link route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
 
-        return (
-            <Link route="business_booking" params={{ businessId: business.id, businessSlug: business.slug }}>
-                <div className="promo-sidebar">
-                    <Picture picture={{url: '/img/promo-bg.jpg'}}
-                        style={{width: '100%'}}
-                        placeholder="/img/placeholder-640.png" />
-                    <div className="inline-promo">
-                        <p>
-                            {discount + '%'}
-                        </p>
-                        <p>
-                            Dans tout le salon
-                        </p>
-                        <Picture picture={{url: '/img/business-promo.png'}} />
-                    </div>
-                </div>
-            </Link>
-        );
+        return;
+
+        // return (
+        //         <div className="promo-sidebar">
+        //             <Picture picture={{url: '/img/promo-bg.jpg'}}
+        //                 style={{width: '100%'}}
+        //                 placeholder="/img/placeholder-640.png" />
+        //             <div className="inline-promo">
+        //                 <p>
+        //                     {discount + '%'}
+        //                 </p>
+        //                 <p>
+        //                     Dans tout le salon
+        //                 </p>
+        //                 <Picture picture={{url: '/img/business-promo.png'}} />
+        //             </div>
+        //         </div>
+        // );
     },
     renderPhoneNumber: function() {
         var business = this.props.business;
