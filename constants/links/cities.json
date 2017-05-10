@@ -84,5 +84,29 @@
         "address": "Rouen--France",
         "category": "",
         "url": "/fr/coiffeurs/Rouen--France"
+    },
+    {
+        "displayName": "Vendez votre voiture",
+        "address": "",
+        "category": "",
+        "url": "http://www.bonnieandcar.com/"
+    },
+    {
+        "displayName": "Vendre mon deux-roues",
+        "address": "",
+        "category": "",
+        "url": "http://www.bonnieandcar.com/motos-occasion/vendre"
+    },
+    {
+        "displayName": "Vendre ma Renault",
+        "address": "",
+        "category": "",
+        "url": "http://www.bonnieandcar.com/vendre-ma-renault"
+    },
+    {
+        "displayName": "Vendre ma BMW",
+        "address": "",
+        "category": "",
+        "url": "http://www.bonnieandcar.com/vendre-ma-bmw"
     }
 ]
